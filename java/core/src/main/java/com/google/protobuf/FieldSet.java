@@ -90,6 +90,23 @@ final class FieldSet<T extends FieldSet.FieldDescriptorLite<T>> {
     return new Builder<T>();
   }
 
+  /**
+   * Returns a builder backed by this field set's map for parsing a new message.
+   *
+   * <p>Call {@link Builder#finishParsing} before making the message available to callers.
+   *
+   * @return a new builder backed by this field set
+   * @throws IllegalStateException if this field set is immutable
+   */
+  Builder<T> newBuilderForParsing() {
+    if (isImmutable) {
+      throw new IllegalStateException("Cannot parse into an immutable FieldSet.");
+    }
+    Builder<T> builder = new Builder<>(fields);
+    builder.hasLazyField = hasLazyField;
+    return builder;
+  }
+
   private static final FieldSet<?> DEFAULT_INSTANCE = new FieldSet<>(true);
 
   /** Returns {@code true} if empty, {@code false} otherwise. */
@@ -985,6 +1002,26 @@ final class FieldSet<T extends FieldSet.FieldDescriptorLite<T>> {
     /** Creates the FieldSet but does not validate that all required fields are present. */
     public FieldSet<T> buildPartial() {
       return buildImpl(true);
+    }
+
+    /**
+     * Replaces child builders with partial messages and makes the field set immutable.
+     *
+     * @param fieldSet the mutable field set used to create this builder
+     * @throws IllegalStateException if {@code fieldSet} is immutable or its backing map differs from
+     *     this builder's backing map
+     */
+    void finishParsing(FieldSet<T> fieldSet) {
+      if (fields != fieldSet.fields || fieldSet.isImmutable) {
+        throw new IllegalStateException("Parsing builder no longer owns mutable field set storage.");
+      }
+      if (hasNestedBuilders) {
+        replaceBuilders(fields, true);
+        hasNestedBuilders = false;
+      }
+      fieldSet.hasLazyField = hasLazyField;
+      fieldSet.makeImmutable();
+      isMutable = false;
     }
 
     /**

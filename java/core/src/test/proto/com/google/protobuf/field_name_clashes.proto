@@ -23,4 +23,5 @@ message FieldsWithPotentialNameClashes {
   BlankMessage foo = 1;
   BlankMessage foo_field = 2;
   BlankMessage foo_field_accessor_table = 3;
+  string unknown_fields_or_builder = 4;
 }

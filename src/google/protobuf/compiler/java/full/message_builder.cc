@@ -12,7 +12,6 @@
 #include "google/protobuf/compiler/java/full/message_builder.h"
 
 #include <algorithm>
-#include <cstdint>
 #include <memory>
 #include <string>
 #include <vector>
@@ -38,8 +37,6 @@
 #include "google/protobuf/descriptor.pb.h"
 #include "google/protobuf/io/printer.h"
 #include "google/protobuf/io/zero_copy_stream_impl_lite.h"
-#include "google/protobuf/wire_format.h"
-#include "google/protobuf/wire_format_lite.h"
 
 // Must be last.
 #include "google/protobuf/port_def.inc"
@@ -48,9 +45,6 @@ namespace google {
 namespace protobuf {
 namespace compiler {
 namespace java {
-
-using internal::WireFormat;
-using internal::WireFormatLite;
 
 namespace {
 
@@ -666,51 +660,8 @@ void MessageBuilderGenerator::GenerateBuilderParsingMethods(
 
 void MessageBuilderGenerator::GenerateBuilderFieldParsingCases(
     io::Printer* printer) {
-  std::vector<const FieldDescriptor*> sorted_fields(
-      SortFieldsByNumber(descriptor_));
-  for (int i = 0; i < descriptor_->field_count(); i++) {
-    const FieldDescriptor* field = sorted_fields[i];
-    GenerateBuilderFieldParsingCase(printer, field);
-    if (field->is_packable()) {
-      GenerateBuilderPackedFieldParsingCase(printer, field);
-    }
-  }
-}
-
-void MessageBuilderGenerator::GenerateBuilderFieldParsingCase(
-    io::Printer* printer, const FieldDescriptor* field) {
-  uint32_t tag = WireFormatLite::MakeTag(
-      field->number(), WireFormat::WireTypeForFieldType(field->type()));
-  std::string tagString = absl::StrCat(static_cast<int32_t>(tag));
-  printer->Print("case $tag$: {\n", "tag", tagString);
-  printer->Indent();
-
-  field_generators_.get(field).GenerateBuilderParsingCode(printer);
-
-  printer->Outdent();
-  printer->Print(
-      "  break;\n"
-      "} // case $tag$\n",
-      "tag", tagString);
-}
-
-void MessageBuilderGenerator::GenerateBuilderPackedFieldParsingCase(
-    io::Printer* printer, const FieldDescriptor* field) {
-  // To make packed = true wire compatible, we generate parsing code from a
-  // packed version of this field regardless of field->options().packed().
-  uint32_t tag = WireFormatLite::MakeTag(
-      field->number(), WireFormatLite::WIRETYPE_LENGTH_DELIMITED);
-  std::string tagString = absl::StrCat(static_cast<int32_t>(tag));
-  printer->Print("case $tag$: {\n", "tag", tagString);
-  printer->Indent();
-
-  field_generators_.get(field).GenerateBuilderParsingCodeFromPacked(printer);
-
-  printer->Outdent();
-  printer->Print(
-      "  break;\n"
-      "} // case $tag$\n",
-      "tag", tagString);
+  GenerateFieldParsingCases(descriptor_, field_generators_, printer,
+                            ParsingTarget::kBuilder);
 }
 
 // ===================================================================

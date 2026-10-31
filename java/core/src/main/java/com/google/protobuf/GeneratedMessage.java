@@ -1053,6 +1053,17 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
     private static final long serialVersionUID = 1L;
 
     private final FieldSet<FieldDescriptor> extensions;
+    final FieldSet.Builder<FieldDescriptor> newExtensionBuilderForParsing() {
+      return extensions.newBuilderForParsing();
+    }
+
+    final void finishParsingExtensions(FieldSet.Builder<FieldDescriptor> parsingExtensions) {
+      if (parsingExtensions != null) {
+        parsingExtensions.finishParsing(extensions);
+      } else {
+        extensions.makeImmutable();
+      }
+    }
 
     protected ExtendableMessage() {
       this.extensions = FieldSet.newFieldSet();

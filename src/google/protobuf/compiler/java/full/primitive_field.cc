@@ -374,10 +374,11 @@ void ImmutablePrimitiveFieldGenerator::GenerateBuildingCode(
   printer->Print("}\n");
 }
 
-void ImmutablePrimitiveFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
-  printer->Print(variables_,
-                 "$name$_ = input.read$capitalized_type$();\n"
+void ImmutablePrimitiveFieldGenerator::GenerateParsingCode(
+    io::Printer* printer, ParsingTarget target) const {
+  const auto vars = GetParsingVariables(target);
+  printer->Print(vars,
+                 "$field$ = input.read$capitalized_type$();\n"
                  "$set_has_field_bit$\n");
 }
 
@@ -645,23 +646,32 @@ void ImmutablePrimitiveOneofFieldGenerator::GenerateBuilderParseMethod(
   printer->Print(variables_,
                  "private void parse$capitalized_name$(\n"
                  "    com.google.protobuf.CodedInputStream input)\n"
-                 "    throws java.io.IOException {\n"
-                 "  $oneof_name$_ = input.read$capitalized_type$();\n"
-                 "  switch ($oneof_name$Case_) {\n"
-                 "  default:\n"
-                 "    clear$oneof_capitalized_name$HasBits(); // fallthrough\n"
-                 "  case 0:\n"
-                 "    $set_oneof_case_message$;\n"
-                 "    $set_has_field_bit$ // fallthrough\n"
-                 "  case $number$:\n"
-                 "    break;\n"
-                 "  }\n"
-                 "}\n");
+                 "    throws java.io.IOException {\n");
+  printer->Indent();
+  GenerateParseBody(printer, ParsingTarget::kBuilder);
+  printer->Outdent();
+  printer->Print("}\n");
 }
 
-void ImmutablePrimitiveOneofFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
-  printer->Print(variables_, "parse$capitalized_name$(input);\n");
+void ImmutablePrimitiveOneofFieldGenerator::GenerateParseBody(
+    io::Printer* printer, ParsingTarget target) const {
+  auto vars = GetParsingVariables(target);
+  vars["read_target"] = target == ParsingTarget::kBuilder
+      ? vars.at("field") : absl::StrCat(vars.at("type"), " value");
+  printer->Print(vars, "$read_target$ = input.read$capitalized_type$();\n");
+  GenerateOneofParsingCaseUpdate(printer, target);
+  if (target == ParsingTarget::kMessage) {
+    printer->Print(vars, "$field$ = value;\n");
+  }
+}
+
+void ImmutablePrimitiveOneofFieldGenerator::GenerateParsingCode(
+    io::Printer* printer, ParsingTarget target) const {
+  if (target == ParsingTarget::kBuilder) {
+    printer->Print(variables_, "parse$capitalized_name$(input);\n");
+  } else {
+    GenerateParseBody(printer, target);
+  }
 }
 
 void ImmutablePrimitiveOneofFieldGenerator::GenerateSerializationCode(
@@ -975,18 +985,26 @@ void RepeatedImmutablePrimitiveFieldGenerator::GenerateBuildingCode(
                  "}\n");
 }
 
-void RepeatedImmutablePrimitiveFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
-  printer->Print(variables_,
+void RepeatedImmutablePrimitiveFieldGenerator::GenerateParsingCode(
+    io::Printer* printer, ParsingTarget target) const {
+  auto vars = GetParsingVariables(target);
+  vars["ensure_mutable"] = GetParsingEnsureMutableCode(target, "/* capacity= */ -1");
+  printer->Print(vars,
                  "$type$ v = input.read$capitalized_type$();\n"
-                 "ensure$capitalized_name$IsMutable(/* capacity= */ -1);\n"
+                 "$ensure_mutable$\n"
                  "$repeated_add$(v);\n");
 }
 
 void RepeatedImmutablePrimitiveFieldGenerator::
-    GenerateBuilderParsingCodeFromPacked(io::Printer* printer) const {
+    GenerateParsingCodeFromPacked(io::Printer* printer, ParsingTarget target) const {
+  auto vars = GetParsingVariables(target);
+  vars["ensure_mutable_count"] = GetParsingEnsureMutableCode(target, "count");
+  if (FixedSize(GetType(descriptor_)) != -1) {
+    vars["ensure_mutable_fixed"] = GetParsingEnsureMutableCode(
+        target, absl::StrCat("alloc / ", variables_.at("fixed_size")));
+  }
   // Bulk packed decoding is not yet released to OSS; OSS keeps the loops below.
-  if (!google::protobuf::internal::IsOss()) {
+  if (target == ParsingTarget::kBuilder && !google::protobuf::internal::IsOss()) {
     switch (GetType(descriptor_)) {
       case FieldDescriptor::TYPE_INT32:
       case FieldDescriptor::TYPE_UINT32:
@@ -998,7 +1016,7 @@ void RepeatedImmutablePrimitiveFieldGenerator::
         // The runtime decodes the whole payload into a new list. Adopt it if
         // we have nothing yet, otherwise append. uint32/uint64 decode exactly
         // like int32/int64, so they share those readers.
-        auto vars = variables_;
+        auto vars = GetParsingVariables(target);
         switch (GetType(descriptor_)) {
           case FieldDescriptor::TYPE_UINT32:
             vars["packed_reader"] = "Int32";
@@ -1015,13 +1033,13 @@ void RepeatedImmutablePrimitiveFieldGenerator::
         printer->Print(vars,
                        "$field_list_type$ packed =\n"
                        "    super.readPacked$packed_reader$(input);\n"
-                       "if ($name$_.isEmpty()) {\n"
-                       "  $name$_ = packed;\n"
+                       "if ($field$.isEmpty()) {\n"
+                       "  $field$ = packed;\n"
                        "  $set_has_field_bit$\n"
                        "} else {\n"
                        "  ensure$capitalized_name$IsMutable(\n"
-                       "      $name$_.size() + packed.size());\n"
-                       "  $name$_.addAll(packed);\n"
+                       "      $field$.size() + packed.size());\n"
+                       "  $field$.addAll(packed);\n"
                        "}\n");
         return;
       }
@@ -1031,21 +1049,21 @@ void RepeatedImmutablePrimitiveFieldGenerator::
   }
   if (FixedSize(GetType(descriptor_)) != -1) {
     // 4K limit on pre-allocations to prevent OOM from malformed input.
-    printer->Print(variables_,
+    printer->Print(vars,
                    "int length = input.readRawVarint32();\n"
                    "int limit = input.pushLimit(length);\n"
                    "int alloc = length > 4096 ? 4096 : length;\n"
-                   "ensure$capitalized_name$IsMutable(alloc / $fixed_size$);\n"
+                   "$ensure_mutable_fixed$\n"
                    "while (input.getBytesUntilLimit() > 0) {\n"
                    "  $repeated_add$(input.read$capitalized_type$());\n"
                    "}\n"
                    "input.popLimit(limit);\n");
   } else {
-    printer->Print(variables_,
+    printer->Print(vars,
                    "int length = input.readRawVarint32();\n"
                    "int limit = input.pushLimit(length);\n"
                    "int count = input.countPackedVarints(length);\n"
-                   "ensure$capitalized_name$IsMutable(count);\n"
+                   "$ensure_mutable_count$\n"
                    "while (input.getBytesUntilLimit() > 0) {\n"
                    "  $repeated_add$(input.read$capitalized_type$());\n"
                    "}\n"

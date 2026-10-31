@@ -42,6 +42,8 @@
 #include "google/protobuf/descriptor.h"
 #include "google/protobuf/descriptor.pb.h"
 #include "google/protobuf/io/printer.h"
+#include "google/protobuf/wire_format.h"
+#include "google/protobuf/wire_format_lite.h"
 
 // Must be last.
 #include "google/protobuf/port_def.inc"
@@ -1086,22 +1088,208 @@ void ImmutableMessageGenerator::GenerateExtensionRegistrationCode(
 
 // ===================================================================
 void ImmutableMessageGenerator::GenerateParser(io::Printer* printer) {
+  const bool direct = context_->HasGeneratedMethods(descriptor_);
+  const bool has_extensions = descriptor_->extension_range_count() > 0;
+  const auto child_groups = GetParserChildFieldGroups(descriptor_);
+  bool has_children = false;
+  for (int i = 0; i < descriptor_->field_count(); ++i) {
+    const auto* field = descriptor_->field(i);
+    has_children |= !field->is_repeated() && GetJavaType(field) == JAVATYPE_MESSAGE;
+  }
+  auto vars = printer->WithVars({
+      {"classname", descriptor_->name()},
+      {"parser_base", direct ? "GeneratedMessageParser" : "AbstractParser"},
+      {"extension_argument", has_extensions ? ", extensions" : ""}});
   printer->Print(
       "private static final com.google.protobuf.Parser<$classname$>\n"
-      "    PARSER = new com.google.protobuf.AbstractParser<$classname$>() {\n"
+      "    PARSER = new com.google.protobuf.$parser_base$<$classname$>() {\n"
       "  @java.lang.Override\n"
       "  public $classname$ parsePartialFrom(\n"
       "      com.google.protobuf.CodedInputStream input,\n"
       "      com.google.protobuf.ExtensionRegistryLite extensionRegistry)\n"
-      "      throws com.google.protobuf.InvalidProtocolBufferException {\n"
-      "    Builder builder = newBuilder();\n"
-      "    try {\n"
-      "      builder.mergeFrom(input, extensionRegistry);\n"
-      "    } catch (java.lang.Exception e) {\n"
-      "      wrapAndThrowParseException(e, builder);\n"
-      "    }\n"
-      "    return builder.buildPartial();\n"
-      "  }\n"
+      "      throws com.google.protobuf.InvalidProtocolBufferException {\n");
+  printer->Indent();
+  printer->Indent();
+  if (!direct) {
+    printer->Print(
+        "Builder builder = newBuilder();\n"
+        "try {\n"
+        "  builder.mergeFrom(input, extensionRegistry);\n"
+        "} catch (java.lang.Exception e) {\n"
+        "  wrapAndThrowParseException(e, builder);\n"
+        "}\n"
+        "return builder.buildPartial();\n");
+  } else {
+    printer->Print(
+        "java.util.Objects.requireNonNull(extensionRegistry);\n"
+        "$classname$ instance = new $classname$();\n"
+        "java.lang.Object unknown = null;\n");
+    if (has_extensions) {
+      printer->Print("java.lang.Object extensions = null;\n");
+    }
+    if (has_children) {
+      printer->Print(
+          "java.util.Map<java.lang.Integer, com.google.protobuf.SingleFieldBuilder>\n"
+          "    children = null;\n");
+    }
+    for (int i = 0; i < descriptor_->field_count(); ++i) {
+      field_generators_.get(descriptor_->field(i)).GenerateParserLocalCode(printer);
+    }
+    // Publish after the catch so javac emits the publication code once.
+    printer->Print(
+        "java.io.IOException parseFailure = null;\n"
+        "try {\n"
+        "  parseLoop: while (true) {\n"
+        "    int tag = input.readTag();\n"
+        "    switch (tag) {\n"
+        "      case 0: break parseLoop;\n");
+    for (int j = 0; j < 3; ++j) printer->Indent();
+    GenerateFieldParsingCases(descriptor_, field_generators_, printer, ParsingTarget::kMessage);
+    printer->Print(
+        "default: {\n"
+        "  unknown = prepareUnknownFields(unknown, input);\n");
+    if (has_extensions) {
+      printer->Print("  extensions = prepareExtensions(instance, extensions);\n");
+    }
+    printer->Print(
+        "  if (!parseUnknownField(instance, input, unknown, extensionRegistry, tag$extension_argument$)) {\n"
+        "    break parseLoop;\n"
+        "  }\n"
+        "  break;\n"
+        "}\n");
+    for (int j = 0; j < 3; ++j) printer->Outdent();
+    printer->Print(
+        "    }\n"
+        "  }\n"
+        "} catch (java.io.IOException e) {\n"
+        "  parseFailure = e;\n"
+        "}\n"
+        "finishUnknownFields(instance, unknown);\n");
+    for (int i = 0; i < descriptor_->field_count(); ++i) {
+      const auto* field = descriptor_->field(i);
+      if (!field->is_repeated() && GetJavaType(field) == JAVATYPE_MESSAGE) continue;
+      field_generators_.get(field).GenerateParserFinalizationCode(printer);
+    }
+    if (has_children) {
+      printer->Print("if (children != null) {\n");
+      printer->Indent();
+      if (child_groups.size() > 1) {
+        for (int i = 0; i < child_groups.size(); ++i) {
+          printer->Print("finishChildren$shard$(instance, children);\n",
+                         "shard", absl::StrCat(i));
+        }
+      } else {
+        for (int i = 0; i < descriptor_->field_count(); ++i) {
+          const auto* field = descriptor_->field(i);
+          if (!field->is_repeated() && GetJavaType(field) == JAVATYPE_MESSAGE) {
+            field_generators_.get(field).GenerateParserFinalizationCode(printer);
+          }
+        }
+      }
+      for (int i = 0; i < descriptor_->real_oneof_decl_count(); ++i) {
+        const auto* oneof = descriptor_->real_oneof_decl(i);
+        bool retains_children = false;
+        for (int j = 0; j < oneof->field_count(); ++j) {
+          retains_children |= GetJavaType(oneof->field(j)) == JAVATYPE_MESSAGE;
+        }
+        if (!retains_children) continue;
+        printer->Print(
+            "instance.$name$_ = buildChild(children, instance.$name$Case_, instance.$name$_);\n",
+            "name", context_->GetOneofGeneratorInfo(oneof)->name);
+      }
+      printer->Outdent();
+      printer->Print("}\n");
+    }
+    if (has_extensions) {
+      printer->Print("finishParsingExtensions(instance, extensions);\n");
+    }
+    printer->Print(
+        "if (parseFailure != null) {\n"
+        "  throwParseException(parseFailure, instance);\n"
+        "}\n"
+        "return instance;\n");
+  }
+  printer->Outdent();
+  printer->Outdent();
+  printer->Print("  }\n");
+  if (direct) {
+    GenerateParserChildHelpers(descriptor_, field_generators_, printer);
+    for (int i = 0; i < descriptor_->field_count(); ++i) {
+      field_generators_.get(descriptor_->field(i)).GenerateParserHelperCode(printer);
+    }
+    for (int i = 0; i < descriptor_->real_oneof_decl_count(); ++i) {
+      const auto* oneof = descriptor_->real_oneof_decl(i);
+      const Descriptor* default_type = nullptr;
+      bool shared_default = true;
+      for (int j = 0; j < oneof->field_count(); ++j) {
+        const auto* field = oneof->field(j);
+        if (GetJavaType(field) != JAVATYPE_MESSAGE) continue;
+        if (default_type == nullptr) {
+          default_type = field->message_type();
+        } else {
+          shared_default &= default_type == field->message_type();
+        }
+      }
+      if (default_type == nullptr) continue;
+      auto oneof_vars = printer->WithVars({
+          {"name", context_->GetOneofGeneratorInfo(oneof)->name},
+          {"cap", context_->GetOneofGeneratorInfo(oneof)->capitalized_name}});
+      printer->Print(
+          "  private java.util.Map<java.lang.Integer, com.google.protobuf.SingleFieldBuilder>\n"
+          "      select$cap$($classname$ instance, int field,\n"
+          "          java.util.Map<java.lang.Integer, com.google.protobuf.SingleFieldBuilder> children) {\n"
+          "    int previous = instance.$name$Case_;\n"
+          "    if (previous != field && instance.$name$_ instanceof com.google.protobuf.GeneratedMessage) {\n"
+          "      children = childBuilders(children);\n"
+          "      childBuilder(children, previous, (com.google.protobuf.GeneratedMessage) instance.$name$_);\n"
+          "    }\n"
+          "    instance.$name$Case_ = field;\n"
+          "    return children;\n"
+          "  }\n"
+          "  private void read$cap$(\n"
+          "      $classname$ instance, int field,\n"
+          "      com.google.protobuf.CodedInputStream input,\n"
+          "      com.google.protobuf.ExtensionRegistryLite extensionRegistry,\n"
+          "      java.util.Map<java.lang.Integer, com.google.protobuf.SingleFieldBuilder> children,\n"
+          "      boolean group) throws java.io.IOException {\n");
+      if (shared_default) {
+        printer->Print(
+            "    com.google.protobuf.GeneratedMessage defaultValue = $type$.getDefaultInstance();\n",
+            "type", name_resolver_->GetImmutableClassName(default_type));
+      } else {
+        printer->Print(
+            "    com.google.protobuf.GeneratedMessage defaultValue;\n"
+            "    switch (field) {\n");
+        for (int j = 0; j < oneof->field_count(); ++j) {
+          const auto* field = oneof->field(j);
+          if (GetJavaType(field) != JAVATYPE_MESSAGE) continue;
+          printer->Print(
+              "      case $number$: defaultValue = $type$.getDefaultInstance(); break;\n",
+              "number", absl::StrCat(field->number()),
+              "type", name_resolver_->GetImmutableClassName(field->message_type()));
+        }
+        printer->Print(
+            "      default: throw new java.lang.IllegalArgumentException();\n"
+            "    }\n");
+      }
+      printer->Print(
+          "    com.google.protobuf.GeneratedMessage value = instance.$name$Case_ == field\n"
+          "        ? (com.google.protobuf.GeneratedMessage) instance.$name$_ : null;\n"
+          "    children = select$cap$(instance, field, children);\n"
+          "    instance.$name$_ = value == null ? defaultValue : value;\n"
+          "    try {\n"
+          "      instance.$name$_ = readChild(children, field, value, defaultValue,\n"
+          "          input, extensionRegistry, group);\n"
+          "    } catch (com.google.protobuf.InvalidProtocolBufferException e) {\n"
+          "      if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {\n"
+          "        instance.$name$_ = e.getUnfinishedMessage();\n"
+          "      }\n"
+          "      throw e;\n"
+          "    }\n"
+          "  }\n");
+    }
+  }
+  printer->Print(
       "};\n"
       "\n"
       "public static com.google.protobuf.Parser<$classname$> parser() {\n"
@@ -1112,8 +1300,7 @@ void ImmutableMessageGenerator::GenerateParser(io::Printer* printer) {
       "public com.google.protobuf.Parser<$classname$> getParserForType() {\n"
       "  return PARSER;\n"
       "}\n"
-      "\n",
-      "classname", descriptor_->name());
+      "\n");
 }
 
 // ===================================================================

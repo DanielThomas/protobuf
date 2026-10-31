@@ -648,6 +648,157 @@ TEST_F(JavaGeneratorTest, OneofHasBitsBuildPartial) {
       "parseOneofMsg(input, extensionRegistry);"));
 }
 
+TEST_F(JavaGeneratorTest, DirectParsingKeepsStateInParser) {
+  CreateTempFile("parser_entry.proto", R"schema(
+    syntax = "proto2";
+    option java_multiple_files = true;
+    message Scalar {
+      oneof choice {
+        int32 number = 1;
+        string text = 2;
+      }
+    }
+    message Repeated {
+      repeated int32 numbers = 1;
+    }
+    message Parent {
+      optional Scalar child = 1;
+      optional Repeated other = 2;
+      oneof selection {
+        Scalar selected = 3;
+        int32 number = 4;
+      }
+    }
+    message Extendable {
+      extensions 100 to max;
+    }
+    message Choice {
+      oneof choice {
+        Repeated numbers = 1;
+        Parent parent = 2;
+        string text = 3;
+      }
+    })schema");
+  RunProtoc(
+      "protocol_compiler --proto_path=$tmpdir --java_out=$tmpdir "
+      "parser_entry.proto");
+  ExpectNoErrors();
+  for (const char* name : {"Scalar", "Repeated", "Parent", "Extendable", "Choice"}) {
+    SCOPED_TRACE(name);
+    const std::string file = absl::StrCat(name, ".java");
+    EXPECT_TRUE(FileContainsSubstring(
+        file, absl::StrCat("new com.google.protobuf.GeneratedMessageParser<", name,
+                          ">()")));
+    EXPECT_TRUE(FileContainsSubstring(
+        file, absl::StrCat(name, " instance = new ", name, "();")));
+    EXPECT_FALSE(FileContainsSubstring(file, "readFields("));
+    EXPECT_TRUE(FileContainsSubstring(file, "java.io.IOException parseFailure = null;"));
+    EXPECT_TRUE(FileContainsSubstring(file, "parseFailure = e;"));
+    EXPECT_EQ(FileContainsSubstring(file, "children = null;"),
+              std::string(name) == "Parent" || std::string(name) == "Choice");
+    EXPECT_EQ(FileContainsSubstring(file, "java.lang.Object extensions = null;"),
+              std::string(name) == "Extendable");
+  }
+  EXPECT_TRUE(FileContainsSubstring(
+      "Choice.java",
+      "readChoice(instance, tag >>> 3, input, extensionRegistry, children, false);"));
+  EXPECT_TRUE(FileContainsSubstring("Choice.java", "switch (field) {"));
+  EXPECT_TRUE(FileContainsSubstring(
+      "Repeated.java",
+      "private void ensureNumbersIsMutable(Repeated instance, int minCapacity)"));
+  EXPECT_TRUE(FileContainsSubstring(
+      "Repeated.java", "ensureNumbersIsMutable(instance, /* capacity= */ -1);"));
+  EXPECT_TRUE(FileContainsSubstring(
+      "Repeated.java", "ensureNumbersIsMutable(instance, count);"));
+  EXPECT_FALSE(FileContainsSubstring("Parent.java", "childValue0("));
+  EXPECT_TRUE(FileContainsSubstring(
+      "Parent.java",
+      "instance.child_ = (Scalar) buildChild(children, 1, instance.child_);\n"
+      "        instance.other_ = (Repeated) buildChild(children, 2, instance.other_);\n"
+      "        instance.selection_ = buildChild(children, instance.selectionCase_, instance.selection_);"));
+}
+
+TEST_F(JavaGeneratorTest, DirectParsingBoundsWideChildMethods) {
+  std::string schema = R"schema(
+    syntax = "proto2";
+    option java_multiple_files = true;
+    message Child { repeated int32 values = 1; }
+    message Parent {
+  )schema";
+  for (int i = 1; i <= 65; ++i) {
+    absl::StrAppend(&schema, "optional Child child_", i, " = ", i * 2, ";\n");
+  }
+  absl::StrAppend(&schema, "}");
+  CreateTempFile("parser_children.proto", schema);
+  RunProtoc(
+      "protocol_compiler --proto_path=$tmpdir --java_out=$tmpdir "
+      "parser_children.proto");
+  ExpectNoErrors();
+  for (int group = 0; group < 3; ++group) {
+    EXPECT_TRUE(FileContainsSubstring(
+        "Parent.java",
+        absl::StrCat("if (childValue", group,
+                     "(instance, tag >>> 3) != null) children = childBuilders(children);")));
+    EXPECT_TRUE(FileContainsSubstring(
+        "Parent.java",
+        absl::StrCat("readChild", group,
+                     "(instance, tag >>> 3, input, extensionRegistry, children);")));
+    EXPECT_TRUE(FileContainsSubstring(
+        "Parent.java", absl::StrCat("finishChildren", group, "(instance, children);")));
+  }
+  EXPECT_FALSE(FileContainsSubstring("Parent.java", "childValue3("));
+  EXPECT_FALSE(FileContainsSubstring("Parent.java", "readChild3("));
+  EXPECT_FALSE(FileContainsSubstring("Parent.java", "finishChildren3("));
+}
+
+TEST_F(JavaGeneratorTest, CodeSizeParsingRetainsBuilderEntryPoint) {
+  CreateTempFile("code_size_parser.proto", R"schema(
+    syntax = "proto2";
+    option java_multiple_files = true;
+    option optimize_for = CODE_SIZE;
+    message CodeSizeParser {
+      optional int32 number = 1;
+    })schema");
+  RunProtoc(
+      "protocol_compiler --proto_path=$tmpdir --java_out=$tmpdir "
+      "code_size_parser.proto");
+  ExpectNoErrors();
+  EXPECT_TRUE(FileContainsSubstring("CodeSizeParser.java",
+                                    "Builder builder = newBuilder();"));
+  EXPECT_TRUE(FileContainsSubstring(
+      "CodeSizeParser.java", "builder.mergeFrom(input, extensionRegistry);"));
+  EXPECT_TRUE(FileContainsSubstring("CodeSizeParser.java",
+                                    "return builder.buildPartial();"));
+  EXPECT_FALSE(
+      FileContainsSubstring("CodeSizeParser.java", "GeneratedMessageParser<"));
+}
+
+TEST_F(JavaGeneratorTest, MapParsingUsesJava8CompatibleTypes) {
+  CreateTempFile("map_parser.proto", R"schema(
+    syntax = "proto2";
+    option java_multiple_files = true;
+    message MapParser {
+      enum Status {
+        ZERO = 0;
+      }
+      message Value {}
+      map<int32, int32> numbers = 1;
+      map<int32, Value> children = 2;
+      map<int32, Status> statuses = 3;
+    })schema");
+  RunProtoc(
+      "protocol_compiler --proto_path=$tmpdir --java_out=$tmpdir "
+      "map_parser.proto");
+  ExpectNoErrors();
+  EXPECT_FALSE(FileContainsSubstring("MapParser.java", "var entry ="));
+  EXPECT_TRUE(FileContainsSubstring(
+      "MapParser.java",
+      "com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>\n"));
+  EXPECT_TRUE(FileContainsSubstring(
+      "MapParser.java",
+      "com.google.protobuf.MapEntry<java.lang.Integer, MapParser.Value>\n"));
+}
+
 }  // namespace
 }  // namespace java
 }  // namespace compiler

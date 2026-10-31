@@ -339,12 +339,101 @@ proto_lang_toolchain(
     visibility = ["//visibility:public"],
 )
 
+genrule(
+    name = "generated_code_size_test_proto_src",
+    outs = [
+        "generated_code_size_capacity.proto",
+        "generated_code_size_enum_capacity.proto",
+        "generated_code_size_message_capacity.proto",
+        "generated_code_size_string_capacity.proto",
+        "src/test/proto/com/google/protobuf/generated_code_size_test.proto",
+    ],
+    cmd = """
+emit_fields() {
+    local type=$$1 name=$$2 fields=$$3
+    for ((field = 1; field <= fields; ++field)); do
+        printf '  %s %s_%d = %d;\\n' "$$type" "$$name" "$$field" "$$field"
+    done
+}
+emit_fixture() {
+    local message=$$1 type=$$2 fields=$$3 output=$$4 declaration=$$5
+    {
+        printf '%s\\n' \\
+            'syntax = "proto2";' \\
+            'package com.google.protobuf.test;' \\
+            'option java_multiple_files = true;' \\
+            'option optimize_for = CODE_SIZE;' \\
+            "$$declaration"
+        printf 'message %s {\\n' "$$message"
+        emit_fields "optional $$type" value "$$fields"
+        printf '}\\n'
+    } > "$$output"
+}
+emit_fixture WideCodeSize int32 5900 \\
+    $(location :generated_code_size_capacity.proto) ''
+emit_fixture WideCodeSizeEnum CapacityState 5900 \\
+    $(location :generated_code_size_enum_capacity.proto) \\
+    'enum CapacityState { ZERO = 0; ONE = 1; }'
+emit_fixture WideCodeSizeMessage CapacityLeaf 2600 \\
+    $(location :generated_code_size_message_capacity.proto) \\
+    'message CapacityLeaf { optional int32 value = 1; }'
+emit_fixture WideCodeSizeString string 4500 \\
+    $(location :generated_code_size_string_capacity.proto) ''
+{
+    printf '%s\\n' \\
+        'syntax = "proto2";' \\
+        'package generated_code_size_test;' \\
+        'option java_package = "com.google.protobuf.test";' \\
+        'option java_multiple_files = true;' \\
+        'option java_outer_classname = "GeneratedCodeSizeTestProto";' \\
+        'message WideMessageOneof {' \\
+        '  message Child { repeated int32 values = 1; optional string text = 2; }' \\
+        '  oneof choice {'
+    emit_fields Child value 128
+    printf '%s\\n' '  }' '}' '' 'message WideMessageFields {'
+    emit_fields 'optional WideMessageOneof.Child' value 65
+    printf '%s\\n' '}' '' \\
+        "// The upstream parser is just below HotSpot's default 8000-byte huge-method limit." \\
+        'message WideOneof {' '  oneof choice {'
+    emit_fields int32 value 494
+    printf '%s\\n' '  }' '}' '' \\
+        "// The upstream parser compiles below javac's 65535-byte method limit." \\
+        'message WideClosedEnum {' \\
+        '  enum Status { ZERO = 0; ONE = 1; }'
+    emit_fields 'optional Status' state 900
+    printf '}\\n'
+} > $(location :src/test/proto/com/google/protobuf/generated_code_size_test.proto)
+""",
+)
+
+proto_library(
+    name = "generated_code_size_capacity_proto",
+    testonly = True,
+    srcs = [
+        ":generated_code_size_capacity.proto",
+        ":generated_code_size_enum_capacity.proto",
+        ":generated_code_size_message_capacity.proto",
+        ":generated_code_size_string_capacity.proto",
+    ],
+)
+
+java_proto_library(
+    name = "generated_code_size_capacity_java_proto",
+    testonly = True,
+    deps = [":generated_code_size_capacity_proto"],
+)
+
+build_test(
+    name = "generated_code_size_capacity_test",
+    targets = [":generated_code_size_capacity_java_proto"],
+)
+
 proto_library(
     name = "java_test_protos",
     srcs = glob([
         "src/test/proto/**/*.proto",
         "src/test/proto/**/*.protodevel",
-    ]),
+    ]) + [":src/test/proto/com/google/protobuf/generated_code_size_test.proto"],
     option_deps = [
         "//:java_features_proto",
     ],
@@ -411,6 +500,7 @@ test_suite(
         "conformance_test",
         "core_build_test",
         "core_tests",
+        "generated_code_size_capacity_test",
         "utf8_tests",
     ],
 )
@@ -576,6 +666,7 @@ LITE_TEST_EXCLUSIONS = [
     "src/test/java/com/google/protobuf/ConcurrentDescriptorsTest.java",
     "src/test/java/com/google/protobuf/ColdInitializationTest.java",
     "src/test/java/com/google/protobuf/BuilderPublicationTest.java",
+    "src/test/java/com/google/protobuf/GeneratedCodeSizeTest.java",
     "src/test/java/com/google/protobuf/MergeFromSplitRuntimeTest.java",
     "src/test/java/com/google/protobuf/DescriptorsTest.java",
     "src/test/java/com/google/protobuf/DiscardUnknownFieldsTest.java",
@@ -669,6 +760,7 @@ junit_tests(
         ["src/test/java/**/*.java"],
         exclude = [
             # Depends on test protos or API changes added in v4.x.x (e.g. editions) or later
+            "src/test/java/com/google/protobuf/GeneratedCodeSizeTest.java",
             "src/test/java/com/google/protobuf/MergeFromSplitRuntimeTest.java",
             "src/test/java/com/google/protobuf/TextFormatTest.java",
             "src/test/java/com/google/protobuf/GeneratedMessageLazyEqualsTest.java",
@@ -722,6 +814,7 @@ junit_tests(
         ["src/test/java/**/*.java"],
         exclude = [
             # Depends on test protos or API changes added in v4.x.x (e.g. editions) or later
+            "src/test/java/com/google/protobuf/GeneratedCodeSizeTest.java",
             "src/test/java/com/google/protobuf/MergeFromSplitRuntimeTest.java",
             "src/test/java/com/google/protobuf/TextFormatTest.java",
             "src/test/java/com/google/protobuf/GeneratedMessageLazyEqualsTest.java",

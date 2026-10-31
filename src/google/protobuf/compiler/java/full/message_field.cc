@@ -498,10 +498,19 @@ void ImmutableMessageFieldGenerator::GenerateBuildingCode(
                  "}\n");
 }
 
-void ImmutableMessageFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
-  printer->Print(variables_,
-                 "parse$capitalized_name$Field(input, extensionRegistry);\n");
+void ImmutableMessageFieldGenerator::GenerateParsingCode(
+    io::Printer* printer, ParsingTarget target) const {
+  if (target == ParsingTarget::kBuilder) {
+    printer->Print(variables_,
+                   "parse$capitalized_name$Field(input, extensionRegistry);\n");
+    return;
+  }
+  auto vars = GetParsingVariables(target);
+  vars["is_group"] = GetType(descriptor_) == FieldDescriptor::TYPE_GROUP ? "true" : "false";
+  printer->Print(vars,
+      "$field$ = ($type$) readChild(children, $number$, $field$,\n"
+      "    $type$.getDefaultInstance(), input, extensionRegistry, $is_group$);\n"
+      "$set_has_field_bit$\n");
 }
 
 void ImmutableMessageFieldGenerator::GenerateSerializationCode(
@@ -925,10 +934,19 @@ void ImmutableMessageOneofFieldGenerator::GenerateBuilderParseMethod(
   printer->Print("}\n");
 }
 
-void ImmutableMessageOneofFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
-  printer->Print(variables_,
-                 "parse$capitalized_name$(input, extensionRegistry);\n");
+void ImmutableMessageOneofFieldGenerator::GenerateParsingCode(
+    io::Printer* printer, ParsingTarget target) const {
+  if (target == ParsingTarget::kBuilder) {
+    printer->Print(variables_,
+                   "parse$capitalized_name$(input, extensionRegistry);\n");
+    return;
+  }
+  auto vars = GetParsingVariables(target);
+  vars["is_group"] = GetType(descriptor_) == FieldDescriptor::TYPE_GROUP ? "true" : "false";
+  // The caller must retain a newly created map before the shared read helper can throw.
+  printer->Print(vars,
+      "if ($field$ instanceof com.google.protobuf.GeneratedMessage) children = childBuilders(children);\n"
+      "read$oneof_capitalized_name$(instance, tag >>> 3, input, extensionRegistry, children, $is_group$);\n");
 }
 
 void ImmutableMessageOneofFieldGenerator::GenerateSerializationCode(
@@ -1559,27 +1577,33 @@ void RepeatedImmutableMessageFieldGenerator::GenerateBuildingCode(
   printer->Print("}\n");
 }
 
-void RepeatedImmutableMessageFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
+void RepeatedImmutableMessageFieldGenerator::GenerateParsingCode(
+    io::Printer* printer, ParsingTarget target) const {
+  auto vars = GetParsingVariables(target);
+  vars["ensure_mutable"] = GetParsingEnsureMutableCode(target);
   if (GetType(descriptor_) == FieldDescriptor::TYPE_GROUP) {
-    printer->Print(variables_,
+    printer->Print(vars,
                    "$type$ m =\n"
                    "    input.readGroup($number$,\n"
                    "        $type$.$get_parser$,\n"
                    "        extensionRegistry);\n");
   } else {
-    printer->Print(variables_,
+    printer->Print(vars,
                    "final int oldLimit = input.pushLimitBeforeMessage();\n"
                    "$type$ m = $type$.parser().parsePartialFrom(input, "
                    "extensionRegistry);\n"
                    "input.popLimitAfterMessage(oldLimit);\n");
   }
+  if (target == ParsingTarget::kMessage) {
+    printer->Print(vars, "$ensure_mutable$\n$field$.add(m);\n");
+  } else {
   PrintNestedBuilderCondition(printer,
                               "ensure$capitalized_name$IsMutable();\n"
                               "$name$_.add(m);\n",
                               "$name$Builder_.addMessage(m);\n"
                               "$set_has_field_bit$\n"
                               "$on_changed$\n");
+  }
 }
 
 void RepeatedImmutableMessageFieldGenerator::GenerateSerializationCode(

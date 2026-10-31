@@ -1,0 +1,33 @@
+// Protocol Buffers - Google's data interchange format
+// Copyright 2026 Google Inc. All rights reserved.
+//
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file or at
+// https://developers.google.com/open-source/licenses/bsd
+
+syntax = "proto2";
+
+package com.google.protobuf.test;
+
+option java_multiple_files = true;
+option optimize_for = CODE_SIZE;
+
+message CodeSizeAccessors {
+  enum State {
+    ZERO = 0;
+    ONE = 1;
+  }
+  message Child {
+    optional int32 value = 1;
+  }
+  optional int32 number = 1;
+  optional State state = 2;
+  optional string text = 3;
+  optional Child child = 4;
+  oneof choice {
+    int32 selected_number = 5;
+    string selected_text = 6;
+    State selected_state = 7;
+    Child selected_child = 8;
+  }
+}
