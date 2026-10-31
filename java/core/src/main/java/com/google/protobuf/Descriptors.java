@@ -3262,8 +3262,10 @@ public final class Descriptors {
     void validateFeatures() throws DescriptorValidationException {}
 
     FeatureSet getFeatures() {
-      // TODO: Remove lazy resolution of unresolved features for legacy syntax for
-      // compatibility with older <4.26.x gencode in the next breaking release.
+      // Core descriptor protos resolve features lazily to avoid a bootstrap cycle
+      // with JavaFeaturesProto.
+      // TODO: Limit this fallback to core descriptor protos when removing support
+      // for older <4.26.x gencode in the next breaking release.
       if (this.features == null
           && (getFile().getEdition() == Edition.EDITION_PROTO2
               || getFile().getEdition() == Edition.EDITION_PROTO3)) {

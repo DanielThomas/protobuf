@@ -119,9 +119,13 @@ inline std::string ShortMutableJavaClassName(const Descriptor* descriptor) {
 // Whether the given descriptor is for one of the core descriptor protos. We
 // cannot currently use the new runtime with core protos since there is a
 // bootstrapping problem with obtaining their descriptors.
+inline bool IsDescriptorProtoFile(const FileDescriptor* file) {
+  return file->name() == "net/proto2/proto/descriptor.proto" ||
+         file->name() == "google/protobuf/descriptor.proto";
+}
+
 inline bool IsDescriptorProto(const Descriptor* descriptor) {
-  return descriptor->file()->name() == "net/proto2/proto/descriptor.proto" ||
-         descriptor->file()->name() == "google/protobuf/descriptor.proto";
+  return IsDescriptorProtoFile(descriptor->file());
 }
 
 // Returns the stored type string used by the experimental runtime for oneof
