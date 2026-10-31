@@ -575,6 +575,7 @@ LITE_TEST_EXCLUSIONS = [
     "src/test/java/com/google/protobuf/DebugFormatTest.java",
     "src/test/java/com/google/protobuf/ConcurrentDescriptorsTest.java",
     "src/test/java/com/google/protobuf/ColdInitializationTest.java",
+    "src/test/java/com/google/protobuf/BuilderPublicationTest.java",
     "src/test/java/com/google/protobuf/MergeFromSplitRuntimeTest.java",
     "src/test/java/com/google/protobuf/DescriptorsTest.java",
     "src/test/java/com/google/protobuf/DiscardUnknownFieldsTest.java",
