@@ -1077,41 +1077,53 @@ void ImmutableMapFieldGenerator::GenerateBuildingCode(
                  "}\n");
 }
 
-void ImmutableMapFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
+void ImmutableMapFieldGenerator::GenerateParsingCode(
+    io::Printer* printer, ParsingTarget target) const {
+  auto vars = GetParsingVariables(target);
+  const std::string mutable_map = absl::StrCat(
+      "internalGetMutable", variables_.at("capitalized_name"), "()");
+  vars["mutable_map"] = target == ParsingTarget::kBuilder
+      ? absl::StrCat(mutable_map,
+          GetJavaType(MapValueField(descriptor_)) == JAVATYPE_MESSAGE
+              ? ".ensureBuilderMap()" : ".getMutableMap()")
+      : absl::StrCat(vars.at("field"), ".getMutableMap()");
+  vars["prepare_map"] = target == ParsingTarget::kBuilder ? "" : absl::StrCat(
+      "if (", vars.at("field"), " == null) {\n  ", vars.at("field"),
+      " = com.google.protobuf.MapField.newMapField(",
+      variables_.at("default_entry"), ");\n}\n");
   const FieldDescriptor* value = MapValueField(descriptor_);
   const JavaType type = GetJavaType(value);
   if (type == JAVATYPE_MESSAGE) {
     printer->Print(
-        variables_,
+        vars,
         "com.google.protobuf.MapEntry<$type_parameters$>\n"
         "$name$__ = input.readMessage(\n"
         "    $default_entry$.getParserForType(), extensionRegistry);\n"
-        "internalGetMutable$capitalized_name$().ensureBuilderMap().put(\n"
+        "$prepare_map$$mutable_map$.put(\n"
         "    $name$__.getKey(), $name$__.getValue());\n"
         "$set_has_field_bit$\n");
     return;
   }
   if (!SupportUnknownEnumValue(value) && type == JAVATYPE_ENUM) {
     printer->Print(
-        variables_,
+        vars,
         "com.google.protobuf.ByteString bytes = input.readBytes();\n"
         "com.google.protobuf.MapEntry<$type_parameters$>\n"
         "$name$__ = $default_entry$.getParserForType().parseFrom(bytes);\n"
         "if ($value_enum_type$.forNumber($name$__.getValue()) == null) {\n"
-        "  mergeUnknownLengthDelimitedField($number$, bytes);\n"
+        "  $unknown_receiver$mergeUnknownLengthDelimitedField($unknown_argument$$number$, bytes);\n"
         "} else {\n"
-        "  internalGetMutable$capitalized_name$().getMutableMap().put(\n"
+        "  $prepare_map$$mutable_map$.put(\n"
         "      $name$__.getKey(), $name$__.getValue());\n"
         "  $set_has_field_bit$\n"
         "}\n");
     return;
   }
-  printer->Print(variables_,
+  printer->Print(vars,
                  "com.google.protobuf.MapEntry<$type_parameters$>\n"
                  "$name$__ = input.readMessage(\n"
                  "    $default_entry$.getParserForType(), extensionRegistry);\n"
-                 "internalGetMutable$capitalized_name$().getMutableMap().put(\n"
+                 "$prepare_map$$mutable_map$.put(\n"
                  "    $name$__.getKey(), $name$__.getValue());\n"
                  "$set_has_field_bit$\n");
 }

@@ -10,6 +10,7 @@ package com.google.protobuf;
 import static com.google.common.truth.Truth.assertThat;
 
 import proto2_unittest.UnittestProto;
+import proto2_unittest.UnittestProto.TestOneof2;
 import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
@@ -29,6 +30,9 @@ public class LazyStringEndToEndTest {
             114, 4, -1, 0, -1, 0, -30, 2, 4, -1,
             0, -1, 0, -30, 2, 4, -1, 0, -1, 0,
           });
+
+  private static final ByteString TEST_ONEOF_SERIALIZED_WITH_ILLEGAL_UTF8 =
+      ByteString.copyFrom(new byte[] {18, 4, -1, 0, -1, 0, 106, 4, -1, 0, -1, 0});
 
   private ByteString encodedTestAllTypes;
 
@@ -69,6 +73,56 @@ public class LazyStringEndToEndTest {
     tV2.writeTo(outputStream);
     outputStream.flush();
     assertThat(ByteString.copyFrom(sink)).isEqualTo(TEST_ALL_TYPES_SERIALIZED_WITH_ILLEGAL_UTF8);
+  }
+
+  @Test
+  public void testOneofStringToBuilderPreservesInvalidUtf8() throws Exception {
+    TestOneof2 parsed = TestOneof2.parseFrom(TEST_ONEOF_SERIALIZED_WITH_ILLEGAL_UTF8);
+    assertThat(parsed.toByteString()).isEqualTo(TEST_ONEOF_SERIALIZED_WITH_ILLEGAL_UTF8);
+
+    assertThat(parsed.toBuilder().build().toByteString())
+        .isEqualTo(TEST_ONEOF_SERIALIZED_WITH_ILLEGAL_UTF8);
+  }
+
+  @Test
+  public void testOneofStringMergeFromPreservesInvalidUtf8() throws Exception {
+    TestOneof2 parsed = TestOneof2.parseFrom(TEST_ONEOF_SERIALIZED_WITH_ILLEGAL_UTF8);
+    TestOneof2 merged =
+        TestOneof2.newBuilder().setFooInt(1).setBarInt(2).mergeFrom(parsed).build();
+
+    assertThat(merged.toByteString()).isEqualTo(TEST_ONEOF_SERIALIZED_WITH_ILLEGAL_UTF8);
+  }
+
+  @Test
+  public void testOneofStringBuilderClonePreservesInvalidUtf8() throws Exception {
+    TestOneof2.Builder builder =
+        TestOneof2.newBuilder().mergeFrom(TEST_ONEOF_SERIALIZED_WITH_ILLEGAL_UTF8);
+
+    assertThat(builder.clone().build().toByteString())
+        .isEqualTo(TEST_ONEOF_SERIALIZED_WITH_ILLEGAL_UTF8);
+    assertThat(builder.build().toByteString()).isEqualTo(TEST_ONEOF_SERIALIZED_WITH_ILLEGAL_UTF8);
+  }
+
+  @Test
+  public void testOneofStringMergeKeepsStringCached() {
+    String value = "value";
+    TestOneof2 original =
+        TestOneof2.newBuilder().setFooString(value).setBarString(value).build();
+    TestOneof2.Builder copy = original.toBuilder();
+
+    assertThat(copy.getFooString()).isSameInstanceAs(value);
+    assertThat(copy.getBarString()).isSameInstanceAs(value);
+  }
+
+  @Test
+  public void testOneofStringMergeKeepsBytesCached() {
+    ByteString value = ByteString.copyFromUtf8("value");
+    TestOneof2 original =
+        TestOneof2.newBuilder().setFooStringBytes(value).setBarStringBytes(value).build();
+    TestOneof2.Builder copy = original.toBuilder();
+
+    assertThat(copy.getFooStringBytes()).isSameInstanceAs(value);
+    assertThat(copy.getBarStringBytes()).isSameInstanceAs(value);
   }
 
   @Test

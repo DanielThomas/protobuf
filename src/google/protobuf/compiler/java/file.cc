@@ -554,10 +554,12 @@ void FileGenerator::GenerateDescriptorInitializationCodeForImmutable(
         "$method_name$_$method_num$();\n",
         "private static void $method_name$_$method_num$() {\n");
   }
-  // Feature resolution for Java features uses extension registry
-  // which must happen after internalInit() from
-  // GenerateNonNestedInitializationCode
-  printer->Print("descriptor.resolveAllFeaturesImmutable();\n");
+  // Feature resolution requires initialized extension descriptors.
+  // descriptor.proto instead resolves features lazily through getFeatures()
+  // to avoid a cycle with JavaFeaturesProto during class initialization.
+  if (!IsDescriptorProtoFile(file_)) {
+    printer->Print("descriptor.resolveAllFeaturesImmutable();\n");
+  }
 
   // Proto compiler builds a DescriptorPool, which holds all the descriptors to
   // generate, when processing the ".proto" files. We call this DescriptorPool

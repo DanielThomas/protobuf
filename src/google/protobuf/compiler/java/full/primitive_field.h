@@ -53,7 +53,8 @@ class ImmutablePrimitiveFieldGenerator : public ImmutableFieldGenerator {
   void GenerateBuilderClearCode(io::Printer* printer) const override;
   void GenerateMergingCode(io::Printer* printer) const override;
   void GenerateBuildingCode(io::Printer* printer) const override;
-  void GenerateBuilderParsingCode(io::Printer* printer) const override;
+  void GenerateParsingCode(io::Printer* printer,
+                           ParsingTarget target) const override;
   void GenerateSerializationCode(io::Printer* printer) const override;
   void GenerateSerializedSizeCode(io::Printer* printer) const override;
   void GenerateFieldBuilderInitializationCode(
@@ -92,7 +93,8 @@ class ImmutablePrimitiveOneofFieldGenerator
   void GenerateBuilderClearCode(io::Printer* printer) const override;
   void GenerateBuildingCode(io::Printer* printer) const override;
   void GenerateMergingCode(io::Printer* printer) const override;
-  void GenerateBuilderParsingCode(io::Printer* printer) const override;
+  void GenerateParsingCode(io::Printer* printer,
+                           ParsingTarget target) const override;
   void GenerateSerializationCode(io::Printer* printer) const override;
   void GenerateSerializedSizeCode(io::Printer* printer) const override;
 
@@ -105,6 +107,7 @@ class ImmutablePrimitiveOneofFieldGenerator
   void GenerateBuilderSetMethod(io::Printer* printer) const;
   void GenerateBuilderClearMethod(io::Printer* printer) const;
   void GenerateBuilderParseMethod(io::Printer* printer) const;
+  void GenerateParseBody(io::Printer* printer, ParsingTarget target) const;
 };
 
 class RepeatedImmutablePrimitiveFieldGenerator
@@ -126,9 +129,10 @@ class RepeatedImmutablePrimitiveFieldGenerator
   void GenerateBuilderClearCode(io::Printer* printer) const override;
   void GenerateMergingCode(io::Printer* printer) const override;
   void GenerateBuildingCode(io::Printer* printer) const override;
-  void GenerateBuilderParsingCode(io::Printer* printer) const override;
-  void GenerateBuilderParsingCodeFromPacked(
-      io::Printer* printer) const override;
+  void GenerateParsingCode(io::Printer* printer,
+                           ParsingTarget target) const override;
+  void GenerateParsingCodeFromPacked(io::Printer* printer,
+                                     ParsingTarget target) const override;
   void GenerateSerializationCode(io::Printer* printer) const override;
   void GenerateSerializedSizeCode(io::Printer* printer) const override;
   void GenerateFieldBuilderInitializationCode(
