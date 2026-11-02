@@ -1,0 +1,1 @@
+src/google/protobuf/test_protos/repeated_ptr_field_test.proto:12:1: warning: Import google/protobuf/cpp_features.proto is unused.

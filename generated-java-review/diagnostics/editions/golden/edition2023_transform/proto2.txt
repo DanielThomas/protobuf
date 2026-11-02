@@ -1,0 +1,4 @@
+editions/input/edition2023_transform/proto3.proto:12:8: Option "java_api_version" unknown. Ensure that your proto definition file imports the proto which defines the option (i.e. via import option after edition 2024).
+editions/golden/edition2023_transform/proto2.proto:18:1: Import "net/proto/proto1_features.proto" was not found or had errors.
+editions/golden/edition2023_transform/proto2.proto:21:1: Import "editions/input/edition2023_transform/proto3.proto" was not found or had errors.
+editions/golden/edition2023_transform/proto2.proto:103:3: "TestEnumProto3" is not defined.

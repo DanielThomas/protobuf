@@ -1,0 +1,1 @@
+csharp/protos/old_extensions1.proto:23:1: warning: Import csharp/protos/old_extensions2.proto is unused.

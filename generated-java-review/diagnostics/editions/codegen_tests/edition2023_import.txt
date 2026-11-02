@@ -1,0 +1,1 @@
+editions/codegen_tests/edition2023_import.proto:15:3: "protobuf_editions_test.google.protobuf.Proto2Optional" is not defined.

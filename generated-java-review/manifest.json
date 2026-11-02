@@ -1,0 +1,2912 @@
+{
+  "generator_revision": "4e295241ef232d7b6627493b9ab27f9b1d757ad7",
+  "protoc_version": "libprotoc 38.0-dev",
+  "protoc_sha256": "6f5a9b3de32a9e9f237f9aee6271321add6bb18a3e31f1b78d14713907f24743",
+  "java_options": [],
+  "experimental_editions": true,
+  "tracked_proto_inputs": 482,
+  "additional_generated_fixtures": 1,
+  "generated_inputs": 466,
+  "rejected_inputs": 17,
+  "java_files": 1246,
+  "inputs": [
+    {
+      "proto": "benchmarks/descriptor.proto",
+      "sha256": "68be6b2d94ef57043d0553c3fe6d7eb2c5941a119909063bf8e6c6bdc6ebcac6",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "benchmarks/descriptor_sv.proto",
+      "sha256": "4f1b66c4896f3a8b0f43bb714ec4fb50e067c72708c60a2642ea61ac92387c50",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "benchmarks/empty.proto",
+      "sha256": "7e26b4d6bfacf8ceace1c285d82bc300fdf2cae2220c6d1efd99cc728d8a3b95",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "compatibility/smoke/proto3_gencode_test.proto",
+      "sha256": "7991b7f7b3501658c879ad425bda06a89cd8745987347f2340a67e7e911d2812",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "conformance/conformance.proto",
+      "sha256": "476e11760035959cbc384f88c0e2e3256b3059540c3ebc653c361353d232ad62",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "conformance/test_protos/test_messages_edition2023.proto",
+      "sha256": "df6733f20e3ad24d414f1edc0b6a2bb6ac1fe280598c2333604f9e1af6b05c00",
+      "status": "generated",
+      "java_files": 10
+    },
+    {
+      "proto": "conformance/test_protos/test_messages_edition2026.proto",
+      "sha256": "99ab5625063ad52cac954afceb6d8aa5092274fc6c9f6f2d6b93e72d620b30c4",
+      "status": "generated",
+      "java_files": 4
+    },
+    {
+      "proto": "conformance/test_protos/test_messages_edition_unstable.proto",
+      "sha256": "087c63c8b348811d334a573d0ab5d0c36d8d7ef91a0d6b863b169b07e6e4a956",
+      "status": "generated",
+      "java_files": 8
+    },
+    {
+      "proto": "csharp/compatibility_tests/v3.0.0/protos/csharp/protos/unittest_issues.proto",
+      "sha256": "4213c024a70027bb4f9d46f86ed5aa81f62d1a9b70d88c65ff0fba34f610f973",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/compatibility_tests/v3.0.0/protos/src/google/protobuf/map_unittest_proto3.proto",
+      "sha256": "f10287267c63ff1355ee74a3c08621adbc7c806cf4ebe2003740b560797d6dae",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/compatibility_tests/v3.0.0/protos/src/google/protobuf/unittest_import_proto3.proto",
+      "sha256": "9ba41cb4c7e3260e17fb91fa59f90da18c7d852e363a7cbaba516be9b39295bb",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/compatibility_tests/v3.0.0/protos/src/google/protobuf/unittest_import_public_proto3.proto",
+      "sha256": "1a80a445d7dd87a1d2c0e33eae7a8dac61b58e2c961551f712714bf0f52d4388",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/compatibility_tests/v3.0.0/protos/src/google/protobuf/unittest_proto3.proto",
+      "sha256": "112f0ed343490c6013ca18760d41a4a925669d966db0a992e672981caa39bc02",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/compatibility_tests/v3.0.0/protos/src/google/protobuf/unittest_well_known_types.proto",
+      "sha256": "364a496db31a84d8f32f43515cf9a3d1536535ac21029e146e660bb8f15358ca",
+      "status": "generated",
+      "java_files": 9
+    },
+    {
+      "proto": "csharp/google/protobuf/c_sharp_features.proto",
+      "sha256": "33febc3af13337ed572159e8ea9025aee04fe6c949047edb6e0318f71d0e72b6",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "csharp/protos/map_unittest_proto3.proto",
+      "sha256": "1e87875304cecd1db45a4d5f6d5d004160ae7b92030e8d3d20864c4257d696e7",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/protos/nrt.proto",
+      "sha256": "029c32fb02dcd10f89114051ab1c4ec12fbc116c882df546fda9a916007a6c14",
+      "status": "generated",
+      "java_files": 8
+    },
+    {
+      "proto": "csharp/protos/old_extensions1.proto",
+      "sha256": "da38dcad3a3c7d1936268025ac463bb2ea89d3c49208bd8be37f9f0212e499cb",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/protos/old_extensions2.proto",
+      "sha256": "5b86edd5c78596904a9b06fa2154df3945d477a50a9d1cd2e15e7a1b9874626a",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/protos/unittest.proto",
+      "sha256": "ebc01c4ca3cf424932ff36036e4723501583341707845c1456414e2e307c2c3d",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/protos/unittest_custom_options_proto3.proto",
+      "sha256": "a2e5cda7b761073ed6d2e26d0614ec8418c4d19e1756ca987aafabe310c7df57",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/protos/unittest_import.proto",
+      "sha256": "c11755df57d43c88038c61a16044454b5ad70ca1cdee6d4c0fbe023555ac42fe",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/protos/unittest_import_proto3.proto",
+      "sha256": "5a3ce0108850836e3f0d499b664309ec9408bf25eed0d628faf9fce08da09bdc",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/protos/unittest_import_public.proto",
+      "sha256": "2d32ad00b198fa61f183aaffbb754954cd0dc065b5b109a34c5081b81c4b9277",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/protos/unittest_import_public_proto3.proto",
+      "sha256": "2d6281d994bbbdbd7ea8492753c7839c4b5aad347e4aeca6b1a87d7224e77f55",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/protos/unittest_issue6936_a.proto",
+      "sha256": "66e3f8f7b2eff3a1315bc6085ff314eedbd058a1291d5e5d7fd0cc40b956e478",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/protos/unittest_issue6936_b.proto",
+      "sha256": "93493b84993400b8effc5218d2535b07a45199acdb2ef75b2726599ac4af9290",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/protos/unittest_issue6936_c.proto",
+      "sha256": "1e0909aeacf9c1893e6c334f4cfe643facfe482de00ac44411b03407fdb20da9",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/protos/unittest_issues.proto",
+      "sha256": "e3409436c41f7b76aa6fa288b223a294da4adfdac0c8fd0f7a3af94e3a756957",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/protos/unittest_proto3.proto",
+      "sha256": "3bb552b899ce26b4812e849ec19473ee97b1b4b9ee285fb71afa600cacf68d25",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "csharp/protos/unittest_selfreferential_options.proto",
+      "sha256": "b202b7b08eacdb7322e62b089313dd487262f50e13488b67ccab2c858a5c5927",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_ctype.proto",
+      "sha256": "72c8df8ebe7e2ecaa8c4bd2eb8d6792bee0e1c62ee40a3ef7e5ce07bfa8115f4",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_go_api_flag.proto",
+      "sha256": "8dea5eca28e606050d628b8f08fa933817a7c6ab2788d4ada71e44c31d65c101",
+      "status": "rejected",
+      "java_files": 0
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_go_api_flag_nested.proto",
+      "sha256": "d27d3f6b2a01452a6ac6709df36334a139dcf26b82951db9297bb4445f251b58",
+      "status": "rejected",
+      "java_files": 0
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_go_api_level.proto",
+      "sha256": "5d41babb571119ba79678d7a15c9d000e5c650102191e3097a610784f7574815",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_go_google3_go_api_default.proto",
+      "sha256": "9ba6a125440f16fa45f456b33cb74a3e349554f98e15ecb4e460f87afc534c25",
+      "status": "rejected",
+      "java_files": 0
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_go_oss_go_api_default.proto",
+      "sha256": "a83dc98b3de4fe41cb592ba6751b2ce24fde251b10d1c89d81a8c9fd7e2c594c",
+      "status": "rejected",
+      "java_files": 0
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_import.proto",
+      "sha256": "4909779e705823ecd652d07bf5a6cff86064868b95944401b1454e4567de2346",
+      "status": "rejected",
+      "java_files": 0
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_import_feature.proto",
+      "sha256": "468a8be73d7174bdee22ca0a529b26477763c8025adfa113da6f247597756ea2",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_java_dual_multiple_files.proto",
+      "sha256": "b19f9e96a388188548d813bd67e84d07178ac0b11d76a2ddc9962fafe4740686",
+      "status": "generated",
+      "java_files": 4
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_java_multiple_files.proto",
+      "sha256": "099714455a9328cf6e80ff023d8dca020f08a1880cf55a97fa30c37b040b85e6",
+      "status": "generated",
+      "java_files": 4
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_java_mutable_multiple_files.proto",
+      "sha256": "1590f81433efd3347fe55be5bc8bf3d19f1d6f02b11a890f15e834530d860092",
+      "status": "generated",
+      "java_files": 4
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_java_no_multiple_files.proto",
+      "sha256": "c4d7ea88d2b139ce1ee03862f2e0f811a56c99e9165f66f871b324920f60a987",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_java_outer_classname.proto",
+      "sha256": "c31411708a153a34ad0160611dd67a08c9e4497a1bda4dc1b0b680117eac8c07",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_java_outer_classname_future.proto",
+      "sha256": "a6d30b12a79af6613bde71e613999fa75f94838ad6340b6ec6a7df7dcbaa7bc4",
+      "status": "generated",
+      "java_files": 4
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_java_proto1_multiple_files.proto",
+      "sha256": "47515baa71522445678b9cbf491cf54387e5b75b08349dd9d158368aa7c20f06",
+      "status": "rejected",
+      "java_files": 0
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_java_proto1_no_multiple_files.proto",
+      "sha256": "9f83377a20674d361e2339f1efdb58c43231383db938a691d1448ae800409b3e",
+      "status": "rejected",
+      "java_files": 0
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_java_proto1_outer_classname_future.proto",
+      "sha256": "3f89e84a364bbf46b7ee7dd497768cc588662c5199d935f771ac6000972eca18",
+      "status": "rejected",
+      "java_files": 0
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_naming_style_enum.proto",
+      "sha256": "20fcf6720767b87a82d68b52157bd6f41a31f9096b67ca99617b58a5ff539f15",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_naming_style_enum_value.proto",
+      "sha256": "7e36242eb3b419cfe121176825d909723a6fb6261950e339f344b167223c1be7",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_naming_style_extension.proto",
+      "sha256": "8b59212c19169ed1aa3b2c8037d5919a071f08bed01b7243d3985c2ae2e00190",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_naming_style_field.proto",
+      "sha256": "127968dc63ecf7d5c0c3b4aed5525aae96a07b85d8e7a04c721f83ca992519ee",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_naming_style_file.proto",
+      "sha256": "f2271c86b4316cb0156ae7d1f6ad54c33443b1ab2fef6bb31c3c35fe01d763d5",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_naming_style_message.proto",
+      "sha256": "18892fa43181b8c60a293e39c7c981ba211866d9534a445cd6d274e449b94350",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_naming_style_method.proto",
+      "sha256": "b6a508ef49ff91b02037e8eff2bb0043ea7d4e05c89caac6c8d6563288a89775",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_naming_style_oneof.proto",
+      "sha256": "31cf053aab12b064cfb5c68cb54c433b5ca68bee9df00cd93838f9ac4fb9f2d3",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_naming_style_service.proto",
+      "sha256": "6af9c01f80705de1baafa2146ff5a0b1d25be9d1670708592b9d8fb584d52e0c",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_string_type.proto",
+      "sha256": "b160a283fe771776ecd54fda39df1465301c81aef90867df44eacb7bc4770ee7",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_string_type_view_default.proto",
+      "sha256": "f8a816f973045236574888aaedd00fbc73290d64c547d546a0452f1720aa9c31",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_symbol_visibility.proto",
+      "sha256": "1e7b3510184e58342905928b4d88883706907e2d2def735058ba0c1e7c3b33f8",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2023_symbol_visibility_use.proto",
+      "sha256": "46470f3fe01bce59cbc57963ed165125d2851d7366e40c8218b9264ddfb7cf17",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/edition2024_default_symbol_visibility.proto",
+      "sha256": "72845c30a3d32371079aef2e63ac3c74c7a95c31b0c9b81cf6e743f517b85592",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "editions/codegen_tests/edition2024_default_symbol_visibility_namespace_enum.proto",
+      "sha256": "a07412e55bfb627ed75f40b6bb0b18ded767f3ab095598575907633b4bb876fc",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "editions/codegen_tests/edition2024_default_symbol_visibility_nested_enum_multiple_ranges.proto",
+      "sha256": "d651a2a693d3380f04b5f0fe19f853dced5a620f16c9c0fcfda279081a96b137",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "editions/codegen_tests/edition2024_default_symbol_visibility_nested_enum_with_bad_range_end.proto",
+      "sha256": "8e5ede87efb7628e8db96d8f495fd7a580d3781f09b4f900c3d6c96f2eaa9316",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "editions/codegen_tests/edition2024_default_symbol_visibility_nested_enum_with_bad_range_start.proto",
+      "sha256": "1e2e6019f2fb9f6502bfb0dfe5997ac3867bfde9e6233654a8f89ec76ab3eecd",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "editions/codegen_tests/edition2024_default_symbol_visibility_nested_enum_within_exported_message.proto",
+      "sha256": "c332b642623be1733afad8ac99947a1c2d058f79770166d09a039a7de269af64",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "editions/codegen_tests/proto2_enum.proto",
+      "sha256": "7545368cb9f998da21b38d6846018d20bd7f141a0cdf9e641de93b0908387f2d",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto2_group.proto",
+      "sha256": "73baec2339212b21d76309e282ab0819168870ca97c5b17f1b0a07891d93c443",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto2_import.proto",
+      "sha256": "3f59ae7e7d12546e97d66461337298aafbf9679be457f4e38cf9cd98b16eec32",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto2_inline_comments.proto",
+      "sha256": "9a2c3ba74898eac62e2908fe233b04476ff6730e18bf6c5bf53e451b9b0cf7e6",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto2_multiline_comments.proto",
+      "sha256": "8182fc20d7bfd03796c4c7d3adc17d0af28948ad80b005fb86bfb12a2838554a",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto2_optional.proto",
+      "sha256": "2aee1efa13573b0d8018862f43759eebd6a111bffc52efa5d89cc20e2671f504",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto2_packed.proto",
+      "sha256": "0b339fcdfdf9623a56b119176fcab11ed7b916090cac98de961951c60ab2c75b",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto2_proto3_enum.proto",
+      "sha256": "8762d0f72b039d8bca58817b3faebeade76d4c18b1cc24efc9fe8081f6dc85d3",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto2_required.proto",
+      "sha256": "11b70c63e11197570e4726bb65d710b85cb3f12082932c1e2a3b0f59933d1ecf",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto2_unpacked.proto",
+      "sha256": "8f085c6d8a189c0cc8ede9ef6a9b653517386e1004f7f9f3234376d9ce2c93bc",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto2_utf8_disabled.proto",
+      "sha256": "45e797e4b0c3cef5d5b5ccf7d62240b613cdec98ae4559104d9d80cde0113f6b",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto2_utf8_lite.proto",
+      "sha256": "de2059e14f1c88f2f22b53bd54e3aaa2660b851fdd7ff0060ffe794a087d63d1",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto2_utf8_verify.proto",
+      "sha256": "6df640fbd48bf6cc85e623a2abc671a4b5d998d845e0f0ee9f571ea4c6500e59",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto3_enum.proto",
+      "sha256": "b11cf619d88db136a54ef0baf7071a6fd7d88921b67f03e3f3db2dee10421b72",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto3_implicit.proto",
+      "sha256": "5a115609fbe23084a3988bd312f468b3d736c03fb71fc74e168667d16ee98481",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto3_import.proto",
+      "sha256": "2126c69c4643fd212db8cbb1bc3fc4d7e769d624db53f77c94875dc1332b7209",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto3_optional.proto",
+      "sha256": "3523824cb4f314a11b346b43a1b14ec42fc5b833777b2f801e94077b9821ff9c",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto3_packed.proto",
+      "sha256": "989b6ad2ad9d57a019e5d2659d38bfe326e4e33b9f24335a86f5fcfc68074eec",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto3_unpacked.proto",
+      "sha256": "e6f5a2ef1377134048c23c5e87a5605024a49a908a532c962062797b3d11e7a4",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/codegen_tests/proto3_utf8_strict.proto",
+      "sha256": "2ae3b963b610748d793402d3209a01471c0e004afef16f6f6ece65f974290103",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/golden/edition2023_transform/noop.proto",
+      "sha256": "eb27bf83d729b4fc66909bc654e1e4dc4232413236d281051ff3b64b42e0c8ff",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/golden/edition2023_transform/proto2.proto",
+      "sha256": "a5ebb8d3eee2771e9227c30742398b6917a08981c705c6fb6aa9930fc8e81bbe",
+      "status": "rejected",
+      "java_files": 0
+    },
+    {
+      "proto": "editions/golden/edition2023_transform/proto2_lite.proto",
+      "sha256": "7013825425f41878508a1af50ff2716d935266977afbed934f0c60f6f6b64825",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/golden/edition2023_transform/proto2_utf8_disabled.proto",
+      "sha256": "82429147616f62fb7473bbf1eec2176959ebd5393b92a3261ceeeead5e638ce8",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/golden/edition2023_transform/proto3.proto",
+      "sha256": "4e9ba7d1ef83b9d7172472f9138d270d4f155e513bfa4ba664b13ac3966ebc8e",
+      "status": "rejected",
+      "java_files": 0
+    },
+    {
+      "proto": "editions/golden/edition2023_transform/proto3_utf8_disabled.proto",
+      "sha256": "9fecf6be9f42164f3fed46da0dbedf108eb200fd2bea75a300ea515520c65028",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/golden/edition2023_transform/test_messages_proto2.proto",
+      "sha256": "26ec42150c3d8ff87ea14fe22553d95dfc9c03e7629f43f53c5aa0a03a4254da",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/golden/edition2023_transform/test_messages_proto3.proto",
+      "sha256": "252415ff6a21bda6120bf9c6e0861633f7cac99fdff0bdffa19e8b79ea14a2e1",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/golden/edition2024_transform/edition2023.proto",
+      "sha256": "da1d244bb09d997c9501fe79ba1eeb1f1c863c272a6a5e7fcf15f9d8ca1be8dc",
+      "status": "generated",
+      "java_files": 4
+    },
+    {
+      "proto": "editions/golden/edition2024_transform/noop.proto",
+      "sha256": "eced4f669ffc3c30b6887e2137425adb0ae6d5938815da139fee88a6fd2830df",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "editions/golden/edition2024_transform/proto2.proto",
+      "sha256": "8530de8967a5bcbb2e6845f3a4e20fc83594668ea3e2ac328098f558f2526ca6",
+      "status": "rejected",
+      "java_files": 0
+    },
+    {
+      "proto": "editions/golden/edition2024_transform/proto3.proto",
+      "sha256": "21036654d649d85a36f2ecf0ab0e6ef34fe3aa527d2d6e056a7a74efed2e1f12",
+      "status": "rejected",
+      "java_files": 0
+    },
+    {
+      "proto": "editions/golden/edition2024_transform/test_messages_proto2.proto",
+      "sha256": "450805b2f7036a7d2e543f51c7092e1f4cda74cd088ffc039d3ccd3e79410bc2",
+      "status": "rejected",
+      "java_files": 0
+    },
+    {
+      "proto": "editions/golden/edition2024_transform/test_messages_proto3.proto",
+      "sha256": "2a1265770fa7ee60b31d32dd1de0cb3be84ac3f41cdce900cc683388f6d211fe",
+      "status": "rejected",
+      "java_files": 0
+    },
+    {
+      "proto": "editions/golden/simple_proto2.proto",
+      "sha256": "70fa503d34c821dd5f1a608c63e9874559c1accda523a0a028761c522d7cf0c7",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/golden/simple_proto2_import.proto",
+      "sha256": "2aa822af53784f1e0f85234748d7fb943aec76e0f38b1a89c37f5d1ed08c8ca9",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/golden/simple_proto3.proto",
+      "sha256": "dba261d1520a4d6c2c22e5dd642c9e1a43c73d1d9ff669aec4b6984dbddd6e18",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/golden/test_messages_proto2_editions.proto",
+      "sha256": "2c8dae300244d326137540444de1dd4396d01ba7100e1b1373307b4f2c0a81bf",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/golden/test_messages_proto3_editions.proto",
+      "sha256": "0912f5655c66f8db2b31b717924749970375c5e7a55dc0e48e61732f0a51715d",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/input/edition2023_transform/noop.proto",
+      "sha256": "ba430dc90e8b75bf744e9979f69234b6e66efb242bf8d82106c0d27a6a8086e9",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/input/edition2023_transform/proto2.proto",
+      "sha256": "cd3e0ed797c46eb5f564f6a404e60b26bc99f3ee23c04b0c62e36488231bbd60",
+      "status": "rejected",
+      "java_files": 0
+    },
+    {
+      "proto": "editions/input/edition2023_transform/proto2_lite.proto",
+      "sha256": "95d9c9b13125ee0268f32217c3fc1b596da1a2473e5a0a81287c40677c19a52c",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/input/edition2023_transform/proto2_utf8_disabled.proto",
+      "sha256": "c4df744ed8ee71d4fae3427091dd8d8c439d681e24d28886de1bc8dd98e48d39",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/input/edition2023_transform/proto3.proto",
+      "sha256": "b362e464748ccd0eb3ee354266688860e8e2d9d2af7c11bd8a65ab2cca61415a",
+      "status": "rejected",
+      "java_files": 0
+    },
+    {
+      "proto": "editions/input/edition2023_transform/proto3_utf8_disabled.proto",
+      "sha256": "cb68a3cf3d195566d48cf0cc1a70fd58d06819d1cc2af575f722ee41c8256666",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "editions/input/edition2024_transform/edition2023.proto",
+      "sha256": "01c2c7d3324e3e490aaededca8af26573b6d2b9b58d77c75359f402b9266cfd1",
+      "status": "generated",
+      "java_files": 4
+    },
+    {
+      "proto": "editions/input/edition2024_transform/noop.proto",
+      "sha256": "c360bd04468ada59ff59055f10c0e88668c916468127296893cf70f5cf8d8a96",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "editions/input/test_editions_2024_default_features.proto",
+      "sha256": "adf232fd8b70ef4d72f58a434ecc2722af1c6a8234f92b5b5edeb962a444e25c",
+      "status": "generated",
+      "java_files": 4
+    },
+    {
+      "proto": "editions/input/test_editions_2026_default_features.proto",
+      "sha256": "5e19ed9cfdb504236e4cbcf63d83c4b9785e478df4d3d38d9d0ecf121e7b6a20",
+      "status": "generated",
+      "java_files": 4
+    },
+    {
+      "proto": "editions/input/test_editions_default_features.proto",
+      "sha256": "ac3d7d3a1c8964cecbbccf5ee7ec4806d569699d7081c2f3c4404236de2a4891",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "examples/addressbook.proto",
+      "sha256": "bb2510a7531bb5bd9c241b333b298b3870eacef1d3e95f963f42d5aca46bcc42",
+      "status": "generated",
+      "java_files": 5
+    },
+    {
+      "proto": "examples/examples_with_hyphen/empty.proto",
+      "sha256": "9f1ca6a5fbe1a4d1447b064480bce0442ee88c97e3045192d6d2da628050dbde",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "generated-java-review/inputs/generated_code_size_test.proto",
+      "sha256": "80054556a9b3feeabafbc84cc8cd6ae81b8b3aff48b6319aebffd9f791906b7a",
+      "status": "generated",
+      "java_files": 9
+    },
+    {
+      "proto": "go/google/protobuf/go_features.proto",
+      "sha256": "bf4db7d7b0d40b612c985fcd2378c78ee49fd1c88cc76821cc4a65dbdc229f5f",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "hpb_generator/tests/basic_test_editions.proto",
+      "sha256": "e6f4b304a19044ca5def8aa3b77c563f872d0090b8bb2a16e91f74c1b010e975",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "hpb_generator/tests/child_model.proto",
+      "sha256": "3ac04c980bd449fd4000e0dd98597c781f4177dafbd7fe566904839d47ece61c",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "hpb_generator/tests/legacy-name.proto",
+      "sha256": "18f080721139a64e9bc432dd94478e17c1b11ef7360347b7dd8c7e02babc3d54",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "hpb_generator/tests/naming_conflict.proto",
+      "sha256": "6db83a5fab89fc3dad8772f3daccaccfd96ff19f94be32c26149bcdf738de245",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "hpb_generator/tests/no_package.proto",
+      "sha256": "371a3b8fbc7f66338b1ff05acd076cf5bac7a90ae2daf431a7ce0ed3fb9cee11",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "hpb_generator/tests/no_package_enum_user.proto",
+      "sha256": "3d36b127a85d9648513918ebd6fdf9ab1d1c947aec33ef16df6cc2af9ee22f75",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "hpb_generator/tests/null_enum.proto",
+      "sha256": "99385db7c6a74be31811033850e6f47dc3dd5fb6d82be263514e2ae80370ebfb",
+      "status": "generated",
+      "java_files": 6
+    },
+    {
+      "proto": "hpb_generator/tests/set_alias.proto",
+      "sha256": "b3b5cbdc4014c3ae00ebad9455aa1552395a2b4e935902aa50f19899e6d731a8",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "hpb_generator/tests/test_enum.proto",
+      "sha256": "dc0cef56a2a66988d9c0c6246b5ac61c307c42d247cb80cd11d1f1aea30dbdda",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "hpb_generator/tests/test_extension.proto",
+      "sha256": "2a2093354160f1e1daa118af546e07d8726282aed307df4720fc5875b9f1cbb4",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "hpb_generator/tests/test_model.proto",
+      "sha256": "4a5025c527fae256d9a13de4fd27dce013c1098f3e2483e561ee0ffeabb68b4f",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/main/resources/google/protobuf/java_features.proto",
+      "sha256": "ac0253f236f9392a9c71c1b21297bc7ca892496ed550b12c93d0a4ae8e4120df",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/main/resources/google/protobuf/java_mutable_features.proto",
+      "sha256": "f3c1386ea09a16b9ad6f5e0d1d9c06d2338aa5eb5f878b0e57920e0c3b45eb07",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/any_test.proto",
+      "sha256": "60b9f3745f372637343167a843441615833a88a7ba6f366bce12125ea9e1f5d9",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/cached_field_size_test.proto",
+      "sha256": "056c5b1da8a8320b3cee6ecfe5bd7ae3dc40664a8cbe6fa9ebaffb62da5f333d",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/cold_initialization_test.proto",
+      "sha256": "fe4943363600ba92ffae239c58ed9b6b6c9e121cdea7488de0383849e0614fca",
+      "status": "generated",
+      "java_files": 5
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/deprecated_file.proto",
+      "sha256": "1331ca4770f226efe3ecf84729a8121847c9e18c176681bbe0dd7ec6cab82370",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/dynamic_message_test.proto",
+      "sha256": "37519b46337ed6f6c2f17ddc337e06fa213e0b6b455f7bcba1554852ae44d229",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/field_name_clashes.proto",
+      "sha256": "4bf0f7507ff24933e698b9019f66fe7b3e9d06799de99c9d540ae0d71e1402d4",
+      "status": "generated",
+      "java_files": 5
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/field_presence_test.proto",
+      "sha256": "771ca5126a0351493ce7e4b5f3bfea5322143b9b638185c60f83ef6ca873365a",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/generator_names_conflicting_enum.proto",
+      "sha256": "ec2e1911986aedbbc9de3fcbf759341dc9a439856ca4c803cdecaffe1c5d4ba9",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/generator_names_conflicting_message.proto",
+      "sha256": "18681cc663358b9015316eefd109d64435e72109757531f32ae25dbdf8350c1b",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/generator_names_conflicting_nested_enum.proto",
+      "sha256": "6639d65d241497a8976a56b3b0da8ea7939f3305861ddc920d0ff78048d151b9",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/generator_names_conflicting_nested_message.proto",
+      "sha256": "5989e99fa984d86db8d09d8af002ccc6f91750e162b3222820edcda6b232daeb",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/generator_names_conflicting_service.proto",
+      "sha256": "b1e50510f684bb715b521ad373be3855ed260a5a23d44d583e3b102d67ed7dd4",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/generator_names_edition2024_defaults.proto",
+      "sha256": "c86b0684d6a727f0360ff8e189479defee724a0ec929206dd8a561e5801a9aa3",
+      "status": "generated",
+      "java_files": 5
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/generator_names_generic_services.proto",
+      "sha256": "036f827afa62242ce35642d847c1300654052678f9845eb03309724ca7c9dcde",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/generator_names_multiple_files_proto2.proto",
+      "sha256": "404bd83ff686be98bb6a88ff45050a2d29dbdc7d13285e6a0f2d164432fe3b1d",
+      "status": "generated",
+      "java_files": 5
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/generator_names_multiple_files_proto3.proto",
+      "sha256": "ccd0f39ed86c9b298879d2259d289deb9e51a245d2d665176fae1273ba1616b5",
+      "status": "generated",
+      "java_files": 5
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/generator_names_nest_in_file_class.proto",
+      "sha256": "b11d40921dd438548b9c58565d8ebb5e0ba05ebc206106d273b1b4692a7f1757",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/generator_names_outer_classname.proto",
+      "sha256": "2fa47f2904212f51b6586ca466b36658fe07166ed06332d317f4905997af6a8d",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/generator_names_pre2024_defaults.proto",
+      "sha256": "509f772272abf0547964d8b0326a562a11b5293a72868533ce2a6df67483bb35",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/large_open_aliasing_enum.proto",
+      "sha256": "8f5b29c499bc4796f242acebadf5fecb4fceacec82ab3edfe5e1ad9e5f2722ff",
+      "status": "generated",
+      "java_files": 4
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/large_open_enum.proto",
+      "sha256": "5b5aaba6dbca86c77cfc88b178153f22aaa84bc9526099c7fa8e5f8ca2e6be5c",
+      "status": "generated",
+      "java_files": 2
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/large_open_enum_conflicts.proto",
+      "sha256": "94906b07fa2ecf3d1070bca09e484ba8512039bd57a68b7ca08417da4f722257",
+      "status": "generated",
+      "java_files": 5
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/lazy_fields_lite.proto",
+      "sha256": "134bf61ed8d5013bf42a8c43bc658d0704992550af9a925e823e5ca05fd5cb66",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/lite_equals_and_hash.proto",
+      "sha256": "980c2127a6ba163a03880f7b4d52cdb1a27e1bf3213b91c20430b08bc414d3be",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/map_for_proto2_lite_test.proto",
+      "sha256": "0e3c0fca4ac7675aa554cb2d7dc209d4e9fbece80e59f8392a4200fab28d982a",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/map_for_proto2_test.proto",
+      "sha256": "d71ffc215dcdf9bdba0bb844a9ac1b39e849da6bf327c2dd369682963ffd8e54",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/map_initialization_order_test.proto",
+      "sha256": "a39b7b0bea31ffaf22ac8191d6c5ee84230d9b4918cd817b4d98b283b7d8f989",
+      "status": "generated",
+      "java_files": 5
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/map_lite_test.proto",
+      "sha256": "49b1b8d8add8ef4a09aa3b618c80d987dc3b706c78647413a180cd6fed289740",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/map_test.proto",
+      "sha256": "55b3d688d7f974e4b29ba2ebeb71818cc593b61015b17215b8e57de4b5377c8b",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/merge_from_split_test.proto",
+      "sha256": "b19d6d5220686212ddfe5c7b4e389d8339c5ce2c69d4a7a5fe4995bb32676f06",
+      "status": "generated",
+      "java_files": 15
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/multiple_files_test.proto",
+      "sha256": "28fbadb976de3e0aa0cda0ca5c56b79a47b5ab321efdfa8db0ec0b00ab4eeea3",
+      "status": "generated",
+      "java_files": 5
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/nested_builders_test.proto",
+      "sha256": "a450a40ae967b1d09c8ec6384f0cb6feb898884cbcfc69aa9c4eb7fb1fa8851c",
+      "status": "generated",
+      "java_files": 9
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/nested_extension.proto",
+      "sha256": "511651ad8f635c4a1b70d058c42863aaa7cdadeb27e7dc8aa72fc39c98066c8f",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/nested_extension_lite.proto",
+      "sha256": "3f5f8a9bd1900ba727943bc8562e55bbe016e9afb0505569dd063d8818471f6e",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/non_nested_extension.proto",
+      "sha256": "41f62e9a647670719ddcbef8d34b3e2e16c9e663fbd5ad580a71582097fac03d",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/non_nested_extension_lite.proto",
+      "sha256": "ebf1cc67ee6598bb12349779daa817b23771be49a854cedab7740142f0016e89",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/outer_class_name_test.proto",
+      "sha256": "5932afb95df2adba90e559f7a228e5429cfc1315d8cf650886c2801d0f806849",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/outer_class_name_test2.proto",
+      "sha256": "922ea349fbedf0080ef377175ea1b7ce9a0eb5767392fb19dfda9a81b9433994",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/outer_class_name_test3.proto",
+      "sha256": "696c81eb1bb024deb59996d2371445cbeeda8bc8d9d4732a84f3a6a45ae4a7e9",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/packed_field_test.proto",
+      "sha256": "e8dd969832b3c1664542941bd6d18c43010346bb7c8cd25c239532f0e78e8db8",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/proto2_message.proto",
+      "sha256": "b13d24256746adb9d669383e9736dfd40cf867005e7b72359bca911a19e2a2e6",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/proto2_message_lite.proto",
+      "sha256": "371c8c05f245feaad36e15ea9860a758cdad77504910d0badb7cb2c141e63c11",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/proto2_text_format_performance_test.proto",
+      "sha256": "c1c24078b701cc11bb661156221f87217d09bb8201722d3d963fa2df8fec3aeb",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/proto2_unknown_enum_values.proto",
+      "sha256": "03e0d51183c19785b2970bab812f843f633d70ebc9c85ec682bdbdfee1d433bd",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/proto3_message.proto",
+      "sha256": "9a329ea68eee616ff133a4dc91d751a0d7e8600703e83d11a58555bdc183e623",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/proto3_message_lite.proto",
+      "sha256": "861cc9a451c4af4a9498f88aa1735f00a0bbf80ce9c2f8832c2e07fe4bb3d43d",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/proto3_text_format_performance_test.proto",
+      "sha256": "21de178a91d929e31a8f7c401bf1a641b030e5258e3951a7894eebea9b06e3b7",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/test_bad_identifiers.proto",
+      "sha256": "312f947f81245d4679daaca219cfa557aa96b386382678e99f250057b470e12e",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/test_check_utf8.proto",
+      "sha256": "797b7c735a822b831a3966130897d205bf4e18760e8f9445d3251db1c0da2c44",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/test_check_utf8_size.proto",
+      "sha256": "5d21d81c2f006964101b8d4884fdfbac71ccf88bc8bd015980c1eb4f5cd9dbb1",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/test_custom_options.proto",
+      "sha256": "7b1886941df124290aa9445f81eccf4d84f20d7f6f946824ad922b359a09b740",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/test_import_java_features.proto",
+      "sha256": "9b8e631111cee09575a76314a6028bc68f491b6cb5178fa5729e127b8ff19229",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/core/src/test/proto/com/google/protobuf/wrappers_test.proto",
+      "sha256": "7b9bf33c2d947439639822c93b936a8c45d60045b8c2075f57030576f5bf1aa9",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/kotlin/src/test/proto/com/google/protobuf/diamond/exporter.proto",
+      "sha256": "ba6dae26620cf7a802f3774fcbcd23276731f922aef30ffa07d709602a7a2763",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "java/kotlin/src/test/proto/com/google/protobuf/diamond/leaf.proto",
+      "sha256": "ca1ba1ef31d20b40532c8eec10d86c7e8b217744d62444f29b32b61532c280c1",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "java/kotlin/src/test/proto/com/google/protobuf/evil_names_proto2.proto",
+      "sha256": "1f0f6d788eff142450cf1b235bcc7bd2854c4e23742f011b31b134382c73999d",
+      "status": "generated",
+      "java_files": 9
+    },
+    {
+      "proto": "java/kotlin/src/test/proto/com/google/protobuf/evil_names_proto3.proto",
+      "sha256": "d1b8a67f84d75f2e7cee68155c82c5ac50817ecd49c486bf47677f655e9d1b93",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/kotlin/src/test/proto/com/google/protobuf/example_extensible_message.proto",
+      "sha256": "fee40f01f4b62aabbbc581893a960266dc29be354618c86076a3913aa69ac8e2",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "java/kotlin/src/test/proto/com/google/protobuf/multiple_files_proto3.proto",
+      "sha256": "19ae3701b4ca7d1e2399d76acfd589dff158534ea8f0b00c8641b1f803456fad",
+      "status": "generated",
+      "java_files": 6
+    },
+    {
+      "proto": "java/util/src/test/proto/com/google/protobuf/util/json_test.proto",
+      "sha256": "3a5f8f793cd1ebf393cdd128bc711d02dadb0ae79c69e81f82c7387fd1fc0251",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "java/util/src/test/proto/com/google/protobuf/util/json_test_custom_enum_string.proto",
+      "sha256": "c3576ae585e978b063833209362dfe9fb5070cfb0a8025e75a47bceb5afb2289",
+      "status": "generated",
+      "java_files": 5
+    },
+    {
+      "proto": "java/util/src/test/proto/com/google/protobuf/util/json_test_proto2.proto",
+      "sha256": "b331e4f6523a61b4c471377700723cbee55b12a0c7f20c6a0ee00b5d7f45a308",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "lua/test.proto",
+      "sha256": "174af8e6eeea43afdbebfc140e84c7d413ddc0d6bfc96375d45526b4cfca379d",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/any_test.proto",
+      "sha256": "220adaa6048d843bb5c20cc6770b6e93f1df6afff0319d174cad67e9e1267bcd",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/map_proto2_unittest.proto",
+      "sha256": "430f8841b709a43f3a483ea73d379a5852081f01b3a33ae66b1384838bb06fb0",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/map_unittest.proto",
+      "sha256": "ff8c351ff5464d0497b3e53e5f49fa7bb190cb2e8ee36cc8f77f7c26fee75ca2",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest.proto",
+      "sha256": "e2923d6217ed64f73215f33dbabb97fe95bb690ecdeaa0476de7ace359d892ec",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_cycle.proto",
+      "sha256": "bc0cd7c30598f4c326c75a90b949a58ed4add957cc7af13c7ef08d5572614b8b",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_deprecated.proto",
+      "sha256": "691f7594170a416b2401f7b1863061e7c2da8d710e8d642a42874f16eeb27185",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_deprecated_file.proto",
+      "sha256": "87c6a5fad6f02f12aa3dac019e18ec9c9b00240eda005e5640a328cd66994236",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_extension_chain_a.proto",
+      "sha256": "c3354c6cb59ec3765e16ef0e6d5cbd851322abb48e6f0b383de45c5e72f39f19",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_extension_chain_b.proto",
+      "sha256": "434e61a3e45d768662b5f24afed681dc26a1a4e6ca150d2dfe083d8caf0176fa",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_extension_chain_c.proto",
+      "sha256": "e2eb44fc2b3bbf91a324dbf44462656d983160dcc666a10ba2967de1d59455e7",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_extension_chain_d.proto",
+      "sha256": "0eb7bb664cc56632221e1bd3f46a5f8adf5d0d78794517a5b89351250043a1fe",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_extension_chain_e.proto",
+      "sha256": "37cd867dd8007cf644bbfb452de8ec90bea88c51a2809ed824f4f25e08c2330b",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_extension_chain_f.proto",
+      "sha256": "79a81100396d188cbd7832f19d46290a67375a083cdd8c141bed9465b88699e4",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_extension_chain_g.proto",
+      "sha256": "fd3985cb57d0c9bdbd6f029559bd39eda90563ea308a4f46d61e832664f8d599",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_import.proto",
+      "sha256": "0b1179bd40424b710dc088486eba719c200954821b8d1ceaa61ef5047fa06e5f",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_import_public.proto",
+      "sha256": "a307f65248e63b933e300abb89aa60f6076e68a3a3aa39679e1c5531150c271d",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_mset.proto",
+      "sha256": "83cbd751e41d730527048b6485cfb735f7cc9972ce0cc60639509ac2d33446ad",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_objc.proto",
+      "sha256": "9cb42c3221b0b0ffacd4110d8d3b1086ca14158b146f853a65519cac379d1643",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_objc_options.proto",
+      "sha256": "635443f3bf2e759ea50e388f3869fa74a6eaf2a84569c457dbeb8e1c29b480c6",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_objc_startup.proto",
+      "sha256": "54fade752bf4e1968a5e23fb0e6e115fad8c1e62559f50bf6afdfddc77819372",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_preserve_unknown_enum.proto",
+      "sha256": "3ebc285ce833af9861bb83a26af6a98648899b2df0341f057e324f9c33e17aa8",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_runtime_proto2.proto",
+      "sha256": "8672006f1c4a0a89b95053cee0a1ea0d642d2b647d83da977f1d3aa6e8407203",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "objectivec/Tests/unittest_runtime_proto3.proto",
+      "sha256": "f6cc5b8621e2d1743e669c99b849632feb1dc9809a1f1ad3760fd2589d0fb41e",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/empty/echo.proto",
+      "sha256": "30da69f7eda339717ffca40c376a3f15bc6d8e23e69ac4965d2158bd8169f748",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/test.proto",
+      "sha256": "0aa59ca815d447743e6baebee4c05760c8182d64af0eafe32c180404428fbe83",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/test_custom_enum_json.proto",
+      "sha256": "b7163ba3dc6e9b8873a399d749159bda48182ac7777ea6c906e05d3a4a45fd42",
+      "status": "generated",
+      "java_files": 4
+    },
+    {
+      "proto": "php/tests/proto/test_default_value.proto",
+      "sha256": "08adb3945d02e0c10e549a433023517b8907a7bfedfc5cd035e3f37478e7b708",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/test_descriptors.proto",
+      "sha256": "62310a28152f2f9fff19fcae9481f247d23ef3e991c0d39291bdc315bcbe6ea3",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/test_empty_php_namespace.proto",
+      "sha256": "b7122c144aa3027073595c436543841beb4f7ec3394498ae1628a642677ffd5f",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/test_import_descriptor_proto.proto",
+      "sha256": "185fa8d6e02a5f3e53625fb7d08a6c6d3db2bd2ed77463585d8a30e5b44e5a2f",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/test_include.proto",
+      "sha256": "95291c9bd9f3fba976e916fd5ae76c467a6ea2ce0d7f425be03d8e2df2fca524",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/test_no_namespace.proto",
+      "sha256": "1ec96ef69b2571734226a9da7c61e739d6f9617909e2806e2abc2727bef0af6d",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/test_php_namespace.proto",
+      "sha256": "3b1d836f3491480028be3d026f815a2b3797ad9430c14196795ee5ef5a1eccd6",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/test_prefix.proto",
+      "sha256": "92846cf6b43389493a2582f09f77144acf22198b69b31a614ad1c6f77c1fb87d",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/test_reserved_enum_lower.proto",
+      "sha256": "ab734d52c10a6cc5bb30fd161524ebbaaa0201b77260116586e2f5650cc4a683",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/test_reserved_enum_upper.proto",
+      "sha256": "19c44246c9be68dcb195777d74a48c42c7b27c2a01027c0fcab1a980088f7c5b",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/test_reserved_enum_value_lower.proto",
+      "sha256": "98f01da332f3815e21b9c0eb00f08e4653eeff723fa0d8af817fd8f5475a6f68",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/test_reserved_enum_value_upper.proto",
+      "sha256": "2e8445c690718781bd2437235c848007a6dea4f37aaadf452ba94f54a254b9ce",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/test_reserved_message_lower.proto",
+      "sha256": "c8b55992f6d2202ebc95bc8697dfeb9c502af616d6da97944e6f01420dd65475",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/test_reserved_message_upper.proto",
+      "sha256": "0fed6f66d12e07e59da9d7fd2275c074c23a2c36b86a50c4498946ee50a8d8a5",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/test_special_characters.proto",
+      "sha256": "8b5d445618f74163d1672b4d86cc847f9fd4a4c056c594303e6c8b8529083240",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto/test_wrapper_type_setters.proto",
+      "sha256": "5e9b37a2a3b4be4e0b33855cecce15b9cd986db520471cfa6cbb536aa33d5d15",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "php/tests/proto_previous/test_previously_unreserved_message.proto",
+      "sha256": "6577ad354fa13704f3a8e4a9677a68a4d61dab678ae7a4fe363841b4bed3061b",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/descriptor_pool_test1.proto",
+      "sha256": "2df8fa2dd943a7206d0b8dd8e427f005c8d95495ac90e6ebfd394fd3e9ff03c0",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/descriptor_pool_test2.proto",
+      "sha256": "d551a3efb04239abbddb1e725b7a5a81bfe7610c78ea635c9cb23f646f407e1b",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/factory_test1.proto",
+      "sha256": "126d54d86571a1d79405c5475cbfc14a3dc61e2503053aefc3b3318393b5ed9e",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/factory_test2.proto",
+      "sha256": "179249fa5775ee150bf97d0ce736fe208fe778b41ddfd4c8a1b55fd10c7e65e9",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/file_options_test.proto",
+      "sha256": "fc66bbf3fc8ab9a4978c10e97c0d22c4862a7f2ff17337a0064247af117a2408",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/import_test_package/import_public.proto",
+      "sha256": "9057214a4500ddb4d7103413804e99dc5dfee38b766064f74cf2f7827c8f0789",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/import_test_package/import_public_nested.proto",
+      "sha256": "8b9ddea709ecacd6f10ff1c6c6f5c16df854be4f8eb21b6aee961a8b195705d6",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/import_test_package/inner.proto",
+      "sha256": "67127301da53824ce5563c18642bd1cd25a00b21cba88a8cd5e8c6937fc4ab99",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/import_test_package/outer.proto",
+      "sha256": "fc258017f89783dbb18c7c34577dc5853fcc9d7901a28ee16796cc2515dcc46b",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/message_set_extensions.proto",
+      "sha256": "4ca474a5a31cb10d22cb3e69450158663462768bae04a5dc3586453ac2ab23e1",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/missing_enum_values.proto",
+      "sha256": "480f58e4f45125abfcb0f9767f24886a0cfd23d5f1deb0ee49586073db5c57c4",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/more_extensions.proto",
+      "sha256": "6a18df0cdaa1b50fe41acd305c956be92df607a4f0c7cacb747d6cf690453e11",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/more_extensions_dynamic.proto",
+      "sha256": "7c8a5654b9aa0f25ada1a8317b13af538e15c22ff4c0e33bb9d1bac50bd9572e",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/more_messages.proto",
+      "sha256": "83e2a9e4f0434aabbf4c3990e7903cc9b309ebe6b69897047a492869df0fff97",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/no_package.proto",
+      "sha256": "60faac6ebb47a0a7697a24cdc48070f54e3ff18093cc82b1d24c3270c417118e",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/packed_field_test.proto",
+      "sha256": "9957f3342aee84d102fa7bf134d8d5f1956ccc628c0e050e85d7f6b46fb62c46",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/self_recursive.proto",
+      "sha256": "b88e2688af6ce55a9565534fbc745e671b850d6ce3c4230f01a44a9374c08ade",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/self_recursive_from_py.proto",
+      "sha256": "a20eae4be66a660a2679fdd797739a9f04cc89f69cdc47da3f5a304001cb2f05",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/test_bad_identifiers.proto",
+      "sha256": "0c8edf51e7be788b9dba018a1effb714eccd62cc0b1dc3a706513e5301cbc3ed",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/test_proto2.proto",
+      "sha256": "60af906c5b9adfa01d8693fec948daa955f9118f8d86da2b6871978dd4562a77",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/test_proto3_optional.proto",
+      "sha256": "f45e14716c423713ed8492243a82842f68e09dc34dcda651d3a3cfc90bae7f5c",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/internal/well_known_types_test.proto",
+      "sha256": "17ef34b65c956eab6b94abc379fad5ccc9b0132e06296ce83936d41f663b37d8",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "python/google/protobuf/pyext/python.proto",
+      "sha256": "bc59204e3384bb625943d420bcd5564e1f7d4b2437a6f633508e39f41a7ba205",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "ruby/tests/basic_test.proto",
+      "sha256": "4941ac97dcf3216667f0323bfb7798c91f65797a88542bdfb9ea227f74f37477",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "ruby/tests/basic_test_features.proto",
+      "sha256": "0838056fa70b32a6b65a14120ebf2e45f38b6ca32204929668df3ea86a63a6e7",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "ruby/tests/basic_test_proto2.proto",
+      "sha256": "15193b86aec8afd3edc7e92e543870eeddf609fe01e64cf533d33257ea6c4f09",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "ruby/tests/generated_code.proto",
+      "sha256": "0c19cbbc27c95c779a4579acee09d51c9d04795ad463885d51bc9048fc08007d",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "ruby/tests/generated_code_editions.proto",
+      "sha256": "059d250d0fc56fb007ddd85598b0600f6d6e26731bd8a0c3629524a9698ec923",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "ruby/tests/generated_code_proto2.proto",
+      "sha256": "f62492aaaf7c0bc626706a3e4e8539f1c0c0cc38aa76b452fc38f392fe42ef05",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "ruby/tests/multi_level_nesting_test.proto",
+      "sha256": "de64e0ed805899c22218df7395bf9557d9d9694f58b9551a1dc2fec3680022f3",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "ruby/tests/repeated_field_test.proto",
+      "sha256": "5fef6607c96cd20fde2cdc3992936a797743defb86dd086d23fee946e9a06a91",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "ruby/tests/service_test.proto",
+      "sha256": "15f2ef527a2d15bca7a740089e89ccbcae3c0d21eba4d72e9cbf1f83a592f0cd",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "ruby/tests/stress.proto",
+      "sha256": "2a6b3c5c782ec2bb69634628231aa88a5e18670a0cc2837fff10f3000e9d22a7",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "ruby/tests/test_import.proto",
+      "sha256": "acc0add56c0ee91c1b3ce6fb2ca1561859c5e221933f08ca1914a688d734718c",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "ruby/tests/test_import_proto2.proto",
+      "sha256": "7846fe57476c0663e4f2986744d2fbbedfba713320ac8ddc6227d6d66abc28f2",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "ruby/tests/test_ruby_package.proto",
+      "sha256": "b165b6b63b7278c8cd4d69834aa7dd429ccaaff72b2f6a8f322bddc18ced2e2c",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "ruby/tests/test_ruby_package_proto2.proto",
+      "sha256": "75ac75b4ab0a85ba5ba7806c6f67b25b81a4f6bed110d5cf820056be3eed5899",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "ruby/tests/utf8.proto",
+      "sha256": "4fc27bd24d963271a50520f619ab3078379bf85f4b9865237f0501f8cca4d517",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/release_crates/google_protobuf_example/proto/proto_example/bar/bar.proto",
+      "sha256": "bf761a9930cc363b73295761da36806e1d2dbaa021f3db7511980085d3ed5797",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/release_crates/google_protobuf_example/proto/proto_example/foo.proto",
+      "sha256": "49b0c59d487a1d9761c52f77e2d16c34857fa1f88118ccbc5cb96c7e40f64d9a",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/release_crates/protobuf_example/proto/proto_example/bar/bar.proto",
+      "sha256": "bf761a9930cc363b73295761da36806e1d2dbaa021f3db7511980085d3ed5797",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/release_crates/protobuf_example/proto/proto_example/foo.proto",
+      "sha256": "49b0c59d487a1d9761c52f77e2d16c34857fa1f88118ccbc5cb96c7e40f64d9a",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/bad_names.proto",
+      "sha256": "38cedfc9cc32d058cbe1945f760c5dc2262f51a57919849bcd0bc5a075d2c047",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/child.proto",
+      "sha256": "e18c568f535834eac6e7897e31544b2002c298d5777fa48d2a7df186a44adb92",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/cpp/debug.proto",
+      "sha256": "078e6fd10bf9b110efea62ce15216b377c9648374def0d2c7ac66c8e41a1e544",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/cpp/interop/interop_test.proto",
+      "sha256": "5b5a344e66a7a9048ce62d9ae256ef9b83ef2e9be7e747c55d9c36895a3bcc0c",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/cpp/optimize_for_lite.proto",
+      "sha256": "97176540fd49b8df992af077cca5fefb245ede771c5899dfb7926325d20bf123",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "rust/test/dots_in_package.proto",
+      "sha256": "a01058d9254d2a518a42bdc09a3f243ab1337eb2d35a3df715157ee9a1b71d9e",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/edition2023.proto",
+      "sha256": "c75dc890e6b82fcf91086b16ab8f43009735299dde822acb09a010e9b64261b3",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/enums.proto",
+      "sha256": "1fe196869d9d820bf5f8e69c78f207e429584e3bf3cfcf7d949d633cedff21ad",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/extensions.proto",
+      "sha256": "8891e085f62a397348f96c504a1c829df2217eb57aba0805a747ceefd26c9c55",
+      "status": "generated",
+      "java_files": 7
+    },
+    {
+      "proto": "rust/test/extensions_separate_file.proto",
+      "sha256": "e92dc3d78b6dc495a55e07f480231e8aab4ce2c3f07990494dab90bcf284e8e5",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "rust/test/extensions_separate_file2.proto",
+      "sha256": "3034a4505975913a22918a2b93441c12a2d1f85e4785942ccfab97bdc61cb830",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/fields_with_imported_types.proto",
+      "sha256": "c43be54f445a2509e2ddc5271213dfbbf3573da21fff63fd56d4e39b3716b9d6",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/import_public.proto",
+      "sha256": "f2856a012363313da45520f16a7883ac790b7e166fd6c7fc0dbe3f99e2573887",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/import_public2.proto",
+      "sha256": "135c6b8f722269327a530f0b6960186b175d8d6cba4848b1673b0b423ff70795",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/import_public_grandparent.proto",
+      "sha256": "09c5f0f155d6c72d6db7752cb85b5894a42231e89fbc604b60b2d991155bde6f",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/import_public_non_primary_src1.proto",
+      "sha256": "a41a0eb163071b2db297a4f6cd92ec2ddffce17071163165c0c8a3797dba75af",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/import_public_non_primary_src2.proto",
+      "sha256": "10cd1a980a8daa9d301ae12348a691c99c609a60582685fb387139cebd09cf11",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/import_public_primary_src.proto",
+      "sha256": "c8bc07ae63d5bcecda2cd3f16ab856ec6df7d163d0bde7bef2cb5f2cdd4fcdf2",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/imported_types.proto",
+      "sha256": "08fdc3aee451b78f3ac78049307f642217e217d96bc02f8ba4120ef16ad30896",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/map_unittest.proto",
+      "sha256": "3de1d1ef5ba54330ecdc448a96f74216c1e4f7167d53fafbecc4fe9df5f3c0b3",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/more_test_protos/bad_names.proto",
+      "sha256": "a6b67a07674212703f313e6f9daa011be88078dfe9809a6ce0a85562c23a3650",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/nested.proto",
+      "sha256": "e44477d75de069a6c3d3f47ff35c6d9a028b97bbecdb17865f1629afdd703bd9",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/no_package.proto",
+      "sha256": "e1b9bd1f99f1d66a7258f799106c7dce50109d4b19636372d425fa2f0fd484fc",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/no_package_import.proto",
+      "sha256": "b4d9bc880e6d32f0679a56a83f001501dc40a27f268971a947eb5fb5d4cd9fa8",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/no_package_other.proto",
+      "sha256": "4337b9274ae99fb489ddf510f07c22529117494ca777ca009a10636fa6c4db15",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/p/child.proto",
+      "sha256": "d030cc87a2c0a2a169c00a11a8789b9907248049b0ff9e970f926f3682da8ae8",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "rust/test/p/grandchild.proto",
+      "sha256": "421992d575de4cc7d315e0a3e57a2a179f885bab72d0dcedf729057732114301",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "rust/test/p/parent.proto",
+      "sha256": "5ebb1edf203011c16da9b238b20d46fc76c0f729ee0481925f7e1d2c5950d4c6",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "rust/test/package.proto",
+      "sha256": "6448bd27ce951f49b4616d65fea81816ee070f102ad32910e361d8498d2a9949",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/package_disabiguation1.proto",
+      "sha256": "6c06fe78924f1faadcc874b4d9d8971d29d568227df5a446c9a76670fe496956",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/package_disabiguation2.proto",
+      "sha256": "5d3ca263a30219d2a70c647b9b242bbcf8762be3888fa7198329b6bf8d90f608",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/package_import.proto",
+      "sha256": "a787ce392ac57f7aee72e696c78c09c55a0d6ab029d93f3a1634c209ddbf751e",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/package_other.proto",
+      "sha256": "ceb14faaecc0bc2aa1dd2b96f498d61a2012034797c23b5ef41851d34cd39ba1",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/package_other_different.proto",
+      "sha256": "c2b4b5591023be5b3f0628f25904486dcaa991611a677a1f1d8a0065733a2f61",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/parent.proto",
+      "sha256": "2f877b979b8372a4471c3aacf9d593565f1eb6b639c4e6c976742277c65dc783",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/q/child.proto",
+      "sha256": "f06ef4028f8a2f8ef3f2f7ed6fd5d8e7ade4d5ab18beb4b480ebe1dd74a9570d",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "rust/test/q/grandchild.proto",
+      "sha256": "dd8218c8b301ec5d9c9b4a476c332ad25bddb9dd25b6d049e3e957a49a42d8ec",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "rust/test/q/parent.proto",
+      "sha256": "52b70a648f2cc0642559d1186d663e58b31ed427153c85662da1571ed399fa09",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "rust/test/rust_proto_library_unit_test/a.proto",
+      "sha256": "5f82057485859d3691e880f55fc865792f8aad7661777bf0ed83fb79d7cebbfa",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/rust_proto_library_unit_test/b.proto",
+      "sha256": "3a71e921e84e8fd1e36db63d502939c6c0e143ce921c339cc171f8d61951cfa9",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/rust_proto_library_unit_test/c.proto",
+      "sha256": "de3a58e9b7c79dc2f29d7c57997f724801fa0e090f6e6162106fb5974796a69c",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/rust_proto_library_unit_test/child.proto",
+      "sha256": "1871f03b0d8cee54d10c6f3ddc062917fe78270b0d5396a3a3eeaa3814bed1bd",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/rust_proto_library_unit_test/d.proto",
+      "sha256": "89d79e47589803a83e1d33fc076e8c7600c8fdf356300ba23d2eef682e71c874",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/rust_proto_library_unit_test/e.proto",
+      "sha256": "1146432c662471a281910933e6d5d8785f22dbf3037ab6b200b9b11f43ccdfe8",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/rust_proto_library_unit_test/grandparent1.proto",
+      "sha256": "1871f03b0d8cee54d10c6f3ddc062917fe78270b0d5396a3a3eeaa3814bed1bd",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/rust_proto_library_unit_test/grandparent2.proto",
+      "sha256": "1871f03b0d8cee54d10c6f3ddc062917fe78270b0d5396a3a3eeaa3814bed1bd",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/rust_proto_library_unit_test/parent.proto",
+      "sha256": "1871f03b0d8cee54d10c6f3ddc062917fe78270b0d5396a3a3eeaa3814bed1bd",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/rust_proto_library_unit_test/parent2.proto",
+      "sha256": "1871f03b0d8cee54d10c6f3ddc062917fe78270b0d5396a3a3eeaa3814bed1bd",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/rust_proto_library_unit_test/some_proto.proto",
+      "sha256": "45e9a674b30657ec183a12465e624ede2bcadaee45a5b7a2986a1b05690f0b84",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/same_name_direct_deps.proto",
+      "sha256": "457c75b904ebff9a73808bb0d6f4f4fcaef34694fe57d2265b9c7709dd8fa577",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "rust/test/same_name_double_alias_exported_deps.proto",
+      "sha256": "e4511f0b51c43039145cd76f6bd806f34c6949a36d27027b6102905329666ac4",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "rust/test/same_name_exported_deps.proto",
+      "sha256": "c030fa9256c31ed5f05e67af9ba92110ed7bf07b14c577e548ea3f1f93feb0fc",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "rust/test/shared/utf8/feature_verify.proto",
+      "sha256": "092a5862801c44715c6f19423f2b17fc156bdd7bd3e40037626cfb8322c6190c",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/shared/utf8/no_features_proto2.proto",
+      "sha256": "395188a1f1867c9e3211731a9c50a3f8ce71649464b5876c265cb5872e57daae",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/shared/utf8/no_features_proto3.proto",
+      "sha256": "890b12b560b3b2eaadf1e4c08889c394e545d98284f6501e7f6457ba3d21c838",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/srcsless_library_test_child.proto",
+      "sha256": "612957b96d2b50bf36dfa6e41fefd60e159984c56610cf956de87e2208606858",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "rust/test/srcsless_library_test_parent.proto",
+      "sha256": "9dad084f82af3c757c30b010cb533ce9ee59a74629577a4c2ee10fb608fe7008",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "rust/test/treeshaking/base/treeshaking.proto",
+      "sha256": "80afccf473969b8dd9de58777e80dc540acf19b64368c7cc06f080d1d6959e01",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/treeshaking/test/treeshaking.proto",
+      "sha256": "ce63a3319390cd2925baf2cceae7b3523e9113f9af2e9e80bf8d2e55c1cf1b8d",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/unittest.proto",
+      "sha256": "82b9991e6e275097cd1766b95cc04ad257de3dcd645870c24d4ac05adb2de28d",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/unittest_import.proto",
+      "sha256": "ea90d298059efe3dc05d4eba385c044c0e86cd8e281aa3580d6742551ce62ffb",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/unittest_proto3.proto",
+      "sha256": "41b79e7accbe232cba01b4605344ae714faeae2675b41a5f097cb25ac9393d23",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "rust/test/unittest_proto3_optional.proto",
+      "sha256": "12402861e7ccf8227ad2f748ea288edc23dec7073a14372cd3930b9e34ea3a38",
+      "status": "generated",
+      "java_files": 5
+    },
+    {
+      "proto": "src/google/protobuf/any.proto",
+      "sha256": "7c99db101bc5baedcac9bcf0c5294010edf39a0b5e58d9c3d7f7d123b4dc4be6",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/any_test.proto",
+      "sha256": "2e15836d403368fcbb67350e0df42fedbea5c0ad295f033de65845d76013d61c",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/api.proto",
+      "sha256": "b53f073db2521b4886e6cb01b0bb20e2e7132b9a1de5ac023cc4bbae41a6cbc7",
+      "status": "generated",
+      "java_files": 7
+    },
+    {
+      "proto": "src/google/protobuf/bridge/message_set.proto",
+      "sha256": "4e5ee7c5e4120b6339c1e86e2c9d62d4e774c349416169f81499b4376477111f",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/compiler/cpp/cpp_file_options_test.proto",
+      "sha256": "4983bd59af111a97ddcaac926e84496bbce017bbe1e17419fc0f8af25fc94b83",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/compiler/cpp/test_bad_identifiers_editions.proto",
+      "sha256": "c30f48b2b9869d3a873a6b54c458461042dd2b61d454ae4d040adc6416c4aec6",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/compiler/cpp/test_bad_identifiers_proto2.proto",
+      "sha256": "97ff1118c4f11ff00b61206aee227b7b7502a6c7cfbd5ec8508506aec2998d4b",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/compiler/cpp/test_large_enum_value.proto",
+      "sha256": "b1229110133cdd91425dfb21d769bd1756c6a786a5ca0654cef748c6fb00e03a",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/compiler/cpp/tools/analyze_profile_proto_test.proto",
+      "sha256": "25c157745540d1f29b46d771365e27e48e3d7d86df40af682d94b4fe889a8adf",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/compiler/java/enum_unittest.proto",
+      "sha256": "9b47460e2f2f2c52ef04738e44b03b9e4588a774828af4151c237236ec5bf12c",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/compiler/java/message_serialization_unittest.proto",
+      "sha256": "dbd0f5b6a49fe9e5b49e5a4c7fde9b4c7e2f24b85dd087663b5998e52366644c",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/compiler/plugin.proto",
+      "sha256": "8f5ef6c36fad8e66e3347c0f8d8910dfb14239b8ccfd2a8d16dba8e775b57b7f",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/compiler/ruby/ruby_generated_code.proto",
+      "sha256": "72dd1ae5e54a17f9cd92c42714ab20d45c0fecf06322430371f28039c2f819ea",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/compiler/ruby/ruby_generated_code_proto2.proto",
+      "sha256": "3cf8ffcdf9500c48775ecdebc7097017cba78f3d9ec2aad3f487a8354b0b916f",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/compiler/ruby/ruby_generated_code_proto2_import.proto",
+      "sha256": "9feb2b65754e28f4b8d7c38fe5d36ecc5bf5833ec2d81864fd0ac3812218e8e3",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/compiler/ruby/ruby_generated_pkg_explicit.proto",
+      "sha256": "1dfbc2bb7bf96311908cd8c09988fc5657bc8cb37479a1774d4f132008522a01",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/compiler/ruby/ruby_generated_pkg_explicit_legacy.proto",
+      "sha256": "858c7113186ae9d22765b407363d05e21aa7e0777355c13f34ebdf21b4570106",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/compiler/ruby/ruby_generated_pkg_implicit.proto",
+      "sha256": "dce7f97381787d0af44e20c3fb3b1f647ce43ae39fd92b9b8e12e5170621fc0e",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/cpp_features.proto",
+      "sha256": "98b866a6533e4d7113ec037643db5a19707ee6953fa9b2655c0876c6f42bfb23",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/cpp_file_options.proto",
+      "sha256": "1bd55d7dc4d793dfded37b992f30dab75fdb9c754251164cbc7fc19a133bcacc",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/cpp_options.proto",
+      "sha256": "d6b102328016a57750abc911225592dd2cf06919cfeb6c1f6c1e56ef317a0305",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/descriptor.proto",
+      "sha256": "5768e01d4d45a70e0d9e44cfd42753e1312a0bf0deec599b657914f9d1bf6a1f",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/duration.proto",
+      "sha256": "05c45bd148da3884ffe749ec6a2a89676dcb905a8b78e29f54977edcd244cba9",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/edition_unittest.proto",
+      "sha256": "ac204cc7994f60333fac96f7b0b6f24b6b89aa716d5436c9d5a41ce6c1cd2df4",
+      "status": "generated",
+      "java_files": 224
+    },
+    {
+      "proto": "src/google/protobuf/empty.proto",
+      "sha256": "a1ac477e128392f797e41dd3768b4f3f1cf65dc0c5deae45e8c555200a913d04",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/field_mask.proto",
+      "sha256": "e6b94215ebe34bebca698ab5f51f42fce36b7c2d25213e6738a0560d62636488",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/internal_metadata_locator_test.proto",
+      "sha256": "4bedf1c01af2c7e4ba1fa40dc2f407830a9ae3930deb9b09c87d295153138d5d",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/internal_options.proto",
+      "sha256": "31c8232603ef63bac96cf0423668ccc87d45e1e92fca33de3da5913dbd74385c",
+      "status": "generated",
+      "java_files": 7
+    },
+    {
+      "proto": "src/google/protobuf/json/json_enumval_custom_string.proto",
+      "sha256": "7fde6cd1cc2722da81e9eb0b7161df106f049bcddf574ea338b55cb986b82e66",
+      "status": "generated",
+      "java_files": 4
+    },
+    {
+      "proto": "src/google/protobuf/json_enumvalue_options.proto",
+      "sha256": "b55cecf7f6e365600649a8e8ff4c0ed7359f249551e797b9d5a10e66f71a2121",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/json_options.proto",
+      "sha256": "9ad4c080a70bf4080ae6a3dc8244b0cf133d775a7f84915a9437b7fd9dcc4fff",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/late_loaded_option.proto",
+      "sha256": "f52eaa0c88107423eba5a73bc1bf6af25c00f0b1db630416469d5ba7495fc363",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/late_loaded_option_user.proto",
+      "sha256": "bfd5c678d44f33ad63e02179e5b569bd935402f7884b0a513533fb0f03712600",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/map_lite_unittest.proto",
+      "sha256": "33a964937777b492aa04e27b4283b3d4f4011f20f3ccf8d519140f66144f78a5",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/map_proto2_unittest.proto",
+      "sha256": "6ff45016267dd37728bbcf4c3fd19488b19ea90960aa0f06b4c336c7ba6a4ba0",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/map_proto3_unittest.proto",
+      "sha256": "4c94a623cb06053c414f82d4c66a1d3746e31706b00ecc369cea641012c968aa",
+      "status": "generated",
+      "java_files": 5
+    },
+    {
+      "proto": "src/google/protobuf/map_unittest.proto",
+      "sha256": "eb2572f4b497cef4d11b8f87c5d1c033902499cd42467cb303d5e0a0f9520007",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/only_one_enum_test.proto",
+      "sha256": "085ccd56783d2b42d73c381207f33f8dcee4585f88f7008ea83d42fbef727f2b",
+      "status": "generated",
+      "java_files": 2
+    },
+    {
+      "proto": "src/google/protobuf/sample_messages_edition.proto",
+      "sha256": "02fd65e31f237e7c0a8edf8a6816062642b9bff0aabd9af68508370539f3055d",
+      "status": "generated",
+      "java_files": 18
+    },
+    {
+      "proto": "src/google/protobuf/source_context.proto",
+      "sha256": "0d04b57f8c3ee3c0433bd93a892bdb260c413e8d60588269cbccc2a89ba5fa48",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/struct.proto",
+      "sha256": "09bcf3f759664c5a0181d71eb0def73e22de7215ba1b62bbf06726350ae51c70",
+      "status": "generated",
+      "java_files": 8
+    },
+    {
+      "proto": "src/google/protobuf/test_messages_proto2.proto",
+      "sha256": "8e6dd24e2eb255f589e16d383147404e9c08ae72ba41470af01caad8981f9893",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/test_messages_proto3.proto",
+      "sha256": "3b67003fd77b2f1e1f309b3806bb9f424171fae0b3af6cdcc15e0838be33ec30",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/test_protos/abseil_flag_test.proto",
+      "sha256": "6887dd5352bd3abb87c434c1dadddaa2e19c3bc665a8727467b4ebf07d68383c",
+      "status": "rejected",
+      "java_files": 0
+    },
+    {
+      "proto": "src/google/protobuf/test_protos/forced_inlined_string.proto",
+      "sha256": "b1c21e86dede670572efcab165bb25cb3a236afcf63d65f56fa0522ba6ead4e1",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/test_protos/forced_micro_string.proto",
+      "sha256": "b1c21e86dede670572efcab165bb25cb3a236afcf63d65f56fa0522ba6ead4e1",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/test_protos/lazy_field_test.proto",
+      "sha256": "bacfd77278bb8bd16fd401d8cf2da05a55064cf495c9bb23f487ff12ca2e113c",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/test_protos/proto_with_many_options.proto",
+      "sha256": "da6e0a3af394b8d7efc04a5182788d46301de7bde5c56b16bad07a42e2648fcb",
+      "status": "generated",
+      "java_files": 5
+    },
+    {
+      "proto": "src/google/protobuf/test_protos/recursive_message_set.proto",
+      "sha256": "d9535885ea6bbcf448026d04e739a92c61cb9729cbc744eee991f81bb9e87531",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/test_protos/repeated_field_proxy_import_message.proto",
+      "sha256": "c883f17a403f980ff45fb9d02035abc5c43f98a7601fa15168bdb235b413836e",
+      "status": "generated",
+      "java_files": 4
+    },
+    {
+      "proto": "src/google/protobuf/test_protos/repeated_field_proxy_test.proto",
+      "sha256": "243552179182fe2f1e8eaa3c7a9fe94a780baef650e2bf29f2cb0ece03d852c3",
+      "status": "generated",
+      "java_files": 17
+    },
+    {
+      "proto": "src/google/protobuf/test_protos/repeated_ptr_field_test.proto",
+      "sha256": "ec235183ceb2527ba337fa9ea1e6b18fbaaf2e727a90dabaebc4cfa11869cace",
+      "status": "generated",
+      "java_files": 9
+    },
+    {
+      "proto": "src/google/protobuf/test_protos/string_layouts_test.proto",
+      "sha256": "b1c21e86dede670572efcab165bb25cb3a236afcf63d65f56fa0522ba6ead4e1",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/test_protos/tctable_long_name_test.proto",
+      "sha256": "55259e308e5b04b48a3f91766f90466cb8838bcbd1376298e9a7568cd6d59d4a",
+      "status": "generated",
+      "java_files": 5
+    },
+    {
+      "proto": "src/google/protobuf/timestamp.proto",
+      "sha256": "33afb29d009fb49884cbdcad737e4d795d6972fdbae18ed9133b6accd73951d7",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/type.proto",
+      "sha256": "04560c4ec3e33d180a8796445603ba65df814ff6ae48bfa8cf60e48d40613865",
+      "status": "generated",
+      "java_files": 12
+    },
+    {
+      "proto": "src/google/protobuf/unittest.proto",
+      "sha256": "cb5f47baa9e5bd673de95ba125715b8f226f9e30a64d2c8deac3287a6bd03114",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_arena.proto",
+      "sha256": "a33974648f4d2e9b60c73cd6ff9f55017e5b4c584e9ba28e893d66c49349ae39",
+      "status": "generated",
+      "java_files": 5
+    },
+    {
+      "proto": "src/google/protobuf/unittest_custom_features.proto",
+      "sha256": "3150cad09959c8cfb598a1953dfdfe26df5f8ffc989c9d70a7f175dc496c766d",
+      "status": "generated",
+      "java_files": 6
+    },
+    {
+      "proto": "src/google/protobuf/unittest_custom_options.proto",
+      "sha256": "126381c628ad35efc89592c967d4dc498627d608502cdbebd210ba3b2f72e384",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_custom_options_unlinked.proto",
+      "sha256": "a4624bf88ad2f7969e5fe7cd5fb626497e0724970d50e1fe1cf147f58420fba8",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_delimited.proto",
+      "sha256": "4ac7114ce85ad5cd474b67c1f4b3aa95ecdc32f834435c2da11ad6dcc5b9d4e4",
+      "status": "generated",
+      "java_files": 9
+    },
+    {
+      "proto": "src/google/protobuf/unittest_delimited_import.proto",
+      "sha256": "7aa4fe38482248b848f0a2374ec3b4d8d8db7893c958f1c60d15e8f7752c129e",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/unittest_drop_unknown_fields.proto",
+      "sha256": "2ed91347c79d0ccaf4c4f6b00efda67a9920d02ea32ab98d76122c4735f9fedd",
+      "status": "generated",
+      "java_files": 5
+    },
+    {
+      "proto": "src/google/protobuf/unittest_embed_optimize_for.proto",
+      "sha256": "51cfa86c67d98b1d8c9d6476ebf4d330913e31c40a9b7076e0974a75d48a6ace",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_empty.proto",
+      "sha256": "38c255a2392fcf737d34dc3eb90a96b42fd6b8f31785254070aae3cdf7cefe94",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_enormous_descriptor.proto",
+      "sha256": "8afba8a1c0d5a70065da8ccf5f75e98461b9f4b6592aca3dced466f20ae588f4",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_extension_set.proto",
+      "sha256": "bc61206121ee9271cd5dd70e5736d808b89748e863903c6ea99c0ecccc7303fc",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_features.proto",
+      "sha256": "16a5669ddb2278a267834442fd0ebdba1f753f930da907e8c718151ce3cb3335",
+      "status": "generated",
+      "java_files": 15
+    },
+    {
+      "proto": "src/google/protobuf/unittest_fuzz_extensions.proto",
+      "sha256": "1e2496a3ba2419c826a9fadc17d8ebf9306157364446c461c92d75b82281bd26",
+      "status": "generated",
+      "java_files": 16
+    },
+    {
+      "proto": "src/google/protobuf/unittest_import.proto",
+      "sha256": "feb755e5f7acb14f6760c6032df13bcc2db83c01862d532eceabbf3e34117d8a",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_import_lite.proto",
+      "sha256": "7d3cc38cc0951d600bcf233aaf9036c2bb221f60c6deb6f10569e8d95bc289ba",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_import_option.proto",
+      "sha256": "3ebad1c7a99967daaccd34465fbb26c2eb52f28e28b80e27f5be90b6027c94cd",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/unittest_import_public.proto",
+      "sha256": "c21fae69030240ecd211258e616402f7b00881cb8abbabcec7b67f5a333bd915",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_import_public_lite.proto",
+      "sha256": "45c219a1bfbe89d15be73b4184a29658a7b569b2460e57fd9c675e8b8c6414c4",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_invalid_features.proto",
+      "sha256": "bc7dc37fad398681cc80ca9b8a64290840d8b8ff93e83d6e834bb0214d9f1834",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_lazy_dependencies.proto",
+      "sha256": "559f317879d29acedb4c25e2543730a809492f685f4d361e22b78c57a2f19260",
+      "status": "generated",
+      "java_files": 7
+    },
+    {
+      "proto": "src/google/protobuf/unittest_lazy_dependencies_custom_option.proto",
+      "sha256": "a22bc19a26aa6801d9b718a3447a58793152f04f6dbae1750e3fcf2f5f7d6cf5",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/unittest_lazy_dependencies_enum.proto",
+      "sha256": "35eafcd898eb1c0bc042b6173529ea5de061d0ecc9bb1c46e610a45cd0deccf3",
+      "status": "generated",
+      "java_files": 2
+    },
+    {
+      "proto": "src/google/protobuf/unittest_legacy_features.proto",
+      "sha256": "673e0d880db0ce36701619e4b197cca8ef5aef43cbca7f2385113b5e98a2fc40",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_lite.proto",
+      "sha256": "ab876c8e58a678fbf6d3405ecc9e1aeee9be9685a4d2d7c63052e3cf9fb5bfb4",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_lite_edition_2024.proto",
+      "sha256": "58dce12d405b8f528d5f6fbcac8ab070112f13d9974e155cf9700e9fbcea80af",
+      "status": "generated",
+      "java_files": 2
+    },
+    {
+      "proto": "src/google/protobuf/unittest_lite_imports_nonlite.proto",
+      "sha256": "76c042f53a7b83b6c64ca3077e2dc16b783fd9cdc2ff6f6e11ba1089a49d1799",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_mset.proto",
+      "sha256": "0b70000113ce58a2e95a31fe7558dd53150e31d7bd0c23da46587592a5a26b56",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_mset_wire_format.proto",
+      "sha256": "9bdb5b0d21bf52a1e9a498b712e02d6715fcd8ffc492e7eb954a8a946e0e7fe4",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_no_field_presence.proto",
+      "sha256": "170aa13ccd30cea8b91c8470ae12d8d410ab19fb8427e6fcc5b1918fe31828d0",
+      "status": "generated",
+      "java_files": 12
+    },
+    {
+      "proto": "src/google/protobuf/unittest_no_generic_services.proto",
+      "sha256": "003ddac9ebdd4564328038e04f029f2bceaab7e40a8220d443a4da820b7a839d",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_no_package.proto",
+      "sha256": "cd4e07ecc332d9ae23a8a5dbdffecf95a0827dcdfb3bf015ad259e0903047e80",
+      "status": "generated",
+      "java_files": 6
+    },
+    {
+      "proto": "src/google/protobuf/unittest_optimize_for.proto",
+      "sha256": "dde1ea21f266b63fc14423251ffeeb726b4376aeee8529d9b4b2d86647851dbf",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_preserve_unknown_enum.proto",
+      "sha256": "1014b060312901a2f61ddf89fb6e8ac31279805b284970ed125deb22c8d00036",
+      "status": "generated",
+      "java_files": 7
+    },
+    {
+      "proto": "src/google/protobuf/unittest_preserve_unknown_enum2.proto",
+      "sha256": "00f7917bb0f5e5b9476a4fed3dc9fc2a7dab04778b7cb93eed14f70c7c0c1a90",
+      "status": "generated",
+      "java_files": 4
+    },
+    {
+      "proto": "src/google/protobuf/unittest_proto3.proto",
+      "sha256": "4382da6a62b10d9c2dcb9c5a56a1b243a1b923bbc99320d760dac64a636b2e85",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_proto3_arena.proto",
+      "sha256": "bf93cd6869a208acc3a45a964d2b879cf2e262c7e5f19bcec6de0b46c657fb86",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_proto3_arena_lite.proto",
+      "sha256": "6a8009cc139042afed7847564608d7b514d08182c138cf04852b3a7c78976aff",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_proto3_bad_macros.proto",
+      "sha256": "8540865a55690eb38744592b442bf39bf25d2cb53b358ba01f5acd5e9a5159d5",
+      "status": "generated",
+      "java_files": 4
+    },
+    {
+      "proto": "src/google/protobuf/unittest_proto3_extensions.proto",
+      "sha256": "369d610cc9c226fd28959c2ecd63ad6fa6025406743abf3f6da6dfb0514638d4",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_proto3_lite.proto",
+      "sha256": "70469ac4e8810c29473bc6652389a4175df516304e9e75014e2c84d3c97c3c0e",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_proto3_optional.proto",
+      "sha256": "fc11c8a42122c3917a84f89ea7da080a5694a058857382738a857d37771aff99",
+      "status": "generated",
+      "java_files": 7
+    },
+    {
+      "proto": "src/google/protobuf/unittest_redaction.proto",
+      "sha256": "5cab69d9f786e18c92a1b3fdec1410eccb33c85e887cd2dfe2bbe4ec8449362f",
+      "status": "generated",
+      "java_files": 12
+    },
+    {
+      "proto": "src/google/protobuf/unittest_retention.proto",
+      "sha256": "5d5dc105b1c42a5af7090a82d6bce95081b1ed0ec73896c5a77590424ff8469a",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/unittest_string_type.proto",
+      "sha256": "3c2fed37909daeafd4b4b0a91cc31e5d62cde05721317bb4d22439ea884c0277",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/unittest_string_view.proto",
+      "sha256": "fa08c629ebd1044228a400ccdc5d54f5dff89440574ea1abb95678815c5f875e",
+      "status": "generated",
+      "java_files": 5
+    },
+    {
+      "proto": "src/google/protobuf/unittest_utf8_string_extensions.proto",
+      "sha256": "d56b6d1824de398c3fa4e817367576cea5b7243702d433baebe0560d7f026eab",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "src/google/protobuf/unittest_well_known_types.proto",
+      "sha256": "979bcff1f1abe178bd463fa271026edb933d2e3743180015f718da9045a198f2",
+      "status": "generated",
+      "java_files": 9
+    },
+    {
+      "proto": "src/google/protobuf/util/field_mask_util_test.proto",
+      "sha256": "bdd867f6a270cfeacbb3e75a46e4f68921b665f0131925717de1fe0fb72bacdd",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/util/json_format.proto",
+      "sha256": "730806f2076edde2c39865ea89570ec96dc76032030a0cbab697d9e198cc2f23",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/util/json_format_proto3.proto",
+      "sha256": "83bde45bd1a08ff763979bf6e4e929daf12091585655c15bc94adcae9902f44a",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/util/message_differencer_unittest.proto",
+      "sha256": "3f5d33e3c41a9a3aa5b2fae03dc781c09083a069903df40e3ac1efcbe997810f",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/util/message_differencer_unittest_proto3.proto",
+      "sha256": "7c4ca28291a5e06424637cba28c2dbcf3da86ec0bad96dc48185a7f84dfbbad9",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "src/google/protobuf/wrappers.proto",
+      "sha256": "b66be4e3b4d05a112301576b88a794918410e8f5aef2a5deee1e3592d3bf5343",
+      "status": "generated",
+      "java_files": 19
+    },
+    {
+      "proto": "upb/json/test.proto",
+      "sha256": "5cae44c86270aa6db8cf9eb1f03682456075a75bec9d43778c3f59e1d097be51",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/message/convert_test.proto",
+      "sha256": "c1e2fae60adf13b9f82be01fb9f43d4fd2ac20001eeb217ba75331168d260910",
+      "status": "generated",
+      "java_files": 65
+    },
+    {
+      "proto": "upb/message/test.proto",
+      "sha256": "1fb747a6dd893521144feaf68e7ce7d8869adb1820090055e42454b31736a7ca",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/message/utf8_test.proto",
+      "sha256": "8ae4745d8af4d871555428ec454728295c096c8807f8c64d7efd1b229d9aead2",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/message/utf8_test_proto2.proto",
+      "sha256": "5de5d40b579a4235ec9d206ccc7465f92bba5333937b721d96a96df9d7f880ab",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/mini_table/debug_string_test.proto",
+      "sha256": "c420b537db770a681e4dc78a7d64005f97acddd9ae44756517c167fd0cd5e4fd",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/mini_table/generated_registry_empty_test.proto",
+      "sha256": "6a3c92485552fe9d0c5ab4d9eccf4a3a6ea505e429cf182deb4f03ada11ddc01",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "upb/mini_table/message_benchmark.proto",
+      "sha256": "b6cb831f5048c119aa45c4d9d530f1496af33fc0127602818504253a5e885725",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "upb/test/custom_options.proto",
+      "sha256": "a7ece07537215f1a2823c3eee1b0b49878904a6ff698b5c2208cbe63de22e997",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/test/custom_options_unlinked.proto",
+      "sha256": "b2c14d2f0063871cf1130cd2ef5b5154e8b57bdb77f27cb68648fb2b38021c84",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/test/editions_test.proto",
+      "sha256": "191fdd363b20e29cdbfb67711e7f6a08ad7cc64533231be86083d4608072876a",
+      "status": "generated",
+      "java_files": 4
+    },
+    {
+      "proto": "upb/test/empty.proto",
+      "sha256": "ad2ddaad1efcc928a48c34059d65f9e39c228aee30f3c7a584f28062bab58885",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/test/proto3_test.proto",
+      "sha256": "d4193a1398628e4cac4b1439747b2c29a7e69a642ab0b1fee08b68d076d3bccf",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/test/test.proto",
+      "sha256": "ec57ae64f48903c634266c2e3cadba48a1565fe49d8d318c38bc6aac81bb6ac2",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/test/test_cpp.proto",
+      "sha256": "6bcef3bdf0a6d63ee5b8faadac0837862a4f4b91e5bfe3e44245929aba7be431",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/test/test_import_empty_srcs.proto",
+      "sha256": "28cb3605a88ea25df3d7c21d8c818eece1b22a8062f5760140cab3fb73e34de8",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/test/test_multiple_files.proto",
+      "sha256": "b8d7f2690efab262564a6172ae2b2aafa4a24bda5d1514954f02d5951a81d0d2",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "upb/test/test_multiple_files2.proto",
+      "sha256": "01b1e8145d5a49d003cdce5cc9034b8dce425d1ec84178d9bf4b9d50de363df9",
+      "status": "generated",
+      "java_files": 3
+    },
+    {
+      "proto": "upb/util/def_to_proto_editions_test.proto",
+      "sha256": "df4b7bb744c07a28b7298ab15809805d9c9efb8fcbb8d357a7eff5064c6268c1",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/util/def_to_proto_public_import_test.proto",
+      "sha256": "e9cd4a215551a030aeaca37724facf1e43688afe15ec4471d6de9b7ace8c9d7d",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/util/def_to_proto_regular_import_test.proto",
+      "sha256": "bd36f674815b610244ca870b2074a1d7fc96be83a35eb876221bcc6ff78fa950",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/util/def_to_proto_test.proto",
+      "sha256": "24ea0081b0d01bda8cdb94e66732a108aa0f662e9caee26c5ec16603d0eee3da",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/util/def_to_proto_weak_import_test.proto",
+      "sha256": "d255056b6c7dc32fa6ae861e65a59b0a10f4a463ca8d3693f2c237dfb613f07c",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/util/def_to_proto_wweak_import_test.proto",
+      "sha256": "d255056b6c7dc32fa6ae861e65a59b0a10f4a463ca8d3693f2c237dfb613f07c",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/util/required_fields_editions_test.proto",
+      "sha256": "7e1d32b58262b950d06427de2bbd479acbc2e603f043b377c1b4af2a84809c0c",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/util/required_fields_test.proto",
+      "sha256": "a7d779b6b0a163dfceffe5b7224531cd0b657466dc25f97fb1e1e63b97dd5877",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/wire/decode_test.proto",
+      "sha256": "ea71402f1d9cb41bfbf0bebc3a251bca89f355ceca4349da69c9795d9f8d1aff",
+      "status": "generated",
+      "java_files": 1
+    },
+    {
+      "proto": "upb/wire/encode_test.proto",
+      "sha256": "5bb843df102224983f2abc6f6f3e659f6a993ffc24664de48846a10b41344390",
+      "status": "generated",
+      "java_files": 7
+    }
+  ]
+}

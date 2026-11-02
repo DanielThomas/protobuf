@@ -1,0 +1,2 @@
+editions/golden/edition2024_transform/test_messages_proto3.proto:102:37: Enum type "pb.CppFeatures.StringType" has no value named "STRING_PIECE" for option "pb.CppFeatures.string_type".
+editions/golden/edition2024_transform/test_messages_proto3.proto:132:37: Enum type "pb.CppFeatures.StringType" has no value named "STRING_PIECE" for option "pb.CppFeatures.string_type".

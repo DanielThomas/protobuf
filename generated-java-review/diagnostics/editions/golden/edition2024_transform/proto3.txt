@@ -1,0 +1,1 @@
+editions/golden/edition2024_transform/proto3.proto:14:1: Import "net/proto/proto1_features.proto" was not found or had errors.

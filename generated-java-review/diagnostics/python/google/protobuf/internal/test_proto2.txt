@@ -1,0 +1,1 @@
+python/google/protobuf/internal/test_proto2.proto:49:18: warning: The default JSON name of field "self_" ("self") conflicts with the default JSON name of field "self".

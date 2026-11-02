@@ -1,0 +1,3 @@
+editions/codegen_tests/edition2023_go_oss_go_api_default.proto:17:10: Option "go_api_flag" unknown. Ensure that your proto definition file imports the proto which defines the option (i.e. via import option after edition 2024).
+editions/codegen_tests/edition2023_go_oss_go_api_default.proto:23:10: Option "go_api_flag" unknown. Ensure that your proto definition file imports the proto which defines the option (i.e. via import option after edition 2024).
+editions/codegen_tests/edition2023_go_oss_go_api_default.proto:29:10: Option "go_api_flag" unknown. Ensure that your proto definition file imports the proto which defines the option (i.e. via import option after edition 2024).

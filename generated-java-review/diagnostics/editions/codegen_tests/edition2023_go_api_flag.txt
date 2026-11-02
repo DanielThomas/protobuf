@@ -1,0 +1,4 @@
+editions/codegen_tests/edition2023_go_api_flag.proto:19:10: Option "go_api_flag" unknown. Ensure that your proto definition file imports the proto which defines the option (i.e. via import option after edition 2024).
+editions/codegen_tests/edition2023_go_api_flag.proto:25:10: Option "go_api_flag" unknown. Ensure that your proto definition file imports the proto which defines the option (i.e. via import option after edition 2024).
+editions/codegen_tests/edition2023_go_api_flag.proto:31:10: Option "go_api_flag" unknown. Ensure that your proto definition file imports the proto which defines the option (i.e. via import option after edition 2024).
+editions/codegen_tests/edition2023_go_api_flag.proto:12:8: Option "go_api_flag" unknown. Ensure that your proto definition file imports the proto which defines the option (i.e. via import option after edition 2024).
