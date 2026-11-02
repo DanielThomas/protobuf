@@ -264,6 +264,22 @@ public class CodedInputStreamTest {
     }
   }
 
+  @Test
+  public void readGroupRetainsParsedChildOnInvalidEndTag(
+      @TestParameter InputType inputType, @TestParameter({"false", "true"}) boolean wrongEndTag)
+      throws Exception {
+    byte[] wire = wrongEndTag ? bytes(8, 1, 20) : bytes(8, 1);
+    CodedInputStream input = inputType.newDecoder(wire, 1);
+    InvalidProtocolBufferException failure =
+        assertThrows(
+            InvalidProtocolBufferException.class,
+            () ->
+                input.readGroup(
+                    1, Int32Message.parser(), ExtensionRegistryLite.getEmptyRegistry()));
+    assertThat(failure.getUnfinishedMessage())
+        .isEqualTo(Int32Message.newBuilder().setData(1).build());
+  }
+
   /** Tests readRawVarint32() and readRawVarint64(). */
   @Test
   public void testReadVarint() throws Exception {
