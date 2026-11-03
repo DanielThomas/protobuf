@@ -50,9 +50,6 @@ void SetPrimitiveVariables(
 
   (*variables)["default"] =
       ImmutableDefaultValue(descriptor, name_resolver, context->options());
-  (*variables)["default_init"] = absl::StrCat(
-      "= ",
-      ImmutableDefaultValue(descriptor, name_resolver, context->options()));
   (*variables)["capitalized_type"] = "String";
   (*variables)["tag"] =
       absl::StrCat(static_cast<int32_t>(WireFormat::MakeTag(descriptor)));
@@ -378,7 +375,7 @@ void ImmutableStringFieldGenerator::GenerateBuilderSetBytesMethod(
 void ImmutableStringFieldGenerator::GenerateBuilderMembers(
     io::Printer* printer) const {
   printer->Print(variables_,
-                 "private java.lang.Object $name$_ $default_init$;\n");
+                 "private java.lang.Object $name$_;\n");
   GenerateBuilderHasMethod(printer);
   GenerateBuilderGetMethod(printer);
   GenerateBuilderGetBytesMethod(printer);
@@ -424,26 +421,21 @@ void ImmutableStringFieldGenerator::GenerateMergingCode(
 }
 
 void ImmutableStringFieldGenerator::GenerateBuildingCode(
-    io::Printer* printer) const {
-  printer->Print(variables_,
-                 "if ($get_has_field_bit_from_local$) {\n"
-                 "  result.$name$_ = $name$_;\n");
-  if (GetNumBits() > 0) {
-    printer->Print(variables_, "  $set_has_field_bit_to_local$;\n");
-  }
-  printer->Print("}\n");
+    io::Printer* printer, CopyTarget target) const {
+  GenerateScalarCopyCode(printer, target);
 }
 
-void ImmutableStringFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
+void ImmutableStringFieldGenerator::GenerateParsingCode(
+    io::Printer* printer, ParsingTarget target) const {
+  const auto vars = GetParsingVariables(target);
   if (CheckUtf8(descriptor_)) {
-    printer->Print(variables_,
-                   "$name$_ = "
+    printer->Print(vars,
+                   "$field$ = "
                    "input.readStringRequireUtf8();\n"
                    "$set_has_field_bit$\n");
   } else {
-    printer->Print(variables_,
-                   "$name$_ = input.readBytes();\n"
+    printer->Print(vars,
+                   "$field$ = input.readBytes();\n"
                    "$set_has_field_bit$\n");
   }
 }
@@ -754,8 +746,8 @@ void ImmutableStringOneofFieldGenerator::GenerateMergingCode(
 }
 
 void ImmutableStringOneofFieldGenerator::GenerateBuildingCode(
-    io::Printer* printer) const {
-  // No-Op: Handled by single block statement in GenerateBuildPartialShard.
+    io::Printer* printer, CopyTarget target) const {
+  if (target == CopyTarget::kBuilder) GenerateOneofCopyCode(printer);
 }
 
 void ImmutableStringOneofFieldGenerator::GenerateBuilderParseMethod(
@@ -765,41 +757,39 @@ void ImmutableStringOneofFieldGenerator::GenerateBuilderParseMethod(
                  "    com.google.protobuf.CodedInputStream input)\n"
                  "    throws java.io.IOException {\n");
   printer->Indent();
-  if (CheckUtf8(descriptor_)) {
-    printer->Print(variables_,
-                   "switch ($oneof_name$Case_) {\n"
-                   "default:\n"
-                   "  clear$oneof_capitalized_name$HasBits(); // fallthrough\n"
-                   "case 0:\n"
-                   "  $set_oneof_case_message$;\n"
-                   "  $set_has_field_bit$ // fallthrough\n"
-                   "case $number$:\n"
-                   "  break;\n"
-                   "}\n"
-                   "$oneof_name$_ = "
-                   "input.readStringRequireUtf8();\n"
-    );
-  } else {
-    printer->Print(variables_,
-                   "com.google.protobuf.ByteString bs = input.readBytes();\n"
-                   "switch ($oneof_name$Case_) {\n"
-                   "default:\n"
-                   "  clear$oneof_capitalized_name$HasBits(); // fallthrough\n"
-                   "case 0:\n"
-                   "  $set_oneof_case_message$;\n"
-                   "  $set_has_field_bit$ // fallthrough\n"
-                   "case $number$:\n"
-                   "  break;\n"
-                   "}\n"
-                   "$oneof_name$_ = bs;\n");
-  }
+  GenerateParseBody(printer, ParsingTarget::kBuilder);
   printer->Outdent();
   printer->Print("}\n");
 }
 
-void ImmutableStringOneofFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
-  printer->Print(variables_, "parse$capitalized_name$(input);\n");
+void ImmutableStringOneofFieldGenerator::GenerateParseBody(
+    io::Printer* printer, ParsingTarget target) const {
+  auto vars = GetParsingVariables(target);
+  if (CheckUtf8(descriptor_)) {
+    if (target == ParsingTarget::kBuilder) {
+      GenerateOneofParsingCaseUpdate(printer, target);
+    }
+    vars["read_target"] = target == ParsingTarget::kBuilder
+        ? vars.at("field") : "java.lang.String value";
+    printer->Print(vars, "$read_target$ = input.readStringRequireUtf8();\n");
+    if (target == ParsingTarget::kMessage) {
+      GenerateOneofParsingCaseUpdate(printer, target);
+      printer->Print(vars, "$field$ = value;\n");
+    }
+  } else {
+    printer->Print("com.google.protobuf.ByteString bs = input.readBytes();\n");
+    GenerateOneofParsingCaseUpdate(printer, target);
+    printer->Print(vars, "$field$ = bs;\n");
+  }
+}
+
+void ImmutableStringOneofFieldGenerator::GenerateParsingCode(
+    io::Printer* printer, ParsingTarget target) const {
+  if (target == ParsingTarget::kBuilder) {
+    printer->Print(variables_, "parse$capitalized_name$(input);\n");
+  } else {
+    GenerateParseBody(printer, target);
+  }
 }
 
 void ImmutableStringOneofFieldGenerator::GenerateSerializationCode(
@@ -936,12 +926,13 @@ void RepeatedImmutableStringFieldGenerator::GenerateEnsureIsMutableMethod(
     io::Printer* printer) const {
   printer->Print(
       variables_,
-      "private void ensure$capitalized_name$IsMutable() {\n"
-      "  if (!$name$_.isModifiable()) {\n"
-      "    $name$_ = new com.google.protobuf.LazyStringArrayList($name$_);\n"
-      "  }\n"
-      "  $set_has_field_bit$\n"
-      "}\n");
+      "private void ensure$capitalized_name$IsMutable() {\n");
+  printer->Indent();
+  printer->Print(absl::StrCat(
+      GetEnsureIsMutableBody(ParsingTarget::kBuilder), "\n"));
+  printer->Print(variables_, "$set_has_field_bit$\n");
+  printer->Outdent();
+  printer->Print("}\n");
 }
 
 void RepeatedImmutableStringFieldGenerator::GenerateBuilderGetListMethod(
@@ -1090,8 +1081,7 @@ void RepeatedImmutableStringFieldGenerator::GenerateBuilderAddBytesMethod(
 void RepeatedImmutableStringFieldGenerator::GenerateBuilderMembers(
     io::Printer* printer) const {
   printer->Print(variables_,
-                 "private com.google.protobuf.LazyStringArrayList $name$_ =\n"
-                 "    $empty_list$;\n");
+                 "private com.google.protobuf.LazyStringArrayList $name$_;\n");
   GenerateEnsureIsMutableMethod(printer);
   GenerateBuilderGetListMethod(printer);
   GenerateBuilderGetCountMethod(printer);
@@ -1144,28 +1134,24 @@ void RepeatedImmutableStringFieldGenerator::GenerateMergingCode(
 }
 
 void RepeatedImmutableStringFieldGenerator::GenerateBuildingCode(
-    io::Printer* printer) const {
-  // The code below ensures that the result has an immutable list. If our
-  // list is immutable, we can just reuse it. If not, we make it immutable.
-  printer->Print(variables_,
-                 "if ($get_has_field_bit_from_local$) {\n"
-                 "  $name$_.makeImmutable();\n"
-                 "  result.$name$_ = $name$_;\n"
-                 "}\n");
+    io::Printer* printer, CopyTarget target) const {
+  GenerateRepeatedCopyCode(printer, target);
 }
 
-void RepeatedImmutableStringFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
+void RepeatedImmutableStringFieldGenerator::GenerateParsingCode(
+    io::Printer* printer, ParsingTarget target) const {
+  auto vars = GetParsingVariables(target);
+  vars["ensure_mutable"] = GetParsingEnsureMutableCode(target);
   if (CheckUtf8(descriptor_)) {
-    printer->Print(variables_,
-                   "ensure$capitalized_name$IsMutable();\n"
-                   "$name$_.add(input.readStringRequireUtf8());\n"
+    printer->Print(vars,
+                   "$ensure_mutable$\n"
+                   "$field$.add(input.readStringRequireUtf8());\n"
     );
   } else {
-    printer->Print(variables_,
+    printer->Print(vars,
                    "com.google.protobuf.ByteString bs = input.readBytes();\n"
-                   "ensure$capitalized_name$IsMutable();\n"
-                   "$name$_.add(bs);\n");
+                   "$ensure_mutable$\n"
+                   "$field$.add(bs);\n");
   }
 }
 

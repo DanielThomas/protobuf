@@ -63,8 +63,9 @@ class OneofGenerator {
   void GenerateMergingCode(
       io::Printer* printer,
       const FieldGeneratorMap<ImmutableFieldGenerator>& field_generators) const;
-  bool HasScalarFields(int shard) const;
-  void GenerateBuildingCode(io::Printer* printer, int shard) const;
+  void GenerateBuildingCode(
+      io::Printer* printer, int shard,
+      CopyTarget target = CopyTarget::kMessage) const;
 
  private:
   void GenerateBuilderGetOneofCase(io::Printer* printer) const;

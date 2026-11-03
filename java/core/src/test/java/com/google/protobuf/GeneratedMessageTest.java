@@ -11,6 +11,7 @@ import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth.assertWithMessage;
 import static org.junit.Assert.assertThrows;
 
+import com.google.protobuf.DescriptorProtos.FieldOptions;
 import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.test.UnittestImport;
@@ -28,6 +29,7 @@ import proto2_unittest.OuterClassNameTest2OuterClass;
 import proto2_unittest.OuterClassNameTest3OuterClass;
 import proto2_unittest.OuterClassNameTestOuterClass;
 import proto2_unittest.ServiceWithNoOuter;
+import proto2_unittest.UnittestCustomOptions;
 import proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize;
 import proto2_unittest.UnittestOptimizeFor.TestOptionalOptimizedForSize;
 import proto2_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize;
@@ -42,10 +44,12 @@ import proto2_unittest.UnittestProto.TestAllTypes.NestedMessage;
 import proto2_unittest.UnittestProto.TestAllTypesOrBuilder;
 import proto2_unittest.UnittestProto.TestExtremeDefaultValues;
 import proto2_unittest.UnittestProto.TestOneof2;
+import proto2_unittest.UnittestProto.TestParsingMerge;
 import proto2_unittest.UnittestProto.TestPackedTypes;
 import proto2_unittest.UnittestProto.TestUnpackedTypes;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -977,6 +981,41 @@ public class GeneratedMessageTest {
   }
 
   @Test
+  public void testToBuilderPreservesSparseMessage() {
+    UnknownFieldSet unknown =
+        UnknownFieldSet.newBuilder()
+            .addField(600, UnknownFieldSet.Field.newBuilder().addVarint(99).build())
+            .build();
+    TestAllTypes message =
+        TestAllTypes.newBuilder()
+            .setOptionalInt32(0)
+            .setDefaultCord("123")
+            .setOneofNestedMessage(NestedMessage.getDefaultInstance())
+            .setUnknownFields(unknown)
+            .build();
+
+    TestAllTypes.Builder copy = message.toBuilder();
+    assertThat(copy.build()).isEqualTo(message);
+    assertThat(copy.getDefaultInt32()).isEqualTo(41);
+    assertThat(copy.hasDefaultInt32()).isFalse();
+    assertThat(copy.hasOptionalInt32()).isTrue();
+    assertThat(copy.hasDefaultCord()).isTrue();
+    assertThat(copy.hasOneofNestedMessage()).isTrue();
+    assertThat(copy.getUnknownFields()).isSameInstanceAs(unknown);
+
+    copy.getOneofNestedMessageBuilder().setBb(10);
+    copy.addRepeatedInt32(20);
+    copy.clearOptionalInt32();
+    assertThat(copy.build().getOneofNestedMessage().getBb()).isEqualTo(10);
+    assertThat(message.getOneofNestedMessage()).isEqualTo(NestedMessage.getDefaultInstance());
+    assertThat(message.getRepeatedInt32List()).isEmpty();
+    assertThat(message.hasOptionalInt32()).isTrue();
+
+    copy.clear();
+    assertThat(copy.build()).isEqualTo(TestAllTypes.getDefaultInstance());
+  }
+
+  @Test
   public void testFieldConstantValues() throws Exception {
     assertThat(TestAllTypes.NestedMessage.BB_FIELD_NUMBER).isEqualTo(1);
     assertThat(TestAllTypes.OPTIONAL_INT32_FIELD_NUMBER).isEqualTo(1);
@@ -1706,6 +1745,615 @@ public class GeneratedMessageTest {
     TestOneof2.Builder builder =
         TestOneof2.newBuilder().setFooMessage(TestOneof2.NestedMessage.newBuilder().addCorgeInt(1));
     assertThat(builder.mergeFrom(MESSAGE_TO_MERGE_FROM).build()).isEqualTo(EXPECTED_MERGED_MESSAGE);
+  }
+
+  @Test
+  public void testFailedParsePublishesCollectionsAndAnIndependentUnfinishedMessage() throws Exception {
+    TestAllTypes contents =
+        TestAllTypes.newBuilder()
+            .addRepeatedInt32(1)
+            .setOptionalNestedMessage(NestedMessage.newBuilder().setBb(1))
+            .build();
+    byte[] truncated = truncatedAfter(contents);
+    InvalidProtocolBufferException failure =
+        assertThrows(InvalidProtocolBufferException.class, () -> TestAllTypes.parseFrom(truncated));
+    TestAllTypes unfinished = (TestAllTypes) failure.getUnfinishedMessage();
+    assertParsedValue(unfinished, contents);
+    assertThrows(
+        UnsupportedOperationException.class, () -> unfinished.getRepeatedInt32List().clear());
+
+    TestAllTypes.Builder builder = unfinished.toBuilder();
+    builder.getOptionalNestedMessageBuilder().setBb(200);
+    builder.addRepeatedInt32(2);
+    assertParsedValue(
+        builder.build(),
+        TestAllTypes.newBuilder()
+            .addRepeatedInt32(1)
+            .addRepeatedInt32(2)
+            .setOptionalNestedMessage(NestedMessage.newBuilder().setBb(200))
+            .build());
+    assertParsedValue(unfinished, contents);
+  }
+
+  @Test
+  public void testParsingStringsPreservesDefaultsAndPartialValues() throws Exception {
+    assertParsedValue(TestAllTypes.parseFrom(new byte[0]), TestAllTypes.getDefaultInstance());
+    assertParsedValue(
+        UnittestProto.TestExtremeDefaultValues.parseFrom(new byte[0]),
+        UnittestProto.TestExtremeDefaultValues.getDefaultInstance());
+    UnittestProto.TestExtremeDefaultValues emptyString =
+        UnittestProto.TestExtremeDefaultValues.newBuilder().setUtf8String("").build();
+    assertParsedValue(
+        UnittestProto.TestExtremeDefaultValues.parseFrom(emptyString.toByteArray()), emptyString);
+
+    TestAllTypes contents =
+        TestAllTypes.newBuilder().setOptionalString("").setDefaultString("hello").build();
+    assertParsedValue(TestAllTypes.parseFrom(contents.toByteArray()), contents);
+    byte[] truncated = truncatedAfter(contents);
+    InvalidProtocolBufferException failure =
+        assertThrows(InvalidProtocolBufferException.class, () -> TestAllTypes.parseFrom(truncated));
+    TestAllTypes.Builder builder = TestAllTypes.newBuilder();
+    assertThrows(InvalidProtocolBufferException.class, () -> builder.mergeFrom(truncated));
+    assertParsedValue((TestAllTypes) failure.getUnfinishedMessage(), builder.buildPartial());
+    assertParsedValue(builder.buildPartial(), contents);
+  }
+
+  @Test
+  public void testParsingPreservesPresenceOnSuccessAndFailure() throws Exception {
+    TestAllTypes contents =
+        TestAllTypes.newBuilder()
+            .setOptionalInt32(0)
+            .setOptionalInt64(0)
+            .setOptionalUint32(0)
+            .setOptionalUint64(0)
+            .setOptionalSint32(0)
+            .setOptionalSint64(0)
+            .setOptionalFixed32(0)
+            .setOptionalFixed64(0)
+            .setOptionalSfixed32(0)
+            .setOptionalSfixed64(0)
+            .setOptionalFloat(0)
+            .setOptionalDouble(0)
+            .setOptionalBool(false)
+            .setOptionalString("")
+            .setOptionalBytes(ByteString.EMPTY)
+            .setOptionalNestedMessage(NestedMessage.getDefaultInstance())
+            .setOptionalNestedEnum(TestAllTypes.NestedEnum.FOO)
+            .setDefaultInt32(0)
+            .setDefaultBool(false)
+            .setDefaultNestedEnum(TestAllTypes.NestedEnum.FOO)
+            .build();
+    assertParsedValue(TestAllTypes.parseFrom(contents.toByteArray()), contents);
+
+    byte[] truncated = truncatedAfter(contents);
+    for (int length = 0; length <= truncated.length; length++) {
+      byte[] prefix = java.util.Arrays.copyOf(truncated, length);
+      TestAllTypes.Builder builder = TestAllTypes.newBuilder();
+      boolean failed = false;
+      try {
+        builder.mergeFrom(prefix);
+      } catch (InvalidProtocolBufferException expected) {
+        failed = true;
+      }
+      TestAllTypes parsed;
+      if (failed) {
+        InvalidProtocolBufferException failure =
+            assertThrows(InvalidProtocolBufferException.class, () -> TestAllTypes.parseFrom(prefix));
+        parsed = (TestAllTypes) failure.getUnfinishedMessage();
+      } else {
+        parsed = TestAllTypes.parseFrom(prefix);
+      }
+      assertParsedValue(parsed, builder.buildPartial());
+    }
+  }
+
+  @Test
+  public void testBuilderHandoffPreservesParsedFieldsAndConsumesPendingTag() throws Exception {
+    TestAllTypes prefix =
+        TestAllTypes.newBuilder()
+            .setOptionalInt32(0)
+            .setOptionalStringBytes(ByteString.copyFrom(new byte[] {(byte) 0xff}))
+            .addRepeatedInt32(1)
+            .addRepeatedString("before")
+            .addRepeatedNestedEnum(TestAllTypes.NestedEnum.BAR)
+            .addRepeatedNestedMessage(NestedMessage.newBuilder().setBb(3))
+            .setOptionalNestedMessage(NestedMessage.newBuilder().setBb(1))
+            .setUnknownFields(UnknownFieldSet.newBuilder().mergeVarintField(20000, 1).build())
+            .build();
+    TestAllTypes suffix =
+        TestAllTypes.newBuilder()
+            .setOptionalNestedMessage(NestedMessage.newBuilder().setBb(2))
+            .addRepeatedInt32(2)
+            .addRepeatedString("after")
+            .addRepeatedNestedEnum(TestAllTypes.NestedEnum.BAZ)
+            .addRepeatedNestedMessage(NestedMessage.newBuilder().setBb(4))
+            .setUnknownFields(UnknownFieldSet.newBuilder().mergeVarintField(20000, 2).build())
+            .build();
+    assertParsePrefixesMatchBuilder(prefix, suffix.toByteArray());
+  }
+
+  @Test
+  public void testBuilderHandoffRetainsOneofChildAcrossCaseChanges() throws Exception {
+    TestOneof2 prefix =
+        TestOneof2.newBuilder()
+            .setFooMessage(
+                TestOneof2.NestedMessage.newBuilder()
+                    .addCorgeInt(1)
+                    .setUnknownFields(UnknownFieldSet.newBuilder().mergeVarintField(20000, 1).build()))
+            .setUnknownFields(UnknownFieldSet.newBuilder().mergeVarintField(20000, 3).build())
+            .build();
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    TestOneof2.newBuilder().setFooString("replacement").build().writeTo(bytes);
+    TestOneof2.newBuilder()
+        .setFooMessage(
+            TestOneof2.NestedMessage.newBuilder()
+                .addCorgeInt(2)
+                .setUnknownFields(UnknownFieldSet.newBuilder().mergeVarintField(20000, 2).build()))
+        .setUnknownFields(
+            UnknownFieldSet.newBuilder()
+                .mergeVarintField(20000, 4)
+                .mergeLengthDelimitedField(20000, ByteString.copyFromUtf8("retained"))
+                .build())
+        .build()
+        .writeTo(bytes);
+    assertParsePrefixesMatchBuilder(prefix, bytes.toByteArray());
+  }
+
+  @Test
+  public void testParsingRetainsOneofChildrenAcrossRepeatedCaseChanges() throws Exception {
+    TestOneof2 prefix =
+        TestOneof2.newBuilder()
+            .setFooMessage(TestOneof2.NestedMessage.newBuilder().addCorgeInt(1))
+            .build();
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    TestOneof2.newBuilder()
+        .setFooLazyMessage(TestOneof2.NestedMessage.newBuilder().addCorgeInt(2))
+        .build()
+        .writeTo(bytes);
+    TestOneof2.newBuilder()
+        .setFooMessage(TestOneof2.NestedMessage.newBuilder().addCorgeInt(3))
+        .build()
+        .writeTo(bytes);
+    TestOneof2.newBuilder()
+        .setFooLazyMessage(TestOneof2.NestedMessage.newBuilder().addCorgeInt(4))
+        .build()
+        .writeTo(bytes);
+    assertParsePrefixesMatchBuilder(prefix, bytes.toByteArray());
+  }
+
+  @Test
+  public void testBuilderHandoffRetainsOneofGroupAcrossCaseChanges() throws Exception {
+    TestOneof2 prefix =
+        TestOneof2.newBuilder()
+            .setFooGroup(TestOneof2.FooGroup.newBuilder().setA(1))
+            .build();
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    TestOneof2.newBuilder()
+        .setFooMessage(TestOneof2.NestedMessage.newBuilder().addCorgeInt(2))
+        .build()
+        .writeTo(bytes);
+    TestOneof2.newBuilder()
+        .setFooGroup(TestOneof2.FooGroup.newBuilder().setB("retained"))
+        .build()
+        .writeTo(bytes);
+    assertParsePrefixesMatchBuilder(prefix, bytes.toByteArray());
+  }
+
+  @Test
+  public void testBuilderHandoffPublishesNewOneofChildOnFailure() throws Exception {
+    TestOneof2 prefix =
+        TestOneof2.newBuilder()
+            .setFooMessage(TestOneof2.NestedMessage.newBuilder().addCorgeInt(1))
+            .build();
+    TestOneof2 suffix =
+        TestOneof2.newBuilder()
+            .setFooLazyMessage(TestOneof2.NestedMessage.newBuilder().addCorgeInt(2))
+            .build();
+    assertParsePrefixesMatchBuilder(prefix, suffix.toByteArray());
+  }
+
+  @Test
+  public void testBuilderHandoffPreservesUnknownFieldsWhenMergingGroups() throws Exception {
+    TestAllTypes prefix =
+        TestAllTypes.newBuilder()
+            .setOptionalGroup(TestAllTypes.OptionalGroup.newBuilder().setA(1))
+            .setUnknownFields(UnknownFieldSet.newBuilder().mergeVarintField(20000, 1).build())
+            .build();
+    TestAllTypes suffix =
+        TestAllTypes.newBuilder()
+            .setOptionalGroup(TestAllTypes.OptionalGroup.newBuilder().setA(2))
+            .setUnknownFields(UnknownFieldSet.newBuilder().mergeVarintField(20000, 2).build())
+            .build();
+    assertParsePrefixesMatchBuilder(prefix, suffix.toByteArray());
+  }
+
+  @Test
+  public void testBuilderHandoffPreservesWrongWireTypeForMessageFields() throws Exception {
+    TestParsingMerge prefix =
+        TestParsingMerge.newBuilder()
+            .setRequiredAllTypes(TestAllTypes.getDefaultInstance())
+            .setOptionalAllTypes(TestAllTypes.newBuilder().setOptionalInt32(1))
+            .build();
+    for (int field :
+        new int[] {
+          TestParsingMerge.OPTIONAL_ALL_TYPES_FIELD_NUMBER, TestParsingMerge.OPTIONALGROUP_FIELD_NUMBER
+        }) {
+      UnknownFieldSet unknown = UnknownFieldSet.newBuilder().mergeVarintField(field, 300).build();
+      assertParsePrefixesMatchBuilder(prefix, unknown.toByteArray());
+      ByteString wire = prefix.toByteString().concat(unknown.toByteString());
+      assertParsedValue(
+          TestParsingMerge.parseFrom(wire), prefix.toBuilder().setUnknownFields(unknown).build());
+      assertParsedValue(
+          DiscardUnknownFieldsParser.wrap(TestParsingMerge.parser()).parseFrom(wire), prefix);
+    }
+  }
+
+  @Test
+  public void testBuilderHandoffPreservesUnknownOneofEnumValue() throws Exception {
+    TestOneof2 prefix =
+        TestOneof2.newBuilder()
+            .setFooMessage(TestOneof2.NestedMessage.newBuilder().addCorgeInt(1))
+            .build();
+    UnknownFieldSet unknown =
+        UnknownFieldSet.newBuilder().mergeVarintField(TestOneof2.FOO_ENUM_FIELD_NUMBER, 9999).build();
+    assertParsePrefixesMatchBuilder(prefix, unknown.toByteArray());
+    ByteString wire = prefix.toByteString().concat(unknown.toByteString());
+    TestOneof2 expected = prefix.toBuilder().setUnknownFields(unknown).build();
+    assertParsedValue(TestOneof2.parseFrom(wire), expected);
+    assertParsedValue(DiscardUnknownFieldsParser.wrap(TestOneof2.parser()).parseFrom(wire), expected);
+  }
+
+  @Test
+  public void testBuilderHandoffDiscardsWrongWireEnumTags() throws Exception {
+    UnknownFieldSet unknown =
+        UnknownFieldSet.newBuilder()
+            .mergeLengthDelimitedField(
+                FieldOptions.CTYPE_FIELD_NUMBER, ByteString.copyFromUtf8("unknown"))
+            .build();
+    assertParsedValue(
+        FieldOptions.parseFrom(unknown.toByteString()),
+        FieldOptions.newBuilder().setUnknownFields(unknown).build());
+    assertParsedValue(
+        DiscardUnknownFieldsParser.wrap(FieldOptions.parser()).parseFrom(unknown.toByteString()),
+        FieldOptions.getDefaultInstance());
+  }
+
+  private static void assertParsePrefixesMatchBuilder(GeneratedMessage prefix, byte[] suffix)
+      throws Exception {
+    for (int length = 1; length <= suffix.length; length++) {
+      byte[] remaining = java.util.Arrays.copyOf(suffix, length);
+      ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+      prefix.writeTo(bytes);
+      bytes.write(remaining);
+      Message.Builder expected = prefix.newBuilderForType();
+      boolean failed = false;
+      try {
+        expected.mergeFrom(bytes.toByteArray());
+      } catch (InvalidProtocolBufferException failure) {
+        failed = true;
+      }
+      Message parsed;
+      try {
+        parsed = prefix.getParserForType().parsePartialFrom(bytes.toByteArray());
+        assertThat(failed).isFalse();
+      } catch (InvalidProtocolBufferException failure) {
+        assertThat(failed).isTrue();
+        parsed = (Message) failure.getUnfinishedMessage();
+      }
+      assertParsedValue(parsed, expected.buildPartial());
+      for (FieldDescriptor field : parsed.getDescriptorForType().getFields()) {
+        if (field.isRepeated()) {
+          List<?> values = (List<?>) parsed.getField(field);
+          if (!values.isEmpty()) {
+            assertThrows(UnsupportedOperationException.class, () -> values.clear());
+          }
+        }
+      }
+    }
+  }
+
+  private static byte[] truncatedAfter(TestAllTypes contents) throws Exception {
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    bytes.write(contents.toByteArray());
+    CodedOutputStream output = CodedOutputStream.newInstance(bytes);
+    output.writeUInt32NoTag(
+        WireFormat.makeTag(
+            TestAllTypes.OPTIONAL_STRING_FIELD_NUMBER, WireFormat.WIRETYPE_LENGTH_DELIMITED));
+    output.writeUInt32NoTag(2);
+    output.writeRawByte('x');
+    output.flush();
+    return bytes.toByteArray();
+  }
+
+  private static void assertParsedValue(Message actual, Message expected) {
+    ByteString bytes = expected.toByteString();
+    assertThat(actual).isEqualTo(expected);
+    assertThat(actual.getSerializedSize()).isEqualTo(bytes.size());
+    assertThat(actual.toByteString()).isEqualTo(bytes);
+    assertThat(actual.hashCode()).isEqualTo(expected.hashCode());
+    assertThat(actual.isInitialized()).isEqualTo(expected.isInitialized());
+  }
+
+  @Test
+  public void testUnfinishedSingularChildOmitsFailedFirstOccurrence() throws Exception {
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    CodedOutputStream output = CodedOutputStream.newInstance(bytes);
+    output.writeByteArray(
+        TestAllTypes.OPTIONAL_NESTED_MESSAGE_FIELD_NUMBER, new byte[] {8, 1, 8});
+    output.flush();
+
+    InvalidProtocolBufferException failure =
+        assertThrows(
+            InvalidProtocolBufferException.class,
+            () -> TestAllTypes.parseFrom(bytes.toByteArray()));
+    TestAllTypes partial = (TestAllTypes) failure.getUnfinishedMessage();
+    assertThat(partial.hasOptionalNestedMessage()).isFalse();
+    assertThat(partial.getOptionalNestedMessage()).isEqualTo(NestedMessage.getDefaultInstance());
+  }
+
+  @Test
+  public void testUnfinishedFirstChildAfterMergingPreservesBuilderPublication() throws Exception {
+    TestAllTypes prefix =
+        TestAllTypes.newBuilder()
+            .setOptionalNestedMessage(NestedMessage.newBuilder().setBb(1))
+            .build();
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    TestAllTypes.newBuilder()
+        .setOptionalNestedMessage(NestedMessage.newBuilder().setBb(2))
+        .build()
+        .writeTo(bytes);
+    CodedOutputStream output = CodedOutputStream.newInstance(bytes);
+    output.writeByteArray(TestAllTypes.OPTIONAL_FOREIGN_MESSAGE_FIELD_NUMBER, new byte[] {8, 1, 8});
+    output.flush();
+    assertParsePrefixesMatchBuilder(prefix, bytes.toByteArray());
+    ByteString wire = prefix.toByteString().concat(ByteString.copyFrom(bytes.toByteArray()));
+    InvalidProtocolBufferException failure =
+        assertThrows(InvalidProtocolBufferException.class, () -> TestAllTypes.parseFrom(wire));
+    TestAllTypes partial = (TestAllTypes) failure.getUnfinishedMessage();
+    assertThat(partial.getOptionalForeignMessage())
+        .isEqualTo(proto2_unittest.UnittestProto.ForeignMessage.getDefaultInstance());
+  }
+
+  @Test
+  public void testUnfinishedFirstOneofGroupRetainsParsedFields() throws Exception {
+    TestOneof2 group =
+        TestOneof2.newBuilder().setFooGroup(TestOneof2.FooGroup.newBuilder().setA(1)).build();
+    assertParsePrefixesMatchBuilder(TestOneof2.getDefaultInstance(), group.toByteArray());
+    assertParsePrefixesMatchBuilder(
+        TestOneof2.newBuilder().setFooString("replaced").build(), group.toByteArray());
+
+    byte[] wrongEndTag = group.toByteArray();
+    wrongEndTag[wrongEndTag.length - 1] =
+        (byte)
+            WireFormat.makeTag(TestOneof2.FOO_MESSAGE_FIELD_NUMBER, WireFormat.WIRETYPE_END_GROUP);
+    assertParsePrefixesMatchBuilder(TestOneof2.getDefaultInstance(), wrongEndTag);
+  }
+
+  @Test
+  public void testUnfinishedOneofChildIsRetained() throws Exception {
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    CodedOutputStream output = CodedOutputStream.newInstance(bytes);
+    output.writeByteArray(
+        TestOneof2.FOO_MESSAGE_FIELD_NUMBER,
+        new byte[] {(byte) (TestOneof2.NestedMessage.MOO_INT_FIELD_NUMBER << 3), 1, 8});
+    output.flush();
+
+    InvalidProtocolBufferException failure =
+        assertThrows(
+            InvalidProtocolBufferException.class,
+            () -> TestOneof2.parseFrom(bytes.toByteArray()));
+    TestOneof2 partial = (TestOneof2) failure.getUnfinishedMessage();
+    assertThat(partial.hasFooMessage()).isTrue();
+    assertThat(partial.getFooMessage().getMooInt()).isEqualTo(1);
+  }
+
+  @Test
+  public void testRetainedSingularChildIsPublishedOnParseFailure() throws Exception {
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    CodedOutputStream output = CodedOutputStream.newInstance(bytes);
+    for (int i = 1; i <= 3; i++) {
+      NestedTestAllTypes child =
+          NestedTestAllTypes.newBuilder()
+              .setPayload(TestAllTypes.newBuilder().addRepeatedInt32(i))
+              .setUnknownFields(UnknownFieldSet.newBuilder().mergeVarintField(20000, i).build())
+              .build();
+      if (i < 3) {
+        output.writeMessage(NestedTestAllTypes.CHILD_FIELD_NUMBER, child);
+      } else {
+        byte[] valid = child.toByteArray();
+        byte[] truncated = Arrays.copyOf(valid, valid.length + 1);
+        truncated[valid.length] = (byte) 0x80;
+        output.writeByteArray(NestedTestAllTypes.CHILD_FIELD_NUMBER, truncated);
+      }
+    }
+    output.flush();
+
+    InvalidProtocolBufferException failure =
+        assertThrows(
+            InvalidProtocolBufferException.class,
+            () -> NestedTestAllTypes.parseFrom(bytes.toByteArray()));
+    NestedTestAllTypes partial = (NestedTestAllTypes) failure.getUnfinishedMessage();
+    NestedTestAllTypes.Builder builder = NestedTestAllTypes.newBuilder();
+    assertThrows(InvalidProtocolBufferException.class, () -> builder.mergeFrom(bytes.toByteArray()));
+    assertThat(partial).isEqualTo(builder.buildPartial());
+    assertThat(partial.getChild().getPayload().getRepeatedInt32List())
+        .containsExactly(1, 2, 3)
+        .inOrder();
+    assertThat(partial.getChild().getUnknownFields().getField(20000).getVarintList())
+        .containsExactly(1L, 2L, 3L)
+        .inOrder();
+
+    builder.getChildBuilder().getPayloadBuilder().addRepeatedInt32(4);
+    assertThat(builder.buildPartial().getChild().getPayload().getRepeatedInt32List())
+        .containsExactly(1, 2, 3, 4)
+        .inOrder();
+    assertThat(partial.getChild().getPayload().getRepeatedInt32List())
+        .containsExactly(1, 2, 3)
+        .inOrder();
+  }
+
+  @Test
+  public void testInterleavedUnknownEnumsFieldsAndExtensions() throws Exception {
+    ExtensionRegistry registry = ExtensionRegistry.newInstance();
+    registry.add(UnittestCustomOptions.fieldOpt1);
+    FieldOptions expected =
+        FieldOptions.newBuilder()
+            .setCtype(FieldOptions.CType.STRING)
+            .setExtension(UnittestCustomOptions.fieldOpt1, 2L)
+            .setUnknownFields(
+                UnknownFieldSet.newBuilder()
+                    .mergeVarintField(FieldOptions.CTYPE_FIELD_NUMBER, 12345)
+                    .mergeVarintField(FieldOptions.CTYPE_FIELD_NUMBER, -1)
+                    .mergeField(
+                        FieldOptions.CTYPE_FIELD_NUMBER,
+                        UnknownFieldSet.Field.newBuilder().addFixed32(1).addFixed32(2).build())
+                    .mergeVarintField(20000, 1)
+                    .mergeVarintField(20000, 2)
+                    .build())
+            .build();
+    for (boolean enumFirst : new boolean[] {false, true}) {
+      byte[] input = interleavedUnknownFieldOptions(enumFirst);
+      assertThat(FieldOptions.parseFrom(input, registry)).isEqualTo(expected);
+      assertThat(FieldOptions.newBuilder().mergeFrom(input, registry).build()).isEqualTo(expected);
+      UnknownFieldSet unknownEnums =
+          UnknownFieldSet.newBuilder()
+              .mergeVarintField(FieldOptions.CTYPE_FIELD_NUMBER, 12345)
+              .mergeVarintField(FieldOptions.CTYPE_FIELD_NUMBER, -1)
+              .build();
+      assertThat(
+              DiscardUnknownFieldsParser.wrap(FieldOptions.parser()).parseFrom(input, registry))
+          .isEqualTo(expected.toBuilder().setUnknownFields(unknownEnums).build());
+    }
+  }
+
+  private static byte[] interleavedUnknownFieldOptions(boolean enumFirst) throws IOException {
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    CodedOutputStream output = CodedOutputStream.newInstance(bytes);
+    for (int i = 1; i <= 2; i++) {
+      int value = i == 1 ? 12345 : -1;
+      if (enumFirst) {
+        output.writeEnum(FieldOptions.CTYPE_FIELD_NUMBER, value);
+      }
+      output.writeUInt64(20000, i);
+      output.writeFixed64(UnittestCustomOptions.fieldOpt1.getNumber(), i);
+      if (!enumFirst) {
+        output.writeEnum(FieldOptions.CTYPE_FIELD_NUMBER, value);
+      }
+      output.writeFixed32(FieldOptions.CTYPE_FIELD_NUMBER, i);
+    }
+    output.writeEnum(FieldOptions.CTYPE_FIELD_NUMBER, FieldOptions.CType.STRING.getNumber());
+    output.flush();
+    return bytes.toByteArray();
+  }
+
+  @Test
+  public void testInterleavedUnknownFieldsArePublishedOnParseFailure() throws Exception {
+    ExtensionRegistry registry = ExtensionRegistry.newInstance();
+    registry.add(UnittestCustomOptions.fieldOpt1);
+    for (boolean enumFirst : new boolean[] {false, true}) {
+      byte[] valid = interleavedUnknownFieldOptions(enumFirst);
+      byte[] truncated = Arrays.copyOf(valid, valid.length + 1);
+      truncated[valid.length] = (byte) 0x80;
+      FieldOptions expected = FieldOptions.parseFrom(valid, registry);
+      InvalidProtocolBufferException failure =
+          assertThrows(
+              InvalidProtocolBufferException.class,
+              () -> FieldOptions.parseFrom(truncated, registry));
+      assertThat(failure.getUnfinishedMessage()).isEqualTo(expected);
+      FieldOptions.Builder builder = FieldOptions.newBuilder();
+      assertThrows(
+          InvalidProtocolBufferException.class, () -> builder.mergeFrom(truncated, registry));
+      assertThat(builder.buildPartial()).isEqualTo(expected);
+    }
+  }
+
+  @Test
+  public void testPartialParserPreservesIoFailureAndPublishesChildren() throws Exception {
+    byte[] valid = repeatedUnknownChildInput(TestAllTypes.OPTIONAL_NESTED_MESSAGE_FIELD_NUMBER, 3);
+    TestAllTypes expected = TestAllTypes.parseFrom(valid);
+    for (IOException injected :
+        Arrays.asList(
+            new IOException("read failed"), new InvalidProtocolBufferException("invalid"))) {
+      CodedInputStream input = CodedInputStream.newInstance(failingAfter(valid, injected));
+      InvalidProtocolBufferException failure =
+          assertThrows(
+              InvalidProtocolBufferException.class,
+              () -> TestAllTypes.parser().parsePartialFrom(input));
+      if (injected instanceof InvalidProtocolBufferException) {
+        assertThat(failure).isSameInstanceAs(injected);
+      } else {
+        assertThat(failure.getCause()).isSameInstanceAs(injected);
+      }
+      assertThat(failure.getUnfinishedMessage()).isEqualTo(expected);
+      assertThat(
+              ((TestAllTypes) failure.getUnfinishedMessage())
+                  .getOptionalNestedMessage()
+                  .getUnknownFields()
+                  .getField(20000)
+                  .getVarintList())
+          .containsExactly(1L, 1L, 1L);
+    }
+  }
+
+  private static InputStream failingAfter(byte[] bytes, IOException failure) {
+    return new FilterInputStream(new ByteArrayInputStream(bytes)) {
+      @Override
+      public int read() throws IOException {
+        int value = super.read();
+        if (value == -1) {
+          throw failure;
+        }
+        return value;
+      }
+
+      @Override
+      public int read(byte[] destination, int offset, int length) throws IOException {
+        int count = super.read(destination, offset, length);
+        if (count == -1) {
+          throw failure;
+        }
+        return count;
+      }
+    };
+  }
+
+  @Test
+  public void testTruncatedPackedEnumExtensionRetainsParsedUnknownValues() throws Exception {
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    CodedOutputStream output = CodedOutputStream.newInstance(bytes);
+    output.writeByteArray(
+        UnittestProto.packedEnumExtension.getNumber(), new byte[] {123, (byte) 0x80});
+    output.flush();
+    byte[] truncated = bytes.toByteArray();
+    ExtensionRegistry registry = TestUtil.getFullExtensionRegistry();
+    InvalidProtocolBufferException failure =
+        assertThrows(
+            InvalidProtocolBufferException.class,
+            () -> UnittestProto.TestPackedExtensions.parseFrom(truncated, registry));
+    UnittestProto.TestPackedExtensions partial =
+        (UnittestProto.TestPackedExtensions) failure.getUnfinishedMessage();
+    assertThat(
+            partial
+                .getUnknownFields()
+                .getField(UnittestProto.packedEnumExtension.getNumber())
+                .getVarintList())
+        .containsExactly(123L);
+    UnittestProto.TestPackedExtensions.Builder builder =
+        UnittestProto.TestPackedExtensions.newBuilder();
+    assertThrows(
+        InvalidProtocolBufferException.class, () -> builder.mergeFrom(truncated, registry));
+    assertThat(builder.buildPartial()).isEqualTo(partial);
+  }
+
+  private static byte[] repeatedUnknownChildInput(int fieldNumber, int count) throws IOException {
+    byte[] child = UnknownFieldSet.newBuilder().mergeVarintField(20000, 1).build().toByteArray();
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    CodedOutputStream output = CodedOutputStream.newInstance(bytes);
+    for (int i = 0; i < count; i++) {
+      output.writeByteArray(fieldNumber, child);
+    }
+    output.flush();
+    return bytes.toByteArray();
   }
 
   @Test

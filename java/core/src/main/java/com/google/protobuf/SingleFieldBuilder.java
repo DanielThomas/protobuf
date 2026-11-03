@@ -107,12 +107,8 @@ public class SingleFieldBuilder<
     BType builder = this.builder;
 
     if (builder == null) {
-      // builder.mergeFrom() on a fresh builder
-      // does not create any sub-objects with independent clean/dirty states,
-      // therefore setting the builder itself to clean without actually calling
-      // build() cannot break any invariants.
-      this.builder = builder = (BType) message.newBuilderForType(this);
-      builder.mergeFrom(message); // no-op if message is the default message
+      this.builder = builder = (BType) message.toBuilder(this);
+      // Keep the immutable message cached until the builder changes.
       builder.markClean();
     }
     return builder;
