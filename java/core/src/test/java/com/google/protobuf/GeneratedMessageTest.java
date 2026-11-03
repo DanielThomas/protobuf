@@ -721,6 +721,97 @@ public class GeneratedMessageTest {
   }
 
   @Test
+  public void packedSegmentsRestoreOuterLimitAndPreserveSnapshots() throws Exception {
+    TestPackedTypes packed = TestUtil.getPackedSet();
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    CodedOutputStream output = CodedOutputStream.newInstance(bytes);
+    packed.writeTo(output);
+    TestUtil.getUnpackedSet().writeTo(output);
+    output.writeTag(
+        TestPackedTypes.PACKED_INT32_FIELD_NUMBER, WireFormat.WIRETYPE_LENGTH_DELIMITED);
+    output.writeUInt32NoTag(0);
+    packed.writeTo(output);
+    output.writeUInt32(1, 123);
+    output.flush();
+    byte[] wire = bytes.toByteArray();
+    TestPackedTypes expected =
+        TestPackedTypes.newBuilder()
+            .mergeFrom(packed)
+            .mergeFrom(packed)
+            .mergeFrom(packed)
+            .setUnknownFields(UnknownFieldSet.newBuilder().mergeVarintField(1, 123).build())
+            .build();
+
+    for (boolean streaming : new boolean[] {false, true}) {
+      CodedInputStream input =
+          streaming
+              ? CodedInputStream.newInstance(new ByteArrayInputStream(wire))
+              : CodedInputStream.newInstance(wire);
+      input.pushLimit(wire.length);
+      TestPackedTypes.Builder builder = TestPackedTypes.newBuilder();
+      TestPackedTypes snapshot = builder.build();
+      builder.mergeFrom(input, ExtensionRegistryLite.getEmptyRegistry());
+      assertThat(builder.build()).isEqualTo(expected);
+      assertThat(snapshot).isEqualTo(TestPackedTypes.getDefaultInstance());
+      assertThat(input.getTotalBytesRead()).isEqualTo(wire.length);
+      assertThat(input.getBytesUntilLimit()).isEqualTo(0);
+      assertThat(input.getLastTag()).isEqualTo(0);
+    }
+  }
+
+  @Test
+  public void truncatedPackedFieldPreservesPartialMessageAndInputLimit() throws Exception {
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    CodedOutputStream output = CodedOutputStream.newInstance(bytes);
+    output.writeTag(
+        TestPackedTypes.PACKED_FIXED64_FIELD_NUMBER, WireFormat.WIRETYPE_LENGTH_DELIMITED);
+    output.writeUInt32NoTag(9);
+    output.writeFixed64NoTag(123);
+    output.writeRawByte(1);
+    int packedEnd = output.getTotalBytesWritten();
+    output.writeUInt32(1, 456);
+    output.flush();
+    byte[] wire = bytes.toByteArray();
+    TestPackedTypes expected = TestPackedTypes.newBuilder().addPackedFixed64(123).build();
+
+    InvalidProtocolBufferException failure =
+        assertThrows(InvalidProtocolBufferException.class, () -> TestPackedTypes.parseFrom(wire));
+    assertThat(failure.getUnfinishedMessage()).isEqualTo(expected);
+
+    TestPackedTypes.Builder builder = TestPackedTypes.newBuilder();
+    TestPackedTypes snapshot = builder.build();
+    CodedInputStream input = CodedInputStream.newInstance(wire);
+    assertThrows(
+        InvalidProtocolBufferException.class,
+        () -> builder.mergeFrom(input, ExtensionRegistryLite.getEmptyRegistry()));
+    assertThat(builder.build()).isEqualTo(expected);
+    assertThat(snapshot).isEqualTo(TestPackedTypes.getDefaultInstance());
+    assertThat(input.getTotalBytesRead()).isEqualTo(packedEnd - 1);
+    assertThat(input.getBytesUntilLimit()).isEqualTo(1);
+  }
+
+  @Test
+  @SuppressWarnings("deprecation")
+  public void packedDecoderStopsAtEndGroup() throws Exception {
+    TestPackedTypes expected = TestUtil.getPackedSet();
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    CodedOutputStream output = CodedOutputStream.newInstance(bytes);
+    output.writeGroup(1, expected);
+    output.writeUInt32(2, 123);
+    output.flush();
+
+    CodedInputStream input = CodedInputStream.newInstance(bytes.toByteArray());
+    assertThat(input.readTag()).isEqualTo(WireFormat.makeTag(1, WireFormat.WIRETYPE_START_GROUP));
+    TestPackedTypes.Builder builder = TestPackedTypes.newBuilder();
+    input.readGroup(1, builder, ExtensionRegistryLite.getEmptyRegistry());
+    assertThat(builder.build()).isEqualTo(expected);
+    assertThat(input.getLastTag()).isEqualTo(WireFormat.makeTag(1, WireFormat.WIRETYPE_END_GROUP));
+    assertThat(input.readTag()).isEqualTo(WireFormat.makeTag(2, WireFormat.WIRETYPE_VARINT));
+    assertThat(input.readUInt32()).isEqualTo(123);
+    assertThat(input.readTag()).isEqualTo(0);
+  }
+
+  @Test
   public void testParsePackedToUnpacked() throws Exception {
     TestUnpackedTypes.Builder builder = TestUnpackedTypes.newBuilder();
     TestUnpackedTypes message = builder.mergeFrom(TestUtil.getPackedSet().toByteString()).build();

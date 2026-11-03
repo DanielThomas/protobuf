@@ -1034,22 +1034,22 @@ void RepeatedImmutablePrimitiveFieldGenerator::
     printer->Print(variables_,
                    "int length = input.readRawVarint32();\n"
                    "int limit = input.pushLimit(length);\n"
-                   "int alloc = length > 4096 ? 4096 : length;\n"
-                   "ensure$capitalized_name$IsMutable(alloc / $fixed_size$);\n"
+                   "ensure$capitalized_name$IsMutable("
+                   "java.lang.Math.min(length, 4096) / $fixed_size$);\n"
                    "while (input.getBytesUntilLimit() > 0) {\n"
                    "  $repeated_add$(input.read$capitalized_type$());\n"
                    "}\n"
                    "input.popLimit(limit);\n");
   } else {
-    printer->Print(variables_,
-                   "int length = input.readRawVarint32();\n"
-                   "int limit = input.pushLimit(length);\n"
-                   "int count = input.countPackedVarints(length);\n"
-                   "ensure$capitalized_name$IsMutable(count);\n"
-                   "while (input.getBytesUntilLimit() > 0) {\n"
-                   "  $repeated_add$(input.read$capitalized_type$());\n"
-                   "}\n"
-                   "input.popLimit(limit);\n");
+    printer->Print(
+        variables_,
+        "int length = input.readRawVarint32();\n"
+        "int limit = input.pushLimit(length);\n"
+        "ensure$capitalized_name$IsMutable(input.countPackedVarints(length));\n"
+        "while (input.getBytesUntilLimit() > 0) {\n"
+        "  $repeated_add$(input.read$capitalized_type$());\n"
+        "}\n"
+        "input.popLimit(limit);\n");
   }
 }
 

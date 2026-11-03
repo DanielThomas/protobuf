@@ -1088,8 +1088,7 @@ void ImmutableMapFieldGenerator::GenerateBuilderParsingCode(
         "$name$__ = input.readMessage(\n"
         "    $default_entry$.getParserForType(), extensionRegistry);\n"
         "internalGetMutable$capitalized_name$().ensureBuilderMap().put(\n"
-        "    $name$__.getKey(), $name$__.getValue());\n"
-        "$set_has_field_bit$\n");
+        "    $name$__.getKey(), $name$__.getValue());\n");
     return;
   }
   if (!SupportUnknownEnumValue(value) && type == JAVATYPE_ENUM) {
@@ -1103,7 +1102,6 @@ void ImmutableMapFieldGenerator::GenerateBuilderParsingCode(
         "} else {\n"
         "  internalGetMutable$capitalized_name$().getMutableMap().put(\n"
         "      $name$__.getKey(), $name$__.getValue());\n"
-        "  $set_has_field_bit$\n"
         "}\n");
     return;
   }
@@ -1112,8 +1110,7 @@ void ImmutableMapFieldGenerator::GenerateBuilderParsingCode(
                  "$name$__ = input.readMessage(\n"
                  "    $default_entry$.getParserForType(), extensionRegistry);\n"
                  "internalGetMutable$capitalized_name$().getMutableMap().put(\n"
-                 "    $name$__.getKey(), $name$__.getValue());\n"
-                 "$set_has_field_bit$\n");
+                 "    $name$__.getKey(), $name$__.getValue());\n");
 }
 void ImmutableMapFieldGenerator::GenerateSerializationCode(
     io::Printer* printer) const {

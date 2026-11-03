@@ -357,9 +357,7 @@ void ImmutableEnumFieldGenerator::GenerateBuilderParsingCode(
   } else {
     printer->Print(variables_,
                    "int tmpRaw = input.readEnum();\n"
-                   "$type$ tmpValue =\n"
-                   "    $type$.forNumber(tmpRaw);\n"
-                   "if (tmpValue == null) {\n"
+                   "if ($type$.forNumber(tmpRaw) == null) {\n"
                    "  mergeUnknownVarintField($number$, tmpRaw);\n"
                    "} else {\n"
                    "  $name$_ = tmpRaw;\n"
@@ -1159,9 +1157,7 @@ void RepeatedImmutableEnumFieldGenerator::GenerateBuilderParsingCode(
   } else {
     printer->Print(variables_,
                    "int tmpRaw = input.readEnum();\n"
-                   "$type$ tmpValue =\n"
-                   "    $type$.forNumber(tmpRaw);\n"
-                   "if (tmpValue == null) {\n"
+                   "if ($type$.forNumber(tmpRaw) == null) {\n"
                    "  mergeUnknownVarintField($number$, tmpRaw);\n"
                    "} else {\n"
                    "  ensure$capitalized_name$IsMutable(/* capacity= */ -1);\n"
@@ -1193,30 +1189,28 @@ void RepeatedImmutableEnumFieldGenerator::GenerateBuilderParsingCodeFromPacked(
       printer->Print(variables_,
                      "int length = input.readRawVarint32();\n"
                      "int limit = input.pushLimit(length);\n"
-                     "int count = input.countPackedVarints(length);\n"
-                     "ensure$capitalized_name$IsMutable(count);\n"
+                     "ensure$capitalized_name$IsMutable(input."
+                     "countPackedVarints(length));\n"
                      "while (input.getBytesUntilLimit() > 0) {\n"
                      "  $name$_.addInt(input.readEnum());\n"
                      "}\n"
                      "input.popLimit(limit);\n");
     }
   } else {
-    printer->Print(variables_,
-                   "int length = input.readRawVarint32();\n"
-                   "int limit = input.pushLimit(length);\n"
-                   "int count = input.countPackedVarints(length);\n"
-                   "ensure$capitalized_name$IsMutable(count);\n"
-                   "while (input.getBytesUntilLimit() > 0) {\n"
-                   "  int tmpRaw = input.readEnum();\n"
-                   "  $type$ tmpValue =\n"
-                   "      $type$.forNumber(tmpRaw);\n"
-                   "  if (tmpValue == null) {\n"
-                   "    mergeUnknownVarintField($number$, tmpRaw);\n"
-                   "  } else {\n"
-                   "    $name$_.addInt(tmpRaw);\n"
-                   "  }\n"
-                   "}\n"
-                   "input.popLimit(limit);\n");
+    printer->Print(
+        variables_,
+        "int length = input.readRawVarint32();\n"
+        "int limit = input.pushLimit(length);\n"
+        "ensure$capitalized_name$IsMutable(input.countPackedVarints(length));\n"
+        "while (input.getBytesUntilLimit() > 0) {\n"
+        "  int tmpRaw = input.readEnum();\n"
+        "  if ($type$.forNumber(tmpRaw) == null) {\n"
+        "    mergeUnknownVarintField($number$, tmpRaw);\n"
+        "  } else {\n"
+        "    $name$_.addInt(tmpRaw);\n"
+        "  }\n"
+        "}\n"
+        "input.popLimit(limit);\n");
   }
 }
 void RepeatedImmutableEnumFieldGenerator::GenerateSerializationCode(
