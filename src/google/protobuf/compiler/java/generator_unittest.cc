@@ -49,6 +49,23 @@ class JavaGeneratorTest : public CommandLineInterfaceTester {
     return File::Exists(path);
   }
 
+  std::string BuilderParsingCode(absl::string_view filename) {
+    std::string contents;
+    EXPECT_TRUE(File::GetContents(absl::StrCat(temp_directory(), "/", filename),
+                                  &contents, true)
+                    .ok());
+    const size_t start = contents.find(
+        "public Builder mergeFrom(\n"
+        "        com.google.protobuf.CodedInputStream input,");
+    if (start == std::string::npos) {
+      ADD_FAILURE() << "No builder parsing method in " << filename;
+      return "";
+    }
+    const size_t end = contents.find("return this;", start);
+    EXPECT_NE(end, std::string::npos);
+    return contents.substr(start, end - start);
+  }
+
   bool FileContainsSubstring(absl::string_view filename,
                              absl::string_view substring) {
     std::string path = absl::StrCat(temp_directory(), "/", filename);
@@ -646,6 +663,94 @@ TEST_F(JavaGeneratorTest, OneofHasBitsBuildPartial) {
   EXPECT_TRUE(FileContainsSubstring(
       PACKAGE_PREFIX "com/google/protos/TestOneofHasBits.java",
       "parseOneofMsg(input, extensionRegistry);"));
+}
+
+TEST_F(JavaGeneratorTest, CompactPackedParsingPreservesLoopShape) {
+  CreateTempFile("compact.proto", R"schema(
+    syntax = "proto2";
+    option java_multiple_files = true;
+    message Compact {
+      enum State { ZERO = 0; ONE = 1; }
+      optional State state = 1;
+      repeated sint32 numbers = 2;
+      repeated fixed64 fixed = 3;
+      repeated State states = 4;
+      optional string text = 5;
+    }
+  )schema");
+  RunProtoc(
+      "protocol_compiler --proto_path=$tmpdir --java_out=$tmpdir "
+      "compact.proto");
+  ExpectNoErrors();
+
+  const std::string code = BuilderParsingCode(PACKAGE_PREFIX "Compact.java");
+  // Both direct exits and a shared packed-limit epilogue regressed C2's
+  // hot-inlined child decoder in the SCALING_ONEOF_2048 benchmark.
+  EXPECT_NE(code.find("boolean done = false;"), std::string::npos);
+  EXPECT_NE(code.find("while (!done)"), std::string::npos);
+  EXPECT_EQ(code.find("parseLoop"), std::string::npos);
+  EXPECT_EQ(code.find("int limit;"), std::string::npos);
+  EXPECT_NE(code.find("int limit ="), std::string::npos);
+  int pop_count = 0;
+  for (size_t pop = code.find("input.popLimit(limit);");
+       pop != std::string::npos;
+       pop = code.find("input.popLimit(limit);", pop + 1)) {
+    ++pop_count;
+  }
+  EXPECT_EQ(pop_count, 3);
+  EXPECT_NE(
+      code.find("ensureNumbersIsMutable(input.countPackedVarints(length));"),
+      std::string::npos);
+  EXPECT_NE(
+      code.find("ensureFixedIsMutable(java.lang.Math.min(length, 4096) / 8);"),
+      std::string::npos);
+  EXPECT_EQ(code.find("tmpValue"), std::string::npos);
+  EXPECT_EQ(code.find("int count ="), std::string::npos);
+  EXPECT_EQ(code.find("int alloc ="), std::string::npos);
+}
+
+TEST_F(JavaGeneratorTest, BuilderParsingWithoutPackedFields) {
+  CreateTempFile("unpacked.proto", R"schema(
+    syntax = "proto3";
+    option java_multiple_files = true;
+    message Empty {}
+    message Unpacked { string text = 1; }
+  )schema");
+  RunProtoc(
+      "protocol_compiler --proto_path=$tmpdir --java_out=$tmpdir "
+      "unpacked.proto");
+  ExpectNoErrors();
+
+  for (const char* file :
+       {PACKAGE_PREFIX "Empty.java", PACKAGE_PREFIX "Unpacked.java"}) {
+    const std::string code = BuilderParsingCode(file);
+    EXPECT_NE(code.find("while (!done)"), std::string::npos);
+    EXPECT_EQ(code.find("int limit"), std::string::npos);
+    EXPECT_EQ(code.find("popLimit"), std::string::npos);
+  }
+}
+
+TEST_F(JavaGeneratorTest, MapParsingDoesNotRepeatMutableAccessorBookkeeping) {
+  CreateTempFile("maps.proto", R"schema(
+    syntax = "proto2";
+    option java_multiple_files = true;
+    message Maps {
+      enum State { ZERO = 0; ONE = 1; }
+      message Value { optional int32 number = 1; }
+      map<int32, int32> scalars = 1;
+      map<int32, State> enums = 2;
+      map<int32, Value> messages = 3;
+    }
+  )schema");
+  RunProtoc(
+      "protocol_compiler --proto_path=$tmpdir --java_out=$tmpdir maps.proto");
+  ExpectNoErrors();
+
+  const std::string code = BuilderParsingCode(PACKAGE_PREFIX "Maps.java");
+  EXPECT_NE(code.find("internalGetMutableScalars()"), std::string::npos);
+  EXPECT_NE(code.find("internalGetMutableEnums()"), std::string::npos);
+  EXPECT_NE(code.find("internalGetMutableMessages()"), std::string::npos);
+  EXPECT_EQ(code.find("bitField"), std::string::npos);
 }
 
 }  // namespace

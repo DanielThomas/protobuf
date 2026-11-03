@@ -408,6 +408,7 @@ protobuf_java_library(
 test_suite(
     name = "tests",
     tests = [
+        "GeneratedCodeSizeTest",
         "conformance_test",
         "core_build_test",
         "core_tests",
@@ -432,6 +433,7 @@ conformance_test(
 
 # Tests excluded from core_tests, also reused by the v25 compatibility tests.
 FULL_TEST_EXCLUSIONS = [
+    "src/test/java/com/google/protobuf/GeneratedCodeSizeTest.java",
     "src/test/java/com/google/protobuf/DecodeUtf8Test.java",
     "src/test/java/com/google/protobuf/IsValidUtf8Test.java",
     "src/test/java/com/google/protobuf/IsValidUtf8FourByteTest.java",
@@ -468,6 +470,20 @@ junit_tests(
         "@protobuf_maven_dev//:com_google_truth_truth",
         "@protobuf_maven_dev//:junit_junit",
         "@protobuf_maven_dev//:org_mockito_mockito_core",
+    ],
+)
+
+java_test(
+    name = "GeneratedCodeSizeTest",
+    size = "small",
+    srcs = ["src/test/java/com/google/protobuf/GeneratedCodeSizeTest.java"],
+    test_class = "com.google.protobuf.GeneratedCodeSizeTest",
+    deps = [
+        ":core",
+        "//:test_messages_proto2_java_proto",
+        "@protobuf_maven_dev//:com_google_guava_guava",
+        "@protobuf_maven_dev//:com_google_truth_truth",
+        "@protobuf_maven_dev//:junit_junit",
     ],
 )
 

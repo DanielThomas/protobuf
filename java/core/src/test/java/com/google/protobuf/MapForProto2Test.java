@@ -10,6 +10,7 @@ package com.google.protobuf;
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth.assertWithMessage;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.fail;
 
 import com.google.protobuf.Descriptors.FieldDescriptor;
@@ -89,6 +90,31 @@ public class MapForProto2Test {
         .putStringToInt32Field("1", 11)
         .putStringToInt32Field("2", 22)
         .putStringToInt32Field("3", 33);
+  }
+
+  @Test
+  public void wireMergePreservesMapSnapshotsAfterFailureAndClear() throws Exception {
+    TestMap.Builder source = TestMap.newBuilder();
+    setMapValuesUsingAccessors(source);
+    TestMap original = source.build();
+    TestMap.Builder builder = TestMap.newBuilder();
+    builder.mergeFrom(original.toByteArray());
+    TestMap snapshot = builder.build();
+
+    updateMapValuesUsingAccessors(source);
+    TestMap updated = source.build();
+    TestMap expected = original.toBuilder().mergeFrom(updated).build();
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    updated.writeTo(bytes);
+    bytes.write(0x80);
+    assertThrows(
+        InvalidProtocolBufferException.class, () -> builder.mergeFrom(bytes.toByteArray()));
+    assertThat(builder.build()).isEqualTo(expected);
+    assertThat(snapshot).isEqualTo(original);
+
+    builder.clear();
+    builder.mergeFrom(original.toByteArray());
+    assertThat(builder.build()).isEqualTo(original);
   }
 
   @Test
