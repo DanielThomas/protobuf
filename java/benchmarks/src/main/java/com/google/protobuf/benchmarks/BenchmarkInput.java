@@ -7,6 +7,7 @@
 
 package com.google.protobuf.benchmarks;
 
+import benchmark.fixtures.FlatProto2;
 import benchmark.fixtures.Wide495;
 import benchmark.fixtures.WideClosedEnum;
 import benchmark.fixtures.WideMessageFields;
@@ -67,8 +68,10 @@ final class BenchmarkInput {
         return new BenchmarkInput(Int32Value.class, integer(1, 0), new byte[0], Registry.NONE, 0);
       case PRESENCE_EDITIONS_ZERO:
         return unchanged(UnittestProto.TestAllTypes.NestedMessage.class, integer(1, 0));
-      case FLAT_PROTO2:
+      case FLAT_PROTO2_WIDE:
         return unchanged(TestAllTypesProto2.class, flat());
+      case FLAT_PROTO2_COMPACT:
+        return unchanged(FlatProto2.class, flat());
       case FLAT_PROTO3:
         return unchanged(UnittestProto3.TestAllTypes.class, flat());
       case FLAT_EDITIONS:

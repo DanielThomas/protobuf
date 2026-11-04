@@ -35,7 +35,9 @@ done
 
 | Inputs | Purpose |
 | --- | --- |
-| `SCALAR_*`, `PRESENCE_*`, `FLAT_*`, `REQUIRED_SCALARS` | Non-nested messages, presence and required fields across proto2, proto3 and Editions |
+| `SCALAR_*`, `PRESENCE_*`, `FLAT_PROTO3`, `FLAT_EDITIONS`, `REQUIRED_SCALARS` | Non-nested messages, presence and required fields across proto2, proto3 and Editions |
+| `FLAT_PROTO2_WIDE` | Seven scalar fields in the wide conformance schema, with an interpreted decoding loop under the measured HotSpot settings |
+| `FLAT_PROTO2_COMPACT` | The same seven scalar fields and wire input in a compact proto2 schema |
 | `ORDINARY_*`, `ONEOF_*`, `GROUP_*`, `EXTENSION_*` | First occurrences and exactly one merge of singular children, including groups and extensions |
 | `UNKNOWN`, `*_ENUM_*`, `REPEATED_*`, `MAP_*`, `DEPTH*` | Unknown fields, enums, repeated fields, map insertion and replacement, and single chains of depth 2 and 8 |
 | `WIDE_*`, `SCALAR494_*`, `SCALAR495_*`, `ENUMS*` | Wide schemas and large decoding methods |
@@ -43,6 +45,10 @@ done
 | `SCALING_*` | 1,024 and 2,048 occurrences with growing merged child contents |
 
 Scalar payloads are small, with one-byte strings and bytes where used. A `FIRST` input contains one child occurrence. Its `MERGE` counterpart contains two, with both contributing to the expected result. Repeated-message elements append and duplicate map keys replace values, so those are separate cases.
+
+`FLAT_PROTO2_WIDE` was previously named `FLAT_PROTO2`. With javac 8, the baseline builder decoder is 8,456 bytes and the proposed direct parser is 8,220 bytes. Both remain interpreted on HotSpot 8 and 27 because they exceed the default 8,000-byte huge-method cutoff. Report this separately from compiled parsing.
+
+`FLAT_PROTO2_COMPACT` retains the same field numbers, types, proto2 presence and extendable-message base, without the unused fields. Both inputs are 26 bytes. Its builder decoder is 288 bytes and direct parser is 334 bytes, with both decoding loops confirmed in normal C2 compilation on HotSpot 8 and 27. These measurements use baseline c0acd3a and parser 8a7de74, compiled with javac 8. Check compilation separately when changing the generator, compiler or JVM settings.
 
 Wide fixtures retain the full schema while sparse inputs select its first or last field. They cover 65 ordinary children, 128 message alternatives, 494/495 scalar alternatives and 138/139/900 closed-enum fields. Dense cases populate all 65 children or every enum field. These widths support investigation of previously observed compiler boundaries, but field counts alone do not establish compilation behavior.
 

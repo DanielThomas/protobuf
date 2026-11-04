@@ -10,6 +10,7 @@ package(default_testonly = True)
 genrule(
     name = "fixture_sources",
     outs = [
+        "generated/benchmark/flat.proto",
         "generated/benchmark/wide.proto",
         "generated/enum138.proto",
         "generated/enum139.proto",
@@ -23,6 +24,20 @@ genrule(
       done
     }
     mkdir -p $(RULEDIR)/generated/benchmark
+    printf '%s\\n' \\
+      'syntax = "proto2";' \\
+      'package benchmark.fixtures;' \\
+      'option java_multiple_files = true;' \\
+      'message FlatProto2 {' \\
+      '  optional int32 optional_int32 = 1;' \\
+      '  optional int64 optional_int64 = 2;' \\
+      '  optional fixed32 optional_fixed32 = 7;' \\
+      '  optional double optional_double = 12;' \\
+      '  optional bool optional_bool = 13;' \\
+      '  optional string optional_string = 14;' \\
+      '  optional bytes optional_bytes = 15;' \\
+      '  extensions 1000 to max;' \\
+      '}' > $(RULEDIR)/generated/benchmark/flat.proto
     {
       echo 'syntax = "proto2";'
       echo 'package benchmark.fixtures;'
@@ -117,6 +132,8 @@ java_test(
     test_class = "com.google.protobuf.benchmarks.BenchmarkInputsTest",
     deps = [
         ":benchmark_lib",
+        ":fixtures_java_proto",
+        "//java/core",
         "@protobuf_maven_dev//:junit_junit",
     ],
 )
