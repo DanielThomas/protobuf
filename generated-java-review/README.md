@@ -6,10 +6,10 @@ Compare [`java-generated-baseline...java-generated-parser`](https://github.com/D
 
 | Branch | Compiler revision |
 | --- | --- |
-| `java-generated-baseline` | `4e295241ef232d7b6627493b9ab27f9b1d757ad7` |
-| `java-generated-parser` | `fe1dc49c017d02144b4dd3b6d3d9551aeb83a3ca` |
+| `java-generated-baseline` | `c0acd3a8f5aedaa6705530b9704c2af527f51575` |
+| `java-generated-parser` | `8a7de748f2b4d848a497b3974071a96732141428` |
 
-The input set contains all 482 tracked proto files at the baseline revision, plus the wide regression schema produced by `//java/core:generated_code_size_test_proto_src` at the proposal revision. Its captured input is in `inputs/generated_code_size_test.proto`.
+The input set is frozen at `4e295241ef232d7b6627493b9ab27f9b1d757ad7` and contains its 482 tracked proto files, plus the wide regression schema captured from `//java/core:generated_code_size_test_proto_src` at `daa7707fb130a6db29322cd5c7caf377008bc231`. The target has since been removed. Its captured input remains in `inputs/generated_code_size_test.proto`.
 
 Each proto has its own directory under `java/`, preserving its repository path. The additional regression schema is under `java/fixtures/generated_code_size_test/`. This keeps unrelated test schemas with the same Java class names separate.
 

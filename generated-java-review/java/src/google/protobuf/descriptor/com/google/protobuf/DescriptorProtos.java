@@ -62014,6 +62014,7 @@ public final class DescriptorProtos extends com.google.protobuf.GeneratedFile {
       com.google.protobuf.GeneratedMessage.FieldAccessorTable(
         internal_static_google_protobuf_GeneratedCodeInfo_Annotation_descriptor,
         new java.lang.String[] { "Path", "SourceFile", "Begin", "End", "Semantic", });
+    descriptor.resolveAllFeaturesImmutable();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

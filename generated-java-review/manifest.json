@@ -1,7 +1,7 @@
 {
-  "generator_revision": "4e295241ef232d7b6627493b9ab27f9b1d757ad7",
+  "generator_revision": "c0acd3a8f5aedaa6705530b9704c2af527f51575",
   "protoc_version": "libprotoc 38.0-dev",
-  "protoc_sha256": "6f5a9b3de32a9e9f237f9aee6271321add6bb18a3e31f1b78d14713907f24743",
+  "protoc_sha256": "fa4051e7a50ad7d59e1c3cc292960edd8f24add4f38d724638da845eb600fe1f",
   "java_options": [],
   "experimental_editions": true,
   "tracked_proto_inputs": 482,
