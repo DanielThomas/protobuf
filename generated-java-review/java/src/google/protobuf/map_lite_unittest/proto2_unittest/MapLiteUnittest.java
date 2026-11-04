@@ -3212,15 +3212,27 @@ com.google.protobuf.UnittestLite.ForeignMessageLite defaultValue) {
                 proto2_unittest.MapLiteUnittest.TestMapLite.class, proto2_unittest.MapLiteUnittest.TestMapLite.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.MapLiteUnittest.TestMapLite.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(proto2_unittest.MapLiteUnittest.TestMapLite other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -3277,7 +3289,7 @@ com.google.protobuf.UnittestLite.ForeignMessageLite defaultValue) {
 
       private void buildPartial_autosplit_0(proto2_unittest.MapLiteUnittest.TestMapLite result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.mapInt32Int32_ = internalGetMapInt32Int32();
           result.mapInt32Int32_.makeImmutable();
@@ -3350,6 +3362,37 @@ com.google.protobuf.UnittestLite.ForeignMessageLite defaultValue) {
           result.teboring_.makeImmutable();
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(proto2_unittest.MapLiteUnittest.TestMapLite other, java.lang.Object[] parserLocals) {
+        mapInt32Int32_ = other.mapInt32Int32_;
+        mapInt64Int64_ = other.mapInt64Int64_;
+        mapUint32Uint32_ = other.mapUint32Uint32_;
+        mapUint64Uint64_ = other.mapUint64Uint64_;
+        mapSint32Sint32_ = other.mapSint32Sint32_;
+        mapSint64Sint64_ = other.mapSint64Sint64_;
+        mapFixed32Fixed32_ = other.mapFixed32Fixed32_;
+        mapFixed64Fixed64_ = other.mapFixed64Fixed64_;
+        mapSfixed32Sfixed32_ = other.mapSfixed32Sfixed32_;
+        mapSfixed64Sfixed64_ = other.mapSfixed64Sfixed64_;
+        mapInt32Float_ = other.mapInt32Float_;
+        mapInt32Double_ = other.mapInt32Double_;
+        mapBoolBool_ = other.mapBoolBool_;
+        mapStringString_ = other.mapStringString_;
+        mapInt32Bytes_ = other.mapInt32Bytes_;
+        mapInt32Enum_ = other.mapInt32Enum_;
+        if (parserLocals == null && other.mapInt32ForeignMessage_ != null) {
+          mapInt32ForeignMessage_ = new com.google.protobuf.MapFieldBuilder<>(mapInt32ForeignMessageConverter);
+          mapInt32ForeignMessage_.ensureBuilderMap().putAll(other.mapInt32ForeignMessage_.getMap());
+        }
+        teboring_ = other.teboring_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            mapInt32ForeignMessage_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UnittestLite.ForeignMessageLiteOrBuilder, com.google.protobuf.UnittestLite.ForeignMessageLite, com.google.protobuf.UnittestLite.ForeignMessageLite.Builder>) parserLocals[0];
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -5983,22 +6026,519 @@ com.google.protobuf.UnittestLite.ForeignMessageLite defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestMapLite parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestMapLite instance = new TestMapLite((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UnittestLite.ForeignMessageLiteOrBuilder, com.google.protobuf.UnittestLite.ForeignMessageLite, com.google.protobuf.UnittestLite.ForeignMessageLite.Builder> parsed_mapInt32ForeignMessage = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              mapInt32Int32__ = input.readMessage(
+                  MapInt32Int32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapInt32Int32(instance).getMutableMap().put(
+                  mapInt32Int32__.getKey(), mapInt32Int32__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+              mapInt64Int64__ = input.readMessage(
+                  MapInt64Int64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapInt64Int64(instance).getMutableMap().put(
+                  mapInt64Int64__.getKey(), mapInt64Int64__.getValue());
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              mapUint32Uint32__ = input.readMessage(
+                  MapUint32Uint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapUint32Uint32(instance).getMutableMap().put(
+                  mapUint32Uint32__.getKey(), mapUint32Uint32__.getValue());
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+              mapUint64Uint64__ = input.readMessage(
+                  MapUint64Uint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapUint64Uint64(instance).getMutableMap().put(
+                  mapUint64Uint64__.getKey(), mapUint64Uint64__.getValue());
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              mapSint32Sint32__ = input.readMessage(
+                  MapSint32Sint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapSint32Sint32(instance).getMutableMap().put(
+                  mapSint32Sint32__.getKey(), mapSint32Sint32__.getValue());
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+              mapSint64Sint64__ = input.readMessage(
+                  MapSint64Sint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapSint64Sint64(instance).getMutableMap().put(
+                  mapSint64Sint64__.getKey(), mapSint64Sint64__.getValue());
+              instance.bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              mapFixed32Fixed32__ = input.readMessage(
+                  MapFixed32Fixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapFixed32Fixed32(instance).getMutableMap().put(
+                  mapFixed32Fixed32__.getKey(), mapFixed32Fixed32__.getValue());
+              instance.bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+              mapFixed64Fixed64__ = input.readMessage(
+                  MapFixed64Fixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapFixed64Fixed64(instance).getMutableMap().put(
+                  mapFixed64Fixed64__.getKey(), mapFixed64Fixed64__.getValue());
+              instance.bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              mapSfixed32Sfixed32__ = input.readMessage(
+                  MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapSfixed32Sfixed32(instance).getMutableMap().put(
+                  mapSfixed32Sfixed32__.getKey(), mapSfixed32Sfixed32__.getValue());
+              instance.bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+              mapSfixed64Sfixed64__ = input.readMessage(
+                  MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapSfixed64Sfixed64(instance).getMutableMap().put(
+                  mapSfixed64Sfixed64__.getKey(), mapSfixed64Sfixed64__.getValue());
+              instance.bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Float>
+              mapInt32Float__ = input.readMessage(
+                  MapInt32FloatDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapInt32Float(instance).getMutableMap().put(
+                  mapInt32Float__.getKey(), mapInt32Float__.getValue());
+              instance.bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 98: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Double>
+              mapInt32Double__ = input.readMessage(
+                  MapInt32DoubleDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapInt32Double(instance).getMutableMap().put(
+                  mapInt32Double__.getKey(), mapInt32Double__.getValue());
+              instance.bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 106: {
+              com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.Boolean>
+              mapBoolBool__ = input.readMessage(
+                  MapBoolBoolDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapBoolBool(instance).getMutableMap().put(
+                  mapBoolBool__.getKey(), mapBoolBool__.getValue());
+              instance.bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            case 114: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              mapStringString__ = input.readMessage(
+                  MapStringStringDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapStringString(instance).getMutableMap().put(
+                  mapStringString__.getKey(), mapStringString__.getValue());
+              instance.bitField0_ |= 0x00002000;
+              break;
+            } // case 114
+            case 122: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.ByteString>
+              mapInt32Bytes__ = input.readMessage(
+                  MapInt32BytesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapInt32Bytes(instance).getMutableMap().put(
+                  mapInt32Bytes__.getKey(), mapInt32Bytes__.getValue());
+              instance.bitField0_ |= 0x00004000;
+              break;
+            } // case 122
+            case 130: {
+              com.google.protobuf.ByteString bytes = input.readBytes();
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              mapInt32Enum__ = MapInt32EnumDefaultEntryHolder.defaultEntry.getParserForType().parseFrom(bytes);
+              if (proto2_unittest.MapLiteUnittest.MapEnumLite.forNumber(mapInt32Enum__.getValue()) == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownLengthDelimitedField(unknown, 16, bytes);
+              } else {
+                internalGetMutableMapInt32Enum(instance).getMutableMap().put(
+                    mapInt32Enum__.getKey(), mapInt32Enum__.getValue());
+                instance.bitField0_ |= 0x00008000;
+              }
+              break;
+            } // case 130
+            case 138: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.UnittestLite.ForeignMessageLite>
+              mapInt32ForeignMessage__ = input.readMessage(
+                  MapInt32ForeignMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              (parsed_mapInt32ForeignMessage = internalGetMutableMapInt32ForeignMessage(instance, parsed_mapInt32ForeignMessage)).ensureBuilderMap().put(
+                  mapInt32ForeignMessage__.getKey(), mapInt32ForeignMessage__.getValue());
+              instance.bitField0_ |= 0x00010000;
+              break;
+            } // case 138
+            case 146: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              teboring__ = input.readMessage(
+                  TeboringDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableTeboring(instance).getMutableMap().put(
+                  teboring__.getKey(), teboring__.getValue());
+              instance.bitField0_ |= 0x00020000;
+              break;
+            } // case 146
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, parsed_mapInt32ForeignMessage);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableMapInt32Int32(proto2_unittest.MapLiteUnittest.TestMapLite instance) {
+      if (instance.mapInt32Int32_ == null) {
+        instance.mapInt32Int32_ = com.google.protobuf.MapField.newMapField(
+            MapInt32Int32DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapInt32Int32_.isMutable()) {
+        instance.mapInt32Int32_ = instance.mapInt32Int32_.copy();
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return instance.mapInt32Int32_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+        internalGetMutableMapInt64Int64(proto2_unittest.MapLiteUnittest.TestMapLite instance) {
+      if (instance.mapInt64Int64_ == null) {
+        instance.mapInt64Int64_ = com.google.protobuf.MapField.newMapField(
+            MapInt64Int64DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapInt64Int64_.isMutable()) {
+        instance.mapInt64Int64_ = instance.mapInt64Int64_.copy();
+      }
+      instance.bitField0_ |= 0x00000002;
+
+      return instance.mapInt64Int64_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableMapUint32Uint32(proto2_unittest.MapLiteUnittest.TestMapLite instance) {
+      if (instance.mapUint32Uint32_ == null) {
+        instance.mapUint32Uint32_ = com.google.protobuf.MapField.newMapField(
+            MapUint32Uint32DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapUint32Uint32_.isMutable()) {
+        instance.mapUint32Uint32_ = instance.mapUint32Uint32_.copy();
+      }
+      instance.bitField0_ |= 0x00000004;
+
+      return instance.mapUint32Uint32_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+        internalGetMutableMapUint64Uint64(proto2_unittest.MapLiteUnittest.TestMapLite instance) {
+      if (instance.mapUint64Uint64_ == null) {
+        instance.mapUint64Uint64_ = com.google.protobuf.MapField.newMapField(
+            MapUint64Uint64DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapUint64Uint64_.isMutable()) {
+        instance.mapUint64Uint64_ = instance.mapUint64Uint64_.copy();
+      }
+      instance.bitField0_ |= 0x00000008;
+
+      return instance.mapUint64Uint64_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableMapSint32Sint32(proto2_unittest.MapLiteUnittest.TestMapLite instance) {
+      if (instance.mapSint32Sint32_ == null) {
+        instance.mapSint32Sint32_ = com.google.protobuf.MapField.newMapField(
+            MapSint32Sint32DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapSint32Sint32_.isMutable()) {
+        instance.mapSint32Sint32_ = instance.mapSint32Sint32_.copy();
+      }
+      instance.bitField0_ |= 0x00000010;
+
+      return instance.mapSint32Sint32_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+        internalGetMutableMapSint64Sint64(proto2_unittest.MapLiteUnittest.TestMapLite instance) {
+      if (instance.mapSint64Sint64_ == null) {
+        instance.mapSint64Sint64_ = com.google.protobuf.MapField.newMapField(
+            MapSint64Sint64DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapSint64Sint64_.isMutable()) {
+        instance.mapSint64Sint64_ = instance.mapSint64Sint64_.copy();
+      }
+      instance.bitField0_ |= 0x00000020;
+
+      return instance.mapSint64Sint64_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableMapFixed32Fixed32(proto2_unittest.MapLiteUnittest.TestMapLite instance) {
+      if (instance.mapFixed32Fixed32_ == null) {
+        instance.mapFixed32Fixed32_ = com.google.protobuf.MapField.newMapField(
+            MapFixed32Fixed32DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapFixed32Fixed32_.isMutable()) {
+        instance.mapFixed32Fixed32_ = instance.mapFixed32Fixed32_.copy();
+      }
+      instance.bitField0_ |= 0x00000040;
+
+      return instance.mapFixed32Fixed32_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+        internalGetMutableMapFixed64Fixed64(proto2_unittest.MapLiteUnittest.TestMapLite instance) {
+      if (instance.mapFixed64Fixed64_ == null) {
+        instance.mapFixed64Fixed64_ = com.google.protobuf.MapField.newMapField(
+            MapFixed64Fixed64DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapFixed64Fixed64_.isMutable()) {
+        instance.mapFixed64Fixed64_ = instance.mapFixed64Fixed64_.copy();
+      }
+      instance.bitField0_ |= 0x00000080;
+
+      return instance.mapFixed64Fixed64_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableMapSfixed32Sfixed32(proto2_unittest.MapLiteUnittest.TestMapLite instance) {
+      if (instance.mapSfixed32Sfixed32_ == null) {
+        instance.mapSfixed32Sfixed32_ = com.google.protobuf.MapField.newMapField(
+            MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapSfixed32Sfixed32_.isMutable()) {
+        instance.mapSfixed32Sfixed32_ = instance.mapSfixed32Sfixed32_.copy();
+      }
+      instance.bitField0_ |= 0x00000100;
+
+      return instance.mapSfixed32Sfixed32_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+        internalGetMutableMapSfixed64Sfixed64(proto2_unittest.MapLiteUnittest.TestMapLite instance) {
+      if (instance.mapSfixed64Sfixed64_ == null) {
+        instance.mapSfixed64Sfixed64_ = com.google.protobuf.MapField.newMapField(
+            MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapSfixed64Sfixed64_.isMutable()) {
+        instance.mapSfixed64Sfixed64_ = instance.mapSfixed64Sfixed64_.copy();
+      }
+      instance.bitField0_ |= 0x00000200;
+
+      return instance.mapSfixed64Sfixed64_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Float>
+        internalGetMutableMapInt32Float(proto2_unittest.MapLiteUnittest.TestMapLite instance) {
+      if (instance.mapInt32Float_ == null) {
+        instance.mapInt32Float_ = com.google.protobuf.MapField.newMapField(
+            MapInt32FloatDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapInt32Float_.isMutable()) {
+        instance.mapInt32Float_ = instance.mapInt32Float_.copy();
+      }
+      instance.bitField0_ |= 0x00000400;
+
+      return instance.mapInt32Float_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Double>
+        internalGetMutableMapInt32Double(proto2_unittest.MapLiteUnittest.TestMapLite instance) {
+      if (instance.mapInt32Double_ == null) {
+        instance.mapInt32Double_ = com.google.protobuf.MapField.newMapField(
+            MapInt32DoubleDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapInt32Double_.isMutable()) {
+        instance.mapInt32Double_ = instance.mapInt32Double_.copy();
+      }
+      instance.bitField0_ |= 0x00000800;
+
+      return instance.mapInt32Double_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Boolean, java.lang.Boolean>
+        internalGetMutableMapBoolBool(proto2_unittest.MapLiteUnittest.TestMapLite instance) {
+      if (instance.mapBoolBool_ == null) {
+        instance.mapBoolBool_ = com.google.protobuf.MapField.newMapField(
+            MapBoolBoolDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapBoolBool_.isMutable()) {
+        instance.mapBoolBool_ = instance.mapBoolBool_.copy();
+      }
+      instance.bitField0_ |= 0x00001000;
+
+      return instance.mapBoolBool_;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMutableMapStringString(proto2_unittest.MapLiteUnittest.TestMapLite instance) {
+      if (instance.mapStringString_ == null) {
+        instance.mapStringString_ = com.google.protobuf.MapField.newMapField(
+            MapStringStringDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapStringString_.isMutable()) {
+        instance.mapStringString_ = instance.mapStringString_.copy();
+      }
+      instance.bitField0_ |= 0x00002000;
+
+      return instance.mapStringString_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.ByteString>
+        internalGetMutableMapInt32Bytes(proto2_unittest.MapLiteUnittest.TestMapLite instance) {
+      if (instance.mapInt32Bytes_ == null) {
+        instance.mapInt32Bytes_ = com.google.protobuf.MapField.newMapField(
+            MapInt32BytesDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapInt32Bytes_.isMutable()) {
+        instance.mapInt32Bytes_ = instance.mapInt32Bytes_.copy();
+      }
+      instance.bitField0_ |= 0x00004000;
+
+      return instance.mapInt32Bytes_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableMapInt32Enum(proto2_unittest.MapLiteUnittest.TestMapLite instance) {
+      if (instance.mapInt32Enum_ == null) {
+        instance.mapInt32Enum_ = com.google.protobuf.MapField.newMapField(
+            MapInt32EnumDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapInt32Enum_.isMutable()) {
+        instance.mapInt32Enum_ = instance.mapInt32Enum_.copy();
+      }
+      instance.bitField0_ |= 0x00008000;
+
+      return instance.mapInt32Enum_;
+    }
+    private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UnittestLite.ForeignMessageLiteOrBuilder, com.google.protobuf.UnittestLite.ForeignMessageLite, com.google.protobuf.UnittestLite.ForeignMessageLite.Builder>
+        internalGetMutableMapInt32ForeignMessage(proto2_unittest.MapLiteUnittest.TestMapLite instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UnittestLite.ForeignMessageLiteOrBuilder, com.google.protobuf.UnittestLite.ForeignMessageLite, com.google.protobuf.UnittestLite.ForeignMessageLite.Builder> parsed_mapInt32ForeignMessage) {
+      if (parsed_mapInt32ForeignMessage == null) {
+        parsed_mapInt32ForeignMessage = new com.google.protobuf.MapFieldBuilder<>(Builder.mapInt32ForeignMessageConverter);
+      }
+      instance.bitField0_ |= 0x00010000;
+
+      return parsed_mapInt32ForeignMessage;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableTeboring(proto2_unittest.MapLiteUnittest.TestMapLite instance) {
+      if (instance.teboring_ == null) {
+        instance.teboring_ = com.google.protobuf.MapField.newMapField(
+            TeboringDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.teboring_.isMutable()) {
+        instance.teboring_ = instance.teboring_.copy();
+      }
+      instance.bitField0_ |= 0x00020000;
+
+      return instance.teboring_;
+    }
+    private static void buildPartial_autosplit_0(proto2_unittest.MapLiteUnittest.TestMapLite instance,
+        com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UnittestLite.ForeignMessageLiteOrBuilder, com.google.protobuf.UnittestLite.ForeignMessageLite, com.google.protobuf.UnittestLite.ForeignMessageLite.Builder> parsed_mapInt32ForeignMessage) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.mapInt32Int32_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.mapInt64Int64_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.mapUint32Uint32_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.mapUint64Uint64_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        instance.mapSint32Sint32_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        instance.mapSint64Sint64_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        instance.mapFixed32Fixed32_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        instance.mapFixed64Fixed64_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        instance.mapSfixed32Sfixed32_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        instance.mapSfixed64Sfixed64_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        instance.mapInt32Float_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        instance.mapInt32Double_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        instance.mapBoolBool_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        instance.mapStringString_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        instance.mapInt32Bytes_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        instance.mapInt32Enum_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        instance.mapInt32ForeignMessage_ = parsed_mapInt32ForeignMessage.build(MapInt32ForeignMessageDefaultEntryHolder.defaultEntry);
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        instance.teboring_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestMapLite>
-        PARSER = new com.google.protobuf.AbstractParser<TestMapLite>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestMapLite> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestMapLite parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestMapLite.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestMapLite instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestMapLite> parser() {
       return PARSER;
@@ -8708,15 +9248,27 @@ proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite defaultValue) {
                 proto2_unittest.MapLiteUnittest.TestArenaMapLite.class, proto2_unittest.MapLiteUnittest.TestArenaMapLite.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.MapLiteUnittest.TestArenaMapLite.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(proto2_unittest.MapLiteUnittest.TestArenaMapLite other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -8772,7 +9324,7 @@ proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite defaultValue) {
 
       private void buildPartial_autosplit_0(proto2_unittest.MapLiteUnittest.TestArenaMapLite result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.mapInt32Int32_ = internalGetMapInt32Int32();
           result.mapInt32Int32_.makeImmutable();
@@ -8841,6 +9393,36 @@ proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite defaultValue) {
           result.mapInt32ForeignMessage_ = internalGetMapInt32ForeignMessage().build(MapInt32ForeignMessageDefaultEntryHolder.defaultEntry);
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(proto2_unittest.MapLiteUnittest.TestArenaMapLite other, java.lang.Object[] parserLocals) {
+        mapInt32Int32_ = other.mapInt32Int32_;
+        mapInt64Int64_ = other.mapInt64Int64_;
+        mapUint32Uint32_ = other.mapUint32Uint32_;
+        mapUint64Uint64_ = other.mapUint64Uint64_;
+        mapSint32Sint32_ = other.mapSint32Sint32_;
+        mapSint64Sint64_ = other.mapSint64Sint64_;
+        mapFixed32Fixed32_ = other.mapFixed32Fixed32_;
+        mapFixed64Fixed64_ = other.mapFixed64Fixed64_;
+        mapSfixed32Sfixed32_ = other.mapSfixed32Sfixed32_;
+        mapSfixed64Sfixed64_ = other.mapSfixed64Sfixed64_;
+        mapInt32Float_ = other.mapInt32Float_;
+        mapInt32Double_ = other.mapInt32Double_;
+        mapBoolBool_ = other.mapBoolBool_;
+        mapStringString_ = other.mapStringString_;
+        mapInt32Bytes_ = other.mapInt32Bytes_;
+        mapInt32Enum_ = other.mapInt32Enum_;
+        if (parserLocals == null && other.mapInt32ForeignMessage_ != null) {
+          mapInt32ForeignMessage_ = new com.google.protobuf.MapFieldBuilder<>(mapInt32ForeignMessageConverter);
+          mapInt32ForeignMessage_.ensureBuilderMap().putAll(other.mapInt32ForeignMessage_.getMap());
+        }
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            mapInt32ForeignMessage_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, proto2_unittest.MapLiteUnittest.ForeignMessageArenaLiteOrBuilder, proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite, proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite.Builder>) parserLocals[0];
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -11334,22 +11916,494 @@ proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestArenaMapLite parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestArenaMapLite instance = new TestArenaMapLite((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, proto2_unittest.MapLiteUnittest.ForeignMessageArenaLiteOrBuilder, proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite, proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite.Builder> parsed_mapInt32ForeignMessage = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              mapInt32Int32__ = input.readMessage(
+                  MapInt32Int32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapInt32Int32(instance).getMutableMap().put(
+                  mapInt32Int32__.getKey(), mapInt32Int32__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+              mapInt64Int64__ = input.readMessage(
+                  MapInt64Int64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapInt64Int64(instance).getMutableMap().put(
+                  mapInt64Int64__.getKey(), mapInt64Int64__.getValue());
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              mapUint32Uint32__ = input.readMessage(
+                  MapUint32Uint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapUint32Uint32(instance).getMutableMap().put(
+                  mapUint32Uint32__.getKey(), mapUint32Uint32__.getValue());
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+              mapUint64Uint64__ = input.readMessage(
+                  MapUint64Uint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapUint64Uint64(instance).getMutableMap().put(
+                  mapUint64Uint64__.getKey(), mapUint64Uint64__.getValue());
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              mapSint32Sint32__ = input.readMessage(
+                  MapSint32Sint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapSint32Sint32(instance).getMutableMap().put(
+                  mapSint32Sint32__.getKey(), mapSint32Sint32__.getValue());
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+              mapSint64Sint64__ = input.readMessage(
+                  MapSint64Sint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapSint64Sint64(instance).getMutableMap().put(
+                  mapSint64Sint64__.getKey(), mapSint64Sint64__.getValue());
+              instance.bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              mapFixed32Fixed32__ = input.readMessage(
+                  MapFixed32Fixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapFixed32Fixed32(instance).getMutableMap().put(
+                  mapFixed32Fixed32__.getKey(), mapFixed32Fixed32__.getValue());
+              instance.bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+              mapFixed64Fixed64__ = input.readMessage(
+                  MapFixed64Fixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapFixed64Fixed64(instance).getMutableMap().put(
+                  mapFixed64Fixed64__.getKey(), mapFixed64Fixed64__.getValue());
+              instance.bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              mapSfixed32Sfixed32__ = input.readMessage(
+                  MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapSfixed32Sfixed32(instance).getMutableMap().put(
+                  mapSfixed32Sfixed32__.getKey(), mapSfixed32Sfixed32__.getValue());
+              instance.bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+              mapSfixed64Sfixed64__ = input.readMessage(
+                  MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapSfixed64Sfixed64(instance).getMutableMap().put(
+                  mapSfixed64Sfixed64__.getKey(), mapSfixed64Sfixed64__.getValue());
+              instance.bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Float>
+              mapInt32Float__ = input.readMessage(
+                  MapInt32FloatDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapInt32Float(instance).getMutableMap().put(
+                  mapInt32Float__.getKey(), mapInt32Float__.getValue());
+              instance.bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 98: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Double>
+              mapInt32Double__ = input.readMessage(
+                  MapInt32DoubleDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapInt32Double(instance).getMutableMap().put(
+                  mapInt32Double__.getKey(), mapInt32Double__.getValue());
+              instance.bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 106: {
+              com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.Boolean>
+              mapBoolBool__ = input.readMessage(
+                  MapBoolBoolDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapBoolBool(instance).getMutableMap().put(
+                  mapBoolBool__.getKey(), mapBoolBool__.getValue());
+              instance.bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            case 114: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              mapStringString__ = input.readMessage(
+                  MapStringStringDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapStringString(instance).getMutableMap().put(
+                  mapStringString__.getKey(), mapStringString__.getValue());
+              instance.bitField0_ |= 0x00002000;
+              break;
+            } // case 114
+            case 122: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.ByteString>
+              mapInt32Bytes__ = input.readMessage(
+                  MapInt32BytesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapInt32Bytes(instance).getMutableMap().put(
+                  mapInt32Bytes__.getKey(), mapInt32Bytes__.getValue());
+              instance.bitField0_ |= 0x00004000;
+              break;
+            } // case 122
+            case 130: {
+              com.google.protobuf.ByteString bytes = input.readBytes();
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              mapInt32Enum__ = MapInt32EnumDefaultEntryHolder.defaultEntry.getParserForType().parseFrom(bytes);
+              if (proto2_unittest.MapLiteUnittest.MapEnumLite.forNumber(mapInt32Enum__.getValue()) == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownLengthDelimitedField(unknown, 16, bytes);
+              } else {
+                internalGetMutableMapInt32Enum(instance).getMutableMap().put(
+                    mapInt32Enum__.getKey(), mapInt32Enum__.getValue());
+                instance.bitField0_ |= 0x00008000;
+              }
+              break;
+            } // case 130
+            case 138: {
+              com.google.protobuf.MapEntry<java.lang.Integer, proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite>
+              mapInt32ForeignMessage__ = input.readMessage(
+                  MapInt32ForeignMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              (parsed_mapInt32ForeignMessage = internalGetMutableMapInt32ForeignMessage(instance, parsed_mapInt32ForeignMessage)).ensureBuilderMap().put(
+                  mapInt32ForeignMessage__.getKey(), mapInt32ForeignMessage__.getValue());
+              instance.bitField0_ |= 0x00010000;
+              break;
+            } // case 138
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, parsed_mapInt32ForeignMessage);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableMapInt32Int32(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance) {
+      if (instance.mapInt32Int32_ == null) {
+        instance.mapInt32Int32_ = com.google.protobuf.MapField.newMapField(
+            MapInt32Int32DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapInt32Int32_.isMutable()) {
+        instance.mapInt32Int32_ = instance.mapInt32Int32_.copy();
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return instance.mapInt32Int32_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+        internalGetMutableMapInt64Int64(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance) {
+      if (instance.mapInt64Int64_ == null) {
+        instance.mapInt64Int64_ = com.google.protobuf.MapField.newMapField(
+            MapInt64Int64DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapInt64Int64_.isMutable()) {
+        instance.mapInt64Int64_ = instance.mapInt64Int64_.copy();
+      }
+      instance.bitField0_ |= 0x00000002;
+
+      return instance.mapInt64Int64_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableMapUint32Uint32(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance) {
+      if (instance.mapUint32Uint32_ == null) {
+        instance.mapUint32Uint32_ = com.google.protobuf.MapField.newMapField(
+            MapUint32Uint32DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapUint32Uint32_.isMutable()) {
+        instance.mapUint32Uint32_ = instance.mapUint32Uint32_.copy();
+      }
+      instance.bitField0_ |= 0x00000004;
+
+      return instance.mapUint32Uint32_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+        internalGetMutableMapUint64Uint64(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance) {
+      if (instance.mapUint64Uint64_ == null) {
+        instance.mapUint64Uint64_ = com.google.protobuf.MapField.newMapField(
+            MapUint64Uint64DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapUint64Uint64_.isMutable()) {
+        instance.mapUint64Uint64_ = instance.mapUint64Uint64_.copy();
+      }
+      instance.bitField0_ |= 0x00000008;
+
+      return instance.mapUint64Uint64_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableMapSint32Sint32(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance) {
+      if (instance.mapSint32Sint32_ == null) {
+        instance.mapSint32Sint32_ = com.google.protobuf.MapField.newMapField(
+            MapSint32Sint32DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapSint32Sint32_.isMutable()) {
+        instance.mapSint32Sint32_ = instance.mapSint32Sint32_.copy();
+      }
+      instance.bitField0_ |= 0x00000010;
+
+      return instance.mapSint32Sint32_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+        internalGetMutableMapSint64Sint64(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance) {
+      if (instance.mapSint64Sint64_ == null) {
+        instance.mapSint64Sint64_ = com.google.protobuf.MapField.newMapField(
+            MapSint64Sint64DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapSint64Sint64_.isMutable()) {
+        instance.mapSint64Sint64_ = instance.mapSint64Sint64_.copy();
+      }
+      instance.bitField0_ |= 0x00000020;
+
+      return instance.mapSint64Sint64_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableMapFixed32Fixed32(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance) {
+      if (instance.mapFixed32Fixed32_ == null) {
+        instance.mapFixed32Fixed32_ = com.google.protobuf.MapField.newMapField(
+            MapFixed32Fixed32DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapFixed32Fixed32_.isMutable()) {
+        instance.mapFixed32Fixed32_ = instance.mapFixed32Fixed32_.copy();
+      }
+      instance.bitField0_ |= 0x00000040;
+
+      return instance.mapFixed32Fixed32_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+        internalGetMutableMapFixed64Fixed64(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance) {
+      if (instance.mapFixed64Fixed64_ == null) {
+        instance.mapFixed64Fixed64_ = com.google.protobuf.MapField.newMapField(
+            MapFixed64Fixed64DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapFixed64Fixed64_.isMutable()) {
+        instance.mapFixed64Fixed64_ = instance.mapFixed64Fixed64_.copy();
+      }
+      instance.bitField0_ |= 0x00000080;
+
+      return instance.mapFixed64Fixed64_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableMapSfixed32Sfixed32(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance) {
+      if (instance.mapSfixed32Sfixed32_ == null) {
+        instance.mapSfixed32Sfixed32_ = com.google.protobuf.MapField.newMapField(
+            MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapSfixed32Sfixed32_.isMutable()) {
+        instance.mapSfixed32Sfixed32_ = instance.mapSfixed32Sfixed32_.copy();
+      }
+      instance.bitField0_ |= 0x00000100;
+
+      return instance.mapSfixed32Sfixed32_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+        internalGetMutableMapSfixed64Sfixed64(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance) {
+      if (instance.mapSfixed64Sfixed64_ == null) {
+        instance.mapSfixed64Sfixed64_ = com.google.protobuf.MapField.newMapField(
+            MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapSfixed64Sfixed64_.isMutable()) {
+        instance.mapSfixed64Sfixed64_ = instance.mapSfixed64Sfixed64_.copy();
+      }
+      instance.bitField0_ |= 0x00000200;
+
+      return instance.mapSfixed64Sfixed64_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Float>
+        internalGetMutableMapInt32Float(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance) {
+      if (instance.mapInt32Float_ == null) {
+        instance.mapInt32Float_ = com.google.protobuf.MapField.newMapField(
+            MapInt32FloatDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapInt32Float_.isMutable()) {
+        instance.mapInt32Float_ = instance.mapInt32Float_.copy();
+      }
+      instance.bitField0_ |= 0x00000400;
+
+      return instance.mapInt32Float_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Double>
+        internalGetMutableMapInt32Double(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance) {
+      if (instance.mapInt32Double_ == null) {
+        instance.mapInt32Double_ = com.google.protobuf.MapField.newMapField(
+            MapInt32DoubleDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapInt32Double_.isMutable()) {
+        instance.mapInt32Double_ = instance.mapInt32Double_.copy();
+      }
+      instance.bitField0_ |= 0x00000800;
+
+      return instance.mapInt32Double_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Boolean, java.lang.Boolean>
+        internalGetMutableMapBoolBool(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance) {
+      if (instance.mapBoolBool_ == null) {
+        instance.mapBoolBool_ = com.google.protobuf.MapField.newMapField(
+            MapBoolBoolDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapBoolBool_.isMutable()) {
+        instance.mapBoolBool_ = instance.mapBoolBool_.copy();
+      }
+      instance.bitField0_ |= 0x00001000;
+
+      return instance.mapBoolBool_;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMutableMapStringString(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance) {
+      if (instance.mapStringString_ == null) {
+        instance.mapStringString_ = com.google.protobuf.MapField.newMapField(
+            MapStringStringDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapStringString_.isMutable()) {
+        instance.mapStringString_ = instance.mapStringString_.copy();
+      }
+      instance.bitField0_ |= 0x00002000;
+
+      return instance.mapStringString_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.ByteString>
+        internalGetMutableMapInt32Bytes(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance) {
+      if (instance.mapInt32Bytes_ == null) {
+        instance.mapInt32Bytes_ = com.google.protobuf.MapField.newMapField(
+            MapInt32BytesDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapInt32Bytes_.isMutable()) {
+        instance.mapInt32Bytes_ = instance.mapInt32Bytes_.copy();
+      }
+      instance.bitField0_ |= 0x00004000;
+
+      return instance.mapInt32Bytes_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableMapInt32Enum(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance) {
+      if (instance.mapInt32Enum_ == null) {
+        instance.mapInt32Enum_ = com.google.protobuf.MapField.newMapField(
+            MapInt32EnumDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapInt32Enum_.isMutable()) {
+        instance.mapInt32Enum_ = instance.mapInt32Enum_.copy();
+      }
+      instance.bitField0_ |= 0x00008000;
+
+      return instance.mapInt32Enum_;
+    }
+    private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, proto2_unittest.MapLiteUnittest.ForeignMessageArenaLiteOrBuilder, proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite, proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite.Builder>
+        internalGetMutableMapInt32ForeignMessage(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, proto2_unittest.MapLiteUnittest.ForeignMessageArenaLiteOrBuilder, proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite, proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite.Builder> parsed_mapInt32ForeignMessage) {
+      if (parsed_mapInt32ForeignMessage == null) {
+        parsed_mapInt32ForeignMessage = new com.google.protobuf.MapFieldBuilder<>(Builder.mapInt32ForeignMessageConverter);
+      }
+      instance.bitField0_ |= 0x00010000;
+
+      return parsed_mapInt32ForeignMessage;
+    }
+    private static void buildPartial_autosplit_0(proto2_unittest.MapLiteUnittest.TestArenaMapLite instance,
+        com.google.protobuf.MapFieldBuilder<java.lang.Integer, proto2_unittest.MapLiteUnittest.ForeignMessageArenaLiteOrBuilder, proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite, proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite.Builder> parsed_mapInt32ForeignMessage) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.mapInt32Int32_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.mapInt64Int64_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.mapUint32Uint32_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.mapUint64Uint64_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        instance.mapSint32Sint32_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        instance.mapSint64Sint64_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        instance.mapFixed32Fixed32_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        instance.mapFixed64Fixed64_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        instance.mapSfixed32Sfixed32_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        instance.mapSfixed64Sfixed64_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        instance.mapInt32Float_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        instance.mapInt32Double_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        instance.mapBoolBool_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        instance.mapStringString_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        instance.mapInt32Bytes_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        instance.mapInt32Enum_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        instance.mapInt32ForeignMessage_ = parsed_mapInt32ForeignMessage.build(MapInt32ForeignMessageDefaultEntryHolder.defaultEntry);
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestArenaMapLite>
-        PARSER = new com.google.protobuf.AbstractParser<TestArenaMapLite>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestArenaMapLite> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestArenaMapLite parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestArenaMapLite.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestArenaMapLite instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestArenaMapLite> parser() {
       return PARSER;
@@ -11772,15 +12826,27 @@ proto2_unittest.MapLiteUnittest.TestRequiredLite defaultValue) {
                 proto2_unittest.MapLiteUnittest.TestRequiredMessageMapLite.class, proto2_unittest.MapLiteUnittest.TestRequiredMessageMapLite.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.MapLiteUnittest.TestRequiredMessageMapLite.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(proto2_unittest.MapLiteUnittest.TestRequiredMessageMapLite other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -11820,11 +12886,25 @@ proto2_unittest.MapLiteUnittest.TestRequiredLite defaultValue) {
 
       private void buildPartial_autosplit_0(proto2_unittest.MapLiteUnittest.TestRequiredMessageMapLite result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.mapField_ = internalGetMapField().build(MapFieldDefaultEntryHolder.defaultEntry);
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(proto2_unittest.MapLiteUnittest.TestRequiredMessageMapLite other, java.lang.Object[] parserLocals) {
+        if (parserLocals == null && other.mapField_ != null) {
+          mapField_ = new com.google.protobuf.MapFieldBuilder<>(mapFieldConverter);
+          mapField_.ensureBuilderMap().putAll(other.mapField_.getMap());
+        }
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            mapField_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, proto2_unittest.MapLiteUnittest.TestRequiredLiteOrBuilder, proto2_unittest.MapLiteUnittest.TestRequiredLite, proto2_unittest.MapLiteUnittest.TestRequiredLite.Builder>) parserLocals[0];
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -12067,22 +13147,90 @@ proto2_unittest.MapLiteUnittest.TestRequiredLite defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestRequiredMessageMapLite parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestRequiredMessageMapLite instance = new TestRequiredMessageMapLite((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, proto2_unittest.MapLiteUnittest.TestRequiredLiteOrBuilder, proto2_unittest.MapLiteUnittest.TestRequiredLite, proto2_unittest.MapLiteUnittest.TestRequiredLite.Builder> parsed_mapField = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Integer, proto2_unittest.MapLiteUnittest.TestRequiredLite>
+              mapField__ = input.readMessage(
+                  MapFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              (parsed_mapField = internalGetMutableMapField(instance, parsed_mapField)).ensureBuilderMap().put(
+                  mapField__.getKey(), mapField__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, parsed_mapField);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, proto2_unittest.MapLiteUnittest.TestRequiredLiteOrBuilder, proto2_unittest.MapLiteUnittest.TestRequiredLite, proto2_unittest.MapLiteUnittest.TestRequiredLite.Builder>
+        internalGetMutableMapField(proto2_unittest.MapLiteUnittest.TestRequiredMessageMapLite instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, proto2_unittest.MapLiteUnittest.TestRequiredLiteOrBuilder, proto2_unittest.MapLiteUnittest.TestRequiredLite, proto2_unittest.MapLiteUnittest.TestRequiredLite.Builder> parsed_mapField) {
+      if (parsed_mapField == null) {
+        parsed_mapField = new com.google.protobuf.MapFieldBuilder<>(Builder.mapFieldConverter);
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return parsed_mapField;
+    }
+    private static void buildPartial_autosplit_0(proto2_unittest.MapLiteUnittest.TestRequiredMessageMapLite instance,
+        com.google.protobuf.MapFieldBuilder<java.lang.Integer, proto2_unittest.MapLiteUnittest.TestRequiredLiteOrBuilder, proto2_unittest.MapLiteUnittest.TestRequiredLite, proto2_unittest.MapLiteUnittest.TestRequiredLite.Builder> parsed_mapField) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.mapField_ = parsed_mapField.build(MapFieldDefaultEntryHolder.defaultEntry);
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestRequiredMessageMapLite>
-        PARSER = new com.google.protobuf.AbstractParser<TestRequiredMessageMapLite>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestRequiredMessageMapLite> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestRequiredMessageMapLite parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestRequiredMessageMapLite.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestRequiredMessageMapLite instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestRequiredMessageMapLite> parser() {
       return PARSER;
@@ -12671,15 +13819,27 @@ proto2_unittest.MapLiteUnittest.Proto2MapEnumLite defaultValue) {
                 proto2_unittest.MapLiteUnittest.TestEnumMapLite.class, proto2_unittest.MapLiteUnittest.TestEnumMapLite.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.MapLiteUnittest.TestEnumMapLite.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(proto2_unittest.MapLiteUnittest.TestEnumMapLite other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -12720,7 +13880,7 @@ proto2_unittest.MapLiteUnittest.Proto2MapEnumLite defaultValue) {
 
       private void buildPartial_autosplit_0(proto2_unittest.MapLiteUnittest.TestEnumMapLite result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.knownMapField_ = internalGetKnownMapField();
           result.knownMapField_.makeImmutable();
@@ -12730,6 +13890,12 @@ proto2_unittest.MapLiteUnittest.Proto2MapEnumLite defaultValue) {
           result.unknownMapField_.makeImmutable();
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_unittest.MapLiteUnittest.TestEnumMapLite other, java.lang.Object[] parserLocals) {
+        knownMapField_ = other.knownMapField_;
+        unknownMapField_ = other.unknownMapField_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -13102,22 +14268,125 @@ proto2_unittest.MapLiteUnittest.Proto2MapEnumLite defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestEnumMapLite parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestEnumMapLite instance = new TestEnumMapLite((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 810: {
+              com.google.protobuf.ByteString bytes = input.readBytes();
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              knownMapField__ = KnownMapFieldDefaultEntryHolder.defaultEntry.getParserForType().parseFrom(bytes);
+              if (proto2_unittest.MapLiteUnittest.Proto2MapEnumLite.forNumber(knownMapField__.getValue()) == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownLengthDelimitedField(unknown, 101, bytes);
+              } else {
+                internalGetMutableKnownMapField(instance).getMutableMap().put(
+                    knownMapField__.getKey(), knownMapField__.getValue());
+                instance.bitField0_ |= 0x00000001;
+              }
+              break;
+            } // case 810
+            case 818: {
+              com.google.protobuf.ByteString bytes = input.readBytes();
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              unknownMapField__ = UnknownMapFieldDefaultEntryHolder.defaultEntry.getParserForType().parseFrom(bytes);
+              if (proto2_unittest.MapLiteUnittest.Proto2MapEnumLite.forNumber(unknownMapField__.getValue()) == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownLengthDelimitedField(unknown, 102, bytes);
+              } else {
+                internalGetMutableUnknownMapField(instance).getMutableMap().put(
+                    unknownMapField__.getKey(), unknownMapField__.getValue());
+                instance.bitField0_ |= 0x00000002;
+              }
+              break;
+            } // case 818
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableKnownMapField(proto2_unittest.MapLiteUnittest.TestEnumMapLite instance) {
+      if (instance.knownMapField_ == null) {
+        instance.knownMapField_ = com.google.protobuf.MapField.newMapField(
+            KnownMapFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.knownMapField_.isMutable()) {
+        instance.knownMapField_ = instance.knownMapField_.copy();
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return instance.knownMapField_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableUnknownMapField(proto2_unittest.MapLiteUnittest.TestEnumMapLite instance) {
+      if (instance.unknownMapField_ == null) {
+        instance.unknownMapField_ = com.google.protobuf.MapField.newMapField(
+            UnknownMapFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.unknownMapField_.isMutable()) {
+        instance.unknownMapField_ = instance.unknownMapField_.copy();
+      }
+      instance.bitField0_ |= 0x00000002;
+
+      return instance.unknownMapField_;
+    }
+    private static void buildPartial_autosplit_0(proto2_unittest.MapLiteUnittest.TestEnumMapLite instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.knownMapField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.unknownMapField_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestEnumMapLite>
-        PARSER = new com.google.protobuf.AbstractParser<TestEnumMapLite>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestEnumMapLite> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestEnumMapLite parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestEnumMapLite.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestEnumMapLite instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestEnumMapLite> parser() {
       return PARSER;
@@ -13706,15 +14975,27 @@ proto2_unittest.MapLiteUnittest.Proto2MapEnumPlusExtraLite defaultValue) {
                 proto2_unittest.MapLiteUnittest.TestEnumMapPlusExtraLite.class, proto2_unittest.MapLiteUnittest.TestEnumMapPlusExtraLite.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.MapLiteUnittest.TestEnumMapPlusExtraLite.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(proto2_unittest.MapLiteUnittest.TestEnumMapPlusExtraLite other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -13755,7 +15036,7 @@ proto2_unittest.MapLiteUnittest.Proto2MapEnumPlusExtraLite defaultValue) {
 
       private void buildPartial_autosplit_0(proto2_unittest.MapLiteUnittest.TestEnumMapPlusExtraLite result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.knownMapField_ = internalGetKnownMapField();
           result.knownMapField_.makeImmutable();
@@ -13765,6 +15046,12 @@ proto2_unittest.MapLiteUnittest.Proto2MapEnumPlusExtraLite defaultValue) {
           result.unknownMapField_.makeImmutable();
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_unittest.MapLiteUnittest.TestEnumMapPlusExtraLite other, java.lang.Object[] parserLocals) {
+        knownMapField_ = other.knownMapField_;
+        unknownMapField_ = other.unknownMapField_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -14137,22 +15424,125 @@ proto2_unittest.MapLiteUnittest.Proto2MapEnumPlusExtraLite defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestEnumMapPlusExtraLite parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestEnumMapPlusExtraLite instance = new TestEnumMapPlusExtraLite((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 810: {
+              com.google.protobuf.ByteString bytes = input.readBytes();
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              knownMapField__ = KnownMapFieldDefaultEntryHolder.defaultEntry.getParserForType().parseFrom(bytes);
+              if (proto2_unittest.MapLiteUnittest.Proto2MapEnumPlusExtraLite.forNumber(knownMapField__.getValue()) == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownLengthDelimitedField(unknown, 101, bytes);
+              } else {
+                internalGetMutableKnownMapField(instance).getMutableMap().put(
+                    knownMapField__.getKey(), knownMapField__.getValue());
+                instance.bitField0_ |= 0x00000001;
+              }
+              break;
+            } // case 810
+            case 818: {
+              com.google.protobuf.ByteString bytes = input.readBytes();
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              unknownMapField__ = UnknownMapFieldDefaultEntryHolder.defaultEntry.getParserForType().parseFrom(bytes);
+              if (proto2_unittest.MapLiteUnittest.Proto2MapEnumPlusExtraLite.forNumber(unknownMapField__.getValue()) == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownLengthDelimitedField(unknown, 102, bytes);
+              } else {
+                internalGetMutableUnknownMapField(instance).getMutableMap().put(
+                    unknownMapField__.getKey(), unknownMapField__.getValue());
+                instance.bitField0_ |= 0x00000002;
+              }
+              break;
+            } // case 818
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableKnownMapField(proto2_unittest.MapLiteUnittest.TestEnumMapPlusExtraLite instance) {
+      if (instance.knownMapField_ == null) {
+        instance.knownMapField_ = com.google.protobuf.MapField.newMapField(
+            KnownMapFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.knownMapField_.isMutable()) {
+        instance.knownMapField_ = instance.knownMapField_.copy();
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return instance.knownMapField_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableUnknownMapField(proto2_unittest.MapLiteUnittest.TestEnumMapPlusExtraLite instance) {
+      if (instance.unknownMapField_ == null) {
+        instance.unknownMapField_ = com.google.protobuf.MapField.newMapField(
+            UnknownMapFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.unknownMapField_.isMutable()) {
+        instance.unknownMapField_ = instance.unknownMapField_.copy();
+      }
+      instance.bitField0_ |= 0x00000002;
+
+      return instance.unknownMapField_;
+    }
+    private static void buildPartial_autosplit_0(proto2_unittest.MapLiteUnittest.TestEnumMapPlusExtraLite instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.knownMapField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.unknownMapField_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestEnumMapPlusExtraLite>
-        PARSER = new com.google.protobuf.AbstractParser<TestEnumMapPlusExtraLite>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestEnumMapPlusExtraLite> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestEnumMapPlusExtraLite parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestEnumMapPlusExtraLite.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestEnumMapPlusExtraLite instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestEnumMapPlusExtraLite> parser() {
       return PARSER;
@@ -14561,15 +15951,27 @@ com.google.protobuf.UnittestLite.TestAllTypesLite defaultValue) {
                 proto2_unittest.MapLiteUnittest.TestMessageMapLite.class, proto2_unittest.MapLiteUnittest.TestMessageMapLite.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.MapLiteUnittest.TestMessageMapLite.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(proto2_unittest.MapLiteUnittest.TestMessageMapLite other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -14609,11 +16011,25 @@ com.google.protobuf.UnittestLite.TestAllTypesLite defaultValue) {
 
       private void buildPartial_autosplit_0(proto2_unittest.MapLiteUnittest.TestMessageMapLite result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.mapInt32Message_ = internalGetMapInt32Message().build(MapInt32MessageDefaultEntryHolder.defaultEntry);
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(proto2_unittest.MapLiteUnittest.TestMessageMapLite other, java.lang.Object[] parserLocals) {
+        if (parserLocals == null && other.mapInt32Message_ != null) {
+          mapInt32Message_ = new com.google.protobuf.MapFieldBuilder<>(mapInt32MessageConverter);
+          mapInt32Message_.ensureBuilderMap().putAll(other.mapInt32Message_.getMap());
+        }
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            mapInt32Message_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UnittestLite.TestAllTypesLiteOrBuilder, com.google.protobuf.UnittestLite.TestAllTypesLite, com.google.protobuf.UnittestLite.TestAllTypesLite.Builder>) parserLocals[0];
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -14851,22 +16267,90 @@ com.google.protobuf.UnittestLite.TestAllTypesLite defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestMessageMapLite parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestMessageMapLite instance = new TestMessageMapLite((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UnittestLite.TestAllTypesLiteOrBuilder, com.google.protobuf.UnittestLite.TestAllTypesLite, com.google.protobuf.UnittestLite.TestAllTypesLite.Builder> parsed_mapInt32Message = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.UnittestLite.TestAllTypesLite>
+              mapInt32Message__ = input.readMessage(
+                  MapInt32MessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              (parsed_mapInt32Message = internalGetMutableMapInt32Message(instance, parsed_mapInt32Message)).ensureBuilderMap().put(
+                  mapInt32Message__.getKey(), mapInt32Message__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, parsed_mapInt32Message);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UnittestLite.TestAllTypesLiteOrBuilder, com.google.protobuf.UnittestLite.TestAllTypesLite, com.google.protobuf.UnittestLite.TestAllTypesLite.Builder>
+        internalGetMutableMapInt32Message(proto2_unittest.MapLiteUnittest.TestMessageMapLite instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UnittestLite.TestAllTypesLiteOrBuilder, com.google.protobuf.UnittestLite.TestAllTypesLite, com.google.protobuf.UnittestLite.TestAllTypesLite.Builder> parsed_mapInt32Message) {
+      if (parsed_mapInt32Message == null) {
+        parsed_mapInt32Message = new com.google.protobuf.MapFieldBuilder<>(Builder.mapInt32MessageConverter);
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return parsed_mapInt32Message;
+    }
+    private static void buildPartial_autosplit_0(proto2_unittest.MapLiteUnittest.TestMessageMapLite instance,
+        com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UnittestLite.TestAllTypesLiteOrBuilder, com.google.protobuf.UnittestLite.TestAllTypesLite, com.google.protobuf.UnittestLite.TestAllTypesLite.Builder> parsed_mapInt32Message) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.mapInt32Message_ = parsed_mapInt32Message.build(MapInt32MessageDefaultEntryHolder.defaultEntry);
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestMessageMapLite>
-        PARSER = new com.google.protobuf.AbstractParser<TestMessageMapLite>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestMessageMapLite> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestMessageMapLite parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestMessageMapLite.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestMessageMapLite instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestMessageMapLite> parser() {
       return PARSER;
@@ -15251,15 +16735,27 @@ com.google.protobuf.UnittestLite.TestAllTypesLite defaultValue) {
                 proto2_unittest.MapLiteUnittest.TestRequiredLite.class, proto2_unittest.MapLiteUnittest.TestRequiredLite.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.MapLiteUnittest.TestRequiredLite.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(proto2_unittest.MapLiteUnittest.TestRequiredLite other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -15301,7 +16797,7 @@ com.google.protobuf.UnittestLite.TestAllTypesLite defaultValue) {
 
       private void buildPartial_autosplit_0(proto2_unittest.MapLiteUnittest.TestRequiredLite result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.a_ = a_;
           to_bitField0_ |= 0x00000001;
@@ -15315,6 +16811,13 @@ com.google.protobuf.UnittestLite.TestAllTypesLite defaultValue) {
           to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_unittest.MapLiteUnittest.TestRequiredLite other, java.lang.Object[] parserLocals) {
+        a_ = other.getA();
+        b_ = other.getB();
+        c_ = other.getC();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -15403,7 +16906,7 @@ com.google.protobuf.UnittestLite.TestAllTypesLite defaultValue) {
       }
       private int bitField0_;
 
-      private int a_ ;
+      private int a_;
       /**
        * <code>int32 a = 1 [features = { ... }</code>
        * @return Whether the a field is set.
@@ -15443,7 +16946,7 @@ com.google.protobuf.UnittestLite.TestAllTypesLite defaultValue) {
         return this;
       }
 
-      private int b_ ;
+      private int b_;
       /**
        * <code>int32 b = 2 [features = { ... }</code>
        * @return Whether the b field is set.
@@ -15483,7 +16986,7 @@ com.google.protobuf.UnittestLite.TestAllTypesLite defaultValue) {
         return this;
       }
 
-      private int c_ ;
+      private int c_;
       /**
        * <code>int32 c = 3 [features = { ... }</code>
        * @return Whether the c field is set.
@@ -15536,22 +17039,77 @@ com.google.protobuf.UnittestLite.TestAllTypesLite defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestRequiredLite parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestRequiredLite instance = new TestRequiredLite((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.a_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.b_ = input.readInt32();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              instance.c_ = input.readInt32();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<TestRequiredLite>
-        PARSER = new com.google.protobuf.AbstractParser<TestRequiredLite>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestRequiredLite> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestRequiredLite parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestRequiredLite.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestRequiredLite instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestRequiredLite> parser() {
       return PARSER;
@@ -15845,15 +17403,27 @@ com.google.protobuf.UnittestLite.TestAllTypesLite defaultValue) {
                 proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite.class, proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -15893,12 +17463,17 @@ com.google.protobuf.UnittestLite.TestAllTypesLite defaultValue) {
 
       private void buildPartial_autosplit_0(proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.c_ = c_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_unittest.MapLiteUnittest.ForeignMessageArenaLite other, java.lang.Object[] parserLocals) {
+        c_ = other.getC();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -15962,7 +17537,7 @@ com.google.protobuf.UnittestLite.TestAllTypesLite defaultValue) {
       }
       private int bitField0_;
 
-      private int c_ ;
+      private int c_;
       /**
        * <code>int32 c = 1;</code>
        * @return Whether the c field is set.
@@ -16015,22 +17590,67 @@ com.google.protobuf.UnittestLite.TestAllTypesLite defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static ForeignMessageArenaLite parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ForeignMessageArenaLite instance = new ForeignMessageArenaLite((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.c_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<ForeignMessageArenaLite>
-        PARSER = new com.google.protobuf.AbstractParser<ForeignMessageArenaLite>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ForeignMessageArenaLite> {
+      MessageParser() {}
+
       @java.lang.Override
       public ForeignMessageArenaLite parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return ForeignMessageArenaLite.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(ForeignMessageArenaLite instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<ForeignMessageArenaLite> parser() {
       return PARSER;

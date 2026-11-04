@@ -290,15 +290,28 @@ public final class Utf8TestProto2 extends com.google.protobuf.GeneratedFile {
                 upb_test.Utf8TestProto2.TestUtf8Proto2Bytes.class, upb_test.Utf8TestProto2.TestUtf8Proto2Bytes.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using upb_test.Utf8TestProto2.TestUtf8Proto2Bytes.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        data_ = com.google.protobuf.ByteString.EMPTY;
+      }
+      private Builder(upb_test.Utf8TestProto2.TestUtf8Proto2Bytes other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -338,12 +351,17 @@ public final class Utf8TestProto2 extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(upb_test.Utf8TestProto2.TestUtf8Proto2Bytes result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.data_ = data_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(upb_test.Utf8TestProto2.TestUtf8Proto2Bytes other, java.lang.Object[] parserLocals) {
+        data_ = other.getData();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -407,7 +425,7 @@ public final class Utf8TestProto2 extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString data_;
       /**
        * <code>optional bytes data = 1;</code>
        * @return Whether the data field is set.
@@ -460,22 +478,67 @@ public final class Utf8TestProto2 extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static TestUtf8Proto2Bytes parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestUtf8Proto2Bytes instance = new TestUtf8Proto2Bytes((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.data_ = input.readBytes();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<TestUtf8Proto2Bytes>
-        PARSER = new com.google.protobuf.AbstractParser<TestUtf8Proto2Bytes>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestUtf8Proto2Bytes> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestUtf8Proto2Bytes parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestUtf8Proto2Bytes.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestUtf8Proto2Bytes instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestUtf8Proto2Bytes> parser() {
       return PARSER;
@@ -757,15 +820,28 @@ public final class Utf8TestProto2 extends com.google.protobuf.GeneratedFile {
                 upb_test.Utf8TestProto2.TestUtf8RepeatedProto2Bytes.class, upb_test.Utf8TestProto2.TestUtf8RepeatedProto2Bytes.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using upb_test.Utf8TestProto2.TestUtf8RepeatedProto2Bytes.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        data_ = com.google.protobuf.ByteString.EMPTY;
+      }
+      private Builder(upb_test.Utf8TestProto2.TestUtf8RepeatedProto2Bytes other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -805,12 +881,17 @@ public final class Utf8TestProto2 extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(upb_test.Utf8TestProto2.TestUtf8RepeatedProto2Bytes result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.data_ = data_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(upb_test.Utf8TestProto2.TestUtf8RepeatedProto2Bytes other, java.lang.Object[] parserLocals) {
+        data_ = other.getData();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -874,7 +955,7 @@ public final class Utf8TestProto2 extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString data_;
       /**
        * <code>optional bytes data = 1;</code>
        * @return Whether the data field is set.
@@ -927,22 +1008,67 @@ public final class Utf8TestProto2 extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static TestUtf8RepeatedProto2Bytes parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestUtf8RepeatedProto2Bytes instance = new TestUtf8RepeatedProto2Bytes((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.data_ = input.readBytes();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<TestUtf8RepeatedProto2Bytes>
-        PARSER = new com.google.protobuf.AbstractParser<TestUtf8RepeatedProto2Bytes>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestUtf8RepeatedProto2Bytes> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestUtf8RepeatedProto2Bytes parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestUtf8RepeatedProto2Bytes.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestUtf8RepeatedProto2Bytes instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestUtf8RepeatedProto2Bytes> parser() {
       return PARSER;
@@ -1259,15 +1385,28 @@ public final class Utf8TestProto2 extends com.google.protobuf.GeneratedFile {
                 upb_test.Utf8TestProto2.TestUtf8Proto2String.class, upb_test.Utf8TestProto2.TestUtf8Proto2String.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using upb_test.Utf8TestProto2.TestUtf8Proto2String.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        data_ = "";
+      }
+      private Builder(upb_test.Utf8TestProto2.TestUtf8Proto2String other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -1307,12 +1446,17 @@ public final class Utf8TestProto2 extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(upb_test.Utf8TestProto2.TestUtf8Proto2String result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.data_ = data_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(upb_test.Utf8TestProto2.TestUtf8Proto2String other, java.lang.Object[] parserLocals) {
+        data_ = other.data_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1378,7 +1522,7 @@ public final class Utf8TestProto2 extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private java.lang.Object data_ = "";
+      private java.lang.Object data_;
       /**
        * <code>optional string data = 1;</code>
        * @return Whether the data field is set.
@@ -1471,22 +1615,67 @@ public final class Utf8TestProto2 extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static TestUtf8Proto2String parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestUtf8Proto2String instance = new TestUtf8Proto2String((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.data_ = input.readBytes();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<TestUtf8Proto2String>
-        PARSER = new com.google.protobuf.AbstractParser<TestUtf8Proto2String>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestUtf8Proto2String> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestUtf8Proto2String parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestUtf8Proto2String.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestUtf8Proto2String instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestUtf8Proto2String> parser() {
       return PARSER;
@@ -1802,15 +1991,29 @@ public final class Utf8TestProto2 extends com.google.protobuf.GeneratedFile {
                 upb_test.Utf8TestProto2.TestUtf8RepeatedProto2String.class, upb_test.Utf8TestProto2.TestUtf8RepeatedProto2String.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using upb_test.Utf8TestProto2.TestUtf8RepeatedProto2String.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        data_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+      }
+      private Builder(upb_test.Utf8TestProto2.TestUtf8RepeatedProto2String other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -1851,12 +2054,17 @@ public final class Utf8TestProto2 extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(upb_test.Utf8TestProto2.TestUtf8RepeatedProto2String result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           data_.makeImmutable();
           result.data_ = data_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(upb_test.Utf8TestProto2.TestUtf8RepeatedProto2String other, java.lang.Object[] parserLocals) {
+        data_ = other.data_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1928,8 +2136,7 @@ public final class Utf8TestProto2 extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private com.google.protobuf.LazyStringArrayList data_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList data_;
       private void ensureDataIsMutable() {
         if (!data_.isModifiable()) {
           data_ = new com.google.protobuf.LazyStringArrayList(data_);
@@ -2051,22 +2258,82 @@ public final class Utf8TestProto2 extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static TestUtf8RepeatedProto2String parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestUtf8RepeatedProto2String instance = new TestUtf8RepeatedProto2String((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureDataIsMutable(instance);
+              instance.data_.add(bs);
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureDataIsMutable(upb_test.Utf8TestProto2.TestUtf8RepeatedProto2String instance) {
+      if (!instance.data_.isModifiable()) {
+        instance.data_ = new com.google.protobuf.LazyStringArrayList(instance.data_);
+      }
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void buildPartial_autosplit_0(upb_test.Utf8TestProto2.TestUtf8RepeatedProto2String instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.data_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestUtf8RepeatedProto2String>
-        PARSER = new com.google.protobuf.AbstractParser<TestUtf8RepeatedProto2String>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestUtf8RepeatedProto2String> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestUtf8RepeatedProto2String parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestUtf8RepeatedProto2String.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestUtf8RepeatedProto2String instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestUtf8RepeatedProto2String> parser() {
       return PARSER;

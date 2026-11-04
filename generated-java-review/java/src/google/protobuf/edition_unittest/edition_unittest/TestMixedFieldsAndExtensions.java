@@ -324,15 +324,28 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestMixedFieldsAndExtensions.class, edition_unittest.TestMixedFieldsAndExtensions.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestMixedFieldsAndExtensions.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      b_ = emptyIntList();
+    }
+    private Builder(edition_unittest.TestMixedFieldsAndExtensions other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -373,7 +386,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(edition_unittest.TestMixedFieldsAndExtensions result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.a_ = a_;
         to_bitField0_ |= 0x00000001;
@@ -383,6 +396,12 @@ private static final long serialVersionUID = 0L;
         result.b_ = b_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestMixedFieldsAndExtensions other, java.lang.Object[] parserLocals) {
+      a_ = other.getA();
+      b_ = other.b_;
+      bitField0_ = other.bitField0_;
     }
 
     public <Type> Builder setExtension(
@@ -499,9 +518,17 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
+    }
     private int bitField0_;
 
-    private int a_ ;
+    private int a_;
     /**
      * <code>int32 a = 1;</code>
      * @return Whether the a field is set.
@@ -541,7 +568,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList b_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList b_;
     private void ensureBIsMutable(int capacity) {
       if (!b_.isModifiable()) {
         b_ = makeMutableCopy(b_, capacity);
@@ -638,22 +665,108 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static TestMixedFieldsAndExtensions parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    TestMixedFieldsAndExtensions instance = new TestMixedFieldsAndExtensions((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
+            instance.a_ = input.readInt32();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 8
+          case 29: {
+            int v = input.readFixed32();
+            ensureBIsMutable(instance, /* capacity= */ -1);
+            instance.b_.addInt(v);
+            break;
+          } // case 29
+          case 26: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureBIsMutable(instance, alloc / 4);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.b_.addInt(input.readFixed32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 26
+          default: {
+            pendingTag = tag;
+            done = true;
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, null);
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static void ensureBIsMutable(edition_unittest.TestMixedFieldsAndExtensions instance, int capacity) {
+    if (!instance.b_.isModifiable()) {
+      instance.b_ = makeMutableCopy(instance.b_, capacity);
+    }
+    instance.bitField0_ |= 0x00000002;
+  }
+  private static void buildPartial_autosplit_0(edition_unittest.TestMixedFieldsAndExtensions instance) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000002) != 0)) {
+      instance.b_.makeImmutable();
+    }
+  }
+
   private static final com.google.protobuf.Parser<TestMixedFieldsAndExtensions>
-      PARSER = new com.google.protobuf.AbstractParser<TestMixedFieldsAndExtensions>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestMixedFieldsAndExtensions> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestMixedFieldsAndExtensions parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return TestMixedFieldsAndExtensions.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(TestMixedFieldsAndExtensions instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<TestMixedFieldsAndExtensions> parser() {
     return PARSER;

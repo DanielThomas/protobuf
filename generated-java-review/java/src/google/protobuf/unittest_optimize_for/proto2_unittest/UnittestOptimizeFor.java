@@ -412,9 +412,16 @@ public final class UnittestOptimizeFor extends com.google.protobuf.GeneratedFile
                 proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.class, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -474,7 +481,7 @@ public final class UnittestOptimizeFor extends com.google.protobuf.GeneratedFile
 
       private void buildPartial_autosplit_0(proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.i_ = i_;
           to_bitField0_ |= 0x00000001;
@@ -516,7 +523,7 @@ public final class UnittestOptimizeFor extends com.google.protobuf.GeneratedFile
               proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize, Type> extension) {
         return super.clearExtension(extension);
       }
-      private int fooCase_ = 0;
+      private int fooCase_;
       private java.lang.Object foo_;
       public FooCase
           getFooCase() {
@@ -539,7 +546,7 @@ public final class UnittestOptimizeFor extends com.google.protobuf.GeneratedFile
 
       private int bitField0_;
 
-      private int i_ ;
+      private int i_;
       /**
        * <code>optional int32 i = 1;</code>
        * @return Whether the i field is set.
@@ -698,7 +705,7 @@ public final class UnittestOptimizeFor extends com.google.protobuf.GeneratedFile
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (msg_ != null || msgBuilder_ != null) {
-          internalGetMsgFieldBuilder().getBuilder()
+          internalGetMsgFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           msg_ = proto2_unittest.UnittestProto.ForeignMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -1155,15 +1162,21 @@ public final class UnittestOptimizeFor extends com.google.protobuf.GeneratedFile
                 proto2_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize.class, proto2_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
       }
       @java.lang.Override
       public Builder clear() {
@@ -1203,7 +1216,7 @@ public final class UnittestOptimizeFor extends com.google.protobuf.GeneratedFile
 
       private void buildPartial_autosplit_0(proto2_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.x_ = x_;
           to_bitField0_ |= 0x00000001;
@@ -1213,7 +1226,7 @@ public final class UnittestOptimizeFor extends com.google.protobuf.GeneratedFile
 
       private int bitField0_;
 
-      private int x_ ;
+      private int x_;
       /**
        * <code>required int32 x = 1;</code>
        * @return Whether the x field is set.
@@ -1507,9 +1520,16 @@ public final class UnittestOptimizeFor extends com.google.protobuf.GeneratedFile
                 proto2_unittest.UnittestOptimizeFor.TestOptionalOptimizedForSize.class, proto2_unittest.UnittestOptimizeFor.TestOptionalOptimizedForSize.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.UnittestOptimizeFor.TestOptionalOptimizedForSize.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -1565,7 +1585,7 @@ public final class UnittestOptimizeFor extends com.google.protobuf.GeneratedFile
 
       private void buildPartial_autosplit_0(proto2_unittest.UnittestOptimizeFor.TestOptionalOptimizedForSize result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.o_ = oBuilder_ == null
               ? o_
@@ -1696,7 +1716,7 @@ public final class UnittestOptimizeFor extends com.google.protobuf.GeneratedFile
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (o_ != null || oBuilder_ != null) {
-          internalGetOFieldBuilder().getBuilder()
+          internalGetOFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           o_ = proto2_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize.parser().parsePartialFrom(input, extensionRegistry);

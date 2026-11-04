@@ -431,15 +431,33 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestRepeatedString.class, edition_unittest.TestRepeatedString.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestRepeatedString.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      repeatedString1_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString2_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedBytes11_ = emptyList(com.google.protobuf.ByteString.class);
+      repeatedBytes12_ = emptyList(com.google.protobuf.ByteString.class);
+    }
+    private Builder(edition_unittest.TestRepeatedString other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -484,7 +502,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(edition_unittest.TestRepeatedString result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         repeatedString1_.makeImmutable();
         result.repeatedString1_ = repeatedString1_;
@@ -502,6 +520,14 @@ private static final long serialVersionUID = 0L;
         result.repeatedBytes12_ = repeatedBytes12_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestRepeatedString other, java.lang.Object[] parserLocals) {
+      repeatedString1_ = other.repeatedString1_;
+      repeatedString2_ = other.repeatedString2_;
+      repeatedBytes11_ = other.repeatedBytes11_;
+      repeatedBytes12_ = other.repeatedBytes12_;
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -621,8 +647,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.LazyStringArrayList repeatedString1_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString1_;
     private void ensureRepeatedString1IsMutable() {
       if (!repeatedString1_.isModifiable()) {
         repeatedString1_ = new com.google.protobuf.LazyStringArrayList(repeatedString1_);
@@ -732,8 +757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString2_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString2_;
     private void ensureRepeatedString2IsMutable() {
       if (!repeatedString2_.isModifiable()) {
         repeatedString2_ = new com.google.protobuf.LazyStringArrayList(repeatedString2_);
@@ -843,7 +867,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes11_ = emptyList(com.google.protobuf.ByteString.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes11_;
     private void ensureRepeatedBytes11IsMutable(int capacity) {
       if (!repeatedBytes11_.isModifiable()) {
         repeatedBytes11_ = makeMutableCopy(repeatedBytes11_, capacity);
@@ -927,7 +951,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes12_ = emptyList(com.google.protobuf.ByteString.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes12_;
     private void ensureRepeatedBytes12IsMutable(int capacity) {
       if (!repeatedBytes12_.isModifiable()) {
         repeatedBytes12_ = makeMutableCopy(repeatedBytes12_, capacity);
@@ -1024,22 +1048,125 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static TestRepeatedString parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    TestRepeatedString instance = new TestRepeatedString((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            ensureRepeatedString1IsMutable(instance);
+            instance.repeatedString1_.add(input.readStringRequireUtf8());
+            break;
+          } // case 10
+          case 18: {
+            ensureRepeatedString2IsMutable(instance);
+            instance.repeatedString2_.add(input.readStringRequireUtf8());
+            break;
+          } // case 18
+          case 90: {
+            com.google.protobuf.ByteString v = input.readBytes();
+            ensureRepeatedBytes11IsMutable(instance, /* capacity= */ -1);
+            instance.repeatedBytes11_.add(v);
+            break;
+          } // case 90
+          case 98: {
+            com.google.protobuf.ByteString v = input.readBytes();
+            ensureRepeatedBytes12IsMutable(instance, /* capacity= */ -1);
+            instance.repeatedBytes12_.add(v);
+            break;
+          } // case 98
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static void ensureRepeatedString1IsMutable(edition_unittest.TestRepeatedString instance) {
+    if (!instance.repeatedString1_.isModifiable()) {
+      instance.repeatedString1_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString1_);
+    }
+    instance.bitField0_ |= 0x00000001;
+  }
+  private static void ensureRepeatedString2IsMutable(edition_unittest.TestRepeatedString instance) {
+    if (!instance.repeatedString2_.isModifiable()) {
+      instance.repeatedString2_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString2_);
+    }
+    instance.bitField0_ |= 0x00000002;
+  }
+  private static void ensureRepeatedBytes11IsMutable(edition_unittest.TestRepeatedString instance, int capacity) {
+    if (!instance.repeatedBytes11_.isModifiable()) {
+      instance.repeatedBytes11_ = makeMutableCopy(instance.repeatedBytes11_, capacity);
+    }
+    instance.bitField0_ |= 0x00000004;
+  }
+  private static void ensureRepeatedBytes12IsMutable(edition_unittest.TestRepeatedString instance, int capacity) {
+    if (!instance.repeatedBytes12_.isModifiable()) {
+      instance.repeatedBytes12_ = makeMutableCopy(instance.repeatedBytes12_, capacity);
+    }
+    instance.bitField0_ |= 0x00000008;
+  }
+  private static void buildPartial_autosplit_0(edition_unittest.TestRepeatedString instance) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.repeatedString1_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000002) != 0)) {
+      instance.repeatedString2_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000004) != 0)) {
+      instance.repeatedBytes11_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000008) != 0)) {
+      instance.repeatedBytes12_.makeImmutable();
+    }
+  }
+
   private static final com.google.protobuf.Parser<TestRepeatedString>
-      PARSER = new com.google.protobuf.AbstractParser<TestRepeatedString>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestRepeatedString> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestRepeatedString parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return TestRepeatedString.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(TestRepeatedString instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<TestRepeatedString> parser() {
     return PARSER;

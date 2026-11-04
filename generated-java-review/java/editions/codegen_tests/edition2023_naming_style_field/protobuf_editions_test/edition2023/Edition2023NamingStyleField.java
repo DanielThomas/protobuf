@@ -323,15 +323,28 @@ public final class Edition2023NamingStyleField extends com.google.protobuf.Gener
                 protobuf_editions_test.edition2023.Edition2023NamingStyleField.BadFieldMessage.class, protobuf_editions_test.edition2023.Edition2023NamingStyleField.BadFieldMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.edition2023.Edition2023NamingStyleField.BadFieldMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        badFieldName_ = "";
+      }
+      private Builder(protobuf_editions_test.edition2023.Edition2023NamingStyleField.BadFieldMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -371,12 +384,17 @@ public final class Edition2023NamingStyleField extends com.google.protobuf.Gener
 
       private void buildPartial_autosplit_0(protobuf_editions_test.edition2023.Edition2023NamingStyleField.BadFieldMessage result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.badFieldName_ = badFieldName_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(protobuf_editions_test.edition2023.Edition2023NamingStyleField.BadFieldMessage other, java.lang.Object[] parserLocals) {
+        badFieldName_ = other.badFieldName_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -442,7 +460,7 @@ public final class Edition2023NamingStyleField extends com.google.protobuf.Gener
       }
       private int bitField0_;
 
-      private java.lang.Object badFieldName_ = "";
+      private java.lang.Object badFieldName_;
       /**
        * <code>string badFieldName = 1;</code>
        * @return Whether the badFieldName field is set.
@@ -534,22 +552,67 @@ public final class Edition2023NamingStyleField extends com.google.protobuf.Gener
       return DEFAULT_INSTANCE;
     }
 
+    static BadFieldMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      BadFieldMessage instance = new BadFieldMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.badFieldName_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<BadFieldMessage>
-        PARSER = new com.google.protobuf.AbstractParser<BadFieldMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<BadFieldMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public BadFieldMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return BadFieldMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(BadFieldMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<BadFieldMessage> parser() {
       return PARSER;

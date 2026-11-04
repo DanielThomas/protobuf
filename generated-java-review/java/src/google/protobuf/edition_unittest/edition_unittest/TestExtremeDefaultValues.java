@@ -26,6 +26,8 @@ private static final long serialVersionUID = 0L;
   // Use TestExtremeDefaultValues.newBuilder() to construct.
   private TestExtremeDefaultValues(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
     super(builder);
+    escapedBytes_ = DEFAULT_INSTANCE.escapedBytes_;
+    bytesWithZero_ = DEFAULT_INSTANCE.bytesWithZero_;
   }
   private TestExtremeDefaultValues() {
     escapedBytes_ = com.google.protobuf.Internal.bytesDefaultValue("\000\001\007\010\014\n\r\t\013\\\'\"\376");
@@ -76,7 +78,7 @@ private static final long serialVersionUID = 0L;
 
   private int bitField0_;
   public static final int ESCAPED_BYTES_FIELD_NUMBER = 1;
-  private com.google.protobuf.ByteString escapedBytes_ = com.google.protobuf.Internal.bytesDefaultValue("\000\001\007\010\014\n\r\t\013\\\'\"\376");
+  private com.google.protobuf.ByteString escapedBytes_;
   /**
    * <code>bytes escaped_bytes = 1 [default = "&#92;000&#92;001&#92;007&#92;010&#92;014&#92;n&#92;r&#92;t&#92;013&#92;&#92;&#92;'&#92;"&#92;376"];</code>
    * @return Whether the escapedBytes field is set.
@@ -675,7 +677,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int BYTES_WITH_ZERO_FIELD_NUMBER = 24;
-  private com.google.protobuf.ByteString bytesWithZero_ = com.google.protobuf.Internal.bytesDefaultValue("wor\000ld");
+  private com.google.protobuf.ByteString bytesWithZero_;
   /**
    * <code>bytes bytes_with_zero = 24 [default = "wor&#92;000ld"];</code>
    * @return Whether the bytesWithZero field is set.
@@ -1459,21 +1461,59 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestExtremeDefaultValues.class, edition_unittest.TestExtremeDefaultValues.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestExtremeDefaultValues.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      escapedBytes_ = getDefaultInstance().getEscapedBytes();
+      largeUint32_ = -1;
+      largeUint64_ = -1L;
+      smallInt32_ = -2147483647;
+      smallInt64_ = -9223372036854775807L;
+      reallySmallInt32_ = -2147483648;
+      reallySmallInt64_ = -9223372036854775808L;
+      utf8String_ = com.google.protobuf.Internal.stringDefaultValue("\341\210\264");
+      oneFloat_ = 1F;
+      smallFloat_ = 1.5F;
+      negativeOneFloat_ = -1F;
+      negativeFloat_ = -1.5F;
+      largeFloat_ = 2e+08F;
+      smallNegativeFloat_ = -8e-28F;
+      infDouble_ = Double.POSITIVE_INFINITY;
+      negInfDouble_ = Double.NEGATIVE_INFINITY;
+      nanDouble_ = Double.NaN;
+      infFloat_ = Float.POSITIVE_INFINITY;
+      negInfFloat_ = Float.NEGATIVE_INFINITY;
+      nanFloat_ = Float.NaN;
+      cppTrigraph_ = "? ? ?? ?? ??? ??/ ??-";
+      stringWithZero_ = "hel\000lo";
+      bytesWithZero_ = getDefaultInstance().getBytesWithZero();
+      stringPieceWithZero_ = "ab\000c";
+      cordWithZero_ = "12\0003";
+      replacementString_ = "${unknown}";
+    }
+    private Builder(edition_unittest.TestExtremeDefaultValues other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
-      escapedBytes_ = com.google.protobuf.Internal.bytesDefaultValue("\000\001\007\010\014\n\r\t\013\\\'\"\376");
+      escapedBytes_ = getDefaultInstance().getEscapedBytes();
       largeUint32_ = -1;
       largeUint64_ = -1L;
       smallInt32_ = -2147483647;
@@ -1496,7 +1536,7 @@ private static final long serialVersionUID = 0L;
       nanFloat_ = Float.NaN;
       cppTrigraph_ = "? ? ?? ?? ??? ??/ ??-";
       stringWithZero_ = "hel\000lo";
-      bytesWithZero_ = com.google.protobuf.Internal.bytesDefaultValue("wor\000ld");
+      bytesWithZero_ = getDefaultInstance().getBytesWithZero();
       stringPieceWithZero_ = "ab\000c";
       cordWithZero_ = "12\0003";
       replacementString_ = "${unknown}";
@@ -1533,7 +1573,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(edition_unittest.TestExtremeDefaultValues result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.escapedBytes_ = escapedBytes_;
         to_bitField0_ |= 0x00000001;
@@ -1643,6 +1683,37 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x04000000;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestExtremeDefaultValues other, java.lang.Object[] parserLocals) {
+      escapedBytes_ = other.getEscapedBytes();
+      largeUint32_ = other.getLargeUint32();
+      largeUint64_ = other.getLargeUint64();
+      smallInt32_ = other.getSmallInt32();
+      smallInt64_ = other.getSmallInt64();
+      reallySmallInt32_ = other.getReallySmallInt32();
+      reallySmallInt64_ = other.getReallySmallInt64();
+      utf8String_ = other.utf8String_;
+      zeroFloat_ = other.getZeroFloat();
+      oneFloat_ = other.getOneFloat();
+      smallFloat_ = other.getSmallFloat();
+      negativeOneFloat_ = other.getNegativeOneFloat();
+      negativeFloat_ = other.getNegativeFloat();
+      largeFloat_ = other.getLargeFloat();
+      smallNegativeFloat_ = other.getSmallNegativeFloat();
+      infDouble_ = other.getInfDouble();
+      negInfDouble_ = other.getNegInfDouble();
+      nanDouble_ = other.getNanDouble();
+      infFloat_ = other.getInfFloat();
+      negInfFloat_ = other.getNegInfFloat();
+      nanFloat_ = other.getNanFloat();
+      cppTrigraph_ = other.cppTrigraph_;
+      stringWithZero_ = other.stringWithZero_;
+      bytesWithZero_ = other.getBytesWithZero();
+      stringPieceWithZero_ = other.stringPieceWithZero_;
+      cordWithZero_ = other.cordWithZero_;
+      replacementString_ = other.replacementString_;
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -1926,7 +1997,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.ByteString escapedBytes_ = com.google.protobuf.Internal.bytesDefaultValue("\000\001\007\010\014\n\r\t\013\\\'\"\376");
+    private com.google.protobuf.ByteString escapedBytes_;
     /**
      * <code>bytes escaped_bytes = 1 [default = "&#92;000&#92;001&#92;007&#92;010&#92;014&#92;n&#92;r&#92;t&#92;013&#92;&#92;&#92;'&#92;"&#92;376"];</code>
      * @return Whether the escapedBytes field is set.
@@ -1966,7 +2037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int largeUint32_ = -1;
+    private int largeUint32_;
     /**
      * <code>uint32 large_uint32 = 2 [default = 4294967295];</code>
      * @return Whether the largeUint32 field is set.
@@ -2006,7 +2077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long largeUint64_ = -1L;
+    private long largeUint64_;
     /**
      * <code>uint64 large_uint64 = 3 [default = 18446744073709551615];</code>
      * @return Whether the largeUint64 field is set.
@@ -2046,7 +2117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int smallInt32_ = -2147483647;
+    private int smallInt32_;
     /**
      * <code>int32 small_int32 = 4 [default = -2147483647];</code>
      * @return Whether the smallInt32 field is set.
@@ -2086,7 +2157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long smallInt64_ = -9223372036854775807L;
+    private long smallInt64_;
     /**
      * <code>int64 small_int64 = 5 [default = -9223372036854775807];</code>
      * @return Whether the smallInt64 field is set.
@@ -2126,7 +2197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int reallySmallInt32_ = -2147483648;
+    private int reallySmallInt32_;
     /**
      * <code>int32 really_small_int32 = 21 [default = -2147483648];</code>
      * @return Whether the reallySmallInt32 field is set.
@@ -2166,7 +2237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long reallySmallInt64_ = -9223372036854775808L;
+    private long reallySmallInt64_;
     /**
      * <code>int64 really_small_int64 = 22 [default = -9223372036854775808];</code>
      * @return Whether the reallySmallInt64 field is set.
@@ -2206,7 +2277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object utf8String_ = com.google.protobuf.Internal.stringDefaultValue("\341\210\264");
+    private java.lang.Object utf8String_;
     /**
      * <pre>
      * The default value here is UTF-8 for "&#92;u1234".  (We could also just type
@@ -2321,7 +2392,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float zeroFloat_ ;
+    private float zeroFloat_;
     /**
      * <pre>
      * Tests for single-precision floating-point values.
@@ -2377,7 +2448,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float oneFloat_ = 1F;
+    private float oneFloat_;
     /**
      * <code>float one_float = 8 [default = 1];</code>
      * @return Whether the oneFloat field is set.
@@ -2417,7 +2488,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float smallFloat_ = 1.5F;
+    private float smallFloat_;
     /**
      * <code>float small_float = 9 [default = 1.5];</code>
      * @return Whether the smallFloat field is set.
@@ -2457,7 +2528,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float negativeOneFloat_ = -1F;
+    private float negativeOneFloat_;
     /**
      * <code>float negative_one_float = 10 [default = -1];</code>
      * @return Whether the negativeOneFloat field is set.
@@ -2497,7 +2568,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float negativeFloat_ = -1.5F;
+    private float negativeFloat_;
     /**
      * <code>float negative_float = 11 [default = -1.5];</code>
      * @return Whether the negativeFloat field is set.
@@ -2537,7 +2608,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float largeFloat_ = 2e+08F;
+    private float largeFloat_;
     /**
      * <pre>
      * Using exponents
@@ -2593,7 +2664,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float smallNegativeFloat_ = -8e-28F;
+    private float smallNegativeFloat_;
     /**
      * <code>float small_negative_float = 13 [default = -8e-28];</code>
      * @return Whether the smallNegativeFloat field is set.
@@ -2633,7 +2704,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double infDouble_ = Double.POSITIVE_INFINITY;
+    private double infDouble_;
     /**
      * <pre>
      * Text for nonfinite floating-point values.
@@ -2689,7 +2760,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double negInfDouble_ = Double.NEGATIVE_INFINITY;
+    private double negInfDouble_;
     /**
      * <code>double neg_inf_double = 15 [default = -inf];</code>
      * @return Whether the negInfDouble field is set.
@@ -2729,7 +2800,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double nanDouble_ = Double.NaN;
+    private double nanDouble_;
     /**
      * <code>double nan_double = 16 [default = nan];</code>
      * @return Whether the nanDouble field is set.
@@ -2769,7 +2840,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float infFloat_ = Float.POSITIVE_INFINITY;
+    private float infFloat_;
     /**
      * <code>float inf_float = 17 [default = inf];</code>
      * @return Whether the infFloat field is set.
@@ -2809,7 +2880,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float negInfFloat_ = Float.NEGATIVE_INFINITY;
+    private float negInfFloat_;
     /**
      * <code>float neg_inf_float = 18 [default = -inf];</code>
      * @return Whether the negInfFloat field is set.
@@ -2849,7 +2920,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float nanFloat_ = Float.NaN;
+    private float nanFloat_;
     /**
      * <code>float nan_float = 19 [default = nan];</code>
      * @return Whether the nanFloat field is set.
@@ -2889,7 +2960,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object cppTrigraph_ = "? ? ?? ?? ??? ??/ ??-";
+    private java.lang.Object cppTrigraph_;
     /**
      * <pre>
      * Tests for C++ trigraphs.
@@ -3016,7 +3087,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object stringWithZero_ = "hel\000lo";
+    private java.lang.Object stringWithZero_;
     /**
      * <pre>
      * String defaults containing the character '&#92;000'
@@ -3119,7 +3190,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.ByteString bytesWithZero_ = com.google.protobuf.Internal.bytesDefaultValue("wor\000ld");
+    private com.google.protobuf.ByteString bytesWithZero_;
     /**
      * <code>bytes bytes_with_zero = 24 [default = "wor&#92;000ld"];</code>
      * @return Whether the bytesWithZero field is set.
@@ -3159,7 +3230,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object stringPieceWithZero_ = "ab\000c";
+    private java.lang.Object stringPieceWithZero_;
     /**
      * <code>string string_piece_with_zero = 25 [default = "ab&#92;000c"];</code>
      * @return Whether the stringPieceWithZero field is set.
@@ -3238,7 +3309,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object cordWithZero_ = "12\0003";
+    private java.lang.Object cordWithZero_;
     /**
      * <code>string cord_with_zero = 26 [default = "12&#92;0003", features = { ... }</code>
      * @return Whether the cordWithZero field is set.
@@ -3317,7 +3388,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object replacementString_ = "${unknown}";
+    private java.lang.Object replacementString_;
     /**
      * <code>string replacement_string = 27 [default = "${unknown}"];</code>
      * @return Whether the replacementString field is set.
@@ -3409,22 +3480,197 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static TestExtremeDefaultValues parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    TestExtremeDefaultValues instance = new TestExtremeDefaultValues((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            instance.escapedBytes_ = input.readBytes();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 10
+          case 16: {
+            instance.largeUint32_ = input.readUInt32();
+            instance.bitField0_ |= 0x00000002;
+            break;
+          } // case 16
+          case 24: {
+            instance.largeUint64_ = input.readUInt64();
+            instance.bitField0_ |= 0x00000004;
+            break;
+          } // case 24
+          case 32: {
+            instance.smallInt32_ = input.readInt32();
+            instance.bitField0_ |= 0x00000008;
+            break;
+          } // case 32
+          case 40: {
+            instance.smallInt64_ = input.readInt64();
+            instance.bitField0_ |= 0x00000010;
+            break;
+          } // case 40
+          case 50: {
+            instance.utf8String_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000080;
+            break;
+          } // case 50
+          case 61: {
+            instance.zeroFloat_ = input.readFloat();
+            instance.bitField0_ |= 0x00000100;
+            break;
+          } // case 61
+          case 69: {
+            instance.oneFloat_ = input.readFloat();
+            instance.bitField0_ |= 0x00000200;
+            break;
+          } // case 69
+          case 77: {
+            instance.smallFloat_ = input.readFloat();
+            instance.bitField0_ |= 0x00000400;
+            break;
+          } // case 77
+          case 85: {
+            instance.negativeOneFloat_ = input.readFloat();
+            instance.bitField0_ |= 0x00000800;
+            break;
+          } // case 85
+          case 93: {
+            instance.negativeFloat_ = input.readFloat();
+            instance.bitField0_ |= 0x00001000;
+            break;
+          } // case 93
+          case 101: {
+            instance.largeFloat_ = input.readFloat();
+            instance.bitField0_ |= 0x00002000;
+            break;
+          } // case 101
+          case 109: {
+            instance.smallNegativeFloat_ = input.readFloat();
+            instance.bitField0_ |= 0x00004000;
+            break;
+          } // case 109
+          case 113: {
+            instance.infDouble_ = input.readDouble();
+            instance.bitField0_ |= 0x00008000;
+            break;
+          } // case 113
+          case 121: {
+            instance.negInfDouble_ = input.readDouble();
+            instance.bitField0_ |= 0x00010000;
+            break;
+          } // case 121
+          case 129: {
+            instance.nanDouble_ = input.readDouble();
+            instance.bitField0_ |= 0x00020000;
+            break;
+          } // case 129
+          case 141: {
+            instance.infFloat_ = input.readFloat();
+            instance.bitField0_ |= 0x00040000;
+            break;
+          } // case 141
+          case 149: {
+            instance.negInfFloat_ = input.readFloat();
+            instance.bitField0_ |= 0x00080000;
+            break;
+          } // case 149
+          case 157: {
+            instance.nanFloat_ = input.readFloat();
+            instance.bitField0_ |= 0x00100000;
+            break;
+          } // case 157
+          case 162: {
+            instance.cppTrigraph_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00200000;
+            break;
+          } // case 162
+          case 168: {
+            instance.reallySmallInt32_ = input.readInt32();
+            instance.bitField0_ |= 0x00000020;
+            break;
+          } // case 168
+          case 176: {
+            instance.reallySmallInt64_ = input.readInt64();
+            instance.bitField0_ |= 0x00000040;
+            break;
+          } // case 176
+          case 186: {
+            instance.stringWithZero_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00400000;
+            break;
+          } // case 186
+          case 194: {
+            instance.bytesWithZero_ = input.readBytes();
+            instance.bitField0_ |= 0x00800000;
+            break;
+          } // case 194
+          case 202: {
+            instance.stringPieceWithZero_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x01000000;
+            break;
+          } // case 202
+          case 210: {
+            instance.cordWithZero_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x02000000;
+            break;
+          } // case 210
+          case 218: {
+            instance.replacementString_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x04000000;
+            break;
+          } // case 218
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
   private static final com.google.protobuf.Parser<TestExtremeDefaultValues>
-      PARSER = new com.google.protobuf.AbstractParser<TestExtremeDefaultValues>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestExtremeDefaultValues> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestExtremeDefaultValues parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return TestExtremeDefaultValues.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(TestExtremeDefaultValues instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<TestExtremeDefaultValues> parser() {
     return PARSER;

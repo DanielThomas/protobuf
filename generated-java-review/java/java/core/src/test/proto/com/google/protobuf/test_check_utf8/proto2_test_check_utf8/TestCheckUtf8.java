@@ -605,15 +605,31 @@ public final class TestCheckUtf8 extends com.google.protobuf.GeneratedFile {
                 proto2_test_check_utf8.TestCheckUtf8.StringWrapper.class, proto2_test_check_utf8.TestCheckUtf8.StringWrapper.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_test_check_utf8.TestCheckUtf8.StringWrapper.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        req_ = "";
+        opt_ = "";
+        rep_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+      }
+      private Builder(proto2_test_check_utf8.TestCheckUtf8.StringWrapper other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -656,7 +672,7 @@ public final class TestCheckUtf8 extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(proto2_test_check_utf8.TestCheckUtf8.StringWrapper result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.req_ = req_;
           to_bitField0_ |= 0x00000001;
@@ -670,6 +686,13 @@ public final class TestCheckUtf8 extends com.google.protobuf.GeneratedFile {
           result.rep_ = rep_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_test_check_utf8.TestCheckUtf8.StringWrapper other, java.lang.Object[] parserLocals) {
+        req_ = other.req_;
+        opt_ = other.opt_;
+        rep_ = other.rep_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -763,7 +786,7 @@ public final class TestCheckUtf8 extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private java.lang.Object req_ = "";
+      private java.lang.Object req_;
       /**
        * <code>string req = 1 [features = { ... }</code>
        * @return Whether the req field is set.
@@ -842,7 +865,7 @@ public final class TestCheckUtf8 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private java.lang.Object opt_ = "";
+      private java.lang.Object opt_;
       /**
        * <code>string opt = 2;</code>
        * @return Whether the opt field is set.
@@ -921,8 +944,7 @@ public final class TestCheckUtf8 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList rep_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList rep_;
       private void ensureRepIsMutable() {
         if (!rep_.isModifiable()) {
           rep_ = new com.google.protobuf.LazyStringArrayList(rep_);
@@ -1045,22 +1067,91 @@ public final class TestCheckUtf8 extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static StringWrapper parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      StringWrapper instance = new StringWrapper((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.req_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              instance.opt_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              ensureRepIsMutable(instance);
+              instance.rep_.add(input.readStringRequireUtf8());
+              break;
+            } // case 26
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureRepIsMutable(proto2_test_check_utf8.TestCheckUtf8.StringWrapper instance) {
+      if (!instance.rep_.isModifiable()) {
+        instance.rep_ = new com.google.protobuf.LazyStringArrayList(instance.rep_);
+      }
+      instance.bitField0_ |= 0x00000004;
+    }
+    private static void buildPartial_autosplit_0(proto2_test_check_utf8.TestCheckUtf8.StringWrapper instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.rep_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<StringWrapper>
-        PARSER = new com.google.protobuf.AbstractParser<StringWrapper>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<StringWrapper> {
+      MessageParser() {}
+
       @java.lang.Override
       public StringWrapper parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return StringWrapper.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(StringWrapper instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<StringWrapper> parser() {
       return PARSER;
@@ -1460,15 +1551,30 @@ public final class TestCheckUtf8 extends com.google.protobuf.GeneratedFile {
                 proto2_test_check_utf8.TestCheckUtf8.BytesWrapper.class, proto2_test_check_utf8.TestCheckUtf8.BytesWrapper.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_test_check_utf8.TestCheckUtf8.BytesWrapper.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        req_ = com.google.protobuf.ByteString.EMPTY;
+        opt_ = com.google.protobuf.ByteString.EMPTY;
+        rep_ = emptyList(com.google.protobuf.ByteString.class);
+      }
+      private Builder(proto2_test_check_utf8.TestCheckUtf8.BytesWrapper other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -1510,7 +1616,7 @@ public final class TestCheckUtf8 extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(proto2_test_check_utf8.TestCheckUtf8.BytesWrapper result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.req_ = req_;
           to_bitField0_ |= 0x00000001;
@@ -1524,6 +1630,13 @@ public final class TestCheckUtf8 extends com.google.protobuf.GeneratedFile {
           result.rep_ = rep_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_test_check_utf8.TestCheckUtf8.BytesWrapper other, java.lang.Object[] parserLocals) {
+        req_ = other.getReq();
+        opt_ = other.getOpt();
+        rep_ = other.rep_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1615,7 +1728,7 @@ public final class TestCheckUtf8 extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private com.google.protobuf.ByteString req_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString req_;
       /**
        * <code>bytes req = 1 [features = { ... }</code>
        * @return Whether the req field is set.
@@ -1655,7 +1768,7 @@ public final class TestCheckUtf8 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.ByteString opt_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString opt_;
       /**
        * <code>bytes opt = 2;</code>
        * @return Whether the opt field is set.
@@ -1695,7 +1808,7 @@ public final class TestCheckUtf8 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> rep_ = emptyList(com.google.protobuf.ByteString.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> rep_;
       private void ensureRepIsMutable(int capacity) {
         if (!rep_.isModifiable()) {
           rep_ = makeMutableCopy(rep_, capacity);
@@ -1792,22 +1905,92 @@ public final class TestCheckUtf8 extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static BytesWrapper parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      BytesWrapper instance = new BytesWrapper((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.req_ = input.readBytes();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              instance.opt_ = input.readBytes();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.ByteString v = input.readBytes();
+              ensureRepIsMutable(instance, /* capacity= */ -1);
+              instance.rep_.add(v);
+              break;
+            } // case 26
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureRepIsMutable(proto2_test_check_utf8.TestCheckUtf8.BytesWrapper instance, int capacity) {
+      if (!instance.rep_.isModifiable()) {
+        instance.rep_ = makeMutableCopy(instance.rep_, capacity);
+      }
+      instance.bitField0_ |= 0x00000004;
+    }
+    private static void buildPartial_autosplit_0(proto2_test_check_utf8.TestCheckUtf8.BytesWrapper instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.rep_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<BytesWrapper>
-        PARSER = new com.google.protobuf.AbstractParser<BytesWrapper>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<BytesWrapper> {
+      MessageParser() {}
+
       @java.lang.Override
       public BytesWrapper parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return BytesWrapper.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(BytesWrapper instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<BytesWrapper> parser() {
       return PARSER;

@@ -445,15 +445,29 @@ public final class BarOuterClass extends com.google.protobuf.GeneratedFile {
                 proto_example.BarOuterClass.Bar.class, proto_example.BarOuterClass.Bar.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto_example.BarOuterClass.Bar.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        numbers_ = emptyIntList();
+        name_ = "";
+      }
+      private Builder(proto_example.BarOuterClass.Bar other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -495,7 +509,7 @@ public final class BarOuterClass extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(proto_example.BarOuterClass.Bar result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.int_ = int_;
           to_bitField0_ |= 0x00000001;
@@ -509,6 +523,13 @@ public final class BarOuterClass extends com.google.protobuf.GeneratedFile {
           result.numbers_ = numbers_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto_example.BarOuterClass.Bar other, java.lang.Object[] parserLocals) {
+        int_ = other.getInt();
+        name_ = other.name_;
+        numbers_ = other.numbers_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -610,7 +631,7 @@ public final class BarOuterClass extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int int_ ;
+      private int int_;
       /**
        * <code>int32 int = 1;</code>
        * @return Whether the int field is set.
@@ -650,7 +671,7 @@ public final class BarOuterClass extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList numbers_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList numbers_;
       private void ensureNumbersIsMutable(int capacity) {
         if (!numbers_.isModifiable()) {
           numbers_ = makeMutableCopy(numbers_, capacity);
@@ -734,7 +755,7 @@ public final class BarOuterClass extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private java.lang.Object name_ = "";
+      private java.lang.Object name_;
       /**
        * <code>string name = 3;</code>
        * @return Whether the name field is set.
@@ -826,22 +847,103 @@ public final class BarOuterClass extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static Bar parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Bar instance = new Bar((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.int_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              int v = input.readInt32();
+              ensureNumbersIsMutable(instance, /* capacity= */ -1);
+              instance.numbers_.addInt(v);
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureNumbersIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.numbers_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            case 26: {
+              instance.name_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureNumbersIsMutable(proto_example.BarOuterClass.Bar instance, int capacity) {
+      if (!instance.numbers_.isModifiable()) {
+        instance.numbers_ = makeMutableCopy(instance.numbers_, capacity);
+      }
+      instance.bitField0_ |= 0x00000004;
+    }
+    private static void buildPartial_autosplit_0(proto_example.BarOuterClass.Bar instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.numbers_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<Bar>
-        PARSER = new com.google.protobuf.AbstractParser<Bar>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Bar> {
+      MessageParser() {}
+
       @java.lang.Override
       public Bar parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Bar.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Bar instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Bar> parser() {
       return PARSER;

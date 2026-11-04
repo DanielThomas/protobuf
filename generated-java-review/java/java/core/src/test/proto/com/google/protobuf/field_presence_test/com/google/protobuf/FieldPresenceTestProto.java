@@ -809,15 +809,27 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
                   com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.class, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+        }
+        private Builder(com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         @java.lang.Override
         public Builder clear() {
@@ -857,12 +869,17 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
 
         private void buildPartial_autosplit_0(com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.value_ = value_;
             
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage other, java.lang.Object[] parserLocals) {
+          value_ = other.getValue();
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -926,7 +943,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         }
         private int bitField0_;
 
-        private int value_ ;
+        private int value_;
         /**
          * <code>int32 value = 1;</code>
          * @return The value.
@@ -971,22 +988,67 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return DEFAULT_INSTANCE;
       }
 
+      static NestedMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        NestedMessage instance = new NestedMessage((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                instance.value_ = input.readInt32();
+                instance.bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<NestedMessage>
-          PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<NestedMessage> {
+        MessageParser() {}
+
         @java.lang.Override
         public NestedMessage parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return NestedMessage.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(NestedMessage instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<NestedMessage> parser() {
         return PARSER;
@@ -2368,15 +2430,39 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
                 com.google.protobuf.FieldPresenceTestProto.TestAllTypes.class, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.FieldPresenceTestProto.TestAllTypes.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        optionalString_ = "";
+        optionalBytes_ = com.google.protobuf.ByteString.EMPTY;
+        optionalNestedEnum_ = 0;
+        repeatedInt32_ = emptyIntList();
+        repeatedString_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        repeatedBytes_ = emptyList(com.google.protobuf.ByteString.class);
+        repeatedNestedEnum_ = emptyIntList();
+        repeatedNestedMessage_ = emptyList(com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.class);
+        repeatedProto2Message_ = emptyList(proto2_unittest.UnittestProto.TestRequired.class);
+        packedNestedEnum_ = emptyIntList();
         maybeForceBuilderInitialization();
+      }
+      private Builder(com.google.protobuf.FieldPresenceTestProto.TestAllTypes other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -2475,7 +2561,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
 
       private void buildPartial_autosplit_0(com.google.protobuf.FieldPresenceTestProto.TestAllTypes result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.optionalNestedMessage_ = optionalNestedMessageBuilder_ == null
               ? optionalNestedMessage_
@@ -2574,6 +2660,59 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
           result.oneofField_ = oneofField_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.FieldPresenceTestProto.TestAllTypes other, java.lang.Object[] parserLocals) {
+        optionalNestedMessage_ = other.optionalNestedMessage_;
+        optionalProto2Message_ = other.optionalProto2Message_;
+        optionalLazyMessage_ = other.optionalLazyMessage_;
+        optionalInt32_ = other.getOptionalInt32();
+        optionalString_ = other.optionalString_;
+        optionalBytes_ = other.getOptionalBytes();
+        optionalFloat_ = other.getOptionalFloat();
+        optionalDouble_ = other.getOptionalDouble();
+        optionalNestedEnum_ = other.getOptionalNestedEnumValue();
+        repeatedInt32_ = other.repeatedInt32_;
+        repeatedString_ = other.repeatedString_;
+        repeatedBytes_ = other.repeatedBytes_;
+        repeatedNestedEnum_ = other.repeatedNestedEnum_;
+        repeatedNestedMessage_ = other.repeatedNestedMessage_;
+        repeatedProto2Message_ = other.repeatedProto2Message_;
+        packedNestedEnum_ = other.packedNestedEnum_;
+        oneofFieldCase_ = other.oneofFieldCase_;
+        oneofField_ = other.oneofField_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            optionalNestedMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder>) parserLocals[0]);
+            optionalNestedMessage_ = null;
+          }
+          if (parserLocals[1] != null) {
+            optionalProto2MessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder>) parserLocals[1]);
+            optionalProto2Message_ = null;
+          }
+          if (parserLocals[2] != null) {
+            optionalLazyMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder>) parserLocals[2]);
+            optionalLazyMessage_ = null;
+          }
+          if (parserLocals[3] != null) {
+            oneofNestedMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder>) parserLocals[3]);
+            if (oneofFieldCase_ == 16) oneofField_ = null;
+          }
+          if (parserLocals[4] != null) {
+            oneofProto2MessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder>) parserLocals[4]);
+            if (oneofFieldCase_ == 17) oneofField_ = null;
+          }
+          if (parserLocals[5] != null) {
+            repeatedNestedMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder>) parserLocals[5]);
+            repeatedNestedMessage_ = null;
+          }
+          if (parserLocals[6] != null) {
+            repeatedProto2MessageBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder>) parserLocals[6]);
+            repeatedProto2Message_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -2984,7 +3123,35 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         } // finally
         return this;
       }
-      private int oneofFieldCase_ = 0;
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 42: {
+            parseOptionalNestedMessageField(input, extensionRegistry);
+            return true;
+          } // case 42
+          case 50: {
+            parseOptionalProto2MessageField(input, extensionRegistry);
+            return true;
+          } // case 50
+          case 58: {
+            parseOptionalLazyMessageField(input, extensionRegistry);
+            return true;
+          } // case 58
+          case 130: {
+            parseOneofNestedMessage(input, extensionRegistry);
+            return true;
+          } // case 130
+          case 138: {
+            parseOneofProto2Message(input, extensionRegistry);
+            return true;
+          } // case 138
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
+      private int oneofFieldCase_;
       private java.lang.Object oneofField_;
       public OneofFieldCase
           getOneofFieldCase() {
@@ -3007,7 +3174,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
 
       private int bitField0_;
 
-      private int optionalInt32_ ;
+      private int optionalInt32_;
       /**
        * <code>int32 optional_int32 = 1;</code>
        * @return The optionalInt32.
@@ -3039,7 +3206,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return this;
       }
 
-      private java.lang.Object optionalString_ = "";
+      private java.lang.Object optionalString_;
       /**
        * <code>string optional_string = 2;</code>
        * @return The optionalString.
@@ -3111,7 +3278,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return this;
       }
 
-      private com.google.protobuf.ByteString optionalBytes_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString optionalBytes_;
       /**
        * <code>bytes optional_bytes = 3;</code>
        * @return The optionalBytes.
@@ -3143,7 +3310,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return this;
       }
 
-      private float optionalFloat_ ;
+      private float optionalFloat_;
       /**
        * <code>float optional_float = 8;</code>
        * @return The optionalFloat.
@@ -3175,7 +3342,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return this;
       }
 
-      private double optionalDouble_ ;
+      private double optionalDouble_;
       /**
        * <code>double optional_double = 9;</code>
        * @return The optionalDouble.
@@ -3207,7 +3374,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return this;
       }
 
-      private int optionalNestedEnum_ = 0;
+      private int optionalNestedEnum_;
       /**
        * <code>.field_presence_test.TestAllTypes.NestedEnum optional_nested_enum = 4;</code>
        * @return The enum numeric value on the wire for optionalNestedEnum.
@@ -3378,7 +3545,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (optionalNestedMessage_ != null || optionalNestedMessageBuilder_ != null) {
-          internalGetOptionalNestedMessageFieldBuilder().getBuilder()
+          internalGetOptionalNestedMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           optionalNestedMessage_ = com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -3506,7 +3673,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (optionalProto2Message_ != null || optionalProto2MessageBuilder_ != null) {
-          internalGetOptionalProto2MessageFieldBuilder().getBuilder()
+          internalGetOptionalProto2MessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           optionalProto2Message_ = proto2_unittest.UnittestProto.TestRequired.parser().parsePartialFrom(input, extensionRegistry);
@@ -3634,7 +3801,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (optionalLazyMessage_ != null || optionalLazyMessageBuilder_ != null) {
-          internalGetOptionalLazyMessageFieldBuilder().getBuilder()
+          internalGetOptionalLazyMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           optionalLazyMessage_ = com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -4223,7 +4390,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         input.readMessage(
-            internalGetOneofNestedMessageFieldBuilder().getBuilder(),
+            internalGetOneofNestedMessageFieldBuilder().getBuilderForParsing(),
             extensionRegistry);
         switch (oneofFieldCase_) {
         default:
@@ -4400,7 +4567,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         input.readMessage(
-            internalGetOneofProto2MessageFieldBuilder().getBuilder(),
+            internalGetOneofProto2MessageFieldBuilder().getBuilderForParsing(),
             extensionRegistry);
         switch (oneofFieldCase_) {
         default:
@@ -4413,7 +4580,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         }
       }
 
-      private com.google.protobuf.Internal.IntList repeatedInt32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedInt32_;
       private void ensureRepeatedInt32IsMutable(int capacity) {
         if (!repeatedInt32_.isModifiable()) {
           repeatedInt32_ = makeMutableCopy(repeatedInt32_, capacity);
@@ -4497,8 +4664,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList repeatedString_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList repeatedString_;
       private void ensureRepeatedStringIsMutable() {
         if (!repeatedString_.isModifiable()) {
           repeatedString_ = new com.google.protobuf.LazyStringArrayList(repeatedString_);
@@ -4608,7 +4774,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes_ = emptyList(com.google.protobuf.ByteString.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes_;
       private void ensureRepeatedBytesIsMutable(int capacity) {
         if (!repeatedBytes_.isModifiable()) {
           repeatedBytes_ = makeMutableCopy(repeatedBytes_, capacity);
@@ -4692,7 +4858,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedNestedEnum_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedNestedEnum_;
       private void ensureRepeatedNestedEnumIsMutable(int capacity) {
         if (!repeatedNestedEnum_.isModifiable()) {
           repeatedNestedEnum_ = makeMutableCopy(repeatedNestedEnum_, capacity);
@@ -4830,8 +4996,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage> repeatedNestedMessage_ =
-          emptyList(com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage> repeatedNestedMessage_;
       private void ensureRepeatedNestedMessageIsMutable() {
         if (!repeatedNestedMessage_.isModifiable()) {
           repeatedNestedMessage_ = makeMutableCopy(repeatedNestedMessage_);
@@ -5064,8 +5229,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return repeatedNestedMessageBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<proto2_unittest.UnittestProto.TestRequired> repeatedProto2Message_ =
-          emptyList(proto2_unittest.UnittestProto.TestRequired.class);
+      private com.google.protobuf.Internal.ProtobufList<proto2_unittest.UnittestProto.TestRequired> repeatedProto2Message_;
       private void ensureRepeatedProto2MessageIsMutable() {
         if (!repeatedProto2Message_.isModifiable()) {
           repeatedProto2Message_ = makeMutableCopy(repeatedProto2Message_);
@@ -5298,7 +5462,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return repeatedProto2MessageBuilder_;
       }
 
-      private com.google.protobuf.Internal.IntList packedNestedEnum_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList packedNestedEnum_;
       private void ensurePackedNestedEnumIsMutable(int capacity) {
         if (!packedNestedEnum_.isModifiable()) {
           packedNestedEnum_ = makeMutableCopy(packedNestedEnum_, capacity);
@@ -5449,22 +5613,685 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
       return DEFAULT_INSTANCE;
     }
 
+    static TestAllTypes parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestAllTypes instance = new TestAllTypes((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> optionalNestedMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> optionalProto2MessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> optionalLazyMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> oneofNestedMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> oneofProto2MessageBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> repeatedNestedMessageBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> repeatedProto2MessageBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        optionalNestedMessageBuilder_ = internalGetOptionalNestedMessageFieldBuilder(instance, optionalNestedMessageBuilder_);
+        optionalProto2MessageBuilder_ = internalGetOptionalProto2MessageFieldBuilder(instance, optionalProto2MessageBuilder_);
+        optionalLazyMessageBuilder_ = internalGetOptionalLazyMessageFieldBuilder(instance, optionalLazyMessageBuilder_);
+        repeatedNestedMessageBuilder_ = internalGetRepeatedNestedMessageFieldBuilder(instance, repeatedNestedMessageBuilder_);
+        repeatedProto2MessageBuilder_ = internalGetRepeatedProto2MessageFieldBuilder(instance, repeatedProto2MessageBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.optionalInt32_ = input.readInt32();
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 8
+            case 18: {
+              instance.optionalString_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 18
+            case 26: {
+              instance.optionalBytes_ = input.readBytes();
+              instance.bitField0_ |= 0x00000020;
+              break;
+            } // case 26
+            case 32: {
+              instance.optionalNestedEnum_ = input.readEnum();
+              instance.bitField0_ |= 0x00000100;
+              break;
+            } // case 32
+            case 42: {
+              if (instance.optionalNestedMessage_ != null || optionalNestedMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseOptionalNestedMessageField(instance, input, extensionRegistry, optionalNestedMessageBuilder_);
+              break;
+            } // case 42
+            case 50: {
+              if (instance.optionalProto2Message_ != null || optionalProto2MessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseOptionalProto2MessageField(instance, input, extensionRegistry, optionalProto2MessageBuilder_);
+              break;
+            } // case 50
+            case 58: {
+              if (instance.optionalLazyMessage_ != null || optionalLazyMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseOptionalLazyMessageField(instance, input, extensionRegistry, optionalLazyMessageBuilder_);
+              break;
+            } // case 58
+            case 69: {
+              instance.optionalFloat_ = input.readFloat();
+              instance.bitField0_ |= 0x00000040;
+              break;
+            } // case 69
+            case 73: {
+              instance.optionalDouble_ = input.readDouble();
+              instance.bitField0_ |= 0x00000080;
+              break;
+            } // case 73
+            case 88: {
+              parseOneofInt32(instance, input);
+              break;
+            } // case 88
+            case 96: {
+              parseOneofUint32(instance, input);
+              break;
+            } // case 96
+            case 106: {
+              parseOneofString(instance, input);
+              break;
+            } // case 106
+            case 114: {
+              parseOneofBytes(instance, input);
+              break;
+            } // case 114
+            case 120: {
+              parseOneofNestedEnum(instance, input);
+              break;
+            } // case 120
+            case 130: {
+              if (oneofNestedMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              oneofNestedMessageBuilder_ = internalGetOneofNestedMessageFieldBuilder(instance, oneofNestedMessageBuilder_);
+              parseOneofNestedMessage(instance, input, extensionRegistry, oneofNestedMessageBuilder_);
+              break;
+            } // case 130
+            case 138: {
+              if (oneofProto2MessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              oneofProto2MessageBuilder_ = internalGetOneofProto2MessageFieldBuilder(instance, oneofProto2MessageBuilder_);
+              parseOneofProto2Message(instance, input, extensionRegistry, oneofProto2MessageBuilder_);
+              break;
+            } // case 138
+            case 168: {
+              int v = input.readInt32();
+              ensureRepeatedInt32IsMutable(instance, /* capacity= */ -1);
+              instance.repeatedInt32_.addInt(v);
+              break;
+            } // case 168
+            case 170: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedInt32IsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedInt32_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 170
+            case 178: {
+              ensureRepeatedStringIsMutable(instance);
+              instance.repeatedString_.add(input.readStringRequireUtf8());
+              break;
+            } // case 178
+            case 186: {
+              com.google.protobuf.ByteString v = input.readBytes();
+              ensureRepeatedBytesIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedBytes_.add(v);
+              break;
+            } // case 186
+            case 192: {
+              int tmpRaw = input.readEnum();
+              ensureRepeatedNestedEnumIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedNestedEnum_.addInt(tmpRaw);
+              break;
+            } // case 192
+            case 194: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedNestedEnumIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedNestedEnum_.addInt(input.readEnum());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 194
+            case 202: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage m = com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedNestedMessageBuilder_ == null) {
+                ensureRepeatedNestedMessageIsMutable(instance);
+                instance.repeatedNestedMessage_.add(m);
+              } else {
+                repeatedNestedMessageBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00002000;
+
+              }
+              break;
+            } // case 202
+            case 210: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              proto2_unittest.UnittestProto.TestRequired m = proto2_unittest.UnittestProto.TestRequired.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedProto2MessageBuilder_ == null) {
+                ensureRepeatedProto2MessageIsMutable(instance);
+                instance.repeatedProto2Message_.add(m);
+              } else {
+                repeatedProto2MessageBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00004000;
+
+              }
+              break;
+            } // case 210
+            case 216: {
+              int tmpRaw = input.readEnum();
+              ensurePackedNestedEnumIsMutable(instance, /* capacity= */ -1);
+              instance.packedNestedEnum_.addInt(tmpRaw);
+              break;
+            } // case 216
+            case 218: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedNestedEnumIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.packedNestedEnum_.addInt(input.readEnum());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 218
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {optionalNestedMessageBuilder_, optionalProto2MessageBuilder_, optionalLazyMessageBuilder_, oneofNestedMessageBuilder_, oneofProto2MessageBuilder_, repeatedNestedMessageBuilder_, repeatedProto2MessageBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, optionalNestedMessageBuilder_, optionalProto2MessageBuilder_, optionalLazyMessageBuilder_, oneofNestedMessageBuilder_, oneofProto2MessageBuilder_, repeatedNestedMessageBuilder_, repeatedProto2MessageBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.field_presence_test.TestAllTypes.NestedMessage optional_nested_message = 5;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> 
+        internalGetOptionalNestedMessageFieldBuilder(com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> optionalNestedMessageBuilder_) {
+      if (optionalNestedMessageBuilder_ == null) {
+        optionalNestedMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder>(
+                instance.getOptionalNestedMessage(),
+                null,
+                false);
+        instance.optionalNestedMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return optionalNestedMessageBuilder_;
+    }
+    private static void parseOptionalNestedMessageField(
+        com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> optionalNestedMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.optionalNestedMessage_ != null || optionalNestedMessageBuilder_ != null) {
+        optionalNestedMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.optionalNestedMessage_ = com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    /**
+     * <code>.proto2_unittest.TestRequired optional_proto2_message = 6;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> 
+        internalGetOptionalProto2MessageFieldBuilder(com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> optionalProto2MessageBuilder_) {
+      if (optionalProto2MessageBuilder_ == null) {
+        optionalProto2MessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder>(
+                instance.getOptionalProto2Message(),
+                null,
+                false);
+        instance.optionalProto2Message_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+      return optionalProto2MessageBuilder_;
+    }
+    private static void parseOptionalProto2MessageField(
+        com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> optionalProto2MessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.optionalProto2Message_ != null || optionalProto2MessageBuilder_ != null) {
+        optionalProto2MessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.optionalProto2Message_ = proto2_unittest.UnittestProto.TestRequired.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+    }
+    /**
+     * <code>.field_presence_test.TestAllTypes.NestedMessage optional_lazy_message = 7 [lazy = true];</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> 
+        internalGetOptionalLazyMessageFieldBuilder(com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> optionalLazyMessageBuilder_) {
+      if (optionalLazyMessageBuilder_ == null) {
+        optionalLazyMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder>(
+                instance.getOptionalLazyMessage(),
+                null,
+                false);
+        instance.optionalLazyMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00000004;
+      return optionalLazyMessageBuilder_;
+    }
+    private static void parseOptionalLazyMessageField(
+        com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> optionalLazyMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.optionalLazyMessage_ != null || optionalLazyMessageBuilder_ != null) {
+        optionalLazyMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.optionalLazyMessage_ = com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+    }
+    private static void parseOneofInt32(
+        com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      instance.oneofField_ = input.readInt32();
+      switch (instance.oneofFieldCase_) {
+      default:
+        clearOneofFieldHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofFieldCase_ = 11;
+        instance.bitField0_ |= 0x00010000; // fallthrough
+      case 11:
+        break;
+      }
+    }
+    private static void parseOneofUint32(
+        com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      instance.oneofField_ = input.readUInt32();
+      switch (instance.oneofFieldCase_) {
+      default:
+        clearOneofFieldHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofFieldCase_ = 12;
+        instance.bitField0_ |= 0x00020000; // fallthrough
+      case 12:
+        break;
+      }
+    }
+    private static void parseOneofString(
+        com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      switch (instance.oneofFieldCase_) {
+      default:
+        clearOneofFieldHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofFieldCase_ = 13;
+        instance.bitField0_ |= 0x00040000; // fallthrough
+      case 13:
+        break;
+      }
+      instance.oneofField_ = input.readStringRequireUtf8();
+    }
+    private static void parseOneofBytes(
+        com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      instance.oneofField_ = input.readBytes();
+      switch (instance.oneofFieldCase_) {
+      default:
+        clearOneofFieldHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofFieldCase_ = 14;
+        instance.bitField0_ |= 0x00080000; // fallthrough
+      case 14:
+        break;
+      }
+    }
+    private static void parseOneofNestedEnum(
+        com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      int rawValue = input.readEnum();
+      switch (instance.oneofFieldCase_) {
+      default:
+        clearOneofFieldHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofFieldCase_ = 15;
+        instance.bitField0_ |= 0x00100000; // fallthrough
+      case 15:
+        break;
+      }
+      instance.oneofField_ = rawValue;
+    }
+    /**
+     * <code>.field_presence_test.TestAllTypes.NestedMessage oneof_nested_message = 16;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> 
+        internalGetOneofNestedMessageFieldBuilder(com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> oneofNestedMessageBuilder_) {
+      if (oneofNestedMessageBuilder_ == null) {
+        if (!(instance.oneofFieldCase_ == 16)) {
+          instance.oneofField_ = com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.getDefaultInstance();
+        }
+        oneofNestedMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder>(
+                (com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage) instance.oneofField_,
+                null,
+                false);
+        instance.oneofField_ = null;
+      }
+      switch (instance.oneofFieldCase_) {
+      default:
+        clearOneofFieldHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofFieldCase_ = 16;
+        instance.bitField0_ |= 0x00200000; // fallthrough
+      case 16:
+        break;
+      }
+
+      return oneofNestedMessageBuilder_;
+    }
+    private static void parseOneofNestedMessage(
+        com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> oneofNestedMessageBuilder_)
+        throws java.io.IOException {
+      input.readMessage(
+          oneofNestedMessageBuilder_.getBuilderForParsing(),
+          extensionRegistry);
+      switch (instance.oneofFieldCase_) {
+      default:
+        clearOneofFieldHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofFieldCase_ = 16;
+        instance.bitField0_ |= 0x00200000; // fallthrough
+      case 16:
+        break;
+      }
+    }
+    /**
+     * <code>.proto2_unittest.TestRequired oneof_proto2_message = 17;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> 
+        internalGetOneofProto2MessageFieldBuilder(com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> oneofProto2MessageBuilder_) {
+      if (oneofProto2MessageBuilder_ == null) {
+        if (!(instance.oneofFieldCase_ == 17)) {
+          instance.oneofField_ = proto2_unittest.UnittestProto.TestRequired.getDefaultInstance();
+        }
+        oneofProto2MessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder>(
+                (proto2_unittest.UnittestProto.TestRequired) instance.oneofField_,
+                null,
+                false);
+        instance.oneofField_ = null;
+      }
+      switch (instance.oneofFieldCase_) {
+      default:
+        clearOneofFieldHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofFieldCase_ = 17;
+        instance.bitField0_ |= 0x00400000; // fallthrough
+      case 17:
+        break;
+      }
+
+      return oneofProto2MessageBuilder_;
+    }
+    private static void parseOneofProto2Message(
+        com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> oneofProto2MessageBuilder_)
+        throws java.io.IOException {
+      input.readMessage(
+          oneofProto2MessageBuilder_.getBuilderForParsing(),
+          extensionRegistry);
+      switch (instance.oneofFieldCase_) {
+      default:
+        clearOneofFieldHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofFieldCase_ = 17;
+        instance.bitField0_ |= 0x00400000; // fallthrough
+      case 17:
+        break;
+      }
+    }
+    private static void ensureRepeatedInt32IsMutable(com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, int capacity) {
+      if (!instance.repeatedInt32_.isModifiable()) {
+        instance.repeatedInt32_ = makeMutableCopy(instance.repeatedInt32_, capacity);
+      }
+      instance.bitField0_ |= 0x00000200;
+    }
+    private static void ensureRepeatedStringIsMutable(com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance) {
+      if (!instance.repeatedString_.isModifiable()) {
+        instance.repeatedString_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString_);
+      }
+      instance.bitField0_ |= 0x00000400;
+    }
+    private static void ensureRepeatedBytesIsMutable(com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, int capacity) {
+      if (!instance.repeatedBytes_.isModifiable()) {
+        instance.repeatedBytes_ = makeMutableCopy(instance.repeatedBytes_, capacity);
+      }
+      instance.bitField0_ |= 0x00000800;
+    }
+    private static void ensureRepeatedNestedEnumIsMutable(com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, int capacity) {
+      if (!instance.repeatedNestedEnum_.isModifiable()) {
+        instance.repeatedNestedEnum_ = makeMutableCopy(instance.repeatedNestedEnum_, capacity);
+      }
+      instance.bitField0_ |= 0x00001000;
+    }
+    private static void ensureRepeatedNestedMessageIsMutable(com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance) {
+      if (!instance.repeatedNestedMessage_.isModifiable()) {
+        instance.repeatedNestedMessage_ = makeMutableCopy(instance.repeatedNestedMessage_);
+      }
+      instance.bitField0_ |= 0x00002000;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> 
+        internalGetRepeatedNestedMessageFieldBuilder(com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> repeatedNestedMessageBuilder_) {
+      if (repeatedNestedMessageBuilder_ == null) {
+        repeatedNestedMessageBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder>(
+                instance.repeatedNestedMessage_,
+                instance.repeatedNestedMessage_.isModifiable(),
+                null,
+                false);
+        instance.repeatedNestedMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00002000;
+
+      return repeatedNestedMessageBuilder_;
+    }
+    private static void ensureRepeatedProto2MessageIsMutable(com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance) {
+      if (!instance.repeatedProto2Message_.isModifiable()) {
+        instance.repeatedProto2Message_ = makeMutableCopy(instance.repeatedProto2Message_);
+      }
+      instance.bitField0_ |= 0x00004000;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> 
+        internalGetRepeatedProto2MessageFieldBuilder(com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> repeatedProto2MessageBuilder_) {
+      if (repeatedProto2MessageBuilder_ == null) {
+        repeatedProto2MessageBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder>(
+                instance.repeatedProto2Message_,
+                instance.repeatedProto2Message_.isModifiable(),
+                null,
+                false);
+        instance.repeatedProto2Message_ = null;
+      }
+      instance.bitField0_ |= 0x00004000;
+
+      return repeatedProto2MessageBuilder_;
+    }
+    private static void ensurePackedNestedEnumIsMutable(com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance, int capacity) {
+      if (!instance.packedNestedEnum_.isModifiable()) {
+        instance.packedNestedEnum_ = makeMutableCopy(instance.packedNestedEnum_, capacity);
+      }
+      instance.bitField0_ |= 0x00008000;
+    }
+
+    private static void clearOneofFieldHasBits(com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance) {
+      instance.bitField0_ = (instance.bitField0_ & ~0x007f0000);
+    }
+
+    private static void buildPartial_autosplit_0(com.google.protobuf.FieldPresenceTestProto.TestAllTypes instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> optionalNestedMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> optionalProto2MessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> optionalLazyMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> oneofNestedMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> oneofProto2MessageBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> repeatedNestedMessageBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> repeatedProto2MessageBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.optionalNestedMessage_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.optionalNestedMessage_ = optionalNestedMessageBuilder_ == null
+            ? instance.optionalNestedMessage_
+            : optionalNestedMessageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000002) != 0)) instance.optionalProto2Message_ = null;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.optionalProto2Message_ = optionalProto2MessageBuilder_ == null
+            ? instance.optionalProto2Message_
+            : optionalProto2MessageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000004) != 0)) instance.optionalLazyMessage_ = null;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.optionalLazyMessage_ = optionalLazyMessageBuilder_ == null
+            ? instance.optionalLazyMessage_
+            : optionalLazyMessageBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        instance.repeatedInt32_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        instance.repeatedString_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        instance.repeatedBytes_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        instance.repeatedNestedEnum_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+      if (repeatedNestedMessageBuilder_ == null) {
+        instance.repeatedNestedMessage_.makeImmutable();
+      } else {
+        instance.repeatedNestedMessage_ = repeatedNestedMessageBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+      if (repeatedProto2MessageBuilder_ == null) {
+        instance.repeatedProto2Message_.makeImmutable();
+      } else {
+        instance.repeatedProto2Message_ = repeatedProto2MessageBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        instance.packedNestedEnum_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00200000) != 0)) {
+        instance.oneofField_ = oneofNestedMessageBuilder_ == null
+            ? instance.oneofField_
+            : oneofNestedMessageBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00400000) != 0)) {
+        instance.oneofField_ = oneofProto2MessageBuilder_ == null
+            ? instance.oneofField_
+            : oneofProto2MessageBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestAllTypes>
-        PARSER = new com.google.protobuf.AbstractParser<TestAllTypes>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestAllTypes> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestAllTypes parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestAllTypes.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestAllTypes instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestAllTypes> parser() {
       return PARSER;
@@ -6059,15 +6886,31 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
                 com.google.protobuf.FieldPresenceTestProto.TestOptionalFieldsOnly.class, com.google.protobuf.FieldPresenceTestProto.TestOptionalFieldsOnly.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.FieldPresenceTestProto.TestOptionalFieldsOnly.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        optionalString_ = "";
+        optionalBytes_ = com.google.protobuf.ByteString.EMPTY;
+        optionalNestedEnum_ = 0;
         maybeForceBuilderInitialization();
+      }
+      private Builder(com.google.protobuf.FieldPresenceTestProto.TestOptionalFieldsOnly other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -6133,7 +6976,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
 
       private void buildPartial_autosplit_0(com.google.protobuf.FieldPresenceTestProto.TestOptionalFieldsOnly result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.optionalNestedMessage_ = optionalNestedMessageBuilder_ == null
               ? optionalNestedMessage_
@@ -6169,6 +7012,32 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
           ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.FieldPresenceTestProto.TestOptionalFieldsOnly other, java.lang.Object[] parserLocals) {
+        optionalNestedMessage_ = other.optionalNestedMessage_;
+        optionalProto2Message_ = other.optionalProto2Message_;
+        optionalLazyMessage_ = other.optionalLazyMessage_;
+        optionalInt32_ = other.getOptionalInt32();
+        optionalString_ = other.optionalString_;
+        optionalBytes_ = other.getOptionalBytes();
+        optionalNestedEnum_ = other.getOptionalNestedEnumValue();
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            optionalNestedMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder>) parserLocals[0]);
+            optionalNestedMessage_ = null;
+          }
+          if (parserLocals[1] != null) {
+            optionalProto2MessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder>) parserLocals[1]);
+            optionalProto2Message_ = null;
+          }
+          if (parserLocals[2] != null) {
+            optionalLazyMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder>) parserLocals[2]);
+            optionalLazyMessage_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -6282,9 +7151,29 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         } // finally
         return this;
       }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 42: {
+            parseOptionalNestedMessageField(input, extensionRegistry);
+            return true;
+          } // case 42
+          case 50: {
+            parseOptionalProto2MessageField(input, extensionRegistry);
+            return true;
+          } // case 50
+          case 58: {
+            parseOptionalLazyMessageField(input, extensionRegistry);
+            return true;
+          } // case 58
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
       private int bitField0_;
 
-      private int optionalInt32_ ;
+      private int optionalInt32_;
       /**
        * <code>int32 optional_int32 = 1;</code>
        * @return The optionalInt32.
@@ -6316,7 +7205,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return this;
       }
 
-      private java.lang.Object optionalString_ = "";
+      private java.lang.Object optionalString_;
       /**
        * <code>string optional_string = 2;</code>
        * @return The optionalString.
@@ -6388,7 +7277,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return this;
       }
 
-      private com.google.protobuf.ByteString optionalBytes_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString optionalBytes_;
       /**
        * <code>bytes optional_bytes = 3;</code>
        * @return The optionalBytes.
@@ -6420,7 +7309,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return this;
       }
 
-      private int optionalNestedEnum_ = 0;
+      private int optionalNestedEnum_;
       /**
        * <code>.field_presence_test.TestAllTypes.NestedEnum optional_nested_enum = 4;</code>
        * @return The enum numeric value on the wire for optionalNestedEnum.
@@ -6591,7 +7480,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (optionalNestedMessage_ != null || optionalNestedMessageBuilder_ != null) {
-          internalGetOptionalNestedMessageFieldBuilder().getBuilder()
+          internalGetOptionalNestedMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           optionalNestedMessage_ = com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -6719,7 +7608,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (optionalProto2Message_ != null || optionalProto2MessageBuilder_ != null) {
-          internalGetOptionalProto2MessageFieldBuilder().getBuilder()
+          internalGetOptionalProto2MessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           optionalProto2Message_ = proto2_unittest.UnittestProto.TestRequired.parser().parsePartialFrom(input, extensionRegistry);
@@ -6847,7 +7736,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (optionalLazyMessage_ != null || optionalLazyMessageBuilder_ != null) {
-          internalGetOptionalLazyMessageFieldBuilder().getBuilder()
+          internalGetOptionalLazyMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           optionalLazyMessage_ = com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -6869,22 +7758,252 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
       return DEFAULT_INSTANCE;
     }
 
+    static TestOptionalFieldsOnly parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestOptionalFieldsOnly instance = new TestOptionalFieldsOnly((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> optionalNestedMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> optionalProto2MessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> optionalLazyMessageBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        optionalNestedMessageBuilder_ = internalGetOptionalNestedMessageFieldBuilder(instance, optionalNestedMessageBuilder_);
+        optionalProto2MessageBuilder_ = internalGetOptionalProto2MessageFieldBuilder(instance, optionalProto2MessageBuilder_);
+        optionalLazyMessageBuilder_ = internalGetOptionalLazyMessageFieldBuilder(instance, optionalLazyMessageBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.optionalInt32_ = input.readInt32();
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 8
+            case 18: {
+              instance.optionalString_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 18
+            case 26: {
+              instance.optionalBytes_ = input.readBytes();
+              instance.bitField0_ |= 0x00000020;
+              break;
+            } // case 26
+            case 32: {
+              instance.optionalNestedEnum_ = input.readEnum();
+              instance.bitField0_ |= 0x00000040;
+              break;
+            } // case 32
+            case 42: {
+              if (instance.optionalNestedMessage_ != null || optionalNestedMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseOptionalNestedMessageField(instance, input, extensionRegistry, optionalNestedMessageBuilder_);
+              break;
+            } // case 42
+            case 50: {
+              if (instance.optionalProto2Message_ != null || optionalProto2MessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseOptionalProto2MessageField(instance, input, extensionRegistry, optionalProto2MessageBuilder_);
+              break;
+            } // case 50
+            case 58: {
+              if (instance.optionalLazyMessage_ != null || optionalLazyMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseOptionalLazyMessageField(instance, input, extensionRegistry, optionalLazyMessageBuilder_);
+              break;
+            } // case 58
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {optionalNestedMessageBuilder_, optionalProto2MessageBuilder_, optionalLazyMessageBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, optionalNestedMessageBuilder_, optionalProto2MessageBuilder_, optionalLazyMessageBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.field_presence_test.TestAllTypes.NestedMessage optional_nested_message = 5;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> 
+        internalGetOptionalNestedMessageFieldBuilder(com.google.protobuf.FieldPresenceTestProto.TestOptionalFieldsOnly instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> optionalNestedMessageBuilder_) {
+      if (optionalNestedMessageBuilder_ == null) {
+        optionalNestedMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder>(
+                instance.getOptionalNestedMessage(),
+                null,
+                false);
+        instance.optionalNestedMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return optionalNestedMessageBuilder_;
+    }
+    private static void parseOptionalNestedMessageField(
+        com.google.protobuf.FieldPresenceTestProto.TestOptionalFieldsOnly instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> optionalNestedMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.optionalNestedMessage_ != null || optionalNestedMessageBuilder_ != null) {
+        optionalNestedMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.optionalNestedMessage_ = com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    /**
+     * <code>.proto2_unittest.TestRequired optional_proto2_message = 6;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> 
+        internalGetOptionalProto2MessageFieldBuilder(com.google.protobuf.FieldPresenceTestProto.TestOptionalFieldsOnly instance, com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> optionalProto2MessageBuilder_) {
+      if (optionalProto2MessageBuilder_ == null) {
+        optionalProto2MessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder>(
+                instance.getOptionalProto2Message(),
+                null,
+                false);
+        instance.optionalProto2Message_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+      return optionalProto2MessageBuilder_;
+    }
+    private static void parseOptionalProto2MessageField(
+        com.google.protobuf.FieldPresenceTestProto.TestOptionalFieldsOnly instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> optionalProto2MessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.optionalProto2Message_ != null || optionalProto2MessageBuilder_ != null) {
+        optionalProto2MessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.optionalProto2Message_ = proto2_unittest.UnittestProto.TestRequired.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+    }
+    /**
+     * <code>.field_presence_test.TestAllTypes.NestedMessage optional_lazy_message = 7 [lazy = true];</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> 
+        internalGetOptionalLazyMessageFieldBuilder(com.google.protobuf.FieldPresenceTestProto.TestOptionalFieldsOnly instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> optionalLazyMessageBuilder_) {
+      if (optionalLazyMessageBuilder_ == null) {
+        optionalLazyMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder>(
+                instance.getOptionalLazyMessage(),
+                null,
+                false);
+        instance.optionalLazyMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00000004;
+      return optionalLazyMessageBuilder_;
+    }
+    private static void parseOptionalLazyMessageField(
+        com.google.protobuf.FieldPresenceTestProto.TestOptionalFieldsOnly instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> optionalLazyMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.optionalLazyMessage_ != null || optionalLazyMessageBuilder_ != null) {
+        optionalLazyMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.optionalLazyMessage_ = com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.FieldPresenceTestProto.TestOptionalFieldsOnly instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> optionalNestedMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> optionalProto2MessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> optionalLazyMessageBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.optionalNestedMessage_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.optionalNestedMessage_ = optionalNestedMessageBuilder_ == null
+            ? instance.optionalNestedMessage_
+            : optionalNestedMessageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000002) != 0)) instance.optionalProto2Message_ = null;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.optionalProto2Message_ = optionalProto2MessageBuilder_ == null
+            ? instance.optionalProto2Message_
+            : optionalProto2MessageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000004) != 0)) instance.optionalLazyMessage_ = null;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.optionalLazyMessage_ = optionalLazyMessageBuilder_ == null
+            ? instance.optionalLazyMessage_
+            : optionalLazyMessageBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestOptionalFieldsOnly>
-        PARSER = new com.google.protobuf.AbstractParser<TestOptionalFieldsOnly>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestOptionalFieldsOnly> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestOptionalFieldsOnly parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestOptionalFieldsOnly.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestOptionalFieldsOnly instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestOptionalFieldsOnly> parser() {
       return PARSER;
@@ -7648,15 +8767,34 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
                 com.google.protobuf.FieldPresenceTestProto.TestRepeatedFieldsOnly.class, com.google.protobuf.FieldPresenceTestProto.TestRepeatedFieldsOnly.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.FieldPresenceTestProto.TestRepeatedFieldsOnly.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        repeatedInt32_ = emptyIntList();
+        repeatedString_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        repeatedBytes_ = emptyList(com.google.protobuf.ByteString.class);
+        repeatedNestedEnum_ = emptyIntList();
+        repeatedNestedMessage_ = emptyList(com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.class);
+        repeatedProto2Message_ = emptyList(proto2_unittest.UnittestProto.TestRequired.class);
+      }
+      private Builder(com.google.protobuf.FieldPresenceTestProto.TestRepeatedFieldsOnly other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -7714,7 +8852,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
 
       private void buildPartial_autosplit_0(com.google.protobuf.FieldPresenceTestProto.TestRepeatedFieldsOnly result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           repeatedInt32_.makeImmutable();
           result.repeatedInt32_ = repeatedInt32_;
@@ -7748,6 +8886,27 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.FieldPresenceTestProto.TestRepeatedFieldsOnly other, java.lang.Object[] parserLocals) {
+        repeatedInt32_ = other.repeatedInt32_;
+        repeatedString_ = other.repeatedString_;
+        repeatedBytes_ = other.repeatedBytes_;
+        repeatedNestedEnum_ = other.repeatedNestedEnum_;
+        repeatedNestedMessage_ = other.repeatedNestedMessage_;
+        repeatedProto2Message_ = other.repeatedProto2Message_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            repeatedNestedMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder>) parserLocals[0]);
+            repeatedNestedMessage_ = null;
+          }
+          if (parserLocals[1] != null) {
+            repeatedProto2MessageBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder>) parserLocals[1]);
+            repeatedProto2Message_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -7980,7 +9139,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.IntList repeatedInt32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedInt32_;
       private void ensureRepeatedInt32IsMutable(int capacity) {
         if (!repeatedInt32_.isModifiable()) {
           repeatedInt32_ = makeMutableCopy(repeatedInt32_, capacity);
@@ -8064,8 +9223,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList repeatedString_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList repeatedString_;
       private void ensureRepeatedStringIsMutable() {
         if (!repeatedString_.isModifiable()) {
           repeatedString_ = new com.google.protobuf.LazyStringArrayList(repeatedString_);
@@ -8175,7 +9333,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes_ = emptyList(com.google.protobuf.ByteString.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes_;
       private void ensureRepeatedBytesIsMutable(int capacity) {
         if (!repeatedBytes_.isModifiable()) {
           repeatedBytes_ = makeMutableCopy(repeatedBytes_, capacity);
@@ -8259,7 +9417,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedNestedEnum_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedNestedEnum_;
       private void ensureRepeatedNestedEnumIsMutable(int capacity) {
         if (!repeatedNestedEnum_.isModifiable()) {
           repeatedNestedEnum_ = makeMutableCopy(repeatedNestedEnum_, capacity);
@@ -8397,8 +9555,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage> repeatedNestedMessage_ =
-          emptyList(com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage> repeatedNestedMessage_;
       private void ensureRepeatedNestedMessageIsMutable() {
         if (!repeatedNestedMessage_.isModifiable()) {
           repeatedNestedMessage_ = makeMutableCopy(repeatedNestedMessage_);
@@ -8631,8 +9788,7 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
         return repeatedNestedMessageBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<proto2_unittest.UnittestProto.TestRequired> repeatedProto2Message_ =
-          emptyList(proto2_unittest.UnittestProto.TestRequired.class);
+      private com.google.protobuf.Internal.ProtobufList<proto2_unittest.UnittestProto.TestRequired> repeatedProto2Message_;
       private void ensureRepeatedProto2MessageIsMutable() {
         if (!repeatedProto2Message_.isModifiable()) {
           repeatedProto2Message_ = makeMutableCopy(repeatedProto2Message_);
@@ -8878,22 +10034,206 @@ public final class FieldPresenceTestProto extends com.google.protobuf.GeneratedF
       return DEFAULT_INSTANCE;
     }
 
+    static TestRepeatedFieldsOnly parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestRepeatedFieldsOnly instance = new TestRepeatedFieldsOnly((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> repeatedNestedMessageBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> repeatedProto2MessageBuilder_ = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 168: {
+              int v = input.readInt32();
+              ensureRepeatedInt32IsMutable(instance, /* capacity= */ -1);
+              instance.repeatedInt32_.addInt(v);
+              break;
+            } // case 168
+            case 170: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedInt32IsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedInt32_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 170
+            case 178: {
+              ensureRepeatedStringIsMutable(instance);
+              instance.repeatedString_.add(input.readStringRequireUtf8());
+              break;
+            } // case 178
+            case 186: {
+              com.google.protobuf.ByteString v = input.readBytes();
+              ensureRepeatedBytesIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedBytes_.add(v);
+              break;
+            } // case 186
+            case 192: {
+              int tmpRaw = input.readEnum();
+              ensureRepeatedNestedEnumIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedNestedEnum_.addInt(tmpRaw);
+              break;
+            } // case 192
+            case 194: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedNestedEnumIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedNestedEnum_.addInt(input.readEnum());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 194
+            case 202: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage m = com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedNestedMessageBuilder_ == null) {
+                ensureRepeatedNestedMessageIsMutable(instance);
+                instance.repeatedNestedMessage_.add(m);
+              } else {
+                repeatedNestedMessageBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000010;
+
+              }
+              break;
+            } // case 202
+            case 210: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              proto2_unittest.UnittestProto.TestRequired m = proto2_unittest.UnittestProto.TestRequired.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedProto2MessageBuilder_ == null) {
+                ensureRepeatedProto2MessageIsMutable(instance);
+                instance.repeatedProto2Message_.add(m);
+              } else {
+                repeatedProto2MessageBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000020;
+
+              }
+              break;
+            } // case 210
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, repeatedNestedMessageBuilder_, repeatedProto2MessageBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureRepeatedInt32IsMutable(com.google.protobuf.FieldPresenceTestProto.TestRepeatedFieldsOnly instance, int capacity) {
+      if (!instance.repeatedInt32_.isModifiable()) {
+        instance.repeatedInt32_ = makeMutableCopy(instance.repeatedInt32_, capacity);
+      }
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void ensureRepeatedStringIsMutable(com.google.protobuf.FieldPresenceTestProto.TestRepeatedFieldsOnly instance) {
+      if (!instance.repeatedString_.isModifiable()) {
+        instance.repeatedString_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString_);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static void ensureRepeatedBytesIsMutable(com.google.protobuf.FieldPresenceTestProto.TestRepeatedFieldsOnly instance, int capacity) {
+      if (!instance.repeatedBytes_.isModifiable()) {
+        instance.repeatedBytes_ = makeMutableCopy(instance.repeatedBytes_, capacity);
+      }
+      instance.bitField0_ |= 0x00000004;
+    }
+    private static void ensureRepeatedNestedEnumIsMutable(com.google.protobuf.FieldPresenceTestProto.TestRepeatedFieldsOnly instance, int capacity) {
+      if (!instance.repeatedNestedEnum_.isModifiable()) {
+        instance.repeatedNestedEnum_ = makeMutableCopy(instance.repeatedNestedEnum_, capacity);
+      }
+      instance.bitField0_ |= 0x00000008;
+    }
+    private static void ensureRepeatedNestedMessageIsMutable(com.google.protobuf.FieldPresenceTestProto.TestRepeatedFieldsOnly instance) {
+      if (!instance.repeatedNestedMessage_.isModifiable()) {
+        instance.repeatedNestedMessage_ = makeMutableCopy(instance.repeatedNestedMessage_);
+      }
+      instance.bitField0_ |= 0x00000010;
+    }
+    private static void ensureRepeatedProto2MessageIsMutable(com.google.protobuf.FieldPresenceTestProto.TestRepeatedFieldsOnly instance) {
+      if (!instance.repeatedProto2Message_.isModifiable()) {
+        instance.repeatedProto2Message_ = makeMutableCopy(instance.repeatedProto2Message_);
+      }
+      instance.bitField0_ |= 0x00000020;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.FieldPresenceTestProto.TestRepeatedFieldsOnly instance,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessage.Builder, com.google.protobuf.FieldPresenceTestProto.TestAllTypes.NestedMessageOrBuilder> repeatedNestedMessageBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> repeatedProto2MessageBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.repeatedInt32_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.repeatedString_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.repeatedBytes_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.repeatedNestedEnum_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+      if (repeatedNestedMessageBuilder_ == null) {
+        instance.repeatedNestedMessage_.makeImmutable();
+      } else {
+        instance.repeatedNestedMessage_ = repeatedNestedMessageBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+      if (repeatedProto2MessageBuilder_ == null) {
+        instance.repeatedProto2Message_.makeImmutable();
+      } else {
+        instance.repeatedProto2Message_ = repeatedProto2MessageBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestRepeatedFieldsOnly>
-        PARSER = new com.google.protobuf.AbstractParser<TestRepeatedFieldsOnly>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestRepeatedFieldsOnly> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestRepeatedFieldsOnly parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestRepeatedFieldsOnly.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestRepeatedFieldsOnly instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestRepeatedFieldsOnly> parser() {
       return PARSER;

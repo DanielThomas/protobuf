@@ -237,15 +237,26 @@ public final class DynamicMessageTestProto extends com.google.protobuf.Generated
                 dynamicmessagetest.DynamicMessageTestProto.EmptyMessage.class, dynamicmessagetest.DynamicMessageTestProto.EmptyMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using dynamicmessagetest.DynamicMessageTestProto.EmptyMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(dynamicmessagetest.DynamicMessageTestProto.EmptyMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
       }
       @java.lang.Override
       public Builder clear() {
@@ -345,22 +356,62 @@ public final class DynamicMessageTestProto extends com.google.protobuf.Generated
       return DEFAULT_INSTANCE;
     }
 
+    static EmptyMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      EmptyMessage instance = new EmptyMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<EmptyMessage>
-        PARSER = new com.google.protobuf.AbstractParser<EmptyMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<EmptyMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public EmptyMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return EmptyMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(EmptyMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<EmptyMessage> parser() {
       return PARSER;
@@ -769,15 +820,27 @@ dynamicmessagetest.DynamicMessageTestProto.EmptyMessage defaultValue) {
                 dynamicmessagetest.DynamicMessageTestProto.MessageWithMapFields.class, dynamicmessagetest.DynamicMessageTestProto.MessageWithMapFields.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using dynamicmessagetest.DynamicMessageTestProto.MessageWithMapFields.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(dynamicmessagetest.DynamicMessageTestProto.MessageWithMapFields other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -817,11 +880,25 @@ dynamicmessagetest.DynamicMessageTestProto.EmptyMessage defaultValue) {
 
       private void buildPartial_autosplit_0(dynamicmessagetest.DynamicMessageTestProto.MessageWithMapFields result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.stringMessageMap_ = internalGetStringMessageMap().build(StringMessageMapDefaultEntryHolder.defaultEntry);
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(dynamicmessagetest.DynamicMessageTestProto.MessageWithMapFields other, java.lang.Object[] parserLocals) {
+        if (parserLocals == null && other.stringMessageMap_ != null) {
+          stringMessageMap_ = new com.google.protobuf.MapFieldBuilder<>(stringMessageMapConverter);
+          stringMessageMap_.ensureBuilderMap().putAll(other.stringMessageMap_.getMap());
+        }
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            stringMessageMap_ = (com.google.protobuf.MapFieldBuilder<java.lang.String, dynamicmessagetest.DynamicMessageTestProto.EmptyMessageOrBuilder, dynamicmessagetest.DynamicMessageTestProto.EmptyMessage, dynamicmessagetest.DynamicMessageTestProto.EmptyMessage.Builder>) parserLocals[0];
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1059,22 +1136,90 @@ dynamicmessagetest.DynamicMessageTestProto.EmptyMessage defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static MessageWithMapFields parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MessageWithMapFields instance = new MessageWithMapFields((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.MapFieldBuilder<java.lang.String, dynamicmessagetest.DynamicMessageTestProto.EmptyMessageOrBuilder, dynamicmessagetest.DynamicMessageTestProto.EmptyMessage, dynamicmessagetest.DynamicMessageTestProto.EmptyMessage.Builder> parsed_stringMessageMap = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, dynamicmessagetest.DynamicMessageTestProto.EmptyMessage>
+              stringMessageMap__ = input.readMessage(
+                  StringMessageMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              (parsed_stringMessageMap = internalGetMutableStringMessageMap(instance, parsed_stringMessageMap)).ensureBuilderMap().put(
+                  stringMessageMap__.getKey(), stringMessageMap__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, parsed_stringMessageMap);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapFieldBuilder<java.lang.String, dynamicmessagetest.DynamicMessageTestProto.EmptyMessageOrBuilder, dynamicmessagetest.DynamicMessageTestProto.EmptyMessage, dynamicmessagetest.DynamicMessageTestProto.EmptyMessage.Builder>
+        internalGetMutableStringMessageMap(dynamicmessagetest.DynamicMessageTestProto.MessageWithMapFields instance, com.google.protobuf.MapFieldBuilder<java.lang.String, dynamicmessagetest.DynamicMessageTestProto.EmptyMessageOrBuilder, dynamicmessagetest.DynamicMessageTestProto.EmptyMessage, dynamicmessagetest.DynamicMessageTestProto.EmptyMessage.Builder> parsed_stringMessageMap) {
+      if (parsed_stringMessageMap == null) {
+        parsed_stringMessageMap = new com.google.protobuf.MapFieldBuilder<>(Builder.stringMessageMapConverter);
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return parsed_stringMessageMap;
+    }
+    private static void buildPartial_autosplit_0(dynamicmessagetest.DynamicMessageTestProto.MessageWithMapFields instance,
+        com.google.protobuf.MapFieldBuilder<java.lang.String, dynamicmessagetest.DynamicMessageTestProto.EmptyMessageOrBuilder, dynamicmessagetest.DynamicMessageTestProto.EmptyMessage, dynamicmessagetest.DynamicMessageTestProto.EmptyMessage.Builder> parsed_stringMessageMap) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.stringMessageMap_ = parsed_stringMessageMap.build(StringMessageMapDefaultEntryHolder.defaultEntry);
+      }
+    }
+
     private static final com.google.protobuf.Parser<MessageWithMapFields>
-        PARSER = new com.google.protobuf.AbstractParser<MessageWithMapFields>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MessageWithMapFields> {
+      MessageParser() {}
+
       @java.lang.Override
       public MessageWithMapFields parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return MessageWithMapFields.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(MessageWithMapFields instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<MessageWithMapFields> parser() {
       return PARSER;

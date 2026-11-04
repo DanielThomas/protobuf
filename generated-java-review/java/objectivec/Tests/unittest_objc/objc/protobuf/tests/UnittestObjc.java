@@ -1236,15 +1236,28 @@ public final class UnittestObjc extends com.google.protobuf.GeneratedFile {
                 objc.protobuf.tests.UnittestObjc.TestGeneratedComments.class, objc.protobuf.tests.UnittestObjc.TestGeneratedComments.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.TestGeneratedComments.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        stringField_ = "";
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.TestGeneratedComments other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -1284,12 +1297,17 @@ public final class UnittestObjc extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.TestGeneratedComments result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.stringField_ = stringField_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.TestGeneratedComments other, java.lang.Object[] parserLocals) {
+        stringField_ = other.stringField_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1355,7 +1373,7 @@ public final class UnittestObjc extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private java.lang.Object stringField_ = "";
+      private java.lang.Object stringField_;
       /**
        * <pre>
        * This is a string that could contain stuff like
@@ -1484,22 +1502,67 @@ public final class UnittestObjc extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static TestGeneratedComments parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestGeneratedComments instance = new TestGeneratedComments((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.stringField_ = input.readBytes();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<TestGeneratedComments>
-        PARSER = new com.google.protobuf.AbstractParser<TestGeneratedComments>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestGeneratedComments> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestGeneratedComments parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestGeneratedComments.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestGeneratedComments instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestGeneratedComments> parser() {
       return PARSER;
@@ -2271,15 +2334,31 @@ java.lang.String defaultValue) {
                 objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField.class, objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        i_ = emptyIntList();
+        str_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
         maybeForceBuilderInitialization();
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -2334,7 +2413,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.a_ = aBuilder_ == null
               ? a_
@@ -2358,6 +2437,22 @@ java.lang.String defaultValue) {
           result.strToStr_.makeImmutable();
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField other, java.lang.Object[] parserLocals) {
+        a_ = other.a_;
+        i_ = other.i_;
+        str_ = other.str_;
+        iToI_ = other.iToI_;
+        strToStr_ = other.strToStr_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            aBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField, objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField.Builder, objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedFieldOrBuilder>) parserLocals[0]);
+            a_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -2490,6 +2585,18 @@ java.lang.String defaultValue) {
         } // finally
         return this;
       }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseAField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
       private int bitField0_;
 
       private objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField a_;
@@ -2611,7 +2718,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (a_ != null || aBuilder_ != null) {
-          internalGetAFieldBuilder().getBuilder()
+          internalGetAFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           a_ = objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField.parser().parsePartialFrom(input, extensionRegistry);
@@ -2620,7 +2727,7 @@ java.lang.String defaultValue) {
         bitField0_ |= 0x00000001;
       }
 
-      private com.google.protobuf.Internal.IntList i_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList i_;
       private void ensureIIsMutable(int capacity) {
         if (!i_.isModifiable()) {
           i_ = makeMutableCopy(i_, capacity);
@@ -2704,8 +2811,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList str_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList str_;
       private void ensureStrIsMutable() {
         if (!str_.isModifiable()) {
           str_ = new com.google.protobuf.LazyStringArrayList(str_);
@@ -3081,22 +3187,223 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestRecursiveMessageWithRepeatedField parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestRecursiveMessageWithRepeatedField instance = new TestRecursiveMessageWithRepeatedField((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField, objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField.Builder, objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedFieldOrBuilder> aBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        aBuilder_ = internalGetAFieldBuilder(instance, aBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.a_ != null || aBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseAField(instance, input, extensionRegistry, aBuilder_);
+              break;
+            } // case 10
+            case 16: {
+              int v = input.readInt32();
+              ensureIIsMutable(instance, /* capacity= */ -1);
+              instance.i_.addInt(v);
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureIIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.i_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureStrIsMutable(instance);
+              instance.str_.add(bs);
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              iToI__ = input.readMessage(
+                  IToIDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableIToI(instance).getMutableMap().put(
+                  iToI__.getKey(), iToI__.getValue());
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              strToStr__ = input.readMessage(
+                  StrToStrDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableStrToStr(instance).getMutableMap().put(
+                  strToStr__.getKey(), strToStr__.getValue());
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {aBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, aBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.TestRecursiveMessageWithRepeatedField a = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField, objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField.Builder, objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedFieldOrBuilder> 
+        internalGetAFieldBuilder(objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField, objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField.Builder, objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedFieldOrBuilder> aBuilder_) {
+      if (aBuilder_ == null) {
+        aBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField, objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField.Builder, objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedFieldOrBuilder>(
+                instance.getA(),
+                null,
+                false);
+        instance.a_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return aBuilder_;
+    }
+    private static void parseAField(
+        objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField, objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField.Builder, objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedFieldOrBuilder> aBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.a_ != null || aBuilder_ != null) {
+        aBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.a_ = objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void ensureIIsMutable(objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField instance, int capacity) {
+      if (!instance.i_.isModifiable()) {
+        instance.i_ = makeMutableCopy(instance.i_, capacity);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static void ensureStrIsMutable(objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField instance) {
+      if (!instance.str_.isModifiable()) {
+        instance.str_ = new com.google.protobuf.LazyStringArrayList(instance.str_);
+      }
+      instance.bitField0_ |= 0x00000004;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableIToI(objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField instance) {
+      if (instance.iToI_ == null) {
+        instance.iToI_ = com.google.protobuf.MapField.newMapField(
+            IToIDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.iToI_.isMutable()) {
+        instance.iToI_ = instance.iToI_.copy();
+      }
+      instance.bitField0_ |= 0x00000008;
+
+      return instance.iToI_;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMutableStrToStr(objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField instance) {
+      if (instance.strToStr_ == null) {
+        instance.strToStr_ = com.google.protobuf.MapField.newMapField(
+            StrToStrDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.strToStr_.isMutable()) {
+        instance.strToStr_ = instance.strToStr_.copy();
+      }
+      instance.bitField0_ |= 0x00000010;
+
+      return instance.strToStr_;
+    }
+    private static void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField instance,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField, objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedField.Builder, objc.protobuf.tests.UnittestObjc.TestRecursiveMessageWithRepeatedFieldOrBuilder> aBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.a_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.a_ = aBuilder_ == null
+            ? instance.a_
+            : aBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.i_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.str_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.iToI_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        instance.strToStr_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestRecursiveMessageWithRepeatedField>
-        PARSER = new com.google.protobuf.AbstractParser<TestRecursiveMessageWithRepeatedField>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestRecursiveMessageWithRepeatedField> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestRecursiveMessageWithRepeatedField parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestRecursiveMessageWithRepeatedField.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestRecursiveMessageWithRepeatedField instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestRecursiveMessageWithRepeatedField> parser() {
       return PARSER;
@@ -5097,15 +5404,27 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.TestMessageOfMaps.class, objc.protobuf.tests.UnittestObjc.TestMessageOfMaps.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.TestMessageOfMaps.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.TestMessageOfMaps other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -5156,7 +5475,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.TestMessageOfMaps result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.strToStr_ = internalGetStrToStr();
           result.strToStr_.makeImmutable();
@@ -5203,6 +5522,43 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           result.boolToMsg_ = internalGetBoolToMsg().build(BoolToMsgDefaultEntryHolder.defaultEntry);
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.TestMessageOfMaps other, java.lang.Object[] parserLocals) {
+        strToStr_ = other.strToStr_;
+        strToInt_ = other.strToInt_;
+        intToStr_ = other.intToStr_;
+        intToInt_ = other.intToInt_;
+        strToBool_ = other.strToBool_;
+        boolToStr_ = other.boolToStr_;
+        boolToBool_ = other.boolToBool_;
+        intToBool_ = other.intToBool_;
+        boolToInt_ = other.boolToInt_;
+        if (parserLocals == null && other.strToMsg_ != null) {
+          strToMsg_ = new com.google.protobuf.MapFieldBuilder<>(strToMsgConverter);
+          strToMsg_.ensureBuilderMap().putAll(other.strToMsg_.getMap());
+        }
+        if (parserLocals == null && other.intToMsg_ != null) {
+          intToMsg_ = new com.google.protobuf.MapFieldBuilder<>(intToMsgConverter);
+          intToMsg_.ensureBuilderMap().putAll(other.intToMsg_.getMap());
+        }
+        if (parserLocals == null && other.boolToMsg_ != null) {
+          boolToMsg_ = new com.google.protobuf.MapFieldBuilder<>(boolToMsgConverter);
+          boolToMsg_.ensureBuilderMap().putAll(other.boolToMsg_.getMap());
+        }
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            strToMsg_ = (com.google.protobuf.MapFieldBuilder<java.lang.String, objc.protobuf.tests.Unittest.TestAllTypesOrBuilder, objc.protobuf.tests.Unittest.TestAllTypes, objc.protobuf.tests.Unittest.TestAllTypes.Builder>) parserLocals[0];
+          }
+          if (parserLocals[1] != null) {
+            intToMsg_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, objc.protobuf.tests.Unittest.TestAllTypesOrBuilder, objc.protobuf.tests.Unittest.TestAllTypes, objc.protobuf.tests.Unittest.TestAllTypes.Builder>) parserLocals[1];
+          }
+          if (parserLocals[2] != null) {
+            boolToMsg_ = (com.google.protobuf.MapFieldBuilder<java.lang.Boolean, objc.protobuf.tests.Unittest.TestAllTypesOrBuilder, objc.protobuf.tests.Unittest.TestAllTypes, objc.protobuf.tests.Unittest.TestAllTypes.Builder>) parserLocals[2];
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -7044,22 +7400,361 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestMessageOfMaps parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestMessageOfMaps instance = new TestMessageOfMaps((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.MapFieldBuilder<java.lang.String, objc.protobuf.tests.Unittest.TestAllTypesOrBuilder, objc.protobuf.tests.Unittest.TestAllTypes, objc.protobuf.tests.Unittest.TestAllTypes.Builder> parsed_strToMsg = null;
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, objc.protobuf.tests.Unittest.TestAllTypesOrBuilder, objc.protobuf.tests.Unittest.TestAllTypes, objc.protobuf.tests.Unittest.TestAllTypes.Builder> parsed_intToMsg = null;
+      com.google.protobuf.MapFieldBuilder<java.lang.Boolean, objc.protobuf.tests.Unittest.TestAllTypesOrBuilder, objc.protobuf.tests.Unittest.TestAllTypes, objc.protobuf.tests.Unittest.TestAllTypes.Builder> parsed_boolToMsg = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              strToStr__ = input.readMessage(
+                  StrToStrDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableStrToStr(instance).getMutableMap().put(
+                  strToStr__.getKey(), strToStr__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              strToInt__ = input.readMessage(
+                  StrToIntDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableStrToInt(instance).getMutableMap().put(
+                  strToInt__.getKey(), strToInt__.getValue());
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.String>
+              intToStr__ = input.readMessage(
+                  IntToStrDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableIntToStr(instance).getMutableMap().put(
+                  intToStr__.getKey(), intToStr__.getValue());
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              intToInt__ = input.readMessage(
+                  IntToIntDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableIntToInt(instance).getMutableMap().put(
+                  intToInt__.getKey(), intToInt__.getValue());
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Boolean>
+              strToBool__ = input.readMessage(
+                  StrToBoolDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableStrToBool(instance).getMutableMap().put(
+                  strToBool__.getKey(), strToBool__.getValue());
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.String>
+              boolToStr__ = input.readMessage(
+                  BoolToStrDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableBoolToStr(instance).getMutableMap().put(
+                  boolToStr__.getKey(), boolToStr__.getValue());
+              instance.bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.Boolean>
+              boolToBool__ = input.readMessage(
+                  BoolToBoolDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableBoolToBool(instance).getMutableMap().put(
+                  boolToBool__.getKey(), boolToBool__.getValue());
+              instance.bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Boolean>
+              intToBool__ = input.readMessage(
+                  IntToBoolDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableIntToBool(instance).getMutableMap().put(
+                  intToBool__.getKey(), intToBool__.getValue());
+              instance.bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.Integer>
+              boolToInt__ = input.readMessage(
+                  BoolToIntDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableBoolToInt(instance).getMutableMap().put(
+                  boolToInt__.getKey(), boolToInt__.getValue());
+              instance.bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              com.google.protobuf.MapEntry<java.lang.String, objc.protobuf.tests.Unittest.TestAllTypes>
+              strToMsg__ = input.readMessage(
+                  StrToMsgDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              (parsed_strToMsg = internalGetMutableStrToMsg(instance, parsed_strToMsg)).ensureBuilderMap().put(
+                  strToMsg__.getKey(), strToMsg__.getValue());
+              instance.bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              com.google.protobuf.MapEntry<java.lang.Integer, objc.protobuf.tests.Unittest.TestAllTypes>
+              intToMsg__ = input.readMessage(
+                  IntToMsgDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              (parsed_intToMsg = internalGetMutableIntToMsg(instance, parsed_intToMsg)).ensureBuilderMap().put(
+                  intToMsg__.getKey(), intToMsg__.getValue());
+              instance.bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 98: {
+              com.google.protobuf.MapEntry<java.lang.Boolean, objc.protobuf.tests.Unittest.TestAllTypes>
+              boolToMsg__ = input.readMessage(
+                  BoolToMsgDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              (parsed_boolToMsg = internalGetMutableBoolToMsg(instance, parsed_boolToMsg)).ensureBuilderMap().put(
+                  boolToMsg__.getKey(), boolToMsg__.getValue());
+              instance.bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, parsed_strToMsg, parsed_intToMsg, parsed_boolToMsg);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMutableStrToStr(objc.protobuf.tests.UnittestObjc.TestMessageOfMaps instance) {
+      if (instance.strToStr_ == null) {
+        instance.strToStr_ = com.google.protobuf.MapField.newMapField(
+            StrToStrDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.strToStr_.isMutable()) {
+        instance.strToStr_ = instance.strToStr_.copy();
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return instance.strToStr_;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+        internalGetMutableStrToInt(objc.protobuf.tests.UnittestObjc.TestMessageOfMaps instance) {
+      if (instance.strToInt_ == null) {
+        instance.strToInt_ = com.google.protobuf.MapField.newMapField(
+            StrToIntDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.strToInt_.isMutable()) {
+        instance.strToInt_ = instance.strToInt_.copy();
+      }
+      instance.bitField0_ |= 0x00000002;
+
+      return instance.strToInt_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.String>
+        internalGetMutableIntToStr(objc.protobuf.tests.UnittestObjc.TestMessageOfMaps instance) {
+      if (instance.intToStr_ == null) {
+        instance.intToStr_ = com.google.protobuf.MapField.newMapField(
+            IntToStrDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.intToStr_.isMutable()) {
+        instance.intToStr_ = instance.intToStr_.copy();
+      }
+      instance.bitField0_ |= 0x00000004;
+
+      return instance.intToStr_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableIntToInt(objc.protobuf.tests.UnittestObjc.TestMessageOfMaps instance) {
+      if (instance.intToInt_ == null) {
+        instance.intToInt_ = com.google.protobuf.MapField.newMapField(
+            IntToIntDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.intToInt_.isMutable()) {
+        instance.intToInt_ = instance.intToInt_.copy();
+      }
+      instance.bitField0_ |= 0x00000008;
+
+      return instance.intToInt_;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.Boolean>
+        internalGetMutableStrToBool(objc.protobuf.tests.UnittestObjc.TestMessageOfMaps instance) {
+      if (instance.strToBool_ == null) {
+        instance.strToBool_ = com.google.protobuf.MapField.newMapField(
+            StrToBoolDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.strToBool_.isMutable()) {
+        instance.strToBool_ = instance.strToBool_.copy();
+      }
+      instance.bitField0_ |= 0x00000010;
+
+      return instance.strToBool_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Boolean, java.lang.String>
+        internalGetMutableBoolToStr(objc.protobuf.tests.UnittestObjc.TestMessageOfMaps instance) {
+      if (instance.boolToStr_ == null) {
+        instance.boolToStr_ = com.google.protobuf.MapField.newMapField(
+            BoolToStrDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.boolToStr_.isMutable()) {
+        instance.boolToStr_ = instance.boolToStr_.copy();
+      }
+      instance.bitField0_ |= 0x00000020;
+
+      return instance.boolToStr_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Boolean, java.lang.Boolean>
+        internalGetMutableBoolToBool(objc.protobuf.tests.UnittestObjc.TestMessageOfMaps instance) {
+      if (instance.boolToBool_ == null) {
+        instance.boolToBool_ = com.google.protobuf.MapField.newMapField(
+            BoolToBoolDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.boolToBool_.isMutable()) {
+        instance.boolToBool_ = instance.boolToBool_.copy();
+      }
+      instance.bitField0_ |= 0x00000040;
+
+      return instance.boolToBool_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Boolean>
+        internalGetMutableIntToBool(objc.protobuf.tests.UnittestObjc.TestMessageOfMaps instance) {
+      if (instance.intToBool_ == null) {
+        instance.intToBool_ = com.google.protobuf.MapField.newMapField(
+            IntToBoolDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.intToBool_.isMutable()) {
+        instance.intToBool_ = instance.intToBool_.copy();
+      }
+      instance.bitField0_ |= 0x00000080;
+
+      return instance.intToBool_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Boolean, java.lang.Integer>
+        internalGetMutableBoolToInt(objc.protobuf.tests.UnittestObjc.TestMessageOfMaps instance) {
+      if (instance.boolToInt_ == null) {
+        instance.boolToInt_ = com.google.protobuf.MapField.newMapField(
+            BoolToIntDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.boolToInt_.isMutable()) {
+        instance.boolToInt_ = instance.boolToInt_.copy();
+      }
+      instance.bitField0_ |= 0x00000100;
+
+      return instance.boolToInt_;
+    }
+    private static com.google.protobuf.MapFieldBuilder<java.lang.String, objc.protobuf.tests.Unittest.TestAllTypesOrBuilder, objc.protobuf.tests.Unittest.TestAllTypes, objc.protobuf.tests.Unittest.TestAllTypes.Builder>
+        internalGetMutableStrToMsg(objc.protobuf.tests.UnittestObjc.TestMessageOfMaps instance, com.google.protobuf.MapFieldBuilder<java.lang.String, objc.protobuf.tests.Unittest.TestAllTypesOrBuilder, objc.protobuf.tests.Unittest.TestAllTypes, objc.protobuf.tests.Unittest.TestAllTypes.Builder> parsed_strToMsg) {
+      if (parsed_strToMsg == null) {
+        parsed_strToMsg = new com.google.protobuf.MapFieldBuilder<>(Builder.strToMsgConverter);
+      }
+      instance.bitField0_ |= 0x00000200;
+
+      return parsed_strToMsg;
+    }
+    private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, objc.protobuf.tests.Unittest.TestAllTypesOrBuilder, objc.protobuf.tests.Unittest.TestAllTypes, objc.protobuf.tests.Unittest.TestAllTypes.Builder>
+        internalGetMutableIntToMsg(objc.protobuf.tests.UnittestObjc.TestMessageOfMaps instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, objc.protobuf.tests.Unittest.TestAllTypesOrBuilder, objc.protobuf.tests.Unittest.TestAllTypes, objc.protobuf.tests.Unittest.TestAllTypes.Builder> parsed_intToMsg) {
+      if (parsed_intToMsg == null) {
+        parsed_intToMsg = new com.google.protobuf.MapFieldBuilder<>(Builder.intToMsgConverter);
+      }
+      instance.bitField0_ |= 0x00000400;
+
+      return parsed_intToMsg;
+    }
+    private static com.google.protobuf.MapFieldBuilder<java.lang.Boolean, objc.protobuf.tests.Unittest.TestAllTypesOrBuilder, objc.protobuf.tests.Unittest.TestAllTypes, objc.protobuf.tests.Unittest.TestAllTypes.Builder>
+        internalGetMutableBoolToMsg(objc.protobuf.tests.UnittestObjc.TestMessageOfMaps instance, com.google.protobuf.MapFieldBuilder<java.lang.Boolean, objc.protobuf.tests.Unittest.TestAllTypesOrBuilder, objc.protobuf.tests.Unittest.TestAllTypes, objc.protobuf.tests.Unittest.TestAllTypes.Builder> parsed_boolToMsg) {
+      if (parsed_boolToMsg == null) {
+        parsed_boolToMsg = new com.google.protobuf.MapFieldBuilder<>(Builder.boolToMsgConverter);
+      }
+      instance.bitField0_ |= 0x00000800;
+
+      return parsed_boolToMsg;
+    }
+    private static void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.TestMessageOfMaps instance,
+        com.google.protobuf.MapFieldBuilder<java.lang.String, objc.protobuf.tests.Unittest.TestAllTypesOrBuilder, objc.protobuf.tests.Unittest.TestAllTypes, objc.protobuf.tests.Unittest.TestAllTypes.Builder> parsed_strToMsg,
+        com.google.protobuf.MapFieldBuilder<java.lang.Integer, objc.protobuf.tests.Unittest.TestAllTypesOrBuilder, objc.protobuf.tests.Unittest.TestAllTypes, objc.protobuf.tests.Unittest.TestAllTypes.Builder> parsed_intToMsg,
+        com.google.protobuf.MapFieldBuilder<java.lang.Boolean, objc.protobuf.tests.Unittest.TestAllTypesOrBuilder, objc.protobuf.tests.Unittest.TestAllTypes, objc.protobuf.tests.Unittest.TestAllTypes.Builder> parsed_boolToMsg) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.strToStr_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.strToInt_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.intToStr_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.intToInt_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        instance.strToBool_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        instance.boolToStr_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        instance.boolToBool_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        instance.intToBool_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        instance.boolToInt_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        instance.strToMsg_ = parsed_strToMsg.build(StrToMsgDefaultEntryHolder.defaultEntry);
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        instance.intToMsg_ = parsed_intToMsg.build(IntToMsgDefaultEntryHolder.defaultEntry);
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        instance.boolToMsg_ = parsed_boolToMsg.build(BoolToMsgDefaultEntryHolder.defaultEntry);
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestMessageOfMaps>
-        PARSER = new com.google.protobuf.AbstractParser<TestMessageOfMaps>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestMessageOfMaps> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestMessageOfMaps parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestMessageOfMaps.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestMessageOfMaps instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestMessageOfMaps> parser() {
       return PARSER;
@@ -7456,15 +8151,29 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.TestRecursiveExtension.class, objc.protobuf.tests.UnittestObjc.TestRecursiveExtension.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.TestRecursiveExtension.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        repeatedValue_ = emptyIntList();
         maybeForceBuilderInitialization();
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.TestRecursiveExtension other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -7515,7 +8224,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.TestRecursiveExtension result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.recursiveSubMessage_ = recursiveSubMessageBuilder_ == null
               ? recursiveSubMessage_
@@ -7527,6 +8236,19 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           result.repeatedValue_ = repeatedValue_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.TestRecursiveExtension other, java.lang.Object[] parserLocals) {
+        recursiveSubMessage_ = other.recursiveSubMessage_;
+        repeatedValue_ = other.repeatedValue_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            recursiveSubMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.TestRecursiveExtension, objc.protobuf.tests.UnittestObjc.TestRecursiveExtension.Builder, objc.protobuf.tests.UnittestObjc.TestRecursiveExtensionOrBuilder>) parserLocals[0]);
+            recursiveSubMessage_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       public <Type> Builder setExtension(
@@ -7646,6 +8368,18 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseRecursiveSubMessageField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -7768,7 +8502,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (recursiveSubMessage_ != null || recursiveSubMessageBuilder_ != null) {
-          internalGetRecursiveSubMessageFieldBuilder().getBuilder()
+          internalGetRecursiveSubMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           recursiveSubMessage_ = objc.protobuf.tests.UnittestObjc.TestRecursiveExtension.parser().parsePartialFrom(input, extensionRegistry);
@@ -7777,7 +8511,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         bitField0_ |= 0x00000001;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedValue_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedValue_;
       private void ensureRepeatedValueIsMutable(int capacity) {
         if (!repeatedValue_.isModifiable()) {
           repeatedValue_ = makeMutableCopy(repeatedValue_, capacity);
@@ -7874,22 +8608,156 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestRecursiveExtension parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestRecursiveExtension instance = new TestRecursiveExtension((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.TestRecursiveExtension, objc.protobuf.tests.UnittestObjc.TestRecursiveExtension.Builder, objc.protobuf.tests.UnittestObjc.TestRecursiveExtensionOrBuilder> recursiveSubMessageBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        recursiveSubMessageBuilder_ = internalGetRecursiveSubMessageFieldBuilder(instance, recursiveSubMessageBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.recursiveSubMessage_ != null || recursiveSubMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseRecursiveSubMessageField(instance, input, extensionRegistry, recursiveSubMessageBuilder_);
+              break;
+            } // case 10
+            case 16: {
+              int v = input.readInt32();
+              ensureRepeatedValueIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedValue_.addInt(v);
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedValueIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedValue_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            default: {
+              pendingTag = tag;
+              done = true;
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {recursiveSubMessageBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, recursiveSubMessageBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.TestRecursiveExtension recursive_sub_message = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.TestRecursiveExtension, objc.protobuf.tests.UnittestObjc.TestRecursiveExtension.Builder, objc.protobuf.tests.UnittestObjc.TestRecursiveExtensionOrBuilder> 
+        internalGetRecursiveSubMessageFieldBuilder(objc.protobuf.tests.UnittestObjc.TestRecursiveExtension instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.TestRecursiveExtension, objc.protobuf.tests.UnittestObjc.TestRecursiveExtension.Builder, objc.protobuf.tests.UnittestObjc.TestRecursiveExtensionOrBuilder> recursiveSubMessageBuilder_) {
+      if (recursiveSubMessageBuilder_ == null) {
+        recursiveSubMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.TestRecursiveExtension, objc.protobuf.tests.UnittestObjc.TestRecursiveExtension.Builder, objc.protobuf.tests.UnittestObjc.TestRecursiveExtensionOrBuilder>(
+                instance.getRecursiveSubMessage(),
+                null,
+                false);
+        instance.recursiveSubMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return recursiveSubMessageBuilder_;
+    }
+    private static void parseRecursiveSubMessageField(
+        objc.protobuf.tests.UnittestObjc.TestRecursiveExtension instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.TestRecursiveExtension, objc.protobuf.tests.UnittestObjc.TestRecursiveExtension.Builder, objc.protobuf.tests.UnittestObjc.TestRecursiveExtensionOrBuilder> recursiveSubMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.recursiveSubMessage_ != null || recursiveSubMessageBuilder_ != null) {
+        recursiveSubMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.recursiveSubMessage_ = objc.protobuf.tests.UnittestObjc.TestRecursiveExtension.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void ensureRepeatedValueIsMutable(objc.protobuf.tests.UnittestObjc.TestRecursiveExtension instance, int capacity) {
+      if (!instance.repeatedValue_.isModifiable()) {
+        instance.repeatedValue_ = makeMutableCopy(instance.repeatedValue_, capacity);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.TestRecursiveExtension instance,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.TestRecursiveExtension, objc.protobuf.tests.UnittestObjc.TestRecursiveExtension.Builder, objc.protobuf.tests.UnittestObjc.TestRecursiveExtensionOrBuilder> recursiveSubMessageBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.recursiveSubMessage_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.recursiveSubMessage_ = recursiveSubMessageBuilder_ == null
+            ? instance.recursiveSubMessage_
+            : recursiveSubMessageBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.repeatedValue_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestRecursiveExtension>
-        PARSER = new com.google.protobuf.AbstractParser<TestRecursiveExtension>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestRecursiveExtension> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestRecursiveExtension parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestRecursiveExtension.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestRecursiveExtension instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestRecursiveExtension> parser() {
       return PARSER;
@@ -9054,15 +9922,27 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                   objc.protobuf.tests.UnittestObjc.self.super.class, objc.protobuf.tests.UnittestObjc.self.super.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using objc.protobuf.tests.UnittestObjc.self.super.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+        }
+        private Builder(objc.protobuf.tests.UnittestObjc.self.super other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         @java.lang.Override
         public Builder clear() {
@@ -9102,12 +9982,17 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
         private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.self.super result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.description_ = description_;
             to_bitField0_ |= 0x00000001;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.self.super other, java.lang.Object[] parserLocals) {
+          description_ = other.getDescription();
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -9171,7 +10056,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         }
         private int bitField0_;
 
-        private int description_ ;
+        private int description_;
         /**
          * <code>optional int32 description = 1;</code>
          * @return Whether the description field is set.
@@ -9224,22 +10109,67 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return DEFAULT_INSTANCE;
       }
 
+      static super parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        super instance = new super((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                instance.description_ = input.readInt32();
+                instance.bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<super>
-          PARSER = new com.google.protobuf.AbstractParser<super>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<super> {
+        MessageParser() {}
+
         @java.lang.Override
         public super parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return super.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(super instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<super> parser() {
         return PARSER;
@@ -9556,15 +10486,28 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                   objc.protobuf.tests.UnittestObjc.self.New.class, objc.protobuf.tests.UnittestObjc.self.New.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using objc.protobuf.tests.UnittestObjc.self.New.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+          copy_ = "";
+        }
+        private Builder(objc.protobuf.tests.UnittestObjc.self.New other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         @java.lang.Override
         public Builder clear() {
@@ -9604,12 +10547,17 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
         private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.self.New result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.copy_ = copy_;
             to_bitField0_ |= 0x00000001;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.self.New other, java.lang.Object[] parserLocals) {
+          copy_ = other.copy_;
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -9675,7 +10623,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         }
         private int bitField0_;
 
-        private java.lang.Object copy_ = "";
+        private java.lang.Object copy_;
         /**
          * <code>optional string copy = 1;</code>
          * @return Whether the copy field is set.
@@ -9768,22 +10716,67 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return DEFAULT_INSTANCE;
       }
 
+      static New parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        New instance = new New((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                instance.copy_ = input.readBytes();
+                instance.bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<New>
-          PARSER = new com.google.protobuf.AbstractParser<New>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<New> {
+        MessageParser() {}
+
         @java.lang.Override
         public New parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return New.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(New instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<New> parser() {
         return PARSER;
@@ -10064,15 +11057,27 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                   objc.protobuf.tests.UnittestObjc.self.MutableCopy.class, objc.protobuf.tests.UnittestObjc.self.MutableCopy.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using objc.protobuf.tests.UnittestObjc.self.MutableCopy.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+        }
+        private Builder(objc.protobuf.tests.UnittestObjc.self.MutableCopy other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         @java.lang.Override
         public Builder clear() {
@@ -10112,12 +11117,17 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
         private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.self.MutableCopy result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.extensionRegistry_ = extensionRegistry_;
             to_bitField0_ |= 0x00000001;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.self.MutableCopy other, java.lang.Object[] parserLocals) {
+          extensionRegistry_ = other.getExtensionRegistry();
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -10181,7 +11191,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         }
         private int bitField0_;
 
-        private int extensionRegistry_ ;
+        private int extensionRegistry_;
         /**
          * <code>optional int32 extensionRegistry = 1;</code>
          * @return Whether the extensionRegistry field is set.
@@ -10234,22 +11244,67 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return DEFAULT_INSTANCE;
       }
 
+      static MutableCopy parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        MutableCopy instance = new MutableCopy((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                instance.extensionRegistry_ = input.readInt32();
+                instance.bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<MutableCopy>
-          PARSER = new com.google.protobuf.AbstractParser<MutableCopy>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<MutableCopy> {
+        MessageParser() {}
+
         @java.lang.Override
         public MutableCopy parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return MutableCopy.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(MutableCopy instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<MutableCopy> parser() {
         return PARSER;
@@ -12613,15 +13668,30 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.self.class, objc.protobuf.tests.UnittestObjc.self.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.self.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        subEnum_ = 1;
         maybeForceBuilderInitialization();
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.self other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
+        copyFrom_autosplit_1(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -12734,7 +13804,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.self result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.id_ = id_;
           to_bitField0_ |= 0x00000001;
@@ -12866,9 +13936,45 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         result.bitField0_ |= to_bitField0_;
       }
 
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.self other, java.lang.Object[] parserLocals) {
+        id_ = other.getId();
+        Cmd_ = other.getCmd();
+        in_ = other.getIn();
+        out_ = other.getOut();
+        inout_ = other.getInout();
+        bycopy_ = other.getBycopy();
+        byref_ = other.getByref();
+        oneway_ = other.getOneway();
+        self_ = other.getSelf();
+        instancetype_ = other.getInstancetype();
+        nullable_ = other.getNullable();
+        nonnull_ = other.getNonnull();
+        nil_ = other.getNil();
+        yES_ = other.getYES();
+        nO_ = other.getNO();
+        weak_ = other.getWeak();
+        case_ = other.getCase();
+        if_ = other.getIf();
+        andEq_ = other.getAndEq();
+        public_ = other.getPublic();
+        private_ = other.getPrivate();
+        typename_ = other.getTypename();
+        staticCast_ = other.getStaticCast();
+        typeof_ = other.getTypeof();
+        restrict_ = other.getRestrict();
+        nULL_ = other.getNULL();
+        dealloc_ = other.getDealloc();
+        isProxy_ = other.getIsProxy();
+        copy_ = other.getCopy();
+        description_ = other.getDescription();
+        zone_ = other.getZone();
+        className_ = other.getClassName();
+        bitField0_ = other.bitField0_;
+      }
+
       private void buildPartial_autosplit_1(objc.protobuf.tests.UnittestObjc.self result) {
         int from_bitField1_ = bitField1_;
-        int to_bitField1_ = 0;
+        int to_bitField1_ = from_bitField1_;
         if (((from_bitField1_ & 0x00000001) != 0)) {
           result.RetainOA_ = RetainOA_;
           to_bitField1_ |= 0x00000001;
@@ -12974,6 +14080,46 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           to_bitField1_ |= 0x01000000;
         }
         result.bitField1_ |= to_bitField1_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_1(objc.protobuf.tests.UnittestObjc.self other, java.lang.Object[] parserLocals) {
+        RetainOA_ = other.getRetainOA();
+        cAMLType_ = other.getCAMLType();
+        isNSDictionary_ = other.getIsNSDictionary();
+        accessibilityLabel_ = other.getAccessibilityLabel();
+        assign_ = other.getAssign();
+        getter_ = other.getGetter();
+        setter_ = other.getSetter();
+        atomic_ = other.getAtomic();
+        nonatomic_ = other.getNonatomic();
+        strong_ = other.getStrong();
+        nullResettable_ = other.getNullResettable();
+        readonly_ = other.getReadonly();
+        clear_ = other.getClear();
+        data_ = other.getData();
+        descriptor_ = other.getDescriptor();
+        delimitedData_ = other.getDelimitedData();
+        fixed_ = other.getFixed();
+        point_ = other.getPoint();
+        fixedPoint_ = other.getFixedPoint();
+        style_ = other.getStyle();
+        Generic_ = other.getGeneric();
+        Block_ = other.getBlock();
+        subEnum_ = other.subEnum_;
+        new_ = other.new_;
+        mutableCopy_ = other.mutableCopy_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            newBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self.New, objc.protobuf.tests.UnittestObjc.self.New.Builder, objc.protobuf.tests.UnittestObjc.self.NewOrBuilder>) parserLocals[0]);
+            new_ = null;
+          }
+          if (parserLocals[1] != null) {
+            mutableCopyBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self.MutableCopy, objc.protobuf.tests.UnittestObjc.self.MutableCopy.Builder, objc.protobuf.tests.UnittestObjc.self.MutableCopyOrBuilder>) parserLocals[1]);
+            mutableCopy_ = null;
+          }
+        }
+        bitField1_ = other.bitField1_;
       }
 
       public <Type> Builder setExtension(
@@ -13523,10 +14669,26 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         } // finally
         return this;
       }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 16003: {
+            parseNewField(input, extensionRegistry);
+            return true;
+          } // case 16003
+          case 16011: {
+            parseMutableCopyField(input, extensionRegistry);
+            return true;
+          } // case 16011
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
       private int bitField0_;
       private int bitField1_;
 
-      private boolean id_ ;
+      private boolean id_;
       /**
        * <pre>
        * Singular
@@ -13586,7 +14748,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean Cmd_ ;
+      private boolean Cmd_;
       /**
        * <code>optional bool _cmd = 2;</code>
        * @return Whether the cmd field is set.
@@ -13626,7 +14788,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean in_ ;
+      private boolean in_;
       /**
        * <pre>
        * super is used as submessage above
@@ -13682,7 +14844,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean out_ ;
+      private boolean out_;
       /**
        * <code>optional bool out = 5;</code>
        * @return Whether the out field is set.
@@ -13722,7 +14884,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean inout_ ;
+      private boolean inout_;
       /**
        * <code>optional bool inout = 6;</code>
        * @return Whether the inout field is set.
@@ -13762,7 +14924,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean bycopy_ ;
+      private boolean bycopy_;
       /**
        * <code>optional bool bycopy = 7;</code>
        * @return Whether the bycopy field is set.
@@ -13802,7 +14964,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean byref_ ;
+      private boolean byref_;
       /**
        * <code>optional bool byref = 8;</code>
        * @return Whether the byref field is set.
@@ -13842,7 +15004,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean oneway_ ;
+      private boolean oneway_;
       /**
        * <code>optional bool oneway = 9;</code>
        * @return Whether the oneway field is set.
@@ -13882,7 +15044,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean self_ ;
+      private boolean self_;
       /**
        * <code>optional bool self = 10;</code>
        * @return Whether the self field is set.
@@ -13922,7 +15084,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean instancetype_ ;
+      private boolean instancetype_;
       /**
        * <code>optional bool instancetype = 11;</code>
        * @return Whether the instancetype field is set.
@@ -13962,7 +15124,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean nullable_ ;
+      private boolean nullable_;
       /**
        * <code>optional bool nullable = 12;</code>
        * @return Whether the nullable field is set.
@@ -14002,7 +15164,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean nonnull_ ;
+      private boolean nonnull_;
       /**
        * <code>optional bool nonnull = 13;</code>
        * @return Whether the nonnull field is set.
@@ -14042,7 +15204,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean nil_ ;
+      private boolean nil_;
       /**
        * <code>optional bool nil = 14;</code>
        * @return Whether the nil field is set.
@@ -14082,7 +15244,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean yES_ ;
+      private boolean yES_;
       /**
        * <pre>
        * Nil and nil can't be in the same message
@@ -14138,7 +15300,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean nO_ ;
+      private boolean nO_;
       /**
        * <code>optional bool NO = 17;</code>
        * @return Whether the nO field is set.
@@ -14178,7 +15340,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean weak_ ;
+      private boolean weak_;
       /**
        * <code>optional bool weak = 18;</code>
        * @return Whether the weak field is set.
@@ -14218,7 +15380,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean case_ ;
+      private boolean case_;
       /**
        * <pre>
        * Some C/C++ Keywords
@@ -14274,7 +15436,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean if_ ;
+      private boolean if_;
       /**
        * <code>optional bool if = 31;</code>
        * @return Whether the if field is set.
@@ -14314,7 +15476,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean andEq_ ;
+      private boolean andEq_;
       /**
        * <code>optional bool and_eq = 32;</code>
        * @return Whether the andEq field is set.
@@ -14354,7 +15516,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean public_ ;
+      private boolean public_;
       /**
        * <code>optional bool public = 33;</code>
        * @return Whether the public field is set.
@@ -14394,7 +15556,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean private_ ;
+      private boolean private_;
       /**
        * <code>optional bool private = 34;</code>
        * @return Whether the private field is set.
@@ -14434,7 +15596,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean typename_ ;
+      private boolean typename_;
       /**
        * <code>optional bool typename = 35;</code>
        * @return Whether the typename field is set.
@@ -14474,7 +15636,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean staticCast_ ;
+      private boolean staticCast_;
       /**
        * <code>optional bool static_cast = 36;</code>
        * @return Whether the staticCast field is set.
@@ -14514,7 +15676,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean typeof_ ;
+      private boolean typeof_;
       /**
        * <code>optional bool typeof = 37;</code>
        * @return Whether the typeof field is set.
@@ -14554,7 +15716,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean restrict_ ;
+      private boolean restrict_;
       /**
        * <code>optional bool restrict = 38;</code>
        * @return Whether the restrict field is set.
@@ -14594,7 +15756,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean nULL_ ;
+      private boolean nULL_;
       /**
        * <code>optional bool NULL = 39;</code>
        * @return Whether the nULL field is set.
@@ -14634,7 +15796,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean dealloc_ ;
+      private boolean dealloc_;
       /**
        * <pre>
        * Some NSObject Methods
@@ -14690,7 +15852,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean isProxy_ ;
+      private boolean isProxy_;
       /**
        * <code>optional bool isProxy = 111;</code>
        * @return Whether the isProxy field is set.
@@ -14730,7 +15892,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean copy_ ;
+      private boolean copy_;
       /**
        * <code>optional bool copy = 112;</code>
        * @return Whether the copy field is set.
@@ -14770,7 +15932,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean description_ ;
+      private boolean description_;
       /**
        * <code>optional bool description = 113;</code>
        * @return Whether the description field is set.
@@ -14810,7 +15972,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean zone_ ;
+      private boolean zone_;
       /**
        * <code>optional bool zone = 114;</code>
        * @return Whether the zone field is set.
@@ -14850,7 +16012,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean className_ ;
+      private boolean className_;
       /**
        * <code>optional bool className = 115;</code>
        * @return Whether the className field is set.
@@ -14890,7 +16052,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean RetainOA_ ;
+      private boolean RetainOA_;
       /**
        * <code>optional bool __retain_OA = 116;</code>
        * @return Whether the retainOA field is set.
@@ -14930,7 +16092,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean cAMLType_ ;
+      private boolean cAMLType_;
       /**
        * <code>optional bool CAMLType = 117;</code>
        * @return Whether the cAMLType field is set.
@@ -14970,7 +16132,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean isNSDictionary_ ;
+      private boolean isNSDictionary_;
       /**
        * <code>optional bool isNSDictionary__ = 118;</code>
        * @return Whether the isNSDictionary field is set.
@@ -15010,7 +16172,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean accessibilityLabel_ ;
+      private boolean accessibilityLabel_;
       /**
        * <code>optional bool accessibilityLabel = 119;</code>
        * @return Whether the accessibilityLabel field is set.
@@ -15050,7 +16212,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean assign_ ;
+      private boolean assign_;
       /**
        * <pre>
        * Some Objc "keywords" that we shouldn't
@@ -15114,7 +16276,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean getter_ ;
+      private boolean getter_;
       /**
        * <code>optional bool getter = 201;</code>
        * @return Whether the getter field is set.
@@ -15154,7 +16316,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean setter_ ;
+      private boolean setter_;
       /**
        * <code>optional bool setter = 202;</code>
        * @return Whether the setter field is set.
@@ -15194,7 +16356,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean atomic_ ;
+      private boolean atomic_;
       /**
        * <code>optional bool atomic = 203;</code>
        * @return Whether the atomic field is set.
@@ -15234,7 +16396,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean nonatomic_ ;
+      private boolean nonatomic_;
       /**
        * <code>optional bool nonatomic = 204;</code>
        * @return Whether the nonatomic field is set.
@@ -15274,7 +16436,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean strong_ ;
+      private boolean strong_;
       /**
        * <code>optional bool strong = 205;</code>
        * @return Whether the strong field is set.
@@ -15314,7 +16476,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean nullResettable_ ;
+      private boolean nullResettable_;
       /**
        * <code>optional bool null_resettable = 206;</code>
        * @return Whether the nullResettable field is set.
@@ -15354,7 +16516,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean readonly_ ;
+      private boolean readonly_;
       /**
        * <code>optional bool readonly = 207;</code>
        * @return Whether the readonly field is set.
@@ -15394,7 +16556,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean clear_ ;
+      private boolean clear_;
       /**
        * <pre>
        * Some GPBMessage methods
@@ -15450,7 +16612,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean data_ ;
+      private boolean data_;
       /**
        * <code>optional bool data = 301;</code>
        * @return Whether the data field is set.
@@ -15490,7 +16652,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean descriptor_ ;
+      private boolean descriptor_;
       /**
        * <code>optional bool descriptor = 302;</code>
        * @return Whether the descriptor field is set.
@@ -15530,7 +16692,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean delimitedData_ ;
+      private boolean delimitedData_;
       /**
        * <code>optional bool delimitedData = 303;</code>
        * @return Whether the delimitedData field is set.
@@ -15570,7 +16732,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean fixed_ ;
+      private boolean fixed_;
       /**
        * <pre>
        * Some MacTypes
@@ -15626,7 +16788,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean point_ ;
+      private boolean point_;
       /**
        * <code>optional bool Point = 401;</code>
        * @return Whether the point field is set.
@@ -15666,7 +16828,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean fixedPoint_ ;
+      private boolean fixedPoint_;
       /**
        * <code>optional bool FixedPoint = 402;</code>
        * @return Whether the fixedPoint field is set.
@@ -15706,7 +16868,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean style_ ;
+      private boolean style_;
       /**
        * <code>optional bool Style = 403;</code>
        * @return Whether the style field is set.
@@ -15746,7 +16908,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean Generic_ ;
+      private boolean Generic_;
       /**
        * <pre>
        * C/C++ reserved identifiers
@@ -15802,7 +16964,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean Block_ ;
+      private boolean Block_;
       /**
        * <code>optional bool __block = 501;</code>
        * @return Whether the block field is set.
@@ -15842,7 +17004,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int subEnum_ = 1;
+      private int subEnum_;
       /**
        * <pre>
        * Try a keyword as a type
@@ -16017,7 +17179,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         if (new_ != null || newBuilder_ != null) {
           input.readGroup(2000,
-              internalGetNewFieldBuilder().getBuilder(),
+              internalGetNewFieldBuilder().getBuilderForParsing(),
               extensionRegistry);
         } else {
           new_ = input.readGroup(2000, objc.protobuf.tests.UnittestObjc.self.New.parser(),
@@ -16145,7 +17307,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         if (mutableCopy_ != null || mutableCopyBuilder_ != null) {
           input.readGroup(2001,
-              internalGetMutableCopyFieldBuilder().getBuilder(),
+              internalGetMutableCopyFieldBuilder().getBuilderForParsing(),
               extensionRegistry);
         } else {
           mutableCopy_ = input.readGroup(2001, objc.protobuf.tests.UnittestObjc.self.MutableCopy.parser(),
@@ -16167,22 +17329,462 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static self parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      self instance = new self((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self.New, objc.protobuf.tests.UnittestObjc.self.New.Builder, objc.protobuf.tests.UnittestObjc.self.NewOrBuilder> newBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self.MutableCopy, objc.protobuf.tests.UnittestObjc.self.MutableCopy.Builder, objc.protobuf.tests.UnittestObjc.self.MutableCopyOrBuilder> mutableCopyBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        newBuilder_ = internalGetNewFieldBuilder(instance, newBuilder_);
+        mutableCopyBuilder_ = internalGetMutableCopyFieldBuilder(instance, mutableCopyBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.id_ = input.readBool();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.Cmd_ = input.readBool();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 32: {
+              instance.in_ = input.readBool();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 32
+            case 40: {
+              instance.out_ = input.readBool();
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 40
+            case 48: {
+              instance.inout_ = input.readBool();
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 48
+            case 56: {
+              instance.bycopy_ = input.readBool();
+              instance.bitField0_ |= 0x00000020;
+              break;
+            } // case 56
+            case 64: {
+              instance.byref_ = input.readBool();
+              instance.bitField0_ |= 0x00000040;
+              break;
+            } // case 64
+            case 72: {
+              instance.oneway_ = input.readBool();
+              instance.bitField0_ |= 0x00000080;
+              break;
+            } // case 72
+            case 80: {
+              instance.self_ = input.readBool();
+              instance.bitField0_ |= 0x00000100;
+              break;
+            } // case 80
+            case 88: {
+              instance.instancetype_ = input.readBool();
+              instance.bitField0_ |= 0x00000200;
+              break;
+            } // case 88
+            case 96: {
+              instance.nullable_ = input.readBool();
+              instance.bitField0_ |= 0x00000400;
+              break;
+            } // case 96
+            case 104: {
+              instance.nonnull_ = input.readBool();
+              instance.bitField0_ |= 0x00000800;
+              break;
+            } // case 104
+            case 112: {
+              instance.nil_ = input.readBool();
+              instance.bitField0_ |= 0x00001000;
+              break;
+            } // case 112
+            case 128: {
+              instance.yES_ = input.readBool();
+              instance.bitField0_ |= 0x00002000;
+              break;
+            } // case 128
+            case 136: {
+              instance.nO_ = input.readBool();
+              instance.bitField0_ |= 0x00004000;
+              break;
+            } // case 136
+            case 144: {
+              instance.weak_ = input.readBool();
+              instance.bitField0_ |= 0x00008000;
+              break;
+            } // case 144
+            case 240: {
+              instance.case_ = input.readBool();
+              instance.bitField0_ |= 0x00010000;
+              break;
+            } // case 240
+            case 248: {
+              instance.if_ = input.readBool();
+              instance.bitField0_ |= 0x00020000;
+              break;
+            } // case 248
+            case 256: {
+              instance.andEq_ = input.readBool();
+              instance.bitField0_ |= 0x00040000;
+              break;
+            } // case 256
+            case 264: {
+              instance.public_ = input.readBool();
+              instance.bitField0_ |= 0x00080000;
+              break;
+            } // case 264
+            case 272: {
+              instance.private_ = input.readBool();
+              instance.bitField0_ |= 0x00100000;
+              break;
+            } // case 272
+            case 280: {
+              instance.typename_ = input.readBool();
+              instance.bitField0_ |= 0x00200000;
+              break;
+            } // case 280
+            case 288: {
+              instance.staticCast_ = input.readBool();
+              instance.bitField0_ |= 0x00400000;
+              break;
+            } // case 288
+            case 296: {
+              instance.typeof_ = input.readBool();
+              instance.bitField0_ |= 0x00800000;
+              break;
+            } // case 296
+            case 304: {
+              instance.restrict_ = input.readBool();
+              instance.bitField0_ |= 0x01000000;
+              break;
+            } // case 304
+            case 312: {
+              instance.nULL_ = input.readBool();
+              instance.bitField0_ |= 0x02000000;
+              break;
+            } // case 312
+            case 880: {
+              instance.dealloc_ = input.readBool();
+              instance.bitField0_ |= 0x04000000;
+              break;
+            } // case 880
+            case 888: {
+              instance.isProxy_ = input.readBool();
+              instance.bitField0_ |= 0x08000000;
+              break;
+            } // case 888
+            case 896: {
+              instance.copy_ = input.readBool();
+              instance.bitField0_ |= 0x10000000;
+              break;
+            } // case 896
+            case 904: {
+              instance.description_ = input.readBool();
+              instance.bitField0_ |= 0x20000000;
+              break;
+            } // case 904
+            case 912: {
+              instance.zone_ = input.readBool();
+              instance.bitField0_ |= 0x40000000;
+              break;
+            } // case 912
+            case 920: {
+              instance.className_ = input.readBool();
+              instance.bitField0_ |= 0x80000000;
+              break;
+            } // case 920
+            case 928: {
+              instance.RetainOA_ = input.readBool();
+              instance.bitField1_ |= 0x00000001;
+              break;
+            } // case 928
+            case 936: {
+              instance.cAMLType_ = input.readBool();
+              instance.bitField1_ |= 0x00000002;
+              break;
+            } // case 936
+            case 944: {
+              instance.isNSDictionary_ = input.readBool();
+              instance.bitField1_ |= 0x00000004;
+              break;
+            } // case 944
+            case 952: {
+              instance.accessibilityLabel_ = input.readBool();
+              instance.bitField1_ |= 0x00000008;
+              break;
+            } // case 952
+            case 1600: {
+              instance.assign_ = input.readBool();
+              instance.bitField1_ |= 0x00000010;
+              break;
+            } // case 1600
+            case 1608: {
+              instance.getter_ = input.readBool();
+              instance.bitField1_ |= 0x00000020;
+              break;
+            } // case 1608
+            case 1616: {
+              instance.setter_ = input.readBool();
+              instance.bitField1_ |= 0x00000040;
+              break;
+            } // case 1616
+            case 1624: {
+              instance.atomic_ = input.readBool();
+              instance.bitField1_ |= 0x00000080;
+              break;
+            } // case 1624
+            case 1632: {
+              instance.nonatomic_ = input.readBool();
+              instance.bitField1_ |= 0x00000100;
+              break;
+            } // case 1632
+            case 1640: {
+              instance.strong_ = input.readBool();
+              instance.bitField1_ |= 0x00000200;
+              break;
+            } // case 1640
+            case 1648: {
+              instance.nullResettable_ = input.readBool();
+              instance.bitField1_ |= 0x00000400;
+              break;
+            } // case 1648
+            case 1656: {
+              instance.readonly_ = input.readBool();
+              instance.bitField1_ |= 0x00000800;
+              break;
+            } // case 1656
+            case 2400: {
+              instance.clear_ = input.readBool();
+              instance.bitField1_ |= 0x00001000;
+              break;
+            } // case 2400
+            case 2408: {
+              instance.data_ = input.readBool();
+              instance.bitField1_ |= 0x00002000;
+              break;
+            } // case 2408
+            case 2416: {
+              instance.descriptor_ = input.readBool();
+              instance.bitField1_ |= 0x00004000;
+              break;
+            } // case 2416
+            case 2424: {
+              instance.delimitedData_ = input.readBool();
+              instance.bitField1_ |= 0x00008000;
+              break;
+            } // case 2424
+            case 3200: {
+              instance.fixed_ = input.readBool();
+              instance.bitField1_ |= 0x00010000;
+              break;
+            } // case 3200
+            case 3208: {
+              instance.point_ = input.readBool();
+              instance.bitField1_ |= 0x00020000;
+              break;
+            } // case 3208
+            case 3216: {
+              instance.fixedPoint_ = input.readBool();
+              instance.bitField1_ |= 0x00040000;
+              break;
+            } // case 3216
+            case 3224: {
+              instance.style_ = input.readBool();
+              instance.bitField1_ |= 0x00080000;
+              break;
+            } // case 3224
+            case 4000: {
+              instance.Generic_ = input.readBool();
+              instance.bitField1_ |= 0x00100000;
+              break;
+            } // case 4000
+            case 4008: {
+              instance.Block_ = input.readBool();
+              instance.bitField1_ |= 0x00200000;
+              break;
+            } // case 4008
+            case 8000: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.self.autorelease tmpValue =
+                  objc.protobuf.tests.UnittestObjc.self.autorelease.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 1000, tmpRaw);
+              } else {
+                instance.subEnum_ = tmpRaw;
+                instance.bitField1_ |= 0x00400000;
+              }
+              break;
+            } // case 8000
+            case 16003: {
+              if (instance.new_ != null || newBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseNewField(instance, input, extensionRegistry, newBuilder_);
+              break;
+            } // case 16003
+            case 16011: {
+              if (instance.mutableCopy_ != null || mutableCopyBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseMutableCopyField(instance, input, extensionRegistry, mutableCopyBuilder_);
+              break;
+            } // case 16011
+            default: {
+              pendingTag = tag;
+              done = true;
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {newBuilder_, mutableCopyBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_1(instance, newBuilder_, mutableCopyBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional group New = 2000 { ... }</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self.New, objc.protobuf.tests.UnittestObjc.self.New.Builder, objc.protobuf.tests.UnittestObjc.self.NewOrBuilder> 
+        internalGetNewFieldBuilder(objc.protobuf.tests.UnittestObjc.self instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self.New, objc.protobuf.tests.UnittestObjc.self.New.Builder, objc.protobuf.tests.UnittestObjc.self.NewOrBuilder> newBuilder_) {
+      if (newBuilder_ == null) {
+        newBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self.New, objc.protobuf.tests.UnittestObjc.self.New.Builder, objc.protobuf.tests.UnittestObjc.self.NewOrBuilder>(
+                instance.getNew(),
+                null,
+                false);
+        instance.new_ = null;
+      }
+      instance.bitField1_ |= 0x00800000;
+      return newBuilder_;
+    }
+    private static void parseNewField(
+        objc.protobuf.tests.UnittestObjc.self instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self.New, objc.protobuf.tests.UnittestObjc.self.New.Builder, objc.protobuf.tests.UnittestObjc.self.NewOrBuilder> newBuilder_)
+        throws java.io.IOException {
+      if (instance.new_ != null || newBuilder_ != null) {
+        input.readGroup(2000,
+            newBuilder_.getBuilderForParsing(),
+            extensionRegistry);
+      } else {
+        instance.new_ = input.readGroup(2000, objc.protobuf.tests.UnittestObjc.self.New.parser(),
+            extensionRegistry);
+      }
+      instance.bitField1_ |= 0x00800000;
+    }
+    /**
+     * <code>optional group MutableCopy = 2001 { ... }</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self.MutableCopy, objc.protobuf.tests.UnittestObjc.self.MutableCopy.Builder, objc.protobuf.tests.UnittestObjc.self.MutableCopyOrBuilder> 
+        internalGetMutableCopyFieldBuilder(objc.protobuf.tests.UnittestObjc.self instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self.MutableCopy, objc.protobuf.tests.UnittestObjc.self.MutableCopy.Builder, objc.protobuf.tests.UnittestObjc.self.MutableCopyOrBuilder> mutableCopyBuilder_) {
+      if (mutableCopyBuilder_ == null) {
+        mutableCopyBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self.MutableCopy, objc.protobuf.tests.UnittestObjc.self.MutableCopy.Builder, objc.protobuf.tests.UnittestObjc.self.MutableCopyOrBuilder>(
+                instance.getMutableCopy(),
+                null,
+                false);
+        instance.mutableCopy_ = null;
+      }
+      instance.bitField1_ |= 0x01000000;
+      return mutableCopyBuilder_;
+    }
+    private static void parseMutableCopyField(
+        objc.protobuf.tests.UnittestObjc.self instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self.MutableCopy, objc.protobuf.tests.UnittestObjc.self.MutableCopy.Builder, objc.protobuf.tests.UnittestObjc.self.MutableCopyOrBuilder> mutableCopyBuilder_)
+        throws java.io.IOException {
+      if (instance.mutableCopy_ != null || mutableCopyBuilder_ != null) {
+        input.readGroup(2001,
+            mutableCopyBuilder_.getBuilderForParsing(),
+            extensionRegistry);
+      } else {
+        instance.mutableCopy_ = input.readGroup(2001, objc.protobuf.tests.UnittestObjc.self.MutableCopy.parser(),
+            extensionRegistry);
+      }
+      instance.bitField1_ |= 0x01000000;
+    }
+    private static void buildPartial_autosplit_1(objc.protobuf.tests.UnittestObjc.self instance,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self.New, objc.protobuf.tests.UnittestObjc.self.New.Builder, objc.protobuf.tests.UnittestObjc.self.NewOrBuilder> newBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self.MutableCopy, objc.protobuf.tests.UnittestObjc.self.MutableCopy.Builder, objc.protobuf.tests.UnittestObjc.self.MutableCopyOrBuilder> mutableCopyBuilder_) {
+      int from_bitField1_ = instance.bitField1_;
+      if (!((from_bitField1_ & 0x00800000) != 0)) instance.new_ = null;
+      if (((from_bitField1_ & 0x00800000) != 0)) {
+        instance.new_ = newBuilder_ == null
+            ? instance.new_
+            : newBuilder_.build();
+      }
+      if (!((from_bitField1_ & 0x01000000) != 0)) instance.mutableCopy_ = null;
+      if (((from_bitField1_ & 0x01000000) != 0)) {
+        instance.mutableCopy_ = mutableCopyBuilder_ == null
+            ? instance.mutableCopy_
+            : mutableCopyBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<self>
-        PARSER = new com.google.protobuf.AbstractParser<self>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<self> {
+      MessageParser() {}
+
       @java.lang.Override
       public self parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return self.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(self instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<self> parser() {
       return PARSER;
@@ -17046,15 +18648,35 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.ObjCPropertyNaming.class, objc.protobuf.tests.UnittestObjc.ObjCPropertyNaming.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.ObjCPropertyNaming.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        url_ = "";
+        thumbnailUrl_ = "";
+        urlFoo_ = "";
+        someUrlBlah_ = "";
+        http_ = "";
+        https_ = "";
+        urls_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.ObjCPropertyNaming other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -17101,7 +18723,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCPropertyNaming result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.url_ = url_;
           to_bitField0_ |= 0x00000001;
@@ -17131,6 +18753,17 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           result.urls_ = urls_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCPropertyNaming other, java.lang.Object[] parserLocals) {
+        url_ = other.url_;
+        thumbnailUrl_ = other.thumbnailUrl_;
+        urlFoo_ = other.urlFoo_;
+        someUrlBlah_ = other.someUrlBlah_;
+        http_ = other.http_;
+        https_ = other.https_;
+        urls_ = other.urls_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -17262,7 +18895,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       }
       private int bitField0_;
 
-      private java.lang.Object url_ = "";
+      private java.lang.Object url_;
       /**
        * <pre>
        * Test that the properties properly get things all caps.
@@ -17366,7 +18999,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object thumbnailUrl_ = "";
+      private java.lang.Object thumbnailUrl_;
       /**
        * <code>optional string thumbnail_url = 2;</code>
        * @return Whether the thumbnailUrl field is set.
@@ -17446,7 +19079,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object urlFoo_ = "";
+      private java.lang.Object urlFoo_;
       /**
        * <code>optional string url_foo = 3;</code>
        * @return Whether the urlFoo field is set.
@@ -17526,7 +19159,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object someUrlBlah_ = "";
+      private java.lang.Object someUrlBlah_;
       /**
        * <code>optional string some_url_blah = 4;</code>
        * @return Whether the someUrlBlah field is set.
@@ -17606,7 +19239,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object http_ = "";
+      private java.lang.Object http_;
       /**
        * <code>optional string http = 5;</code>
        * @return Whether the http field is set.
@@ -17686,7 +19319,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object https_ = "";
+      private java.lang.Object https_;
       /**
        * <code>optional string https = 6;</code>
        * @return Whether the https field is set.
@@ -17766,8 +19399,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList urls_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList urls_;
       private void ensureUrlsIsMutable() {
         if (!urls_.isModifiable()) {
           urls_ = new com.google.protobuf.LazyStringArrayList(urls_);
@@ -17925,22 +19557,112 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static ObjCPropertyNaming parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ObjCPropertyNaming instance = new ObjCPropertyNaming((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.url_ = input.readBytes();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              instance.thumbnailUrl_ = input.readBytes();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              instance.urlFoo_ = input.readBytes();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              instance.someUrlBlah_ = input.readBytes();
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              instance.http_ = input.readBytes();
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              instance.https_ = input.readBytes();
+              instance.bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureUrlsIsMutable(instance);
+              instance.urls_.add(bs);
+              break;
+            } // case 58
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureUrlsIsMutable(objc.protobuf.tests.UnittestObjc.ObjCPropertyNaming instance) {
+      if (!instance.urls_.isModifiable()) {
+        instance.urls_ = new com.google.protobuf.LazyStringArrayList(instance.urls_);
+      }
+      instance.bitField0_ |= 0x00000040;
+    }
+    private static void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCPropertyNaming instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        instance.urls_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<ObjCPropertyNaming>
-        PARSER = new com.google.protobuf.AbstractParser<ObjCPropertyNaming>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ObjCPropertyNaming> {
+      MessageParser() {}
+
       @java.lang.Override
       public ObjCPropertyNaming parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return ObjCPropertyNaming.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(ObjCPropertyNaming instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<ObjCPropertyNaming> parser() {
       return PARSER;
@@ -18628,15 +20350,33 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.ObjCInitFoo.class, objc.protobuf.tests.UnittestObjc.ObjCInitFoo.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.ObjCInitFoo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        initVal_ = "";
+        initVals_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        initSizes_ = emptyIntList();
+        initSelfs_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
         maybeForceBuilderInitialization();
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.ObjCInitFoo other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -18699,7 +20439,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCInitFoo result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.initVal_ = initVal_;
           to_bitField0_ |= 0x00000001;
@@ -18731,6 +20471,27 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCInitFoo other, java.lang.Object[] parserLocals) {
+        initVal_ = other.initVal_;
+        initSize_ = other.getInitSize();
+        initSelf_ = other.initSelf_;
+        initVals_ = other.initVals_;
+        initSizes_ = other.initSizes_;
+        initSelfs_ = other.initSelfs_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            initSelfBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[0]);
+            initSelf_ = null;
+          }
+          if (parserLocals[1] != null) {
+            initSelfsBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[1]);
+            initSelfs_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -18905,9 +20666,21 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         } // finally
         return this;
       }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 106: {
+            parseInitSelfField(input, extensionRegistry);
+            return true;
+          } // case 106
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
       private int bitField0_;
 
-      private java.lang.Object initVal_ = "";
+      private java.lang.Object initVal_;
       /**
        * <code>optional string init_val = 11;</code>
        * @return Whether the initVal field is set.
@@ -18987,7 +20760,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int initSize_ ;
+      private int initSize_;
       /**
        * <code>optional int32 init_size = 12;</code>
        * @return Whether the initSize field is set.
@@ -19146,7 +20919,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (initSelf_ != null || initSelfBuilder_ != null) {
-          internalGetInitSelfFieldBuilder().getBuilder()
+          internalGetInitSelfFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           initSelf_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -19155,8 +20928,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         bitField0_ |= 0x00000004;
       }
 
-      private com.google.protobuf.LazyStringArrayList initVals_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList initVals_;
       private void ensureInitValsIsMutable() {
         if (!initVals_.isModifiable()) {
           initVals_ = new com.google.protobuf.LazyStringArrayList(initVals_);
@@ -19265,7 +21037,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList initSizes_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList initSizes_;
       private void ensureInitSizesIsMutable(int capacity) {
         if (!initSizes_.isModifiable()) {
           initSizes_ = makeMutableCopy(initSizes_, capacity);
@@ -19349,8 +21121,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> initSelfs_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> initSelfs_;
       private void ensureInitSelfsIsMutable() {
         if (!initSelfs_.isModifiable()) {
           initSelfs_ = makeMutableCopy(initSelfs_);
@@ -19596,22 +21367,229 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static ObjCInitFoo parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ObjCInitFoo instance = new ObjCInitFoo((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> initSelfBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> initSelfsBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        initSelfBuilder_ = internalGetInitSelfFieldBuilder(instance, initSelfBuilder_);
+        initSelfsBuilder_ = internalGetInitSelfsFieldBuilder(instance, initSelfsBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 90: {
+              instance.initVal_ = input.readBytes();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 90
+            case 96: {
+              instance.initSize_ = input.readInt32();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 96
+            case 106: {
+              if (instance.initSelf_ != null || initSelfBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseInitSelfField(instance, input, extensionRegistry, initSelfBuilder_);
+              break;
+            } // case 106
+            case 170: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureInitValsIsMutable(instance);
+              instance.initVals_.add(bs);
+              break;
+            } // case 170
+            case 176: {
+              int v = input.readInt32();
+              ensureInitSizesIsMutable(instance, /* capacity= */ -1);
+              instance.initSizes_.addInt(v);
+              break;
+            } // case 176
+            case 178: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureInitSizesIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.initSizes_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 178
+            case 186: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (initSelfsBuilder_ == null) {
+                ensureInitSelfsIsMutable(instance);
+                instance.initSelfs_.add(m);
+              } else {
+                initSelfsBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000020;
+
+              }
+              break;
+            } // case 186
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {initSelfBuilder_, initSelfsBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, initSelfBuilder_, initSelfsBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self init_self = 13;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetInitSelfFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCInitFoo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> initSelfBuilder_) {
+      if (initSelfBuilder_ == null) {
+        initSelfBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getInitSelf(),
+                null,
+                false);
+        instance.initSelf_ = null;
+      }
+      instance.bitField0_ |= 0x00000004;
+      return initSelfBuilder_;
+    }
+    private static void parseInitSelfField(
+        objc.protobuf.tests.UnittestObjc.ObjCInitFoo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> initSelfBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.initSelf_ != null || initSelfBuilder_ != null) {
+        initSelfBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.initSelf_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+    }
+    private static void ensureInitValsIsMutable(objc.protobuf.tests.UnittestObjc.ObjCInitFoo instance) {
+      if (!instance.initVals_.isModifiable()) {
+        instance.initVals_ = new com.google.protobuf.LazyStringArrayList(instance.initVals_);
+      }
+      instance.bitField0_ |= 0x00000008;
+    }
+    private static void ensureInitSizesIsMutable(objc.protobuf.tests.UnittestObjc.ObjCInitFoo instance, int capacity) {
+      if (!instance.initSizes_.isModifiable()) {
+        instance.initSizes_ = makeMutableCopy(instance.initSizes_, capacity);
+      }
+      instance.bitField0_ |= 0x00000010;
+    }
+    private static void ensureInitSelfsIsMutable(objc.protobuf.tests.UnittestObjc.ObjCInitFoo instance) {
+      if (!instance.initSelfs_.isModifiable()) {
+        instance.initSelfs_ = makeMutableCopy(instance.initSelfs_);
+      }
+      instance.bitField0_ |= 0x00000020;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetInitSelfsFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCInitFoo instance, com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> initSelfsBuilder_) {
+      if (initSelfsBuilder_ == null) {
+        initSelfsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.initSelfs_,
+                instance.initSelfs_.isModifiable(),
+                null,
+                false);
+        instance.initSelfs_ = null;
+      }
+      instance.bitField0_ |= 0x00000020;
+
+      return initSelfsBuilder_;
+    }
+    private static void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCInitFoo instance,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> initSelfBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> initSelfsBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000004) != 0)) instance.initSelf_ = null;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.initSelf_ = initSelfBuilder_ == null
+            ? instance.initSelf_
+            : initSelfBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.initVals_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        instance.initSizes_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+      if (initSelfsBuilder_ == null) {
+        instance.initSelfs_.makeImmutable();
+      } else {
+        instance.initSelfs_ = initSelfsBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<ObjCInitFoo>
-        PARSER = new com.google.protobuf.AbstractParser<ObjCInitFoo>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ObjCInitFoo> {
+      MessageParser() {}
+
       @java.lang.Override
       public ObjCInitFoo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return ObjCInitFoo.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(ObjCInitFoo instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<ObjCInitFoo> parser() {
       return PARSER;
@@ -28958,15 +30936,143 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo.class, objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        newValLowerComplex_ = "";
+        newValUpperComplex_ = "";
+        newvalueLowerNoUnderscoreComplex_ = "";
+        newValueUpperNoUnderscoreComplex_ = "";
+        newValLowerEnum_ = 1;
+        newValUpperEnum_ = 1;
+        newvalueLowerNoUnderscoreEnum_ = 1;
+        newValueUpperNoUnderscoreEnum_ = 1;
+        newValLowerComplexRepeated_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        newValUpperComplexRepeated_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        newvalueLowerNoUnderscoreComplexRepeated_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        newValueUpperNoUnderscoreComplexRepeated_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        newValLowerPrimitiveRepeated_ = emptyIntList();
+        newValUpperPrimitiveRepeated_ = emptyIntList();
+        newvalueLowerNoUnderscorePrimitiveRepeated_ = emptyIntList();
+        newValueUpperNoUnderscorePrimitiveRepeated_ = emptyIntList();
+        newValLowerMessageRepeated_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        newValUpperMessageRepeated_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        newvalueLowerNoUnderscoreMessageRepeated_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        newValueUpperNoUnderscoreMessageRepeated_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        newValLowerEnumRepeated_ = emptyIntList();
+        newValUpperEnumRepeated_ = emptyIntList();
+        newvalueLowerNoUnderscoreEnumRepeated_ = emptyIntList();
+        newValueUpperNoUnderscoreEnumRepeated_ = emptyIntList();
+        allocValLowerComplex_ = "";
+        allocValUpperComplex_ = "";
+        allocvalueLowerNoUnderscoreComplex_ = "";
+        allocValueUpperNoUnderscoreComplex_ = "";
+        allocValLowerEnum_ = 1;
+        allocValUpperEnum_ = 1;
+        allocvalueLowerNoUnderscoreEnum_ = 1;
+        allocValueUpperNoUnderscoreEnum_ = 1;
+        allocValLowerComplexRepeated_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        allocValUpperComplexRepeated_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        allocvalueLowerNoUnderscoreComplexRepeated_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        allocValueUpperNoUnderscoreComplexRepeated_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        allocValLowerPrimitiveRepeated_ = emptyIntList();
+        allocValUpperPrimitiveRepeated_ = emptyIntList();
+        allocvalueLowerNoUnderscorePrimitiveRepeated_ = emptyIntList();
+        allocValueUpperNoUnderscorePrimitiveRepeated_ = emptyIntList();
+        allocValLowerMessageRepeated_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        allocValUpperMessageRepeated_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        allocvalueLowerNoUnderscoreMessageRepeated_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        allocValueUpperNoUnderscoreMessageRepeated_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        allocValLowerEnumRepeated_ = emptyIntList();
+        allocValUpperEnumRepeated_ = emptyIntList();
+        allocvalueLowerNoUnderscoreEnumRepeated_ = emptyIntList();
+        allocValueUpperNoUnderscoreEnumRepeated_ = emptyIntList();
+        copyValLowerComplex_ = "";
+        copyValUpperComplex_ = "";
+        copyvalueLowerNoUnderscoreComplex_ = "";
+        copyValueUpperNoUnderscoreComplex_ = "";
+        copyValLowerEnum_ = 1;
+        copyValUpperEnum_ = 1;
+        copyvalueLowerNoUnderscoreEnum_ = 1;
+        copyValueUpperNoUnderscoreEnum_ = 1;
+        copyValLowerComplexRepeated_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        copyValUpperComplexRepeated_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        copyvalueLowerNoUnderscoreComplexRepeated_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        copyValueUpperNoUnderscoreComplexRepeated_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        copyValLowerPrimitiveRepeated_ = emptyIntList();
+        copyValUpperPrimitiveRepeated_ = emptyIntList();
+        copyvalueLowerNoUnderscorePrimitiveRepeated_ = emptyIntList();
+        copyValueUpperNoUnderscorePrimitiveRepeated_ = emptyIntList();
+        copyValLowerMessageRepeated_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        copyValUpperMessageRepeated_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        copyvalueLowerNoUnderscoreMessageRepeated_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        copyValueUpperNoUnderscoreMessageRepeated_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        copyValLowerEnumRepeated_ = emptyIntList();
+        copyValUpperEnumRepeated_ = emptyIntList();
+        copyvalueLowerNoUnderscoreEnumRepeated_ = emptyIntList();
+        copyValueUpperNoUnderscoreEnumRepeated_ = emptyIntList();
+        mutableCopyValLowerComplex_ = "";
+        mutableCopyValUpperComplex_ = "";
+        mutableCopyvalueLowerNoUnderscoreComplex_ = "";
+        mutableCopyValueUpperNoUnderscoreComplex_ = "";
+        mutableCopyValLowerEnum_ = 1;
+        mutableCopyValUpperEnum_ = 1;
+        mutableCopyvalueLowerNoUnderscoreEnum_ = 1;
+        mutableCopyValueUpperNoUnderscoreEnum_ = 1;
+        mutableCopyValLowerComplexRepeated_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        mutableCopyValUpperComplexRepeated_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        mutableCopyvalueLowerNoUnderscoreComplexRepeated_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        mutableCopyValueUpperNoUnderscoreComplexRepeated_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        mutableCopyValLowerPrimitiveRepeated_ = emptyIntList();
+        mutableCopyValUpperPrimitiveRepeated_ = emptyIntList();
+        mutableCopyvalueLowerNoUnderscorePrimitiveRepeated_ = emptyIntList();
+        mutableCopyValueUpperNoUnderscorePrimitiveRepeated_ = emptyIntList();
+        mutableCopyValLowerMessageRepeated_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        mutableCopyValUpperMessageRepeated_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        mutableCopyvalueLowerNoUnderscoreMessageRepeated_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        mutableCopyValueUpperNoUnderscoreMessageRepeated_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        mutableCopyValLowerEnumRepeated_ = emptyIntList();
+        mutableCopyValUpperEnumRepeated_ = emptyIntList();
+        mutableCopyvalueLowerNoUnderscoreEnumRepeated_ = emptyIntList();
+        mutableCopyValueUpperNoUnderscoreEnumRepeated_ = emptyIntList();
         maybeForceBuilderInitialization();
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
+        copyFrom_autosplit_1(other, parserLocals);
+        copyFrom_autosplit_2(other, parserLocals);
+        copyFrom_autosplit_3(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -29352,7 +31458,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.newValLowerComplex_ = newValLowerComplex_;
           to_bitField0_ |= 0x00000001;
@@ -29500,9 +31606,80 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         result.bitField0_ |= to_bitField0_;
       }
 
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo other, java.lang.Object[] parserLocals) {
+        newValLowerComplex_ = other.newValLowerComplex_;
+        newValUpperComplex_ = other.newValUpperComplex_;
+        newvalueLowerNoUnderscoreComplex_ = other.newvalueLowerNoUnderscoreComplex_;
+        newValueUpperNoUnderscoreComplex_ = other.newValueUpperNoUnderscoreComplex_;
+        newValLowerPrimitive_ = other.getNewValLowerPrimitive();
+        newValUpperPrimitive_ = other.getNewValUpperPrimitive();
+        newvalueLowerNoUnderscorePrimitive_ = other.getNewvalueLowerNoUnderscorePrimitive();
+        newValueUpperNoUnderscorePrimitive_ = other.getNewValueUpperNoUnderscorePrimitive();
+        newValLowerMessage_ = other.newValLowerMessage_;
+        newValUpperMessage_ = other.newValUpperMessage_;
+        newvalueLowerNoUnderscoreMessage_ = other.newvalueLowerNoUnderscoreMessage_;
+        newValueUpperNoUnderscoreMessage_ = other.newValueUpperNoUnderscoreMessage_;
+        newValLowerEnum_ = other.newValLowerEnum_;
+        newValUpperEnum_ = other.newValUpperEnum_;
+        newvalueLowerNoUnderscoreEnum_ = other.newvalueLowerNoUnderscoreEnum_;
+        newValueUpperNoUnderscoreEnum_ = other.newValueUpperNoUnderscoreEnum_;
+        allocValLowerComplex_ = other.allocValLowerComplex_;
+        allocValUpperComplex_ = other.allocValUpperComplex_;
+        allocvalueLowerNoUnderscoreComplex_ = other.allocvalueLowerNoUnderscoreComplex_;
+        allocValueUpperNoUnderscoreComplex_ = other.allocValueUpperNoUnderscoreComplex_;
+        allocValLowerPrimitive_ = other.getAllocValLowerPrimitive();
+        allocValUpperPrimitive_ = other.getAllocValUpperPrimitive();
+        allocvalueLowerNoUnderscorePrimitive_ = other.getAllocvalueLowerNoUnderscorePrimitive();
+        allocValueUpperNoUnderscorePrimitive_ = other.getAllocValueUpperNoUnderscorePrimitive();
+        allocValLowerMessage_ = other.allocValLowerMessage_;
+        allocValUpperMessage_ = other.allocValUpperMessage_;
+        allocvalueLowerNoUnderscoreMessage_ = other.allocvalueLowerNoUnderscoreMessage_;
+        allocValueUpperNoUnderscoreMessage_ = other.allocValueUpperNoUnderscoreMessage_;
+        allocValLowerEnum_ = other.allocValLowerEnum_;
+        allocValUpperEnum_ = other.allocValUpperEnum_;
+        allocvalueLowerNoUnderscoreEnum_ = other.allocvalueLowerNoUnderscoreEnum_;
+        allocValueUpperNoUnderscoreEnum_ = other.allocValueUpperNoUnderscoreEnum_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            newValLowerMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[0]);
+            newValLowerMessage_ = null;
+          }
+          if (parserLocals[1] != null) {
+            newValUpperMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[1]);
+            newValUpperMessage_ = null;
+          }
+          if (parserLocals[2] != null) {
+            newvalueLowerNoUnderscoreMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[2]);
+            newvalueLowerNoUnderscoreMessage_ = null;
+          }
+          if (parserLocals[3] != null) {
+            newValueUpperNoUnderscoreMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[3]);
+            newValueUpperNoUnderscoreMessage_ = null;
+          }
+          if (parserLocals[8] != null) {
+            allocValLowerMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[8]);
+            allocValLowerMessage_ = null;
+          }
+          if (parserLocals[9] != null) {
+            allocValUpperMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[9]);
+            allocValUpperMessage_ = null;
+          }
+          if (parserLocals[10] != null) {
+            allocvalueLowerNoUnderscoreMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[10]);
+            allocvalueLowerNoUnderscoreMessage_ = null;
+          }
+          if (parserLocals[11] != null) {
+            allocValueUpperNoUnderscoreMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[11]);
+            allocValueUpperNoUnderscoreMessage_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
+      }
+
       private void buildPartial_autosplit_1(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo result) {
         int from_bitField1_ = bitField1_;
-        int to_bitField1_ = 0;
+        int to_bitField1_ = from_bitField1_;
         if (((from_bitField1_ & 0x00000001) != 0)) {
           result.copyValLowerComplex_ = copyValLowerComplex_;
           to_bitField1_ |= 0x00000001;
@@ -29650,9 +31827,80 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         result.bitField1_ |= to_bitField1_;
       }
 
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_1(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo other, java.lang.Object[] parserLocals) {
+        copyValLowerComplex_ = other.copyValLowerComplex_;
+        copyValUpperComplex_ = other.copyValUpperComplex_;
+        copyvalueLowerNoUnderscoreComplex_ = other.copyvalueLowerNoUnderscoreComplex_;
+        copyValueUpperNoUnderscoreComplex_ = other.copyValueUpperNoUnderscoreComplex_;
+        copyValLowerPrimitive_ = other.getCopyValLowerPrimitive();
+        copyValUpperPrimitive_ = other.getCopyValUpperPrimitive();
+        copyvalueLowerNoUnderscorePrimitive_ = other.getCopyvalueLowerNoUnderscorePrimitive();
+        copyValueUpperNoUnderscorePrimitive_ = other.getCopyValueUpperNoUnderscorePrimitive();
+        copyValLowerMessage_ = other.copyValLowerMessage_;
+        copyValUpperMessage_ = other.copyValUpperMessage_;
+        copyvalueLowerNoUnderscoreMessage_ = other.copyvalueLowerNoUnderscoreMessage_;
+        copyValueUpperNoUnderscoreMessage_ = other.copyValueUpperNoUnderscoreMessage_;
+        copyValLowerEnum_ = other.copyValLowerEnum_;
+        copyValUpperEnum_ = other.copyValUpperEnum_;
+        copyvalueLowerNoUnderscoreEnum_ = other.copyvalueLowerNoUnderscoreEnum_;
+        copyValueUpperNoUnderscoreEnum_ = other.copyValueUpperNoUnderscoreEnum_;
+        mutableCopyValLowerComplex_ = other.mutableCopyValLowerComplex_;
+        mutableCopyValUpperComplex_ = other.mutableCopyValUpperComplex_;
+        mutableCopyvalueLowerNoUnderscoreComplex_ = other.mutableCopyvalueLowerNoUnderscoreComplex_;
+        mutableCopyValueUpperNoUnderscoreComplex_ = other.mutableCopyValueUpperNoUnderscoreComplex_;
+        mutableCopyValLowerPrimitive_ = other.getMutableCopyValLowerPrimitive();
+        mutableCopyValUpperPrimitive_ = other.getMutableCopyValUpperPrimitive();
+        mutableCopyvalueLowerNoUnderscorePrimitive_ = other.getMutableCopyvalueLowerNoUnderscorePrimitive();
+        mutableCopyValueUpperNoUnderscorePrimitive_ = other.getMutableCopyValueUpperNoUnderscorePrimitive();
+        mutableCopyValLowerMessage_ = other.mutableCopyValLowerMessage_;
+        mutableCopyValUpperMessage_ = other.mutableCopyValUpperMessage_;
+        mutableCopyvalueLowerNoUnderscoreMessage_ = other.mutableCopyvalueLowerNoUnderscoreMessage_;
+        mutableCopyValueUpperNoUnderscoreMessage_ = other.mutableCopyValueUpperNoUnderscoreMessage_;
+        mutableCopyValLowerEnum_ = other.mutableCopyValLowerEnum_;
+        mutableCopyValUpperEnum_ = other.mutableCopyValUpperEnum_;
+        mutableCopyvalueLowerNoUnderscoreEnum_ = other.mutableCopyvalueLowerNoUnderscoreEnum_;
+        mutableCopyValueUpperNoUnderscoreEnum_ = other.mutableCopyValueUpperNoUnderscoreEnum_;
+        if (parserLocals != null) {
+          if (parserLocals[16] != null) {
+            copyValLowerMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[16]);
+            copyValLowerMessage_ = null;
+          }
+          if (parserLocals[17] != null) {
+            copyValUpperMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[17]);
+            copyValUpperMessage_ = null;
+          }
+          if (parserLocals[18] != null) {
+            copyvalueLowerNoUnderscoreMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[18]);
+            copyvalueLowerNoUnderscoreMessage_ = null;
+          }
+          if (parserLocals[19] != null) {
+            copyValueUpperNoUnderscoreMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[19]);
+            copyValueUpperNoUnderscoreMessage_ = null;
+          }
+          if (parserLocals[24] != null) {
+            mutableCopyValLowerMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[24]);
+            mutableCopyValLowerMessage_ = null;
+          }
+          if (parserLocals[25] != null) {
+            mutableCopyValUpperMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[25]);
+            mutableCopyValUpperMessage_ = null;
+          }
+          if (parserLocals[26] != null) {
+            mutableCopyvalueLowerNoUnderscoreMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[26]);
+            mutableCopyvalueLowerNoUnderscoreMessage_ = null;
+          }
+          if (parserLocals[27] != null) {
+            mutableCopyValueUpperNoUnderscoreMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[27]);
+            mutableCopyValueUpperNoUnderscoreMessage_ = null;
+          }
+        }
+        bitField1_ = other.bitField1_;
+      }
+
       private void buildPartial_autosplit_2(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo result) {
         int from_bitField2_ = bitField2_;
-        int to_bitField2_ = 0;
+        int to_bitField2_ = from_bitField2_;
         if (((from_bitField2_ & 0x00000001) != 0)) {
           newValLowerComplexRepeated_.makeImmutable();
           result.newValLowerComplexRepeated_ = newValLowerComplexRepeated_;
@@ -29816,9 +32064,80 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         result.bitField2_ |= to_bitField2_;
       }
 
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_2(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo other, java.lang.Object[] parserLocals) {
+        newValLowerComplexRepeated_ = other.newValLowerComplexRepeated_;
+        newValUpperComplexRepeated_ = other.newValUpperComplexRepeated_;
+        newvalueLowerNoUnderscoreComplexRepeated_ = other.newvalueLowerNoUnderscoreComplexRepeated_;
+        newValueUpperNoUnderscoreComplexRepeated_ = other.newValueUpperNoUnderscoreComplexRepeated_;
+        newValLowerPrimitiveRepeated_ = other.newValLowerPrimitiveRepeated_;
+        newValUpperPrimitiveRepeated_ = other.newValUpperPrimitiveRepeated_;
+        newvalueLowerNoUnderscorePrimitiveRepeated_ = other.newvalueLowerNoUnderscorePrimitiveRepeated_;
+        newValueUpperNoUnderscorePrimitiveRepeated_ = other.newValueUpperNoUnderscorePrimitiveRepeated_;
+        newValLowerMessageRepeated_ = other.newValLowerMessageRepeated_;
+        newValUpperMessageRepeated_ = other.newValUpperMessageRepeated_;
+        newvalueLowerNoUnderscoreMessageRepeated_ = other.newvalueLowerNoUnderscoreMessageRepeated_;
+        newValueUpperNoUnderscoreMessageRepeated_ = other.newValueUpperNoUnderscoreMessageRepeated_;
+        newValLowerEnumRepeated_ = other.newValLowerEnumRepeated_;
+        newValUpperEnumRepeated_ = other.newValUpperEnumRepeated_;
+        newvalueLowerNoUnderscoreEnumRepeated_ = other.newvalueLowerNoUnderscoreEnumRepeated_;
+        newValueUpperNoUnderscoreEnumRepeated_ = other.newValueUpperNoUnderscoreEnumRepeated_;
+        allocValLowerComplexRepeated_ = other.allocValLowerComplexRepeated_;
+        allocValUpperComplexRepeated_ = other.allocValUpperComplexRepeated_;
+        allocvalueLowerNoUnderscoreComplexRepeated_ = other.allocvalueLowerNoUnderscoreComplexRepeated_;
+        allocValueUpperNoUnderscoreComplexRepeated_ = other.allocValueUpperNoUnderscoreComplexRepeated_;
+        allocValLowerPrimitiveRepeated_ = other.allocValLowerPrimitiveRepeated_;
+        allocValUpperPrimitiveRepeated_ = other.allocValUpperPrimitiveRepeated_;
+        allocvalueLowerNoUnderscorePrimitiveRepeated_ = other.allocvalueLowerNoUnderscorePrimitiveRepeated_;
+        allocValueUpperNoUnderscorePrimitiveRepeated_ = other.allocValueUpperNoUnderscorePrimitiveRepeated_;
+        allocValLowerMessageRepeated_ = other.allocValLowerMessageRepeated_;
+        allocValUpperMessageRepeated_ = other.allocValUpperMessageRepeated_;
+        allocvalueLowerNoUnderscoreMessageRepeated_ = other.allocvalueLowerNoUnderscoreMessageRepeated_;
+        allocValueUpperNoUnderscoreMessageRepeated_ = other.allocValueUpperNoUnderscoreMessageRepeated_;
+        allocValLowerEnumRepeated_ = other.allocValLowerEnumRepeated_;
+        allocValUpperEnumRepeated_ = other.allocValUpperEnumRepeated_;
+        allocvalueLowerNoUnderscoreEnumRepeated_ = other.allocvalueLowerNoUnderscoreEnumRepeated_;
+        allocValueUpperNoUnderscoreEnumRepeated_ = other.allocValueUpperNoUnderscoreEnumRepeated_;
+        if (parserLocals != null) {
+          if (parserLocals[4] != null) {
+            newValLowerMessageRepeatedBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[4]);
+            newValLowerMessageRepeated_ = null;
+          }
+          if (parserLocals[5] != null) {
+            newValUpperMessageRepeatedBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[5]);
+            newValUpperMessageRepeated_ = null;
+          }
+          if (parserLocals[6] != null) {
+            newvalueLowerNoUnderscoreMessageRepeatedBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[6]);
+            newvalueLowerNoUnderscoreMessageRepeated_ = null;
+          }
+          if (parserLocals[7] != null) {
+            newValueUpperNoUnderscoreMessageRepeatedBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[7]);
+            newValueUpperNoUnderscoreMessageRepeated_ = null;
+          }
+          if (parserLocals[12] != null) {
+            allocValLowerMessageRepeatedBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[12]);
+            allocValLowerMessageRepeated_ = null;
+          }
+          if (parserLocals[13] != null) {
+            allocValUpperMessageRepeatedBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[13]);
+            allocValUpperMessageRepeated_ = null;
+          }
+          if (parserLocals[14] != null) {
+            allocvalueLowerNoUnderscoreMessageRepeatedBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[14]);
+            allocvalueLowerNoUnderscoreMessageRepeated_ = null;
+          }
+          if (parserLocals[15] != null) {
+            allocValueUpperNoUnderscoreMessageRepeatedBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[15]);
+            allocValueUpperNoUnderscoreMessageRepeated_ = null;
+          }
+        }
+        bitField2_ = other.bitField2_;
+      }
+
       private void buildPartial_autosplit_3(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo result) {
         int from_bitField3_ = bitField3_;
-        int to_bitField3_ = 0;
+        int to_bitField3_ = from_bitField3_;
         if (((from_bitField3_ & 0x00000001) != 0)) {
           copyValLowerComplexRepeated_.makeImmutable();
           result.copyValLowerComplexRepeated_ = copyValLowerComplexRepeated_;
@@ -29980,6 +32299,77 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           result.mutableCopyValueUpperNoUnderscoreEnumRepeated_ = mutableCopyValueUpperNoUnderscoreEnumRepeated_;
         }
         result.bitField3_ |= to_bitField3_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_3(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo other, java.lang.Object[] parserLocals) {
+        copyValLowerComplexRepeated_ = other.copyValLowerComplexRepeated_;
+        copyValUpperComplexRepeated_ = other.copyValUpperComplexRepeated_;
+        copyvalueLowerNoUnderscoreComplexRepeated_ = other.copyvalueLowerNoUnderscoreComplexRepeated_;
+        copyValueUpperNoUnderscoreComplexRepeated_ = other.copyValueUpperNoUnderscoreComplexRepeated_;
+        copyValLowerPrimitiveRepeated_ = other.copyValLowerPrimitiveRepeated_;
+        copyValUpperPrimitiveRepeated_ = other.copyValUpperPrimitiveRepeated_;
+        copyvalueLowerNoUnderscorePrimitiveRepeated_ = other.copyvalueLowerNoUnderscorePrimitiveRepeated_;
+        copyValueUpperNoUnderscorePrimitiveRepeated_ = other.copyValueUpperNoUnderscorePrimitiveRepeated_;
+        copyValLowerMessageRepeated_ = other.copyValLowerMessageRepeated_;
+        copyValUpperMessageRepeated_ = other.copyValUpperMessageRepeated_;
+        copyvalueLowerNoUnderscoreMessageRepeated_ = other.copyvalueLowerNoUnderscoreMessageRepeated_;
+        copyValueUpperNoUnderscoreMessageRepeated_ = other.copyValueUpperNoUnderscoreMessageRepeated_;
+        copyValLowerEnumRepeated_ = other.copyValLowerEnumRepeated_;
+        copyValUpperEnumRepeated_ = other.copyValUpperEnumRepeated_;
+        copyvalueLowerNoUnderscoreEnumRepeated_ = other.copyvalueLowerNoUnderscoreEnumRepeated_;
+        copyValueUpperNoUnderscoreEnumRepeated_ = other.copyValueUpperNoUnderscoreEnumRepeated_;
+        mutableCopyValLowerComplexRepeated_ = other.mutableCopyValLowerComplexRepeated_;
+        mutableCopyValUpperComplexRepeated_ = other.mutableCopyValUpperComplexRepeated_;
+        mutableCopyvalueLowerNoUnderscoreComplexRepeated_ = other.mutableCopyvalueLowerNoUnderscoreComplexRepeated_;
+        mutableCopyValueUpperNoUnderscoreComplexRepeated_ = other.mutableCopyValueUpperNoUnderscoreComplexRepeated_;
+        mutableCopyValLowerPrimitiveRepeated_ = other.mutableCopyValLowerPrimitiveRepeated_;
+        mutableCopyValUpperPrimitiveRepeated_ = other.mutableCopyValUpperPrimitiveRepeated_;
+        mutableCopyvalueLowerNoUnderscorePrimitiveRepeated_ = other.mutableCopyvalueLowerNoUnderscorePrimitiveRepeated_;
+        mutableCopyValueUpperNoUnderscorePrimitiveRepeated_ = other.mutableCopyValueUpperNoUnderscorePrimitiveRepeated_;
+        mutableCopyValLowerMessageRepeated_ = other.mutableCopyValLowerMessageRepeated_;
+        mutableCopyValUpperMessageRepeated_ = other.mutableCopyValUpperMessageRepeated_;
+        mutableCopyvalueLowerNoUnderscoreMessageRepeated_ = other.mutableCopyvalueLowerNoUnderscoreMessageRepeated_;
+        mutableCopyValueUpperNoUnderscoreMessageRepeated_ = other.mutableCopyValueUpperNoUnderscoreMessageRepeated_;
+        mutableCopyValLowerEnumRepeated_ = other.mutableCopyValLowerEnumRepeated_;
+        mutableCopyValUpperEnumRepeated_ = other.mutableCopyValUpperEnumRepeated_;
+        mutableCopyvalueLowerNoUnderscoreEnumRepeated_ = other.mutableCopyvalueLowerNoUnderscoreEnumRepeated_;
+        mutableCopyValueUpperNoUnderscoreEnumRepeated_ = other.mutableCopyValueUpperNoUnderscoreEnumRepeated_;
+        if (parserLocals != null) {
+          if (parserLocals[20] != null) {
+            copyValLowerMessageRepeatedBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[20]);
+            copyValLowerMessageRepeated_ = null;
+          }
+          if (parserLocals[21] != null) {
+            copyValUpperMessageRepeatedBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[21]);
+            copyValUpperMessageRepeated_ = null;
+          }
+          if (parserLocals[22] != null) {
+            copyvalueLowerNoUnderscoreMessageRepeatedBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[22]);
+            copyvalueLowerNoUnderscoreMessageRepeated_ = null;
+          }
+          if (parserLocals[23] != null) {
+            copyValueUpperNoUnderscoreMessageRepeatedBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[23]);
+            copyValueUpperNoUnderscoreMessageRepeated_ = null;
+          }
+          if (parserLocals[28] != null) {
+            mutableCopyValLowerMessageRepeatedBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[28]);
+            mutableCopyValLowerMessageRepeated_ = null;
+          }
+          if (parserLocals[29] != null) {
+            mutableCopyValUpperMessageRepeatedBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[29]);
+            mutableCopyValUpperMessageRepeated_ = null;
+          }
+          if (parserLocals[30] != null) {
+            mutableCopyvalueLowerNoUnderscoreMessageRepeatedBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[30]);
+            mutableCopyvalueLowerNoUnderscoreMessageRepeated_ = null;
+          }
+          if (parserLocals[31] != null) {
+            mutableCopyValueUpperNoUnderscoreMessageRepeatedBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[31]);
+            mutableCopyValueUpperNoUnderscoreMessageRepeated_ = null;
+          }
+        }
+        bitField3_ = other.bitField3_;
       }
 
       public <Type> Builder setExtension(
@@ -32908,12 +35298,84 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         } // finally
         return this;
       }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 154: {
+            parseNewValLowerMessageField(input, extensionRegistry);
+            return true;
+          } // case 154
+          case 162: {
+            parseNewValUpperMessageField(input, extensionRegistry);
+            return true;
+          } // case 162
+          case 170: {
+            parseNewvalueLowerNoUnderscoreMessageField(input, extensionRegistry);
+            return true;
+          } // case 170
+          case 178: {
+            parseNewValueUpperNoUnderscoreMessageField(input, extensionRegistry);
+            return true;
+          } // case 178
+          case 1754: {
+            parseAllocValLowerMessageField(input, extensionRegistry);
+            return true;
+          } // case 1754
+          case 1762: {
+            parseAllocValUpperMessageField(input, extensionRegistry);
+            return true;
+          } // case 1762
+          case 1770: {
+            parseAllocvalueLowerNoUnderscoreMessageField(input, extensionRegistry);
+            return true;
+          } // case 1770
+          case 1778: {
+            parseAllocValueUpperNoUnderscoreMessageField(input, extensionRegistry);
+            return true;
+          } // case 1778
+          case 3354: {
+            parseCopyValLowerMessageField(input, extensionRegistry);
+            return true;
+          } // case 3354
+          case 3362: {
+            parseCopyValUpperMessageField(input, extensionRegistry);
+            return true;
+          } // case 3362
+          case 3370: {
+            parseCopyvalueLowerNoUnderscoreMessageField(input, extensionRegistry);
+            return true;
+          } // case 3370
+          case 3378: {
+            parseCopyValueUpperNoUnderscoreMessageField(input, extensionRegistry);
+            return true;
+          } // case 3378
+          case 4954: {
+            parseMutableCopyValLowerMessageField(input, extensionRegistry);
+            return true;
+          } // case 4954
+          case 4962: {
+            parseMutableCopyValUpperMessageField(input, extensionRegistry);
+            return true;
+          } // case 4962
+          case 4970: {
+            parseMutableCopyvalueLowerNoUnderscoreMessageField(input, extensionRegistry);
+            return true;
+          } // case 4970
+          case 4978: {
+            parseMutableCopyValueUpperNoUnderscoreMessageField(input, extensionRegistry);
+            return true;
+          } // case 4978
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
       private int bitField0_;
       private int bitField1_;
       private int bitField2_;
       private int bitField3_;
 
-      private java.lang.Object newValLowerComplex_ = "";
+      private java.lang.Object newValLowerComplex_;
       /**
        * <code>optional string new_val_lower_complex = 11;</code>
        * @return Whether the newValLowerComplex field is set.
@@ -32993,7 +35455,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object newValUpperComplex_ = "";
+      private java.lang.Object newValUpperComplex_;
       /**
        * <code>optional string new_Val_upper_complex = 12;</code>
        * @return Whether the newValUpperComplex field is set.
@@ -33073,7 +35535,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object newvalueLowerNoUnderscoreComplex_ = "";
+      private java.lang.Object newvalueLowerNoUnderscoreComplex_;
       /**
        * <code>optional string newvalue_lower_no_underscore_complex = 13;</code>
        * @return Whether the newvalueLowerNoUnderscoreComplex field is set.
@@ -33153,7 +35615,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object newValueUpperNoUnderscoreComplex_ = "";
+      private java.lang.Object newValueUpperNoUnderscoreComplex_;
       /**
        * <code>optional string newValue_upper_no_underscore_complex = 14;</code>
        * @return Whether the newValueUpperNoUnderscoreComplex field is set.
@@ -33233,7 +35695,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int newValLowerPrimitive_ ;
+      private int newValLowerPrimitive_;
       /**
        * <code>optional int32 new_val_lower_primitive = 15;</code>
        * @return Whether the newValLowerPrimitive field is set.
@@ -33273,7 +35735,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int newValUpperPrimitive_ ;
+      private int newValUpperPrimitive_;
       /**
        * <code>optional int32 new_Val_upper_primitive = 16;</code>
        * @return Whether the newValUpperPrimitive field is set.
@@ -33313,7 +35775,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int newvalueLowerNoUnderscorePrimitive_ ;
+      private int newvalueLowerNoUnderscorePrimitive_;
       /**
        * <code>optional int32 newvalue_lower_no_underscore_primitive = 17;</code>
        * @return Whether the newvalueLowerNoUnderscorePrimitive field is set.
@@ -33353,7 +35815,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int newValueUpperNoUnderscorePrimitive_ ;
+      private int newValueUpperNoUnderscorePrimitive_;
       /**
        * <code>optional int32 newValue_upper_no_underscore_primitive = 18;</code>
        * @return Whether the newValueUpperNoUnderscorePrimitive field is set.
@@ -33512,7 +35974,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (newValLowerMessage_ != null || newValLowerMessageBuilder_ != null) {
-          internalGetNewValLowerMessageFieldBuilder().getBuilder()
+          internalGetNewValLowerMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           newValLowerMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -33640,7 +36102,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (newValUpperMessage_ != null || newValUpperMessageBuilder_ != null) {
-          internalGetNewValUpperMessageFieldBuilder().getBuilder()
+          internalGetNewValUpperMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           newValUpperMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -33768,7 +36230,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (newvalueLowerNoUnderscoreMessage_ != null || newvalueLowerNoUnderscoreMessageBuilder_ != null) {
-          internalGetNewvalueLowerNoUnderscoreMessageFieldBuilder().getBuilder()
+          internalGetNewvalueLowerNoUnderscoreMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           newvalueLowerNoUnderscoreMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -33896,7 +36358,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (newValueUpperNoUnderscoreMessage_ != null || newValueUpperNoUnderscoreMessageBuilder_ != null) {
-          internalGetNewValueUpperNoUnderscoreMessageFieldBuilder().getBuilder()
+          internalGetNewValueUpperNoUnderscoreMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           newValueUpperNoUnderscoreMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -33905,7 +36367,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         bitField0_ |= 0x00000800;
       }
 
-      private int newValLowerEnum_ = 1;
+      private int newValLowerEnum_;
       /**
        * <code>optional .objc.protobuf.tests.Foo new_val_lower_enum = 23;</code>
        * @return Whether the newValLowerEnum field is set.
@@ -33945,7 +36407,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int newValUpperEnum_ = 1;
+      private int newValUpperEnum_;
       /**
        * <code>optional .objc.protobuf.tests.Foo new_Val_upper_enum = 24;</code>
        * @return Whether the newValUpperEnum field is set.
@@ -33985,7 +36447,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int newvalueLowerNoUnderscoreEnum_ = 1;
+      private int newvalueLowerNoUnderscoreEnum_;
       /**
        * <code>optional .objc.protobuf.tests.Foo newvalue_lower_no_underscore_enum = 25;</code>
        * @return Whether the newvalueLowerNoUnderscoreEnum field is set.
@@ -34025,7 +36487,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int newValueUpperNoUnderscoreEnum_ = 1;
+      private int newValueUpperNoUnderscoreEnum_;
       /**
        * <code>optional .objc.protobuf.tests.Foo newValue_upper_no_underscore_enum = 26;</code>
        * @return Whether the newValueUpperNoUnderscoreEnum field is set.
@@ -34065,8 +36527,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList newValLowerComplexRepeated_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList newValLowerComplexRepeated_;
       private void ensureNewValLowerComplexRepeatedIsMutable() {
         if (!newValLowerComplexRepeated_.isModifiable()) {
           newValLowerComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(newValLowerComplexRepeated_);
@@ -34175,8 +36636,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList newValUpperComplexRepeated_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList newValUpperComplexRepeated_;
       private void ensureNewValUpperComplexRepeatedIsMutable() {
         if (!newValUpperComplexRepeated_.isModifiable()) {
           newValUpperComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(newValUpperComplexRepeated_);
@@ -34285,8 +36745,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList newvalueLowerNoUnderscoreComplexRepeated_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList newvalueLowerNoUnderscoreComplexRepeated_;
       private void ensureNewvalueLowerNoUnderscoreComplexRepeatedIsMutable() {
         if (!newvalueLowerNoUnderscoreComplexRepeated_.isModifiable()) {
           newvalueLowerNoUnderscoreComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(newvalueLowerNoUnderscoreComplexRepeated_);
@@ -34395,8 +36854,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList newValueUpperNoUnderscoreComplexRepeated_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList newValueUpperNoUnderscoreComplexRepeated_;
       private void ensureNewValueUpperNoUnderscoreComplexRepeatedIsMutable() {
         if (!newValueUpperNoUnderscoreComplexRepeated_.isModifiable()) {
           newValueUpperNoUnderscoreComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(newValueUpperNoUnderscoreComplexRepeated_);
@@ -34505,7 +36963,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList newValLowerPrimitiveRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList newValLowerPrimitiveRepeated_;
       private void ensureNewValLowerPrimitiveRepeatedIsMutable(int capacity) {
         if (!newValLowerPrimitiveRepeated_.isModifiable()) {
           newValLowerPrimitiveRepeated_ = makeMutableCopy(newValLowerPrimitiveRepeated_, capacity);
@@ -34589,7 +37047,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList newValUpperPrimitiveRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList newValUpperPrimitiveRepeated_;
       private void ensureNewValUpperPrimitiveRepeatedIsMutable(int capacity) {
         if (!newValUpperPrimitiveRepeated_.isModifiable()) {
           newValUpperPrimitiveRepeated_ = makeMutableCopy(newValUpperPrimitiveRepeated_, capacity);
@@ -34673,7 +37131,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList newvalueLowerNoUnderscorePrimitiveRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList newvalueLowerNoUnderscorePrimitiveRepeated_;
       private void ensureNewvalueLowerNoUnderscorePrimitiveRepeatedIsMutable(int capacity) {
         if (!newvalueLowerNoUnderscorePrimitiveRepeated_.isModifiable()) {
           newvalueLowerNoUnderscorePrimitiveRepeated_ = makeMutableCopy(newvalueLowerNoUnderscorePrimitiveRepeated_, capacity);
@@ -34757,7 +37215,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList newValueUpperNoUnderscorePrimitiveRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList newValueUpperNoUnderscorePrimitiveRepeated_;
       private void ensureNewValueUpperNoUnderscorePrimitiveRepeatedIsMutable(int capacity) {
         if (!newValueUpperNoUnderscorePrimitiveRepeated_.isModifiable()) {
           newValueUpperNoUnderscorePrimitiveRepeated_ = makeMutableCopy(newValueUpperNoUnderscorePrimitiveRepeated_, capacity);
@@ -34841,8 +37299,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> newValLowerMessageRepeated_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> newValLowerMessageRepeated_;
       private void ensureNewValLowerMessageRepeatedIsMutable() {
         if (!newValLowerMessageRepeated_.isModifiable()) {
           newValLowerMessageRepeated_ = makeMutableCopy(newValLowerMessageRepeated_);
@@ -35075,8 +37532,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return newValLowerMessageRepeatedBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> newValUpperMessageRepeated_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> newValUpperMessageRepeated_;
       private void ensureNewValUpperMessageRepeatedIsMutable() {
         if (!newValUpperMessageRepeated_.isModifiable()) {
           newValUpperMessageRepeated_ = makeMutableCopy(newValUpperMessageRepeated_);
@@ -35309,8 +37765,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return newValUpperMessageRepeatedBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> newvalueLowerNoUnderscoreMessageRepeated_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> newvalueLowerNoUnderscoreMessageRepeated_;
       private void ensureNewvalueLowerNoUnderscoreMessageRepeatedIsMutable() {
         if (!newvalueLowerNoUnderscoreMessageRepeated_.isModifiable()) {
           newvalueLowerNoUnderscoreMessageRepeated_ = makeMutableCopy(newvalueLowerNoUnderscoreMessageRepeated_);
@@ -35543,8 +37998,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return newvalueLowerNoUnderscoreMessageRepeatedBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> newValueUpperNoUnderscoreMessageRepeated_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> newValueUpperNoUnderscoreMessageRepeated_;
       private void ensureNewValueUpperNoUnderscoreMessageRepeatedIsMutable() {
         if (!newValueUpperNoUnderscoreMessageRepeated_.isModifiable()) {
           newValueUpperNoUnderscoreMessageRepeated_ = makeMutableCopy(newValueUpperNoUnderscoreMessageRepeated_);
@@ -35777,7 +38231,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return newValueUpperNoUnderscoreMessageRepeatedBuilder_;
       }
 
-      private com.google.protobuf.Internal.IntList newValLowerEnumRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList newValLowerEnumRepeated_;
       private void ensureNewValLowerEnumRepeatedIsMutable(int capacity) {
         if (!newValLowerEnumRepeated_.isModifiable()) {
           newValLowerEnumRepeated_ = makeMutableCopy(newValLowerEnumRepeated_, capacity);
@@ -35858,7 +38312,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList newValUpperEnumRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList newValUpperEnumRepeated_;
       private void ensureNewValUpperEnumRepeatedIsMutable(int capacity) {
         if (!newValUpperEnumRepeated_.isModifiable()) {
           newValUpperEnumRepeated_ = makeMutableCopy(newValUpperEnumRepeated_, capacity);
@@ -35939,7 +38393,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList newvalueLowerNoUnderscoreEnumRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList newvalueLowerNoUnderscoreEnumRepeated_;
       private void ensureNewvalueLowerNoUnderscoreEnumRepeatedIsMutable(int capacity) {
         if (!newvalueLowerNoUnderscoreEnumRepeated_.isModifiable()) {
           newvalueLowerNoUnderscoreEnumRepeated_ = makeMutableCopy(newvalueLowerNoUnderscoreEnumRepeated_, capacity);
@@ -36020,7 +38474,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList newValueUpperNoUnderscoreEnumRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList newValueUpperNoUnderscoreEnumRepeated_;
       private void ensureNewValueUpperNoUnderscoreEnumRepeatedIsMutable(int capacity) {
         if (!newValueUpperNoUnderscoreEnumRepeated_.isModifiable()) {
           newValueUpperNoUnderscoreEnumRepeated_ = makeMutableCopy(newValueUpperNoUnderscoreEnumRepeated_, capacity);
@@ -36101,7 +38555,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object allocValLowerComplex_ = "";
+      private java.lang.Object allocValLowerComplex_;
       /**
        * <code>optional string alloc_val_lower_complex = 211;</code>
        * @return Whether the allocValLowerComplex field is set.
@@ -36181,7 +38635,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object allocValUpperComplex_ = "";
+      private java.lang.Object allocValUpperComplex_;
       /**
        * <code>optional string alloc_Val_upper_complex = 212;</code>
        * @return Whether the allocValUpperComplex field is set.
@@ -36261,7 +38715,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object allocvalueLowerNoUnderscoreComplex_ = "";
+      private java.lang.Object allocvalueLowerNoUnderscoreComplex_;
       /**
        * <code>optional string allocvalue_lower_no_underscore_complex = 213;</code>
        * @return Whether the allocvalueLowerNoUnderscoreComplex field is set.
@@ -36341,7 +38795,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object allocValueUpperNoUnderscoreComplex_ = "";
+      private java.lang.Object allocValueUpperNoUnderscoreComplex_;
       /**
        * <code>optional string allocValue_upper_no_underscore_complex = 214;</code>
        * @return Whether the allocValueUpperNoUnderscoreComplex field is set.
@@ -36421,7 +38875,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int allocValLowerPrimitive_ ;
+      private int allocValLowerPrimitive_;
       /**
        * <code>optional int32 alloc_val_lower_primitive = 215;</code>
        * @return Whether the allocValLowerPrimitive field is set.
@@ -36461,7 +38915,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int allocValUpperPrimitive_ ;
+      private int allocValUpperPrimitive_;
       /**
        * <code>optional int32 alloc_Val_upper_primitive = 216;</code>
        * @return Whether the allocValUpperPrimitive field is set.
@@ -36501,7 +38955,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int allocvalueLowerNoUnderscorePrimitive_ ;
+      private int allocvalueLowerNoUnderscorePrimitive_;
       /**
        * <code>optional int32 allocvalue_lower_no_underscore_primitive = 217;</code>
        * @return Whether the allocvalueLowerNoUnderscorePrimitive field is set.
@@ -36541,7 +38995,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int allocValueUpperNoUnderscorePrimitive_ ;
+      private int allocValueUpperNoUnderscorePrimitive_;
       /**
        * <code>optional int32 allocValue_upper_no_underscore_primitive = 218;</code>
        * @return Whether the allocValueUpperNoUnderscorePrimitive field is set.
@@ -36700,7 +39154,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (allocValLowerMessage_ != null || allocValLowerMessageBuilder_ != null) {
-          internalGetAllocValLowerMessageFieldBuilder().getBuilder()
+          internalGetAllocValLowerMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           allocValLowerMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -36828,7 +39282,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (allocValUpperMessage_ != null || allocValUpperMessageBuilder_ != null) {
-          internalGetAllocValUpperMessageFieldBuilder().getBuilder()
+          internalGetAllocValUpperMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           allocValUpperMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -36956,7 +39410,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (allocvalueLowerNoUnderscoreMessage_ != null || allocvalueLowerNoUnderscoreMessageBuilder_ != null) {
-          internalGetAllocvalueLowerNoUnderscoreMessageFieldBuilder().getBuilder()
+          internalGetAllocvalueLowerNoUnderscoreMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           allocvalueLowerNoUnderscoreMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -37084,7 +39538,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (allocValueUpperNoUnderscoreMessage_ != null || allocValueUpperNoUnderscoreMessageBuilder_ != null) {
-          internalGetAllocValueUpperNoUnderscoreMessageFieldBuilder().getBuilder()
+          internalGetAllocValueUpperNoUnderscoreMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           allocValueUpperNoUnderscoreMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -37093,7 +39547,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         bitField0_ |= 0x08000000;
       }
 
-      private int allocValLowerEnum_ = 1;
+      private int allocValLowerEnum_;
       /**
        * <code>optional .objc.protobuf.tests.Foo alloc_val_lower_enum = 223;</code>
        * @return Whether the allocValLowerEnum field is set.
@@ -37133,7 +39587,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int allocValUpperEnum_ = 1;
+      private int allocValUpperEnum_;
       /**
        * <code>optional .objc.protobuf.tests.Foo alloc_Val_upper_enum = 224;</code>
        * @return Whether the allocValUpperEnum field is set.
@@ -37173,7 +39627,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int allocvalueLowerNoUnderscoreEnum_ = 1;
+      private int allocvalueLowerNoUnderscoreEnum_;
       /**
        * <code>optional .objc.protobuf.tests.Foo allocvalue_lower_no_underscore_enum = 225;</code>
        * @return Whether the allocvalueLowerNoUnderscoreEnum field is set.
@@ -37213,7 +39667,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int allocValueUpperNoUnderscoreEnum_ = 1;
+      private int allocValueUpperNoUnderscoreEnum_;
       /**
        * <code>optional .objc.protobuf.tests.Foo allocValue_upper_no_underscore_enum = 226;</code>
        * @return Whether the allocValueUpperNoUnderscoreEnum field is set.
@@ -37253,8 +39707,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList allocValLowerComplexRepeated_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList allocValLowerComplexRepeated_;
       private void ensureAllocValLowerComplexRepeatedIsMutable() {
         if (!allocValLowerComplexRepeated_.isModifiable()) {
           allocValLowerComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(allocValLowerComplexRepeated_);
@@ -37363,8 +39816,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList allocValUpperComplexRepeated_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList allocValUpperComplexRepeated_;
       private void ensureAllocValUpperComplexRepeatedIsMutable() {
         if (!allocValUpperComplexRepeated_.isModifiable()) {
           allocValUpperComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(allocValUpperComplexRepeated_);
@@ -37473,8 +39925,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList allocvalueLowerNoUnderscoreComplexRepeated_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList allocvalueLowerNoUnderscoreComplexRepeated_;
       private void ensureAllocvalueLowerNoUnderscoreComplexRepeatedIsMutable() {
         if (!allocvalueLowerNoUnderscoreComplexRepeated_.isModifiable()) {
           allocvalueLowerNoUnderscoreComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(allocvalueLowerNoUnderscoreComplexRepeated_);
@@ -37583,8 +40034,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList allocValueUpperNoUnderscoreComplexRepeated_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList allocValueUpperNoUnderscoreComplexRepeated_;
       private void ensureAllocValueUpperNoUnderscoreComplexRepeatedIsMutable() {
         if (!allocValueUpperNoUnderscoreComplexRepeated_.isModifiable()) {
           allocValueUpperNoUnderscoreComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(allocValueUpperNoUnderscoreComplexRepeated_);
@@ -37693,7 +40143,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList allocValLowerPrimitiveRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList allocValLowerPrimitiveRepeated_;
       private void ensureAllocValLowerPrimitiveRepeatedIsMutable(int capacity) {
         if (!allocValLowerPrimitiveRepeated_.isModifiable()) {
           allocValLowerPrimitiveRepeated_ = makeMutableCopy(allocValLowerPrimitiveRepeated_, capacity);
@@ -37777,7 +40227,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList allocValUpperPrimitiveRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList allocValUpperPrimitiveRepeated_;
       private void ensureAllocValUpperPrimitiveRepeatedIsMutable(int capacity) {
         if (!allocValUpperPrimitiveRepeated_.isModifiable()) {
           allocValUpperPrimitiveRepeated_ = makeMutableCopy(allocValUpperPrimitiveRepeated_, capacity);
@@ -37861,7 +40311,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList allocvalueLowerNoUnderscorePrimitiveRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList allocvalueLowerNoUnderscorePrimitiveRepeated_;
       private void ensureAllocvalueLowerNoUnderscorePrimitiveRepeatedIsMutable(int capacity) {
         if (!allocvalueLowerNoUnderscorePrimitiveRepeated_.isModifiable()) {
           allocvalueLowerNoUnderscorePrimitiveRepeated_ = makeMutableCopy(allocvalueLowerNoUnderscorePrimitiveRepeated_, capacity);
@@ -37945,7 +40395,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList allocValueUpperNoUnderscorePrimitiveRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList allocValueUpperNoUnderscorePrimitiveRepeated_;
       private void ensureAllocValueUpperNoUnderscorePrimitiveRepeatedIsMutable(int capacity) {
         if (!allocValueUpperNoUnderscorePrimitiveRepeated_.isModifiable()) {
           allocValueUpperNoUnderscorePrimitiveRepeated_ = makeMutableCopy(allocValueUpperNoUnderscorePrimitiveRepeated_, capacity);
@@ -38029,8 +40479,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> allocValLowerMessageRepeated_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> allocValLowerMessageRepeated_;
       private void ensureAllocValLowerMessageRepeatedIsMutable() {
         if (!allocValLowerMessageRepeated_.isModifiable()) {
           allocValLowerMessageRepeated_ = makeMutableCopy(allocValLowerMessageRepeated_);
@@ -38263,8 +40712,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return allocValLowerMessageRepeatedBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> allocValUpperMessageRepeated_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> allocValUpperMessageRepeated_;
       private void ensureAllocValUpperMessageRepeatedIsMutable() {
         if (!allocValUpperMessageRepeated_.isModifiable()) {
           allocValUpperMessageRepeated_ = makeMutableCopy(allocValUpperMessageRepeated_);
@@ -38497,8 +40945,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return allocValUpperMessageRepeatedBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> allocvalueLowerNoUnderscoreMessageRepeated_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> allocvalueLowerNoUnderscoreMessageRepeated_;
       private void ensureAllocvalueLowerNoUnderscoreMessageRepeatedIsMutable() {
         if (!allocvalueLowerNoUnderscoreMessageRepeated_.isModifiable()) {
           allocvalueLowerNoUnderscoreMessageRepeated_ = makeMutableCopy(allocvalueLowerNoUnderscoreMessageRepeated_);
@@ -38731,8 +41178,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return allocvalueLowerNoUnderscoreMessageRepeatedBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> allocValueUpperNoUnderscoreMessageRepeated_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> allocValueUpperNoUnderscoreMessageRepeated_;
       private void ensureAllocValueUpperNoUnderscoreMessageRepeatedIsMutable() {
         if (!allocValueUpperNoUnderscoreMessageRepeated_.isModifiable()) {
           allocValueUpperNoUnderscoreMessageRepeated_ = makeMutableCopy(allocValueUpperNoUnderscoreMessageRepeated_);
@@ -38965,7 +41411,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return allocValueUpperNoUnderscoreMessageRepeatedBuilder_;
       }
 
-      private com.google.protobuf.Internal.IntList allocValLowerEnumRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList allocValLowerEnumRepeated_;
       private void ensureAllocValLowerEnumRepeatedIsMutable(int capacity) {
         if (!allocValLowerEnumRepeated_.isModifiable()) {
           allocValLowerEnumRepeated_ = makeMutableCopy(allocValLowerEnumRepeated_, capacity);
@@ -39046,7 +41492,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList allocValUpperEnumRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList allocValUpperEnumRepeated_;
       private void ensureAllocValUpperEnumRepeatedIsMutable(int capacity) {
         if (!allocValUpperEnumRepeated_.isModifiable()) {
           allocValUpperEnumRepeated_ = makeMutableCopy(allocValUpperEnumRepeated_, capacity);
@@ -39127,7 +41573,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList allocvalueLowerNoUnderscoreEnumRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList allocvalueLowerNoUnderscoreEnumRepeated_;
       private void ensureAllocvalueLowerNoUnderscoreEnumRepeatedIsMutable(int capacity) {
         if (!allocvalueLowerNoUnderscoreEnumRepeated_.isModifiable()) {
           allocvalueLowerNoUnderscoreEnumRepeated_ = makeMutableCopy(allocvalueLowerNoUnderscoreEnumRepeated_, capacity);
@@ -39208,7 +41654,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList allocValueUpperNoUnderscoreEnumRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList allocValueUpperNoUnderscoreEnumRepeated_;
       private void ensureAllocValueUpperNoUnderscoreEnumRepeatedIsMutable(int capacity) {
         if (!allocValueUpperNoUnderscoreEnumRepeated_.isModifiable()) {
           allocValueUpperNoUnderscoreEnumRepeated_ = makeMutableCopy(allocValueUpperNoUnderscoreEnumRepeated_, capacity);
@@ -39289,7 +41735,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object copyValLowerComplex_ = "";
+      private java.lang.Object copyValLowerComplex_;
       /**
        * <code>optional string copy_val_lower_complex = 411;</code>
        * @return Whether the copyValLowerComplex field is set.
@@ -39369,7 +41815,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object copyValUpperComplex_ = "";
+      private java.lang.Object copyValUpperComplex_;
       /**
        * <code>optional string copy_Val_upper_complex = 412;</code>
        * @return Whether the copyValUpperComplex field is set.
@@ -39449,7 +41895,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object copyvalueLowerNoUnderscoreComplex_ = "";
+      private java.lang.Object copyvalueLowerNoUnderscoreComplex_;
       /**
        * <code>optional string copyvalue_lower_no_underscore_complex = 413;</code>
        * @return Whether the copyvalueLowerNoUnderscoreComplex field is set.
@@ -39529,7 +41975,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object copyValueUpperNoUnderscoreComplex_ = "";
+      private java.lang.Object copyValueUpperNoUnderscoreComplex_;
       /**
        * <code>optional string copyValue_upper_no_underscore_complex = 414;</code>
        * @return Whether the copyValueUpperNoUnderscoreComplex field is set.
@@ -39609,7 +42055,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int copyValLowerPrimitive_ ;
+      private int copyValLowerPrimitive_;
       /**
        * <code>optional int32 copy_val_lower_primitive = 415;</code>
        * @return Whether the copyValLowerPrimitive field is set.
@@ -39649,7 +42095,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int copyValUpperPrimitive_ ;
+      private int copyValUpperPrimitive_;
       /**
        * <code>optional int32 copy_Val_upper_primitive = 416;</code>
        * @return Whether the copyValUpperPrimitive field is set.
@@ -39689,7 +42135,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int copyvalueLowerNoUnderscorePrimitive_ ;
+      private int copyvalueLowerNoUnderscorePrimitive_;
       /**
        * <code>optional int32 copyvalue_lower_no_underscore_primitive = 417;</code>
        * @return Whether the copyvalueLowerNoUnderscorePrimitive field is set.
@@ -39729,7 +42175,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int copyValueUpperNoUnderscorePrimitive_ ;
+      private int copyValueUpperNoUnderscorePrimitive_;
       /**
        * <code>optional int32 copyValue_upper_no_underscore_primitive = 418;</code>
        * @return Whether the copyValueUpperNoUnderscorePrimitive field is set.
@@ -39888,7 +42334,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (copyValLowerMessage_ != null || copyValLowerMessageBuilder_ != null) {
-          internalGetCopyValLowerMessageFieldBuilder().getBuilder()
+          internalGetCopyValLowerMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           copyValLowerMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -40016,7 +42462,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (copyValUpperMessage_ != null || copyValUpperMessageBuilder_ != null) {
-          internalGetCopyValUpperMessageFieldBuilder().getBuilder()
+          internalGetCopyValUpperMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           copyValUpperMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -40144,7 +42590,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (copyvalueLowerNoUnderscoreMessage_ != null || copyvalueLowerNoUnderscoreMessageBuilder_ != null) {
-          internalGetCopyvalueLowerNoUnderscoreMessageFieldBuilder().getBuilder()
+          internalGetCopyvalueLowerNoUnderscoreMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           copyvalueLowerNoUnderscoreMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -40272,7 +42718,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (copyValueUpperNoUnderscoreMessage_ != null || copyValueUpperNoUnderscoreMessageBuilder_ != null) {
-          internalGetCopyValueUpperNoUnderscoreMessageFieldBuilder().getBuilder()
+          internalGetCopyValueUpperNoUnderscoreMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           copyValueUpperNoUnderscoreMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -40281,7 +42727,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         bitField1_ |= 0x00000800;
       }
 
-      private int copyValLowerEnum_ = 1;
+      private int copyValLowerEnum_;
       /**
        * <code>optional .objc.protobuf.tests.Foo copy_val_lower_enum = 423;</code>
        * @return Whether the copyValLowerEnum field is set.
@@ -40321,7 +42767,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int copyValUpperEnum_ = 1;
+      private int copyValUpperEnum_;
       /**
        * <code>optional .objc.protobuf.tests.Foo copy_Val_upper_enum = 424;</code>
        * @return Whether the copyValUpperEnum field is set.
@@ -40361,7 +42807,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int copyvalueLowerNoUnderscoreEnum_ = 1;
+      private int copyvalueLowerNoUnderscoreEnum_;
       /**
        * <code>optional .objc.protobuf.tests.Foo copyvalue_lower_no_underscore_enum = 425;</code>
        * @return Whether the copyvalueLowerNoUnderscoreEnum field is set.
@@ -40401,7 +42847,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int copyValueUpperNoUnderscoreEnum_ = 1;
+      private int copyValueUpperNoUnderscoreEnum_;
       /**
        * <code>optional .objc.protobuf.tests.Foo copyValue_upper_no_underscore_enum = 426;</code>
        * @return Whether the copyValueUpperNoUnderscoreEnum field is set.
@@ -40441,8 +42887,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList copyValLowerComplexRepeated_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList copyValLowerComplexRepeated_;
       private void ensureCopyValLowerComplexRepeatedIsMutable() {
         if (!copyValLowerComplexRepeated_.isModifiable()) {
           copyValLowerComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(copyValLowerComplexRepeated_);
@@ -40551,8 +42996,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList copyValUpperComplexRepeated_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList copyValUpperComplexRepeated_;
       private void ensureCopyValUpperComplexRepeatedIsMutable() {
         if (!copyValUpperComplexRepeated_.isModifiable()) {
           copyValUpperComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(copyValUpperComplexRepeated_);
@@ -40661,8 +43105,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList copyvalueLowerNoUnderscoreComplexRepeated_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList copyvalueLowerNoUnderscoreComplexRepeated_;
       private void ensureCopyvalueLowerNoUnderscoreComplexRepeatedIsMutable() {
         if (!copyvalueLowerNoUnderscoreComplexRepeated_.isModifiable()) {
           copyvalueLowerNoUnderscoreComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(copyvalueLowerNoUnderscoreComplexRepeated_);
@@ -40771,8 +43214,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList copyValueUpperNoUnderscoreComplexRepeated_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList copyValueUpperNoUnderscoreComplexRepeated_;
       private void ensureCopyValueUpperNoUnderscoreComplexRepeatedIsMutable() {
         if (!copyValueUpperNoUnderscoreComplexRepeated_.isModifiable()) {
           copyValueUpperNoUnderscoreComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(copyValueUpperNoUnderscoreComplexRepeated_);
@@ -40881,7 +43323,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList copyValLowerPrimitiveRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList copyValLowerPrimitiveRepeated_;
       private void ensureCopyValLowerPrimitiveRepeatedIsMutable(int capacity) {
         if (!copyValLowerPrimitiveRepeated_.isModifiable()) {
           copyValLowerPrimitiveRepeated_ = makeMutableCopy(copyValLowerPrimitiveRepeated_, capacity);
@@ -40965,7 +43407,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList copyValUpperPrimitiveRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList copyValUpperPrimitiveRepeated_;
       private void ensureCopyValUpperPrimitiveRepeatedIsMutable(int capacity) {
         if (!copyValUpperPrimitiveRepeated_.isModifiable()) {
           copyValUpperPrimitiveRepeated_ = makeMutableCopy(copyValUpperPrimitiveRepeated_, capacity);
@@ -41049,7 +43491,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList copyvalueLowerNoUnderscorePrimitiveRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList copyvalueLowerNoUnderscorePrimitiveRepeated_;
       private void ensureCopyvalueLowerNoUnderscorePrimitiveRepeatedIsMutable(int capacity) {
         if (!copyvalueLowerNoUnderscorePrimitiveRepeated_.isModifiable()) {
           copyvalueLowerNoUnderscorePrimitiveRepeated_ = makeMutableCopy(copyvalueLowerNoUnderscorePrimitiveRepeated_, capacity);
@@ -41133,7 +43575,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList copyValueUpperNoUnderscorePrimitiveRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList copyValueUpperNoUnderscorePrimitiveRepeated_;
       private void ensureCopyValueUpperNoUnderscorePrimitiveRepeatedIsMutable(int capacity) {
         if (!copyValueUpperNoUnderscorePrimitiveRepeated_.isModifiable()) {
           copyValueUpperNoUnderscorePrimitiveRepeated_ = makeMutableCopy(copyValueUpperNoUnderscorePrimitiveRepeated_, capacity);
@@ -41217,8 +43659,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> copyValLowerMessageRepeated_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> copyValLowerMessageRepeated_;
       private void ensureCopyValLowerMessageRepeatedIsMutable() {
         if (!copyValLowerMessageRepeated_.isModifiable()) {
           copyValLowerMessageRepeated_ = makeMutableCopy(copyValLowerMessageRepeated_);
@@ -41451,8 +43892,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return copyValLowerMessageRepeatedBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> copyValUpperMessageRepeated_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> copyValUpperMessageRepeated_;
       private void ensureCopyValUpperMessageRepeatedIsMutable() {
         if (!copyValUpperMessageRepeated_.isModifiable()) {
           copyValUpperMessageRepeated_ = makeMutableCopy(copyValUpperMessageRepeated_);
@@ -41685,8 +44125,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return copyValUpperMessageRepeatedBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> copyvalueLowerNoUnderscoreMessageRepeated_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> copyvalueLowerNoUnderscoreMessageRepeated_;
       private void ensureCopyvalueLowerNoUnderscoreMessageRepeatedIsMutable() {
         if (!copyvalueLowerNoUnderscoreMessageRepeated_.isModifiable()) {
           copyvalueLowerNoUnderscoreMessageRepeated_ = makeMutableCopy(copyvalueLowerNoUnderscoreMessageRepeated_);
@@ -41919,8 +44358,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return copyvalueLowerNoUnderscoreMessageRepeatedBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> copyValueUpperNoUnderscoreMessageRepeated_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> copyValueUpperNoUnderscoreMessageRepeated_;
       private void ensureCopyValueUpperNoUnderscoreMessageRepeatedIsMutable() {
         if (!copyValueUpperNoUnderscoreMessageRepeated_.isModifiable()) {
           copyValueUpperNoUnderscoreMessageRepeated_ = makeMutableCopy(copyValueUpperNoUnderscoreMessageRepeated_);
@@ -42153,7 +44591,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return copyValueUpperNoUnderscoreMessageRepeatedBuilder_;
       }
 
-      private com.google.protobuf.Internal.IntList copyValLowerEnumRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList copyValLowerEnumRepeated_;
       private void ensureCopyValLowerEnumRepeatedIsMutable(int capacity) {
         if (!copyValLowerEnumRepeated_.isModifiable()) {
           copyValLowerEnumRepeated_ = makeMutableCopy(copyValLowerEnumRepeated_, capacity);
@@ -42234,7 +44672,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList copyValUpperEnumRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList copyValUpperEnumRepeated_;
       private void ensureCopyValUpperEnumRepeatedIsMutable(int capacity) {
         if (!copyValUpperEnumRepeated_.isModifiable()) {
           copyValUpperEnumRepeated_ = makeMutableCopy(copyValUpperEnumRepeated_, capacity);
@@ -42315,7 +44753,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList copyvalueLowerNoUnderscoreEnumRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList copyvalueLowerNoUnderscoreEnumRepeated_;
       private void ensureCopyvalueLowerNoUnderscoreEnumRepeatedIsMutable(int capacity) {
         if (!copyvalueLowerNoUnderscoreEnumRepeated_.isModifiable()) {
           copyvalueLowerNoUnderscoreEnumRepeated_ = makeMutableCopy(copyvalueLowerNoUnderscoreEnumRepeated_, capacity);
@@ -42396,7 +44834,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList copyValueUpperNoUnderscoreEnumRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList copyValueUpperNoUnderscoreEnumRepeated_;
       private void ensureCopyValueUpperNoUnderscoreEnumRepeatedIsMutable(int capacity) {
         if (!copyValueUpperNoUnderscoreEnumRepeated_.isModifiable()) {
           copyValueUpperNoUnderscoreEnumRepeated_ = makeMutableCopy(copyValueUpperNoUnderscoreEnumRepeated_, capacity);
@@ -42477,7 +44915,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object mutableCopyValLowerComplex_ = "";
+      private java.lang.Object mutableCopyValLowerComplex_;
       /**
        * <code>optional string mutableCopy_val_lower_complex = 611;</code>
        * @return Whether the mutableCopyValLowerComplex field is set.
@@ -42557,7 +44995,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object mutableCopyValUpperComplex_ = "";
+      private java.lang.Object mutableCopyValUpperComplex_;
       /**
        * <code>optional string mutableCopy_Val_upper_complex = 612;</code>
        * @return Whether the mutableCopyValUpperComplex field is set.
@@ -42637,7 +45075,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object mutableCopyvalueLowerNoUnderscoreComplex_ = "";
+      private java.lang.Object mutableCopyvalueLowerNoUnderscoreComplex_;
       /**
        * <code>optional string mutableCopyvalue_lower_no_underscore_complex = 613;</code>
        * @return Whether the mutableCopyvalueLowerNoUnderscoreComplex field is set.
@@ -42717,7 +45155,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object mutableCopyValueUpperNoUnderscoreComplex_ = "";
+      private java.lang.Object mutableCopyValueUpperNoUnderscoreComplex_;
       /**
        * <code>optional string mutableCopyValue_upper_no_underscore_complex = 614;</code>
        * @return Whether the mutableCopyValueUpperNoUnderscoreComplex field is set.
@@ -42797,7 +45235,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int mutableCopyValLowerPrimitive_ ;
+      private int mutableCopyValLowerPrimitive_;
       /**
        * <code>optional int32 mutableCopy_val_lower_primitive = 615;</code>
        * @return Whether the mutableCopyValLowerPrimitive field is set.
@@ -42837,7 +45275,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int mutableCopyValUpperPrimitive_ ;
+      private int mutableCopyValUpperPrimitive_;
       /**
        * <code>optional int32 mutableCopy_Val_upper_primitive = 616;</code>
        * @return Whether the mutableCopyValUpperPrimitive field is set.
@@ -42877,7 +45315,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int mutableCopyvalueLowerNoUnderscorePrimitive_ ;
+      private int mutableCopyvalueLowerNoUnderscorePrimitive_;
       /**
        * <code>optional int32 mutableCopyvalue_lower_no_underscore_primitive = 617;</code>
        * @return Whether the mutableCopyvalueLowerNoUnderscorePrimitive field is set.
@@ -42917,7 +45355,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int mutableCopyValueUpperNoUnderscorePrimitive_ ;
+      private int mutableCopyValueUpperNoUnderscorePrimitive_;
       /**
        * <code>optional int32 mutableCopyValue_upper_no_underscore_primitive = 618;</code>
        * @return Whether the mutableCopyValueUpperNoUnderscorePrimitive field is set.
@@ -43076,7 +45514,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (mutableCopyValLowerMessage_ != null || mutableCopyValLowerMessageBuilder_ != null) {
-          internalGetMutableCopyValLowerMessageFieldBuilder().getBuilder()
+          internalGetMutableCopyValLowerMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           mutableCopyValLowerMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -43204,7 +45642,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (mutableCopyValUpperMessage_ != null || mutableCopyValUpperMessageBuilder_ != null) {
-          internalGetMutableCopyValUpperMessageFieldBuilder().getBuilder()
+          internalGetMutableCopyValUpperMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           mutableCopyValUpperMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -43332,7 +45770,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (mutableCopyvalueLowerNoUnderscoreMessage_ != null || mutableCopyvalueLowerNoUnderscoreMessageBuilder_ != null) {
-          internalGetMutableCopyvalueLowerNoUnderscoreMessageFieldBuilder().getBuilder()
+          internalGetMutableCopyvalueLowerNoUnderscoreMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           mutableCopyvalueLowerNoUnderscoreMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -43460,7 +45898,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (mutableCopyValueUpperNoUnderscoreMessage_ != null || mutableCopyValueUpperNoUnderscoreMessageBuilder_ != null) {
-          internalGetMutableCopyValueUpperNoUnderscoreMessageFieldBuilder().getBuilder()
+          internalGetMutableCopyValueUpperNoUnderscoreMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           mutableCopyValueUpperNoUnderscoreMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -43469,7 +45907,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         bitField1_ |= 0x08000000;
       }
 
-      private int mutableCopyValLowerEnum_ = 1;
+      private int mutableCopyValLowerEnum_;
       /**
        * <code>optional .objc.protobuf.tests.Foo mutableCopy_val_lower_enum = 623;</code>
        * @return Whether the mutableCopyValLowerEnum field is set.
@@ -43509,7 +45947,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int mutableCopyValUpperEnum_ = 1;
+      private int mutableCopyValUpperEnum_;
       /**
        * <code>optional .objc.protobuf.tests.Foo mutableCopy_Val_upper_enum = 624;</code>
        * @return Whether the mutableCopyValUpperEnum field is set.
@@ -43549,7 +45987,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int mutableCopyvalueLowerNoUnderscoreEnum_ = 1;
+      private int mutableCopyvalueLowerNoUnderscoreEnum_;
       /**
        * <code>optional .objc.protobuf.tests.Foo mutableCopyvalue_lower_no_underscore_enum = 625;</code>
        * @return Whether the mutableCopyvalueLowerNoUnderscoreEnum field is set.
@@ -43589,7 +46027,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int mutableCopyValueUpperNoUnderscoreEnum_ = 1;
+      private int mutableCopyValueUpperNoUnderscoreEnum_;
       /**
        * <code>optional .objc.protobuf.tests.Foo mutableCopyValue_upper_no_underscore_enum = 626;</code>
        * @return Whether the mutableCopyValueUpperNoUnderscoreEnum field is set.
@@ -43629,8 +46067,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList mutableCopyValLowerComplexRepeated_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList mutableCopyValLowerComplexRepeated_;
       private void ensureMutableCopyValLowerComplexRepeatedIsMutable() {
         if (!mutableCopyValLowerComplexRepeated_.isModifiable()) {
           mutableCopyValLowerComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(mutableCopyValLowerComplexRepeated_);
@@ -43739,8 +46176,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList mutableCopyValUpperComplexRepeated_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList mutableCopyValUpperComplexRepeated_;
       private void ensureMutableCopyValUpperComplexRepeatedIsMutable() {
         if (!mutableCopyValUpperComplexRepeated_.isModifiable()) {
           mutableCopyValUpperComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(mutableCopyValUpperComplexRepeated_);
@@ -43849,8 +46285,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList mutableCopyvalueLowerNoUnderscoreComplexRepeated_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList mutableCopyvalueLowerNoUnderscoreComplexRepeated_;
       private void ensureMutableCopyvalueLowerNoUnderscoreComplexRepeatedIsMutable() {
         if (!mutableCopyvalueLowerNoUnderscoreComplexRepeated_.isModifiable()) {
           mutableCopyvalueLowerNoUnderscoreComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(mutableCopyvalueLowerNoUnderscoreComplexRepeated_);
@@ -43959,8 +46394,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList mutableCopyValueUpperNoUnderscoreComplexRepeated_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList mutableCopyValueUpperNoUnderscoreComplexRepeated_;
       private void ensureMutableCopyValueUpperNoUnderscoreComplexRepeatedIsMutable() {
         if (!mutableCopyValueUpperNoUnderscoreComplexRepeated_.isModifiable()) {
           mutableCopyValueUpperNoUnderscoreComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(mutableCopyValueUpperNoUnderscoreComplexRepeated_);
@@ -44069,7 +46503,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList mutableCopyValLowerPrimitiveRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList mutableCopyValLowerPrimitiveRepeated_;
       private void ensureMutableCopyValLowerPrimitiveRepeatedIsMutable(int capacity) {
         if (!mutableCopyValLowerPrimitiveRepeated_.isModifiable()) {
           mutableCopyValLowerPrimitiveRepeated_ = makeMutableCopy(mutableCopyValLowerPrimitiveRepeated_, capacity);
@@ -44153,7 +46587,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList mutableCopyValUpperPrimitiveRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList mutableCopyValUpperPrimitiveRepeated_;
       private void ensureMutableCopyValUpperPrimitiveRepeatedIsMutable(int capacity) {
         if (!mutableCopyValUpperPrimitiveRepeated_.isModifiable()) {
           mutableCopyValUpperPrimitiveRepeated_ = makeMutableCopy(mutableCopyValUpperPrimitiveRepeated_, capacity);
@@ -44237,7 +46671,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList mutableCopyvalueLowerNoUnderscorePrimitiveRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList mutableCopyvalueLowerNoUnderscorePrimitiveRepeated_;
       private void ensureMutableCopyvalueLowerNoUnderscorePrimitiveRepeatedIsMutable(int capacity) {
         if (!mutableCopyvalueLowerNoUnderscorePrimitiveRepeated_.isModifiable()) {
           mutableCopyvalueLowerNoUnderscorePrimitiveRepeated_ = makeMutableCopy(mutableCopyvalueLowerNoUnderscorePrimitiveRepeated_, capacity);
@@ -44321,7 +46755,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList mutableCopyValueUpperNoUnderscorePrimitiveRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList mutableCopyValueUpperNoUnderscorePrimitiveRepeated_;
       private void ensureMutableCopyValueUpperNoUnderscorePrimitiveRepeatedIsMutable(int capacity) {
         if (!mutableCopyValueUpperNoUnderscorePrimitiveRepeated_.isModifiable()) {
           mutableCopyValueUpperNoUnderscorePrimitiveRepeated_ = makeMutableCopy(mutableCopyValueUpperNoUnderscorePrimitiveRepeated_, capacity);
@@ -44405,8 +46839,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> mutableCopyValLowerMessageRepeated_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> mutableCopyValLowerMessageRepeated_;
       private void ensureMutableCopyValLowerMessageRepeatedIsMutable() {
         if (!mutableCopyValLowerMessageRepeated_.isModifiable()) {
           mutableCopyValLowerMessageRepeated_ = makeMutableCopy(mutableCopyValLowerMessageRepeated_);
@@ -44639,8 +47072,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return mutableCopyValLowerMessageRepeatedBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> mutableCopyValUpperMessageRepeated_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> mutableCopyValUpperMessageRepeated_;
       private void ensureMutableCopyValUpperMessageRepeatedIsMutable() {
         if (!mutableCopyValUpperMessageRepeated_.isModifiable()) {
           mutableCopyValUpperMessageRepeated_ = makeMutableCopy(mutableCopyValUpperMessageRepeated_);
@@ -44873,8 +47305,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return mutableCopyValUpperMessageRepeatedBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> mutableCopyvalueLowerNoUnderscoreMessageRepeated_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> mutableCopyvalueLowerNoUnderscoreMessageRepeated_;
       private void ensureMutableCopyvalueLowerNoUnderscoreMessageRepeatedIsMutable() {
         if (!mutableCopyvalueLowerNoUnderscoreMessageRepeated_.isModifiable()) {
           mutableCopyvalueLowerNoUnderscoreMessageRepeated_ = makeMutableCopy(mutableCopyvalueLowerNoUnderscoreMessageRepeated_);
@@ -45107,8 +47538,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return mutableCopyvalueLowerNoUnderscoreMessageRepeatedBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> mutableCopyValueUpperNoUnderscoreMessageRepeated_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> mutableCopyValueUpperNoUnderscoreMessageRepeated_;
       private void ensureMutableCopyValueUpperNoUnderscoreMessageRepeatedIsMutable() {
         if (!mutableCopyValueUpperNoUnderscoreMessageRepeated_.isModifiable()) {
           mutableCopyValueUpperNoUnderscoreMessageRepeated_ = makeMutableCopy(mutableCopyValueUpperNoUnderscoreMessageRepeated_);
@@ -45341,7 +47771,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return mutableCopyValueUpperNoUnderscoreMessageRepeatedBuilder_;
       }
 
-      private com.google.protobuf.Internal.IntList mutableCopyValLowerEnumRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList mutableCopyValLowerEnumRepeated_;
       private void ensureMutableCopyValLowerEnumRepeatedIsMutable(int capacity) {
         if (!mutableCopyValLowerEnumRepeated_.isModifiable()) {
           mutableCopyValLowerEnumRepeated_ = makeMutableCopy(mutableCopyValLowerEnumRepeated_, capacity);
@@ -45422,7 +47852,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList mutableCopyValUpperEnumRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList mutableCopyValUpperEnumRepeated_;
       private void ensureMutableCopyValUpperEnumRepeatedIsMutable(int capacity) {
         if (!mutableCopyValUpperEnumRepeated_.isModifiable()) {
           mutableCopyValUpperEnumRepeated_ = makeMutableCopy(mutableCopyValUpperEnumRepeated_, capacity);
@@ -45503,7 +47933,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList mutableCopyvalueLowerNoUnderscoreEnumRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList mutableCopyvalueLowerNoUnderscoreEnumRepeated_;
       private void ensureMutableCopyvalueLowerNoUnderscoreEnumRepeatedIsMutable(int capacity) {
         if (!mutableCopyvalueLowerNoUnderscoreEnumRepeated_.isModifiable()) {
           mutableCopyvalueLowerNoUnderscoreEnumRepeated_ = makeMutableCopy(mutableCopyvalueLowerNoUnderscoreEnumRepeated_, capacity);
@@ -45584,7 +48014,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList mutableCopyValueUpperNoUnderscoreEnumRepeated_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList mutableCopyValueUpperNoUnderscoreEnumRepeated_;
       private void ensureMutableCopyValueUpperNoUnderscoreEnumRepeatedIsMutable(int capacity) {
         if (!mutableCopyValueUpperNoUnderscoreEnumRepeated_.isModifiable()) {
           mutableCopyValueUpperNoUnderscoreEnumRepeated_ = makeMutableCopy(mutableCopyValueUpperNoUnderscoreEnumRepeated_, capacity);
@@ -45678,22 +48108,3263 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static ObjCRetainedFoo parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ObjCRetainedFoo instance = new ObjCRetainedFoo((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValLowerMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValUpperMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newvalueLowerNoUnderscoreMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValueUpperNoUnderscoreMessageBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValLowerMessageRepeatedBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValUpperMessageRepeatedBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newvalueLowerNoUnderscoreMessageRepeatedBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValueUpperNoUnderscoreMessageRepeatedBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValLowerMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValUpperMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocvalueLowerNoUnderscoreMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValueUpperNoUnderscoreMessageBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValLowerMessageRepeatedBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValUpperMessageRepeatedBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocvalueLowerNoUnderscoreMessageRepeatedBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValueUpperNoUnderscoreMessageRepeatedBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValLowerMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValUpperMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyvalueLowerNoUnderscoreMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValueUpperNoUnderscoreMessageBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValLowerMessageRepeatedBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValUpperMessageRepeatedBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyvalueLowerNoUnderscoreMessageRepeatedBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValueUpperNoUnderscoreMessageRepeatedBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValLowerMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValUpperMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyvalueLowerNoUnderscoreMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValueUpperNoUnderscoreMessageBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValLowerMessageRepeatedBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValUpperMessageRepeatedBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyvalueLowerNoUnderscoreMessageRepeatedBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValueUpperNoUnderscoreMessageRepeatedBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        newValLowerMessageBuilder_ = internalGetNewValLowerMessageFieldBuilder(instance, newValLowerMessageBuilder_);
+        newValUpperMessageBuilder_ = internalGetNewValUpperMessageFieldBuilder(instance, newValUpperMessageBuilder_);
+        newvalueLowerNoUnderscoreMessageBuilder_ = internalGetNewvalueLowerNoUnderscoreMessageFieldBuilder(instance, newvalueLowerNoUnderscoreMessageBuilder_);
+        newValueUpperNoUnderscoreMessageBuilder_ = internalGetNewValueUpperNoUnderscoreMessageFieldBuilder(instance, newValueUpperNoUnderscoreMessageBuilder_);
+        newValLowerMessageRepeatedBuilder_ = internalGetNewValLowerMessageRepeatedFieldBuilder(instance, newValLowerMessageRepeatedBuilder_);
+        newValUpperMessageRepeatedBuilder_ = internalGetNewValUpperMessageRepeatedFieldBuilder(instance, newValUpperMessageRepeatedBuilder_);
+        newvalueLowerNoUnderscoreMessageRepeatedBuilder_ = internalGetNewvalueLowerNoUnderscoreMessageRepeatedFieldBuilder(instance, newvalueLowerNoUnderscoreMessageRepeatedBuilder_);
+        newValueUpperNoUnderscoreMessageRepeatedBuilder_ = internalGetNewValueUpperNoUnderscoreMessageRepeatedFieldBuilder(instance, newValueUpperNoUnderscoreMessageRepeatedBuilder_);
+        allocValLowerMessageBuilder_ = internalGetAllocValLowerMessageFieldBuilder(instance, allocValLowerMessageBuilder_);
+        allocValUpperMessageBuilder_ = internalGetAllocValUpperMessageFieldBuilder(instance, allocValUpperMessageBuilder_);
+        allocvalueLowerNoUnderscoreMessageBuilder_ = internalGetAllocvalueLowerNoUnderscoreMessageFieldBuilder(instance, allocvalueLowerNoUnderscoreMessageBuilder_);
+        allocValueUpperNoUnderscoreMessageBuilder_ = internalGetAllocValueUpperNoUnderscoreMessageFieldBuilder(instance, allocValueUpperNoUnderscoreMessageBuilder_);
+        allocValLowerMessageRepeatedBuilder_ = internalGetAllocValLowerMessageRepeatedFieldBuilder(instance, allocValLowerMessageRepeatedBuilder_);
+        allocValUpperMessageRepeatedBuilder_ = internalGetAllocValUpperMessageRepeatedFieldBuilder(instance, allocValUpperMessageRepeatedBuilder_);
+        allocvalueLowerNoUnderscoreMessageRepeatedBuilder_ = internalGetAllocvalueLowerNoUnderscoreMessageRepeatedFieldBuilder(instance, allocvalueLowerNoUnderscoreMessageRepeatedBuilder_);
+        allocValueUpperNoUnderscoreMessageRepeatedBuilder_ = internalGetAllocValueUpperNoUnderscoreMessageRepeatedFieldBuilder(instance, allocValueUpperNoUnderscoreMessageRepeatedBuilder_);
+        copyValLowerMessageBuilder_ = internalGetCopyValLowerMessageFieldBuilder(instance, copyValLowerMessageBuilder_);
+        copyValUpperMessageBuilder_ = internalGetCopyValUpperMessageFieldBuilder(instance, copyValUpperMessageBuilder_);
+        copyvalueLowerNoUnderscoreMessageBuilder_ = internalGetCopyvalueLowerNoUnderscoreMessageFieldBuilder(instance, copyvalueLowerNoUnderscoreMessageBuilder_);
+        copyValueUpperNoUnderscoreMessageBuilder_ = internalGetCopyValueUpperNoUnderscoreMessageFieldBuilder(instance, copyValueUpperNoUnderscoreMessageBuilder_);
+        copyValLowerMessageRepeatedBuilder_ = internalGetCopyValLowerMessageRepeatedFieldBuilder(instance, copyValLowerMessageRepeatedBuilder_);
+        copyValUpperMessageRepeatedBuilder_ = internalGetCopyValUpperMessageRepeatedFieldBuilder(instance, copyValUpperMessageRepeatedBuilder_);
+        copyvalueLowerNoUnderscoreMessageRepeatedBuilder_ = internalGetCopyvalueLowerNoUnderscoreMessageRepeatedFieldBuilder(instance, copyvalueLowerNoUnderscoreMessageRepeatedBuilder_);
+        copyValueUpperNoUnderscoreMessageRepeatedBuilder_ = internalGetCopyValueUpperNoUnderscoreMessageRepeatedFieldBuilder(instance, copyValueUpperNoUnderscoreMessageRepeatedBuilder_);
+        mutableCopyValLowerMessageBuilder_ = internalGetMutableCopyValLowerMessageFieldBuilder(instance, mutableCopyValLowerMessageBuilder_);
+        mutableCopyValUpperMessageBuilder_ = internalGetMutableCopyValUpperMessageFieldBuilder(instance, mutableCopyValUpperMessageBuilder_);
+        mutableCopyvalueLowerNoUnderscoreMessageBuilder_ = internalGetMutableCopyvalueLowerNoUnderscoreMessageFieldBuilder(instance, mutableCopyvalueLowerNoUnderscoreMessageBuilder_);
+        mutableCopyValueUpperNoUnderscoreMessageBuilder_ = internalGetMutableCopyValueUpperNoUnderscoreMessageFieldBuilder(instance, mutableCopyValueUpperNoUnderscoreMessageBuilder_);
+        mutableCopyValLowerMessageRepeatedBuilder_ = internalGetMutableCopyValLowerMessageRepeatedFieldBuilder(instance, mutableCopyValLowerMessageRepeatedBuilder_);
+        mutableCopyValUpperMessageRepeatedBuilder_ = internalGetMutableCopyValUpperMessageRepeatedFieldBuilder(instance, mutableCopyValUpperMessageRepeatedBuilder_);
+        mutableCopyvalueLowerNoUnderscoreMessageRepeatedBuilder_ = internalGetMutableCopyvalueLowerNoUnderscoreMessageRepeatedFieldBuilder(instance, mutableCopyvalueLowerNoUnderscoreMessageRepeatedBuilder_);
+        mutableCopyValueUpperNoUnderscoreMessageRepeatedBuilder_ = internalGetMutableCopyValueUpperNoUnderscoreMessageRepeatedFieldBuilder(instance, mutableCopyValueUpperNoUnderscoreMessageRepeatedBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 90: {
+              instance.newValLowerComplex_ = input.readBytes();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 90
+            case 98: {
+              instance.newValUpperComplex_ = input.readBytes();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 98
+            case 106: {
+              instance.newvalueLowerNoUnderscoreComplex_ = input.readBytes();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 106
+            case 114: {
+              instance.newValueUpperNoUnderscoreComplex_ = input.readBytes();
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 114
+            case 120: {
+              instance.newValLowerPrimitive_ = input.readInt32();
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 120
+            case 128: {
+              instance.newValUpperPrimitive_ = input.readInt32();
+              instance.bitField0_ |= 0x00000020;
+              break;
+            } // case 128
+            case 136: {
+              instance.newvalueLowerNoUnderscorePrimitive_ = input.readInt32();
+              instance.bitField0_ |= 0x00000040;
+              break;
+            } // case 136
+            case 144: {
+              instance.newValueUpperNoUnderscorePrimitive_ = input.readInt32();
+              instance.bitField0_ |= 0x00000080;
+              break;
+            } // case 144
+            case 154: {
+              if (instance.newValLowerMessage_ != null || newValLowerMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseNewValLowerMessageField(instance, input, extensionRegistry, newValLowerMessageBuilder_);
+              break;
+            } // case 154
+            case 162: {
+              if (instance.newValUpperMessage_ != null || newValUpperMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseNewValUpperMessageField(instance, input, extensionRegistry, newValUpperMessageBuilder_);
+              break;
+            } // case 162
+            case 170: {
+              if (instance.newvalueLowerNoUnderscoreMessage_ != null || newvalueLowerNoUnderscoreMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseNewvalueLowerNoUnderscoreMessageField(instance, input, extensionRegistry, newvalueLowerNoUnderscoreMessageBuilder_);
+              break;
+            } // case 170
+            case 178: {
+              if (instance.newValueUpperNoUnderscoreMessage_ != null || newValueUpperNoUnderscoreMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseNewValueUpperNoUnderscoreMessageField(instance, input, extensionRegistry, newValueUpperNoUnderscoreMessageBuilder_);
+              break;
+            } // case 178
+            case 184: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 23, tmpRaw);
+              } else {
+                instance.newValLowerEnum_ = tmpRaw;
+                instance.bitField0_ |= 0x00001000;
+              }
+              break;
+            } // case 184
+            case 192: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 24, tmpRaw);
+              } else {
+                instance.newValUpperEnum_ = tmpRaw;
+                instance.bitField0_ |= 0x00002000;
+              }
+              break;
+            } // case 192
+            case 200: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 25, tmpRaw);
+              } else {
+                instance.newvalueLowerNoUnderscoreEnum_ = tmpRaw;
+                instance.bitField0_ |= 0x00004000;
+              }
+              break;
+            } // case 200
+            case 208: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 26, tmpRaw);
+              } else {
+                instance.newValueUpperNoUnderscoreEnum_ = tmpRaw;
+                instance.bitField0_ |= 0x00008000;
+              }
+              break;
+            } // case 208
+            case 890: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureNewValLowerComplexRepeatedIsMutable(instance);
+              instance.newValLowerComplexRepeated_.add(bs);
+              break;
+            } // case 890
+            case 898: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureNewValUpperComplexRepeatedIsMutable(instance);
+              instance.newValUpperComplexRepeated_.add(bs);
+              break;
+            } // case 898
+            case 906: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureNewvalueLowerNoUnderscoreComplexRepeatedIsMutable(instance);
+              instance.newvalueLowerNoUnderscoreComplexRepeated_.add(bs);
+              break;
+            } // case 906
+            case 914: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureNewValueUpperNoUnderscoreComplexRepeatedIsMutable(instance);
+              instance.newValueUpperNoUnderscoreComplexRepeated_.add(bs);
+              break;
+            } // case 914
+            case 920: {
+              int v = input.readInt32();
+              ensureNewValLowerPrimitiveRepeatedIsMutable(instance, /* capacity= */ -1);
+              instance.newValLowerPrimitiveRepeated_.addInt(v);
+              break;
+            } // case 920
+            case 922: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureNewValLowerPrimitiveRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.newValLowerPrimitiveRepeated_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 922
+            case 928: {
+              int v = input.readInt32();
+              ensureNewValUpperPrimitiveRepeatedIsMutable(instance, /* capacity= */ -1);
+              instance.newValUpperPrimitiveRepeated_.addInt(v);
+              break;
+            } // case 928
+            case 930: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureNewValUpperPrimitiveRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.newValUpperPrimitiveRepeated_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 930
+            case 936: {
+              int v = input.readInt32();
+              ensureNewvalueLowerNoUnderscorePrimitiveRepeatedIsMutable(instance, /* capacity= */ -1);
+              instance.newvalueLowerNoUnderscorePrimitiveRepeated_.addInt(v);
+              break;
+            } // case 936
+            case 938: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureNewvalueLowerNoUnderscorePrimitiveRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.newvalueLowerNoUnderscorePrimitiveRepeated_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 938
+            case 944: {
+              int v = input.readInt32();
+              ensureNewValueUpperNoUnderscorePrimitiveRepeatedIsMutable(instance, /* capacity= */ -1);
+              instance.newValueUpperNoUnderscorePrimitiveRepeated_.addInt(v);
+              break;
+            } // case 944
+            case 946: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureNewValueUpperNoUnderscorePrimitiveRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.newValueUpperNoUnderscorePrimitiveRepeated_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 946
+            case 954: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (newValLowerMessageRepeatedBuilder_ == null) {
+                ensureNewValLowerMessageRepeatedIsMutable(instance);
+                instance.newValLowerMessageRepeated_.add(m);
+              } else {
+                newValLowerMessageRepeatedBuilder_.addMessage(m);
+                instance.bitField2_ |= 0x00000100;
+
+              }
+              break;
+            } // case 954
+            case 962: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (newValUpperMessageRepeatedBuilder_ == null) {
+                ensureNewValUpperMessageRepeatedIsMutable(instance);
+                instance.newValUpperMessageRepeated_.add(m);
+              } else {
+                newValUpperMessageRepeatedBuilder_.addMessage(m);
+                instance.bitField2_ |= 0x00000200;
+
+              }
+              break;
+            } // case 962
+            case 970: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (newvalueLowerNoUnderscoreMessageRepeatedBuilder_ == null) {
+                ensureNewvalueLowerNoUnderscoreMessageRepeatedIsMutable(instance);
+                instance.newvalueLowerNoUnderscoreMessageRepeated_.add(m);
+              } else {
+                newvalueLowerNoUnderscoreMessageRepeatedBuilder_.addMessage(m);
+                instance.bitField2_ |= 0x00000400;
+
+              }
+              break;
+            } // case 970
+            case 978: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (newValueUpperNoUnderscoreMessageRepeatedBuilder_ == null) {
+                ensureNewValueUpperNoUnderscoreMessageRepeatedIsMutable(instance);
+                instance.newValueUpperNoUnderscoreMessageRepeated_.add(m);
+              } else {
+                newValueUpperNoUnderscoreMessageRepeatedBuilder_.addMessage(m);
+                instance.bitField2_ |= 0x00000800;
+
+              }
+              break;
+            } // case 978
+            case 984: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 123, tmpRaw);
+              } else {
+                ensureNewValLowerEnumRepeatedIsMutable(instance, /* capacity= */ -1);
+                instance.newValLowerEnumRepeated_.addInt(tmpRaw);
+              }
+              break;
+            } // case 984
+            case 986: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureNewValLowerEnumRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                    objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 123, tmpRaw);
+                } else {
+                  instance.newValLowerEnumRepeated_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 986
+            case 992: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 124, tmpRaw);
+              } else {
+                ensureNewValUpperEnumRepeatedIsMutable(instance, /* capacity= */ -1);
+                instance.newValUpperEnumRepeated_.addInt(tmpRaw);
+              }
+              break;
+            } // case 992
+            case 994: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureNewValUpperEnumRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                    objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 124, tmpRaw);
+                } else {
+                  instance.newValUpperEnumRepeated_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 994
+            case 1000: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 125, tmpRaw);
+              } else {
+                ensureNewvalueLowerNoUnderscoreEnumRepeatedIsMutable(instance, /* capacity= */ -1);
+                instance.newvalueLowerNoUnderscoreEnumRepeated_.addInt(tmpRaw);
+              }
+              break;
+            } // case 1000
+            case 1002: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureNewvalueLowerNoUnderscoreEnumRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                    objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 125, tmpRaw);
+                } else {
+                  instance.newvalueLowerNoUnderscoreEnumRepeated_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 1002
+            case 1008: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 126, tmpRaw);
+              } else {
+                ensureNewValueUpperNoUnderscoreEnumRepeatedIsMutable(instance, /* capacity= */ -1);
+                instance.newValueUpperNoUnderscoreEnumRepeated_.addInt(tmpRaw);
+              }
+              break;
+            } // case 1008
+            case 1010: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureNewValueUpperNoUnderscoreEnumRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                    objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 126, tmpRaw);
+                } else {
+                  instance.newValueUpperNoUnderscoreEnumRepeated_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 1010
+            case 1690: {
+              instance.allocValLowerComplex_ = input.readBytes();
+              instance.bitField0_ |= 0x00010000;
+              break;
+            } // case 1690
+            case 1698: {
+              instance.allocValUpperComplex_ = input.readBytes();
+              instance.bitField0_ |= 0x00020000;
+              break;
+            } // case 1698
+            case 1706: {
+              instance.allocvalueLowerNoUnderscoreComplex_ = input.readBytes();
+              instance.bitField0_ |= 0x00040000;
+              break;
+            } // case 1706
+            case 1714: {
+              instance.allocValueUpperNoUnderscoreComplex_ = input.readBytes();
+              instance.bitField0_ |= 0x00080000;
+              break;
+            } // case 1714
+            case 1720: {
+              instance.allocValLowerPrimitive_ = input.readInt32();
+              instance.bitField0_ |= 0x00100000;
+              break;
+            } // case 1720
+            case 1728: {
+              instance.allocValUpperPrimitive_ = input.readInt32();
+              instance.bitField0_ |= 0x00200000;
+              break;
+            } // case 1728
+            case 1736: {
+              instance.allocvalueLowerNoUnderscorePrimitive_ = input.readInt32();
+              instance.bitField0_ |= 0x00400000;
+              break;
+            } // case 1736
+            case 1744: {
+              instance.allocValueUpperNoUnderscorePrimitive_ = input.readInt32();
+              instance.bitField0_ |= 0x00800000;
+              break;
+            } // case 1744
+            case 1754: {
+              if (instance.allocValLowerMessage_ != null || allocValLowerMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseAllocValLowerMessageField(instance, input, extensionRegistry, allocValLowerMessageBuilder_);
+              break;
+            } // case 1754
+            case 1762: {
+              if (instance.allocValUpperMessage_ != null || allocValUpperMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseAllocValUpperMessageField(instance, input, extensionRegistry, allocValUpperMessageBuilder_);
+              break;
+            } // case 1762
+            case 1770: {
+              if (instance.allocvalueLowerNoUnderscoreMessage_ != null || allocvalueLowerNoUnderscoreMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseAllocvalueLowerNoUnderscoreMessageField(instance, input, extensionRegistry, allocvalueLowerNoUnderscoreMessageBuilder_);
+              break;
+            } // case 1770
+            case 1778: {
+              if (instance.allocValueUpperNoUnderscoreMessage_ != null || allocValueUpperNoUnderscoreMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseAllocValueUpperNoUnderscoreMessageField(instance, input, extensionRegistry, allocValueUpperNoUnderscoreMessageBuilder_);
+              break;
+            } // case 1778
+            case 1784: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 223, tmpRaw);
+              } else {
+                instance.allocValLowerEnum_ = tmpRaw;
+                instance.bitField0_ |= 0x10000000;
+              }
+              break;
+            } // case 1784
+            case 1792: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 224, tmpRaw);
+              } else {
+                instance.allocValUpperEnum_ = tmpRaw;
+                instance.bitField0_ |= 0x20000000;
+              }
+              break;
+            } // case 1792
+            case 1800: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 225, tmpRaw);
+              } else {
+                instance.allocvalueLowerNoUnderscoreEnum_ = tmpRaw;
+                instance.bitField0_ |= 0x40000000;
+              }
+              break;
+            } // case 1800
+            case 1808: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 226, tmpRaw);
+              } else {
+                instance.allocValueUpperNoUnderscoreEnum_ = tmpRaw;
+                instance.bitField0_ |= 0x80000000;
+              }
+              break;
+            } // case 1808
+            case 2490: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureAllocValLowerComplexRepeatedIsMutable(instance);
+              instance.allocValLowerComplexRepeated_.add(bs);
+              break;
+            } // case 2490
+            case 2498: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureAllocValUpperComplexRepeatedIsMutable(instance);
+              instance.allocValUpperComplexRepeated_.add(bs);
+              break;
+            } // case 2498
+            case 2506: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureAllocvalueLowerNoUnderscoreComplexRepeatedIsMutable(instance);
+              instance.allocvalueLowerNoUnderscoreComplexRepeated_.add(bs);
+              break;
+            } // case 2506
+            case 2514: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureAllocValueUpperNoUnderscoreComplexRepeatedIsMutable(instance);
+              instance.allocValueUpperNoUnderscoreComplexRepeated_.add(bs);
+              break;
+            } // case 2514
+            case 2520: {
+              int v = input.readInt32();
+              ensureAllocValLowerPrimitiveRepeatedIsMutable(instance, /* capacity= */ -1);
+              instance.allocValLowerPrimitiveRepeated_.addInt(v);
+              break;
+            } // case 2520
+            case 2522: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureAllocValLowerPrimitiveRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.allocValLowerPrimitiveRepeated_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 2522
+            case 2528: {
+              int v = input.readInt32();
+              ensureAllocValUpperPrimitiveRepeatedIsMutable(instance, /* capacity= */ -1);
+              instance.allocValUpperPrimitiveRepeated_.addInt(v);
+              break;
+            } // case 2528
+            case 2530: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureAllocValUpperPrimitiveRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.allocValUpperPrimitiveRepeated_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 2530
+            case 2536: {
+              int v = input.readInt32();
+              ensureAllocvalueLowerNoUnderscorePrimitiveRepeatedIsMutable(instance, /* capacity= */ -1);
+              instance.allocvalueLowerNoUnderscorePrimitiveRepeated_.addInt(v);
+              break;
+            } // case 2536
+            case 2538: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureAllocvalueLowerNoUnderscorePrimitiveRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.allocvalueLowerNoUnderscorePrimitiveRepeated_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 2538
+            case 2544: {
+              int v = input.readInt32();
+              ensureAllocValueUpperNoUnderscorePrimitiveRepeatedIsMutable(instance, /* capacity= */ -1);
+              instance.allocValueUpperNoUnderscorePrimitiveRepeated_.addInt(v);
+              break;
+            } // case 2544
+            case 2546: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureAllocValueUpperNoUnderscorePrimitiveRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.allocValueUpperNoUnderscorePrimitiveRepeated_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 2546
+            case 2554: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (allocValLowerMessageRepeatedBuilder_ == null) {
+                ensureAllocValLowerMessageRepeatedIsMutable(instance);
+                instance.allocValLowerMessageRepeated_.add(m);
+              } else {
+                allocValLowerMessageRepeatedBuilder_.addMessage(m);
+                instance.bitField2_ |= 0x01000000;
+
+              }
+              break;
+            } // case 2554
+            case 2562: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (allocValUpperMessageRepeatedBuilder_ == null) {
+                ensureAllocValUpperMessageRepeatedIsMutable(instance);
+                instance.allocValUpperMessageRepeated_.add(m);
+              } else {
+                allocValUpperMessageRepeatedBuilder_.addMessage(m);
+                instance.bitField2_ |= 0x02000000;
+
+              }
+              break;
+            } // case 2562
+            case 2570: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (allocvalueLowerNoUnderscoreMessageRepeatedBuilder_ == null) {
+                ensureAllocvalueLowerNoUnderscoreMessageRepeatedIsMutable(instance);
+                instance.allocvalueLowerNoUnderscoreMessageRepeated_.add(m);
+              } else {
+                allocvalueLowerNoUnderscoreMessageRepeatedBuilder_.addMessage(m);
+                instance.bitField2_ |= 0x04000000;
+
+              }
+              break;
+            } // case 2570
+            case 2578: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (allocValueUpperNoUnderscoreMessageRepeatedBuilder_ == null) {
+                ensureAllocValueUpperNoUnderscoreMessageRepeatedIsMutable(instance);
+                instance.allocValueUpperNoUnderscoreMessageRepeated_.add(m);
+              } else {
+                allocValueUpperNoUnderscoreMessageRepeatedBuilder_.addMessage(m);
+                instance.bitField2_ |= 0x08000000;
+
+              }
+              break;
+            } // case 2578
+            case 2584: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 323, tmpRaw);
+              } else {
+                ensureAllocValLowerEnumRepeatedIsMutable(instance, /* capacity= */ -1);
+                instance.allocValLowerEnumRepeated_.addInt(tmpRaw);
+              }
+              break;
+            } // case 2584
+            case 2586: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureAllocValLowerEnumRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                    objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 323, tmpRaw);
+                } else {
+                  instance.allocValLowerEnumRepeated_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 2586
+            case 2592: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 324, tmpRaw);
+              } else {
+                ensureAllocValUpperEnumRepeatedIsMutable(instance, /* capacity= */ -1);
+                instance.allocValUpperEnumRepeated_.addInt(tmpRaw);
+              }
+              break;
+            } // case 2592
+            case 2594: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureAllocValUpperEnumRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                    objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 324, tmpRaw);
+                } else {
+                  instance.allocValUpperEnumRepeated_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 2594
+            case 2600: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 325, tmpRaw);
+              } else {
+                ensureAllocvalueLowerNoUnderscoreEnumRepeatedIsMutable(instance, /* capacity= */ -1);
+                instance.allocvalueLowerNoUnderscoreEnumRepeated_.addInt(tmpRaw);
+              }
+              break;
+            } // case 2600
+            case 2602: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureAllocvalueLowerNoUnderscoreEnumRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                    objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 325, tmpRaw);
+                } else {
+                  instance.allocvalueLowerNoUnderscoreEnumRepeated_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 2602
+            case 2608: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 326, tmpRaw);
+              } else {
+                ensureAllocValueUpperNoUnderscoreEnumRepeatedIsMutable(instance, /* capacity= */ -1);
+                instance.allocValueUpperNoUnderscoreEnumRepeated_.addInt(tmpRaw);
+              }
+              break;
+            } // case 2608
+            case 2610: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureAllocValueUpperNoUnderscoreEnumRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                    objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 326, tmpRaw);
+                } else {
+                  instance.allocValueUpperNoUnderscoreEnumRepeated_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 2610
+            case 3290: {
+              instance.copyValLowerComplex_ = input.readBytes();
+              instance.bitField1_ |= 0x00000001;
+              break;
+            } // case 3290
+            case 3298: {
+              instance.copyValUpperComplex_ = input.readBytes();
+              instance.bitField1_ |= 0x00000002;
+              break;
+            } // case 3298
+            case 3306: {
+              instance.copyvalueLowerNoUnderscoreComplex_ = input.readBytes();
+              instance.bitField1_ |= 0x00000004;
+              break;
+            } // case 3306
+            case 3314: {
+              instance.copyValueUpperNoUnderscoreComplex_ = input.readBytes();
+              instance.bitField1_ |= 0x00000008;
+              break;
+            } // case 3314
+            case 3320: {
+              instance.copyValLowerPrimitive_ = input.readInt32();
+              instance.bitField1_ |= 0x00000010;
+              break;
+            } // case 3320
+            case 3328: {
+              instance.copyValUpperPrimitive_ = input.readInt32();
+              instance.bitField1_ |= 0x00000020;
+              break;
+            } // case 3328
+            case 3336: {
+              instance.copyvalueLowerNoUnderscorePrimitive_ = input.readInt32();
+              instance.bitField1_ |= 0x00000040;
+              break;
+            } // case 3336
+            case 3344: {
+              instance.copyValueUpperNoUnderscorePrimitive_ = input.readInt32();
+              instance.bitField1_ |= 0x00000080;
+              break;
+            } // case 3344
+            case 3354: {
+              if (instance.copyValLowerMessage_ != null || copyValLowerMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseCopyValLowerMessageField(instance, input, extensionRegistry, copyValLowerMessageBuilder_);
+              break;
+            } // case 3354
+            case 3362: {
+              if (instance.copyValUpperMessage_ != null || copyValUpperMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseCopyValUpperMessageField(instance, input, extensionRegistry, copyValUpperMessageBuilder_);
+              break;
+            } // case 3362
+            case 3370: {
+              if (instance.copyvalueLowerNoUnderscoreMessage_ != null || copyvalueLowerNoUnderscoreMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseCopyvalueLowerNoUnderscoreMessageField(instance, input, extensionRegistry, copyvalueLowerNoUnderscoreMessageBuilder_);
+              break;
+            } // case 3370
+            case 3378: {
+              if (instance.copyValueUpperNoUnderscoreMessage_ != null || copyValueUpperNoUnderscoreMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseCopyValueUpperNoUnderscoreMessageField(instance, input, extensionRegistry, copyValueUpperNoUnderscoreMessageBuilder_);
+              break;
+            } // case 3378
+            case 3384: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 423, tmpRaw);
+              } else {
+                instance.copyValLowerEnum_ = tmpRaw;
+                instance.bitField1_ |= 0x00001000;
+              }
+              break;
+            } // case 3384
+            case 3392: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 424, tmpRaw);
+              } else {
+                instance.copyValUpperEnum_ = tmpRaw;
+                instance.bitField1_ |= 0x00002000;
+              }
+              break;
+            } // case 3392
+            case 3400: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 425, tmpRaw);
+              } else {
+                instance.copyvalueLowerNoUnderscoreEnum_ = tmpRaw;
+                instance.bitField1_ |= 0x00004000;
+              }
+              break;
+            } // case 3400
+            case 3408: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 426, tmpRaw);
+              } else {
+                instance.copyValueUpperNoUnderscoreEnum_ = tmpRaw;
+                instance.bitField1_ |= 0x00008000;
+              }
+              break;
+            } // case 3408
+            case 4090: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureCopyValLowerComplexRepeatedIsMutable(instance);
+              instance.copyValLowerComplexRepeated_.add(bs);
+              break;
+            } // case 4090
+            case 4098: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureCopyValUpperComplexRepeatedIsMutable(instance);
+              instance.copyValUpperComplexRepeated_.add(bs);
+              break;
+            } // case 4098
+            case 4106: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureCopyvalueLowerNoUnderscoreComplexRepeatedIsMutable(instance);
+              instance.copyvalueLowerNoUnderscoreComplexRepeated_.add(bs);
+              break;
+            } // case 4106
+            case 4114: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureCopyValueUpperNoUnderscoreComplexRepeatedIsMutable(instance);
+              instance.copyValueUpperNoUnderscoreComplexRepeated_.add(bs);
+              break;
+            } // case 4114
+            case 4120: {
+              int v = input.readInt32();
+              ensureCopyValLowerPrimitiveRepeatedIsMutable(instance, /* capacity= */ -1);
+              instance.copyValLowerPrimitiveRepeated_.addInt(v);
+              break;
+            } // case 4120
+            case 4122: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureCopyValLowerPrimitiveRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.copyValLowerPrimitiveRepeated_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 4122
+            case 4128: {
+              int v = input.readInt32();
+              ensureCopyValUpperPrimitiveRepeatedIsMutable(instance, /* capacity= */ -1);
+              instance.copyValUpperPrimitiveRepeated_.addInt(v);
+              break;
+            } // case 4128
+            case 4130: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureCopyValUpperPrimitiveRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.copyValUpperPrimitiveRepeated_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 4130
+            case 4136: {
+              int v = input.readInt32();
+              ensureCopyvalueLowerNoUnderscorePrimitiveRepeatedIsMutable(instance, /* capacity= */ -1);
+              instance.copyvalueLowerNoUnderscorePrimitiveRepeated_.addInt(v);
+              break;
+            } // case 4136
+            case 4138: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureCopyvalueLowerNoUnderscorePrimitiveRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.copyvalueLowerNoUnderscorePrimitiveRepeated_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 4138
+            case 4144: {
+              int v = input.readInt32();
+              ensureCopyValueUpperNoUnderscorePrimitiveRepeatedIsMutable(instance, /* capacity= */ -1);
+              instance.copyValueUpperNoUnderscorePrimitiveRepeated_.addInt(v);
+              break;
+            } // case 4144
+            case 4146: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureCopyValueUpperNoUnderscorePrimitiveRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.copyValueUpperNoUnderscorePrimitiveRepeated_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 4146
+            case 4154: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (copyValLowerMessageRepeatedBuilder_ == null) {
+                ensureCopyValLowerMessageRepeatedIsMutable(instance);
+                instance.copyValLowerMessageRepeated_.add(m);
+              } else {
+                copyValLowerMessageRepeatedBuilder_.addMessage(m);
+                instance.bitField3_ |= 0x00000100;
+
+              }
+              break;
+            } // case 4154
+            case 4162: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (copyValUpperMessageRepeatedBuilder_ == null) {
+                ensureCopyValUpperMessageRepeatedIsMutable(instance);
+                instance.copyValUpperMessageRepeated_.add(m);
+              } else {
+                copyValUpperMessageRepeatedBuilder_.addMessage(m);
+                instance.bitField3_ |= 0x00000200;
+
+              }
+              break;
+            } // case 4162
+            case 4170: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (copyvalueLowerNoUnderscoreMessageRepeatedBuilder_ == null) {
+                ensureCopyvalueLowerNoUnderscoreMessageRepeatedIsMutable(instance);
+                instance.copyvalueLowerNoUnderscoreMessageRepeated_.add(m);
+              } else {
+                copyvalueLowerNoUnderscoreMessageRepeatedBuilder_.addMessage(m);
+                instance.bitField3_ |= 0x00000400;
+
+              }
+              break;
+            } // case 4170
+            case 4178: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (copyValueUpperNoUnderscoreMessageRepeatedBuilder_ == null) {
+                ensureCopyValueUpperNoUnderscoreMessageRepeatedIsMutable(instance);
+                instance.copyValueUpperNoUnderscoreMessageRepeated_.add(m);
+              } else {
+                copyValueUpperNoUnderscoreMessageRepeatedBuilder_.addMessage(m);
+                instance.bitField3_ |= 0x00000800;
+
+              }
+              break;
+            } // case 4178
+            case 4184: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 523, tmpRaw);
+              } else {
+                ensureCopyValLowerEnumRepeatedIsMutable(instance, /* capacity= */ -1);
+                instance.copyValLowerEnumRepeated_.addInt(tmpRaw);
+              }
+              break;
+            } // case 4184
+            case 4186: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureCopyValLowerEnumRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                    objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 523, tmpRaw);
+                } else {
+                  instance.copyValLowerEnumRepeated_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 4186
+            case 4192: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 524, tmpRaw);
+              } else {
+                ensureCopyValUpperEnumRepeatedIsMutable(instance, /* capacity= */ -1);
+                instance.copyValUpperEnumRepeated_.addInt(tmpRaw);
+              }
+              break;
+            } // case 4192
+            case 4194: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureCopyValUpperEnumRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                    objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 524, tmpRaw);
+                } else {
+                  instance.copyValUpperEnumRepeated_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 4194
+            case 4200: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 525, tmpRaw);
+              } else {
+                ensureCopyvalueLowerNoUnderscoreEnumRepeatedIsMutable(instance, /* capacity= */ -1);
+                instance.copyvalueLowerNoUnderscoreEnumRepeated_.addInt(tmpRaw);
+              }
+              break;
+            } // case 4200
+            case 4202: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureCopyvalueLowerNoUnderscoreEnumRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                    objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 525, tmpRaw);
+                } else {
+                  instance.copyvalueLowerNoUnderscoreEnumRepeated_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 4202
+            case 4208: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 526, tmpRaw);
+              } else {
+                ensureCopyValueUpperNoUnderscoreEnumRepeatedIsMutable(instance, /* capacity= */ -1);
+                instance.copyValueUpperNoUnderscoreEnumRepeated_.addInt(tmpRaw);
+              }
+              break;
+            } // case 4208
+            case 4210: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureCopyValueUpperNoUnderscoreEnumRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                    objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 526, tmpRaw);
+                } else {
+                  instance.copyValueUpperNoUnderscoreEnumRepeated_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 4210
+            case 4890: {
+              instance.mutableCopyValLowerComplex_ = input.readBytes();
+              instance.bitField1_ |= 0x00010000;
+              break;
+            } // case 4890
+            case 4898: {
+              instance.mutableCopyValUpperComplex_ = input.readBytes();
+              instance.bitField1_ |= 0x00020000;
+              break;
+            } // case 4898
+            case 4906: {
+              instance.mutableCopyvalueLowerNoUnderscoreComplex_ = input.readBytes();
+              instance.bitField1_ |= 0x00040000;
+              break;
+            } // case 4906
+            case 4914: {
+              instance.mutableCopyValueUpperNoUnderscoreComplex_ = input.readBytes();
+              instance.bitField1_ |= 0x00080000;
+              break;
+            } // case 4914
+            case 4920: {
+              instance.mutableCopyValLowerPrimitive_ = input.readInt32();
+              instance.bitField1_ |= 0x00100000;
+              break;
+            } // case 4920
+            case 4928: {
+              instance.mutableCopyValUpperPrimitive_ = input.readInt32();
+              instance.bitField1_ |= 0x00200000;
+              break;
+            } // case 4928
+            case 4936: {
+              instance.mutableCopyvalueLowerNoUnderscorePrimitive_ = input.readInt32();
+              instance.bitField1_ |= 0x00400000;
+              break;
+            } // case 4936
+            case 4944: {
+              instance.mutableCopyValueUpperNoUnderscorePrimitive_ = input.readInt32();
+              instance.bitField1_ |= 0x00800000;
+              break;
+            } // case 4944
+            case 4954: {
+              if (instance.mutableCopyValLowerMessage_ != null || mutableCopyValLowerMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseMutableCopyValLowerMessageField(instance, input, extensionRegistry, mutableCopyValLowerMessageBuilder_);
+              break;
+            } // case 4954
+            case 4962: {
+              if (instance.mutableCopyValUpperMessage_ != null || mutableCopyValUpperMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseMutableCopyValUpperMessageField(instance, input, extensionRegistry, mutableCopyValUpperMessageBuilder_);
+              break;
+            } // case 4962
+            case 4970: {
+              if (instance.mutableCopyvalueLowerNoUnderscoreMessage_ != null || mutableCopyvalueLowerNoUnderscoreMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseMutableCopyvalueLowerNoUnderscoreMessageField(instance, input, extensionRegistry, mutableCopyvalueLowerNoUnderscoreMessageBuilder_);
+              break;
+            } // case 4970
+            case 4978: {
+              if (instance.mutableCopyValueUpperNoUnderscoreMessage_ != null || mutableCopyValueUpperNoUnderscoreMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseMutableCopyValueUpperNoUnderscoreMessageField(instance, input, extensionRegistry, mutableCopyValueUpperNoUnderscoreMessageBuilder_);
+              break;
+            } // case 4978
+            case 4984: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 623, tmpRaw);
+              } else {
+                instance.mutableCopyValLowerEnum_ = tmpRaw;
+                instance.bitField1_ |= 0x10000000;
+              }
+              break;
+            } // case 4984
+            case 4992: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 624, tmpRaw);
+              } else {
+                instance.mutableCopyValUpperEnum_ = tmpRaw;
+                instance.bitField1_ |= 0x20000000;
+              }
+              break;
+            } // case 4992
+            case 5000: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 625, tmpRaw);
+              } else {
+                instance.mutableCopyvalueLowerNoUnderscoreEnum_ = tmpRaw;
+                instance.bitField1_ |= 0x40000000;
+              }
+              break;
+            } // case 5000
+            case 5008: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 626, tmpRaw);
+              } else {
+                instance.mutableCopyValueUpperNoUnderscoreEnum_ = tmpRaw;
+                instance.bitField1_ |= 0x80000000;
+              }
+              break;
+            } // case 5008
+            case 5690: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureMutableCopyValLowerComplexRepeatedIsMutable(instance);
+              instance.mutableCopyValLowerComplexRepeated_.add(bs);
+              break;
+            } // case 5690
+            case 5698: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureMutableCopyValUpperComplexRepeatedIsMutable(instance);
+              instance.mutableCopyValUpperComplexRepeated_.add(bs);
+              break;
+            } // case 5698
+            case 5706: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureMutableCopyvalueLowerNoUnderscoreComplexRepeatedIsMutable(instance);
+              instance.mutableCopyvalueLowerNoUnderscoreComplexRepeated_.add(bs);
+              break;
+            } // case 5706
+            case 5714: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureMutableCopyValueUpperNoUnderscoreComplexRepeatedIsMutable(instance);
+              instance.mutableCopyValueUpperNoUnderscoreComplexRepeated_.add(bs);
+              break;
+            } // case 5714
+            case 5720: {
+              int v = input.readInt32();
+              ensureMutableCopyValLowerPrimitiveRepeatedIsMutable(instance, /* capacity= */ -1);
+              instance.mutableCopyValLowerPrimitiveRepeated_.addInt(v);
+              break;
+            } // case 5720
+            case 5722: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureMutableCopyValLowerPrimitiveRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.mutableCopyValLowerPrimitiveRepeated_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 5722
+            case 5728: {
+              int v = input.readInt32();
+              ensureMutableCopyValUpperPrimitiveRepeatedIsMutable(instance, /* capacity= */ -1);
+              instance.mutableCopyValUpperPrimitiveRepeated_.addInt(v);
+              break;
+            } // case 5728
+            case 5730: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureMutableCopyValUpperPrimitiveRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.mutableCopyValUpperPrimitiveRepeated_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 5730
+            case 5736: {
+              int v = input.readInt32();
+              ensureMutableCopyvalueLowerNoUnderscorePrimitiveRepeatedIsMutable(instance, /* capacity= */ -1);
+              instance.mutableCopyvalueLowerNoUnderscorePrimitiveRepeated_.addInt(v);
+              break;
+            } // case 5736
+            case 5738: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureMutableCopyvalueLowerNoUnderscorePrimitiveRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.mutableCopyvalueLowerNoUnderscorePrimitiveRepeated_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 5738
+            case 5744: {
+              int v = input.readInt32();
+              ensureMutableCopyValueUpperNoUnderscorePrimitiveRepeatedIsMutable(instance, /* capacity= */ -1);
+              instance.mutableCopyValueUpperNoUnderscorePrimitiveRepeated_.addInt(v);
+              break;
+            } // case 5744
+            case 5746: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureMutableCopyValueUpperNoUnderscorePrimitiveRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.mutableCopyValueUpperNoUnderscorePrimitiveRepeated_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 5746
+            case 5754: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (mutableCopyValLowerMessageRepeatedBuilder_ == null) {
+                ensureMutableCopyValLowerMessageRepeatedIsMutable(instance);
+                instance.mutableCopyValLowerMessageRepeated_.add(m);
+              } else {
+                mutableCopyValLowerMessageRepeatedBuilder_.addMessage(m);
+                instance.bitField3_ |= 0x01000000;
+
+              }
+              break;
+            } // case 5754
+            case 5762: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (mutableCopyValUpperMessageRepeatedBuilder_ == null) {
+                ensureMutableCopyValUpperMessageRepeatedIsMutable(instance);
+                instance.mutableCopyValUpperMessageRepeated_.add(m);
+              } else {
+                mutableCopyValUpperMessageRepeatedBuilder_.addMessage(m);
+                instance.bitField3_ |= 0x02000000;
+
+              }
+              break;
+            } // case 5762
+            case 5770: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (mutableCopyvalueLowerNoUnderscoreMessageRepeatedBuilder_ == null) {
+                ensureMutableCopyvalueLowerNoUnderscoreMessageRepeatedIsMutable(instance);
+                instance.mutableCopyvalueLowerNoUnderscoreMessageRepeated_.add(m);
+              } else {
+                mutableCopyvalueLowerNoUnderscoreMessageRepeatedBuilder_.addMessage(m);
+                instance.bitField3_ |= 0x04000000;
+
+              }
+              break;
+            } // case 5770
+            case 5778: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (mutableCopyValueUpperNoUnderscoreMessageRepeatedBuilder_ == null) {
+                ensureMutableCopyValueUpperNoUnderscoreMessageRepeatedIsMutable(instance);
+                instance.mutableCopyValueUpperNoUnderscoreMessageRepeated_.add(m);
+              } else {
+                mutableCopyValueUpperNoUnderscoreMessageRepeatedBuilder_.addMessage(m);
+                instance.bitField3_ |= 0x08000000;
+
+              }
+              break;
+            } // case 5778
+            case 5784: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 723, tmpRaw);
+              } else {
+                ensureMutableCopyValLowerEnumRepeatedIsMutable(instance, /* capacity= */ -1);
+                instance.mutableCopyValLowerEnumRepeated_.addInt(tmpRaw);
+              }
+              break;
+            } // case 5784
+            case 5786: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureMutableCopyValLowerEnumRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                    objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 723, tmpRaw);
+                } else {
+                  instance.mutableCopyValLowerEnumRepeated_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 5786
+            case 5792: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 724, tmpRaw);
+              } else {
+                ensureMutableCopyValUpperEnumRepeatedIsMutable(instance, /* capacity= */ -1);
+                instance.mutableCopyValUpperEnumRepeated_.addInt(tmpRaw);
+              }
+              break;
+            } // case 5792
+            case 5794: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureMutableCopyValUpperEnumRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                    objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 724, tmpRaw);
+                } else {
+                  instance.mutableCopyValUpperEnumRepeated_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 5794
+            case 5800: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 725, tmpRaw);
+              } else {
+                ensureMutableCopyvalueLowerNoUnderscoreEnumRepeatedIsMutable(instance, /* capacity= */ -1);
+                instance.mutableCopyvalueLowerNoUnderscoreEnumRepeated_.addInt(tmpRaw);
+              }
+              break;
+            } // case 5800
+            case 5802: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureMutableCopyvalueLowerNoUnderscoreEnumRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                    objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 725, tmpRaw);
+                } else {
+                  instance.mutableCopyvalueLowerNoUnderscoreEnumRepeated_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 5802
+            case 5808: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                  objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 726, tmpRaw);
+              } else {
+                ensureMutableCopyValueUpperNoUnderscoreEnumRepeatedIsMutable(instance, /* capacity= */ -1);
+                instance.mutableCopyValueUpperNoUnderscoreEnumRepeated_.addInt(tmpRaw);
+              }
+              break;
+            } // case 5808
+            case 5810: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureMutableCopyValueUpperNoUnderscoreEnumRepeatedIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.Foo tmpValue =
+                    objc.protobuf.tests.UnittestObjc.Foo.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 726, tmpRaw);
+                } else {
+                  instance.mutableCopyValueUpperNoUnderscoreEnumRepeated_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 5810
+            default: {
+              pendingTag = tag;
+              done = true;
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {newValLowerMessageBuilder_, newValUpperMessageBuilder_, newvalueLowerNoUnderscoreMessageBuilder_, newValueUpperNoUnderscoreMessageBuilder_, newValLowerMessageRepeatedBuilder_, newValUpperMessageRepeatedBuilder_, newvalueLowerNoUnderscoreMessageRepeatedBuilder_, newValueUpperNoUnderscoreMessageRepeatedBuilder_, allocValLowerMessageBuilder_, allocValUpperMessageBuilder_, allocvalueLowerNoUnderscoreMessageBuilder_, allocValueUpperNoUnderscoreMessageBuilder_, allocValLowerMessageRepeatedBuilder_, allocValUpperMessageRepeatedBuilder_, allocvalueLowerNoUnderscoreMessageRepeatedBuilder_, allocValueUpperNoUnderscoreMessageRepeatedBuilder_, copyValLowerMessageBuilder_, copyValUpperMessageBuilder_, copyvalueLowerNoUnderscoreMessageBuilder_, copyValueUpperNoUnderscoreMessageBuilder_, copyValLowerMessageRepeatedBuilder_, copyValUpperMessageRepeatedBuilder_, copyvalueLowerNoUnderscoreMessageRepeatedBuilder_, copyValueUpperNoUnderscoreMessageRepeatedBuilder_, mutableCopyValLowerMessageBuilder_, mutableCopyValUpperMessageBuilder_, mutableCopyvalueLowerNoUnderscoreMessageBuilder_, mutableCopyValueUpperNoUnderscoreMessageBuilder_, mutableCopyValLowerMessageRepeatedBuilder_, mutableCopyValUpperMessageRepeatedBuilder_, mutableCopyvalueLowerNoUnderscoreMessageRepeatedBuilder_, mutableCopyValueUpperNoUnderscoreMessageRepeatedBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, newValLowerMessageBuilder_, newValUpperMessageBuilder_, newvalueLowerNoUnderscoreMessageBuilder_, newValueUpperNoUnderscoreMessageBuilder_, allocValLowerMessageBuilder_, allocValUpperMessageBuilder_, allocvalueLowerNoUnderscoreMessageBuilder_, allocValueUpperNoUnderscoreMessageBuilder_);
+      buildPartial_autosplit_1(instance, copyValLowerMessageBuilder_, copyValUpperMessageBuilder_, copyvalueLowerNoUnderscoreMessageBuilder_, copyValueUpperNoUnderscoreMessageBuilder_, mutableCopyValLowerMessageBuilder_, mutableCopyValUpperMessageBuilder_, mutableCopyvalueLowerNoUnderscoreMessageBuilder_, mutableCopyValueUpperNoUnderscoreMessageBuilder_);
+      buildPartial_autosplit_2(instance, newValLowerMessageRepeatedBuilder_, newValUpperMessageRepeatedBuilder_, newvalueLowerNoUnderscoreMessageRepeatedBuilder_, newValueUpperNoUnderscoreMessageRepeatedBuilder_, allocValLowerMessageRepeatedBuilder_, allocValUpperMessageRepeatedBuilder_, allocvalueLowerNoUnderscoreMessageRepeatedBuilder_, allocValueUpperNoUnderscoreMessageRepeatedBuilder_);
+      buildPartial_autosplit_3(instance, copyValLowerMessageRepeatedBuilder_, copyValUpperMessageRepeatedBuilder_, copyvalueLowerNoUnderscoreMessageRepeatedBuilder_, copyValueUpperNoUnderscoreMessageRepeatedBuilder_, mutableCopyValLowerMessageRepeatedBuilder_, mutableCopyValUpperMessageRepeatedBuilder_, mutableCopyvalueLowerNoUnderscoreMessageRepeatedBuilder_, mutableCopyValueUpperNoUnderscoreMessageRepeatedBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self new_val_lower_message = 19;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetNewValLowerMessageFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValLowerMessageBuilder_) {
+      if (newValLowerMessageBuilder_ == null) {
+        newValLowerMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getNewValLowerMessage(),
+                null,
+                false);
+        instance.newValLowerMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00000100;
+      return newValLowerMessageBuilder_;
+    }
+    private static void parseNewValLowerMessageField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValLowerMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.newValLowerMessage_ != null || newValLowerMessageBuilder_ != null) {
+        newValLowerMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.newValLowerMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000100;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self new_Val_upper_message = 20;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetNewValUpperMessageFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValUpperMessageBuilder_) {
+      if (newValUpperMessageBuilder_ == null) {
+        newValUpperMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getNewValUpperMessage(),
+                null,
+                false);
+        instance.newValUpperMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00000200;
+      return newValUpperMessageBuilder_;
+    }
+    private static void parseNewValUpperMessageField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValUpperMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.newValUpperMessage_ != null || newValUpperMessageBuilder_ != null) {
+        newValUpperMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.newValUpperMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000200;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self newvalue_lower_no_underscore_message = 21;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetNewvalueLowerNoUnderscoreMessageFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newvalueLowerNoUnderscoreMessageBuilder_) {
+      if (newvalueLowerNoUnderscoreMessageBuilder_ == null) {
+        newvalueLowerNoUnderscoreMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getNewvalueLowerNoUnderscoreMessage(),
+                null,
+                false);
+        instance.newvalueLowerNoUnderscoreMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00000400;
+      return newvalueLowerNoUnderscoreMessageBuilder_;
+    }
+    private static void parseNewvalueLowerNoUnderscoreMessageField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newvalueLowerNoUnderscoreMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.newvalueLowerNoUnderscoreMessage_ != null || newvalueLowerNoUnderscoreMessageBuilder_ != null) {
+        newvalueLowerNoUnderscoreMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.newvalueLowerNoUnderscoreMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000400;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self newValue_upper_no_underscore_message = 22;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetNewValueUpperNoUnderscoreMessageFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValueUpperNoUnderscoreMessageBuilder_) {
+      if (newValueUpperNoUnderscoreMessageBuilder_ == null) {
+        newValueUpperNoUnderscoreMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getNewValueUpperNoUnderscoreMessage(),
+                null,
+                false);
+        instance.newValueUpperNoUnderscoreMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00000800;
+      return newValueUpperNoUnderscoreMessageBuilder_;
+    }
+    private static void parseNewValueUpperNoUnderscoreMessageField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValueUpperNoUnderscoreMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.newValueUpperNoUnderscoreMessage_ != null || newValueUpperNoUnderscoreMessageBuilder_ != null) {
+        newValueUpperNoUnderscoreMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.newValueUpperNoUnderscoreMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000800;
+    }
+    private static void ensureNewValLowerComplexRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.newValLowerComplexRepeated_.isModifiable()) {
+        instance.newValLowerComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(instance.newValLowerComplexRepeated_);
+      }
+      instance.bitField2_ |= 0x00000001;
+    }
+    private static void ensureNewValUpperComplexRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.newValUpperComplexRepeated_.isModifiable()) {
+        instance.newValUpperComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(instance.newValUpperComplexRepeated_);
+      }
+      instance.bitField2_ |= 0x00000002;
+    }
+    private static void ensureNewvalueLowerNoUnderscoreComplexRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.newvalueLowerNoUnderscoreComplexRepeated_.isModifiable()) {
+        instance.newvalueLowerNoUnderscoreComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(instance.newvalueLowerNoUnderscoreComplexRepeated_);
+      }
+      instance.bitField2_ |= 0x00000004;
+    }
+    private static void ensureNewValueUpperNoUnderscoreComplexRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.newValueUpperNoUnderscoreComplexRepeated_.isModifiable()) {
+        instance.newValueUpperNoUnderscoreComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(instance.newValueUpperNoUnderscoreComplexRepeated_);
+      }
+      instance.bitField2_ |= 0x00000008;
+    }
+    private static void ensureNewValLowerPrimitiveRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.newValLowerPrimitiveRepeated_.isModifiable()) {
+        instance.newValLowerPrimitiveRepeated_ = makeMutableCopy(instance.newValLowerPrimitiveRepeated_, capacity);
+      }
+      instance.bitField2_ |= 0x00000010;
+    }
+    private static void ensureNewValUpperPrimitiveRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.newValUpperPrimitiveRepeated_.isModifiable()) {
+        instance.newValUpperPrimitiveRepeated_ = makeMutableCopy(instance.newValUpperPrimitiveRepeated_, capacity);
+      }
+      instance.bitField2_ |= 0x00000020;
+    }
+    private static void ensureNewvalueLowerNoUnderscorePrimitiveRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.newvalueLowerNoUnderscorePrimitiveRepeated_.isModifiable()) {
+        instance.newvalueLowerNoUnderscorePrimitiveRepeated_ = makeMutableCopy(instance.newvalueLowerNoUnderscorePrimitiveRepeated_, capacity);
+      }
+      instance.bitField2_ |= 0x00000040;
+    }
+    private static void ensureNewValueUpperNoUnderscorePrimitiveRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.newValueUpperNoUnderscorePrimitiveRepeated_.isModifiable()) {
+        instance.newValueUpperNoUnderscorePrimitiveRepeated_ = makeMutableCopy(instance.newValueUpperNoUnderscorePrimitiveRepeated_, capacity);
+      }
+      instance.bitField2_ |= 0x00000080;
+    }
+    private static void ensureNewValLowerMessageRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.newValLowerMessageRepeated_.isModifiable()) {
+        instance.newValLowerMessageRepeated_ = makeMutableCopy(instance.newValLowerMessageRepeated_);
+      }
+      instance.bitField2_ |= 0x00000100;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetNewValLowerMessageRepeatedFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValLowerMessageRepeatedBuilder_) {
+      if (newValLowerMessageRepeatedBuilder_ == null) {
+        newValLowerMessageRepeatedBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.newValLowerMessageRepeated_,
+                instance.newValLowerMessageRepeated_.isModifiable(),
+                null,
+                false);
+        instance.newValLowerMessageRepeated_ = null;
+      }
+      instance.bitField2_ |= 0x00000100;
+
+      return newValLowerMessageRepeatedBuilder_;
+    }
+    private static void ensureNewValUpperMessageRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.newValUpperMessageRepeated_.isModifiable()) {
+        instance.newValUpperMessageRepeated_ = makeMutableCopy(instance.newValUpperMessageRepeated_);
+      }
+      instance.bitField2_ |= 0x00000200;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetNewValUpperMessageRepeatedFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValUpperMessageRepeatedBuilder_) {
+      if (newValUpperMessageRepeatedBuilder_ == null) {
+        newValUpperMessageRepeatedBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.newValUpperMessageRepeated_,
+                instance.newValUpperMessageRepeated_.isModifiable(),
+                null,
+                false);
+        instance.newValUpperMessageRepeated_ = null;
+      }
+      instance.bitField2_ |= 0x00000200;
+
+      return newValUpperMessageRepeatedBuilder_;
+    }
+    private static void ensureNewvalueLowerNoUnderscoreMessageRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.newvalueLowerNoUnderscoreMessageRepeated_.isModifiable()) {
+        instance.newvalueLowerNoUnderscoreMessageRepeated_ = makeMutableCopy(instance.newvalueLowerNoUnderscoreMessageRepeated_);
+      }
+      instance.bitField2_ |= 0x00000400;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetNewvalueLowerNoUnderscoreMessageRepeatedFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newvalueLowerNoUnderscoreMessageRepeatedBuilder_) {
+      if (newvalueLowerNoUnderscoreMessageRepeatedBuilder_ == null) {
+        newvalueLowerNoUnderscoreMessageRepeatedBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.newvalueLowerNoUnderscoreMessageRepeated_,
+                instance.newvalueLowerNoUnderscoreMessageRepeated_.isModifiable(),
+                null,
+                false);
+        instance.newvalueLowerNoUnderscoreMessageRepeated_ = null;
+      }
+      instance.bitField2_ |= 0x00000400;
+
+      return newvalueLowerNoUnderscoreMessageRepeatedBuilder_;
+    }
+    private static void ensureNewValueUpperNoUnderscoreMessageRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.newValueUpperNoUnderscoreMessageRepeated_.isModifiable()) {
+        instance.newValueUpperNoUnderscoreMessageRepeated_ = makeMutableCopy(instance.newValueUpperNoUnderscoreMessageRepeated_);
+      }
+      instance.bitField2_ |= 0x00000800;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetNewValueUpperNoUnderscoreMessageRepeatedFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValueUpperNoUnderscoreMessageRepeatedBuilder_) {
+      if (newValueUpperNoUnderscoreMessageRepeatedBuilder_ == null) {
+        newValueUpperNoUnderscoreMessageRepeatedBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.newValueUpperNoUnderscoreMessageRepeated_,
+                instance.newValueUpperNoUnderscoreMessageRepeated_.isModifiable(),
+                null,
+                false);
+        instance.newValueUpperNoUnderscoreMessageRepeated_ = null;
+      }
+      instance.bitField2_ |= 0x00000800;
+
+      return newValueUpperNoUnderscoreMessageRepeatedBuilder_;
+    }
+    private static void ensureNewValLowerEnumRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.newValLowerEnumRepeated_.isModifiable()) {
+        instance.newValLowerEnumRepeated_ = makeMutableCopy(instance.newValLowerEnumRepeated_, capacity);
+      }
+      instance.bitField2_ |= 0x00001000;
+    }
+    private static void ensureNewValUpperEnumRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.newValUpperEnumRepeated_.isModifiable()) {
+        instance.newValUpperEnumRepeated_ = makeMutableCopy(instance.newValUpperEnumRepeated_, capacity);
+      }
+      instance.bitField2_ |= 0x00002000;
+    }
+    private static void ensureNewvalueLowerNoUnderscoreEnumRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.newvalueLowerNoUnderscoreEnumRepeated_.isModifiable()) {
+        instance.newvalueLowerNoUnderscoreEnumRepeated_ = makeMutableCopy(instance.newvalueLowerNoUnderscoreEnumRepeated_, capacity);
+      }
+      instance.bitField2_ |= 0x00004000;
+    }
+    private static void ensureNewValueUpperNoUnderscoreEnumRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.newValueUpperNoUnderscoreEnumRepeated_.isModifiable()) {
+        instance.newValueUpperNoUnderscoreEnumRepeated_ = makeMutableCopy(instance.newValueUpperNoUnderscoreEnumRepeated_, capacity);
+      }
+      instance.bitField2_ |= 0x00008000;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self alloc_val_lower_message = 219;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetAllocValLowerMessageFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValLowerMessageBuilder_) {
+      if (allocValLowerMessageBuilder_ == null) {
+        allocValLowerMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getAllocValLowerMessage(),
+                null,
+                false);
+        instance.allocValLowerMessage_ = null;
+      }
+      instance.bitField0_ |= 0x01000000;
+      return allocValLowerMessageBuilder_;
+    }
+    private static void parseAllocValLowerMessageField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValLowerMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.allocValLowerMessage_ != null || allocValLowerMessageBuilder_ != null) {
+        allocValLowerMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.allocValLowerMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x01000000;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self alloc_Val_upper_message = 220;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetAllocValUpperMessageFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValUpperMessageBuilder_) {
+      if (allocValUpperMessageBuilder_ == null) {
+        allocValUpperMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getAllocValUpperMessage(),
+                null,
+                false);
+        instance.allocValUpperMessage_ = null;
+      }
+      instance.bitField0_ |= 0x02000000;
+      return allocValUpperMessageBuilder_;
+    }
+    private static void parseAllocValUpperMessageField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValUpperMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.allocValUpperMessage_ != null || allocValUpperMessageBuilder_ != null) {
+        allocValUpperMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.allocValUpperMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x02000000;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self allocvalue_lower_no_underscore_message = 221;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetAllocvalueLowerNoUnderscoreMessageFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocvalueLowerNoUnderscoreMessageBuilder_) {
+      if (allocvalueLowerNoUnderscoreMessageBuilder_ == null) {
+        allocvalueLowerNoUnderscoreMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getAllocvalueLowerNoUnderscoreMessage(),
+                null,
+                false);
+        instance.allocvalueLowerNoUnderscoreMessage_ = null;
+      }
+      instance.bitField0_ |= 0x04000000;
+      return allocvalueLowerNoUnderscoreMessageBuilder_;
+    }
+    private static void parseAllocvalueLowerNoUnderscoreMessageField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocvalueLowerNoUnderscoreMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.allocvalueLowerNoUnderscoreMessage_ != null || allocvalueLowerNoUnderscoreMessageBuilder_ != null) {
+        allocvalueLowerNoUnderscoreMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.allocvalueLowerNoUnderscoreMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x04000000;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self allocValue_upper_no_underscore_message = 222;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetAllocValueUpperNoUnderscoreMessageFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValueUpperNoUnderscoreMessageBuilder_) {
+      if (allocValueUpperNoUnderscoreMessageBuilder_ == null) {
+        allocValueUpperNoUnderscoreMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getAllocValueUpperNoUnderscoreMessage(),
+                null,
+                false);
+        instance.allocValueUpperNoUnderscoreMessage_ = null;
+      }
+      instance.bitField0_ |= 0x08000000;
+      return allocValueUpperNoUnderscoreMessageBuilder_;
+    }
+    private static void parseAllocValueUpperNoUnderscoreMessageField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValueUpperNoUnderscoreMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.allocValueUpperNoUnderscoreMessage_ != null || allocValueUpperNoUnderscoreMessageBuilder_ != null) {
+        allocValueUpperNoUnderscoreMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.allocValueUpperNoUnderscoreMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x08000000;
+    }
+    private static void ensureAllocValLowerComplexRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.allocValLowerComplexRepeated_.isModifiable()) {
+        instance.allocValLowerComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(instance.allocValLowerComplexRepeated_);
+      }
+      instance.bitField2_ |= 0x00010000;
+    }
+    private static void ensureAllocValUpperComplexRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.allocValUpperComplexRepeated_.isModifiable()) {
+        instance.allocValUpperComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(instance.allocValUpperComplexRepeated_);
+      }
+      instance.bitField2_ |= 0x00020000;
+    }
+    private static void ensureAllocvalueLowerNoUnderscoreComplexRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.allocvalueLowerNoUnderscoreComplexRepeated_.isModifiable()) {
+        instance.allocvalueLowerNoUnderscoreComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(instance.allocvalueLowerNoUnderscoreComplexRepeated_);
+      }
+      instance.bitField2_ |= 0x00040000;
+    }
+    private static void ensureAllocValueUpperNoUnderscoreComplexRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.allocValueUpperNoUnderscoreComplexRepeated_.isModifiable()) {
+        instance.allocValueUpperNoUnderscoreComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(instance.allocValueUpperNoUnderscoreComplexRepeated_);
+      }
+      instance.bitField2_ |= 0x00080000;
+    }
+    private static void ensureAllocValLowerPrimitiveRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.allocValLowerPrimitiveRepeated_.isModifiable()) {
+        instance.allocValLowerPrimitiveRepeated_ = makeMutableCopy(instance.allocValLowerPrimitiveRepeated_, capacity);
+      }
+      instance.bitField2_ |= 0x00100000;
+    }
+    private static void ensureAllocValUpperPrimitiveRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.allocValUpperPrimitiveRepeated_.isModifiable()) {
+        instance.allocValUpperPrimitiveRepeated_ = makeMutableCopy(instance.allocValUpperPrimitiveRepeated_, capacity);
+      }
+      instance.bitField2_ |= 0x00200000;
+    }
+    private static void ensureAllocvalueLowerNoUnderscorePrimitiveRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.allocvalueLowerNoUnderscorePrimitiveRepeated_.isModifiable()) {
+        instance.allocvalueLowerNoUnderscorePrimitiveRepeated_ = makeMutableCopy(instance.allocvalueLowerNoUnderscorePrimitiveRepeated_, capacity);
+      }
+      instance.bitField2_ |= 0x00400000;
+    }
+    private static void ensureAllocValueUpperNoUnderscorePrimitiveRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.allocValueUpperNoUnderscorePrimitiveRepeated_.isModifiable()) {
+        instance.allocValueUpperNoUnderscorePrimitiveRepeated_ = makeMutableCopy(instance.allocValueUpperNoUnderscorePrimitiveRepeated_, capacity);
+      }
+      instance.bitField2_ |= 0x00800000;
+    }
+    private static void ensureAllocValLowerMessageRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.allocValLowerMessageRepeated_.isModifiable()) {
+        instance.allocValLowerMessageRepeated_ = makeMutableCopy(instance.allocValLowerMessageRepeated_);
+      }
+      instance.bitField2_ |= 0x01000000;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetAllocValLowerMessageRepeatedFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValLowerMessageRepeatedBuilder_) {
+      if (allocValLowerMessageRepeatedBuilder_ == null) {
+        allocValLowerMessageRepeatedBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.allocValLowerMessageRepeated_,
+                instance.allocValLowerMessageRepeated_.isModifiable(),
+                null,
+                false);
+        instance.allocValLowerMessageRepeated_ = null;
+      }
+      instance.bitField2_ |= 0x01000000;
+
+      return allocValLowerMessageRepeatedBuilder_;
+    }
+    private static void ensureAllocValUpperMessageRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.allocValUpperMessageRepeated_.isModifiable()) {
+        instance.allocValUpperMessageRepeated_ = makeMutableCopy(instance.allocValUpperMessageRepeated_);
+      }
+      instance.bitField2_ |= 0x02000000;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetAllocValUpperMessageRepeatedFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValUpperMessageRepeatedBuilder_) {
+      if (allocValUpperMessageRepeatedBuilder_ == null) {
+        allocValUpperMessageRepeatedBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.allocValUpperMessageRepeated_,
+                instance.allocValUpperMessageRepeated_.isModifiable(),
+                null,
+                false);
+        instance.allocValUpperMessageRepeated_ = null;
+      }
+      instance.bitField2_ |= 0x02000000;
+
+      return allocValUpperMessageRepeatedBuilder_;
+    }
+    private static void ensureAllocvalueLowerNoUnderscoreMessageRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.allocvalueLowerNoUnderscoreMessageRepeated_.isModifiable()) {
+        instance.allocvalueLowerNoUnderscoreMessageRepeated_ = makeMutableCopy(instance.allocvalueLowerNoUnderscoreMessageRepeated_);
+      }
+      instance.bitField2_ |= 0x04000000;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetAllocvalueLowerNoUnderscoreMessageRepeatedFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocvalueLowerNoUnderscoreMessageRepeatedBuilder_) {
+      if (allocvalueLowerNoUnderscoreMessageRepeatedBuilder_ == null) {
+        allocvalueLowerNoUnderscoreMessageRepeatedBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.allocvalueLowerNoUnderscoreMessageRepeated_,
+                instance.allocvalueLowerNoUnderscoreMessageRepeated_.isModifiable(),
+                null,
+                false);
+        instance.allocvalueLowerNoUnderscoreMessageRepeated_ = null;
+      }
+      instance.bitField2_ |= 0x04000000;
+
+      return allocvalueLowerNoUnderscoreMessageRepeatedBuilder_;
+    }
+    private static void ensureAllocValueUpperNoUnderscoreMessageRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.allocValueUpperNoUnderscoreMessageRepeated_.isModifiable()) {
+        instance.allocValueUpperNoUnderscoreMessageRepeated_ = makeMutableCopy(instance.allocValueUpperNoUnderscoreMessageRepeated_);
+      }
+      instance.bitField2_ |= 0x08000000;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetAllocValueUpperNoUnderscoreMessageRepeatedFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValueUpperNoUnderscoreMessageRepeatedBuilder_) {
+      if (allocValueUpperNoUnderscoreMessageRepeatedBuilder_ == null) {
+        allocValueUpperNoUnderscoreMessageRepeatedBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.allocValueUpperNoUnderscoreMessageRepeated_,
+                instance.allocValueUpperNoUnderscoreMessageRepeated_.isModifiable(),
+                null,
+                false);
+        instance.allocValueUpperNoUnderscoreMessageRepeated_ = null;
+      }
+      instance.bitField2_ |= 0x08000000;
+
+      return allocValueUpperNoUnderscoreMessageRepeatedBuilder_;
+    }
+    private static void ensureAllocValLowerEnumRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.allocValLowerEnumRepeated_.isModifiable()) {
+        instance.allocValLowerEnumRepeated_ = makeMutableCopy(instance.allocValLowerEnumRepeated_, capacity);
+      }
+      instance.bitField2_ |= 0x10000000;
+    }
+    private static void ensureAllocValUpperEnumRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.allocValUpperEnumRepeated_.isModifiable()) {
+        instance.allocValUpperEnumRepeated_ = makeMutableCopy(instance.allocValUpperEnumRepeated_, capacity);
+      }
+      instance.bitField2_ |= 0x20000000;
+    }
+    private static void ensureAllocvalueLowerNoUnderscoreEnumRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.allocvalueLowerNoUnderscoreEnumRepeated_.isModifiable()) {
+        instance.allocvalueLowerNoUnderscoreEnumRepeated_ = makeMutableCopy(instance.allocvalueLowerNoUnderscoreEnumRepeated_, capacity);
+      }
+      instance.bitField2_ |= 0x40000000;
+    }
+    private static void ensureAllocValueUpperNoUnderscoreEnumRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.allocValueUpperNoUnderscoreEnumRepeated_.isModifiable()) {
+        instance.allocValueUpperNoUnderscoreEnumRepeated_ = makeMutableCopy(instance.allocValueUpperNoUnderscoreEnumRepeated_, capacity);
+      }
+      instance.bitField2_ |= 0x80000000;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self copy_val_lower_message = 419;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetCopyValLowerMessageFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValLowerMessageBuilder_) {
+      if (copyValLowerMessageBuilder_ == null) {
+        copyValLowerMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getCopyValLowerMessage(),
+                null,
+                false);
+        instance.copyValLowerMessage_ = null;
+      }
+      instance.bitField1_ |= 0x00000100;
+      return copyValLowerMessageBuilder_;
+    }
+    private static void parseCopyValLowerMessageField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValLowerMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.copyValLowerMessage_ != null || copyValLowerMessageBuilder_ != null) {
+        copyValLowerMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.copyValLowerMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00000100;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self copy_Val_upper_message = 420;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetCopyValUpperMessageFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValUpperMessageBuilder_) {
+      if (copyValUpperMessageBuilder_ == null) {
+        copyValUpperMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getCopyValUpperMessage(),
+                null,
+                false);
+        instance.copyValUpperMessage_ = null;
+      }
+      instance.bitField1_ |= 0x00000200;
+      return copyValUpperMessageBuilder_;
+    }
+    private static void parseCopyValUpperMessageField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValUpperMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.copyValUpperMessage_ != null || copyValUpperMessageBuilder_ != null) {
+        copyValUpperMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.copyValUpperMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00000200;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self copyvalue_lower_no_underscore_message = 421;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetCopyvalueLowerNoUnderscoreMessageFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyvalueLowerNoUnderscoreMessageBuilder_) {
+      if (copyvalueLowerNoUnderscoreMessageBuilder_ == null) {
+        copyvalueLowerNoUnderscoreMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getCopyvalueLowerNoUnderscoreMessage(),
+                null,
+                false);
+        instance.copyvalueLowerNoUnderscoreMessage_ = null;
+      }
+      instance.bitField1_ |= 0x00000400;
+      return copyvalueLowerNoUnderscoreMessageBuilder_;
+    }
+    private static void parseCopyvalueLowerNoUnderscoreMessageField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyvalueLowerNoUnderscoreMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.copyvalueLowerNoUnderscoreMessage_ != null || copyvalueLowerNoUnderscoreMessageBuilder_ != null) {
+        copyvalueLowerNoUnderscoreMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.copyvalueLowerNoUnderscoreMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00000400;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self copyValue_upper_no_underscore_message = 422;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetCopyValueUpperNoUnderscoreMessageFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValueUpperNoUnderscoreMessageBuilder_) {
+      if (copyValueUpperNoUnderscoreMessageBuilder_ == null) {
+        copyValueUpperNoUnderscoreMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getCopyValueUpperNoUnderscoreMessage(),
+                null,
+                false);
+        instance.copyValueUpperNoUnderscoreMessage_ = null;
+      }
+      instance.bitField1_ |= 0x00000800;
+      return copyValueUpperNoUnderscoreMessageBuilder_;
+    }
+    private static void parseCopyValueUpperNoUnderscoreMessageField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValueUpperNoUnderscoreMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.copyValueUpperNoUnderscoreMessage_ != null || copyValueUpperNoUnderscoreMessageBuilder_ != null) {
+        copyValueUpperNoUnderscoreMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.copyValueUpperNoUnderscoreMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00000800;
+    }
+    private static void ensureCopyValLowerComplexRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.copyValLowerComplexRepeated_.isModifiable()) {
+        instance.copyValLowerComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(instance.copyValLowerComplexRepeated_);
+      }
+      instance.bitField3_ |= 0x00000001;
+    }
+    private static void ensureCopyValUpperComplexRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.copyValUpperComplexRepeated_.isModifiable()) {
+        instance.copyValUpperComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(instance.copyValUpperComplexRepeated_);
+      }
+      instance.bitField3_ |= 0x00000002;
+    }
+    private static void ensureCopyvalueLowerNoUnderscoreComplexRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.copyvalueLowerNoUnderscoreComplexRepeated_.isModifiable()) {
+        instance.copyvalueLowerNoUnderscoreComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(instance.copyvalueLowerNoUnderscoreComplexRepeated_);
+      }
+      instance.bitField3_ |= 0x00000004;
+    }
+    private static void ensureCopyValueUpperNoUnderscoreComplexRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.copyValueUpperNoUnderscoreComplexRepeated_.isModifiable()) {
+        instance.copyValueUpperNoUnderscoreComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(instance.copyValueUpperNoUnderscoreComplexRepeated_);
+      }
+      instance.bitField3_ |= 0x00000008;
+    }
+    private static void ensureCopyValLowerPrimitiveRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.copyValLowerPrimitiveRepeated_.isModifiable()) {
+        instance.copyValLowerPrimitiveRepeated_ = makeMutableCopy(instance.copyValLowerPrimitiveRepeated_, capacity);
+      }
+      instance.bitField3_ |= 0x00000010;
+    }
+    private static void ensureCopyValUpperPrimitiveRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.copyValUpperPrimitiveRepeated_.isModifiable()) {
+        instance.copyValUpperPrimitiveRepeated_ = makeMutableCopy(instance.copyValUpperPrimitiveRepeated_, capacity);
+      }
+      instance.bitField3_ |= 0x00000020;
+    }
+    private static void ensureCopyvalueLowerNoUnderscorePrimitiveRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.copyvalueLowerNoUnderscorePrimitiveRepeated_.isModifiable()) {
+        instance.copyvalueLowerNoUnderscorePrimitiveRepeated_ = makeMutableCopy(instance.copyvalueLowerNoUnderscorePrimitiveRepeated_, capacity);
+      }
+      instance.bitField3_ |= 0x00000040;
+    }
+    private static void ensureCopyValueUpperNoUnderscorePrimitiveRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.copyValueUpperNoUnderscorePrimitiveRepeated_.isModifiable()) {
+        instance.copyValueUpperNoUnderscorePrimitiveRepeated_ = makeMutableCopy(instance.copyValueUpperNoUnderscorePrimitiveRepeated_, capacity);
+      }
+      instance.bitField3_ |= 0x00000080;
+    }
+    private static void ensureCopyValLowerMessageRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.copyValLowerMessageRepeated_.isModifiable()) {
+        instance.copyValLowerMessageRepeated_ = makeMutableCopy(instance.copyValLowerMessageRepeated_);
+      }
+      instance.bitField3_ |= 0x00000100;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetCopyValLowerMessageRepeatedFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValLowerMessageRepeatedBuilder_) {
+      if (copyValLowerMessageRepeatedBuilder_ == null) {
+        copyValLowerMessageRepeatedBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.copyValLowerMessageRepeated_,
+                instance.copyValLowerMessageRepeated_.isModifiable(),
+                null,
+                false);
+        instance.copyValLowerMessageRepeated_ = null;
+      }
+      instance.bitField3_ |= 0x00000100;
+
+      return copyValLowerMessageRepeatedBuilder_;
+    }
+    private static void ensureCopyValUpperMessageRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.copyValUpperMessageRepeated_.isModifiable()) {
+        instance.copyValUpperMessageRepeated_ = makeMutableCopy(instance.copyValUpperMessageRepeated_);
+      }
+      instance.bitField3_ |= 0x00000200;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetCopyValUpperMessageRepeatedFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValUpperMessageRepeatedBuilder_) {
+      if (copyValUpperMessageRepeatedBuilder_ == null) {
+        copyValUpperMessageRepeatedBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.copyValUpperMessageRepeated_,
+                instance.copyValUpperMessageRepeated_.isModifiable(),
+                null,
+                false);
+        instance.copyValUpperMessageRepeated_ = null;
+      }
+      instance.bitField3_ |= 0x00000200;
+
+      return copyValUpperMessageRepeatedBuilder_;
+    }
+    private static void ensureCopyvalueLowerNoUnderscoreMessageRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.copyvalueLowerNoUnderscoreMessageRepeated_.isModifiable()) {
+        instance.copyvalueLowerNoUnderscoreMessageRepeated_ = makeMutableCopy(instance.copyvalueLowerNoUnderscoreMessageRepeated_);
+      }
+      instance.bitField3_ |= 0x00000400;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetCopyvalueLowerNoUnderscoreMessageRepeatedFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyvalueLowerNoUnderscoreMessageRepeatedBuilder_) {
+      if (copyvalueLowerNoUnderscoreMessageRepeatedBuilder_ == null) {
+        copyvalueLowerNoUnderscoreMessageRepeatedBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.copyvalueLowerNoUnderscoreMessageRepeated_,
+                instance.copyvalueLowerNoUnderscoreMessageRepeated_.isModifiable(),
+                null,
+                false);
+        instance.copyvalueLowerNoUnderscoreMessageRepeated_ = null;
+      }
+      instance.bitField3_ |= 0x00000400;
+
+      return copyvalueLowerNoUnderscoreMessageRepeatedBuilder_;
+    }
+    private static void ensureCopyValueUpperNoUnderscoreMessageRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.copyValueUpperNoUnderscoreMessageRepeated_.isModifiable()) {
+        instance.copyValueUpperNoUnderscoreMessageRepeated_ = makeMutableCopy(instance.copyValueUpperNoUnderscoreMessageRepeated_);
+      }
+      instance.bitField3_ |= 0x00000800;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetCopyValueUpperNoUnderscoreMessageRepeatedFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValueUpperNoUnderscoreMessageRepeatedBuilder_) {
+      if (copyValueUpperNoUnderscoreMessageRepeatedBuilder_ == null) {
+        copyValueUpperNoUnderscoreMessageRepeatedBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.copyValueUpperNoUnderscoreMessageRepeated_,
+                instance.copyValueUpperNoUnderscoreMessageRepeated_.isModifiable(),
+                null,
+                false);
+        instance.copyValueUpperNoUnderscoreMessageRepeated_ = null;
+      }
+      instance.bitField3_ |= 0x00000800;
+
+      return copyValueUpperNoUnderscoreMessageRepeatedBuilder_;
+    }
+    private static void ensureCopyValLowerEnumRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.copyValLowerEnumRepeated_.isModifiable()) {
+        instance.copyValLowerEnumRepeated_ = makeMutableCopy(instance.copyValLowerEnumRepeated_, capacity);
+      }
+      instance.bitField3_ |= 0x00001000;
+    }
+    private static void ensureCopyValUpperEnumRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.copyValUpperEnumRepeated_.isModifiable()) {
+        instance.copyValUpperEnumRepeated_ = makeMutableCopy(instance.copyValUpperEnumRepeated_, capacity);
+      }
+      instance.bitField3_ |= 0x00002000;
+    }
+    private static void ensureCopyvalueLowerNoUnderscoreEnumRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.copyvalueLowerNoUnderscoreEnumRepeated_.isModifiable()) {
+        instance.copyvalueLowerNoUnderscoreEnumRepeated_ = makeMutableCopy(instance.copyvalueLowerNoUnderscoreEnumRepeated_, capacity);
+      }
+      instance.bitField3_ |= 0x00004000;
+    }
+    private static void ensureCopyValueUpperNoUnderscoreEnumRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.copyValueUpperNoUnderscoreEnumRepeated_.isModifiable()) {
+        instance.copyValueUpperNoUnderscoreEnumRepeated_ = makeMutableCopy(instance.copyValueUpperNoUnderscoreEnumRepeated_, capacity);
+      }
+      instance.bitField3_ |= 0x00008000;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self mutableCopy_val_lower_message = 619;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetMutableCopyValLowerMessageFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValLowerMessageBuilder_) {
+      if (mutableCopyValLowerMessageBuilder_ == null) {
+        mutableCopyValLowerMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getMutableCopyValLowerMessage(),
+                null,
+                false);
+        instance.mutableCopyValLowerMessage_ = null;
+      }
+      instance.bitField1_ |= 0x01000000;
+      return mutableCopyValLowerMessageBuilder_;
+    }
+    private static void parseMutableCopyValLowerMessageField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValLowerMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.mutableCopyValLowerMessage_ != null || mutableCopyValLowerMessageBuilder_ != null) {
+        mutableCopyValLowerMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.mutableCopyValLowerMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x01000000;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self mutableCopy_Val_upper_message = 620;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetMutableCopyValUpperMessageFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValUpperMessageBuilder_) {
+      if (mutableCopyValUpperMessageBuilder_ == null) {
+        mutableCopyValUpperMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getMutableCopyValUpperMessage(),
+                null,
+                false);
+        instance.mutableCopyValUpperMessage_ = null;
+      }
+      instance.bitField1_ |= 0x02000000;
+      return mutableCopyValUpperMessageBuilder_;
+    }
+    private static void parseMutableCopyValUpperMessageField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValUpperMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.mutableCopyValUpperMessage_ != null || mutableCopyValUpperMessageBuilder_ != null) {
+        mutableCopyValUpperMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.mutableCopyValUpperMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x02000000;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self mutableCopyvalue_lower_no_underscore_message = 621;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetMutableCopyvalueLowerNoUnderscoreMessageFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyvalueLowerNoUnderscoreMessageBuilder_) {
+      if (mutableCopyvalueLowerNoUnderscoreMessageBuilder_ == null) {
+        mutableCopyvalueLowerNoUnderscoreMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getMutableCopyvalueLowerNoUnderscoreMessage(),
+                null,
+                false);
+        instance.mutableCopyvalueLowerNoUnderscoreMessage_ = null;
+      }
+      instance.bitField1_ |= 0x04000000;
+      return mutableCopyvalueLowerNoUnderscoreMessageBuilder_;
+    }
+    private static void parseMutableCopyvalueLowerNoUnderscoreMessageField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyvalueLowerNoUnderscoreMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.mutableCopyvalueLowerNoUnderscoreMessage_ != null || mutableCopyvalueLowerNoUnderscoreMessageBuilder_ != null) {
+        mutableCopyvalueLowerNoUnderscoreMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.mutableCopyvalueLowerNoUnderscoreMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x04000000;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self mutableCopyValue_upper_no_underscore_message = 622;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetMutableCopyValueUpperNoUnderscoreMessageFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValueUpperNoUnderscoreMessageBuilder_) {
+      if (mutableCopyValueUpperNoUnderscoreMessageBuilder_ == null) {
+        mutableCopyValueUpperNoUnderscoreMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getMutableCopyValueUpperNoUnderscoreMessage(),
+                null,
+                false);
+        instance.mutableCopyValueUpperNoUnderscoreMessage_ = null;
+      }
+      instance.bitField1_ |= 0x08000000;
+      return mutableCopyValueUpperNoUnderscoreMessageBuilder_;
+    }
+    private static void parseMutableCopyValueUpperNoUnderscoreMessageField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValueUpperNoUnderscoreMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.mutableCopyValueUpperNoUnderscoreMessage_ != null || mutableCopyValueUpperNoUnderscoreMessageBuilder_ != null) {
+        mutableCopyValueUpperNoUnderscoreMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.mutableCopyValueUpperNoUnderscoreMessage_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x08000000;
+    }
+    private static void ensureMutableCopyValLowerComplexRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.mutableCopyValLowerComplexRepeated_.isModifiable()) {
+        instance.mutableCopyValLowerComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(instance.mutableCopyValLowerComplexRepeated_);
+      }
+      instance.bitField3_ |= 0x00010000;
+    }
+    private static void ensureMutableCopyValUpperComplexRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.mutableCopyValUpperComplexRepeated_.isModifiable()) {
+        instance.mutableCopyValUpperComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(instance.mutableCopyValUpperComplexRepeated_);
+      }
+      instance.bitField3_ |= 0x00020000;
+    }
+    private static void ensureMutableCopyvalueLowerNoUnderscoreComplexRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.mutableCopyvalueLowerNoUnderscoreComplexRepeated_.isModifiable()) {
+        instance.mutableCopyvalueLowerNoUnderscoreComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(instance.mutableCopyvalueLowerNoUnderscoreComplexRepeated_);
+      }
+      instance.bitField3_ |= 0x00040000;
+    }
+    private static void ensureMutableCopyValueUpperNoUnderscoreComplexRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.mutableCopyValueUpperNoUnderscoreComplexRepeated_.isModifiable()) {
+        instance.mutableCopyValueUpperNoUnderscoreComplexRepeated_ = new com.google.protobuf.LazyStringArrayList(instance.mutableCopyValueUpperNoUnderscoreComplexRepeated_);
+      }
+      instance.bitField3_ |= 0x00080000;
+    }
+    private static void ensureMutableCopyValLowerPrimitiveRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.mutableCopyValLowerPrimitiveRepeated_.isModifiable()) {
+        instance.mutableCopyValLowerPrimitiveRepeated_ = makeMutableCopy(instance.mutableCopyValLowerPrimitiveRepeated_, capacity);
+      }
+      instance.bitField3_ |= 0x00100000;
+    }
+    private static void ensureMutableCopyValUpperPrimitiveRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.mutableCopyValUpperPrimitiveRepeated_.isModifiable()) {
+        instance.mutableCopyValUpperPrimitiveRepeated_ = makeMutableCopy(instance.mutableCopyValUpperPrimitiveRepeated_, capacity);
+      }
+      instance.bitField3_ |= 0x00200000;
+    }
+    private static void ensureMutableCopyvalueLowerNoUnderscorePrimitiveRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.mutableCopyvalueLowerNoUnderscorePrimitiveRepeated_.isModifiable()) {
+        instance.mutableCopyvalueLowerNoUnderscorePrimitiveRepeated_ = makeMutableCopy(instance.mutableCopyvalueLowerNoUnderscorePrimitiveRepeated_, capacity);
+      }
+      instance.bitField3_ |= 0x00400000;
+    }
+    private static void ensureMutableCopyValueUpperNoUnderscorePrimitiveRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.mutableCopyValueUpperNoUnderscorePrimitiveRepeated_.isModifiable()) {
+        instance.mutableCopyValueUpperNoUnderscorePrimitiveRepeated_ = makeMutableCopy(instance.mutableCopyValueUpperNoUnderscorePrimitiveRepeated_, capacity);
+      }
+      instance.bitField3_ |= 0x00800000;
+    }
+    private static void ensureMutableCopyValLowerMessageRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.mutableCopyValLowerMessageRepeated_.isModifiable()) {
+        instance.mutableCopyValLowerMessageRepeated_ = makeMutableCopy(instance.mutableCopyValLowerMessageRepeated_);
+      }
+      instance.bitField3_ |= 0x01000000;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetMutableCopyValLowerMessageRepeatedFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValLowerMessageRepeatedBuilder_) {
+      if (mutableCopyValLowerMessageRepeatedBuilder_ == null) {
+        mutableCopyValLowerMessageRepeatedBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.mutableCopyValLowerMessageRepeated_,
+                instance.mutableCopyValLowerMessageRepeated_.isModifiable(),
+                null,
+                false);
+        instance.mutableCopyValLowerMessageRepeated_ = null;
+      }
+      instance.bitField3_ |= 0x01000000;
+
+      return mutableCopyValLowerMessageRepeatedBuilder_;
+    }
+    private static void ensureMutableCopyValUpperMessageRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.mutableCopyValUpperMessageRepeated_.isModifiable()) {
+        instance.mutableCopyValUpperMessageRepeated_ = makeMutableCopy(instance.mutableCopyValUpperMessageRepeated_);
+      }
+      instance.bitField3_ |= 0x02000000;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetMutableCopyValUpperMessageRepeatedFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValUpperMessageRepeatedBuilder_) {
+      if (mutableCopyValUpperMessageRepeatedBuilder_ == null) {
+        mutableCopyValUpperMessageRepeatedBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.mutableCopyValUpperMessageRepeated_,
+                instance.mutableCopyValUpperMessageRepeated_.isModifiable(),
+                null,
+                false);
+        instance.mutableCopyValUpperMessageRepeated_ = null;
+      }
+      instance.bitField3_ |= 0x02000000;
+
+      return mutableCopyValUpperMessageRepeatedBuilder_;
+    }
+    private static void ensureMutableCopyvalueLowerNoUnderscoreMessageRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.mutableCopyvalueLowerNoUnderscoreMessageRepeated_.isModifiable()) {
+        instance.mutableCopyvalueLowerNoUnderscoreMessageRepeated_ = makeMutableCopy(instance.mutableCopyvalueLowerNoUnderscoreMessageRepeated_);
+      }
+      instance.bitField3_ |= 0x04000000;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetMutableCopyvalueLowerNoUnderscoreMessageRepeatedFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyvalueLowerNoUnderscoreMessageRepeatedBuilder_) {
+      if (mutableCopyvalueLowerNoUnderscoreMessageRepeatedBuilder_ == null) {
+        mutableCopyvalueLowerNoUnderscoreMessageRepeatedBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.mutableCopyvalueLowerNoUnderscoreMessageRepeated_,
+                instance.mutableCopyvalueLowerNoUnderscoreMessageRepeated_.isModifiable(),
+                null,
+                false);
+        instance.mutableCopyvalueLowerNoUnderscoreMessageRepeated_ = null;
+      }
+      instance.bitField3_ |= 0x04000000;
+
+      return mutableCopyvalueLowerNoUnderscoreMessageRepeatedBuilder_;
+    }
+    private static void ensureMutableCopyValueUpperNoUnderscoreMessageRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance) {
+      if (!instance.mutableCopyValueUpperNoUnderscoreMessageRepeated_.isModifiable()) {
+        instance.mutableCopyValueUpperNoUnderscoreMessageRepeated_ = makeMutableCopy(instance.mutableCopyValueUpperNoUnderscoreMessageRepeated_);
+      }
+      instance.bitField3_ |= 0x08000000;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetMutableCopyValueUpperNoUnderscoreMessageRepeatedFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValueUpperNoUnderscoreMessageRepeatedBuilder_) {
+      if (mutableCopyValueUpperNoUnderscoreMessageRepeatedBuilder_ == null) {
+        mutableCopyValueUpperNoUnderscoreMessageRepeatedBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.mutableCopyValueUpperNoUnderscoreMessageRepeated_,
+                instance.mutableCopyValueUpperNoUnderscoreMessageRepeated_.isModifiable(),
+                null,
+                false);
+        instance.mutableCopyValueUpperNoUnderscoreMessageRepeated_ = null;
+      }
+      instance.bitField3_ |= 0x08000000;
+
+      return mutableCopyValueUpperNoUnderscoreMessageRepeatedBuilder_;
+    }
+    private static void ensureMutableCopyValLowerEnumRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.mutableCopyValLowerEnumRepeated_.isModifiable()) {
+        instance.mutableCopyValLowerEnumRepeated_ = makeMutableCopy(instance.mutableCopyValLowerEnumRepeated_, capacity);
+      }
+      instance.bitField3_ |= 0x10000000;
+    }
+    private static void ensureMutableCopyValUpperEnumRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.mutableCopyValUpperEnumRepeated_.isModifiable()) {
+        instance.mutableCopyValUpperEnumRepeated_ = makeMutableCopy(instance.mutableCopyValUpperEnumRepeated_, capacity);
+      }
+      instance.bitField3_ |= 0x20000000;
+    }
+    private static void ensureMutableCopyvalueLowerNoUnderscoreEnumRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.mutableCopyvalueLowerNoUnderscoreEnumRepeated_.isModifiable()) {
+        instance.mutableCopyvalueLowerNoUnderscoreEnumRepeated_ = makeMutableCopy(instance.mutableCopyvalueLowerNoUnderscoreEnumRepeated_, capacity);
+      }
+      instance.bitField3_ |= 0x40000000;
+    }
+    private static void ensureMutableCopyValueUpperNoUnderscoreEnumRepeatedIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance, int capacity) {
+      if (!instance.mutableCopyValueUpperNoUnderscoreEnumRepeated_.isModifiable()) {
+        instance.mutableCopyValueUpperNoUnderscoreEnumRepeated_ = makeMutableCopy(instance.mutableCopyValueUpperNoUnderscoreEnumRepeated_, capacity);
+      }
+      instance.bitField3_ |= 0x80000000;
+    }
+    private static void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValLowerMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValUpperMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newvalueLowerNoUnderscoreMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValueUpperNoUnderscoreMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValLowerMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValUpperMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocvalueLowerNoUnderscoreMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValueUpperNoUnderscoreMessageBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000100) != 0)) instance.newValLowerMessage_ = null;
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        instance.newValLowerMessage_ = newValLowerMessageBuilder_ == null
+            ? instance.newValLowerMessage_
+            : newValLowerMessageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000200) != 0)) instance.newValUpperMessage_ = null;
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        instance.newValUpperMessage_ = newValUpperMessageBuilder_ == null
+            ? instance.newValUpperMessage_
+            : newValUpperMessageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000400) != 0)) instance.newvalueLowerNoUnderscoreMessage_ = null;
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        instance.newvalueLowerNoUnderscoreMessage_ = newvalueLowerNoUnderscoreMessageBuilder_ == null
+            ? instance.newvalueLowerNoUnderscoreMessage_
+            : newvalueLowerNoUnderscoreMessageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000800) != 0)) instance.newValueUpperNoUnderscoreMessage_ = null;
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        instance.newValueUpperNoUnderscoreMessage_ = newValueUpperNoUnderscoreMessageBuilder_ == null
+            ? instance.newValueUpperNoUnderscoreMessage_
+            : newValueUpperNoUnderscoreMessageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x01000000) != 0)) instance.allocValLowerMessage_ = null;
+      if (((from_bitField0_ & 0x01000000) != 0)) {
+        instance.allocValLowerMessage_ = allocValLowerMessageBuilder_ == null
+            ? instance.allocValLowerMessage_
+            : allocValLowerMessageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x02000000) != 0)) instance.allocValUpperMessage_ = null;
+      if (((from_bitField0_ & 0x02000000) != 0)) {
+        instance.allocValUpperMessage_ = allocValUpperMessageBuilder_ == null
+            ? instance.allocValUpperMessage_
+            : allocValUpperMessageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x04000000) != 0)) instance.allocvalueLowerNoUnderscoreMessage_ = null;
+      if (((from_bitField0_ & 0x04000000) != 0)) {
+        instance.allocvalueLowerNoUnderscoreMessage_ = allocvalueLowerNoUnderscoreMessageBuilder_ == null
+            ? instance.allocvalueLowerNoUnderscoreMessage_
+            : allocvalueLowerNoUnderscoreMessageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x08000000) != 0)) instance.allocValueUpperNoUnderscoreMessage_ = null;
+      if (((from_bitField0_ & 0x08000000) != 0)) {
+        instance.allocValueUpperNoUnderscoreMessage_ = allocValueUpperNoUnderscoreMessageBuilder_ == null
+            ? instance.allocValueUpperNoUnderscoreMessage_
+            : allocValueUpperNoUnderscoreMessageBuilder_.build();
+      }
+    }
+
+    private static void buildPartial_autosplit_1(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValLowerMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValUpperMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyvalueLowerNoUnderscoreMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValueUpperNoUnderscoreMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValLowerMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValUpperMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyvalueLowerNoUnderscoreMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValueUpperNoUnderscoreMessageBuilder_) {
+      int from_bitField1_ = instance.bitField1_;
+      if (!((from_bitField1_ & 0x00000100) != 0)) instance.copyValLowerMessage_ = null;
+      if (((from_bitField1_ & 0x00000100) != 0)) {
+        instance.copyValLowerMessage_ = copyValLowerMessageBuilder_ == null
+            ? instance.copyValLowerMessage_
+            : copyValLowerMessageBuilder_.build();
+      }
+      if (!((from_bitField1_ & 0x00000200) != 0)) instance.copyValUpperMessage_ = null;
+      if (((from_bitField1_ & 0x00000200) != 0)) {
+        instance.copyValUpperMessage_ = copyValUpperMessageBuilder_ == null
+            ? instance.copyValUpperMessage_
+            : copyValUpperMessageBuilder_.build();
+      }
+      if (!((from_bitField1_ & 0x00000400) != 0)) instance.copyvalueLowerNoUnderscoreMessage_ = null;
+      if (((from_bitField1_ & 0x00000400) != 0)) {
+        instance.copyvalueLowerNoUnderscoreMessage_ = copyvalueLowerNoUnderscoreMessageBuilder_ == null
+            ? instance.copyvalueLowerNoUnderscoreMessage_
+            : copyvalueLowerNoUnderscoreMessageBuilder_.build();
+      }
+      if (!((from_bitField1_ & 0x00000800) != 0)) instance.copyValueUpperNoUnderscoreMessage_ = null;
+      if (((from_bitField1_ & 0x00000800) != 0)) {
+        instance.copyValueUpperNoUnderscoreMessage_ = copyValueUpperNoUnderscoreMessageBuilder_ == null
+            ? instance.copyValueUpperNoUnderscoreMessage_
+            : copyValueUpperNoUnderscoreMessageBuilder_.build();
+      }
+      if (!((from_bitField1_ & 0x01000000) != 0)) instance.mutableCopyValLowerMessage_ = null;
+      if (((from_bitField1_ & 0x01000000) != 0)) {
+        instance.mutableCopyValLowerMessage_ = mutableCopyValLowerMessageBuilder_ == null
+            ? instance.mutableCopyValLowerMessage_
+            : mutableCopyValLowerMessageBuilder_.build();
+      }
+      if (!((from_bitField1_ & 0x02000000) != 0)) instance.mutableCopyValUpperMessage_ = null;
+      if (((from_bitField1_ & 0x02000000) != 0)) {
+        instance.mutableCopyValUpperMessage_ = mutableCopyValUpperMessageBuilder_ == null
+            ? instance.mutableCopyValUpperMessage_
+            : mutableCopyValUpperMessageBuilder_.build();
+      }
+      if (!((from_bitField1_ & 0x04000000) != 0)) instance.mutableCopyvalueLowerNoUnderscoreMessage_ = null;
+      if (((from_bitField1_ & 0x04000000) != 0)) {
+        instance.mutableCopyvalueLowerNoUnderscoreMessage_ = mutableCopyvalueLowerNoUnderscoreMessageBuilder_ == null
+            ? instance.mutableCopyvalueLowerNoUnderscoreMessage_
+            : mutableCopyvalueLowerNoUnderscoreMessageBuilder_.build();
+      }
+      if (!((from_bitField1_ & 0x08000000) != 0)) instance.mutableCopyValueUpperNoUnderscoreMessage_ = null;
+      if (((from_bitField1_ & 0x08000000) != 0)) {
+        instance.mutableCopyValueUpperNoUnderscoreMessage_ = mutableCopyValueUpperNoUnderscoreMessageBuilder_ == null
+            ? instance.mutableCopyValueUpperNoUnderscoreMessage_
+            : mutableCopyValueUpperNoUnderscoreMessageBuilder_.build();
+      }
+    }
+
+    private static void buildPartial_autosplit_2(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValLowerMessageRepeatedBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValUpperMessageRepeatedBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newvalueLowerNoUnderscoreMessageRepeatedBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newValueUpperNoUnderscoreMessageRepeatedBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValLowerMessageRepeatedBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValUpperMessageRepeatedBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocvalueLowerNoUnderscoreMessageRepeatedBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocValueUpperNoUnderscoreMessageRepeatedBuilder_) {
+      int from_bitField2_ = instance.bitField2_;
+      if (((from_bitField2_ & 0x00000001) != 0)) {
+        instance.newValLowerComplexRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00000002) != 0)) {
+        instance.newValUpperComplexRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00000004) != 0)) {
+        instance.newvalueLowerNoUnderscoreComplexRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00000008) != 0)) {
+        instance.newValueUpperNoUnderscoreComplexRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00000010) != 0)) {
+        instance.newValLowerPrimitiveRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00000020) != 0)) {
+        instance.newValUpperPrimitiveRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00000040) != 0)) {
+        instance.newvalueLowerNoUnderscorePrimitiveRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00000080) != 0)) {
+        instance.newValueUpperNoUnderscorePrimitiveRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00000100) != 0)) {
+      if (newValLowerMessageRepeatedBuilder_ == null) {
+        instance.newValLowerMessageRepeated_.makeImmutable();
+      } else {
+        instance.newValLowerMessageRepeated_ = newValLowerMessageRepeatedBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField2_ & 0x00000200) != 0)) {
+      if (newValUpperMessageRepeatedBuilder_ == null) {
+        instance.newValUpperMessageRepeated_.makeImmutable();
+      } else {
+        instance.newValUpperMessageRepeated_ = newValUpperMessageRepeatedBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField2_ & 0x00000400) != 0)) {
+      if (newvalueLowerNoUnderscoreMessageRepeatedBuilder_ == null) {
+        instance.newvalueLowerNoUnderscoreMessageRepeated_.makeImmutable();
+      } else {
+        instance.newvalueLowerNoUnderscoreMessageRepeated_ = newvalueLowerNoUnderscoreMessageRepeatedBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField2_ & 0x00000800) != 0)) {
+      if (newValueUpperNoUnderscoreMessageRepeatedBuilder_ == null) {
+        instance.newValueUpperNoUnderscoreMessageRepeated_.makeImmutable();
+      } else {
+        instance.newValueUpperNoUnderscoreMessageRepeated_ = newValueUpperNoUnderscoreMessageRepeatedBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField2_ & 0x00001000) != 0)) {
+        instance.newValLowerEnumRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00002000) != 0)) {
+        instance.newValUpperEnumRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00004000) != 0)) {
+        instance.newvalueLowerNoUnderscoreEnumRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00008000) != 0)) {
+        instance.newValueUpperNoUnderscoreEnumRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00010000) != 0)) {
+        instance.allocValLowerComplexRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00020000) != 0)) {
+        instance.allocValUpperComplexRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00040000) != 0)) {
+        instance.allocvalueLowerNoUnderscoreComplexRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00080000) != 0)) {
+        instance.allocValueUpperNoUnderscoreComplexRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00100000) != 0)) {
+        instance.allocValLowerPrimitiveRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00200000) != 0)) {
+        instance.allocValUpperPrimitiveRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00400000) != 0)) {
+        instance.allocvalueLowerNoUnderscorePrimitiveRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x00800000) != 0)) {
+        instance.allocValueUpperNoUnderscorePrimitiveRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x01000000) != 0)) {
+      if (allocValLowerMessageRepeatedBuilder_ == null) {
+        instance.allocValLowerMessageRepeated_.makeImmutable();
+      } else {
+        instance.allocValLowerMessageRepeated_ = allocValLowerMessageRepeatedBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField2_ & 0x02000000) != 0)) {
+      if (allocValUpperMessageRepeatedBuilder_ == null) {
+        instance.allocValUpperMessageRepeated_.makeImmutable();
+      } else {
+        instance.allocValUpperMessageRepeated_ = allocValUpperMessageRepeatedBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField2_ & 0x04000000) != 0)) {
+      if (allocvalueLowerNoUnderscoreMessageRepeatedBuilder_ == null) {
+        instance.allocvalueLowerNoUnderscoreMessageRepeated_.makeImmutable();
+      } else {
+        instance.allocvalueLowerNoUnderscoreMessageRepeated_ = allocvalueLowerNoUnderscoreMessageRepeatedBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField2_ & 0x08000000) != 0)) {
+      if (allocValueUpperNoUnderscoreMessageRepeatedBuilder_ == null) {
+        instance.allocValueUpperNoUnderscoreMessageRepeated_.makeImmutable();
+      } else {
+        instance.allocValueUpperNoUnderscoreMessageRepeated_ = allocValueUpperNoUnderscoreMessageRepeatedBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField2_ & 0x10000000) != 0)) {
+        instance.allocValLowerEnumRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x20000000) != 0)) {
+        instance.allocValUpperEnumRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x40000000) != 0)) {
+        instance.allocvalueLowerNoUnderscoreEnumRepeated_.makeImmutable();
+      }
+      if (((from_bitField2_ & 0x80000000) != 0)) {
+        instance.allocValueUpperNoUnderscoreEnumRepeated_.makeImmutable();
+      }
+    }
+
+    private static void buildPartial_autosplit_3(objc.protobuf.tests.UnittestObjc.ObjCRetainedFoo instance,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValLowerMessageRepeatedBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValUpperMessageRepeatedBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyvalueLowerNoUnderscoreMessageRepeatedBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyValueUpperNoUnderscoreMessageRepeatedBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValLowerMessageRepeatedBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValUpperMessageRepeatedBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyvalueLowerNoUnderscoreMessageRepeatedBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyValueUpperNoUnderscoreMessageRepeatedBuilder_) {
+      int from_bitField3_ = instance.bitField3_;
+      if (((from_bitField3_ & 0x00000001) != 0)) {
+        instance.copyValLowerComplexRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00000002) != 0)) {
+        instance.copyValUpperComplexRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00000004) != 0)) {
+        instance.copyvalueLowerNoUnderscoreComplexRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00000008) != 0)) {
+        instance.copyValueUpperNoUnderscoreComplexRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00000010) != 0)) {
+        instance.copyValLowerPrimitiveRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00000020) != 0)) {
+        instance.copyValUpperPrimitiveRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00000040) != 0)) {
+        instance.copyvalueLowerNoUnderscorePrimitiveRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00000080) != 0)) {
+        instance.copyValueUpperNoUnderscorePrimitiveRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00000100) != 0)) {
+      if (copyValLowerMessageRepeatedBuilder_ == null) {
+        instance.copyValLowerMessageRepeated_.makeImmutable();
+      } else {
+        instance.copyValLowerMessageRepeated_ = copyValLowerMessageRepeatedBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField3_ & 0x00000200) != 0)) {
+      if (copyValUpperMessageRepeatedBuilder_ == null) {
+        instance.copyValUpperMessageRepeated_.makeImmutable();
+      } else {
+        instance.copyValUpperMessageRepeated_ = copyValUpperMessageRepeatedBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField3_ & 0x00000400) != 0)) {
+      if (copyvalueLowerNoUnderscoreMessageRepeatedBuilder_ == null) {
+        instance.copyvalueLowerNoUnderscoreMessageRepeated_.makeImmutable();
+      } else {
+        instance.copyvalueLowerNoUnderscoreMessageRepeated_ = copyvalueLowerNoUnderscoreMessageRepeatedBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField3_ & 0x00000800) != 0)) {
+      if (copyValueUpperNoUnderscoreMessageRepeatedBuilder_ == null) {
+        instance.copyValueUpperNoUnderscoreMessageRepeated_.makeImmutable();
+      } else {
+        instance.copyValueUpperNoUnderscoreMessageRepeated_ = copyValueUpperNoUnderscoreMessageRepeatedBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField3_ & 0x00001000) != 0)) {
+        instance.copyValLowerEnumRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00002000) != 0)) {
+        instance.copyValUpperEnumRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00004000) != 0)) {
+        instance.copyvalueLowerNoUnderscoreEnumRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00008000) != 0)) {
+        instance.copyValueUpperNoUnderscoreEnumRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00010000) != 0)) {
+        instance.mutableCopyValLowerComplexRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00020000) != 0)) {
+        instance.mutableCopyValUpperComplexRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00040000) != 0)) {
+        instance.mutableCopyvalueLowerNoUnderscoreComplexRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00080000) != 0)) {
+        instance.mutableCopyValueUpperNoUnderscoreComplexRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00100000) != 0)) {
+        instance.mutableCopyValLowerPrimitiveRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00200000) != 0)) {
+        instance.mutableCopyValUpperPrimitiveRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00400000) != 0)) {
+        instance.mutableCopyvalueLowerNoUnderscorePrimitiveRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x00800000) != 0)) {
+        instance.mutableCopyValueUpperNoUnderscorePrimitiveRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x01000000) != 0)) {
+      if (mutableCopyValLowerMessageRepeatedBuilder_ == null) {
+        instance.mutableCopyValLowerMessageRepeated_.makeImmutable();
+      } else {
+        instance.mutableCopyValLowerMessageRepeated_ = mutableCopyValLowerMessageRepeatedBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField3_ & 0x02000000) != 0)) {
+      if (mutableCopyValUpperMessageRepeatedBuilder_ == null) {
+        instance.mutableCopyValUpperMessageRepeated_.makeImmutable();
+      } else {
+        instance.mutableCopyValUpperMessageRepeated_ = mutableCopyValUpperMessageRepeatedBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField3_ & 0x04000000) != 0)) {
+      if (mutableCopyvalueLowerNoUnderscoreMessageRepeatedBuilder_ == null) {
+        instance.mutableCopyvalueLowerNoUnderscoreMessageRepeated_.makeImmutable();
+      } else {
+        instance.mutableCopyvalueLowerNoUnderscoreMessageRepeated_ = mutableCopyvalueLowerNoUnderscoreMessageRepeatedBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField3_ & 0x08000000) != 0)) {
+      if (mutableCopyValueUpperNoUnderscoreMessageRepeatedBuilder_ == null) {
+        instance.mutableCopyValueUpperNoUnderscoreMessageRepeated_.makeImmutable();
+      } else {
+        instance.mutableCopyValueUpperNoUnderscoreMessageRepeated_ = mutableCopyValueUpperNoUnderscoreMessageRepeatedBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField3_ & 0x10000000) != 0)) {
+        instance.mutableCopyValLowerEnumRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x20000000) != 0)) {
+        instance.mutableCopyValUpperEnumRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x40000000) != 0)) {
+        instance.mutableCopyvalueLowerNoUnderscoreEnumRepeated_.makeImmutable();
+      }
+      if (((from_bitField3_ & 0x80000000) != 0)) {
+        instance.mutableCopyValueUpperNoUnderscoreEnumRepeated_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<ObjCRetainedFoo>
-        PARSER = new com.google.protobuf.AbstractParser<ObjCRetainedFoo>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ObjCRetainedFoo> {
+      MessageParser() {}
+
       @java.lang.Override
       public ObjCRetainedFoo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return ObjCRetainedFoo.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(ObjCRetainedFoo instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<ObjCRetainedFoo> parser() {
       return PARSER;
@@ -45922,15 +51593,26 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.JustToScopeExtensions.class, objc.protobuf.tests.UnittestObjc.JustToScopeExtensions.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.JustToScopeExtensions.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.JustToScopeExtensions other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
       }
       @java.lang.Override
       public Builder clear() {
@@ -46030,22 +51712,62 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static JustToScopeExtensions parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      JustToScopeExtensions instance = new JustToScopeExtensions((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<JustToScopeExtensions>
-        PARSER = new com.google.protobuf.AbstractParser<JustToScopeExtensions>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<JustToScopeExtensions> {
+      MessageParser() {}
+
       @java.lang.Override
       public JustToScopeExtensions parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return JustToScopeExtensions.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(JustToScopeExtensions instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<JustToScopeExtensions> parser() {
       return PARSER;
@@ -48280,15 +54002,31 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.ObjCRetainedComplex.class, objc.protobuf.tests.UnittestObjc.ObjCRetainedComplex.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.ObjCRetainedComplex.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        new_ = "";
+        alloc_ = "";
+        copy_ = "";
+        mutableCopy_ = "";
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.ObjCRetainedComplex other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -48331,7 +54069,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedComplex result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.new_ = new_;
           to_bitField0_ |= 0x00000001;
@@ -48349,6 +54087,14 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           to_bitField0_ |= 0x00000008;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedComplex other, java.lang.Object[] parserLocals) {
+        new_ = other.new_;
+        alloc_ = other.alloc_;
+        copy_ = other.copy_;
+        mutableCopy_ = other.mutableCopy_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -48444,7 +54190,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       }
       private int bitField0_;
 
-      private java.lang.Object new_ = "";
+      private java.lang.Object new_;
       /**
        * <code>optional string new = 1;</code>
        * @return Whether the new field is set.
@@ -48524,7 +54270,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object alloc_ = "";
+      private java.lang.Object alloc_;
       /**
        * <code>optional string alloc = 2;</code>
        * @return Whether the alloc field is set.
@@ -48604,7 +54350,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object copy_ = "";
+      private java.lang.Object copy_;
       /**
        * <code>optional string copy = 3;</code>
        * @return Whether the copy field is set.
@@ -48684,7 +54430,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private java.lang.Object mutableCopy_ = "";
+      private java.lang.Object mutableCopy_;
       /**
        * <code>optional string mutableCopy = 4;</code>
        * @return Whether the mutableCopy field is set.
@@ -48777,22 +54523,82 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static ObjCRetainedComplex parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ObjCRetainedComplex instance = new ObjCRetainedComplex((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.new_ = input.readBytes();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              instance.alloc_ = input.readBytes();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              instance.copy_ = input.readBytes();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              instance.mutableCopy_ = input.readBytes();
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<ObjCRetainedComplex>
-        PARSER = new com.google.protobuf.AbstractParser<ObjCRetainedComplex>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ObjCRetainedComplex> {
+      MessageParser() {}
+
       @java.lang.Override
       public ObjCRetainedComplex parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return ObjCRetainedComplex.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(ObjCRetainedComplex instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<ObjCRetainedComplex> parser() {
       return PARSER;
@@ -49351,15 +55157,35 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.ObjCRetainedComplexRepeated.class, objc.protobuf.tests.UnittestObjc.ObjCRetainedComplexRepeated.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.ObjCRetainedComplexRepeated.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        new_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        alloc_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        copy_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        mutableCopy_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.ObjCRetainedComplexRepeated other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -49406,7 +55232,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedComplexRepeated result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           new_.makeImmutable();
           result.new_ = new_;
@@ -49424,6 +55250,14 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           result.mutableCopy_ = mutableCopy_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedComplexRepeated other, java.lang.Object[] parserLocals) {
+        new_ = other.new_;
+        alloc_ = other.alloc_;
+        copy_ = other.copy_;
+        mutableCopy_ = other.mutableCopy_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -49543,8 +55377,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       }
       private int bitField0_;
 
-      private com.google.protobuf.LazyStringArrayList new_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList new_;
       private void ensureNewIsMutable() {
         if (!new_.isModifiable()) {
           new_ = new com.google.protobuf.LazyStringArrayList(new_);
@@ -49653,8 +55486,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList alloc_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList alloc_;
       private void ensureAllocIsMutable() {
         if (!alloc_.isModifiable()) {
           alloc_ = new com.google.protobuf.LazyStringArrayList(alloc_);
@@ -49763,8 +55595,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList copy_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList copy_;
       private void ensureCopyIsMutable() {
         if (!copy_.isModifiable()) {
           copy_ = new com.google.protobuf.LazyStringArrayList(copy_);
@@ -49873,8 +55704,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList mutableCopy_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList mutableCopy_;
       private void ensureMutableCopyIsMutable() {
         if (!mutableCopy_.isModifiable()) {
           mutableCopy_ = new com.google.protobuf.LazyStringArrayList(mutableCopy_);
@@ -49996,22 +55826,127 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static ObjCRetainedComplexRepeated parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ObjCRetainedComplexRepeated instance = new ObjCRetainedComplexRepeated((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureNewIsMutable(instance);
+              instance.new_.add(bs);
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureAllocIsMutable(instance);
+              instance.alloc_.add(bs);
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureCopyIsMutable(instance);
+              instance.copy_.add(bs);
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureMutableCopyIsMutable(instance);
+              instance.mutableCopy_.add(bs);
+              break;
+            } // case 34
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureNewIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedComplexRepeated instance) {
+      if (!instance.new_.isModifiable()) {
+        instance.new_ = new com.google.protobuf.LazyStringArrayList(instance.new_);
+      }
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void ensureAllocIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedComplexRepeated instance) {
+      if (!instance.alloc_.isModifiable()) {
+        instance.alloc_ = new com.google.protobuf.LazyStringArrayList(instance.alloc_);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static void ensureCopyIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedComplexRepeated instance) {
+      if (!instance.copy_.isModifiable()) {
+        instance.copy_ = new com.google.protobuf.LazyStringArrayList(instance.copy_);
+      }
+      instance.bitField0_ |= 0x00000004;
+    }
+    private static void ensureMutableCopyIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedComplexRepeated instance) {
+      if (!instance.mutableCopy_.isModifiable()) {
+        instance.mutableCopy_ = new com.google.protobuf.LazyStringArrayList(instance.mutableCopy_);
+      }
+      instance.bitField0_ |= 0x00000008;
+    }
+    private static void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedComplexRepeated instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.new_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.alloc_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.copy_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.mutableCopy_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<ObjCRetainedComplexRepeated>
-        PARSER = new com.google.protobuf.AbstractParser<ObjCRetainedComplexRepeated>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ObjCRetainedComplexRepeated> {
+      MessageParser() {}
+
       @java.lang.Override
       public ObjCRetainedComplexRepeated parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return ObjCRetainedComplexRepeated.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(ObjCRetainedComplexRepeated instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<ObjCRetainedComplexRepeated> parser() {
       return PARSER;
@@ -50430,15 +56365,27 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.ObjCRetainedPrimitive.class, objc.protobuf.tests.UnittestObjc.ObjCRetainedPrimitive.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.ObjCRetainedPrimitive.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.ObjCRetainedPrimitive other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -50481,7 +56428,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedPrimitive result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.new_ = new_;
           to_bitField0_ |= 0x00000001;
@@ -50499,6 +56446,14 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           to_bitField0_ |= 0x00000008;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedPrimitive other, java.lang.Object[] parserLocals) {
+        new_ = other.getNew();
+        alloc_ = other.getAlloc();
+        copy_ = other.getCopy();
+        mutableCopy_ = other.getMutableCopy();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -50586,7 +56541,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       }
       private int bitField0_;
 
-      private int new_ ;
+      private int new_;
       /**
        * <code>optional int32 new = 1;</code>
        * @return Whether the new field is set.
@@ -50626,7 +56581,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int alloc_ ;
+      private int alloc_;
       /**
        * <code>optional int32 alloc = 2;</code>
        * @return Whether the alloc field is set.
@@ -50666,7 +56621,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int copy_ ;
+      private int copy_;
       /**
        * <code>optional int32 copy = 3;</code>
        * @return Whether the copy field is set.
@@ -50706,7 +56661,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int mutableCopy_ ;
+      private int mutableCopy_;
       /**
        * <code>optional int32 mutableCopy = 4;</code>
        * @return Whether the mutableCopy field is set.
@@ -50759,22 +56714,82 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static ObjCRetainedPrimitive parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ObjCRetainedPrimitive instance = new ObjCRetainedPrimitive((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.new_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.alloc_ = input.readInt32();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              instance.copy_ = input.readInt32();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              instance.mutableCopy_ = input.readInt32();
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<ObjCRetainedPrimitive>
-        PARSER = new com.google.protobuf.AbstractParser<ObjCRetainedPrimitive>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ObjCRetainedPrimitive> {
+      MessageParser() {}
+
       @java.lang.Override
       public ObjCRetainedPrimitive parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return ObjCRetainedPrimitive.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(ObjCRetainedPrimitive instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<ObjCRetainedPrimitive> parser() {
       return PARSER;
@@ -51277,15 +57292,31 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.ObjCRetainedPrimitiveRepeated.class, objc.protobuf.tests.UnittestObjc.ObjCRetainedPrimitiveRepeated.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.ObjCRetainedPrimitiveRepeated.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        new_ = emptyIntList();
+        alloc_ = emptyIntList();
+        copy_ = emptyIntList();
+        mutableCopy_ = emptyIntList();
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.ObjCRetainedPrimitiveRepeated other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -51328,7 +57359,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedPrimitiveRepeated result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           new_.makeImmutable();
           result.new_ = new_;
@@ -51346,6 +57377,14 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           result.mutableCopy_ = mutableCopy_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedPrimitiveRepeated other, java.lang.Object[] parserLocals) {
+        new_ = other.new_;
+        alloc_ = other.alloc_;
+        copy_ = other.copy_;
+        mutableCopy_ = other.mutableCopy_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -51513,7 +57552,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.IntList new_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList new_;
       private void ensureNewIsMutable(int capacity) {
         if (!new_.isModifiable()) {
           new_ = makeMutableCopy(new_, capacity);
@@ -51597,7 +57636,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList alloc_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList alloc_;
       private void ensureAllocIsMutable(int capacity) {
         if (!alloc_.isModifiable()) {
           alloc_ = makeMutableCopy(alloc_, capacity);
@@ -51681,7 +57720,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList copy_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList copy_;
       private void ensureCopyIsMutable(int capacity) {
         if (!copy_.isModifiable()) {
           copy_ = makeMutableCopy(copy_, capacity);
@@ -51765,7 +57804,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList mutableCopy_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList mutableCopy_;
       private void ensureMutableCopyIsMutable(int capacity) {
         if (!mutableCopy_.isModifiable()) {
           mutableCopy_ = makeMutableCopy(mutableCopy_, capacity);
@@ -51862,22 +57901,171 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static ObjCRetainedPrimitiveRepeated parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ObjCRetainedPrimitiveRepeated instance = new ObjCRetainedPrimitiveRepeated((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int v = input.readInt32();
+              ensureNewIsMutable(instance, /* capacity= */ -1);
+              instance.new_.addInt(v);
+              break;
+            } // case 8
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureNewIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.new_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 10
+            case 16: {
+              int v = input.readInt32();
+              ensureAllocIsMutable(instance, /* capacity= */ -1);
+              instance.alloc_.addInt(v);
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureAllocIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.alloc_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            case 24: {
+              int v = input.readInt32();
+              ensureCopyIsMutable(instance, /* capacity= */ -1);
+              instance.copy_.addInt(v);
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureCopyIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.copy_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 26
+            case 32: {
+              int v = input.readInt32();
+              ensureMutableCopyIsMutable(instance, /* capacity= */ -1);
+              instance.mutableCopy_.addInt(v);
+              break;
+            } // case 32
+            case 34: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureMutableCopyIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.mutableCopy_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 34
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureNewIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedPrimitiveRepeated instance, int capacity) {
+      if (!instance.new_.isModifiable()) {
+        instance.new_ = makeMutableCopy(instance.new_, capacity);
+      }
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void ensureAllocIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedPrimitiveRepeated instance, int capacity) {
+      if (!instance.alloc_.isModifiable()) {
+        instance.alloc_ = makeMutableCopy(instance.alloc_, capacity);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static void ensureCopyIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedPrimitiveRepeated instance, int capacity) {
+      if (!instance.copy_.isModifiable()) {
+        instance.copy_ = makeMutableCopy(instance.copy_, capacity);
+      }
+      instance.bitField0_ |= 0x00000004;
+    }
+    private static void ensureMutableCopyIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedPrimitiveRepeated instance, int capacity) {
+      if (!instance.mutableCopy_.isModifiable()) {
+        instance.mutableCopy_ = makeMutableCopy(instance.mutableCopy_, capacity);
+      }
+      instance.bitField0_ |= 0x00000008;
+    }
+    private static void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedPrimitiveRepeated instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.new_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.alloc_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.copy_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.mutableCopy_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<ObjCRetainedPrimitiveRepeated>
-        PARSER = new com.google.protobuf.AbstractParser<ObjCRetainedPrimitiveRepeated>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ObjCRetainedPrimitiveRepeated> {
+      MessageParser() {}
+
       @java.lang.Override
       public ObjCRetainedPrimitiveRepeated parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return ObjCRetainedPrimitiveRepeated.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(ObjCRetainedPrimitiveRepeated instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<ObjCRetainedPrimitiveRepeated> parser() {
       return PARSER;
@@ -52396,15 +58584,28 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.ObjCRetainedMessage.class, objc.protobuf.tests.UnittestObjc.ObjCRetainedMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.ObjCRetainedMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.ObjCRetainedMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -52472,7 +58673,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedMessage result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.new_ = newBuilder_ == null
               ? new_
@@ -52498,6 +58699,33 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           to_bitField0_ |= 0x00000008;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedMessage other, java.lang.Object[] parserLocals) {
+        new_ = other.new_;
+        alloc_ = other.alloc_;
+        copy_ = other.copy_;
+        mutableCopy_ = other.mutableCopy_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            newBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[0]);
+            new_ = null;
+          }
+          if (parserLocals[1] != null) {
+            allocBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[1]);
+            alloc_ = null;
+          }
+          if (parserLocals[2] != null) {
+            copyBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[2]);
+            copy_ = null;
+          }
+          if (parserLocals[3] != null) {
+            mutableCopyBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[3]);
+            mutableCopy_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -52598,6 +58826,30 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseNewField(input, extensionRegistry);
+            return true;
+          } // case 10
+          case 18: {
+            parseAllocField(input, extensionRegistry);
+            return true;
+          } // case 18
+          case 26: {
+            parseCopyField(input, extensionRegistry);
+            return true;
+          } // case 26
+          case 34: {
+            parseMutableCopyField(input, extensionRegistry);
+            return true;
+          } // case 34
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -52720,7 +58972,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (new_ != null || newBuilder_ != null) {
-          internalGetNewFieldBuilder().getBuilder()
+          internalGetNewFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           new_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -52848,7 +59100,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (alloc_ != null || allocBuilder_ != null) {
-          internalGetAllocFieldBuilder().getBuilder()
+          internalGetAllocFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           alloc_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -52976,7 +59228,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (copy_ != null || copyBuilder_ != null) {
-          internalGetCopyFieldBuilder().getBuilder()
+          internalGetCopyFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           copy_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -53104,7 +59356,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (mutableCopy_ != null || mutableCopyBuilder_ != null) {
-          internalGetMutableCopyFieldBuilder().getBuilder()
+          internalGetMutableCopyFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           mutableCopy_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
@@ -53126,22 +59378,282 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static ObjCRetainedMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ObjCRetainedMessage instance = new ObjCRetainedMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        newBuilder_ = internalGetNewFieldBuilder(instance, newBuilder_);
+        allocBuilder_ = internalGetAllocFieldBuilder(instance, allocBuilder_);
+        copyBuilder_ = internalGetCopyFieldBuilder(instance, copyBuilder_);
+        mutableCopyBuilder_ = internalGetMutableCopyFieldBuilder(instance, mutableCopyBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.new_ != null || newBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseNewField(instance, input, extensionRegistry, newBuilder_);
+              break;
+            } // case 10
+            case 18: {
+              if (instance.alloc_ != null || allocBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseAllocField(instance, input, extensionRegistry, allocBuilder_);
+              break;
+            } // case 18
+            case 26: {
+              if (instance.copy_ != null || copyBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseCopyField(instance, input, extensionRegistry, copyBuilder_);
+              break;
+            } // case 26
+            case 34: {
+              if (instance.mutableCopy_ != null || mutableCopyBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseMutableCopyField(instance, input, extensionRegistry, mutableCopyBuilder_);
+              break;
+            } // case 34
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {newBuilder_, allocBuilder_, copyBuilder_, mutableCopyBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, newBuilder_, allocBuilder_, copyBuilder_, mutableCopyBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self new = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetNewFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedMessage instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newBuilder_) {
+      if (newBuilder_ == null) {
+        newBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getNew(),
+                null,
+                false);
+        instance.new_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return newBuilder_;
+    }
+    private static void parseNewField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.new_ != null || newBuilder_ != null) {
+        newBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.new_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self alloc = 2;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetAllocFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedMessage instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocBuilder_) {
+      if (allocBuilder_ == null) {
+        allocBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getAlloc(),
+                null,
+                false);
+        instance.alloc_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+      return allocBuilder_;
+    }
+    private static void parseAllocField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.alloc_ != null || allocBuilder_ != null) {
+        allocBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.alloc_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self copy = 3;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetCopyFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedMessage instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyBuilder_) {
+      if (copyBuilder_ == null) {
+        copyBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getCopy(),
+                null,
+                false);
+        instance.copy_ = null;
+      }
+      instance.bitField0_ |= 0x00000004;
+      return copyBuilder_;
+    }
+    private static void parseCopyField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.copy_ != null || copyBuilder_ != null) {
+        copyBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.copy_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.self mutableCopy = 4;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> 
+        internalGetMutableCopyFieldBuilder(objc.protobuf.tests.UnittestObjc.ObjCRetainedMessage instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyBuilder_) {
+      if (mutableCopyBuilder_ == null) {
+        mutableCopyBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>(
+                instance.getMutableCopy(),
+                null,
+                false);
+        instance.mutableCopy_ = null;
+      }
+      instance.bitField0_ |= 0x00000008;
+      return mutableCopyBuilder_;
+    }
+    private static void parseMutableCopyField(
+        objc.protobuf.tests.UnittestObjc.ObjCRetainedMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.mutableCopy_ != null || mutableCopyBuilder_ != null) {
+        mutableCopyBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.mutableCopy_ = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000008;
+    }
+    private static void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedMessage instance,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.new_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.new_ = newBuilder_ == null
+            ? instance.new_
+            : newBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000002) != 0)) instance.alloc_ = null;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.alloc_ = allocBuilder_ == null
+            ? instance.alloc_
+            : allocBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000004) != 0)) instance.copy_ = null;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.copy_ = copyBuilder_ == null
+            ? instance.copy_
+            : copyBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000008) != 0)) instance.mutableCopy_ = null;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.mutableCopy_ = mutableCopyBuilder_ == null
+            ? instance.mutableCopy_
+            : mutableCopyBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<ObjCRetainedMessage>
-        PARSER = new com.google.protobuf.AbstractParser<ObjCRetainedMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ObjCRetainedMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public ObjCRetainedMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return ObjCRetainedMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(ObjCRetainedMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<ObjCRetainedMessage> parser() {
       return PARSER;
@@ -53768,15 +60280,31 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.ObjCRetainedMessageRepeated.class, objc.protobuf.tests.UnittestObjc.ObjCRetainedMessageRepeated.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.ObjCRetainedMessageRepeated.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        new_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        alloc_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        copy_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+        mutableCopy_ = emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.ObjCRetainedMessageRepeated other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -53843,7 +60371,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedMessageRepeated result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
         if (newBuilder_ == null) {
           new_.makeImmutable();
@@ -53877,6 +60405,33 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedMessageRepeated other, java.lang.Object[] parserLocals) {
+        new_ = other.new_;
+        alloc_ = other.alloc_;
+        copy_ = other.copy_;
+        mutableCopy_ = other.mutableCopy_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            newBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[0]);
+            new_ = null;
+          }
+          if (parserLocals[1] != null) {
+            allocBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[1]);
+            alloc_ = null;
+          }
+          if (parserLocals[2] != null) {
+            copyBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[2]);
+            copy_ = null;
+          }
+          if (parserLocals[3] != null) {
+            mutableCopyBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder>) parserLocals[3]);
+            mutableCopy_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -54120,8 +60675,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> new_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> new_;
       private void ensureNewIsMutable() {
         if (!new_.isModifiable()) {
           new_ = makeMutableCopy(new_);
@@ -54354,8 +60908,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return newBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> alloc_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> alloc_;
       private void ensureAllocIsMutable() {
         if (!alloc_.isModifiable()) {
           alloc_ = makeMutableCopy(alloc_);
@@ -54588,8 +61141,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return allocBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> copy_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> copy_;
       private void ensureCopyIsMutable() {
         if (!copy_.isModifiable()) {
           copy_ = makeMutableCopy(copy_);
@@ -54822,8 +61374,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return copyBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> mutableCopy_ =
-          emptyList(objc.protobuf.tests.UnittestObjc.self.class);
+      private com.google.protobuf.Internal.ProtobufList<objc.protobuf.tests.UnittestObjc.self> mutableCopy_;
       private void ensureMutableCopyIsMutable() {
         if (!mutableCopy_.isModifiable()) {
           mutableCopy_ = makeMutableCopy(mutableCopy_);
@@ -55069,22 +61620,183 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static ObjCRetainedMessageRepeated parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ObjCRetainedMessageRepeated instance = new ObjCRetainedMessageRepeated((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyBuilder_ = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (newBuilder_ == null) {
+                ensureNewIsMutable(instance);
+                instance.new_.add(m);
+              } else {
+                newBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000001;
+
+              }
+              break;
+            } // case 10
+            case 18: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (allocBuilder_ == null) {
+                ensureAllocIsMutable(instance);
+                instance.alloc_.add(m);
+              } else {
+                allocBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000002;
+
+              }
+              break;
+            } // case 18
+            case 26: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (copyBuilder_ == null) {
+                ensureCopyIsMutable(instance);
+                instance.copy_.add(m);
+              } else {
+                copyBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000004;
+
+              }
+              break;
+            } // case 26
+            case 34: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              objc.protobuf.tests.UnittestObjc.self m = objc.protobuf.tests.UnittestObjc.self.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (mutableCopyBuilder_ == null) {
+                ensureMutableCopyIsMutable(instance);
+                instance.mutableCopy_.add(m);
+              } else {
+                mutableCopyBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000008;
+
+              }
+              break;
+            } // case 34
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, newBuilder_, allocBuilder_, copyBuilder_, mutableCopyBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureNewIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedMessageRepeated instance) {
+      if (!instance.new_.isModifiable()) {
+        instance.new_ = makeMutableCopy(instance.new_);
+      }
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void ensureAllocIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedMessageRepeated instance) {
+      if (!instance.alloc_.isModifiable()) {
+        instance.alloc_ = makeMutableCopy(instance.alloc_);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static void ensureCopyIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedMessageRepeated instance) {
+      if (!instance.copy_.isModifiable()) {
+        instance.copy_ = makeMutableCopy(instance.copy_);
+      }
+      instance.bitField0_ |= 0x00000004;
+    }
+    private static void ensureMutableCopyIsMutable(objc.protobuf.tests.UnittestObjc.ObjCRetainedMessageRepeated instance) {
+      if (!instance.mutableCopy_.isModifiable()) {
+        instance.mutableCopy_ = makeMutableCopy(instance.mutableCopy_);
+      }
+      instance.bitField0_ |= 0x00000008;
+    }
+    private static void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjCRetainedMessageRepeated instance,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> newBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> allocBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> copyBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<objc.protobuf.tests.UnittestObjc.self, objc.protobuf.tests.UnittestObjc.self.Builder, objc.protobuf.tests.UnittestObjc.selfOrBuilder> mutableCopyBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+      if (newBuilder_ == null) {
+        instance.new_.makeImmutable();
+      } else {
+        instance.new_ = newBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (allocBuilder_ == null) {
+        instance.alloc_.makeImmutable();
+      } else {
+        instance.alloc_ = allocBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+      if (copyBuilder_ == null) {
+        instance.copy_.makeImmutable();
+      } else {
+        instance.copy_ = copyBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+      if (mutableCopyBuilder_ == null) {
+        instance.mutableCopy_.makeImmutable();
+      } else {
+        instance.mutableCopy_ = mutableCopyBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<ObjCRetainedMessageRepeated>
-        PARSER = new com.google.protobuf.AbstractParser<ObjCRetainedMessageRepeated>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ObjCRetainedMessageRepeated> {
+      MessageParser() {}
+
       @java.lang.Override
       public ObjCRetainedMessageRepeated parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return ObjCRetainedMessageRepeated.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(ObjCRetainedMessageRepeated instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<ObjCRetainedMessageRepeated> parser() {
       return PARSER;
@@ -55415,15 +62127,27 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                   objc.protobuf.tests.UnittestObjc.Point.Rect.class, objc.protobuf.tests.UnittestObjc.Point.Rect.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using objc.protobuf.tests.UnittestObjc.Point.Rect.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+        }
+        private Builder(objc.protobuf.tests.UnittestObjc.Point.Rect other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         @java.lang.Override
         public Builder clear() {
@@ -55463,12 +62187,17 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
         private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.Point.Rect result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.timeValue_ = timeValue_;
             to_bitField0_ |= 0x00000001;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.Point.Rect other, java.lang.Object[] parserLocals) {
+          timeValue_ = other.getTimeValue();
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -55532,7 +62261,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         }
         private int bitField0_;
 
-        private int timeValue_ ;
+        private int timeValue_;
         /**
          * <code>optional int32 TimeValue = 1;</code>
          * @return Whether the timeValue field is set.
@@ -55585,22 +62314,67 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return DEFAULT_INSTANCE;
       }
 
+      static Rect parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Rect instance = new Rect((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                instance.timeValue_ = input.readInt32();
+                instance.bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<Rect>
-          PARSER = new com.google.protobuf.AbstractParser<Rect>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<Rect> {
+        MessageParser() {}
+
         @java.lang.Override
         public Rect parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return Rect.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(Rect instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<Rect> parser() {
         return PARSER;
@@ -55787,15 +62561,26 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.Point.class, objc.protobuf.tests.UnittestObjc.Point.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.Point.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.Point other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
       }
       @java.lang.Override
       public Builder clear() {
@@ -55895,22 +62680,62 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static Point parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Point instance = new Point((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<Point>
-        PARSER = new com.google.protobuf.AbstractParser<Point>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Point> {
+      MessageParser() {}
+
       @java.lang.Override
       public Point parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Point.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Point instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Point> parser() {
       return PARSER;
@@ -55999,6 +62824,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
     // Use ObjcWeirdDefaults.newBuilder() to construct.
     private ObjcWeirdDefaults(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      bar_ = DEFAULT_INSTANCE.bar_;
     }
     private ObjcWeirdDefaults() {
       foo_ = "";
@@ -56089,7 +62915,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
     }
 
     public static final int BAR_FIELD_NUMBER = 2;
-    private com.google.protobuf.ByteString bar_ = com.google.protobuf.Internal.bytesDefaultValue("");
+    private com.google.protobuf.ByteString bar_;
     /**
      * <code>optional bytes bar = 2 [default = ""];</code>
      * @return Whether the bar field is set.
@@ -56312,22 +63138,36 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.ObjcWeirdDefaults.class, objc.protobuf.tests.UnittestObjc.ObjcWeirdDefaults.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.ObjcWeirdDefaults.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        foo_ = "";
+        bar_ = getDefaultInstance().getBar();
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.ObjcWeirdDefaults other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
         foo_ = "";
-        bar_ = com.google.protobuf.Internal.bytesDefaultValue("");
+        bar_ = getDefaultInstance().getBar();
         return this;
       }
 
@@ -56361,7 +63201,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjcWeirdDefaults result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.foo_ = foo_;
           to_bitField0_ |= 0x00000001;
@@ -56371,6 +63211,12 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.ObjcWeirdDefaults other, java.lang.Object[] parserLocals) {
+        foo_ = other.foo_;
+        bar_ = other.getBar();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -56444,7 +63290,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       }
       private int bitField0_;
 
-      private java.lang.Object foo_ = "";
+      private java.lang.Object foo_;
       /**
        * <pre>
        * Set default values that match the protocol buffer defined defaults to
@@ -56554,7 +63400,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.ByteString bar_ = com.google.protobuf.Internal.bytesDefaultValue("");
+      private com.google.protobuf.ByteString bar_;
       /**
        * <code>optional bytes bar = 2 [default = ""];</code>
        * @return Whether the bar field is set.
@@ -56607,22 +63453,72 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static ObjcWeirdDefaults parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ObjcWeirdDefaults instance = new ObjcWeirdDefaults((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.foo_ = input.readBytes();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              instance.bar_ = input.readBytes();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<ObjcWeirdDefaults>
-        PARSER = new com.google.protobuf.AbstractParser<ObjcWeirdDefaults>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ObjcWeirdDefaults> {
+      MessageParser() {}
+
       @java.lang.Override
       public ObjcWeirdDefaults parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return ObjcWeirdDefaults.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(ObjcWeirdDefaults instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<ObjcWeirdDefaults> parser() {
       return PARSER;
@@ -57209,15 +64105,31 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.EnumTestMsg.class, objc.protobuf.tests.UnittestObjc.EnumTestMsg.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.EnumTestMsg.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        foo_ = 0;
+        bar_ = 1;
+        baz_ = -1;
+        mumble_ = emptyIntList();
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.EnumTestMsg other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -57260,7 +64172,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.EnumTestMsg result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.foo_ = foo_;
           to_bitField0_ |= 0x00000001;
@@ -57278,6 +64190,14 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           result.mumble_ = mumble_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.EnumTestMsg other, java.lang.Object[] parserLocals) {
+        foo_ = other.foo_;
+        bar_ = other.bar_;
+        baz_ = other.baz_;
+        mumble_ = other.mumble_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -57419,7 +64339,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       }
       private int bitField0_;
 
-      private int foo_ = 0;
+      private int foo_;
       /**
        * <code>optional .objc.protobuf.tests.EnumTestMsg.MyEnum foo = 1;</code>
        * @return Whether the foo field is set.
@@ -57459,7 +64379,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int bar_ = 1;
+      private int bar_;
       /**
        * <code>optional .objc.protobuf.tests.EnumTestMsg.MyEnum bar = 2 [default = ONE];</code>
        * @return Whether the bar field is set.
@@ -57499,7 +64419,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int baz_ = -1;
+      private int baz_;
       /**
        * <code>optional .objc.protobuf.tests.EnumTestMsg.MyEnum baz = 3 [default = NEG_ONE];</code>
        * @return Whether the baz field is set.
@@ -57539,7 +64459,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList mumble_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList mumble_;
       private void ensureMumbleIsMutable(int capacity) {
         if (!mumble_.isModifiable()) {
           mumble_ = makeMutableCopy(mumble_, capacity);
@@ -57633,22 +64553,142 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static EnumTestMsg parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      EnumTestMsg instance = new EnumTestMsg((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.EnumTestMsg.MyEnum tmpValue =
+                  objc.protobuf.tests.UnittestObjc.EnumTestMsg.MyEnum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 1, tmpRaw);
+              } else {
+                instance.foo_ = tmpRaw;
+                instance.bitField0_ |= 0x00000001;
+              }
+              break;
+            } // case 8
+            case 16: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.EnumTestMsg.MyEnum tmpValue =
+                  objc.protobuf.tests.UnittestObjc.EnumTestMsg.MyEnum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 2, tmpRaw);
+              } else {
+                instance.bar_ = tmpRaw;
+                instance.bitField0_ |= 0x00000002;
+              }
+              break;
+            } // case 16
+            case 24: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.EnumTestMsg.MyEnum tmpValue =
+                  objc.protobuf.tests.UnittestObjc.EnumTestMsg.MyEnum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 3, tmpRaw);
+              } else {
+                instance.baz_ = tmpRaw;
+                instance.bitField0_ |= 0x00000004;
+              }
+              break;
+            } // case 24
+            case 32: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.EnumTestMsg.MyEnum tmpValue =
+                  objc.protobuf.tests.UnittestObjc.EnumTestMsg.MyEnum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 4, tmpRaw);
+              } else {
+                ensureMumbleIsMutable(instance, /* capacity= */ -1);
+                instance.mumble_.addInt(tmpRaw);
+              }
+              break;
+            } // case 32
+            case 34: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureMumbleIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.EnumTestMsg.MyEnum tmpValue =
+                    objc.protobuf.tests.UnittestObjc.EnumTestMsg.MyEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 4, tmpRaw);
+                } else {
+                  instance.mumble_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 34
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureMumbleIsMutable(objc.protobuf.tests.UnittestObjc.EnumTestMsg instance, int capacity) {
+      if (!instance.mumble_.isModifiable()) {
+        instance.mumble_ = makeMutableCopy(instance.mumble_, capacity);
+      }
+      instance.bitField0_ |= 0x00000008;
+    }
+    private static void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.EnumTestMsg instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.mumble_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<EnumTestMsg>
-        PARSER = new com.google.protobuf.AbstractParser<EnumTestMsg>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<EnumTestMsg> {
+      MessageParser() {}
+
       @java.lang.Override
       public EnumTestMsg parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return EnumTestMsg.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(EnumTestMsg instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<EnumTestMsg> parser() {
       return PARSER;
@@ -58217,15 +65257,31 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime.class, objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        foo_ = 0;
+        bar_ = 1;
+        baz_ = -1;
+        mumble_ = emptyIntList();
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -58268,7 +65324,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.foo_ = foo_;
           to_bitField0_ |= 0x00000001;
@@ -58286,6 +65342,14 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           result.mumble_ = mumble_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime other, java.lang.Object[] parserLocals) {
+        foo_ = other.foo_;
+        bar_ = other.bar_;
+        baz_ = other.baz_;
+        mumble_ = other.mumble_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -58427,7 +65491,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       }
       private int bitField0_;
 
-      private int foo_ = 0;
+      private int foo_;
       /**
        * <code>optional .objc.protobuf.tests.EnumTestMsgPrime.MyEnumPrime foo = 1;</code>
        * @return Whether the foo field is set.
@@ -58467,7 +65531,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int bar_ = 1;
+      private int bar_;
       /**
        * <code>optional .objc.protobuf.tests.EnumTestMsgPrime.MyEnumPrime bar = 2 [default = ONE];</code>
        * @return Whether the bar field is set.
@@ -58507,7 +65571,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private int baz_ = -1;
+      private int baz_;
       /**
        * <code>optional .objc.protobuf.tests.EnumTestMsgPrime.MyEnumPrime baz = 3 [default = NEG_ONE];</code>
        * @return Whether the baz field is set.
@@ -58547,7 +65611,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList mumble_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList mumble_;
       private void ensureMumbleIsMutable(int capacity) {
         if (!mumble_.isModifiable()) {
           mumble_ = makeMutableCopy(mumble_, capacity);
@@ -58641,22 +65705,142 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static EnumTestMsgPrime parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      EnumTestMsgPrime instance = new EnumTestMsgPrime((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime.MyEnumPrime tmpValue =
+                  objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime.MyEnumPrime.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 1, tmpRaw);
+              } else {
+                instance.foo_ = tmpRaw;
+                instance.bitField0_ |= 0x00000001;
+              }
+              break;
+            } // case 8
+            case 16: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime.MyEnumPrime tmpValue =
+                  objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime.MyEnumPrime.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 2, tmpRaw);
+              } else {
+                instance.bar_ = tmpRaw;
+                instance.bitField0_ |= 0x00000002;
+              }
+              break;
+            } // case 16
+            case 24: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime.MyEnumPrime tmpValue =
+                  objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime.MyEnumPrime.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 3, tmpRaw);
+              } else {
+                instance.baz_ = tmpRaw;
+                instance.bitField0_ |= 0x00000004;
+              }
+              break;
+            } // case 24
+            case 32: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime.MyEnumPrime tmpValue =
+                  objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime.MyEnumPrime.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 4, tmpRaw);
+              } else {
+                ensureMumbleIsMutable(instance, /* capacity= */ -1);
+                instance.mumble_.addInt(tmpRaw);
+              }
+              break;
+            } // case 32
+            case 34: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureMumbleIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime.MyEnumPrime tmpValue =
+                    objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime.MyEnumPrime.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 4, tmpRaw);
+                } else {
+                  instance.mumble_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 34
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureMumbleIsMutable(objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime instance, int capacity) {
+      if (!instance.mumble_.isModifiable()) {
+        instance.mumble_ = makeMutableCopy(instance.mumble_, capacity);
+      }
+      instance.bitField0_ |= 0x00000008;
+    }
+    private static void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.EnumTestMsgPrime instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.mumble_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<EnumTestMsgPrime>
-        PARSER = new com.google.protobuf.AbstractParser<EnumTestMsgPrime>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<EnumTestMsgPrime> {
+      MessageParser() {}
+
       @java.lang.Override
       public EnumTestMsgPrime parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return EnumTestMsgPrime.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(EnumTestMsgPrime instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<EnumTestMsgPrime> parser() {
       return PARSER;
@@ -59051,15 +66235,28 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.MessageWithOneBasedEnum.class, objc.protobuf.tests.UnittestObjc.MessageWithOneBasedEnum.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.MessageWithOneBasedEnum.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        enumField_ = 1;
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.MessageWithOneBasedEnum other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -59099,12 +66296,17 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.MessageWithOneBasedEnum result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.enumField_ = enumField_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.MessageWithOneBasedEnum other, java.lang.Object[] parserLocals) {
+        enumField_ = other.enumField_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -59175,7 +66377,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       }
       private int bitField0_;
 
-      private int enumField_ = 1;
+      private int enumField_;
       /**
        * <code>optional .objc.protobuf.tests.MessageWithOneBasedEnum.OneBasedEnum enum_field = 1;</code>
        * @return Whether the enumField field is set.
@@ -59228,22 +66430,74 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static MessageWithOneBasedEnum parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MessageWithOneBasedEnum instance = new MessageWithOneBasedEnum((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int tmpRaw = input.readEnum();
+              objc.protobuf.tests.UnittestObjc.MessageWithOneBasedEnum.OneBasedEnum tmpValue =
+                  objc.protobuf.tests.UnittestObjc.MessageWithOneBasedEnum.OneBasedEnum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 1, tmpRaw);
+              } else {
+                instance.enumField_ = tmpRaw;
+                instance.bitField0_ |= 0x00000001;
+              }
+              break;
+            } // case 8
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<MessageWithOneBasedEnum>
-        PARSER = new com.google.protobuf.AbstractParser<MessageWithOneBasedEnum>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MessageWithOneBasedEnum> {
+      MessageParser() {}
+
       @java.lang.Override
       public MessageWithOneBasedEnum parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return MessageWithOneBasedEnum.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(MessageWithOneBasedEnum instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<MessageWithOneBasedEnum> parser() {
       return PARSER;
@@ -60990,15 +68244,27 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.BoolOnlyMessage.class, objc.protobuf.tests.UnittestObjc.BoolOnlyMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.BoolOnlyMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.BoolOnlyMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -61069,7 +68335,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.BoolOnlyMessage result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.boolField1_ = boolField1_;
           to_bitField0_ |= 0x00000001;
@@ -61199,6 +68465,42 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           to_bitField0_ |= 0x80000000;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.BoolOnlyMessage other, java.lang.Object[] parserLocals) {
+        boolField1_ = other.getBoolField1();
+        boolField2_ = other.getBoolField2();
+        boolField3_ = other.getBoolField3();
+        boolField4_ = other.getBoolField4();
+        boolField5_ = other.getBoolField5();
+        boolField6_ = other.getBoolField6();
+        boolField7_ = other.getBoolField7();
+        boolField8_ = other.getBoolField8();
+        boolField9_ = other.getBoolField9();
+        boolField10_ = other.getBoolField10();
+        boolField11_ = other.getBoolField11();
+        boolField12_ = other.getBoolField12();
+        boolField13_ = other.getBoolField13();
+        boolField14_ = other.getBoolField14();
+        boolField15_ = other.getBoolField15();
+        boolField16_ = other.getBoolField16();
+        boolField17_ = other.getBoolField17();
+        boolField18_ = other.getBoolField18();
+        boolField19_ = other.getBoolField19();
+        boolField20_ = other.getBoolField20();
+        boolField21_ = other.getBoolField21();
+        boolField22_ = other.getBoolField22();
+        boolField23_ = other.getBoolField23();
+        boolField24_ = other.getBoolField24();
+        boolField25_ = other.getBoolField25();
+        boolField26_ = other.getBoolField26();
+        boolField27_ = other.getBoolField27();
+        boolField28_ = other.getBoolField28();
+        boolField29_ = other.getBoolField29();
+        boolField30_ = other.getBoolField30();
+        boolField31_ = other.getBoolField31();
+        boolField32_ = other.getBoolField32();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -61510,7 +68812,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       }
       private int bitField0_;
 
-      private boolean boolField1_ ;
+      private boolean boolField1_;
       /**
        * <code>optional bool bool_field_1 = 1;</code>
        * @return Whether the boolField1 field is set.
@@ -61550,7 +68852,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField2_ ;
+      private boolean boolField2_;
       /**
        * <code>optional bool bool_field_2 = 2;</code>
        * @return Whether the boolField2 field is set.
@@ -61590,7 +68892,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField3_ ;
+      private boolean boolField3_;
       /**
        * <code>optional bool bool_field_3 = 3;</code>
        * @return Whether the boolField3 field is set.
@@ -61630,7 +68932,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField4_ ;
+      private boolean boolField4_;
       /**
        * <code>optional bool bool_field_4 = 4;</code>
        * @return Whether the boolField4 field is set.
@@ -61670,7 +68972,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField5_ ;
+      private boolean boolField5_;
       /**
        * <code>optional bool bool_field_5 = 5;</code>
        * @return Whether the boolField5 field is set.
@@ -61710,7 +69012,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField6_ ;
+      private boolean boolField6_;
       /**
        * <code>optional bool bool_field_6 = 6;</code>
        * @return Whether the boolField6 field is set.
@@ -61750,7 +69052,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField7_ ;
+      private boolean boolField7_;
       /**
        * <code>optional bool bool_field_7 = 7;</code>
        * @return Whether the boolField7 field is set.
@@ -61790,7 +69092,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField8_ ;
+      private boolean boolField8_;
       /**
        * <code>optional bool bool_field_8 = 8;</code>
        * @return Whether the boolField8 field is set.
@@ -61830,7 +69132,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField9_ ;
+      private boolean boolField9_;
       /**
        * <code>optional bool bool_field_9 = 9;</code>
        * @return Whether the boolField9 field is set.
@@ -61870,7 +69172,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField10_ ;
+      private boolean boolField10_;
       /**
        * <code>optional bool bool_field_10 = 10;</code>
        * @return Whether the boolField10 field is set.
@@ -61910,7 +69212,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField11_ ;
+      private boolean boolField11_;
       /**
        * <code>optional bool bool_field_11 = 11;</code>
        * @return Whether the boolField11 field is set.
@@ -61950,7 +69252,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField12_ ;
+      private boolean boolField12_;
       /**
        * <code>optional bool bool_field_12 = 12;</code>
        * @return Whether the boolField12 field is set.
@@ -61990,7 +69292,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField13_ ;
+      private boolean boolField13_;
       /**
        * <code>optional bool bool_field_13 = 13;</code>
        * @return Whether the boolField13 field is set.
@@ -62030,7 +69332,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField14_ ;
+      private boolean boolField14_;
       /**
        * <code>optional bool bool_field_14 = 14;</code>
        * @return Whether the boolField14 field is set.
@@ -62070,7 +69372,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField15_ ;
+      private boolean boolField15_;
       /**
        * <code>optional bool bool_field_15 = 15;</code>
        * @return Whether the boolField15 field is set.
@@ -62110,7 +69412,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField16_ ;
+      private boolean boolField16_;
       /**
        * <code>optional bool bool_field_16 = 16;</code>
        * @return Whether the boolField16 field is set.
@@ -62150,7 +69452,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField17_ ;
+      private boolean boolField17_;
       /**
        * <code>optional bool bool_field_17 = 17;</code>
        * @return Whether the boolField17 field is set.
@@ -62190,7 +69492,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField18_ ;
+      private boolean boolField18_;
       /**
        * <code>optional bool bool_field_18 = 18;</code>
        * @return Whether the boolField18 field is set.
@@ -62230,7 +69532,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField19_ ;
+      private boolean boolField19_;
       /**
        * <code>optional bool bool_field_19 = 19;</code>
        * @return Whether the boolField19 field is set.
@@ -62270,7 +69572,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField20_ ;
+      private boolean boolField20_;
       /**
        * <code>optional bool bool_field_20 = 20;</code>
        * @return Whether the boolField20 field is set.
@@ -62310,7 +69612,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField21_ ;
+      private boolean boolField21_;
       /**
        * <code>optional bool bool_field_21 = 21;</code>
        * @return Whether the boolField21 field is set.
@@ -62350,7 +69652,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField22_ ;
+      private boolean boolField22_;
       /**
        * <code>optional bool bool_field_22 = 22;</code>
        * @return Whether the boolField22 field is set.
@@ -62390,7 +69692,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField23_ ;
+      private boolean boolField23_;
       /**
        * <code>optional bool bool_field_23 = 23;</code>
        * @return Whether the boolField23 field is set.
@@ -62430,7 +69732,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField24_ ;
+      private boolean boolField24_;
       /**
        * <code>optional bool bool_field_24 = 24;</code>
        * @return Whether the boolField24 field is set.
@@ -62470,7 +69772,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField25_ ;
+      private boolean boolField25_;
       /**
        * <code>optional bool bool_field_25 = 25;</code>
        * @return Whether the boolField25 field is set.
@@ -62510,7 +69812,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField26_ ;
+      private boolean boolField26_;
       /**
        * <code>optional bool bool_field_26 = 26;</code>
        * @return Whether the boolField26 field is set.
@@ -62550,7 +69852,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField27_ ;
+      private boolean boolField27_;
       /**
        * <code>optional bool bool_field_27 = 27;</code>
        * @return Whether the boolField27 field is set.
@@ -62590,7 +69892,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField28_ ;
+      private boolean boolField28_;
       /**
        * <code>optional bool bool_field_28 = 28;</code>
        * @return Whether the boolField28 field is set.
@@ -62630,7 +69932,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField29_ ;
+      private boolean boolField29_;
       /**
        * <code>optional bool bool_field_29 = 29;</code>
        * @return Whether the boolField29 field is set.
@@ -62670,7 +69972,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField30_ ;
+      private boolean boolField30_;
       /**
        * <code>optional bool bool_field_30 = 30;</code>
        * @return Whether the boolField30 field is set.
@@ -62710,7 +70012,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField31_ ;
+      private boolean boolField31_;
       /**
        * <code>optional bool bool_field_31 = 31;</code>
        * @return Whether the boolField31 field is set.
@@ -62750,7 +70052,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
         return this;
       }
 
-      private boolean boolField32_ ;
+      private boolean boolField32_;
       /**
        * <code>optional bool bool_field_32 = 32;</code>
        * @return Whether the boolField32 field is set.
@@ -62803,22 +70105,222 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static BoolOnlyMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      BoolOnlyMessage instance = new BoolOnlyMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.boolField1_ = input.readBool();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.boolField2_ = input.readBool();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              instance.boolField3_ = input.readBool();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              instance.boolField4_ = input.readBool();
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              instance.boolField5_ = input.readBool();
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              instance.boolField6_ = input.readBool();
+              instance.bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              instance.boolField7_ = input.readBool();
+              instance.bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              instance.boolField8_ = input.readBool();
+              instance.bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 72: {
+              instance.boolField9_ = input.readBool();
+              instance.bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 80: {
+              instance.boolField10_ = input.readBool();
+              instance.bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 88: {
+              instance.boolField11_ = input.readBool();
+              instance.bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 96: {
+              instance.boolField12_ = input.readBool();
+              instance.bitField0_ |= 0x00000800;
+              break;
+            } // case 96
+            case 104: {
+              instance.boolField13_ = input.readBool();
+              instance.bitField0_ |= 0x00001000;
+              break;
+            } // case 104
+            case 112: {
+              instance.boolField14_ = input.readBool();
+              instance.bitField0_ |= 0x00002000;
+              break;
+            } // case 112
+            case 120: {
+              instance.boolField15_ = input.readBool();
+              instance.bitField0_ |= 0x00004000;
+              break;
+            } // case 120
+            case 128: {
+              instance.boolField16_ = input.readBool();
+              instance.bitField0_ |= 0x00008000;
+              break;
+            } // case 128
+            case 136: {
+              instance.boolField17_ = input.readBool();
+              instance.bitField0_ |= 0x00010000;
+              break;
+            } // case 136
+            case 144: {
+              instance.boolField18_ = input.readBool();
+              instance.bitField0_ |= 0x00020000;
+              break;
+            } // case 144
+            case 152: {
+              instance.boolField19_ = input.readBool();
+              instance.bitField0_ |= 0x00040000;
+              break;
+            } // case 152
+            case 160: {
+              instance.boolField20_ = input.readBool();
+              instance.bitField0_ |= 0x00080000;
+              break;
+            } // case 160
+            case 168: {
+              instance.boolField21_ = input.readBool();
+              instance.bitField0_ |= 0x00100000;
+              break;
+            } // case 168
+            case 176: {
+              instance.boolField22_ = input.readBool();
+              instance.bitField0_ |= 0x00200000;
+              break;
+            } // case 176
+            case 184: {
+              instance.boolField23_ = input.readBool();
+              instance.bitField0_ |= 0x00400000;
+              break;
+            } // case 184
+            case 192: {
+              instance.boolField24_ = input.readBool();
+              instance.bitField0_ |= 0x00800000;
+              break;
+            } // case 192
+            case 200: {
+              instance.boolField25_ = input.readBool();
+              instance.bitField0_ |= 0x01000000;
+              break;
+            } // case 200
+            case 208: {
+              instance.boolField26_ = input.readBool();
+              instance.bitField0_ |= 0x02000000;
+              break;
+            } // case 208
+            case 216: {
+              instance.boolField27_ = input.readBool();
+              instance.bitField0_ |= 0x04000000;
+              break;
+            } // case 216
+            case 224: {
+              instance.boolField28_ = input.readBool();
+              instance.bitField0_ |= 0x08000000;
+              break;
+            } // case 224
+            case 232: {
+              instance.boolField29_ = input.readBool();
+              instance.bitField0_ |= 0x10000000;
+              break;
+            } // case 232
+            case 240: {
+              instance.boolField30_ = input.readBool();
+              instance.bitField0_ |= 0x20000000;
+              break;
+            } // case 240
+            case 248: {
+              instance.boolField31_ = input.readBool();
+              instance.bitField0_ |= 0x40000000;
+              break;
+            } // case 248
+            case 256: {
+              instance.boolField32_ = input.readBool();
+              instance.bitField0_ |= 0x80000000;
+              break;
+            } // case 256
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<BoolOnlyMessage>
-        PARSER = new com.google.protobuf.AbstractParser<BoolOnlyMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<BoolOnlyMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public BoolOnlyMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return BoolOnlyMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(BoolOnlyMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<BoolOnlyMessage> parser() {
       return PARSER;
@@ -63132,15 +70634,28 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
                 objc.protobuf.tests.UnittestObjc.WKTReferenceMessage.class, objc.protobuf.tests.UnittestObjc.WKTReferenceMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.UnittestObjc.WKTReferenceMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(objc.protobuf.tests.UnittestObjc.WKTReferenceMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -63190,7 +70705,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.WKTReferenceMessage result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.anAny_ = anAnyBuilder_ == null
               ? anAny_
@@ -63198,6 +70713,18 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(objc.protobuf.tests.UnittestObjc.WKTReferenceMessage other, java.lang.Object[] parserLocals) {
+        anAny_ = other.anAny_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            anAnyBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>) parserLocals[0]);
+            anAny_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -63257,6 +70784,18 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseAnAnyField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -63379,7 +70918,7 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (anAny_ != null || anAnyBuilder_ != null) {
-          internalGetAnAnyFieldBuilder().getBuilder()
+          internalGetAnAnyFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           anAny_ = com.google.protobuf.Any.parser().parsePartialFrom(input, extensionRegistry);
@@ -63401,22 +70940,132 @@ objc.protobuf.tests.Unittest.TestAllTypes defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static WKTReferenceMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      WKTReferenceMessage instance = new WKTReferenceMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> anAnyBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        anAnyBuilder_ = internalGetAnAnyFieldBuilder(instance, anAnyBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.anAny_ != null || anAnyBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseAnAnyField(instance, input, extensionRegistry, anAnyBuilder_);
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {anAnyBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, anAnyBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional .google.protobuf.Any an_any = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> 
+        internalGetAnAnyFieldBuilder(objc.protobuf.tests.UnittestObjc.WKTReferenceMessage instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> anAnyBuilder_) {
+      if (anAnyBuilder_ == null) {
+        anAnyBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
+                instance.getAnAny(),
+                null,
+                false);
+        instance.anAny_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return anAnyBuilder_;
+    }
+    private static void parseAnAnyField(
+        objc.protobuf.tests.UnittestObjc.WKTReferenceMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> anAnyBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.anAny_ != null || anAnyBuilder_ != null) {
+        anAnyBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.anAny_ = com.google.protobuf.Any.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void buildPartial_autosplit_0(objc.protobuf.tests.UnittestObjc.WKTReferenceMessage instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> anAnyBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.anAny_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.anAny_ = anAnyBuilder_ == null
+            ? instance.anAny_
+            : anAnyBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<WKTReferenceMessage>
-        PARSER = new com.google.protobuf.AbstractParser<WKTReferenceMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<WKTReferenceMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public WKTReferenceMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return WKTReferenceMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(WKTReferenceMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<WKTReferenceMessage> parser() {
       return PARSER;

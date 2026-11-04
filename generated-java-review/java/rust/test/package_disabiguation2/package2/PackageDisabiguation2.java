@@ -308,15 +308,28 @@ public final class PackageDisabiguation2 extends com.google.protobuf.GeneratedFi
                 package2.PackageDisabiguation2.YayConflict.class, package2.PackageDisabiguation2.YayConflict.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using package2.PackageDisabiguation2.YayConflict.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(package2.PackageDisabiguation2.YayConflict other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -366,7 +379,7 @@ public final class PackageDisabiguation2 extends com.google.protobuf.GeneratedFi
 
       private void buildPartial_autosplit_0(package2.PackageDisabiguation2.YayConflict result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.otherMessage_ = otherMessageBuilder_ == null
               ? otherMessage_
@@ -374,6 +387,18 @@ public final class PackageDisabiguation2 extends com.google.protobuf.GeneratedFi
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(package2.PackageDisabiguation2.YayConflict other, java.lang.Object[] parserLocals) {
+        otherMessage_ = other.otherMessage_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            otherMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<package1.PackageDisabiguation1.YayConflict, package1.PackageDisabiguation1.YayConflict.Builder, package1.PackageDisabiguation1.YayConflictOrBuilder>) parserLocals[0]);
+            otherMessage_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -433,6 +458,18 @@ public final class PackageDisabiguation2 extends com.google.protobuf.GeneratedFi
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseOtherMessageField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -555,7 +592,7 @@ public final class PackageDisabiguation2 extends com.google.protobuf.GeneratedFi
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (otherMessage_ != null || otherMessageBuilder_ != null) {
-          internalGetOtherMessageFieldBuilder().getBuilder()
+          internalGetOtherMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           otherMessage_ = package1.PackageDisabiguation1.YayConflict.parser().parsePartialFrom(input, extensionRegistry);
@@ -577,22 +614,132 @@ public final class PackageDisabiguation2 extends com.google.protobuf.GeneratedFi
       return DEFAULT_INSTANCE;
     }
 
+    static YayConflict parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      YayConflict instance = new YayConflict((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<package1.PackageDisabiguation1.YayConflict, package1.PackageDisabiguation1.YayConflict.Builder, package1.PackageDisabiguation1.YayConflictOrBuilder> otherMessageBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        otherMessageBuilder_ = internalGetOtherMessageFieldBuilder(instance, otherMessageBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.otherMessage_ != null || otherMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseOtherMessageField(instance, input, extensionRegistry, otherMessageBuilder_);
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {otherMessageBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, otherMessageBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional .package1.YayConflict other_message = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        package1.PackageDisabiguation1.YayConflict, package1.PackageDisabiguation1.YayConflict.Builder, package1.PackageDisabiguation1.YayConflictOrBuilder> 
+        internalGetOtherMessageFieldBuilder(package2.PackageDisabiguation2.YayConflict instance, com.google.protobuf.SingleFieldBuilder<package1.PackageDisabiguation1.YayConflict, package1.PackageDisabiguation1.YayConflict.Builder, package1.PackageDisabiguation1.YayConflictOrBuilder> otherMessageBuilder_) {
+      if (otherMessageBuilder_ == null) {
+        otherMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            package1.PackageDisabiguation1.YayConflict, package1.PackageDisabiguation1.YayConflict.Builder, package1.PackageDisabiguation1.YayConflictOrBuilder>(
+                instance.getOtherMessage(),
+                null,
+                false);
+        instance.otherMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return otherMessageBuilder_;
+    }
+    private static void parseOtherMessageField(
+        package2.PackageDisabiguation2.YayConflict instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<package1.PackageDisabiguation1.YayConflict, package1.PackageDisabiguation1.YayConflict.Builder, package1.PackageDisabiguation1.YayConflictOrBuilder> otherMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.otherMessage_ != null || otherMessageBuilder_ != null) {
+        otherMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.otherMessage_ = package1.PackageDisabiguation1.YayConflict.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void buildPartial_autosplit_0(package2.PackageDisabiguation2.YayConflict instance,
+        com.google.protobuf.SingleFieldBuilder<package1.PackageDisabiguation1.YayConflict, package1.PackageDisabiguation1.YayConflict.Builder, package1.PackageDisabiguation1.YayConflictOrBuilder> otherMessageBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.otherMessage_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.otherMessage_ = otherMessageBuilder_ == null
+            ? instance.otherMessage_
+            : otherMessageBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<YayConflict>
-        PARSER = new com.google.protobuf.AbstractParser<YayConflict>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<YayConflict> {
+      MessageParser() {}
+
       @java.lang.Override
       public YayConflict parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return YayConflict.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(YayConflict instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<YayConflict> parser() {
       return PARSER;

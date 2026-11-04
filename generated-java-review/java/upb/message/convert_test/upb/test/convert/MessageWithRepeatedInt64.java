@@ -269,15 +269,28 @@ private static final long serialVersionUID = 0L;
               upb.test.convert.MessageWithRepeatedInt64.class, upb.test.convert.MessageWithRepeatedInt64.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using upb.test.convert.MessageWithRepeatedInt64.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      r_ = emptyLongList();
+    }
+    private Builder(upb.test.convert.MessageWithRepeatedInt64 other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -317,12 +330,17 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(upb.test.convert.MessageWithRepeatedInt64 result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         r_.makeImmutable();
         result.r_ = r_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(upb.test.convert.MessageWithRepeatedInt64 other, java.lang.Object[] parserLocals) {
+      r_ = other.r_;
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -406,7 +424,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.Internal.LongList r_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList r_;
     private void ensureRIsMutable(int capacity) {
       if (!r_.isModifiable()) {
         r_ = makeMutableCopy(r_, capacity);
@@ -503,22 +521,93 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static MessageWithRepeatedInt64 parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    MessageWithRepeatedInt64 instance = new MessageWithRepeatedInt64((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
+            long v = input.readInt64();
+            ensureRIsMutable(instance, /* capacity= */ -1);
+            instance.r_.addLong(v);
+            break;
+          } // case 8
+          case 10: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureRIsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.r_.addLong(input.readInt64());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 10
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static void ensureRIsMutable(upb.test.convert.MessageWithRepeatedInt64 instance, int capacity) {
+    if (!instance.r_.isModifiable()) {
+      instance.r_ = makeMutableCopy(instance.r_, capacity);
+    }
+    instance.bitField0_ |= 0x00000001;
+  }
+  private static void buildPartial_autosplit_0(upb.test.convert.MessageWithRepeatedInt64 instance) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.r_.makeImmutable();
+    }
+  }
+
   private static final com.google.protobuf.Parser<MessageWithRepeatedInt64>
-      PARSER = new com.google.protobuf.AbstractParser<MessageWithRepeatedInt64>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<MessageWithRepeatedInt64> {
+    MessageParser() {}
+
     @java.lang.Override
     public MessageWithRepeatedInt64 parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return MessageWithRepeatedInt64.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(MessageWithRepeatedInt64 instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<MessageWithRepeatedInt64> parser() {
     return PARSER;

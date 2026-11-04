@@ -553,15 +553,28 @@ public final class Proto2UnknownEnumValuesTestProto extends com.google.protobuf.
                 com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2EnumMessage.class, com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2EnumMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2EnumMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        repeatedPackedEnum_ = emptyIntList();
+      }
+      private Builder(com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2EnumMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -601,12 +614,17 @@ public final class Proto2UnknownEnumValuesTestProto extends com.google.protobuf.
 
       private void buildPartial_autosplit_0(com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2EnumMessage result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           repeatedPackedEnum_.makeImmutable();
           result.repeatedPackedEnum_ = repeatedPackedEnum_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2EnumMessage other, java.lang.Object[] parserLocals) {
+        repeatedPackedEnum_ = other.repeatedPackedEnum_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -703,7 +721,7 @@ public final class Proto2UnknownEnumValuesTestProto extends com.google.protobuf.
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.IntList repeatedPackedEnum_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedPackedEnum_;
       private void ensureRepeatedPackedEnumIsMutable(int capacity) {
         if (!repeatedPackedEnum_.isModifiable()) {
           repeatedPackedEnum_ = makeMutableCopy(repeatedPackedEnum_, capacity);
@@ -797,22 +815,106 @@ public final class Proto2UnknownEnumValuesTestProto extends com.google.protobuf.
       return DEFAULT_INSTANCE;
     }
 
+    static Proto2EnumMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Proto2EnumMessage instance = new Proto2EnumMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int tmpRaw = input.readEnum();
+              com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2TestEnum tmpValue =
+                  com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2TestEnum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 1, tmpRaw);
+              } else {
+                ensureRepeatedPackedEnumIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedPackedEnum_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedPackedEnumIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2TestEnum tmpValue =
+                    com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2TestEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 1, tmpRaw);
+                } else {
+                  instance.repeatedPackedEnum_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureRepeatedPackedEnumIsMutable(com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2EnumMessage instance, int capacity) {
+      if (!instance.repeatedPackedEnum_.isModifiable()) {
+        instance.repeatedPackedEnum_ = makeMutableCopy(instance.repeatedPackedEnum_, capacity);
+      }
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2EnumMessage instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.repeatedPackedEnum_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<Proto2EnumMessage>
-        PARSER = new com.google.protobuf.AbstractParser<Proto2EnumMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Proto2EnumMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public Proto2EnumMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Proto2EnumMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Proto2EnumMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Proto2EnumMessage> parser() {
       return PARSER;
@@ -1143,15 +1245,28 @@ public final class Proto2UnknownEnumValuesTestProto extends com.google.protobuf.
                 com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2EnumMessageWithEnumSubset.class, com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2EnumMessageWithEnumSubset.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2EnumMessageWithEnumSubset.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        repeatedPackedEnum_ = emptyIntList();
+      }
+      private Builder(com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2EnumMessageWithEnumSubset other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -1191,12 +1306,17 @@ public final class Proto2UnknownEnumValuesTestProto extends com.google.protobuf.
 
       private void buildPartial_autosplit_0(com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2EnumMessageWithEnumSubset result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           repeatedPackedEnum_.makeImmutable();
           result.repeatedPackedEnum_ = repeatedPackedEnum_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2EnumMessageWithEnumSubset other, java.lang.Object[] parserLocals) {
+        repeatedPackedEnum_ = other.repeatedPackedEnum_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1293,7 +1413,7 @@ public final class Proto2UnknownEnumValuesTestProto extends com.google.protobuf.
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.IntList repeatedPackedEnum_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedPackedEnum_;
       private void ensureRepeatedPackedEnumIsMutable(int capacity) {
         if (!repeatedPackedEnum_.isModifiable()) {
           repeatedPackedEnum_ = makeMutableCopy(repeatedPackedEnum_, capacity);
@@ -1387,22 +1507,106 @@ public final class Proto2UnknownEnumValuesTestProto extends com.google.protobuf.
       return DEFAULT_INSTANCE;
     }
 
+    static Proto2EnumMessageWithEnumSubset parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Proto2EnumMessageWithEnumSubset instance = new Proto2EnumMessageWithEnumSubset((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int tmpRaw = input.readEnum();
+              com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2TestEnumSubset tmpValue =
+                  com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2TestEnumSubset.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 1, tmpRaw);
+              } else {
+                ensureRepeatedPackedEnumIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedPackedEnum_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedPackedEnumIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2TestEnumSubset tmpValue =
+                    com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2TestEnumSubset.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 1, tmpRaw);
+                } else {
+                  instance.repeatedPackedEnum_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureRepeatedPackedEnumIsMutable(com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2EnumMessageWithEnumSubset instance, int capacity) {
+      if (!instance.repeatedPackedEnum_.isModifiable()) {
+        instance.repeatedPackedEnum_ = makeMutableCopy(instance.repeatedPackedEnum_, capacity);
+      }
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.Proto2UnknownEnumValuesTestProto.Proto2EnumMessageWithEnumSubset instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.repeatedPackedEnum_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<Proto2EnumMessageWithEnumSubset>
-        PARSER = new com.google.protobuf.AbstractParser<Proto2EnumMessageWithEnumSubset>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Proto2EnumMessageWithEnumSubset> {
+      MessageParser() {}
+
       @java.lang.Override
       public Proto2EnumMessageWithEnumSubset parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Proto2EnumMessageWithEnumSubset.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Proto2EnumMessageWithEnumSubset instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Proto2EnumMessageWithEnumSubset> parser() {
       return PARSER;

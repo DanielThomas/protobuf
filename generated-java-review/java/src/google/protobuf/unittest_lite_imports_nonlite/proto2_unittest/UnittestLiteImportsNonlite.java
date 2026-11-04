@@ -403,15 +403,28 @@ public final class UnittestLiteImportsNonlite extends com.google.protobuf.Genera
                 proto2_unittest.UnittestLiteImportsNonlite.TestLiteImportsNonlite.class, proto2_unittest.UnittestLiteImportsNonlite.TestLiteImportsNonlite.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.UnittestLiteImportsNonlite.TestLiteImportsNonlite.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(proto2_unittest.UnittestLiteImportsNonlite.TestLiteImportsNonlite other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -467,7 +480,7 @@ public final class UnittestLiteImportsNonlite extends com.google.protobuf.Genera
 
       private void buildPartial_autosplit_0(proto2_unittest.UnittestLiteImportsNonlite.TestLiteImportsNonlite result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.message_ = messageBuilder_ == null
               ? message_
@@ -481,6 +494,23 @@ public final class UnittestLiteImportsNonlite extends com.google.protobuf.Genera
           to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(proto2_unittest.UnittestLiteImportsNonlite.TestLiteImportsNonlite other, java.lang.Object[] parserLocals) {
+        message_ = other.message_;
+        messageWithRequired_ = other.messageWithRequired_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            messageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestAllTypes, proto2_unittest.UnittestProto.TestAllTypes.Builder, proto2_unittest.UnittestProto.TestAllTypesOrBuilder>) parserLocals[0]);
+            message_ = null;
+          }
+          if (parserLocals[1] != null) {
+            messageWithRequiredBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder>) parserLocals[1]);
+            messageWithRequired_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -552,6 +582,22 @@ public final class UnittestLiteImportsNonlite extends com.google.protobuf.Genera
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseMessageField(input, extensionRegistry);
+            return true;
+          } // case 10
+          case 18: {
+            parseMessageWithRequiredField(input, extensionRegistry);
+            return true;
+          } // case 18
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -674,7 +720,7 @@ public final class UnittestLiteImportsNonlite extends com.google.protobuf.Genera
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (message_ != null || messageBuilder_ != null) {
-          internalGetMessageFieldBuilder().getBuilder()
+          internalGetMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           message_ = proto2_unittest.UnittestProto.TestAllTypes.parser().parsePartialFrom(input, extensionRegistry);
@@ -838,7 +884,7 @@ public final class UnittestLiteImportsNonlite extends com.google.protobuf.Genera
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (messageWithRequired_ != null || messageWithRequiredBuilder_ != null) {
-          internalGetMessageWithRequiredFieldBuilder().getBuilder()
+          internalGetMessageWithRequiredFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           messageWithRequired_ = proto2_unittest.UnittestProto.TestRequired.parser().parsePartialFrom(input, extensionRegistry);
@@ -860,22 +906,186 @@ public final class UnittestLiteImportsNonlite extends com.google.protobuf.Genera
       return DEFAULT_INSTANCE;
     }
 
+    static TestLiteImportsNonlite parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestLiteImportsNonlite instance = new TestLiteImportsNonlite((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestAllTypes, proto2_unittest.UnittestProto.TestAllTypes.Builder, proto2_unittest.UnittestProto.TestAllTypesOrBuilder> messageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> messageWithRequiredBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        messageBuilder_ = internalGetMessageFieldBuilder(instance, messageBuilder_);
+        messageWithRequiredBuilder_ = internalGetMessageWithRequiredFieldBuilder(instance, messageWithRequiredBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.message_ != null || messageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseMessageField(instance, input, extensionRegistry, messageBuilder_);
+              break;
+            } // case 10
+            case 18: {
+              if (instance.messageWithRequired_ != null || messageWithRequiredBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseMessageWithRequiredField(instance, input, extensionRegistry, messageWithRequiredBuilder_);
+              break;
+            } // case 18
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {messageBuilder_, messageWithRequiredBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, messageBuilder_, messageWithRequiredBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional .proto2_unittest.TestAllTypes message = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        proto2_unittest.UnittestProto.TestAllTypes, proto2_unittest.UnittestProto.TestAllTypes.Builder, proto2_unittest.UnittestProto.TestAllTypesOrBuilder> 
+        internalGetMessageFieldBuilder(proto2_unittest.UnittestLiteImportsNonlite.TestLiteImportsNonlite instance, com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestAllTypes, proto2_unittest.UnittestProto.TestAllTypes.Builder, proto2_unittest.UnittestProto.TestAllTypesOrBuilder> messageBuilder_) {
+      if (messageBuilder_ == null) {
+        messageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            proto2_unittest.UnittestProto.TestAllTypes, proto2_unittest.UnittestProto.TestAllTypes.Builder, proto2_unittest.UnittestProto.TestAllTypesOrBuilder>(
+                instance.getMessage(),
+                null,
+                false);
+        instance.message_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return messageBuilder_;
+    }
+    private static void parseMessageField(
+        proto2_unittest.UnittestLiteImportsNonlite.TestLiteImportsNonlite instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestAllTypes, proto2_unittest.UnittestProto.TestAllTypes.Builder, proto2_unittest.UnittestProto.TestAllTypesOrBuilder> messageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.message_ != null || messageBuilder_ != null) {
+        messageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.message_ = proto2_unittest.UnittestProto.TestAllTypes.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    /**
+     * <pre>
+     * Verifies that transitive required fields generates valid code.
+     * </pre>
+     *
+     * <code>optional .proto2_unittest.TestRequired message_with_required = 2;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> 
+        internalGetMessageWithRequiredFieldBuilder(proto2_unittest.UnittestLiteImportsNonlite.TestLiteImportsNonlite instance, com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> messageWithRequiredBuilder_) {
+      if (messageWithRequiredBuilder_ == null) {
+        messageWithRequiredBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder>(
+                instance.getMessageWithRequired(),
+                null,
+                false);
+        instance.messageWithRequired_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+      return messageWithRequiredBuilder_;
+    }
+    private static void parseMessageWithRequiredField(
+        proto2_unittest.UnittestLiteImportsNonlite.TestLiteImportsNonlite instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> messageWithRequiredBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.messageWithRequired_ != null || messageWithRequiredBuilder_ != null) {
+        messageWithRequiredBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.messageWithRequired_ = proto2_unittest.UnittestProto.TestRequired.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static void buildPartial_autosplit_0(proto2_unittest.UnittestLiteImportsNonlite.TestLiteImportsNonlite instance,
+        com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestAllTypes, proto2_unittest.UnittestProto.TestAllTypes.Builder, proto2_unittest.UnittestProto.TestAllTypesOrBuilder> messageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestRequired, proto2_unittest.UnittestProto.TestRequired.Builder, proto2_unittest.UnittestProto.TestRequiredOrBuilder> messageWithRequiredBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.message_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.message_ = messageBuilder_ == null
+            ? instance.message_
+            : messageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000002) != 0)) instance.messageWithRequired_ = null;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.messageWithRequired_ = messageWithRequiredBuilder_ == null
+            ? instance.messageWithRequired_
+            : messageWithRequiredBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestLiteImportsNonlite>
-        PARSER = new com.google.protobuf.AbstractParser<TestLiteImportsNonlite>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestLiteImportsNonlite> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestLiteImportsNonlite parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestLiteImportsNonlite.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestLiteImportsNonlite instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestLiteImportsNonlite> parser() {
       return PARSER;

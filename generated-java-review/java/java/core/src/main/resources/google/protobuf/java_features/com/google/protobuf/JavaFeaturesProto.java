@@ -696,15 +696,26 @@ public final class JavaFeaturesProto extends com.google.protobuf.GeneratedFile {
                   com.google.protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.class, com.google.protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using com.google.protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+        }
+        private Builder(com.google.protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
         }
         @java.lang.Override
         public Builder clear() {
@@ -804,22 +815,62 @@ public final class JavaFeaturesProto extends com.google.protobuf.GeneratedFile {
         return DEFAULT_INSTANCE;
       }
 
+      static NestInFileClassFeature parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        NestInFileClassFeature instance = new NestInFileClassFeature((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<NestInFileClassFeature>
-          PARSER = new com.google.protobuf.AbstractParser<NestInFileClassFeature>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<NestInFileClassFeature> {
+        MessageParser() {}
+
         @java.lang.Override
         public NestInFileClassFeature parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return NestInFileClassFeature.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(NestInFileClassFeature instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<NestInFileClassFeature> parser() {
         return PARSER;
@@ -1234,15 +1285,29 @@ public final class JavaFeaturesProto extends com.google.protobuf.GeneratedFile {
                 com.google.protobuf.JavaFeaturesProto.JavaFeatures.class, com.google.protobuf.JavaFeaturesProto.JavaFeatures.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.JavaFeaturesProto.JavaFeatures.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        utf8Validation_ = 0;
+        nestInFileClass_ = 0;
+      }
+      private Builder(com.google.protobuf.JavaFeaturesProto.JavaFeatures other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -1286,7 +1351,7 @@ public final class JavaFeaturesProto extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(com.google.protobuf.JavaFeaturesProto.JavaFeatures result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.legacyClosedEnum_ = legacyClosedEnum_;
           to_bitField0_ |= 0x00000001;
@@ -1308,6 +1373,15 @@ public final class JavaFeaturesProto extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000010;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.JavaFeaturesProto.JavaFeatures other, java.lang.Object[] parserLocals) {
+        legacyClosedEnum_ = other.getLegacyClosedEnum();
+        utf8Validation_ = other.utf8Validation_;
+        largeEnum_ = other.getLargeEnum();
+        useOldOuterClassnameDefault_ = other.getUseOldOuterClassnameDefault();
+        nestInFileClass_ = other.nestInFileClass_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1417,7 +1491,7 @@ public final class JavaFeaturesProto extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private boolean legacyClosedEnum_ ;
+      private boolean legacyClosedEnum_;
       /**
        * <pre>
        * Whether or not to treat an enum field as closed.  This option is only
@@ -1485,7 +1559,7 @@ public final class JavaFeaturesProto extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int utf8Validation_ = 0;
+      private int utf8Validation_;
       /**
        * <code>optional .pb.JavaFeatures.Utf8Validation utf8_validation = 2 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_FIELD, targets = TARGET_TYPE_FILE, edition_defaults = { ... }</code>
        * @return Whether the utf8Validation field is set.
@@ -1525,7 +1599,7 @@ public final class JavaFeaturesProto extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private boolean largeEnum_ ;
+      private boolean largeEnum_;
       /**
        * <pre>
        * Allows creation of large Java enums, extending beyond the standard
@@ -1585,7 +1659,7 @@ public final class JavaFeaturesProto extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private boolean useOldOuterClassnameDefault_ ;
+      private boolean useOldOuterClassnameDefault_;
       /**
        * <pre>
        * Whether to use the old default outer class name scheme, or the new feature
@@ -1661,7 +1735,7 @@ public final class JavaFeaturesProto extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int nestInFileClass_ = 0;
+      private int nestInFileClass_;
       /**
        * <pre>
        * Whether to nest the generated class in the generated file class. This is
@@ -1734,22 +1808,101 @@ public final class JavaFeaturesProto extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static JavaFeatures parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      JavaFeatures instance = new JavaFeatures((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.legacyClosedEnum_ = input.readBool();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              int tmpRaw = input.readEnum();
+              com.google.protobuf.JavaFeaturesProto.JavaFeatures.Utf8Validation tmpValue =
+                  com.google.protobuf.JavaFeaturesProto.JavaFeatures.Utf8Validation.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 2, tmpRaw);
+              } else {
+                instance.utf8Validation_ = tmpRaw;
+                instance.bitField0_ |= 0x00000002;
+              }
+              break;
+            } // case 16
+            case 24: {
+              instance.largeEnum_ = input.readBool();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              instance.useOldOuterClassnameDefault_ = input.readBool();
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              int tmpRaw = input.readEnum();
+              com.google.protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass tmpValue =
+                  com.google.protobuf.JavaFeaturesProto.JavaFeatures.NestInFileClassFeature.NestInFileClass.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 5, tmpRaw);
+              } else {
+                instance.nestInFileClass_ = tmpRaw;
+                instance.bitField0_ |= 0x00000010;
+              }
+              break;
+            } // case 40
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<JavaFeatures>
-        PARSER = new com.google.protobuf.AbstractParser<JavaFeatures>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<JavaFeatures> {
+      MessageParser() {}
+
       @java.lang.Override
       public JavaFeatures parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return JavaFeatures.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(JavaFeatures instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<JavaFeatures> parser() {
       return PARSER;

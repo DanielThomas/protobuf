@@ -387,15 +387,28 @@ private static final long serialVersionUID = 0L;
               protobuf_unittest.FieldsWithPotentialNameClashes.class, protobuf_unittest.FieldsWithPotentialNameClashes.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using protobuf_unittest.FieldsWithPotentialNameClashes.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
+    }
+    private Builder(protobuf_unittest.FieldsWithPotentialNameClashes other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -457,7 +470,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(protobuf_unittest.FieldsWithPotentialNameClashes result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.foo_ = fooBuilder_ == null
             ? foo_
@@ -477,6 +490,28 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000004;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(protobuf_unittest.FieldsWithPotentialNameClashes other, java.lang.Object[] parserLocals) {
+      foo_ = other.foo_;
+      fooField_ = other.fooField_;
+      fooFieldAccessorTable_ = other.fooFieldAccessorTable_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          fooBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder>) parserLocals[0]);
+          foo_ = null;
+        }
+        if (parserLocals[1] != null) {
+          fooFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder>) parserLocals[1]);
+          fooField_ = null;
+        }
+        if (parserLocals[2] != null) {
+          fooFieldAccessorTableBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder>) parserLocals[2]);
+          fooFieldAccessorTable_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -550,6 +585,26 @@ private static final long serialVersionUID = 0L;
         onChanged();
       } // finally
       return this;
+    }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 10: {
+          parseFooField(input, extensionRegistry);
+          return true;
+        } // case 10
+        case 18: {
+          parseFooFieldField(input, extensionRegistry);
+          return true;
+        } // case 18
+        case 26: {
+          parseFooFieldAccessorTableField(input, extensionRegistry);
+          return true;
+        } // case 26
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
     }
     private int bitField0_;
 
@@ -672,7 +727,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (foo_ != null || fooBuilder_ != null) {
-        internalGetFooFieldBuilder().getBuilder()
+        internalGetFooFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         foo_ = protobuf_unittest.BlankMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -800,7 +855,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (fooField_ != null || fooFieldBuilder_ != null) {
-        internalGetFooFieldFieldBuilder().getBuilder()
+        internalGetFooFieldFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         fooField_ = protobuf_unittest.BlankMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -928,7 +983,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (fooFieldAccessorTable_ != null || fooFieldAccessorTableBuilder_ != null) {
-        internalGetFooFieldAccessorTableFieldBuilder().getBuilder()
+        internalGetFooFieldAccessorTableFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         fooFieldAccessorTable_ = protobuf_unittest.BlankMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -950,22 +1005,232 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static FieldsWithPotentialNameClashes parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    FieldsWithPotentialNameClashes instance = new FieldsWithPotentialNameClashes((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder> fooBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder> fooFieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder> fooFieldAccessorTableBuilder_ = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      fooBuilder_ = internalGetFooFieldBuilder(instance, fooBuilder_);
+      fooFieldBuilder_ = internalGetFooFieldFieldBuilder(instance, fooFieldBuilder_);
+      fooFieldAccessorTableBuilder_ = internalGetFooFieldAccessorTableFieldBuilder(instance, fooFieldAccessorTableBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            if (instance.foo_ != null || fooBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseFooField(instance, input, extensionRegistry, fooBuilder_);
+            break;
+          } // case 10
+          case 18: {
+            if (instance.fooField_ != null || fooFieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseFooFieldField(instance, input, extensionRegistry, fooFieldBuilder_);
+            break;
+          } // case 18
+          case 26: {
+            if (instance.fooFieldAccessorTable_ != null || fooFieldAccessorTableBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseFooFieldAccessorTableField(instance, input, extensionRegistry, fooFieldAccessorTableBuilder_);
+            break;
+          } // case 26
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {fooBuilder_, fooFieldBuilder_, fooFieldAccessorTableBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, fooBuilder_, fooFieldBuilder_, fooFieldAccessorTableBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>.protobuf_unittest.BlankMessage foo = 1;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder> 
+      internalGetFooFieldBuilder(protobuf_unittest.FieldsWithPotentialNameClashes instance, com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder> fooBuilder_) {
+    if (fooBuilder_ == null) {
+      fooBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder>(
+              instance.getFoo(),
+              null,
+              false);
+      instance.foo_ = null;
+    }
+    instance.bitField0_ |= 0x00000001;
+    return fooBuilder_;
+  }
+  private static void parseFooField(
+      protobuf_unittest.FieldsWithPotentialNameClashes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder> fooBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.foo_ != null || fooBuilder_ != null) {
+      fooBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.foo_ = protobuf_unittest.BlankMessage.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000001;
+  }
+  /**
+   * <code>.protobuf_unittest.BlankMessage foo_field = 2;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder> 
+      internalGetFooFieldFieldBuilder(protobuf_unittest.FieldsWithPotentialNameClashes instance, com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder> fooFieldBuilder_) {
+    if (fooFieldBuilder_ == null) {
+      fooFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder>(
+              instance.getFooField(),
+              null,
+              false);
+      instance.fooField_ = null;
+    }
+    instance.bitField0_ |= 0x00000002;
+    return fooFieldBuilder_;
+  }
+  private static void parseFooFieldField(
+      protobuf_unittest.FieldsWithPotentialNameClashes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder> fooFieldBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.fooField_ != null || fooFieldBuilder_ != null) {
+      fooFieldBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.fooField_ = protobuf_unittest.BlankMessage.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000002;
+  }
+  /**
+   * <code>.protobuf_unittest.BlankMessage foo_field_accessor_table = 3;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder> 
+      internalGetFooFieldAccessorTableFieldBuilder(protobuf_unittest.FieldsWithPotentialNameClashes instance, com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder> fooFieldAccessorTableBuilder_) {
+    if (fooFieldAccessorTableBuilder_ == null) {
+      fooFieldAccessorTableBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder>(
+              instance.getFooFieldAccessorTable(),
+              null,
+              false);
+      instance.fooFieldAccessorTable_ = null;
+    }
+    instance.bitField0_ |= 0x00000004;
+    return fooFieldAccessorTableBuilder_;
+  }
+  private static void parseFooFieldAccessorTableField(
+      protobuf_unittest.FieldsWithPotentialNameClashes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder> fooFieldAccessorTableBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.fooFieldAccessorTable_ != null || fooFieldAccessorTableBuilder_ != null) {
+      fooFieldAccessorTableBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.fooFieldAccessorTable_ = protobuf_unittest.BlankMessage.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000004;
+  }
+  private static void buildPartial_autosplit_0(protobuf_unittest.FieldsWithPotentialNameClashes instance,
+      com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder> fooBuilder_,
+      com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder> fooFieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder> fooFieldAccessorTableBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00000001) != 0)) instance.foo_ = null;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.foo_ = fooBuilder_ == null
+          ? instance.foo_
+          : fooBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000002) != 0)) instance.fooField_ = null;
+    if (((from_bitField0_ & 0x00000002) != 0)) {
+      instance.fooField_ = fooFieldBuilder_ == null
+          ? instance.fooField_
+          : fooFieldBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000004) != 0)) instance.fooFieldAccessorTable_ = null;
+    if (((from_bitField0_ & 0x00000004) != 0)) {
+      instance.fooFieldAccessorTable_ = fooFieldAccessorTableBuilder_ == null
+          ? instance.fooFieldAccessorTable_
+          : fooFieldAccessorTableBuilder_.build();
+    }
+  }
+
   private static final com.google.protobuf.Parser<FieldsWithPotentialNameClashes>
-      PARSER = new com.google.protobuf.AbstractParser<FieldsWithPotentialNameClashes>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<FieldsWithPotentialNameClashes> {
+    MessageParser() {}
+
     @java.lang.Override
     public FieldsWithPotentialNameClashes parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return FieldsWithPotentialNameClashes.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(FieldsWithPotentialNameClashes instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<FieldsWithPotentialNameClashes> parser() {
     return PARSER;

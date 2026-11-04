@@ -562,15 +562,27 @@ public final class Edition2023NoMultipleFilesName extends com.google.protobuf.Ge
                   com.google.protobuf.editions.test.edition2023.Edition2023NoMultipleFilesName.Edition2023JavaNoMultipleFilesMessage.NestedMessage.class, com.google.protobuf.editions.test.edition2023.Edition2023NoMultipleFilesName.Edition2023JavaNoMultipleFilesMessage.NestedMessage.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using com.google.protobuf.editions.test.edition2023.Edition2023NoMultipleFilesName.Edition2023JavaNoMultipleFilesMessage.NestedMessage.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+        }
+        private Builder(com.google.protobuf.editions.test.edition2023.Edition2023NoMultipleFilesName.Edition2023JavaNoMultipleFilesMessage.NestedMessage other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         @java.lang.Override
         public Builder clear() {
@@ -610,12 +622,17 @@ public final class Edition2023NoMultipleFilesName extends com.google.protobuf.Ge
 
         private void buildPartial_autosplit_0(com.google.protobuf.editions.test.edition2023.Edition2023NoMultipleFilesName.Edition2023JavaNoMultipleFilesMessage.NestedMessage result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.bar_ = bar_;
             to_bitField0_ |= 0x00000001;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(com.google.protobuf.editions.test.edition2023.Edition2023NoMultipleFilesName.Edition2023JavaNoMultipleFilesMessage.NestedMessage other, java.lang.Object[] parserLocals) {
+          bar_ = other.getBar();
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -679,7 +696,7 @@ public final class Edition2023NoMultipleFilesName extends com.google.protobuf.Ge
         }
         private int bitField0_;
 
-        private int bar_ ;
+        private int bar_;
         /**
          * <code>int32 bar = 1;</code>
          * @return Whether the bar field is set.
@@ -732,22 +749,67 @@ public final class Edition2023NoMultipleFilesName extends com.google.protobuf.Ge
         return DEFAULT_INSTANCE;
       }
 
+      static NestedMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        NestedMessage instance = new NestedMessage((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                instance.bar_ = input.readInt32();
+                instance.bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<NestedMessage>
-          PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<NestedMessage> {
+        MessageParser() {}
+
         @java.lang.Override
         public NestedMessage parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return NestedMessage.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(NestedMessage instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<NestedMessage> parser() {
         return PARSER;
@@ -971,15 +1033,27 @@ public final class Edition2023NoMultipleFilesName extends com.google.protobuf.Ge
                 com.google.protobuf.editions.test.edition2023.Edition2023NoMultipleFilesName.Edition2023JavaNoMultipleFilesMessage.class, com.google.protobuf.editions.test.edition2023.Edition2023NoMultipleFilesName.Edition2023JavaNoMultipleFilesMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.editions.test.edition2023.Edition2023NoMultipleFilesName.Edition2023JavaNoMultipleFilesMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.editions.test.edition2023.Edition2023NoMultipleFilesName.Edition2023JavaNoMultipleFilesMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -1019,12 +1093,17 @@ public final class Edition2023NoMultipleFilesName extends com.google.protobuf.Ge
 
       private void buildPartial_autosplit_0(com.google.protobuf.editions.test.edition2023.Edition2023NoMultipleFilesName.Edition2023JavaNoMultipleFilesMessage result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.foo_ = foo_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.editions.test.edition2023.Edition2023NoMultipleFilesName.Edition2023JavaNoMultipleFilesMessage other, java.lang.Object[] parserLocals) {
+        foo_ = other.getFoo();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1088,7 +1167,7 @@ public final class Edition2023NoMultipleFilesName extends com.google.protobuf.Ge
       }
       private int bitField0_;
 
-      private int foo_ ;
+      private int foo_;
       /**
        * <code>int32 foo = 1;</code>
        * @return Whether the foo field is set.
@@ -1141,22 +1220,67 @@ public final class Edition2023NoMultipleFilesName extends com.google.protobuf.Ge
       return DEFAULT_INSTANCE;
     }
 
+    static Edition2023JavaNoMultipleFilesMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Edition2023JavaNoMultipleFilesMessage instance = new Edition2023JavaNoMultipleFilesMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.foo_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<Edition2023JavaNoMultipleFilesMessage>
-        PARSER = new com.google.protobuf.AbstractParser<Edition2023JavaNoMultipleFilesMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Edition2023JavaNoMultipleFilesMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public Edition2023JavaNoMultipleFilesMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Edition2023JavaNoMultipleFilesMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Edition2023JavaNoMultipleFilesMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Edition2023JavaNoMultipleFilesMessage> parser() {
       return PARSER;

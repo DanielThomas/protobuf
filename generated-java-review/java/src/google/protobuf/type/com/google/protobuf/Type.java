@@ -700,15 +700,35 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.Type.class, com.google.protobuf.Type.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.Type.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      name_ = "";
+      fields_ = emptyList(com.google.protobuf.Field.class);
+      oneofs_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      options_ = emptyList(com.google.protobuf.Option.class);
+      syntax_ = 0;
+      edition_ = "";
       maybeForceBuilderInitialization();
+    }
+    private Builder(com.google.protobuf.Type other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -779,7 +799,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(com.google.protobuf.Type result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.sourceContext_ = sourceContextBuilder_ == null
             ? sourceContext_
@@ -819,6 +839,32 @@ private static final long serialVersionUID = 0L;
         ;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(com.google.protobuf.Type other, java.lang.Object[] parserLocals) {
+      sourceContext_ = other.sourceContext_;
+      name_ = other.name_;
+      fields_ = other.fields_;
+      oneofs_ = other.oneofs_;
+      options_ = other.options_;
+      syntax_ = other.getSyntaxValue();
+      edition_ = other.edition_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          fieldsBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Field, com.google.protobuf.Field.Builder, com.google.protobuf.FieldOrBuilder>) parserLocals[0]);
+          fields_ = null;
+        }
+        if (parserLocals[1] != null) {
+          optionsBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Option, com.google.protobuf.Option.Builder, com.google.protobuf.OptionOrBuilder>) parserLocals[1]);
+          options_ = null;
+        }
+        if (parserLocals[2] != null) {
+          sourceContextBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder, com.google.protobuf.SourceContextOrBuilder>) parserLocals[2]);
+          sourceContext_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -1006,9 +1052,21 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 42: {
+          parseSourceContextField(input, extensionRegistry);
+          return true;
+        } // case 42
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
+    }
     private int bitField0_;
 
-    private java.lang.Object name_ = "";
+    private java.lang.Object name_;
     /**
      * <pre>
      * The fully qualified message name.
@@ -1100,8 +1158,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Field> fields_ =
-        emptyList(com.google.protobuf.Field.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Field> fields_;
     private void ensureFieldsIsMutable() {
       if (!fields_.isModifiable()) {
         fields_ = makeMutableCopy(fields_);
@@ -1406,8 +1463,7 @@ private static final long serialVersionUID = 0L;
       return fieldsBuilder_;
     }
 
-    private com.google.protobuf.LazyStringArrayList oneofs_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList oneofs_;
     private void ensureOneofsIsMutable() {
       if (!oneofs_.isModifiable()) {
         oneofs_ = new com.google.protobuf.LazyStringArrayList(oneofs_);
@@ -1553,8 +1609,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Option> options_ =
-        emptyList(com.google.protobuf.Option.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Option> options_;
     private void ensureOptionsIsMutable() {
       if (!options_.isModifiable()) {
         options_ = makeMutableCopy(options_);
@@ -2014,7 +2069,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (sourceContext_ != null || sourceContextBuilder_ != null) {
-        internalGetSourceContextFieldBuilder().getBuilder()
+        internalGetSourceContextFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         sourceContext_ = com.google.protobuf.SourceContext.parser().parsePartialFrom(input, extensionRegistry);
@@ -2023,7 +2078,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000001;
     }
 
-    private int syntax_ = 0;
+    private int syntax_;
     /**
      * <pre>
      * The source syntax.
@@ -2095,7 +2150,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object edition_ = "";
+    private java.lang.Object edition_;
     /**
      * <pre>
      * The source edition string, only valid when syntax is SYNTAX_EDITIONS.
@@ -2200,22 +2255,257 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static Type parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    Type instance = new Type((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Field, com.google.protobuf.Field.Builder, com.google.protobuf.FieldOrBuilder> fieldsBuilder_ = null;
+    com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Option, com.google.protobuf.Option.Builder, com.google.protobuf.OptionOrBuilder> optionsBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder, com.google.protobuf.SourceContextOrBuilder> sourceContextBuilder_ = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      fieldsBuilder_ = internalGetFieldsFieldBuilder(instance, fieldsBuilder_);
+      optionsBuilder_ = internalGetOptionsFieldBuilder(instance, optionsBuilder_);
+      sourceContextBuilder_ = internalGetSourceContextFieldBuilder(instance, sourceContextBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            instance.name_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000002;
+            break;
+          } // case 10
+          case 18: {
+            final int oldLimit = input.pushLimitBeforeMessage();
+            com.google.protobuf.Field m = com.google.protobuf.Field.parser().parsePartialFrom(input, extensionRegistry);
+            input.popLimitAfterMessage(oldLimit);
+            if (fieldsBuilder_ == null) {
+              ensureFieldsIsMutable(instance);
+              instance.fields_.add(m);
+            } else {
+              fieldsBuilder_.addMessage(m);
+              instance.bitField0_ |= 0x00000004;
+
+            }
+            break;
+          } // case 18
+          case 26: {
+            ensureOneofsIsMutable(instance);
+            instance.oneofs_.add(input.readStringRequireUtf8());
+            break;
+          } // case 26
+          case 34: {
+            final int oldLimit = input.pushLimitBeforeMessage();
+            com.google.protobuf.Option m = com.google.protobuf.Option.parser().parsePartialFrom(input, extensionRegistry);
+            input.popLimitAfterMessage(oldLimit);
+            if (optionsBuilder_ == null) {
+              ensureOptionsIsMutable(instance);
+              instance.options_.add(m);
+            } else {
+              optionsBuilder_.addMessage(m);
+              instance.bitField0_ |= 0x00000010;
+
+            }
+            break;
+          } // case 34
+          case 42: {
+            if (instance.sourceContext_ != null || sourceContextBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseSourceContextField(instance, input, extensionRegistry, sourceContextBuilder_);
+            break;
+          } // case 42
+          case 48: {
+            instance.syntax_ = input.readEnum();
+            instance.bitField0_ |= 0x00000020;
+            break;
+          } // case 48
+          case 58: {
+            instance.edition_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000040;
+            break;
+          } // case 58
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {fieldsBuilder_, optionsBuilder_, sourceContextBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, fieldsBuilder_, optionsBuilder_, sourceContextBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static void ensureFieldsIsMutable(com.google.protobuf.Type instance) {
+    if (!instance.fields_.isModifiable()) {
+      instance.fields_ = makeMutableCopy(instance.fields_);
+    }
+    instance.bitField0_ |= 0x00000004;
+  }
+  private static com.google.protobuf.RepeatedFieldBuilder<
+      com.google.protobuf.Field, com.google.protobuf.Field.Builder, com.google.protobuf.FieldOrBuilder> 
+      internalGetFieldsFieldBuilder(com.google.protobuf.Type instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Field, com.google.protobuf.Field.Builder, com.google.protobuf.FieldOrBuilder> fieldsBuilder_) {
+    if (fieldsBuilder_ == null) {
+      fieldsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          com.google.protobuf.Field, com.google.protobuf.Field.Builder, com.google.protobuf.FieldOrBuilder>(
+              instance.fields_,
+              instance.fields_.isModifiable(),
+              null,
+              false);
+      instance.fields_ = null;
+    }
+    instance.bitField0_ |= 0x00000004;
+
+    return fieldsBuilder_;
+  }
+  private static void ensureOneofsIsMutable(com.google.protobuf.Type instance) {
+    if (!instance.oneofs_.isModifiable()) {
+      instance.oneofs_ = new com.google.protobuf.LazyStringArrayList(instance.oneofs_);
+    }
+    instance.bitField0_ |= 0x00000008;
+  }
+  private static void ensureOptionsIsMutable(com.google.protobuf.Type instance) {
+    if (!instance.options_.isModifiable()) {
+      instance.options_ = makeMutableCopy(instance.options_);
+    }
+    instance.bitField0_ |= 0x00000010;
+  }
+  private static com.google.protobuf.RepeatedFieldBuilder<
+      com.google.protobuf.Option, com.google.protobuf.Option.Builder, com.google.protobuf.OptionOrBuilder> 
+      internalGetOptionsFieldBuilder(com.google.protobuf.Type instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Option, com.google.protobuf.Option.Builder, com.google.protobuf.OptionOrBuilder> optionsBuilder_) {
+    if (optionsBuilder_ == null) {
+      optionsBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          com.google.protobuf.Option, com.google.protobuf.Option.Builder, com.google.protobuf.OptionOrBuilder>(
+              instance.options_,
+              instance.options_.isModifiable(),
+              null,
+              false);
+      instance.options_ = null;
+    }
+    instance.bitField0_ |= 0x00000010;
+
+    return optionsBuilder_;
+  }
+  /**
+   * <pre>
+   * The source context.
+   * </pre>
+   *
+   * <code>.google.protobuf.SourceContext source_context = 5;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder, com.google.protobuf.SourceContextOrBuilder> 
+      internalGetSourceContextFieldBuilder(com.google.protobuf.Type instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder, com.google.protobuf.SourceContextOrBuilder> sourceContextBuilder_) {
+    if (sourceContextBuilder_ == null) {
+      sourceContextBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder, com.google.protobuf.SourceContextOrBuilder>(
+              instance.getSourceContext(),
+              null,
+              false);
+      instance.sourceContext_ = null;
+    }
+    instance.bitField0_ |= 0x00000001;
+    return sourceContextBuilder_;
+  }
+  private static void parseSourceContextField(
+      com.google.protobuf.Type instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder, com.google.protobuf.SourceContextOrBuilder> sourceContextBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.sourceContext_ != null || sourceContextBuilder_ != null) {
+      sourceContextBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.sourceContext_ = com.google.protobuf.SourceContext.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000001;
+  }
+  private static void buildPartial_autosplit_0(com.google.protobuf.Type instance,
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Field, com.google.protobuf.Field.Builder, com.google.protobuf.FieldOrBuilder> fieldsBuilder_,
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Option, com.google.protobuf.Option.Builder, com.google.protobuf.OptionOrBuilder> optionsBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder, com.google.protobuf.SourceContextOrBuilder> sourceContextBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00000001) != 0)) instance.sourceContext_ = null;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.sourceContext_ = sourceContextBuilder_ == null
+          ? instance.sourceContext_
+          : sourceContextBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000004) != 0)) {
+    if (fieldsBuilder_ == null) {
+      instance.fields_.makeImmutable();
+    } else {
+      instance.fields_ = fieldsBuilder_.buildProtobufList();
+    }
+    }
+    if (((from_bitField0_ & 0x00000008) != 0)) {
+      instance.oneofs_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000010) != 0)) {
+    if (optionsBuilder_ == null) {
+      instance.options_.makeImmutable();
+    } else {
+      instance.options_ = optionsBuilder_.buildProtobufList();
+    }
+    }
+  }
+
   private static final com.google.protobuf.Parser<Type>
-      PARSER = new com.google.protobuf.AbstractParser<Type>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<Type> {
+    MessageParser() {}
+
     @java.lang.Override
     public Type parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Type.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(Type instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<Type> parser() {
     return PARSER;

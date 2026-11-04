@@ -318,15 +318,27 @@ private static final long serialVersionUID = 0L;
                 edition_unittest.TestDupFieldNumber.Foo.class, edition_unittest.TestDupFieldNumber.Foo.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using edition_unittest.TestDupFieldNumber.Foo.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(edition_unittest.TestDupFieldNumber.Foo other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -366,12 +378,17 @@ private static final long serialVersionUID = 0L;
 
       private void buildPartial_autosplit_0(edition_unittest.TestDupFieldNumber.Foo result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.a_ = a_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(edition_unittest.TestDupFieldNumber.Foo other, java.lang.Object[] parserLocals) {
+        a_ = other.getA();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -435,7 +452,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private int a_ ;
+      private int a_;
       /**
        * <code>int32 a = 1;</code>
        * @return Whether the a field is set.
@@ -488,22 +505,67 @@ private static final long serialVersionUID = 0L;
       return DEFAULT_INSTANCE;
     }
 
+    static Foo parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Foo instance = new Foo((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.a_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<Foo>
-        PARSER = new com.google.protobuf.AbstractParser<Foo>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Foo> {
+      MessageParser() {}
+
       @java.lang.Override
       public Foo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Foo.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Foo instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Foo> parser() {
       return PARSER;
@@ -784,15 +846,27 @@ private static final long serialVersionUID = 0L;
                 edition_unittest.TestDupFieldNumber.Bar.class, edition_unittest.TestDupFieldNumber.Bar.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using edition_unittest.TestDupFieldNumber.Bar.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(edition_unittest.TestDupFieldNumber.Bar other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -832,12 +906,17 @@ private static final long serialVersionUID = 0L;
 
       private void buildPartial_autosplit_0(edition_unittest.TestDupFieldNumber.Bar result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.a_ = a_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(edition_unittest.TestDupFieldNumber.Bar other, java.lang.Object[] parserLocals) {
+        a_ = other.getA();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -901,7 +980,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private int a_ ;
+      private int a_;
       /**
        * <code>int32 a = 1;</code>
        * @return Whether the a field is set.
@@ -954,22 +1033,67 @@ private static final long serialVersionUID = 0L;
       return DEFAULT_INSTANCE;
     }
 
+    static Bar parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Bar instance = new Bar((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.a_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<Bar>
-        PARSER = new com.google.protobuf.AbstractParser<Bar>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Bar> {
+      MessageParser() {}
+
       @java.lang.Override
       public Bar parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Bar.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Bar instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Bar> parser() {
       return PARSER;
@@ -1302,15 +1426,28 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestDupFieldNumber.class, edition_unittest.TestDupFieldNumber.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestDupFieldNumber.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
+    }
+    private Builder(edition_unittest.TestDupFieldNumber other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -1367,7 +1504,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(edition_unittest.TestDupFieldNumber result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.a_ = a_;
         to_bitField0_ |= 0x00000001;
@@ -1385,6 +1522,24 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000004;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(edition_unittest.TestDupFieldNumber other, java.lang.Object[] parserLocals) {
+      a_ = other.getA();
+      foo_ = other.foo_;
+      bar_ = other.bar_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          fooBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestDupFieldNumber.Foo, edition_unittest.TestDupFieldNumber.Foo.Builder, edition_unittest.TestDupFieldNumber.FooOrBuilder>) parserLocals[0]);
+          foo_ = null;
+        }
+        if (parserLocals[1] != null) {
+          barBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestDupFieldNumber.Bar, edition_unittest.TestDupFieldNumber.Bar.Builder, edition_unittest.TestDupFieldNumber.BarOrBuilder>) parserLocals[1]);
+          bar_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -1460,9 +1615,25 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 19: {
+          parseFooField(input, extensionRegistry);
+          return true;
+        } // case 19
+        case 27: {
+          parseBarField(input, extensionRegistry);
+          return true;
+        } // case 27
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
+    }
     private int bitField0_;
 
-    private int a_ ;
+    private int a_;
     /**
      * <pre>
      * NO_PROTO1
@@ -1637,7 +1808,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       if (foo_ != null || fooBuilder_ != null) {
         input.readGroup(2,
-            internalGetFooFieldBuilder().getBuilder(),
+            internalGetFooFieldBuilder().getBuilderForParsing(),
             extensionRegistry);
       } else {
         foo_ = input.readGroup(2, edition_unittest.TestDupFieldNumber.Foo.parser(),
@@ -1765,7 +1936,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       if (bar_ != null || barBuilder_ != null) {
         input.readGroup(3,
-            internalGetBarFieldBuilder().getBuilder(),
+            internalGetBarFieldBuilder().getBuilderForParsing(),
             extensionRegistry);
       } else {
         bar_ = input.readGroup(3, edition_unittest.TestDupFieldNumber.Bar.parser(),
@@ -1787,22 +1958,187 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static TestDupFieldNumber parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    TestDupFieldNumber instance = new TestDupFieldNumber((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestDupFieldNumber.Foo, edition_unittest.TestDupFieldNumber.Foo.Builder, edition_unittest.TestDupFieldNumber.FooOrBuilder> fooBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestDupFieldNumber.Bar, edition_unittest.TestDupFieldNumber.Bar.Builder, edition_unittest.TestDupFieldNumber.BarOrBuilder> barBuilder_ = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      fooBuilder_ = internalGetFooFieldBuilder(instance, fooBuilder_);
+      barBuilder_ = internalGetBarFieldBuilder(instance, barBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
+            instance.a_ = input.readInt32();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 8
+          case 19: {
+            if (instance.foo_ != null || fooBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseFooField(instance, input, extensionRegistry, fooBuilder_);
+            break;
+          } // case 19
+          case 27: {
+            if (instance.bar_ != null || barBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseBarField(instance, input, extensionRegistry, barBuilder_);
+            break;
+          } // case 27
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {fooBuilder_, barBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, fooBuilder_, barBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>.edition_unittest.TestDupFieldNumber.Foo foo = 2 [features = { ... }</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      edition_unittest.TestDupFieldNumber.Foo, edition_unittest.TestDupFieldNumber.Foo.Builder, edition_unittest.TestDupFieldNumber.FooOrBuilder> 
+      internalGetFooFieldBuilder(edition_unittest.TestDupFieldNumber instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestDupFieldNumber.Foo, edition_unittest.TestDupFieldNumber.Foo.Builder, edition_unittest.TestDupFieldNumber.FooOrBuilder> fooBuilder_) {
+    if (fooBuilder_ == null) {
+      fooBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          edition_unittest.TestDupFieldNumber.Foo, edition_unittest.TestDupFieldNumber.Foo.Builder, edition_unittest.TestDupFieldNumber.FooOrBuilder>(
+              instance.getFoo(),
+              null,
+              false);
+      instance.foo_ = null;
+    }
+    instance.bitField0_ |= 0x00000002;
+    return fooBuilder_;
+  }
+  private static void parseFooField(
+      edition_unittest.TestDupFieldNumber instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestDupFieldNumber.Foo, edition_unittest.TestDupFieldNumber.Foo.Builder, edition_unittest.TestDupFieldNumber.FooOrBuilder> fooBuilder_)
+      throws java.io.IOException {
+    if (instance.foo_ != null || fooBuilder_ != null) {
+      input.readGroup(2,
+          fooBuilder_.getBuilderForParsing(),
+          extensionRegistry);
+    } else {
+      instance.foo_ = input.readGroup(2, edition_unittest.TestDupFieldNumber.Foo.parser(),
+          extensionRegistry);
+    }
+    instance.bitField0_ |= 0x00000002;
+  }
+  /**
+   * <code>.edition_unittest.TestDupFieldNumber.Bar bar = 3 [features = { ... }</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      edition_unittest.TestDupFieldNumber.Bar, edition_unittest.TestDupFieldNumber.Bar.Builder, edition_unittest.TestDupFieldNumber.BarOrBuilder> 
+      internalGetBarFieldBuilder(edition_unittest.TestDupFieldNumber instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestDupFieldNumber.Bar, edition_unittest.TestDupFieldNumber.Bar.Builder, edition_unittest.TestDupFieldNumber.BarOrBuilder> barBuilder_) {
+    if (barBuilder_ == null) {
+      barBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          edition_unittest.TestDupFieldNumber.Bar, edition_unittest.TestDupFieldNumber.Bar.Builder, edition_unittest.TestDupFieldNumber.BarOrBuilder>(
+              instance.getBar(),
+              null,
+              false);
+      instance.bar_ = null;
+    }
+    instance.bitField0_ |= 0x00000004;
+    return barBuilder_;
+  }
+  private static void parseBarField(
+      edition_unittest.TestDupFieldNumber instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestDupFieldNumber.Bar, edition_unittest.TestDupFieldNumber.Bar.Builder, edition_unittest.TestDupFieldNumber.BarOrBuilder> barBuilder_)
+      throws java.io.IOException {
+    if (instance.bar_ != null || barBuilder_ != null) {
+      input.readGroup(3,
+          barBuilder_.getBuilderForParsing(),
+          extensionRegistry);
+    } else {
+      instance.bar_ = input.readGroup(3, edition_unittest.TestDupFieldNumber.Bar.parser(),
+          extensionRegistry);
+    }
+    instance.bitField0_ |= 0x00000004;
+  }
+  private static void buildPartial_autosplit_0(edition_unittest.TestDupFieldNumber instance,
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestDupFieldNumber.Foo, edition_unittest.TestDupFieldNumber.Foo.Builder, edition_unittest.TestDupFieldNumber.FooOrBuilder> fooBuilder_,
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestDupFieldNumber.Bar, edition_unittest.TestDupFieldNumber.Bar.Builder, edition_unittest.TestDupFieldNumber.BarOrBuilder> barBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00000002) != 0)) instance.foo_ = null;
+    if (((from_bitField0_ & 0x00000002) != 0)) {
+      instance.foo_ = fooBuilder_ == null
+          ? instance.foo_
+          : fooBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000004) != 0)) instance.bar_ = null;
+    if (((from_bitField0_ & 0x00000004) != 0)) {
+      instance.bar_ = barBuilder_ == null
+          ? instance.bar_
+          : barBuilder_.build();
+    }
+  }
+
   private static final com.google.protobuf.Parser<TestDupFieldNumber>
-      PARSER = new com.google.protobuf.AbstractParser<TestDupFieldNumber>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestDupFieldNumber> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestDupFieldNumber parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return TestDupFieldNumber.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(TestDupFieldNumber instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<TestDupFieldNumber> parser() {
     return PARSER;

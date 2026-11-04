@@ -384,15 +384,28 @@ private static final long serialVersionUID = 0L;
                 pb.InternalFieldOptionsCpp.MicroString.class, pb.InternalFieldOptionsCpp.MicroString.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using pb.InternalFieldOptionsCpp.MicroString.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        force_ = 0;
+      }
+      private Builder(pb.InternalFieldOptionsCpp.MicroString other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -433,7 +446,7 @@ private static final long serialVersionUID = 0L;
 
       private void buildPartial_autosplit_0(pb.InternalFieldOptionsCpp.MicroString result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.force_ = force_;
           to_bitField0_ |= 0x00000001;
@@ -443,6 +456,12 @@ private static final long serialVersionUID = 0L;
           to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(pb.InternalFieldOptionsCpp.MicroString other, java.lang.Object[] parserLocals) {
+        force_ = other.getForceValue();
+        ssoSize_ = other.getSsoSize();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -514,7 +533,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private int force_ = 0;
+      private int force_;
       /**
        * <code>.pb.InternalOptionsForce.Enum force = 1;</code>
        * @return Whether the force field is set.
@@ -573,7 +592,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
-      private int ssoSize_ ;
+      private int ssoSize_;
       /**
        * <pre>
        * If set, we force the SSO size of the field.
@@ -642,22 +661,72 @@ private static final long serialVersionUID = 0L;
       return DEFAULT_INSTANCE;
     }
 
+    static MicroString parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MicroString instance = new MicroString((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.force_ = input.readEnum();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.ssoSize_ = input.readInt32();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<MicroString>
-        PARSER = new com.google.protobuf.AbstractParser<MicroString>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MicroString> {
+      MessageParser() {}
+
       @java.lang.Override
       public MicroString parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return MicroString.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(MicroString instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<MicroString> parser() {
       return PARSER;
@@ -949,15 +1018,28 @@ private static final long serialVersionUID = 0L;
                 pb.InternalFieldOptionsCpp.InlinedString.class, pb.InternalFieldOptionsCpp.InlinedString.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using pb.InternalFieldOptionsCpp.InlinedString.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        force_ = 0;
+      }
+      private Builder(pb.InternalFieldOptionsCpp.InlinedString other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -997,12 +1079,17 @@ private static final long serialVersionUID = 0L;
 
       private void buildPartial_autosplit_0(pb.InternalFieldOptionsCpp.InlinedString result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.force_ = force_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(pb.InternalFieldOptionsCpp.InlinedString other, java.lang.Object[] parserLocals) {
+        force_ = other.getForceValue();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1066,7 +1153,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private int force_ = 0;
+      private int force_;
       /**
        * <code>.pb.InternalOptionsForce.Enum force = 1;</code>
        * @return Whether the force field is set.
@@ -1138,22 +1225,67 @@ private static final long serialVersionUID = 0L;
       return DEFAULT_INSTANCE;
     }
 
+    static InlinedString parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      InlinedString instance = new InlinedString((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.force_ = input.readEnum();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<InlinedString>
-        PARSER = new com.google.protobuf.AbstractParser<InlinedString>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<InlinedString> {
+      MessageParser() {}
+
       @java.lang.Override
       public InlinedString parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return InlinedString.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(InlinedString instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<InlinedString> parser() {
       return PARSER;
@@ -1442,15 +1574,28 @@ private static final long serialVersionUID = 0L;
               pb.InternalFieldOptionsCpp.class, pb.InternalFieldOptionsCpp.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using pb.InternalFieldOptionsCpp.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
+    }
+    private Builder(pb.InternalFieldOptionsCpp other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -1506,7 +1651,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(pb.InternalFieldOptionsCpp result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.microString_ = microStringBuilder_ == null
             ? microString_
@@ -1520,6 +1665,23 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000002;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(pb.InternalFieldOptionsCpp other, java.lang.Object[] parserLocals) {
+      microString_ = other.microString_;
+      inlinedString_ = other.inlinedString_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          microStringBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<pb.InternalFieldOptionsCpp.MicroString, pb.InternalFieldOptionsCpp.MicroString.Builder, pb.InternalFieldOptionsCpp.MicroStringOrBuilder>) parserLocals[0]);
+          microString_ = null;
+        }
+        if (parserLocals[1] != null) {
+          inlinedStringBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<pb.InternalFieldOptionsCpp.InlinedString, pb.InternalFieldOptionsCpp.InlinedString.Builder, pb.InternalFieldOptionsCpp.InlinedStringOrBuilder>) parserLocals[1]);
+          inlinedString_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -1586,6 +1748,22 @@ private static final long serialVersionUID = 0L;
         onChanged();
       } // finally
       return this;
+    }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 10: {
+          parseMicroStringField(input, extensionRegistry);
+          return true;
+        } // case 10
+        case 18: {
+          parseInlinedStringField(input, extensionRegistry);
+          return true;
+        } // case 18
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
     }
     private int bitField0_;
 
@@ -1708,7 +1886,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (microString_ != null || microStringBuilder_ != null) {
-        internalGetMicroStringFieldBuilder().getBuilder()
+        internalGetMicroStringFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         microString_ = pb.InternalFieldOptionsCpp.MicroString.parser().parsePartialFrom(input, extensionRegistry);
@@ -1836,7 +2014,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (inlinedString_ != null || inlinedStringBuilder_ != null) {
-        internalGetInlinedStringFieldBuilder().getBuilder()
+        internalGetInlinedStringFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         inlinedString_ = pb.InternalFieldOptionsCpp.InlinedString.parser().parsePartialFrom(input, extensionRegistry);
@@ -1858,22 +2036,182 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static InternalFieldOptionsCpp parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    InternalFieldOptionsCpp instance = new InternalFieldOptionsCpp((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<pb.InternalFieldOptionsCpp.MicroString, pb.InternalFieldOptionsCpp.MicroString.Builder, pb.InternalFieldOptionsCpp.MicroStringOrBuilder> microStringBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<pb.InternalFieldOptionsCpp.InlinedString, pb.InternalFieldOptionsCpp.InlinedString.Builder, pb.InternalFieldOptionsCpp.InlinedStringOrBuilder> inlinedStringBuilder_ = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      microStringBuilder_ = internalGetMicroStringFieldBuilder(instance, microStringBuilder_);
+      inlinedStringBuilder_ = internalGetInlinedStringFieldBuilder(instance, inlinedStringBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            if (instance.microString_ != null || microStringBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseMicroStringField(instance, input, extensionRegistry, microStringBuilder_);
+            break;
+          } // case 10
+          case 18: {
+            if (instance.inlinedString_ != null || inlinedStringBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseInlinedStringField(instance, input, extensionRegistry, inlinedStringBuilder_);
+            break;
+          } // case 18
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {microStringBuilder_, inlinedStringBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, microStringBuilder_, inlinedStringBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>.pb.InternalFieldOptionsCpp.MicroString micro_string = 1;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      pb.InternalFieldOptionsCpp.MicroString, pb.InternalFieldOptionsCpp.MicroString.Builder, pb.InternalFieldOptionsCpp.MicroStringOrBuilder> 
+      internalGetMicroStringFieldBuilder(pb.InternalFieldOptionsCpp instance, com.google.protobuf.SingleFieldBuilder<pb.InternalFieldOptionsCpp.MicroString, pb.InternalFieldOptionsCpp.MicroString.Builder, pb.InternalFieldOptionsCpp.MicroStringOrBuilder> microStringBuilder_) {
+    if (microStringBuilder_ == null) {
+      microStringBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          pb.InternalFieldOptionsCpp.MicroString, pb.InternalFieldOptionsCpp.MicroString.Builder, pb.InternalFieldOptionsCpp.MicroStringOrBuilder>(
+              instance.getMicroString(),
+              null,
+              false);
+      instance.microString_ = null;
+    }
+    instance.bitField0_ |= 0x00000001;
+    return microStringBuilder_;
+  }
+  private static void parseMicroStringField(
+      pb.InternalFieldOptionsCpp instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<pb.InternalFieldOptionsCpp.MicroString, pb.InternalFieldOptionsCpp.MicroString.Builder, pb.InternalFieldOptionsCpp.MicroStringOrBuilder> microStringBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.microString_ != null || microStringBuilder_ != null) {
+      microStringBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.microString_ = pb.InternalFieldOptionsCpp.MicroString.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000001;
+  }
+  /**
+   * <code>.pb.InternalFieldOptionsCpp.InlinedString inlined_string = 2;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      pb.InternalFieldOptionsCpp.InlinedString, pb.InternalFieldOptionsCpp.InlinedString.Builder, pb.InternalFieldOptionsCpp.InlinedStringOrBuilder> 
+      internalGetInlinedStringFieldBuilder(pb.InternalFieldOptionsCpp instance, com.google.protobuf.SingleFieldBuilder<pb.InternalFieldOptionsCpp.InlinedString, pb.InternalFieldOptionsCpp.InlinedString.Builder, pb.InternalFieldOptionsCpp.InlinedStringOrBuilder> inlinedStringBuilder_) {
+    if (inlinedStringBuilder_ == null) {
+      inlinedStringBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          pb.InternalFieldOptionsCpp.InlinedString, pb.InternalFieldOptionsCpp.InlinedString.Builder, pb.InternalFieldOptionsCpp.InlinedStringOrBuilder>(
+              instance.getInlinedString(),
+              null,
+              false);
+      instance.inlinedString_ = null;
+    }
+    instance.bitField0_ |= 0x00000002;
+    return inlinedStringBuilder_;
+  }
+  private static void parseInlinedStringField(
+      pb.InternalFieldOptionsCpp instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<pb.InternalFieldOptionsCpp.InlinedString, pb.InternalFieldOptionsCpp.InlinedString.Builder, pb.InternalFieldOptionsCpp.InlinedStringOrBuilder> inlinedStringBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.inlinedString_ != null || inlinedStringBuilder_ != null) {
+      inlinedStringBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.inlinedString_ = pb.InternalFieldOptionsCpp.InlinedString.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000002;
+  }
+  private static void buildPartial_autosplit_0(pb.InternalFieldOptionsCpp instance,
+      com.google.protobuf.SingleFieldBuilder<pb.InternalFieldOptionsCpp.MicroString, pb.InternalFieldOptionsCpp.MicroString.Builder, pb.InternalFieldOptionsCpp.MicroStringOrBuilder> microStringBuilder_,
+      com.google.protobuf.SingleFieldBuilder<pb.InternalFieldOptionsCpp.InlinedString, pb.InternalFieldOptionsCpp.InlinedString.Builder, pb.InternalFieldOptionsCpp.InlinedStringOrBuilder> inlinedStringBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00000001) != 0)) instance.microString_ = null;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.microString_ = microStringBuilder_ == null
+          ? instance.microString_
+          : microStringBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000002) != 0)) instance.inlinedString_ = null;
+    if (((from_bitField0_ & 0x00000002) != 0)) {
+      instance.inlinedString_ = inlinedStringBuilder_ == null
+          ? instance.inlinedString_
+          : inlinedStringBuilder_.build();
+    }
+  }
+
   private static final com.google.protobuf.Parser<InternalFieldOptionsCpp>
-      PARSER = new com.google.protobuf.AbstractParser<InternalFieldOptionsCpp>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<InternalFieldOptionsCpp> {
+    MessageParser() {}
+
     @java.lang.Override
     public InternalFieldOptionsCpp parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return InternalFieldOptionsCpp.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(InternalFieldOptionsCpp instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<InternalFieldOptionsCpp> parser() {
     return PARSER;

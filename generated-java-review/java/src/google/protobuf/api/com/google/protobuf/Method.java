@@ -668,15 +668,33 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.Method.class, com.google.protobuf.Method.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.Method.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      name_ = "";
+      requestTypeUrl_ = "";
+      responseTypeUrl_ = "";
+      options_ = emptyList(com.google.protobuf.Option.class);
+      syntax_ = 0;
+      edition_ = "";
+    }
+    private Builder(com.google.protobuf.Method other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -729,7 +747,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(com.google.protobuf.Method result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.name_ = name_;
         ;
@@ -767,6 +785,25 @@ private static final long serialVersionUID = 0L;
         ;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(com.google.protobuf.Method other, java.lang.Object[] parserLocals) {
+      name_ = other.name_;
+      requestTypeUrl_ = other.requestTypeUrl_;
+      requestStreaming_ = other.getRequestStreaming();
+      responseTypeUrl_ = other.responseTypeUrl_;
+      responseStreaming_ = other.getResponseStreaming();
+      options_ = other.options_;
+      syntax_ = other.getSyntaxValue();
+      edition_ = other.edition_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          optionsBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Option, com.google.protobuf.Option.Builder, com.google.protobuf.OptionOrBuilder>) parserLocals[0]);
+          options_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -928,7 +965,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object name_ = "";
+    private java.lang.Object name_;
     /**
      * <pre>
      * The simple name of this method.
@@ -1020,7 +1057,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object requestTypeUrl_ = "";
+    private java.lang.Object requestTypeUrl_;
     /**
      * <pre>
      * A URL of the input message type.
@@ -1112,7 +1149,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean requestStreaming_ ;
+    private boolean requestStreaming_;
     /**
      * <pre>
      * If true, the request is streamed.
@@ -1156,7 +1193,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object responseTypeUrl_ = "";
+    private java.lang.Object responseTypeUrl_;
     /**
      * <pre>
      * The URL of the output message type.
@@ -1248,7 +1285,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean responseStreaming_ ;
+    private boolean responseStreaming_;
     /**
      * <pre>
      * If true, the response is streamed.
@@ -1292,8 +1329,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Option> options_ =
-        emptyList(com.google.protobuf.Option.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Option> options_;
     private void ensureOptionsIsMutable() {
       if (!options_.isModifiable()) {
         options_ = makeMutableCopy(options_);
@@ -1598,7 +1634,7 @@ private static final long serialVersionUID = 0L;
       return optionsBuilder_;
     }
 
-    private int syntax_ = 0;
+    private int syntax_;
     /**
      * <pre>
      * The source syntax of this method.
@@ -1695,7 +1731,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object edition_ = "";
+    private java.lang.Object edition_;
     /**
      * <pre>
      * The source edition string, only valid when syntax is SYNTAX_EDITIONS.
@@ -1825,22 +1861,131 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static Method parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    Method instance = new Method((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Option, com.google.protobuf.Option.Builder, com.google.protobuf.OptionOrBuilder> optionsBuilder_ = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            instance.name_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 10
+          case 18: {
+            instance.requestTypeUrl_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000002;
+            break;
+          } // case 18
+          case 24: {
+            instance.requestStreaming_ = input.readBool();
+            instance.bitField0_ |= 0x00000004;
+            break;
+          } // case 24
+          case 34: {
+            instance.responseTypeUrl_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000008;
+            break;
+          } // case 34
+          case 40: {
+            instance.responseStreaming_ = input.readBool();
+            instance.bitField0_ |= 0x00000010;
+            break;
+          } // case 40
+          case 50: {
+            final int oldLimit = input.pushLimitBeforeMessage();
+            com.google.protobuf.Option m = com.google.protobuf.Option.parser().parsePartialFrom(input, extensionRegistry);
+            input.popLimitAfterMessage(oldLimit);
+            if (optionsBuilder_ == null) {
+              ensureOptionsIsMutable(instance);
+              instance.options_.add(m);
+            } else {
+              optionsBuilder_.addMessage(m);
+              instance.bitField0_ |= 0x00000020;
+
+            }
+            break;
+          } // case 50
+          case 56: {
+            instance.syntax_ = input.readEnum();
+            instance.bitField0_ |= 0x00000040;
+            break;
+          } // case 56
+          case 66: {
+            instance.edition_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000080;
+            break;
+          } // case 66
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, optionsBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static void ensureOptionsIsMutable(com.google.protobuf.Method instance) {
+    if (!instance.options_.isModifiable()) {
+      instance.options_ = makeMutableCopy(instance.options_);
+    }
+    instance.bitField0_ |= 0x00000020;
+  }
+  private static void buildPartial_autosplit_0(com.google.protobuf.Method instance,
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Option, com.google.protobuf.Option.Builder, com.google.protobuf.OptionOrBuilder> optionsBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000020) != 0)) {
+    if (optionsBuilder_ == null) {
+      instance.options_.makeImmutable();
+    } else {
+      instance.options_ = optionsBuilder_.buildProtobufList();
+    }
+    }
+  }
+
   private static final com.google.protobuf.Parser<Method>
-      PARSER = new com.google.protobuf.AbstractParser<Method>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<Method> {
+    MessageParser() {}
+
     @java.lang.Override
     public Method parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Method.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(Method instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<Method> parser() {
     return PARSER;

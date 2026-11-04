@@ -523,15 +523,28 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
                 com.google.protobuf.util.JsonFormatProto3.MessageType.class, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.MessageType.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        optionalStringValue_ = "";
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.MessageType other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -573,7 +586,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MessageType result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.optionalInt32Value_ = optionalInt32Value_;
           to_bitField0_ |= 0x00000001;
@@ -587,6 +600,13 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
           
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MessageType other, java.lang.Object[] parserLocals) {
+        optionalInt32Value_ = other.getOptionalInt32Value();
+        optionalStringValue_ = other.optionalStringValue_;
+        value_ = other.getValue();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -668,7 +688,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int value_ ;
+      private int value_;
       /**
        * <code>int32 value = 1;</code>
        * @return The value.
@@ -700,7 +720,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int optionalInt32Value_ ;
+      private int optionalInt32Value_;
       /**
        * <code>optional int32 optional_int32_value = 2;</code>
        * @return Whether the optionalInt32Value field is set.
@@ -740,7 +760,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private java.lang.Object optionalStringValue_ = "";
+      private java.lang.Object optionalStringValue_;
       /**
        * <code>optional string optional_string_value = 3;</code>
        * @return Whether the optionalStringValue field is set.
@@ -832,22 +852,77 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static MessageType parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MessageType instance = new MessageType((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.value_ = input.readInt32();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 8
+            case 16: {
+              instance.optionalInt32Value_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 16
+            case 26: {
+              instance.optionalStringValue_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<MessageType>
-        PARSER = new com.google.protobuf.AbstractParser<MessageType>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MessageType> {
+      MessageParser() {}
+
       @java.lang.Override
       public MessageType parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return MessageType.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(MessageType instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<MessageType> parser() {
       return PARSER;
@@ -3030,15 +3105,47 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
                 com.google.protobuf.util.JsonFormatProto3.TestMessage.class, com.google.protobuf.util.JsonFormatProto3.TestMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        stringValue_ = "";
+        bytesValue_ = com.google.protobuf.ByteString.EMPTY;
+        enumValue_ = 0;
+        repeatedBoolValue_ = emptyBooleanList();
+        repeatedInt32Value_ = emptyIntList();
+        repeatedInt64Value_ = emptyLongList();
+        repeatedUint32Value_ = emptyIntList();
+        repeatedUint64Value_ = emptyLongList();
+        repeatedFloatValue_ = emptyFloatList();
+        repeatedDoubleValue_ = emptyDoubleList();
+        repeatedStringValue_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        repeatedBytesValue_ = emptyList(com.google.protobuf.ByteString.class);
+        repeatedEnumValue_ = emptyIntList();
+        repeatedMessageValue_ = emptyList(com.google.protobuf.util.JsonFormatProto3.MessageType.class);
+        optionalStringValue_ = "";
+        optionalBytesValue_ = com.google.protobuf.ByteString.EMPTY;
+        optionalEnumValue_ = 0;
         maybeForceBuilderInitialization();
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
+        copyFrom_autosplit_1(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -3142,7 +3249,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestMessage result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.messageValue_ = messageValueBuilder_ == null
               ? messageValue_
@@ -3280,9 +3387,60 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         result.bitField0_ |= to_bitField0_;
       }
 
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestMessage other, java.lang.Object[] parserLocals) {
+        messageValue_ = other.messageValue_;
+        optionalBoolValue_ = other.getOptionalBoolValue();
+        optionalInt32Value_ = other.getOptionalInt32Value();
+        optionalInt64Value_ = other.getOptionalInt64Value();
+        optionalUint32Value_ = other.getOptionalUint32Value();
+        optionalUint64Value_ = other.getOptionalUint64Value();
+        optionalFloatValue_ = other.getOptionalFloatValue();
+        optionalDoubleValue_ = other.getOptionalDoubleValue();
+        optionalStringValue_ = other.optionalStringValue_;
+        optionalBytesValue_ = other.getOptionalBytesValue();
+        optionalEnumValue_ = other.getOptionalEnumValueValue();
+        optionalMessageValue_ = other.optionalMessageValue_;
+        timestampValue_ = other.timestampValue_;
+        boolValue_ = other.getBoolValue();
+        int32Value_ = other.getInt32Value();
+        int64Value_ = other.getInt64Value();
+        uint32Value_ = other.getUint32Value();
+        uint64Value_ = other.getUint64Value();
+        floatValue_ = other.getFloatValue();
+        doubleValue_ = other.getDoubleValue();
+        stringValue_ = other.stringValue_;
+        bytesValue_ = other.getBytesValue();
+        enumValue_ = other.getEnumValueValue();
+        repeatedBoolValue_ = other.repeatedBoolValue_;
+        repeatedInt32Value_ = other.repeatedInt32Value_;
+        repeatedInt64Value_ = other.repeatedInt64Value_;
+        repeatedUint32Value_ = other.repeatedUint32Value_;
+        repeatedUint64Value_ = other.repeatedUint64Value_;
+        repeatedFloatValue_ = other.repeatedFloatValue_;
+        repeatedDoubleValue_ = other.repeatedDoubleValue_;
+        repeatedStringValue_ = other.repeatedStringValue_;
+        repeatedBytesValue_ = other.repeatedBytesValue_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            messageValueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder>) parserLocals[0]);
+            messageValue_ = null;
+          }
+          if (parserLocals[2] != null) {
+            optionalMessageValueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder>) parserLocals[2]);
+            optionalMessageValue_ = null;
+          }
+          if (parserLocals[3] != null) {
+            timestampValueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>) parserLocals[3]);
+            timestampValue_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
+      }
+
       private void buildPartial_autosplit_1(com.google.protobuf.util.JsonFormatProto3.TestMessage result) {
         int from_bitField1_ = bitField1_;
-        int to_bitField1_ = 0;
+        int to_bitField1_ = from_bitField1_;
         if (((from_bitField1_ & 0x00000001) != 0)) {
           repeatedEnumValue_.makeImmutable();
           result.repeatedEnumValue_ = repeatedEnumValue_;
@@ -3300,6 +3458,20 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
           
         }
         result.bitField1_ |= to_bitField1_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_1(com.google.protobuf.util.JsonFormatProto3.TestMessage other, java.lang.Object[] parserLocals) {
+        repeatedEnumValue_ = other.repeatedEnumValue_;
+        repeatedMessageValue_ = other.repeatedMessageValue_;
+        NonStandardName_ = other.getNonStandardName();
+        if (parserLocals != null) {
+          if (parserLocals[1] != null) {
+            repeatedMessageValueBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder>) parserLocals[1]);
+            repeatedMessageValue_ = null;
+          }
+        }
+        bitField1_ = other.bitField1_;
       }
 
       @java.lang.Override
@@ -3852,10 +4024,30 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         } // finally
         return this;
       }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 90: {
+            parseMessageValueField(input, extensionRegistry);
+            return true;
+          } // case 90
+          case 410: {
+            parseOptionalMessageValueField(input, extensionRegistry);
+            return true;
+          } // case 410
+          case 426: {
+            parseTimestampValueField(input, extensionRegistry);
+            return true;
+          } // case 426
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
       private int bitField0_;
       private int bitField1_;
 
-      private boolean boolValue_ ;
+      private boolean boolValue_;
       /**
        * <code>bool bool_value = 1;</code>
        * @return The boolValue.
@@ -3887,7 +4079,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int int32Value_ ;
+      private int int32Value_;
       /**
        * <code>int32 int32_value = 2;</code>
        * @return The int32Value.
@@ -3919,7 +4111,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private long int64Value_ ;
+      private long int64Value_;
       /**
        * <code>int64 int64_value = 3;</code>
        * @return The int64Value.
@@ -3951,7 +4143,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int uint32Value_ ;
+      private int uint32Value_;
       /**
        * <code>uint32 uint32_value = 4;</code>
        * @return The uint32Value.
@@ -3983,7 +4175,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private long uint64Value_ ;
+      private long uint64Value_;
       /**
        * <code>uint64 uint64_value = 5;</code>
        * @return The uint64Value.
@@ -4015,7 +4207,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private float floatValue_ ;
+      private float floatValue_;
       /**
        * <code>float float_value = 6;</code>
        * @return The floatValue.
@@ -4047,7 +4239,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private double doubleValue_ ;
+      private double doubleValue_;
       /**
        * <code>double double_value = 7;</code>
        * @return The doubleValue.
@@ -4079,7 +4271,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private java.lang.Object stringValue_ = "";
+      private java.lang.Object stringValue_;
       /**
        * <code>string string_value = 8;</code>
        * @return The stringValue.
@@ -4151,7 +4343,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.ByteString bytesValue_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString bytesValue_;
       /**
        * <code>bytes bytes_value = 9;</code>
        * @return The bytesValue.
@@ -4183,7 +4375,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int enumValue_ = 0;
+      private int enumValue_;
       /**
        * <code>.proto3.EnumType enum_value = 10;</code>
        * @return The enum numeric value on the wire for enumValue.
@@ -4354,7 +4546,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (messageValue_ != null || messageValueBuilder_ != null) {
-          internalGetMessageValueFieldBuilder().getBuilder()
+          internalGetMessageValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           messageValue_ = com.google.protobuf.util.JsonFormatProto3.MessageType.parser().parsePartialFrom(input, extensionRegistry);
@@ -4363,7 +4555,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         bitField0_ |= 0x00000001;
       }
 
-      private com.google.protobuf.Internal.BooleanList repeatedBoolValue_ = emptyBooleanList();
+      private com.google.protobuf.Internal.BooleanList repeatedBoolValue_;
       private void ensureRepeatedBoolValueIsMutable(int capacity) {
         if (!repeatedBoolValue_.isModifiable()) {
           repeatedBoolValue_ = makeMutableCopy(repeatedBoolValue_, capacity);
@@ -4447,7 +4639,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedInt32Value_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedInt32Value_;
       private void ensureRepeatedInt32ValueIsMutable(int capacity) {
         if (!repeatedInt32Value_.isModifiable()) {
           repeatedInt32Value_ = makeMutableCopy(repeatedInt32Value_, capacity);
@@ -4531,7 +4723,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedInt64Value_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedInt64Value_;
       private void ensureRepeatedInt64ValueIsMutable(int capacity) {
         if (!repeatedInt64Value_.isModifiable()) {
           repeatedInt64Value_ = makeMutableCopy(repeatedInt64Value_, capacity);
@@ -4615,7 +4807,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedUint32Value_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedUint32Value_;
       private void ensureRepeatedUint32ValueIsMutable(int capacity) {
         if (!repeatedUint32Value_.isModifiable()) {
           repeatedUint32Value_ = makeMutableCopy(repeatedUint32Value_, capacity);
@@ -4699,7 +4891,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedUint64Value_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedUint64Value_;
       private void ensureRepeatedUint64ValueIsMutable(int capacity) {
         if (!repeatedUint64Value_.isModifiable()) {
           repeatedUint64Value_ = makeMutableCopy(repeatedUint64Value_, capacity);
@@ -4783,7 +4975,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.FloatList repeatedFloatValue_ = emptyFloatList();
+      private com.google.protobuf.Internal.FloatList repeatedFloatValue_;
       private void ensureRepeatedFloatValueIsMutable(int capacity) {
         if (!repeatedFloatValue_.isModifiable()) {
           repeatedFloatValue_ = makeMutableCopy(repeatedFloatValue_, capacity);
@@ -4867,7 +5059,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.DoubleList repeatedDoubleValue_ = emptyDoubleList();
+      private com.google.protobuf.Internal.DoubleList repeatedDoubleValue_;
       private void ensureRepeatedDoubleValueIsMutable(int capacity) {
         if (!repeatedDoubleValue_.isModifiable()) {
           repeatedDoubleValue_ = makeMutableCopy(repeatedDoubleValue_, capacity);
@@ -4951,8 +5143,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList repeatedStringValue_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList repeatedStringValue_;
       private void ensureRepeatedStringValueIsMutable() {
         if (!repeatedStringValue_.isModifiable()) {
           repeatedStringValue_ = new com.google.protobuf.LazyStringArrayList(repeatedStringValue_);
@@ -5062,7 +5253,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytesValue_ = emptyList(com.google.protobuf.ByteString.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytesValue_;
       private void ensureRepeatedBytesValueIsMutable(int capacity) {
         if (!repeatedBytesValue_.isModifiable()) {
           repeatedBytesValue_ = makeMutableCopy(repeatedBytesValue_, capacity);
@@ -5146,7 +5337,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedEnumValue_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedEnumValue_;
       private void ensureRepeatedEnumValueIsMutable(int capacity) {
         if (!repeatedEnumValue_.isModifiable()) {
           repeatedEnumValue_ = makeMutableCopy(repeatedEnumValue_, capacity);
@@ -5284,8 +5475,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.util.JsonFormatProto3.MessageType> repeatedMessageValue_ =
-          emptyList(com.google.protobuf.util.JsonFormatProto3.MessageType.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.util.JsonFormatProto3.MessageType> repeatedMessageValue_;
       private void ensureRepeatedMessageValueIsMutable() {
         if (!repeatedMessageValue_.isModifiable()) {
           repeatedMessageValue_ = makeMutableCopy(repeatedMessageValue_);
@@ -5518,7 +5708,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return repeatedMessageValueBuilder_;
       }
 
-      private boolean optionalBoolValue_ ;
+      private boolean optionalBoolValue_;
       /**
        * <code>optional bool optional_bool_value = 41;</code>
        * @return Whether the optionalBoolValue field is set.
@@ -5558,7 +5748,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int optionalInt32Value_ ;
+      private int optionalInt32Value_;
       /**
        * <code>optional int32 optional_int32_value = 42;</code>
        * @return Whether the optionalInt32Value field is set.
@@ -5598,7 +5788,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private long optionalInt64Value_ ;
+      private long optionalInt64Value_;
       /**
        * <code>optional int64 optional_int64_value = 43;</code>
        * @return Whether the optionalInt64Value field is set.
@@ -5638,7 +5828,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int optionalUint32Value_ ;
+      private int optionalUint32Value_;
       /**
        * <code>optional uint32 optional_uint32_value = 44;</code>
        * @return Whether the optionalUint32Value field is set.
@@ -5678,7 +5868,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private long optionalUint64Value_ ;
+      private long optionalUint64Value_;
       /**
        * <code>optional uint64 optional_uint64_value = 45;</code>
        * @return Whether the optionalUint64Value field is set.
@@ -5718,7 +5908,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private float optionalFloatValue_ ;
+      private float optionalFloatValue_;
       /**
        * <code>optional float optional_float_value = 46;</code>
        * @return Whether the optionalFloatValue field is set.
@@ -5758,7 +5948,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private double optionalDoubleValue_ ;
+      private double optionalDoubleValue_;
       /**
        * <code>optional double optional_double_value = 47;</code>
        * @return Whether the optionalDoubleValue field is set.
@@ -5798,7 +5988,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private java.lang.Object optionalStringValue_ = "";
+      private java.lang.Object optionalStringValue_;
       /**
        * <code>optional string optional_string_value = 48;</code>
        * @return Whether the optionalStringValue field is set.
@@ -5877,7 +6067,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.ByteString optionalBytesValue_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString optionalBytesValue_;
       /**
        * <code>optional bytes optional_bytes_value = 49;</code>
        * @return Whether the optionalBytesValue field is set.
@@ -5917,7 +6107,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int optionalEnumValue_ = 0;
+      private int optionalEnumValue_;
       /**
        * <code>optional .proto3.EnumType optional_enum_value = 50;</code>
        * @return Whether the optionalEnumValue field is set.
@@ -6095,7 +6285,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (optionalMessageValue_ != null || optionalMessageValueBuilder_ != null) {
-          internalGetOptionalMessageValueFieldBuilder().getBuilder()
+          internalGetOptionalMessageValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           optionalMessageValue_ = com.google.protobuf.util.JsonFormatProto3.MessageType.parser().parsePartialFrom(input, extensionRegistry);
@@ -6104,7 +6294,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         bitField0_ |= 0x00000800;
       }
 
-      private int NonStandardName_ ;
+      private int NonStandardName_;
       /**
        * <code>int32 _nonStandard_name_ = 52;</code>
        * @return The nonStandardName.
@@ -6255,7 +6445,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (timestampValue_ != null || timestampValueBuilder_ != null) {
-          internalGetTimestampValueFieldBuilder().getBuilder()
+          internalGetTimestampValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           timestampValue_ = com.google.protobuf.Timestamp.parser().parsePartialFrom(input, extensionRegistry);
@@ -6277,22 +6467,625 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static TestMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestMessage instance = new TestMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> messageValueBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> repeatedMessageValueBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> optionalMessageValueBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timestampValueBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        messageValueBuilder_ = internalGetMessageValueFieldBuilder(instance, messageValueBuilder_);
+        repeatedMessageValueBuilder_ = internalGetRepeatedMessageValueFieldBuilder(instance, repeatedMessageValueBuilder_);
+        optionalMessageValueBuilder_ = internalGetOptionalMessageValueFieldBuilder(instance, optionalMessageValueBuilder_);
+        timestampValueBuilder_ = internalGetTimestampValueFieldBuilder(instance, timestampValueBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.boolValue_ = input.readBool();
+              instance.bitField0_ |= 0x00002000;
+              break;
+            } // case 8
+            case 16: {
+              instance.int32Value_ = input.readInt32();
+              instance.bitField0_ |= 0x00004000;
+              break;
+            } // case 16
+            case 24: {
+              instance.int64Value_ = input.readInt64();
+              instance.bitField0_ |= 0x00008000;
+              break;
+            } // case 24
+            case 32: {
+              instance.uint32Value_ = input.readUInt32();
+              instance.bitField0_ |= 0x00010000;
+              break;
+            } // case 32
+            case 40: {
+              instance.uint64Value_ = input.readUInt64();
+              instance.bitField0_ |= 0x00020000;
+              break;
+            } // case 40
+            case 53: {
+              instance.floatValue_ = input.readFloat();
+              instance.bitField0_ |= 0x00040000;
+              break;
+            } // case 53
+            case 57: {
+              instance.doubleValue_ = input.readDouble();
+              instance.bitField0_ |= 0x00080000;
+              break;
+            } // case 57
+            case 66: {
+              instance.stringValue_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00100000;
+              break;
+            } // case 66
+            case 74: {
+              instance.bytesValue_ = input.readBytes();
+              instance.bitField0_ |= 0x00200000;
+              break;
+            } // case 74
+            case 80: {
+              instance.enumValue_ = input.readEnum();
+              instance.bitField0_ |= 0x00400000;
+              break;
+            } // case 80
+            case 90: {
+              if (instance.messageValue_ != null || messageValueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseMessageValueField(instance, input, extensionRegistry, messageValueBuilder_);
+              break;
+            } // case 90
+            case 168: {
+              boolean v = input.readBool();
+              ensureRepeatedBoolValueIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedBoolValue_.addBoolean(v);
+              break;
+            } // case 168
+            case 170: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int alloc = length > 4096 ? 4096 : length;
+              ensureRepeatedBoolValueIsMutable(instance, alloc / 1);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedBoolValue_.addBoolean(input.readBool());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 170
+            case 176: {
+              int v = input.readInt32();
+              ensureRepeatedInt32ValueIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedInt32Value_.addInt(v);
+              break;
+            } // case 176
+            case 178: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedInt32ValueIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedInt32Value_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 178
+            case 184: {
+              long v = input.readInt64();
+              ensureRepeatedInt64ValueIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedInt64Value_.addLong(v);
+              break;
+            } // case 184
+            case 186: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedInt64ValueIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedInt64Value_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 186
+            case 192: {
+              int v = input.readUInt32();
+              ensureRepeatedUint32ValueIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedUint32Value_.addInt(v);
+              break;
+            } // case 192
+            case 194: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedUint32ValueIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedUint32Value_.addInt(input.readUInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 194
+            case 200: {
+              long v = input.readUInt64();
+              ensureRepeatedUint64ValueIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedUint64Value_.addLong(v);
+              break;
+            } // case 200
+            case 202: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedUint64ValueIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedUint64Value_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 202
+            case 213: {
+              float v = input.readFloat();
+              ensureRepeatedFloatValueIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedFloatValue_.addFloat(v);
+              break;
+            } // case 213
+            case 210: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int alloc = length > 4096 ? 4096 : length;
+              ensureRepeatedFloatValueIsMutable(instance, alloc / 4);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedFloatValue_.addFloat(input.readFloat());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 210
+            case 217: {
+              double v = input.readDouble();
+              ensureRepeatedDoubleValueIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedDoubleValue_.addDouble(v);
+              break;
+            } // case 217
+            case 218: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int alloc = length > 4096 ? 4096 : length;
+              ensureRepeatedDoubleValueIsMutable(instance, alloc / 8);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedDoubleValue_.addDouble(input.readDouble());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 218
+            case 226: {
+              ensureRepeatedStringValueIsMutable(instance);
+              instance.repeatedStringValue_.add(input.readStringRequireUtf8());
+              break;
+            } // case 226
+            case 234: {
+              com.google.protobuf.ByteString v = input.readBytes();
+              ensureRepeatedBytesValueIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedBytesValue_.add(v);
+              break;
+            } // case 234
+            case 240: {
+              int tmpRaw = input.readEnum();
+              ensureRepeatedEnumValueIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedEnumValue_.addInt(tmpRaw);
+              break;
+            } // case 240
+            case 242: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedEnumValueIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedEnumValue_.addInt(input.readEnum());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 242
+            case 250: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.util.JsonFormatProto3.MessageType m = com.google.protobuf.util.JsonFormatProto3.MessageType.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedMessageValueBuilder_ == null) {
+                ensureRepeatedMessageValueIsMutable(instance);
+                instance.repeatedMessageValue_.add(m);
+              } else {
+                repeatedMessageValueBuilder_.addMessage(m);
+                instance.bitField1_ |= 0x00000002;
+
+              }
+              break;
+            } // case 250
+            case 328: {
+              instance.optionalBoolValue_ = input.readBool();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 328
+            case 336: {
+              instance.optionalInt32Value_ = input.readInt32();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 336
+            case 344: {
+              instance.optionalInt64Value_ = input.readInt64();
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 344
+            case 352: {
+              instance.optionalUint32Value_ = input.readUInt32();
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 352
+            case 360: {
+              instance.optionalUint64Value_ = input.readUInt64();
+              instance.bitField0_ |= 0x00000020;
+              break;
+            } // case 360
+            case 373: {
+              instance.optionalFloatValue_ = input.readFloat();
+              instance.bitField0_ |= 0x00000040;
+              break;
+            } // case 373
+            case 377: {
+              instance.optionalDoubleValue_ = input.readDouble();
+              instance.bitField0_ |= 0x00000080;
+              break;
+            } // case 377
+            case 386: {
+              instance.optionalStringValue_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000100;
+              break;
+            } // case 386
+            case 394: {
+              instance.optionalBytesValue_ = input.readBytes();
+              instance.bitField0_ |= 0x00000200;
+              break;
+            } // case 394
+            case 400: {
+              instance.optionalEnumValue_ = input.readEnum();
+              instance.bitField0_ |= 0x00000400;
+              break;
+            } // case 400
+            case 410: {
+              if (instance.optionalMessageValue_ != null || optionalMessageValueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseOptionalMessageValueField(instance, input, extensionRegistry, optionalMessageValueBuilder_);
+              break;
+            } // case 410
+            case 416: {
+              instance.NonStandardName_ = input.readInt32();
+              instance.bitField1_ |= 0x00000004;
+              break;
+            } // case 416
+            case 426: {
+              if (instance.timestampValue_ != null || timestampValueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseTimestampValueField(instance, input, extensionRegistry, timestampValueBuilder_);
+              break;
+            } // case 426
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {messageValueBuilder_, repeatedMessageValueBuilder_, optionalMessageValueBuilder_, timestampValueBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, messageValueBuilder_, optionalMessageValueBuilder_, timestampValueBuilder_);
+      buildPartial_autosplit_1(instance, repeatedMessageValueBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.proto3.MessageType message_value = 11;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> 
+        internalGetMessageValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestMessage instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> messageValueBuilder_) {
+      if (messageValueBuilder_ == null) {
+        messageValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder>(
+                instance.getMessageValue(),
+                null,
+                false);
+        instance.messageValue_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return messageValueBuilder_;
+    }
+    private static void parseMessageValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> messageValueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.messageValue_ != null || messageValueBuilder_ != null) {
+        messageValueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.messageValue_ = com.google.protobuf.util.JsonFormatProto3.MessageType.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void ensureRepeatedBoolValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestMessage instance, int capacity) {
+      if (!instance.repeatedBoolValue_.isModifiable()) {
+        instance.repeatedBoolValue_ = makeMutableCopy(instance.repeatedBoolValue_, capacity);
+      }
+      instance.bitField0_ |= 0x00800000;
+    }
+    private static void ensureRepeatedInt32ValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestMessage instance, int capacity) {
+      if (!instance.repeatedInt32Value_.isModifiable()) {
+        instance.repeatedInt32Value_ = makeMutableCopy(instance.repeatedInt32Value_, capacity);
+      }
+      instance.bitField0_ |= 0x01000000;
+    }
+    private static void ensureRepeatedInt64ValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestMessage instance, int capacity) {
+      if (!instance.repeatedInt64Value_.isModifiable()) {
+        instance.repeatedInt64Value_ = makeMutableCopy(instance.repeatedInt64Value_, capacity);
+      }
+      instance.bitField0_ |= 0x02000000;
+    }
+    private static void ensureRepeatedUint32ValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestMessage instance, int capacity) {
+      if (!instance.repeatedUint32Value_.isModifiable()) {
+        instance.repeatedUint32Value_ = makeMutableCopy(instance.repeatedUint32Value_, capacity);
+      }
+      instance.bitField0_ |= 0x04000000;
+    }
+    private static void ensureRepeatedUint64ValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestMessage instance, int capacity) {
+      if (!instance.repeatedUint64Value_.isModifiable()) {
+        instance.repeatedUint64Value_ = makeMutableCopy(instance.repeatedUint64Value_, capacity);
+      }
+      instance.bitField0_ |= 0x08000000;
+    }
+    private static void ensureRepeatedFloatValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestMessage instance, int capacity) {
+      if (!instance.repeatedFloatValue_.isModifiable()) {
+        instance.repeatedFloatValue_ = makeMutableCopy(instance.repeatedFloatValue_, capacity);
+      }
+      instance.bitField0_ |= 0x10000000;
+    }
+    private static void ensureRepeatedDoubleValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestMessage instance, int capacity) {
+      if (!instance.repeatedDoubleValue_.isModifiable()) {
+        instance.repeatedDoubleValue_ = makeMutableCopy(instance.repeatedDoubleValue_, capacity);
+      }
+      instance.bitField0_ |= 0x20000000;
+    }
+    private static void ensureRepeatedStringValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestMessage instance) {
+      if (!instance.repeatedStringValue_.isModifiable()) {
+        instance.repeatedStringValue_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedStringValue_);
+      }
+      instance.bitField0_ |= 0x40000000;
+    }
+    private static void ensureRepeatedBytesValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestMessage instance, int capacity) {
+      if (!instance.repeatedBytesValue_.isModifiable()) {
+        instance.repeatedBytesValue_ = makeMutableCopy(instance.repeatedBytesValue_, capacity);
+      }
+      instance.bitField0_ |= 0x80000000;
+    }
+    private static void ensureRepeatedEnumValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestMessage instance, int capacity) {
+      if (!instance.repeatedEnumValue_.isModifiable()) {
+        instance.repeatedEnumValue_ = makeMutableCopy(instance.repeatedEnumValue_, capacity);
+      }
+      instance.bitField1_ |= 0x00000001;
+    }
+    private static void ensureRepeatedMessageValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestMessage instance) {
+      if (!instance.repeatedMessageValue_.isModifiable()) {
+        instance.repeatedMessageValue_ = makeMutableCopy(instance.repeatedMessageValue_);
+      }
+      instance.bitField1_ |= 0x00000002;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> 
+        internalGetRepeatedMessageValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestMessage instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> repeatedMessageValueBuilder_) {
+      if (repeatedMessageValueBuilder_ == null) {
+        repeatedMessageValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder>(
+                instance.repeatedMessageValue_,
+                instance.repeatedMessageValue_.isModifiable(),
+                null,
+                false);
+        instance.repeatedMessageValue_ = null;
+      }
+      instance.bitField1_ |= 0x00000002;
+
+      return repeatedMessageValueBuilder_;
+    }
+    /**
+     * <code>optional .proto3.MessageType optional_message_value = 51;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> 
+        internalGetOptionalMessageValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestMessage instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> optionalMessageValueBuilder_) {
+      if (optionalMessageValueBuilder_ == null) {
+        optionalMessageValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder>(
+                instance.getOptionalMessageValue(),
+                null,
+                false);
+        instance.optionalMessageValue_ = null;
+      }
+      instance.bitField0_ |= 0x00000800;
+      return optionalMessageValueBuilder_;
+    }
+    private static void parseOptionalMessageValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> optionalMessageValueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.optionalMessageValue_ != null || optionalMessageValueBuilder_ != null) {
+        optionalMessageValueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.optionalMessageValue_ = com.google.protobuf.util.JsonFormatProto3.MessageType.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000800;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp timestamp_value = 53;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        internalGetTimestampValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestMessage instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timestampValueBuilder_) {
+      if (timestampValueBuilder_ == null) {
+        timestampValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                instance.getTimestampValue(),
+                null,
+                false);
+        instance.timestampValue_ = null;
+      }
+      instance.bitField0_ |= 0x00001000;
+      return timestampValueBuilder_;
+    }
+    private static void parseTimestampValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timestampValueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.timestampValue_ != null || timestampValueBuilder_ != null) {
+        timestampValueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.timestampValue_ = com.google.protobuf.Timestamp.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00001000;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestMessage instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> messageValueBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> optionalMessageValueBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timestampValueBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.messageValue_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.messageValue_ = messageValueBuilder_ == null
+            ? instance.messageValue_
+            : messageValueBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000800) != 0)) instance.optionalMessageValue_ = null;
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        instance.optionalMessageValue_ = optionalMessageValueBuilder_ == null
+            ? instance.optionalMessageValue_
+            : optionalMessageValueBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00001000) != 0)) instance.timestampValue_ = null;
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        instance.timestampValue_ = timestampValueBuilder_ == null
+            ? instance.timestampValue_
+            : timestampValueBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00800000) != 0)) {
+        instance.repeatedBoolValue_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x01000000) != 0)) {
+        instance.repeatedInt32Value_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x02000000) != 0)) {
+        instance.repeatedInt64Value_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x04000000) != 0)) {
+        instance.repeatedUint32Value_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x08000000) != 0)) {
+        instance.repeatedUint64Value_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x10000000) != 0)) {
+        instance.repeatedFloatValue_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x20000000) != 0)) {
+        instance.repeatedDoubleValue_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x40000000) != 0)) {
+        instance.repeatedStringValue_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x80000000) != 0)) {
+        instance.repeatedBytesValue_.makeImmutable();
+      }
+    }
+
+    private static void buildPartial_autosplit_1(com.google.protobuf.util.JsonFormatProto3.TestMessage instance,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> repeatedMessageValueBuilder_) {
+      int from_bitField1_ = instance.bitField1_;
+      if (((from_bitField1_ & 0x00000001) != 0)) {
+        instance.repeatedEnumValue_.makeImmutable();
+      }
+      if (((from_bitField1_ & 0x00000002) != 0)) {
+      if (repeatedMessageValueBuilder_ == null) {
+        instance.repeatedMessageValue_.makeImmutable();
+      } else {
+        instance.repeatedMessageValue_ = repeatedMessageValueBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestMessage>
-        PARSER = new com.google.protobuf.AbstractParser<TestMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestMessage> parser() {
       return PARSER;
@@ -6958,15 +7751,27 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
                 com.google.protobuf.util.JsonFormatProto3.TestOneof.class, com.google.protobuf.util.JsonFormatProto3.TestOneof.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestOneof.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestOneof other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -7011,7 +7816,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestOneof result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000010) != 0)) {
           result.oneofValue_ = oneofMessageValueBuilder_ == null
               ? oneofValue_
@@ -7025,6 +7830,19 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
           result.oneofValue_ = oneofValue_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestOneof other, java.lang.Object[] parserLocals) {
+        oneofValueCase_ = other.oneofValueCase_;
+        oneofValue_ = other.oneofValue_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            oneofMessageValueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder>) parserLocals[0]);
+            if (oneofValueCase_ == 5) oneofValue_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -7141,7 +7959,19 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
         } // finally
         return this;
       }
-      private int oneofValueCase_ = 0;
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 42: {
+            parseOneofMessageValue(input, extensionRegistry);
+            return true;
+          } // case 42
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
+      private int oneofValueCase_;
       private java.lang.Object oneofValue_;
       public OneofValueCase
           getOneofValueCase() {
@@ -7679,7 +8509,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         input.readMessage(
-            internalGetOneofMessageValueFieldBuilder().getBuilder(),
+            internalGetOneofMessageValueFieldBuilder().getBuilderForParsing(),
             extensionRegistry);
         switch (oneofValueCase_) {
         default:
@@ -7806,22 +8636,240 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static TestOneof parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestOneof instance = new TestOneof((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> oneofMessageValueBuilder_ = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              parseOneofInt32Value(instance, input);
+              break;
+            } // case 8
+            case 18: {
+              parseOneofStringValue(instance, input);
+              break;
+            } // case 18
+            case 26: {
+              parseOneofBytesValue(instance, input);
+              break;
+            } // case 26
+            case 32: {
+              parseOneofEnumValue(instance, input);
+              break;
+            } // case 32
+            case 42: {
+              if (oneofMessageValueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              oneofMessageValueBuilder_ = internalGetOneofMessageValueFieldBuilder(instance, oneofMessageValueBuilder_);
+              parseOneofMessageValue(instance, input, extensionRegistry, oneofMessageValueBuilder_);
+              break;
+            } // case 42
+            case 48: {
+              parseOneofNullValue(instance, input);
+              break;
+            } // case 48
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {oneofMessageValueBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, oneofMessageValueBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void parseOneofInt32Value(
+        com.google.protobuf.util.JsonFormatProto3.TestOneof instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      instance.oneofValue_ = input.readInt32();
+      switch (instance.oneofValueCase_) {
+      default:
+        clearOneofValueHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofValueCase_ = 1;
+        instance.bitField0_ |= 0x00000001; // fallthrough
+      case 1:
+        break;
+      }
+    }
+    private static void parseOneofStringValue(
+        com.google.protobuf.util.JsonFormatProto3.TestOneof instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      switch (instance.oneofValueCase_) {
+      default:
+        clearOneofValueHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofValueCase_ = 2;
+        instance.bitField0_ |= 0x00000002; // fallthrough
+      case 2:
+        break;
+      }
+      instance.oneofValue_ = input.readStringRequireUtf8();
+    }
+    private static void parseOneofBytesValue(
+        com.google.protobuf.util.JsonFormatProto3.TestOneof instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      instance.oneofValue_ = input.readBytes();
+      switch (instance.oneofValueCase_) {
+      default:
+        clearOneofValueHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofValueCase_ = 3;
+        instance.bitField0_ |= 0x00000004; // fallthrough
+      case 3:
+        break;
+      }
+    }
+    private static void parseOneofEnumValue(
+        com.google.protobuf.util.JsonFormatProto3.TestOneof instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      int rawValue = input.readEnum();
+      switch (instance.oneofValueCase_) {
+      default:
+        clearOneofValueHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofValueCase_ = 4;
+        instance.bitField0_ |= 0x00000008; // fallthrough
+      case 4:
+        break;
+      }
+      instance.oneofValue_ = rawValue;
+    }
+    /**
+     * <code>.proto3.MessageType oneof_message_value = 5;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> 
+        internalGetOneofMessageValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> oneofMessageValueBuilder_) {
+      if (oneofMessageValueBuilder_ == null) {
+        if (!(instance.oneofValueCase_ == 5)) {
+          instance.oneofValue_ = com.google.protobuf.util.JsonFormatProto3.MessageType.getDefaultInstance();
+        }
+        oneofMessageValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder>(
+                (com.google.protobuf.util.JsonFormatProto3.MessageType) instance.oneofValue_,
+                null,
+                false);
+        instance.oneofValue_ = null;
+      }
+      switch (instance.oneofValueCase_) {
+      default:
+        clearOneofValueHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofValueCase_ = 5;
+        instance.bitField0_ |= 0x00000010; // fallthrough
+      case 5:
+        break;
+      }
+
+      return oneofMessageValueBuilder_;
+    }
+    private static void parseOneofMessageValue(
+        com.google.protobuf.util.JsonFormatProto3.TestOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> oneofMessageValueBuilder_)
+        throws java.io.IOException {
+      input.readMessage(
+          oneofMessageValueBuilder_.getBuilderForParsing(),
+          extensionRegistry);
+      switch (instance.oneofValueCase_) {
+      default:
+        clearOneofValueHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofValueCase_ = 5;
+        instance.bitField0_ |= 0x00000010; // fallthrough
+      case 5:
+        break;
+      }
+    }
+    private static void parseOneofNullValue(
+        com.google.protobuf.util.JsonFormatProto3.TestOneof instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      int rawValue = input.readEnum();
+      switch (instance.oneofValueCase_) {
+      default:
+        clearOneofValueHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofValueCase_ = 6;
+        instance.bitField0_ |= 0x00000020; // fallthrough
+      case 6:
+        break;
+      }
+      instance.oneofValue_ = rawValue;
+    }
+
+    private static void clearOneofValueHasBits(com.google.protobuf.util.JsonFormatProto3.TestOneof instance) {
+      instance.bitField0_ = (instance.bitField0_ & ~0x0000003f);
+    }
+
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestOneof instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MessageType, com.google.protobuf.util.JsonFormatProto3.MessageType.Builder, com.google.protobuf.util.JsonFormatProto3.MessageTypeOrBuilder> oneofMessageValueBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        instance.oneofValue_ = oneofMessageValueBuilder_ == null
+            ? instance.oneofValue_
+            : oneofMessageValueBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestOneof>
-        PARSER = new com.google.protobuf.AbstractParser<TestOneof>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestOneof> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestOneof parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestOneof.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestOneof instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestOneof> parser() {
       return PARSER;
@@ -8936,15 +9984,27 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
                 com.google.protobuf.util.JsonFormatProto3.TestMap.class, com.google.protobuf.util.JsonFormatProto3.TestMap.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestMap.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestMap other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -8989,7 +10049,7 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestMap result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.boolMap_ = internalGetBoolMap();
           result.boolMap_.makeImmutable();
@@ -9015,6 +10075,16 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
           result.stringMap_.makeImmutable();
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestMap other, java.lang.Object[] parserLocals) {
+        boolMap_ = other.boolMap_;
+        int32Map_ = other.int32Map_;
+        int64Map_ = other.int64Map_;
+        uint32Map_ = other.uint32Map_;
+        uint64Map_ = other.uint64Map_;
+        stringMap_ = other.stringMap_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -9923,22 +10993,217 @@ public final class JsonFormatProto3 extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static TestMap parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestMap instance = new TestMap((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.Integer>
+              boolMap__ = input.readMessage(
+                  BoolMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableBoolMap(instance).getMutableMap().put(
+                  boolMap__.getKey(), boolMap__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              int32Map__ = input.readMessage(
+                  Int32MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableInt32Map(instance).getMutableMap().put(
+                  int32Map__.getKey(), int32Map__.getValue());
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Integer>
+              int64Map__ = input.readMessage(
+                  Int64MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableInt64Map(instance).getMutableMap().put(
+                  int64Map__.getKey(), int64Map__.getValue());
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              uint32Map__ = input.readMessage(
+                  Uint32MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableUint32Map(instance).getMutableMap().put(
+                  uint32Map__.getKey(), uint32Map__.getValue());
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Integer>
+              uint64Map__ = input.readMessage(
+                  Uint64MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableUint64Map(instance).getMutableMap().put(
+                  uint64Map__.getKey(), uint64Map__.getValue());
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              stringMap__ = input.readMessage(
+                  StringMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableStringMap(instance).getMutableMap().put(
+                  stringMap__.getKey(), stringMap__.getValue());
+              instance.bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.Boolean, java.lang.Integer>
+        internalGetMutableBoolMap(com.google.protobuf.util.JsonFormatProto3.TestMap instance) {
+      if (instance.boolMap_ == null) {
+        instance.boolMap_ = com.google.protobuf.MapField.newMapField(
+            BoolMapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.boolMap_.isMutable()) {
+        instance.boolMap_ = instance.boolMap_.copy();
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return instance.boolMap_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableInt32Map(com.google.protobuf.util.JsonFormatProto3.TestMap instance) {
+      if (instance.int32Map_ == null) {
+        instance.int32Map_ = com.google.protobuf.MapField.newMapField(
+            Int32MapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.int32Map_.isMutable()) {
+        instance.int32Map_ = instance.int32Map_.copy();
+      }
+      instance.bitField0_ |= 0x00000002;
+
+      return instance.int32Map_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Long, java.lang.Integer>
+        internalGetMutableInt64Map(com.google.protobuf.util.JsonFormatProto3.TestMap instance) {
+      if (instance.int64Map_ == null) {
+        instance.int64Map_ = com.google.protobuf.MapField.newMapField(
+            Int64MapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.int64Map_.isMutable()) {
+        instance.int64Map_ = instance.int64Map_.copy();
+      }
+      instance.bitField0_ |= 0x00000004;
+
+      return instance.int64Map_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableUint32Map(com.google.protobuf.util.JsonFormatProto3.TestMap instance) {
+      if (instance.uint32Map_ == null) {
+        instance.uint32Map_ = com.google.protobuf.MapField.newMapField(
+            Uint32MapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.uint32Map_.isMutable()) {
+        instance.uint32Map_ = instance.uint32Map_.copy();
+      }
+      instance.bitField0_ |= 0x00000008;
+
+      return instance.uint32Map_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Long, java.lang.Integer>
+        internalGetMutableUint64Map(com.google.protobuf.util.JsonFormatProto3.TestMap instance) {
+      if (instance.uint64Map_ == null) {
+        instance.uint64Map_ = com.google.protobuf.MapField.newMapField(
+            Uint64MapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.uint64Map_.isMutable()) {
+        instance.uint64Map_ = instance.uint64Map_.copy();
+      }
+      instance.bitField0_ |= 0x00000010;
+
+      return instance.uint64Map_;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+        internalGetMutableStringMap(com.google.protobuf.util.JsonFormatProto3.TestMap instance) {
+      if (instance.stringMap_ == null) {
+        instance.stringMap_ = com.google.protobuf.MapField.newMapField(
+            StringMapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.stringMap_.isMutable()) {
+        instance.stringMap_ = instance.stringMap_.copy();
+      }
+      instance.bitField0_ |= 0x00000020;
+
+      return instance.stringMap_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestMap instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.boolMap_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.int32Map_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.int64Map_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.uint32Map_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        instance.uint64Map_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        instance.stringMap_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestMap>
-        PARSER = new com.google.protobuf.AbstractParser<TestMap>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestMap> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestMap parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestMap.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestMap instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestMap> parser() {
       return PARSER;
@@ -11199,15 +12464,27 @@ com.google.protobuf.util.JsonFormatProto3.TestNestedMap defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.TestNestedMap.class, com.google.protobuf.util.JsonFormatProto3.TestNestedMap.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestNestedMap.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestNestedMap other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -11253,7 +12530,7 @@ com.google.protobuf.util.JsonFormatProto3.TestNestedMap defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestNestedMap result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.boolMap_ = internalGetBoolMap();
           result.boolMap_.makeImmutable();
@@ -11282,6 +12559,26 @@ com.google.protobuf.util.JsonFormatProto3.TestNestedMap defaultValue) {
           result.mapMap_ = internalGetMapMap().build(MapMapDefaultEntryHolder.defaultEntry);
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestNestedMap other, java.lang.Object[] parserLocals) {
+        boolMap_ = other.boolMap_;
+        int32Map_ = other.int32Map_;
+        int64Map_ = other.int64Map_;
+        uint32Map_ = other.uint32Map_;
+        uint64Map_ = other.uint64Map_;
+        stringMap_ = other.stringMap_;
+        if (parserLocals == null && other.mapMap_ != null) {
+          mapMap_ = new com.google.protobuf.MapFieldBuilder<>(mapMapConverter);
+          mapMap_.ensureBuilderMap().putAll(other.mapMap_.getMap());
+        }
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            mapMap_ = (com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.TestNestedMapOrBuilder, com.google.protobuf.util.JsonFormatProto3.TestNestedMap, com.google.protobuf.util.JsonFormatProto3.TestNestedMap.Builder>) parserLocals[0];
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -12359,22 +13656,240 @@ com.google.protobuf.util.JsonFormatProto3.TestNestedMap defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestNestedMap parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestNestedMap instance = new TestNestedMap((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.TestNestedMapOrBuilder, com.google.protobuf.util.JsonFormatProto3.TestNestedMap, com.google.protobuf.util.JsonFormatProto3.TestNestedMap.Builder> parsed_mapMap = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.Integer>
+              boolMap__ = input.readMessage(
+                  BoolMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableBoolMap(instance).getMutableMap().put(
+                  boolMap__.getKey(), boolMap__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              int32Map__ = input.readMessage(
+                  Int32MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableInt32Map(instance).getMutableMap().put(
+                  int32Map__.getKey(), int32Map__.getValue());
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Integer>
+              int64Map__ = input.readMessage(
+                  Int64MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableInt64Map(instance).getMutableMap().put(
+                  int64Map__.getKey(), int64Map__.getValue());
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              uint32Map__ = input.readMessage(
+                  Uint32MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableUint32Map(instance).getMutableMap().put(
+                  uint32Map__.getKey(), uint32Map__.getValue());
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.Long, java.lang.Integer>
+              uint64Map__ = input.readMessage(
+                  Uint64MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableUint64Map(instance).getMutableMap().put(
+                  uint64Map__.getKey(), uint64Map__.getValue());
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              stringMap__ = input.readMessage(
+                  StringMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableStringMap(instance).getMutableMap().put(
+                  stringMap__.getKey(), stringMap__.getValue());
+              instance.bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.util.JsonFormatProto3.TestNestedMap>
+              mapMap__ = input.readMessage(
+                  MapMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              (parsed_mapMap = internalGetMutableMapMap(instance, parsed_mapMap)).ensureBuilderMap().put(
+                  mapMap__.getKey(), mapMap__.getValue());
+              instance.bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, parsed_mapMap);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.Boolean, java.lang.Integer>
+        internalGetMutableBoolMap(com.google.protobuf.util.JsonFormatProto3.TestNestedMap instance) {
+      if (instance.boolMap_ == null) {
+        instance.boolMap_ = com.google.protobuf.MapField.newMapField(
+            BoolMapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.boolMap_.isMutable()) {
+        instance.boolMap_ = instance.boolMap_.copy();
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return instance.boolMap_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableInt32Map(com.google.protobuf.util.JsonFormatProto3.TestNestedMap instance) {
+      if (instance.int32Map_ == null) {
+        instance.int32Map_ = com.google.protobuf.MapField.newMapField(
+            Int32MapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.int32Map_.isMutable()) {
+        instance.int32Map_ = instance.int32Map_.copy();
+      }
+      instance.bitField0_ |= 0x00000002;
+
+      return instance.int32Map_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Long, java.lang.Integer>
+        internalGetMutableInt64Map(com.google.protobuf.util.JsonFormatProto3.TestNestedMap instance) {
+      if (instance.int64Map_ == null) {
+        instance.int64Map_ = com.google.protobuf.MapField.newMapField(
+            Int64MapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.int64Map_.isMutable()) {
+        instance.int64Map_ = instance.int64Map_.copy();
+      }
+      instance.bitField0_ |= 0x00000004;
+
+      return instance.int64Map_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableUint32Map(com.google.protobuf.util.JsonFormatProto3.TestNestedMap instance) {
+      if (instance.uint32Map_ == null) {
+        instance.uint32Map_ = com.google.protobuf.MapField.newMapField(
+            Uint32MapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.uint32Map_.isMutable()) {
+        instance.uint32Map_ = instance.uint32Map_.copy();
+      }
+      instance.bitField0_ |= 0x00000008;
+
+      return instance.uint32Map_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Long, java.lang.Integer>
+        internalGetMutableUint64Map(com.google.protobuf.util.JsonFormatProto3.TestNestedMap instance) {
+      if (instance.uint64Map_ == null) {
+        instance.uint64Map_ = com.google.protobuf.MapField.newMapField(
+            Uint64MapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.uint64Map_.isMutable()) {
+        instance.uint64Map_ = instance.uint64Map_.copy();
+      }
+      instance.bitField0_ |= 0x00000010;
+
+      return instance.uint64Map_;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+        internalGetMutableStringMap(com.google.protobuf.util.JsonFormatProto3.TestNestedMap instance) {
+      if (instance.stringMap_ == null) {
+        instance.stringMap_ = com.google.protobuf.MapField.newMapField(
+            StringMapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.stringMap_.isMutable()) {
+        instance.stringMap_ = instance.stringMap_.copy();
+      }
+      instance.bitField0_ |= 0x00000020;
+
+      return instance.stringMap_;
+    }
+    private static com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.TestNestedMapOrBuilder, com.google.protobuf.util.JsonFormatProto3.TestNestedMap, com.google.protobuf.util.JsonFormatProto3.TestNestedMap.Builder>
+        internalGetMutableMapMap(com.google.protobuf.util.JsonFormatProto3.TestNestedMap instance, com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.TestNestedMapOrBuilder, com.google.protobuf.util.JsonFormatProto3.TestNestedMap, com.google.protobuf.util.JsonFormatProto3.TestNestedMap.Builder> parsed_mapMap) {
+      if (parsed_mapMap == null) {
+        parsed_mapMap = new com.google.protobuf.MapFieldBuilder<>(Builder.mapMapConverter);
+      }
+      instance.bitField0_ |= 0x00000040;
+
+      return parsed_mapMap;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestNestedMap instance,
+        com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.TestNestedMapOrBuilder, com.google.protobuf.util.JsonFormatProto3.TestNestedMap, com.google.protobuf.util.JsonFormatProto3.TestNestedMap.Builder> parsed_mapMap) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.boolMap_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.int32Map_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.int64Map_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.uint32Map_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        instance.uint64Map_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        instance.stringMap_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        instance.mapMap_ = parsed_mapMap.build(MapMapDefaultEntryHolder.defaultEntry);
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestNestedMap>
-        PARSER = new com.google.protobuf.AbstractParser<TestNestedMap>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestNestedMap> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestNestedMap parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestNestedMap.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestNestedMap instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestNestedMap> parser() {
       return PARSER;
@@ -12783,15 +14298,27 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.TestStringMap.class, com.google.protobuf.util.JsonFormatProto3.TestStringMap.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestStringMap.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestStringMap other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -12831,12 +14358,17 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestStringMap result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.stringMap_ = internalGetStringMap();
           result.stringMap_.makeImmutable();
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestStringMap other, java.lang.Object[] parserLocals) {
+        stringMap_ = other.stringMap_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -13047,22 +14579,92 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestStringMap parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestStringMap instance = new TestStringMap((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              stringMap__ = input.readMessage(
+                  StringMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableStringMap(instance).getMutableMap().put(
+                  stringMap__.getKey(), stringMap__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMutableStringMap(com.google.protobuf.util.JsonFormatProto3.TestStringMap instance) {
+      if (instance.stringMap_ == null) {
+        instance.stringMap_ = com.google.protobuf.MapField.newMapField(
+            StringMapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.stringMap_.isMutable()) {
+        instance.stringMap_ = instance.stringMap_.copy();
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return instance.stringMap_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestStringMap instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.stringMap_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestStringMap>
-        PARSER = new com.google.protobuf.AbstractParser<TestStringMap>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestStringMap> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestStringMap parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestStringMap.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestStringMap instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestStringMap> parser() {
       return PARSER;
@@ -13497,15 +15099,29 @@ java.lang.String defaultValue) {
                   com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry.class, com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+          key_ = "";
+          value_ = "";
+        }
+        private Builder(com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         @java.lang.Override
         public Builder clear() {
@@ -13546,7 +15162,7 @@ java.lang.String defaultValue) {
 
         private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.key_ = key_;
             ;
@@ -13556,6 +15172,12 @@ java.lang.String defaultValue) {
             ;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry other, java.lang.Object[] parserLocals) {
+          key_ = other.key_;
+          value_ = other.value_;
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -13631,7 +15253,7 @@ java.lang.String defaultValue) {
         }
         private int bitField0_;
 
-        private java.lang.Object key_ = "";
+        private java.lang.Object key_;
         /**
          * <code>string key = 1;</code>
          * @return The key.
@@ -13703,7 +15325,7 @@ java.lang.String defaultValue) {
           return this;
         }
 
-        private java.lang.Object value_ = "";
+        private java.lang.Object value_;
         /**
          * <code>string value = 2;</code>
          * @return The value.
@@ -13788,22 +15410,72 @@ java.lang.String defaultValue) {
         return DEFAULT_INSTANCE;
       }
 
+      static MapEntry parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        MapEntry instance = new MapEntry((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                instance.key_ = input.readStringRequireUtf8();
+                instance.bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                instance.value_ = input.readStringRequireUtf8();
+                instance.bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<MapEntry>
-          PARSER = new com.google.protobuf.AbstractParser<MapEntry>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<MapEntry> {
+        MessageParser() {}
+
         @java.lang.Override
         public MapEntry parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return MapEntry.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(MapEntry instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<MapEntry> parser() {
         return PARSER;
@@ -14064,15 +15736,28 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.class, com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        stringMap_ = emptyList(com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry.class);
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -14118,7 +15803,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
         if (stringMapBuilder_ == null) {
           stringMap_.makeImmutable();
@@ -14128,6 +15813,18 @@ java.lang.String defaultValue) {
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay other, java.lang.Object[] parserLocals) {
+        stringMap_ = other.stringMap_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            stringMapBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry, com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry.Builder, com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntryOrBuilder>) parserLocals[0]);
+            stringMap_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -14225,8 +15922,7 @@ java.lang.String defaultValue) {
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry> stringMap_ =
-          emptyList(com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry> stringMap_;
       private void ensureStringMapIsMutable() {
         if (!stringMap_.isModifiable()) {
           stringMap_ = makeMutableCopy(stringMap_);
@@ -14472,22 +16168,96 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestStringMapOverlay parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestStringMapOverlay instance = new TestStringMapOverlay((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry, com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry.Builder, com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntryOrBuilder> stringMapBuilder_ = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry m = com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (stringMapBuilder_ == null) {
+                ensureStringMapIsMutable(instance);
+                instance.stringMap_.add(m);
+              } else {
+                stringMapBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000001;
+
+              }
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, stringMapBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureStringMapIsMutable(com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay instance) {
+      if (!instance.stringMap_.isModifiable()) {
+        instance.stringMap_ = makeMutableCopy(instance.stringMap_);
+      }
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay instance,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry, com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntry.Builder, com.google.protobuf.util.JsonFormatProto3.TestStringMapOverlay.MapEntryOrBuilder> stringMapBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+      if (stringMapBuilder_ == null) {
+        instance.stringMap_.makeImmutable();
+      } else {
+        instance.stringMap_ = stringMapBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestStringMapOverlay>
-        PARSER = new com.google.protobuf.AbstractParser<TestStringMapOverlay>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestStringMapOverlay> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestStringMapOverlay parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestStringMapOverlay.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestStringMapOverlay instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestStringMapOverlay> parser() {
       return PARSER;
@@ -16135,15 +17905,37 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.TestWrapper.class, com.google.protobuf.util.JsonFormatProto3.TestWrapper.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestWrapper.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        repeatedBoolValue_ = emptyList(com.google.protobuf.BoolValue.class);
+        repeatedInt32Value_ = emptyList(com.google.protobuf.Int32Value.class);
+        repeatedInt64Value_ = emptyList(com.google.protobuf.Int64Value.class);
+        repeatedUint32Value_ = emptyList(com.google.protobuf.UInt32Value.class);
+        repeatedUint64Value_ = emptyList(com.google.protobuf.UInt64Value.class);
+        repeatedFloatValue_ = emptyList(com.google.protobuf.FloatValue.class);
+        repeatedDoubleValue_ = emptyList(com.google.protobuf.DoubleValue.class);
+        repeatedStringValue_ = emptyList(com.google.protobuf.StringValue.class);
+        repeatedBytesValue_ = emptyList(com.google.protobuf.BytesValue.class);
         maybeForceBuilderInitialization();
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestWrapper other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -16313,7 +18105,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestWrapper result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.boolValue_ = boolValueBuilder_ == null
               ? boolValue_
@@ -16441,6 +18233,103 @@ java.lang.String defaultValue) {
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestWrapper other, java.lang.Object[] parserLocals) {
+        boolValue_ = other.boolValue_;
+        int32Value_ = other.int32Value_;
+        int64Value_ = other.int64Value_;
+        uint32Value_ = other.uint32Value_;
+        uint64Value_ = other.uint64Value_;
+        floatValue_ = other.floatValue_;
+        doubleValue_ = other.doubleValue_;
+        stringValue_ = other.stringValue_;
+        bytesValue_ = other.bytesValue_;
+        repeatedBoolValue_ = other.repeatedBoolValue_;
+        repeatedInt32Value_ = other.repeatedInt32Value_;
+        repeatedInt64Value_ = other.repeatedInt64Value_;
+        repeatedUint32Value_ = other.repeatedUint32Value_;
+        repeatedUint64Value_ = other.repeatedUint64Value_;
+        repeatedFloatValue_ = other.repeatedFloatValue_;
+        repeatedDoubleValue_ = other.repeatedDoubleValue_;
+        repeatedStringValue_ = other.repeatedStringValue_;
+        repeatedBytesValue_ = other.repeatedBytesValue_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            boolValueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder>) parserLocals[0]);
+            boolValue_ = null;
+          }
+          if (parserLocals[1] != null) {
+            int32ValueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>) parserLocals[1]);
+            int32Value_ = null;
+          }
+          if (parserLocals[2] != null) {
+            int64ValueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder>) parserLocals[2]);
+            int64Value_ = null;
+          }
+          if (parserLocals[3] != null) {
+            uint32ValueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder>) parserLocals[3]);
+            uint32Value_ = null;
+          }
+          if (parserLocals[4] != null) {
+            uint64ValueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder>) parserLocals[4]);
+            uint64Value_ = null;
+          }
+          if (parserLocals[5] != null) {
+            floatValueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder>) parserLocals[5]);
+            floatValue_ = null;
+          }
+          if (parserLocals[6] != null) {
+            doubleValueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder>) parserLocals[6]);
+            doubleValue_ = null;
+          }
+          if (parserLocals[7] != null) {
+            stringValueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>) parserLocals[7]);
+            stringValue_ = null;
+          }
+          if (parserLocals[8] != null) {
+            bytesValueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder>) parserLocals[8]);
+            bytesValue_ = null;
+          }
+          if (parserLocals[9] != null) {
+            repeatedBoolValueBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder>) parserLocals[9]);
+            repeatedBoolValue_ = null;
+          }
+          if (parserLocals[10] != null) {
+            repeatedInt32ValueBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>) parserLocals[10]);
+            repeatedInt32Value_ = null;
+          }
+          if (parserLocals[11] != null) {
+            repeatedInt64ValueBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder>) parserLocals[11]);
+            repeatedInt64Value_ = null;
+          }
+          if (parserLocals[12] != null) {
+            repeatedUint32ValueBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder>) parserLocals[12]);
+            repeatedUint32Value_ = null;
+          }
+          if (parserLocals[13] != null) {
+            repeatedUint64ValueBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder>) parserLocals[13]);
+            repeatedUint64Value_ = null;
+          }
+          if (parserLocals[14] != null) {
+            repeatedFloatValueBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder>) parserLocals[14]);
+            repeatedFloatValue_ = null;
+          }
+          if (parserLocals[15] != null) {
+            repeatedDoubleValueBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder>) parserLocals[15]);
+            repeatedDoubleValue_ = null;
+          }
+          if (parserLocals[16] != null) {
+            repeatedStringValueBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>) parserLocals[16]);
+            repeatedStringValue_ = null;
+          }
+          if (parserLocals[17] != null) {
+            repeatedBytesValueBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder>) parserLocals[17]);
+            repeatedBytesValue_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -16935,6 +18824,50 @@ java.lang.String defaultValue) {
         } // finally
         return this;
       }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseBoolValueField(input, extensionRegistry);
+            return true;
+          } // case 10
+          case 18: {
+            parseInt32ValueField(input, extensionRegistry);
+            return true;
+          } // case 18
+          case 26: {
+            parseInt64ValueField(input, extensionRegistry);
+            return true;
+          } // case 26
+          case 34: {
+            parseUint32ValueField(input, extensionRegistry);
+            return true;
+          } // case 34
+          case 42: {
+            parseUint64ValueField(input, extensionRegistry);
+            return true;
+          } // case 42
+          case 50: {
+            parseFloatValueField(input, extensionRegistry);
+            return true;
+          } // case 50
+          case 58: {
+            parseDoubleValueField(input, extensionRegistry);
+            return true;
+          } // case 58
+          case 66: {
+            parseStringValueField(input, extensionRegistry);
+            return true;
+          } // case 66
+          case 74: {
+            parseBytesValueField(input, extensionRegistry);
+            return true;
+          } // case 74
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
       private int bitField0_;
 
       private com.google.protobuf.BoolValue boolValue_;
@@ -17056,7 +18989,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (boolValue_ != null || boolValueBuilder_ != null) {
-          internalGetBoolValueFieldBuilder().getBuilder()
+          internalGetBoolValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           boolValue_ = com.google.protobuf.BoolValue.parser().parsePartialFrom(input, extensionRegistry);
@@ -17184,7 +19117,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (int32Value_ != null || int32ValueBuilder_ != null) {
-          internalGetInt32ValueFieldBuilder().getBuilder()
+          internalGetInt32ValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           int32Value_ = com.google.protobuf.Int32Value.parser().parsePartialFrom(input, extensionRegistry);
@@ -17312,7 +19245,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (int64Value_ != null || int64ValueBuilder_ != null) {
-          internalGetInt64ValueFieldBuilder().getBuilder()
+          internalGetInt64ValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           int64Value_ = com.google.protobuf.Int64Value.parser().parsePartialFrom(input, extensionRegistry);
@@ -17440,7 +19373,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (uint32Value_ != null || uint32ValueBuilder_ != null) {
-          internalGetUint32ValueFieldBuilder().getBuilder()
+          internalGetUint32ValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           uint32Value_ = com.google.protobuf.UInt32Value.parser().parsePartialFrom(input, extensionRegistry);
@@ -17568,7 +19501,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (uint64Value_ != null || uint64ValueBuilder_ != null) {
-          internalGetUint64ValueFieldBuilder().getBuilder()
+          internalGetUint64ValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           uint64Value_ = com.google.protobuf.UInt64Value.parser().parsePartialFrom(input, extensionRegistry);
@@ -17696,7 +19629,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (floatValue_ != null || floatValueBuilder_ != null) {
-          internalGetFloatValueFieldBuilder().getBuilder()
+          internalGetFloatValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           floatValue_ = com.google.protobuf.FloatValue.parser().parsePartialFrom(input, extensionRegistry);
@@ -17824,7 +19757,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (doubleValue_ != null || doubleValueBuilder_ != null) {
-          internalGetDoubleValueFieldBuilder().getBuilder()
+          internalGetDoubleValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           doubleValue_ = com.google.protobuf.DoubleValue.parser().parsePartialFrom(input, extensionRegistry);
@@ -17952,7 +19885,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (stringValue_ != null || stringValueBuilder_ != null) {
-          internalGetStringValueFieldBuilder().getBuilder()
+          internalGetStringValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           stringValue_ = com.google.protobuf.StringValue.parser().parsePartialFrom(input, extensionRegistry);
@@ -18080,7 +20013,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (bytesValue_ != null || bytesValueBuilder_ != null) {
-          internalGetBytesValueFieldBuilder().getBuilder()
+          internalGetBytesValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           bytesValue_ = com.google.protobuf.BytesValue.parser().parsePartialFrom(input, extensionRegistry);
@@ -18089,8 +20022,7 @@ java.lang.String defaultValue) {
         bitField0_ |= 0x00000100;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.BoolValue> repeatedBoolValue_ =
-          emptyList(com.google.protobuf.BoolValue.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.BoolValue> repeatedBoolValue_;
       private void ensureRepeatedBoolValueIsMutable() {
         if (!repeatedBoolValue_.isModifiable()) {
           repeatedBoolValue_ = makeMutableCopy(repeatedBoolValue_);
@@ -18323,8 +20255,7 @@ java.lang.String defaultValue) {
         return repeatedBoolValueBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Int32Value> repeatedInt32Value_ =
-          emptyList(com.google.protobuf.Int32Value.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Int32Value> repeatedInt32Value_;
       private void ensureRepeatedInt32ValueIsMutable() {
         if (!repeatedInt32Value_.isModifiable()) {
           repeatedInt32Value_ = makeMutableCopy(repeatedInt32Value_);
@@ -18557,8 +20488,7 @@ java.lang.String defaultValue) {
         return repeatedInt32ValueBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Int64Value> repeatedInt64Value_ =
-          emptyList(com.google.protobuf.Int64Value.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Int64Value> repeatedInt64Value_;
       private void ensureRepeatedInt64ValueIsMutable() {
         if (!repeatedInt64Value_.isModifiable()) {
           repeatedInt64Value_ = makeMutableCopy(repeatedInt64Value_);
@@ -18791,8 +20721,7 @@ java.lang.String defaultValue) {
         return repeatedInt64ValueBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.UInt32Value> repeatedUint32Value_ =
-          emptyList(com.google.protobuf.UInt32Value.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.UInt32Value> repeatedUint32Value_;
       private void ensureRepeatedUint32ValueIsMutable() {
         if (!repeatedUint32Value_.isModifiable()) {
           repeatedUint32Value_ = makeMutableCopy(repeatedUint32Value_);
@@ -19025,8 +20954,7 @@ java.lang.String defaultValue) {
         return repeatedUint32ValueBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.UInt64Value> repeatedUint64Value_ =
-          emptyList(com.google.protobuf.UInt64Value.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.UInt64Value> repeatedUint64Value_;
       private void ensureRepeatedUint64ValueIsMutable() {
         if (!repeatedUint64Value_.isModifiable()) {
           repeatedUint64Value_ = makeMutableCopy(repeatedUint64Value_);
@@ -19259,8 +21187,7 @@ java.lang.String defaultValue) {
         return repeatedUint64ValueBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.FloatValue> repeatedFloatValue_ =
-          emptyList(com.google.protobuf.FloatValue.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.FloatValue> repeatedFloatValue_;
       private void ensureRepeatedFloatValueIsMutable() {
         if (!repeatedFloatValue_.isModifiable()) {
           repeatedFloatValue_ = makeMutableCopy(repeatedFloatValue_);
@@ -19493,8 +21420,7 @@ java.lang.String defaultValue) {
         return repeatedFloatValueBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.DoubleValue> repeatedDoubleValue_ =
-          emptyList(com.google.protobuf.DoubleValue.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.DoubleValue> repeatedDoubleValue_;
       private void ensureRepeatedDoubleValueIsMutable() {
         if (!repeatedDoubleValue_.isModifiable()) {
           repeatedDoubleValue_ = makeMutableCopy(repeatedDoubleValue_);
@@ -19727,8 +21653,7 @@ java.lang.String defaultValue) {
         return repeatedDoubleValueBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.StringValue> repeatedStringValue_ =
-          emptyList(com.google.protobuf.StringValue.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.StringValue> repeatedStringValue_;
       private void ensureRepeatedStringValueIsMutable() {
         if (!repeatedStringValue_.isModifiable()) {
           repeatedStringValue_ = makeMutableCopy(repeatedStringValue_);
@@ -19961,8 +21886,7 @@ java.lang.String defaultValue) {
         return repeatedStringValueBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.BytesValue> repeatedBytesValue_ =
-          emptyList(com.google.protobuf.BytesValue.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.BytesValue> repeatedBytesValue_;
       private void ensureRepeatedBytesValueIsMutable() {
         if (!repeatedBytesValue_.isModifiable()) {
           repeatedBytesValue_ = makeMutableCopy(repeatedBytesValue_);
@@ -20208,22 +22132,946 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestWrapper parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestWrapper instance = new TestWrapper((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> boolValueBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> int32ValueBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> int64ValueBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> uint32ValueBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder> uint64ValueBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> floatValueBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> doubleValueBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> stringValueBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder> bytesValueBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> repeatedBoolValueBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> repeatedInt32ValueBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> repeatedInt64ValueBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> repeatedUint32ValueBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder> repeatedUint64ValueBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> repeatedFloatValueBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> repeatedDoubleValueBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> repeatedStringValueBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder> repeatedBytesValueBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        boolValueBuilder_ = internalGetBoolValueFieldBuilder(instance, boolValueBuilder_);
+        int32ValueBuilder_ = internalGetInt32ValueFieldBuilder(instance, int32ValueBuilder_);
+        int64ValueBuilder_ = internalGetInt64ValueFieldBuilder(instance, int64ValueBuilder_);
+        uint32ValueBuilder_ = internalGetUint32ValueFieldBuilder(instance, uint32ValueBuilder_);
+        uint64ValueBuilder_ = internalGetUint64ValueFieldBuilder(instance, uint64ValueBuilder_);
+        floatValueBuilder_ = internalGetFloatValueFieldBuilder(instance, floatValueBuilder_);
+        doubleValueBuilder_ = internalGetDoubleValueFieldBuilder(instance, doubleValueBuilder_);
+        stringValueBuilder_ = internalGetStringValueFieldBuilder(instance, stringValueBuilder_);
+        bytesValueBuilder_ = internalGetBytesValueFieldBuilder(instance, bytesValueBuilder_);
+        repeatedBoolValueBuilder_ = internalGetRepeatedBoolValueFieldBuilder(instance, repeatedBoolValueBuilder_);
+        repeatedInt32ValueBuilder_ = internalGetRepeatedInt32ValueFieldBuilder(instance, repeatedInt32ValueBuilder_);
+        repeatedInt64ValueBuilder_ = internalGetRepeatedInt64ValueFieldBuilder(instance, repeatedInt64ValueBuilder_);
+        repeatedUint32ValueBuilder_ = internalGetRepeatedUint32ValueFieldBuilder(instance, repeatedUint32ValueBuilder_);
+        repeatedUint64ValueBuilder_ = internalGetRepeatedUint64ValueFieldBuilder(instance, repeatedUint64ValueBuilder_);
+        repeatedFloatValueBuilder_ = internalGetRepeatedFloatValueFieldBuilder(instance, repeatedFloatValueBuilder_);
+        repeatedDoubleValueBuilder_ = internalGetRepeatedDoubleValueFieldBuilder(instance, repeatedDoubleValueBuilder_);
+        repeatedStringValueBuilder_ = internalGetRepeatedStringValueFieldBuilder(instance, repeatedStringValueBuilder_);
+        repeatedBytesValueBuilder_ = internalGetRepeatedBytesValueFieldBuilder(instance, repeatedBytesValueBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.boolValue_ != null || boolValueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseBoolValueField(instance, input, extensionRegistry, boolValueBuilder_);
+              break;
+            } // case 10
+            case 18: {
+              if (instance.int32Value_ != null || int32ValueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseInt32ValueField(instance, input, extensionRegistry, int32ValueBuilder_);
+              break;
+            } // case 18
+            case 26: {
+              if (instance.int64Value_ != null || int64ValueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseInt64ValueField(instance, input, extensionRegistry, int64ValueBuilder_);
+              break;
+            } // case 26
+            case 34: {
+              if (instance.uint32Value_ != null || uint32ValueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseUint32ValueField(instance, input, extensionRegistry, uint32ValueBuilder_);
+              break;
+            } // case 34
+            case 42: {
+              if (instance.uint64Value_ != null || uint64ValueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseUint64ValueField(instance, input, extensionRegistry, uint64ValueBuilder_);
+              break;
+            } // case 42
+            case 50: {
+              if (instance.floatValue_ != null || floatValueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseFloatValueField(instance, input, extensionRegistry, floatValueBuilder_);
+              break;
+            } // case 50
+            case 58: {
+              if (instance.doubleValue_ != null || doubleValueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseDoubleValueField(instance, input, extensionRegistry, doubleValueBuilder_);
+              break;
+            } // case 58
+            case 66: {
+              if (instance.stringValue_ != null || stringValueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseStringValueField(instance, input, extensionRegistry, stringValueBuilder_);
+              break;
+            } // case 66
+            case 74: {
+              if (instance.bytesValue_ != null || bytesValueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseBytesValueField(instance, input, extensionRegistry, bytesValueBuilder_);
+              break;
+            } // case 74
+            case 90: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.BoolValue m = com.google.protobuf.BoolValue.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedBoolValueBuilder_ == null) {
+                ensureRepeatedBoolValueIsMutable(instance);
+                instance.repeatedBoolValue_.add(m);
+              } else {
+                repeatedBoolValueBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000200;
+
+              }
+              break;
+            } // case 90
+            case 98: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Int32Value m = com.google.protobuf.Int32Value.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedInt32ValueBuilder_ == null) {
+                ensureRepeatedInt32ValueIsMutable(instance);
+                instance.repeatedInt32Value_.add(m);
+              } else {
+                repeatedInt32ValueBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000400;
+
+              }
+              break;
+            } // case 98
+            case 106: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Int64Value m = com.google.protobuf.Int64Value.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedInt64ValueBuilder_ == null) {
+                ensureRepeatedInt64ValueIsMutable(instance);
+                instance.repeatedInt64Value_.add(m);
+              } else {
+                repeatedInt64ValueBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000800;
+
+              }
+              break;
+            } // case 106
+            case 114: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.UInt32Value m = com.google.protobuf.UInt32Value.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedUint32ValueBuilder_ == null) {
+                ensureRepeatedUint32ValueIsMutable(instance);
+                instance.repeatedUint32Value_.add(m);
+              } else {
+                repeatedUint32ValueBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00001000;
+
+              }
+              break;
+            } // case 114
+            case 122: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.UInt64Value m = com.google.protobuf.UInt64Value.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedUint64ValueBuilder_ == null) {
+                ensureRepeatedUint64ValueIsMutable(instance);
+                instance.repeatedUint64Value_.add(m);
+              } else {
+                repeatedUint64ValueBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00002000;
+
+              }
+              break;
+            } // case 122
+            case 130: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.FloatValue m = com.google.protobuf.FloatValue.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedFloatValueBuilder_ == null) {
+                ensureRepeatedFloatValueIsMutable(instance);
+                instance.repeatedFloatValue_.add(m);
+              } else {
+                repeatedFloatValueBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00004000;
+
+              }
+              break;
+            } // case 130
+            case 138: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.DoubleValue m = com.google.protobuf.DoubleValue.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedDoubleValueBuilder_ == null) {
+                ensureRepeatedDoubleValueIsMutable(instance);
+                instance.repeatedDoubleValue_.add(m);
+              } else {
+                repeatedDoubleValueBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00008000;
+
+              }
+              break;
+            } // case 138
+            case 146: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.StringValue m = com.google.protobuf.StringValue.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedStringValueBuilder_ == null) {
+                ensureRepeatedStringValueIsMutable(instance);
+                instance.repeatedStringValue_.add(m);
+              } else {
+                repeatedStringValueBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00010000;
+
+              }
+              break;
+            } // case 146
+            case 154: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.BytesValue m = com.google.protobuf.BytesValue.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedBytesValueBuilder_ == null) {
+                ensureRepeatedBytesValueIsMutable(instance);
+                instance.repeatedBytesValue_.add(m);
+              } else {
+                repeatedBytesValueBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00020000;
+
+              }
+              break;
+            } // case 154
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {boolValueBuilder_, int32ValueBuilder_, int64ValueBuilder_, uint32ValueBuilder_, uint64ValueBuilder_, floatValueBuilder_, doubleValueBuilder_, stringValueBuilder_, bytesValueBuilder_, repeatedBoolValueBuilder_, repeatedInt32ValueBuilder_, repeatedInt64ValueBuilder_, repeatedUint32ValueBuilder_, repeatedUint64ValueBuilder_, repeatedFloatValueBuilder_, repeatedDoubleValueBuilder_, repeatedStringValueBuilder_, repeatedBytesValueBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, boolValueBuilder_, int32ValueBuilder_, int64ValueBuilder_, uint32ValueBuilder_, uint64ValueBuilder_, floatValueBuilder_, doubleValueBuilder_, stringValueBuilder_, bytesValueBuilder_, repeatedBoolValueBuilder_, repeatedInt32ValueBuilder_, repeatedInt64ValueBuilder_, repeatedUint32ValueBuilder_, repeatedUint64ValueBuilder_, repeatedFloatValueBuilder_, repeatedDoubleValueBuilder_, repeatedStringValueBuilder_, repeatedBytesValueBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.google.protobuf.BoolValue bool_value = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> 
+        internalGetBoolValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> boolValueBuilder_) {
+      if (boolValueBuilder_ == null) {
+        boolValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder>(
+                instance.getBoolValue(),
+                null,
+                false);
+        instance.boolValue_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return boolValueBuilder_;
+    }
+    private static void parseBoolValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> boolValueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.boolValue_ != null || boolValueBuilder_ != null) {
+        boolValueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.boolValue_ = com.google.protobuf.BoolValue.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    /**
+     * <code>.google.protobuf.Int32Value int32_value = 2;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> 
+        internalGetInt32ValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> int32ValueBuilder_) {
+      if (int32ValueBuilder_ == null) {
+        int32ValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>(
+                instance.getInt32Value(),
+                null,
+                false);
+        instance.int32Value_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+      return int32ValueBuilder_;
+    }
+    private static void parseInt32ValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> int32ValueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.int32Value_ != null || int32ValueBuilder_ != null) {
+        int32ValueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.int32Value_ = com.google.protobuf.Int32Value.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+    }
+    /**
+     * <code>.google.protobuf.Int64Value int64_value = 3;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> 
+        internalGetInt64ValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> int64ValueBuilder_) {
+      if (int64ValueBuilder_ == null) {
+        int64ValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder>(
+                instance.getInt64Value(),
+                null,
+                false);
+        instance.int64Value_ = null;
+      }
+      instance.bitField0_ |= 0x00000004;
+      return int64ValueBuilder_;
+    }
+    private static void parseInt64ValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> int64ValueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.int64Value_ != null || int64ValueBuilder_ != null) {
+        int64ValueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.int64Value_ = com.google.protobuf.Int64Value.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+    }
+    /**
+     * <code>.google.protobuf.UInt32Value uint32_value = 4;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> 
+        internalGetUint32ValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> uint32ValueBuilder_) {
+      if (uint32ValueBuilder_ == null) {
+        uint32ValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder>(
+                instance.getUint32Value(),
+                null,
+                false);
+        instance.uint32Value_ = null;
+      }
+      instance.bitField0_ |= 0x00000008;
+      return uint32ValueBuilder_;
+    }
+    private static void parseUint32ValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> uint32ValueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.uint32Value_ != null || uint32ValueBuilder_ != null) {
+        uint32ValueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.uint32Value_ = com.google.protobuf.UInt32Value.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000008;
+    }
+    /**
+     * <code>.google.protobuf.UInt64Value uint64_value = 5;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder> 
+        internalGetUint64ValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder> uint64ValueBuilder_) {
+      if (uint64ValueBuilder_ == null) {
+        uint64ValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder>(
+                instance.getUint64Value(),
+                null,
+                false);
+        instance.uint64Value_ = null;
+      }
+      instance.bitField0_ |= 0x00000010;
+      return uint64ValueBuilder_;
+    }
+    private static void parseUint64ValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder> uint64ValueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.uint64Value_ != null || uint64ValueBuilder_ != null) {
+        uint64ValueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.uint64Value_ = com.google.protobuf.UInt64Value.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000010;
+    }
+    /**
+     * <code>.google.protobuf.FloatValue float_value = 6;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> 
+        internalGetFloatValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> floatValueBuilder_) {
+      if (floatValueBuilder_ == null) {
+        floatValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder>(
+                instance.getFloatValue(),
+                null,
+                false);
+        instance.floatValue_ = null;
+      }
+      instance.bitField0_ |= 0x00000020;
+      return floatValueBuilder_;
+    }
+    private static void parseFloatValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> floatValueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.floatValue_ != null || floatValueBuilder_ != null) {
+        floatValueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.floatValue_ = com.google.protobuf.FloatValue.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000020;
+    }
+    /**
+     * <code>.google.protobuf.DoubleValue double_value = 7;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> 
+        internalGetDoubleValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> doubleValueBuilder_) {
+      if (doubleValueBuilder_ == null) {
+        doubleValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder>(
+                instance.getDoubleValue(),
+                null,
+                false);
+        instance.doubleValue_ = null;
+      }
+      instance.bitField0_ |= 0x00000040;
+      return doubleValueBuilder_;
+    }
+    private static void parseDoubleValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> doubleValueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.doubleValue_ != null || doubleValueBuilder_ != null) {
+        doubleValueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.doubleValue_ = com.google.protobuf.DoubleValue.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000040;
+    }
+    /**
+     * <code>.google.protobuf.StringValue string_value = 8;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        internalGetStringValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> stringValueBuilder_) {
+      if (stringValueBuilder_ == null) {
+        stringValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                instance.getStringValue(),
+                null,
+                false);
+        instance.stringValue_ = null;
+      }
+      instance.bitField0_ |= 0x00000080;
+      return stringValueBuilder_;
+    }
+    private static void parseStringValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> stringValueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.stringValue_ != null || stringValueBuilder_ != null) {
+        stringValueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.stringValue_ = com.google.protobuf.StringValue.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000080;
+    }
+    /**
+     * <code>.google.protobuf.BytesValue bytes_value = 9;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder> 
+        internalGetBytesValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder> bytesValueBuilder_) {
+      if (bytesValueBuilder_ == null) {
+        bytesValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder>(
+                instance.getBytesValue(),
+                null,
+                false);
+        instance.bytesValue_ = null;
+      }
+      instance.bitField0_ |= 0x00000100;
+      return bytesValueBuilder_;
+    }
+    private static void parseBytesValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder> bytesValueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.bytesValue_ != null || bytesValueBuilder_ != null) {
+        bytesValueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.bytesValue_ = com.google.protobuf.BytesValue.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000100;
+    }
+    private static void ensureRepeatedBoolValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance) {
+      if (!instance.repeatedBoolValue_.isModifiable()) {
+        instance.repeatedBoolValue_ = makeMutableCopy(instance.repeatedBoolValue_);
+      }
+      instance.bitField0_ |= 0x00000200;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> 
+        internalGetRepeatedBoolValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> repeatedBoolValueBuilder_) {
+      if (repeatedBoolValueBuilder_ == null) {
+        repeatedBoolValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder>(
+                instance.repeatedBoolValue_,
+                instance.repeatedBoolValue_.isModifiable(),
+                null,
+                false);
+        instance.repeatedBoolValue_ = null;
+      }
+      instance.bitField0_ |= 0x00000200;
+
+      return repeatedBoolValueBuilder_;
+    }
+    private static void ensureRepeatedInt32ValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance) {
+      if (!instance.repeatedInt32Value_.isModifiable()) {
+        instance.repeatedInt32Value_ = makeMutableCopy(instance.repeatedInt32Value_);
+      }
+      instance.bitField0_ |= 0x00000400;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> 
+        internalGetRepeatedInt32ValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> repeatedInt32ValueBuilder_) {
+      if (repeatedInt32ValueBuilder_ == null) {
+        repeatedInt32ValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>(
+                instance.repeatedInt32Value_,
+                instance.repeatedInt32Value_.isModifiable(),
+                null,
+                false);
+        instance.repeatedInt32Value_ = null;
+      }
+      instance.bitField0_ |= 0x00000400;
+
+      return repeatedInt32ValueBuilder_;
+    }
+    private static void ensureRepeatedInt64ValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance) {
+      if (!instance.repeatedInt64Value_.isModifiable()) {
+        instance.repeatedInt64Value_ = makeMutableCopy(instance.repeatedInt64Value_);
+      }
+      instance.bitField0_ |= 0x00000800;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> 
+        internalGetRepeatedInt64ValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> repeatedInt64ValueBuilder_) {
+      if (repeatedInt64ValueBuilder_ == null) {
+        repeatedInt64ValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder>(
+                instance.repeatedInt64Value_,
+                instance.repeatedInt64Value_.isModifiable(),
+                null,
+                false);
+        instance.repeatedInt64Value_ = null;
+      }
+      instance.bitField0_ |= 0x00000800;
+
+      return repeatedInt64ValueBuilder_;
+    }
+    private static void ensureRepeatedUint32ValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance) {
+      if (!instance.repeatedUint32Value_.isModifiable()) {
+        instance.repeatedUint32Value_ = makeMutableCopy(instance.repeatedUint32Value_);
+      }
+      instance.bitField0_ |= 0x00001000;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> 
+        internalGetRepeatedUint32ValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> repeatedUint32ValueBuilder_) {
+      if (repeatedUint32ValueBuilder_ == null) {
+        repeatedUint32ValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder>(
+                instance.repeatedUint32Value_,
+                instance.repeatedUint32Value_.isModifiable(),
+                null,
+                false);
+        instance.repeatedUint32Value_ = null;
+      }
+      instance.bitField0_ |= 0x00001000;
+
+      return repeatedUint32ValueBuilder_;
+    }
+    private static void ensureRepeatedUint64ValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance) {
+      if (!instance.repeatedUint64Value_.isModifiable()) {
+        instance.repeatedUint64Value_ = makeMutableCopy(instance.repeatedUint64Value_);
+      }
+      instance.bitField0_ |= 0x00002000;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder> 
+        internalGetRepeatedUint64ValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder> repeatedUint64ValueBuilder_) {
+      if (repeatedUint64ValueBuilder_ == null) {
+        repeatedUint64ValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder>(
+                instance.repeatedUint64Value_,
+                instance.repeatedUint64Value_.isModifiable(),
+                null,
+                false);
+        instance.repeatedUint64Value_ = null;
+      }
+      instance.bitField0_ |= 0x00002000;
+
+      return repeatedUint64ValueBuilder_;
+    }
+    private static void ensureRepeatedFloatValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance) {
+      if (!instance.repeatedFloatValue_.isModifiable()) {
+        instance.repeatedFloatValue_ = makeMutableCopy(instance.repeatedFloatValue_);
+      }
+      instance.bitField0_ |= 0x00004000;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> 
+        internalGetRepeatedFloatValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> repeatedFloatValueBuilder_) {
+      if (repeatedFloatValueBuilder_ == null) {
+        repeatedFloatValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder>(
+                instance.repeatedFloatValue_,
+                instance.repeatedFloatValue_.isModifiable(),
+                null,
+                false);
+        instance.repeatedFloatValue_ = null;
+      }
+      instance.bitField0_ |= 0x00004000;
+
+      return repeatedFloatValueBuilder_;
+    }
+    private static void ensureRepeatedDoubleValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance) {
+      if (!instance.repeatedDoubleValue_.isModifiable()) {
+        instance.repeatedDoubleValue_ = makeMutableCopy(instance.repeatedDoubleValue_);
+      }
+      instance.bitField0_ |= 0x00008000;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> 
+        internalGetRepeatedDoubleValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> repeatedDoubleValueBuilder_) {
+      if (repeatedDoubleValueBuilder_ == null) {
+        repeatedDoubleValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder>(
+                instance.repeatedDoubleValue_,
+                instance.repeatedDoubleValue_.isModifiable(),
+                null,
+                false);
+        instance.repeatedDoubleValue_ = null;
+      }
+      instance.bitField0_ |= 0x00008000;
+
+      return repeatedDoubleValueBuilder_;
+    }
+    private static void ensureRepeatedStringValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance) {
+      if (!instance.repeatedStringValue_.isModifiable()) {
+        instance.repeatedStringValue_ = makeMutableCopy(instance.repeatedStringValue_);
+      }
+      instance.bitField0_ |= 0x00010000;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+        internalGetRepeatedStringValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> repeatedStringValueBuilder_) {
+      if (repeatedStringValueBuilder_ == null) {
+        repeatedStringValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                instance.repeatedStringValue_,
+                instance.repeatedStringValue_.isModifiable(),
+                null,
+                false);
+        instance.repeatedStringValue_ = null;
+      }
+      instance.bitField0_ |= 0x00010000;
+
+      return repeatedStringValueBuilder_;
+    }
+    private static void ensureRepeatedBytesValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance) {
+      if (!instance.repeatedBytesValue_.isModifiable()) {
+        instance.repeatedBytesValue_ = makeMutableCopy(instance.repeatedBytesValue_);
+      }
+      instance.bitField0_ |= 0x00020000;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder> 
+        internalGetRepeatedBytesValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder> repeatedBytesValueBuilder_) {
+      if (repeatedBytesValueBuilder_ == null) {
+        repeatedBytesValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder>(
+                instance.repeatedBytesValue_,
+                instance.repeatedBytesValue_.isModifiable(),
+                null,
+                false);
+        instance.repeatedBytesValue_ = null;
+      }
+      instance.bitField0_ |= 0x00020000;
+
+      return repeatedBytesValueBuilder_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestWrapper instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> boolValueBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> int32ValueBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> int64ValueBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> uint32ValueBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder> uint64ValueBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> floatValueBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> doubleValueBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> stringValueBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder> bytesValueBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> repeatedBoolValueBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> repeatedInt32ValueBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> repeatedInt64ValueBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> repeatedUint32ValueBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder> repeatedUint64ValueBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> repeatedFloatValueBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> repeatedDoubleValueBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> repeatedStringValueBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder> repeatedBytesValueBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.boolValue_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.boolValue_ = boolValueBuilder_ == null
+            ? instance.boolValue_
+            : boolValueBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000002) != 0)) instance.int32Value_ = null;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.int32Value_ = int32ValueBuilder_ == null
+            ? instance.int32Value_
+            : int32ValueBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000004) != 0)) instance.int64Value_ = null;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.int64Value_ = int64ValueBuilder_ == null
+            ? instance.int64Value_
+            : int64ValueBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000008) != 0)) instance.uint32Value_ = null;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.uint32Value_ = uint32ValueBuilder_ == null
+            ? instance.uint32Value_
+            : uint32ValueBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000010) != 0)) instance.uint64Value_ = null;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        instance.uint64Value_ = uint64ValueBuilder_ == null
+            ? instance.uint64Value_
+            : uint64ValueBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000020) != 0)) instance.floatValue_ = null;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        instance.floatValue_ = floatValueBuilder_ == null
+            ? instance.floatValue_
+            : floatValueBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000040) != 0)) instance.doubleValue_ = null;
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        instance.doubleValue_ = doubleValueBuilder_ == null
+            ? instance.doubleValue_
+            : doubleValueBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000080) != 0)) instance.stringValue_ = null;
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        instance.stringValue_ = stringValueBuilder_ == null
+            ? instance.stringValue_
+            : stringValueBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000100) != 0)) instance.bytesValue_ = null;
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        instance.bytesValue_ = bytesValueBuilder_ == null
+            ? instance.bytesValue_
+            : bytesValueBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+      if (repeatedBoolValueBuilder_ == null) {
+        instance.repeatedBoolValue_.makeImmutable();
+      } else {
+        instance.repeatedBoolValue_ = repeatedBoolValueBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+      if (repeatedInt32ValueBuilder_ == null) {
+        instance.repeatedInt32Value_.makeImmutable();
+      } else {
+        instance.repeatedInt32Value_ = repeatedInt32ValueBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+      if (repeatedInt64ValueBuilder_ == null) {
+        instance.repeatedInt64Value_.makeImmutable();
+      } else {
+        instance.repeatedInt64Value_ = repeatedInt64ValueBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+      if (repeatedUint32ValueBuilder_ == null) {
+        instance.repeatedUint32Value_.makeImmutable();
+      } else {
+        instance.repeatedUint32Value_ = repeatedUint32ValueBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+      if (repeatedUint64ValueBuilder_ == null) {
+        instance.repeatedUint64Value_.makeImmutable();
+      } else {
+        instance.repeatedUint64Value_ = repeatedUint64ValueBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+      if (repeatedFloatValueBuilder_ == null) {
+        instance.repeatedFloatValue_.makeImmutable();
+      } else {
+        instance.repeatedFloatValue_ = repeatedFloatValueBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+      if (repeatedDoubleValueBuilder_ == null) {
+        instance.repeatedDoubleValue_.makeImmutable();
+      } else {
+        instance.repeatedDoubleValue_ = repeatedDoubleValueBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+      if (repeatedStringValueBuilder_ == null) {
+        instance.repeatedStringValue_.makeImmutable();
+      } else {
+        instance.repeatedStringValue_ = repeatedStringValueBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+      if (repeatedBytesValueBuilder_ == null) {
+        instance.repeatedBytesValue_.makeImmutable();
+      } else {
+        instance.repeatedBytesValue_ = repeatedBytesValueBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestWrapper>
-        PARSER = new com.google.protobuf.AbstractParser<TestWrapper>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestWrapper> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestWrapper parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestWrapper.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestWrapper instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestWrapper> parser() {
       return PARSER;
@@ -20615,15 +23463,29 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.TestTimestamp.class, com.google.protobuf.util.JsonFormatProto3.TestTimestamp.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestTimestamp.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        repeatedValue_ = emptyList(com.google.protobuf.Timestamp.class);
         maybeForceBuilderInitialization();
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestTimestamp other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -20681,7 +23543,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestTimestamp result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.value_ = valueBuilder_ == null
               ? value_
@@ -20697,6 +23559,23 @@ java.lang.String defaultValue) {
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestTimestamp other, java.lang.Object[] parserLocals) {
+        value_ = other.value_;
+        repeatedValue_ = other.repeatedValue_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            valueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>) parserLocals[0]);
+            value_ = null;
+          }
+          if (parserLocals[1] != null) {
+            repeatedValueBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>) parserLocals[1]);
+            repeatedValue_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -20798,6 +23677,18 @@ java.lang.String defaultValue) {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseValueField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -20920,7 +23811,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (value_ != null || valueBuilder_ != null) {
-          internalGetValueFieldBuilder().getBuilder()
+          internalGetValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           value_ = com.google.protobuf.Timestamp.parser().parsePartialFrom(input, extensionRegistry);
@@ -20929,8 +23820,7 @@ java.lang.String defaultValue) {
         bitField0_ |= 0x00000001;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Timestamp> repeatedValue_ =
-          emptyList(com.google.protobuf.Timestamp.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Timestamp> repeatedValue_;
       private void ensureRepeatedValueIsMutable() {
         if (!repeatedValue_.isModifiable()) {
           repeatedValue_ = makeMutableCopy(repeatedValue_);
@@ -21176,22 +24066,178 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestTimestamp parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestTimestamp instance = new TestTimestamp((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> valueBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> repeatedValueBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        valueBuilder_ = internalGetValueFieldBuilder(instance, valueBuilder_);
+        repeatedValueBuilder_ = internalGetRepeatedValueFieldBuilder(instance, repeatedValueBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.value_ != null || valueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseValueField(instance, input, extensionRegistry, valueBuilder_);
+              break;
+            } // case 10
+            case 18: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Timestamp m = com.google.protobuf.Timestamp.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedValueBuilder_ == null) {
+                ensureRepeatedValueIsMutable(instance);
+                instance.repeatedValue_.add(m);
+              } else {
+                repeatedValueBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000002;
+
+              }
+              break;
+            } // case 18
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {valueBuilder_, repeatedValueBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, valueBuilder_, repeatedValueBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp value = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        internalGetValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestTimestamp instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> valueBuilder_) {
+      if (valueBuilder_ == null) {
+        valueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                instance.getValue(),
+                null,
+                false);
+        instance.value_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return valueBuilder_;
+    }
+    private static void parseValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestTimestamp instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> valueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.value_ != null || valueBuilder_ != null) {
+        valueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.value_ = com.google.protobuf.Timestamp.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void ensureRepeatedValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestTimestamp instance) {
+      if (!instance.repeatedValue_.isModifiable()) {
+        instance.repeatedValue_ = makeMutableCopy(instance.repeatedValue_);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+        internalGetRepeatedValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestTimestamp instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> repeatedValueBuilder_) {
+      if (repeatedValueBuilder_ == null) {
+        repeatedValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                instance.repeatedValue_,
+                instance.repeatedValue_.isModifiable(),
+                null,
+                false);
+        instance.repeatedValue_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+
+      return repeatedValueBuilder_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestTimestamp instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> valueBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> repeatedValueBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.value_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.value_ = valueBuilder_ == null
+            ? instance.value_
+            : valueBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (repeatedValueBuilder_ == null) {
+        instance.repeatedValue_.makeImmutable();
+      } else {
+        instance.repeatedValue_ = repeatedValueBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestTimestamp>
-        PARSER = new com.google.protobuf.AbstractParser<TestTimestamp>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestTimestamp> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestTimestamp parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestTimestamp.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestTimestamp instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestTimestamp> parser() {
       return PARSER;
@@ -21583,15 +24629,29 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.TestDuration.class, com.google.protobuf.util.JsonFormatProto3.TestDuration.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestDuration.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        repeatedValue_ = emptyList(com.google.protobuf.Duration.class);
         maybeForceBuilderInitialization();
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestDuration other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -21649,7 +24709,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestDuration result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.value_ = valueBuilder_ == null
               ? value_
@@ -21665,6 +24725,23 @@ java.lang.String defaultValue) {
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestDuration other, java.lang.Object[] parserLocals) {
+        value_ = other.value_;
+        repeatedValue_ = other.repeatedValue_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            valueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>) parserLocals[0]);
+            value_ = null;
+          }
+          if (parserLocals[1] != null) {
+            repeatedValueBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>) parserLocals[1]);
+            repeatedValue_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -21766,6 +24843,18 @@ java.lang.String defaultValue) {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseValueField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -21888,7 +24977,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (value_ != null || valueBuilder_ != null) {
-          internalGetValueFieldBuilder().getBuilder()
+          internalGetValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           value_ = com.google.protobuf.Duration.parser().parsePartialFrom(input, extensionRegistry);
@@ -21897,8 +24986,7 @@ java.lang.String defaultValue) {
         bitField0_ |= 0x00000001;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Duration> repeatedValue_ =
-          emptyList(com.google.protobuf.Duration.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Duration> repeatedValue_;
       private void ensureRepeatedValueIsMutable() {
         if (!repeatedValue_.isModifiable()) {
           repeatedValue_ = makeMutableCopy(repeatedValue_);
@@ -22144,22 +25232,178 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestDuration parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestDuration instance = new TestDuration((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> valueBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> repeatedValueBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        valueBuilder_ = internalGetValueFieldBuilder(instance, valueBuilder_);
+        repeatedValueBuilder_ = internalGetRepeatedValueFieldBuilder(instance, repeatedValueBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.value_ != null || valueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseValueField(instance, input, extensionRegistry, valueBuilder_);
+              break;
+            } // case 10
+            case 18: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Duration m = com.google.protobuf.Duration.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedValueBuilder_ == null) {
+                ensureRepeatedValueIsMutable(instance);
+                instance.repeatedValue_.add(m);
+              } else {
+                repeatedValueBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000002;
+
+              }
+              break;
+            } // case 18
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {valueBuilder_, repeatedValueBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, valueBuilder_, repeatedValueBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.google.protobuf.Duration value = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+        internalGetValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestDuration instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> valueBuilder_) {
+      if (valueBuilder_ == null) {
+        valueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                instance.getValue(),
+                null,
+                false);
+        instance.value_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return valueBuilder_;
+    }
+    private static void parseValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestDuration instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> valueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.value_ != null || valueBuilder_ != null) {
+        valueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.value_ = com.google.protobuf.Duration.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void ensureRepeatedValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestDuration instance) {
+      if (!instance.repeatedValue_.isModifiable()) {
+        instance.repeatedValue_ = makeMutableCopy(instance.repeatedValue_);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+        internalGetRepeatedValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestDuration instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> repeatedValueBuilder_) {
+      if (repeatedValueBuilder_ == null) {
+        repeatedValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                instance.repeatedValue_,
+                instance.repeatedValue_.isModifiable(),
+                null,
+                false);
+        instance.repeatedValue_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+
+      return repeatedValueBuilder_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestDuration instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> valueBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> repeatedValueBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.value_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.value_ = valueBuilder_ == null
+            ? instance.value_
+            : valueBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (repeatedValueBuilder_ == null) {
+        instance.repeatedValue_.makeImmutable();
+      } else {
+        instance.repeatedValue_ = repeatedValueBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestDuration>
-        PARSER = new com.google.protobuf.AbstractParser<TestDuration>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestDuration> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestDuration parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestDuration.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestDuration instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestDuration> parser() {
       return PARSER;
@@ -22459,15 +25703,28 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.TestFieldMask.class, com.google.protobuf.util.JsonFormatProto3.TestFieldMask.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestFieldMask.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestFieldMask other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -22517,7 +25774,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestFieldMask result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.value_ = valueBuilder_ == null
               ? value_
@@ -22525,6 +25782,18 @@ java.lang.String defaultValue) {
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestFieldMask other, java.lang.Object[] parserLocals) {
+        value_ = other.value_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            valueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder>) parserLocals[0]);
+            value_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -22584,6 +25853,18 @@ java.lang.String defaultValue) {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseValueField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -22706,7 +25987,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (value_ != null || valueBuilder_ != null) {
-          internalGetValueFieldBuilder().getBuilder()
+          internalGetValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           value_ = com.google.protobuf.FieldMask.parser().parsePartialFrom(input, extensionRegistry);
@@ -22728,22 +26009,132 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestFieldMask parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestFieldMask instance = new TestFieldMask((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> valueBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        valueBuilder_ = internalGetValueFieldBuilder(instance, valueBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.value_ != null || valueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseValueField(instance, input, extensionRegistry, valueBuilder_);
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {valueBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, valueBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.google.protobuf.FieldMask value = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> 
+        internalGetValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestFieldMask instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> valueBuilder_) {
+      if (valueBuilder_ == null) {
+        valueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder>(
+                instance.getValue(),
+                null,
+                false);
+        instance.value_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return valueBuilder_;
+    }
+    private static void parseValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestFieldMask instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> valueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.value_ != null || valueBuilder_ != null) {
+        valueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.value_ = com.google.protobuf.FieldMask.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestFieldMask instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> valueBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.value_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.value_ = valueBuilder_ == null
+            ? instance.value_
+            : valueBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestFieldMask>
-        PARSER = new com.google.protobuf.AbstractParser<TestFieldMask>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestFieldMask> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestFieldMask parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestFieldMask.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestFieldMask instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestFieldMask> parser() {
       return PARSER;
@@ -23135,15 +26526,29 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.TestStruct.class, com.google.protobuf.util.JsonFormatProto3.TestStruct.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestStruct.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        repeatedValue_ = emptyList(com.google.protobuf.Struct.class);
         maybeForceBuilderInitialization();
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestStruct other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -23201,7 +26606,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestStruct result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.value_ = valueBuilder_ == null
               ? value_
@@ -23217,6 +26622,23 @@ java.lang.String defaultValue) {
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestStruct other, java.lang.Object[] parserLocals) {
+        value_ = other.value_;
+        repeatedValue_ = other.repeatedValue_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            valueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>) parserLocals[0]);
+            value_ = null;
+          }
+          if (parserLocals[1] != null) {
+            repeatedValueBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>) parserLocals[1]);
+            repeatedValue_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -23318,6 +26740,18 @@ java.lang.String defaultValue) {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseValueField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -23440,7 +26874,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (value_ != null || valueBuilder_ != null) {
-          internalGetValueFieldBuilder().getBuilder()
+          internalGetValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           value_ = com.google.protobuf.Struct.parser().parsePartialFrom(input, extensionRegistry);
@@ -23449,8 +26883,7 @@ java.lang.String defaultValue) {
         bitField0_ |= 0x00000001;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Struct> repeatedValue_ =
-          emptyList(com.google.protobuf.Struct.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Struct> repeatedValue_;
       private void ensureRepeatedValueIsMutable() {
         if (!repeatedValue_.isModifiable()) {
           repeatedValue_ = makeMutableCopy(repeatedValue_);
@@ -23696,22 +27129,178 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestStruct parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestStruct instance = new TestStruct((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> valueBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> repeatedValueBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        valueBuilder_ = internalGetValueFieldBuilder(instance, valueBuilder_);
+        repeatedValueBuilder_ = internalGetRepeatedValueFieldBuilder(instance, repeatedValueBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.value_ != null || valueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseValueField(instance, input, extensionRegistry, valueBuilder_);
+              break;
+            } // case 10
+            case 18: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Struct m = com.google.protobuf.Struct.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedValueBuilder_ == null) {
+                ensureRepeatedValueIsMutable(instance);
+                instance.repeatedValue_.add(m);
+              } else {
+                repeatedValueBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000002;
+
+              }
+              break;
+            } // case 18
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {valueBuilder_, repeatedValueBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, valueBuilder_, repeatedValueBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.google.protobuf.Struct value = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        internalGetValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestStruct instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> valueBuilder_) {
+      if (valueBuilder_ == null) {
+        valueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                instance.getValue(),
+                null,
+                false);
+        instance.value_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return valueBuilder_;
+    }
+    private static void parseValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestStruct instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> valueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.value_ != null || valueBuilder_ != null) {
+        valueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.value_ = com.google.protobuf.Struct.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void ensureRepeatedValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestStruct instance) {
+      if (!instance.repeatedValue_.isModifiable()) {
+        instance.repeatedValue_ = makeMutableCopy(instance.repeatedValue_);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+        internalGetRepeatedValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestStruct instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> repeatedValueBuilder_) {
+      if (repeatedValueBuilder_ == null) {
+        repeatedValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                instance.repeatedValue_,
+                instance.repeatedValue_.isModifiable(),
+                null,
+                false);
+        instance.repeatedValue_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+
+      return repeatedValueBuilder_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestStruct instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> valueBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> repeatedValueBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.value_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.value_ = valueBuilder_ == null
+            ? instance.value_
+            : valueBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (repeatedValueBuilder_ == null) {
+        instance.repeatedValue_.makeImmutable();
+      } else {
+        instance.repeatedValue_ = repeatedValueBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestStruct>
-        PARSER = new com.google.protobuf.AbstractParser<TestStruct>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestStruct> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestStruct parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestStruct.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestStruct instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestStruct> parser() {
       return PARSER;
@@ -24103,15 +27692,29 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.TestAny.class, com.google.protobuf.util.JsonFormatProto3.TestAny.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestAny.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        repeatedValue_ = emptyList(com.google.protobuf.Any.class);
         maybeForceBuilderInitialization();
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestAny other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -24169,7 +27772,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestAny result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.value_ = valueBuilder_ == null
               ? value_
@@ -24185,6 +27788,23 @@ java.lang.String defaultValue) {
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestAny other, java.lang.Object[] parserLocals) {
+        value_ = other.value_;
+        repeatedValue_ = other.repeatedValue_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            valueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>) parserLocals[0]);
+            value_ = null;
+          }
+          if (parserLocals[1] != null) {
+            repeatedValueBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>) parserLocals[1]);
+            repeatedValue_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -24286,6 +27906,18 @@ java.lang.String defaultValue) {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseValueField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -24408,7 +28040,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (value_ != null || valueBuilder_ != null) {
-          internalGetValueFieldBuilder().getBuilder()
+          internalGetValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           value_ = com.google.protobuf.Any.parser().parsePartialFrom(input, extensionRegistry);
@@ -24417,8 +28049,7 @@ java.lang.String defaultValue) {
         bitField0_ |= 0x00000001;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Any> repeatedValue_ =
-          emptyList(com.google.protobuf.Any.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Any> repeatedValue_;
       private void ensureRepeatedValueIsMutable() {
         if (!repeatedValue_.isModifiable()) {
           repeatedValue_ = makeMutableCopy(repeatedValue_);
@@ -24664,22 +28295,178 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestAny parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestAny instance = new TestAny((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> valueBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> repeatedValueBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        valueBuilder_ = internalGetValueFieldBuilder(instance, valueBuilder_);
+        repeatedValueBuilder_ = internalGetRepeatedValueFieldBuilder(instance, repeatedValueBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.value_ != null || valueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseValueField(instance, input, extensionRegistry, valueBuilder_);
+              break;
+            } // case 10
+            case 18: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Any m = com.google.protobuf.Any.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedValueBuilder_ == null) {
+                ensureRepeatedValueIsMutable(instance);
+                instance.repeatedValue_.add(m);
+              } else {
+                repeatedValueBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000002;
+
+              }
+              break;
+            } // case 18
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {valueBuilder_, repeatedValueBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, valueBuilder_, repeatedValueBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.google.protobuf.Any value = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> 
+        internalGetValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestAny instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> valueBuilder_) {
+      if (valueBuilder_ == null) {
+        valueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
+                instance.getValue(),
+                null,
+                false);
+        instance.value_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return valueBuilder_;
+    }
+    private static void parseValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestAny instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> valueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.value_ != null || valueBuilder_ != null) {
+        valueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.value_ = com.google.protobuf.Any.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void ensureRepeatedValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestAny instance) {
+      if (!instance.repeatedValue_.isModifiable()) {
+        instance.repeatedValue_ = makeMutableCopy(instance.repeatedValue_);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> 
+        internalGetRepeatedValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestAny instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> repeatedValueBuilder_) {
+      if (repeatedValueBuilder_ == null) {
+        repeatedValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
+                instance.repeatedValue_,
+                instance.repeatedValue_.isModifiable(),
+                null,
+                false);
+        instance.repeatedValue_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+
+      return repeatedValueBuilder_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestAny instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> valueBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> repeatedValueBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.value_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.value_ = valueBuilder_ == null
+            ? instance.value_
+            : valueBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (repeatedValueBuilder_ == null) {
+        instance.repeatedValue_.makeImmutable();
+      } else {
+        instance.repeatedValue_ = repeatedValueBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestAny>
-        PARSER = new com.google.protobuf.AbstractParser<TestAny>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestAny> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestAny parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestAny.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestAny instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestAny> parser() {
       return PARSER;
@@ -25071,15 +28858,29 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.TestValue.class, com.google.protobuf.util.JsonFormatProto3.TestValue.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestValue.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        repeatedValue_ = emptyList(com.google.protobuf.Value.class);
         maybeForceBuilderInitialization();
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestValue other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -25137,7 +28938,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestValue result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.value_ = valueBuilder_ == null
               ? value_
@@ -25153,6 +28954,23 @@ java.lang.String defaultValue) {
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestValue other, java.lang.Object[] parserLocals) {
+        value_ = other.value_;
+        repeatedValue_ = other.repeatedValue_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            valueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder>) parserLocals[0]);
+            value_ = null;
+          }
+          if (parserLocals[1] != null) {
+            repeatedValueBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder>) parserLocals[1]);
+            repeatedValue_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -25254,6 +29072,18 @@ java.lang.String defaultValue) {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseValueField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -25376,7 +29206,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (value_ != null || valueBuilder_ != null) {
-          internalGetValueFieldBuilder().getBuilder()
+          internalGetValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           value_ = com.google.protobuf.Value.parser().parsePartialFrom(input, extensionRegistry);
@@ -25385,8 +29215,7 @@ java.lang.String defaultValue) {
         bitField0_ |= 0x00000001;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Value> repeatedValue_ =
-          emptyList(com.google.protobuf.Value.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Value> repeatedValue_;
       private void ensureRepeatedValueIsMutable() {
         if (!repeatedValue_.isModifiable()) {
           repeatedValue_ = makeMutableCopy(repeatedValue_);
@@ -25632,22 +29461,178 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestValue parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestValue instance = new TestValue((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder> valueBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder> repeatedValueBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        valueBuilder_ = internalGetValueFieldBuilder(instance, valueBuilder_);
+        repeatedValueBuilder_ = internalGetRepeatedValueFieldBuilder(instance, repeatedValueBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.value_ != null || valueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseValueField(instance, input, extensionRegistry, valueBuilder_);
+              break;
+            } // case 10
+            case 18: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Value m = com.google.protobuf.Value.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedValueBuilder_ == null) {
+                ensureRepeatedValueIsMutable(instance);
+                instance.repeatedValue_.add(m);
+              } else {
+                repeatedValueBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000002;
+
+              }
+              break;
+            } // case 18
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {valueBuilder_, repeatedValueBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, valueBuilder_, repeatedValueBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.google.protobuf.Value value = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder> 
+        internalGetValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestValue instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder> valueBuilder_) {
+      if (valueBuilder_ == null) {
+        valueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder>(
+                instance.getValue(),
+                null,
+                false);
+        instance.value_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return valueBuilder_;
+    }
+    private static void parseValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestValue instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder> valueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.value_ != null || valueBuilder_ != null) {
+        valueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.value_ = com.google.protobuf.Value.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void ensureRepeatedValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestValue instance) {
+      if (!instance.repeatedValue_.isModifiable()) {
+        instance.repeatedValue_ = makeMutableCopy(instance.repeatedValue_);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder> 
+        internalGetRepeatedValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestValue instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder> repeatedValueBuilder_) {
+      if (repeatedValueBuilder_ == null) {
+        repeatedValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder>(
+                instance.repeatedValue_,
+                instance.repeatedValue_.isModifiable(),
+                null,
+                false);
+        instance.repeatedValue_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+
+      return repeatedValueBuilder_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestValue instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder> valueBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder> repeatedValueBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.value_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.value_ = valueBuilder_ == null
+            ? instance.value_
+            : valueBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (repeatedValueBuilder_ == null) {
+        instance.repeatedValue_.makeImmutable();
+      } else {
+        instance.repeatedValue_ = repeatedValueBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestValue>
-        PARSER = new com.google.protobuf.AbstractParser<TestValue>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestValue> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestValue parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestValue.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestValue instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestValue> parser() {
       return PARSER;
@@ -26039,15 +30024,29 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.TestListValue.class, com.google.protobuf.util.JsonFormatProto3.TestListValue.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestListValue.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        repeatedValue_ = emptyList(com.google.protobuf.ListValue.class);
         maybeForceBuilderInitialization();
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestListValue other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -26105,7 +30104,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestListValue result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.value_ = valueBuilder_ == null
               ? value_
@@ -26121,6 +30120,23 @@ java.lang.String defaultValue) {
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestListValue other, java.lang.Object[] parserLocals) {
+        value_ = other.value_;
+        repeatedValue_ = other.repeatedValue_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            valueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder>) parserLocals[0]);
+            value_ = null;
+          }
+          if (parserLocals[1] != null) {
+            repeatedValueBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder>) parserLocals[1]);
+            repeatedValue_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -26222,6 +30238,18 @@ java.lang.String defaultValue) {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseValueField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -26344,7 +30372,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (value_ != null || valueBuilder_ != null) {
-          internalGetValueFieldBuilder().getBuilder()
+          internalGetValueFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           value_ = com.google.protobuf.ListValue.parser().parsePartialFrom(input, extensionRegistry);
@@ -26353,8 +30381,7 @@ java.lang.String defaultValue) {
         bitField0_ |= 0x00000001;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ListValue> repeatedValue_ =
-          emptyList(com.google.protobuf.ListValue.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ListValue> repeatedValue_;
       private void ensureRepeatedValueIsMutable() {
         if (!repeatedValue_.isModifiable()) {
           repeatedValue_ = makeMutableCopy(repeatedValue_);
@@ -26600,22 +30627,178 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestListValue parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestListValue instance = new TestListValue((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder> valueBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder> repeatedValueBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        valueBuilder_ = internalGetValueFieldBuilder(instance, valueBuilder_);
+        repeatedValueBuilder_ = internalGetRepeatedValueFieldBuilder(instance, repeatedValueBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.value_ != null || valueBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseValueField(instance, input, extensionRegistry, valueBuilder_);
+              break;
+            } // case 10
+            case 18: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.ListValue m = com.google.protobuf.ListValue.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedValueBuilder_ == null) {
+                ensureRepeatedValueIsMutable(instance);
+                instance.repeatedValue_.add(m);
+              } else {
+                repeatedValueBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000002;
+
+              }
+              break;
+            } // case 18
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {valueBuilder_, repeatedValueBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, valueBuilder_, repeatedValueBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.google.protobuf.ListValue value = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder> 
+        internalGetValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestListValue instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder> valueBuilder_) {
+      if (valueBuilder_ == null) {
+        valueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder>(
+                instance.getValue(),
+                null,
+                false);
+        instance.value_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return valueBuilder_;
+    }
+    private static void parseValueField(
+        com.google.protobuf.util.JsonFormatProto3.TestListValue instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder> valueBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.value_ != null || valueBuilder_ != null) {
+        valueBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.value_ = com.google.protobuf.ListValue.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void ensureRepeatedValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestListValue instance) {
+      if (!instance.repeatedValue_.isModifiable()) {
+        instance.repeatedValue_ = makeMutableCopy(instance.repeatedValue_);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder> 
+        internalGetRepeatedValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestListValue instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder> repeatedValueBuilder_) {
+      if (repeatedValueBuilder_ == null) {
+        repeatedValueBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder>(
+                instance.repeatedValue_,
+                instance.repeatedValue_.isModifiable(),
+                null,
+                false);
+        instance.repeatedValue_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+
+      return repeatedValueBuilder_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestListValue instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder> valueBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder> repeatedValueBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.value_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.value_ = valueBuilder_ == null
+            ? instance.value_
+            : valueBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (repeatedValueBuilder_ == null) {
+        instance.repeatedValue_.makeImmutable();
+      } else {
+        instance.repeatedValue_ = repeatedValueBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestListValue>
-        PARSER = new com.google.protobuf.AbstractParser<TestListValue>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestListValue> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestListValue parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestListValue.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestListValue instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestListValue> parser() {
       return PARSER;
@@ -27049,15 +31232,27 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.TestBoolValue.class, com.google.protobuf.util.JsonFormatProto3.TestBoolValue.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestBoolValue.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestBoolValue other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -27098,7 +31293,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestBoolValue result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.boolValue_ = boolValue_;
           
@@ -27108,6 +31303,12 @@ java.lang.String defaultValue) {
           result.boolMap_.makeImmutable();
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestBoolValue other, java.lang.Object[] parserLocals) {
+        boolValue_ = other.getBoolValue();
+        boolMap_ = other.boolMap_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -27185,7 +31386,7 @@ java.lang.String defaultValue) {
       }
       private int bitField0_;
 
-      private boolean boolValue_ ;
+      private boolean boolValue_;
       /**
        * <code>bool bool_value = 1;</code>
        * @return The boolValue.
@@ -27356,22 +31557,97 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestBoolValue parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestBoolValue instance = new TestBoolValue((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.boolValue_ = input.readBool();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.Integer>
+              boolMap__ = input.readMessage(
+                  BoolMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableBoolMap(instance).getMutableMap().put(
+                  boolMap__.getKey(), boolMap__.getValue());
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.Boolean, java.lang.Integer>
+        internalGetMutableBoolMap(com.google.protobuf.util.JsonFormatProto3.TestBoolValue instance) {
+      if (instance.boolMap_ == null) {
+        instance.boolMap_ = com.google.protobuf.MapField.newMapField(
+            BoolMapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.boolMap_.isMutable()) {
+        instance.boolMap_ = instance.boolMap_.copy();
+      }
+      instance.bitField0_ |= 0x00000002;
+
+      return instance.boolMap_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestBoolValue instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.boolMap_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestBoolValue>
-        PARSER = new com.google.protobuf.AbstractParser<TestBoolValue>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestBoolValue> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestBoolValue parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestBoolValue.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestBoolValue instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestBoolValue> parser() {
       return PARSER;
@@ -27762,15 +32038,29 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.TestNullValue.class, com.google.protobuf.util.JsonFormatProto3.TestNullValue.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestNullValue.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        nullValue_ = 0;
+        repeatedNullValue_ = emptyIntList();
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestNullValue other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -27811,7 +32101,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestNullValue result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.nullValue_ = nullValue_;
           ;
@@ -27821,6 +32111,12 @@ java.lang.String defaultValue) {
           result.repeatedNullValue_ = repeatedNullValue_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestNullValue other, java.lang.Object[] parserLocals) {
+        nullValue_ = other.getNullValueValue();
+        repeatedNullValue_ = other.repeatedNullValue_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -27912,7 +32208,7 @@ java.lang.String defaultValue) {
       }
       private int bitField0_;
 
-      private int nullValue_ = 0;
+      private int nullValue_;
       /**
        * <code>.google.protobuf.NullValue null_value = 20;</code>
        * @return The enum numeric value on the wire for nullValue.
@@ -27964,7 +32260,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedNullValue_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedNullValue_;
       private void ensureRepeatedNullValueIsMutable(int capacity) {
         if (!repeatedNullValue_.isModifiable()) {
           repeatedNullValue_ = makeMutableCopy(repeatedNullValue_, capacity);
@@ -28115,22 +32411,98 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestNullValue parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestNullValue instance = new TestNullValue((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 160: {
+              instance.nullValue_ = input.readEnum();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 160
+            case 168: {
+              int tmpRaw = input.readEnum();
+              ensureRepeatedNullValueIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedNullValue_.addInt(tmpRaw);
+              break;
+            } // case 168
+            case 170: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedNullValueIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedNullValue_.addInt(input.readEnum());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 170
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureRepeatedNullValueIsMutable(com.google.protobuf.util.JsonFormatProto3.TestNullValue instance, int capacity) {
+      if (!instance.repeatedNullValue_.isModifiable()) {
+        instance.repeatedNullValue_ = makeMutableCopy(instance.repeatedNullValue_, capacity);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestNullValue instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.repeatedNullValue_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestNullValue>
-        PARSER = new com.google.protobuf.AbstractParser<TestNullValue>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestNullValue> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestNullValue parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestNullValue.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestNullValue instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestNullValue> parser() {
       return PARSER;
@@ -28393,15 +32765,27 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.TestCustomJsonName.class, com.google.protobuf.util.JsonFormatProto3.TestCustomJsonName.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestCustomJsonName.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestCustomJsonName other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -28441,12 +32825,17 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestCustomJsonName result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.value_ = value_;
           
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestCustomJsonName other, java.lang.Object[] parserLocals) {
+        value_ = other.getValue();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -28510,7 +32899,7 @@ java.lang.String defaultValue) {
       }
       private int bitField0_;
 
-      private int value_ ;
+      private int value_;
       /**
        * <code>int32 value = 1 [json_name = "&#64;value"];</code>
        * @return The value.
@@ -28555,22 +32944,67 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestCustomJsonName parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestCustomJsonName instance = new TestCustomJsonName((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.value_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<TestCustomJsonName>
-        PARSER = new com.google.protobuf.AbstractParser<TestCustomJsonName>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestCustomJsonName> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestCustomJsonName parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestCustomJsonName.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestCustomJsonName instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestCustomJsonName> parser() {
       return PARSER;
@@ -29001,15 +33435,27 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.TestEvilJson.class, com.google.protobuf.util.JsonFormatProto3.TestEvilJson.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestEvilJson.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestEvilJson other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -29055,7 +33501,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestEvilJson result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.regularValue_ = regularValue_;
           
@@ -29085,6 +33531,17 @@ java.lang.String defaultValue) {
           
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestEvilJson other, java.lang.Object[] parserLocals) {
+        regularValue_ = other.getRegularValue();
+        script_ = other.getScript();
+        quotes_ = other.getQuotes();
+        scriptAndQuotes_ = other.getScriptAndQuotes();
+        emptyString_ = other.getEmptyString();
+        backslash_ = other.getBackslash();
+        lowCodepoint_ = other.getLowCodepoint();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -29196,7 +33653,7 @@ java.lang.String defaultValue) {
       }
       private int bitField0_;
 
-      private int regularValue_ ;
+      private int regularValue_;
       /**
        * <code>int32 regular_value = 1 [json_name = "regular_name"];</code>
        * @return The regularValue.
@@ -29228,7 +33685,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private int script_ ;
+      private int script_;
       /**
        * <code>int32 script = 2 [json_name = "&lt;/script&gt;"];</code>
        * @return The script.
@@ -29260,7 +33717,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private int quotes_ ;
+      private int quotes_;
       /**
        * <code>int32 quotes = 3 [json_name = "unbalanced&#92;"quotes"];</code>
        * @return The quotes.
@@ -29292,7 +33749,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private int scriptAndQuotes_ ;
+      private int scriptAndQuotes_;
       /**
        * <code>int32 script_and_quotes = 4 [json_name = "&#92;"&lt;script&gt;alert(&#92;'hello!);&lt;/script&gt;"];</code>
        * @return The scriptAndQuotes.
@@ -29324,7 +33781,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private int emptyString_ ;
+      private int emptyString_;
       /**
        * <code>int32 empty_string = 5 [json_name = ""];</code>
        * @return The emptyString.
@@ -29356,7 +33813,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private int backslash_ ;
+      private int backslash_;
       /**
        * <code>int32 backslash = 6 [json_name = "&#92;&#92;"];</code>
        * @return The backslash.
@@ -29388,7 +33845,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private int lowCodepoint_ ;
+      private int lowCodepoint_;
       /**
        * <code>int32 low_codepoint = 7 [json_name = "&#92;001"];</code>
        * @return The lowCodepoint.
@@ -29433,22 +33890,97 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestEvilJson parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestEvilJson instance = new TestEvilJson((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.regularValue_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.script_ = input.readInt32();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              instance.quotes_ = input.readInt32();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              instance.scriptAndQuotes_ = input.readInt32();
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              instance.emptyString_ = input.readInt32();
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              instance.backslash_ = input.readInt32();
+              instance.bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              instance.lowCodepoint_ = input.readInt32();
+              instance.bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<TestEvilJson>
-        PARSER = new com.google.protobuf.AbstractParser<TestEvilJson>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestEvilJson> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestEvilJson parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestEvilJson.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestEvilJson instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestEvilJson> parser() {
       return PARSER;
@@ -29754,15 +34286,28 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.TestExtensions.class, com.google.protobuf.util.JsonFormatProto3.TestExtensions.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestExtensions.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestExtensions other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -29812,7 +34357,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestExtensions result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.extensions_ = extensionsBuilder_ == null
               ? extensions_
@@ -29820,6 +34365,18 @@ java.lang.String defaultValue) {
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestExtensions other, java.lang.Object[] parserLocals) {
+        extensions_ = other.extensions_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            extensionsBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestAllExtensions, proto2_unittest.UnittestProto.TestAllExtensions.Builder, proto2_unittest.UnittestProto.TestAllExtensionsOrBuilder>) parserLocals[0]);
+            extensions_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -29884,6 +34441,18 @@ java.lang.String defaultValue) {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseExtensionsField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -30006,7 +34575,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (extensions_ != null || extensionsBuilder_ != null) {
-          internalGetExtensionsFieldBuilder().getBuilder()
+          internalGetExtensionsFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           extensions_ = proto2_unittest.UnittestProto.TestAllExtensions.parser().parsePartialFrom(input, extensionRegistry);
@@ -30028,22 +34597,132 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestExtensions parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestExtensions instance = new TestExtensions((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestAllExtensions, proto2_unittest.UnittestProto.TestAllExtensions.Builder, proto2_unittest.UnittestProto.TestAllExtensionsOrBuilder> extensionsBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        extensionsBuilder_ = internalGetExtensionsFieldBuilder(instance, extensionsBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.extensions_ != null || extensionsBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseExtensionsField(instance, input, extensionRegistry, extensionsBuilder_);
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {extensionsBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, extensionsBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.proto2_unittest.TestAllExtensions extensions = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        proto2_unittest.UnittestProto.TestAllExtensions, proto2_unittest.UnittestProto.TestAllExtensions.Builder, proto2_unittest.UnittestProto.TestAllExtensionsOrBuilder> 
+        internalGetExtensionsFieldBuilder(com.google.protobuf.util.JsonFormatProto3.TestExtensions instance, com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestAllExtensions, proto2_unittest.UnittestProto.TestAllExtensions.Builder, proto2_unittest.UnittestProto.TestAllExtensionsOrBuilder> extensionsBuilder_) {
+      if (extensionsBuilder_ == null) {
+        extensionsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            proto2_unittest.UnittestProto.TestAllExtensions, proto2_unittest.UnittestProto.TestAllExtensions.Builder, proto2_unittest.UnittestProto.TestAllExtensionsOrBuilder>(
+                instance.getExtensions(),
+                null,
+                false);
+        instance.extensions_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return extensionsBuilder_;
+    }
+    private static void parseExtensionsField(
+        com.google.protobuf.util.JsonFormatProto3.TestExtensions instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestAllExtensions, proto2_unittest.UnittestProto.TestAllExtensions.Builder, proto2_unittest.UnittestProto.TestAllExtensionsOrBuilder> extensionsBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.extensions_ != null || extensionsBuilder_ != null) {
+        extensionsBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.extensions_ = proto2_unittest.UnittestProto.TestAllExtensions.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestExtensions instance,
+        com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestProto.TestAllExtensions, proto2_unittest.UnittestProto.TestAllExtensions.Builder, proto2_unittest.UnittestProto.TestAllExtensionsOrBuilder> extensionsBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.extensions_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.extensions_ = extensionsBuilder_ == null
+            ? instance.extensions_
+            : extensionsBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestExtensions>
-        PARSER = new com.google.protobuf.AbstractParser<TestExtensions>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestExtensions> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestExtensions parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestExtensions.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestExtensions instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestExtensions> parser() {
       return PARSER;
@@ -30398,15 +35077,30 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.TestEnumValue.class, com.google.protobuf.util.JsonFormatProto3.TestEnumValue.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.TestEnumValue.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        enumValue1_ = 0;
+        enumValue2_ = 0;
+        enumValue3_ = 0;
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.TestEnumValue other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -30448,7 +35142,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestEnumValue result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.enumValue1_ = enumValue1_;
           ;
@@ -30462,6 +35156,13 @@ java.lang.String defaultValue) {
           ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.TestEnumValue other, java.lang.Object[] parserLocals) {
+        enumValue1_ = other.getEnumValue1Value();
+        enumValue2_ = other.getEnumValue2Value();
+        enumValue3_ = other.getEnumValue3Value();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -30541,7 +35242,7 @@ java.lang.String defaultValue) {
       }
       private int bitField0_;
 
-      private int enumValue1_ = 0;
+      private int enumValue1_;
       /**
        * <code>.proto3.EnumType enum_value1 = 1;</code>
        * @return The enum numeric value on the wire for enumValue1.
@@ -30593,7 +35294,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private int enumValue2_ = 0;
+      private int enumValue2_;
       /**
        * <code>.proto3.EnumType enum_value2 = 2;</code>
        * @return The enum numeric value on the wire for enumValue2.
@@ -30645,7 +35346,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private int enumValue3_ = 0;
+      private int enumValue3_;
       /**
        * <code>.proto3.EnumType enum_value3 = 3;</code>
        * @return The enum numeric value on the wire for enumValue3.
@@ -30710,22 +35411,77 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestEnumValue parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestEnumValue instance = new TestEnumValue((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.enumValue1_ = input.readEnum();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.enumValue2_ = input.readEnum();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              instance.enumValue3_ = input.readEnum();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<TestEnumValue>
-        PARSER = new com.google.protobuf.AbstractParser<TestEnumValue>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestEnumValue> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestEnumValue parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestEnumValue.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestEnumValue instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestEnumValue> parser() {
       return PARSER;
@@ -31829,15 +36585,28 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.MapsTestCases.class, com.google.protobuf.util.JsonFormatProto3.MapsTestCases.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.MapsTestCases.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.MapsTestCases other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -31959,7 +36728,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapsTestCases result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.emptyMap_ = emptyMapBuilder_ == null
               ? emptyMap_
@@ -32039,6 +36808,78 @@ java.lang.String defaultValue) {
           to_bitField0_ |= 0x00001000;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapsTestCases other, java.lang.Object[] parserLocals) {
+        emptyMap_ = other.emptyMap_;
+        stringToInt_ = other.stringToInt_;
+        intToString_ = other.intToString_;
+        mixed1_ = other.mixed1_;
+        mixed2_ = other.mixed2_;
+        mapOfObjects_ = other.mapOfObjects_;
+        emptyKeyStringToInt1_ = other.emptyKeyStringToInt1_;
+        emptyKeyStringToInt2_ = other.emptyKeyStringToInt2_;
+        emptyKeyStringToInt3_ = other.emptyKeyStringToInt3_;
+        emptyKeyBoolToString_ = other.emptyKeyBoolToString_;
+        emptyKeyIntToString_ = other.emptyKeyIntToString_;
+        emptyKeyMixed_ = other.emptyKeyMixed_;
+        emptyKeyMapObjects_ = other.emptyKeyMapObjects_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            emptyMapBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.EmptyMap, com.google.protobuf.util.JsonFormatProto3.EmptyMap.Builder, com.google.protobuf.util.JsonFormatProto3.EmptyMapOrBuilder>) parserLocals[0]);
+            emptyMap_ = null;
+          }
+          if (parserLocals[1] != null) {
+            stringToIntBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder>) parserLocals[1]);
+            stringToInt_ = null;
+          }
+          if (parserLocals[2] != null) {
+            intToStringBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.IntToString, com.google.protobuf.util.JsonFormatProto3.IntToString.Builder, com.google.protobuf.util.JsonFormatProto3.IntToStringOrBuilder>) parserLocals[2]);
+            intToString_ = null;
+          }
+          if (parserLocals[3] != null) {
+            mixed1Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.Mixed1, com.google.protobuf.util.JsonFormatProto3.Mixed1.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed1OrBuilder>) parserLocals[3]);
+            mixed1_ = null;
+          }
+          if (parserLocals[4] != null) {
+            mixed2Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.Mixed2, com.google.protobuf.util.JsonFormatProto3.Mixed2.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed2OrBuilder>) parserLocals[4]);
+            mixed2_ = null;
+          }
+          if (parserLocals[5] != null) {
+            mapOfObjectsBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOfObjects, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.Builder, com.google.protobuf.util.JsonFormatProto3.MapOfObjectsOrBuilder>) parserLocals[5]);
+            mapOfObjects_ = null;
+          }
+          if (parserLocals[6] != null) {
+            emptyKeyStringToInt1Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder>) parserLocals[6]);
+            emptyKeyStringToInt1_ = null;
+          }
+          if (parserLocals[7] != null) {
+            emptyKeyStringToInt2Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder>) parserLocals[7]);
+            emptyKeyStringToInt2_ = null;
+          }
+          if (parserLocals[8] != null) {
+            emptyKeyStringToInt3Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder>) parserLocals[8]);
+            emptyKeyStringToInt3_ = null;
+          }
+          if (parserLocals[9] != null) {
+            emptyKeyBoolToStringBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.BoolToString, com.google.protobuf.util.JsonFormatProto3.BoolToString.Builder, com.google.protobuf.util.JsonFormatProto3.BoolToStringOrBuilder>) parserLocals[9]);
+            emptyKeyBoolToString_ = null;
+          }
+          if (parserLocals[10] != null) {
+            emptyKeyIntToStringBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.IntToString, com.google.protobuf.util.JsonFormatProto3.IntToString.Builder, com.google.protobuf.util.JsonFormatProto3.IntToStringOrBuilder>) parserLocals[10]);
+            emptyKeyIntToString_ = null;
+          }
+          if (parserLocals[11] != null) {
+            emptyKeyMixedBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.Mixed1, com.google.protobuf.util.JsonFormatProto3.Mixed1.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed1OrBuilder>) parserLocals[11]);
+            emptyKeyMixed_ = null;
+          }
+          if (parserLocals[12] != null) {
+            emptyKeyMapObjectsBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOfObjects, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.Builder, com.google.protobuf.util.JsonFormatProto3.MapOfObjectsOrBuilder>) parserLocals[12]);
+            emptyKeyMapObjects_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -32183,6 +37024,66 @@ java.lang.String defaultValue) {
         } // finally
         return this;
       }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseEmptyMapField(input, extensionRegistry);
+            return true;
+          } // case 10
+          case 18: {
+            parseStringToIntField(input, extensionRegistry);
+            return true;
+          } // case 18
+          case 26: {
+            parseIntToStringField(input, extensionRegistry);
+            return true;
+          } // case 26
+          case 34: {
+            parseMixed1Field(input, extensionRegistry);
+            return true;
+          } // case 34
+          case 42: {
+            parseMixed2Field(input, extensionRegistry);
+            return true;
+          } // case 42
+          case 50: {
+            parseMapOfObjectsField(input, extensionRegistry);
+            return true;
+          } // case 50
+          case 58: {
+            parseEmptyKeyStringToInt1Field(input, extensionRegistry);
+            return true;
+          } // case 58
+          case 66: {
+            parseEmptyKeyStringToInt2Field(input, extensionRegistry);
+            return true;
+          } // case 66
+          case 74: {
+            parseEmptyKeyStringToInt3Field(input, extensionRegistry);
+            return true;
+          } // case 74
+          case 82: {
+            parseEmptyKeyBoolToStringField(input, extensionRegistry);
+            return true;
+          } // case 82
+          case 90: {
+            parseEmptyKeyIntToStringField(input, extensionRegistry);
+            return true;
+          } // case 90
+          case 98: {
+            parseEmptyKeyMixedField(input, extensionRegistry);
+            return true;
+          } // case 98
+          case 106: {
+            parseEmptyKeyMapObjectsField(input, extensionRegistry);
+            return true;
+          } // case 106
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
       private int bitField0_;
 
       private com.google.protobuf.util.JsonFormatProto3.EmptyMap emptyMap_;
@@ -32304,7 +37205,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (emptyMap_ != null || emptyMapBuilder_ != null) {
-          internalGetEmptyMapFieldBuilder().getBuilder()
+          internalGetEmptyMapFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           emptyMap_ = com.google.protobuf.util.JsonFormatProto3.EmptyMap.parser().parsePartialFrom(input, extensionRegistry);
@@ -32432,7 +37333,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (stringToInt_ != null || stringToIntBuilder_ != null) {
-          internalGetStringToIntFieldBuilder().getBuilder()
+          internalGetStringToIntFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           stringToInt_ = com.google.protobuf.util.JsonFormatProto3.StringtoInt.parser().parsePartialFrom(input, extensionRegistry);
@@ -32560,7 +37461,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (intToString_ != null || intToStringBuilder_ != null) {
-          internalGetIntToStringFieldBuilder().getBuilder()
+          internalGetIntToStringFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           intToString_ = com.google.protobuf.util.JsonFormatProto3.IntToString.parser().parsePartialFrom(input, extensionRegistry);
@@ -32688,7 +37589,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (mixed1_ != null || mixed1Builder_ != null) {
-          internalGetMixed1FieldBuilder().getBuilder()
+          internalGetMixed1FieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           mixed1_ = com.google.protobuf.util.JsonFormatProto3.Mixed1.parser().parsePartialFrom(input, extensionRegistry);
@@ -32816,7 +37717,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (mixed2_ != null || mixed2Builder_ != null) {
-          internalGetMixed2FieldBuilder().getBuilder()
+          internalGetMixed2FieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           mixed2_ = com.google.protobuf.util.JsonFormatProto3.Mixed2.parser().parsePartialFrom(input, extensionRegistry);
@@ -32944,7 +37845,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (mapOfObjects_ != null || mapOfObjectsBuilder_ != null) {
-          internalGetMapOfObjectsFieldBuilder().getBuilder()
+          internalGetMapOfObjectsFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           mapOfObjects_ = com.google.protobuf.util.JsonFormatProto3.MapOfObjects.parser().parsePartialFrom(input, extensionRegistry);
@@ -33108,7 +38009,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (emptyKeyStringToInt1_ != null || emptyKeyStringToInt1Builder_ != null) {
-          internalGetEmptyKeyStringToInt1FieldBuilder().getBuilder()
+          internalGetEmptyKeyStringToInt1FieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           emptyKeyStringToInt1_ = com.google.protobuf.util.JsonFormatProto3.StringtoInt.parser().parsePartialFrom(input, extensionRegistry);
@@ -33236,7 +38137,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (emptyKeyStringToInt2_ != null || emptyKeyStringToInt2Builder_ != null) {
-          internalGetEmptyKeyStringToInt2FieldBuilder().getBuilder()
+          internalGetEmptyKeyStringToInt2FieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           emptyKeyStringToInt2_ = com.google.protobuf.util.JsonFormatProto3.StringtoInt.parser().parsePartialFrom(input, extensionRegistry);
@@ -33364,7 +38265,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (emptyKeyStringToInt3_ != null || emptyKeyStringToInt3Builder_ != null) {
-          internalGetEmptyKeyStringToInt3FieldBuilder().getBuilder()
+          internalGetEmptyKeyStringToInt3FieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           emptyKeyStringToInt3_ = com.google.protobuf.util.JsonFormatProto3.StringtoInt.parser().parsePartialFrom(input, extensionRegistry);
@@ -33492,7 +38393,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (emptyKeyBoolToString_ != null || emptyKeyBoolToStringBuilder_ != null) {
-          internalGetEmptyKeyBoolToStringFieldBuilder().getBuilder()
+          internalGetEmptyKeyBoolToStringFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           emptyKeyBoolToString_ = com.google.protobuf.util.JsonFormatProto3.BoolToString.parser().parsePartialFrom(input, extensionRegistry);
@@ -33620,7 +38521,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (emptyKeyIntToString_ != null || emptyKeyIntToStringBuilder_ != null) {
-          internalGetEmptyKeyIntToStringFieldBuilder().getBuilder()
+          internalGetEmptyKeyIntToStringFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           emptyKeyIntToString_ = com.google.protobuf.util.JsonFormatProto3.IntToString.parser().parsePartialFrom(input, extensionRegistry);
@@ -33748,7 +38649,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (emptyKeyMixed_ != null || emptyKeyMixedBuilder_ != null) {
-          internalGetEmptyKeyMixedFieldBuilder().getBuilder()
+          internalGetEmptyKeyMixedFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           emptyKeyMixed_ = com.google.protobuf.util.JsonFormatProto3.Mixed1.parser().parsePartialFrom(input, extensionRegistry);
@@ -33876,7 +38777,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (emptyKeyMapObjects_ != null || emptyKeyMapObjectsBuilder_ != null) {
-          internalGetEmptyKeyMapObjectsFieldBuilder().getBuilder()
+          internalGetEmptyKeyMapObjectsFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           emptyKeyMapObjects_ = com.google.protobuf.util.JsonFormatProto3.MapOfObjects.parser().parsePartialFrom(input, extensionRegistry);
@@ -33898,22 +38799,736 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static MapsTestCases parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MapsTestCases instance = new MapsTestCases((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.EmptyMap, com.google.protobuf.util.JsonFormatProto3.EmptyMap.Builder, com.google.protobuf.util.JsonFormatProto3.EmptyMapOrBuilder> emptyMapBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> stringToIntBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.IntToString, com.google.protobuf.util.JsonFormatProto3.IntToString.Builder, com.google.protobuf.util.JsonFormatProto3.IntToStringOrBuilder> intToStringBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.Mixed1, com.google.protobuf.util.JsonFormatProto3.Mixed1.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed1OrBuilder> mixed1Builder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.Mixed2, com.google.protobuf.util.JsonFormatProto3.Mixed2.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed2OrBuilder> mixed2Builder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOfObjects, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.Builder, com.google.protobuf.util.JsonFormatProto3.MapOfObjectsOrBuilder> mapOfObjectsBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> emptyKeyStringToInt1Builder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> emptyKeyStringToInt2Builder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> emptyKeyStringToInt3Builder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.BoolToString, com.google.protobuf.util.JsonFormatProto3.BoolToString.Builder, com.google.protobuf.util.JsonFormatProto3.BoolToStringOrBuilder> emptyKeyBoolToStringBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.IntToString, com.google.protobuf.util.JsonFormatProto3.IntToString.Builder, com.google.protobuf.util.JsonFormatProto3.IntToStringOrBuilder> emptyKeyIntToStringBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.Mixed1, com.google.protobuf.util.JsonFormatProto3.Mixed1.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed1OrBuilder> emptyKeyMixedBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOfObjects, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.Builder, com.google.protobuf.util.JsonFormatProto3.MapOfObjectsOrBuilder> emptyKeyMapObjectsBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        emptyMapBuilder_ = internalGetEmptyMapFieldBuilder(instance, emptyMapBuilder_);
+        stringToIntBuilder_ = internalGetStringToIntFieldBuilder(instance, stringToIntBuilder_);
+        intToStringBuilder_ = internalGetIntToStringFieldBuilder(instance, intToStringBuilder_);
+        mixed1Builder_ = internalGetMixed1FieldBuilder(instance, mixed1Builder_);
+        mixed2Builder_ = internalGetMixed2FieldBuilder(instance, mixed2Builder_);
+        mapOfObjectsBuilder_ = internalGetMapOfObjectsFieldBuilder(instance, mapOfObjectsBuilder_);
+        emptyKeyStringToInt1Builder_ = internalGetEmptyKeyStringToInt1FieldBuilder(instance, emptyKeyStringToInt1Builder_);
+        emptyKeyStringToInt2Builder_ = internalGetEmptyKeyStringToInt2FieldBuilder(instance, emptyKeyStringToInt2Builder_);
+        emptyKeyStringToInt3Builder_ = internalGetEmptyKeyStringToInt3FieldBuilder(instance, emptyKeyStringToInt3Builder_);
+        emptyKeyBoolToStringBuilder_ = internalGetEmptyKeyBoolToStringFieldBuilder(instance, emptyKeyBoolToStringBuilder_);
+        emptyKeyIntToStringBuilder_ = internalGetEmptyKeyIntToStringFieldBuilder(instance, emptyKeyIntToStringBuilder_);
+        emptyKeyMixedBuilder_ = internalGetEmptyKeyMixedFieldBuilder(instance, emptyKeyMixedBuilder_);
+        emptyKeyMapObjectsBuilder_ = internalGetEmptyKeyMapObjectsFieldBuilder(instance, emptyKeyMapObjectsBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.emptyMap_ != null || emptyMapBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseEmptyMapField(instance, input, extensionRegistry, emptyMapBuilder_);
+              break;
+            } // case 10
+            case 18: {
+              if (instance.stringToInt_ != null || stringToIntBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseStringToIntField(instance, input, extensionRegistry, stringToIntBuilder_);
+              break;
+            } // case 18
+            case 26: {
+              if (instance.intToString_ != null || intToStringBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseIntToStringField(instance, input, extensionRegistry, intToStringBuilder_);
+              break;
+            } // case 26
+            case 34: {
+              if (instance.mixed1_ != null || mixed1Builder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseMixed1Field(instance, input, extensionRegistry, mixed1Builder_);
+              break;
+            } // case 34
+            case 42: {
+              if (instance.mixed2_ != null || mixed2Builder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseMixed2Field(instance, input, extensionRegistry, mixed2Builder_);
+              break;
+            } // case 42
+            case 50: {
+              if (instance.mapOfObjects_ != null || mapOfObjectsBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseMapOfObjectsField(instance, input, extensionRegistry, mapOfObjectsBuilder_);
+              break;
+            } // case 50
+            case 58: {
+              if (instance.emptyKeyStringToInt1_ != null || emptyKeyStringToInt1Builder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseEmptyKeyStringToInt1Field(instance, input, extensionRegistry, emptyKeyStringToInt1Builder_);
+              break;
+            } // case 58
+            case 66: {
+              if (instance.emptyKeyStringToInt2_ != null || emptyKeyStringToInt2Builder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseEmptyKeyStringToInt2Field(instance, input, extensionRegistry, emptyKeyStringToInt2Builder_);
+              break;
+            } // case 66
+            case 74: {
+              if (instance.emptyKeyStringToInt3_ != null || emptyKeyStringToInt3Builder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseEmptyKeyStringToInt3Field(instance, input, extensionRegistry, emptyKeyStringToInt3Builder_);
+              break;
+            } // case 74
+            case 82: {
+              if (instance.emptyKeyBoolToString_ != null || emptyKeyBoolToStringBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseEmptyKeyBoolToStringField(instance, input, extensionRegistry, emptyKeyBoolToStringBuilder_);
+              break;
+            } // case 82
+            case 90: {
+              if (instance.emptyKeyIntToString_ != null || emptyKeyIntToStringBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseEmptyKeyIntToStringField(instance, input, extensionRegistry, emptyKeyIntToStringBuilder_);
+              break;
+            } // case 90
+            case 98: {
+              if (instance.emptyKeyMixed_ != null || emptyKeyMixedBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseEmptyKeyMixedField(instance, input, extensionRegistry, emptyKeyMixedBuilder_);
+              break;
+            } // case 98
+            case 106: {
+              if (instance.emptyKeyMapObjects_ != null || emptyKeyMapObjectsBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseEmptyKeyMapObjectsField(instance, input, extensionRegistry, emptyKeyMapObjectsBuilder_);
+              break;
+            } // case 106
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {emptyMapBuilder_, stringToIntBuilder_, intToStringBuilder_, mixed1Builder_, mixed2Builder_, mapOfObjectsBuilder_, emptyKeyStringToInt1Builder_, emptyKeyStringToInt2Builder_, emptyKeyStringToInt3Builder_, emptyKeyBoolToStringBuilder_, emptyKeyIntToStringBuilder_, emptyKeyMixedBuilder_, emptyKeyMapObjectsBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, emptyMapBuilder_, stringToIntBuilder_, intToStringBuilder_, mixed1Builder_, mixed2Builder_, mapOfObjectsBuilder_, emptyKeyStringToInt1Builder_, emptyKeyStringToInt2Builder_, emptyKeyStringToInt3Builder_, emptyKeyBoolToStringBuilder_, emptyKeyIntToStringBuilder_, emptyKeyMixedBuilder_, emptyKeyMapObjectsBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.proto3.EmptyMap empty_map = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.util.JsonFormatProto3.EmptyMap, com.google.protobuf.util.JsonFormatProto3.EmptyMap.Builder, com.google.protobuf.util.JsonFormatProto3.EmptyMapOrBuilder> 
+        internalGetEmptyMapFieldBuilder(com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.EmptyMap, com.google.protobuf.util.JsonFormatProto3.EmptyMap.Builder, com.google.protobuf.util.JsonFormatProto3.EmptyMapOrBuilder> emptyMapBuilder_) {
+      if (emptyMapBuilder_ == null) {
+        emptyMapBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.util.JsonFormatProto3.EmptyMap, com.google.protobuf.util.JsonFormatProto3.EmptyMap.Builder, com.google.protobuf.util.JsonFormatProto3.EmptyMapOrBuilder>(
+                instance.getEmptyMap(),
+                null,
+                false);
+        instance.emptyMap_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return emptyMapBuilder_;
+    }
+    private static void parseEmptyMapField(
+        com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.EmptyMap, com.google.protobuf.util.JsonFormatProto3.EmptyMap.Builder, com.google.protobuf.util.JsonFormatProto3.EmptyMapOrBuilder> emptyMapBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.emptyMap_ != null || emptyMapBuilder_ != null) {
+        emptyMapBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.emptyMap_ = com.google.protobuf.util.JsonFormatProto3.EmptyMap.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    /**
+     * <code>.proto3.StringtoInt string_to_int = 2;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> 
+        internalGetStringToIntFieldBuilder(com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> stringToIntBuilder_) {
+      if (stringToIntBuilder_ == null) {
+        stringToIntBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder>(
+                instance.getStringToInt(),
+                null,
+                false);
+        instance.stringToInt_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+      return stringToIntBuilder_;
+    }
+    private static void parseStringToIntField(
+        com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> stringToIntBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.stringToInt_ != null || stringToIntBuilder_ != null) {
+        stringToIntBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.stringToInt_ = com.google.protobuf.util.JsonFormatProto3.StringtoInt.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+    }
+    /**
+     * <code>.proto3.IntToString int_to_string = 3;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.util.JsonFormatProto3.IntToString, com.google.protobuf.util.JsonFormatProto3.IntToString.Builder, com.google.protobuf.util.JsonFormatProto3.IntToStringOrBuilder> 
+        internalGetIntToStringFieldBuilder(com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.IntToString, com.google.protobuf.util.JsonFormatProto3.IntToString.Builder, com.google.protobuf.util.JsonFormatProto3.IntToStringOrBuilder> intToStringBuilder_) {
+      if (intToStringBuilder_ == null) {
+        intToStringBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.util.JsonFormatProto3.IntToString, com.google.protobuf.util.JsonFormatProto3.IntToString.Builder, com.google.protobuf.util.JsonFormatProto3.IntToStringOrBuilder>(
+                instance.getIntToString(),
+                null,
+                false);
+        instance.intToString_ = null;
+      }
+      instance.bitField0_ |= 0x00000004;
+      return intToStringBuilder_;
+    }
+    private static void parseIntToStringField(
+        com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.IntToString, com.google.protobuf.util.JsonFormatProto3.IntToString.Builder, com.google.protobuf.util.JsonFormatProto3.IntToStringOrBuilder> intToStringBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.intToString_ != null || intToStringBuilder_ != null) {
+        intToStringBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.intToString_ = com.google.protobuf.util.JsonFormatProto3.IntToString.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+    }
+    /**
+     * <code>.proto3.Mixed1 mixed1 = 4;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.util.JsonFormatProto3.Mixed1, com.google.protobuf.util.JsonFormatProto3.Mixed1.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed1OrBuilder> 
+        internalGetMixed1FieldBuilder(com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.Mixed1, com.google.protobuf.util.JsonFormatProto3.Mixed1.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed1OrBuilder> mixed1Builder_) {
+      if (mixed1Builder_ == null) {
+        mixed1Builder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.util.JsonFormatProto3.Mixed1, com.google.protobuf.util.JsonFormatProto3.Mixed1.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed1OrBuilder>(
+                instance.getMixed1(),
+                null,
+                false);
+        instance.mixed1_ = null;
+      }
+      instance.bitField0_ |= 0x00000008;
+      return mixed1Builder_;
+    }
+    private static void parseMixed1Field(
+        com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.Mixed1, com.google.protobuf.util.JsonFormatProto3.Mixed1.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed1OrBuilder> mixed1Builder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.mixed1_ != null || mixed1Builder_ != null) {
+        mixed1Builder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.mixed1_ = com.google.protobuf.util.JsonFormatProto3.Mixed1.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000008;
+    }
+    /**
+     * <code>.proto3.Mixed2 mixed2 = 5;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.util.JsonFormatProto3.Mixed2, com.google.protobuf.util.JsonFormatProto3.Mixed2.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed2OrBuilder> 
+        internalGetMixed2FieldBuilder(com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.Mixed2, com.google.protobuf.util.JsonFormatProto3.Mixed2.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed2OrBuilder> mixed2Builder_) {
+      if (mixed2Builder_ == null) {
+        mixed2Builder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.util.JsonFormatProto3.Mixed2, com.google.protobuf.util.JsonFormatProto3.Mixed2.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed2OrBuilder>(
+                instance.getMixed2(),
+                null,
+                false);
+        instance.mixed2_ = null;
+      }
+      instance.bitField0_ |= 0x00000010;
+      return mixed2Builder_;
+    }
+    private static void parseMixed2Field(
+        com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.Mixed2, com.google.protobuf.util.JsonFormatProto3.Mixed2.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed2OrBuilder> mixed2Builder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.mixed2_ != null || mixed2Builder_ != null) {
+        mixed2Builder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.mixed2_ = com.google.protobuf.util.JsonFormatProto3.Mixed2.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000010;
+    }
+    /**
+     * <code>.proto3.MapOfObjects map_of_objects = 6;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.util.JsonFormatProto3.MapOfObjects, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.Builder, com.google.protobuf.util.JsonFormatProto3.MapOfObjectsOrBuilder> 
+        internalGetMapOfObjectsFieldBuilder(com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOfObjects, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.Builder, com.google.protobuf.util.JsonFormatProto3.MapOfObjectsOrBuilder> mapOfObjectsBuilder_) {
+      if (mapOfObjectsBuilder_ == null) {
+        mapOfObjectsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.util.JsonFormatProto3.MapOfObjects, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.Builder, com.google.protobuf.util.JsonFormatProto3.MapOfObjectsOrBuilder>(
+                instance.getMapOfObjects(),
+                null,
+                false);
+        instance.mapOfObjects_ = null;
+      }
+      instance.bitField0_ |= 0x00000020;
+      return mapOfObjectsBuilder_;
+    }
+    private static void parseMapOfObjectsField(
+        com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOfObjects, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.Builder, com.google.protobuf.util.JsonFormatProto3.MapOfObjectsOrBuilder> mapOfObjectsBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.mapOfObjects_ != null || mapOfObjectsBuilder_ != null) {
+        mapOfObjectsBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.mapOfObjects_ = com.google.protobuf.util.JsonFormatProto3.MapOfObjects.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000020;
+    }
+    /**
+     * <pre>
+     * Empty key tests
+     * </pre>
+     *
+     * <code>.proto3.StringtoInt empty_key_string_to_int1 = 7;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> 
+        internalGetEmptyKeyStringToInt1FieldBuilder(com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> emptyKeyStringToInt1Builder_) {
+      if (emptyKeyStringToInt1Builder_ == null) {
+        emptyKeyStringToInt1Builder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder>(
+                instance.getEmptyKeyStringToInt1(),
+                null,
+                false);
+        instance.emptyKeyStringToInt1_ = null;
+      }
+      instance.bitField0_ |= 0x00000040;
+      return emptyKeyStringToInt1Builder_;
+    }
+    private static void parseEmptyKeyStringToInt1Field(
+        com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> emptyKeyStringToInt1Builder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.emptyKeyStringToInt1_ != null || emptyKeyStringToInt1Builder_ != null) {
+        emptyKeyStringToInt1Builder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.emptyKeyStringToInt1_ = com.google.protobuf.util.JsonFormatProto3.StringtoInt.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000040;
+    }
+    /**
+     * <code>.proto3.StringtoInt empty_key_string_to_int2 = 8;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> 
+        internalGetEmptyKeyStringToInt2FieldBuilder(com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> emptyKeyStringToInt2Builder_) {
+      if (emptyKeyStringToInt2Builder_ == null) {
+        emptyKeyStringToInt2Builder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder>(
+                instance.getEmptyKeyStringToInt2(),
+                null,
+                false);
+        instance.emptyKeyStringToInt2_ = null;
+      }
+      instance.bitField0_ |= 0x00000080;
+      return emptyKeyStringToInt2Builder_;
+    }
+    private static void parseEmptyKeyStringToInt2Field(
+        com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> emptyKeyStringToInt2Builder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.emptyKeyStringToInt2_ != null || emptyKeyStringToInt2Builder_ != null) {
+        emptyKeyStringToInt2Builder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.emptyKeyStringToInt2_ = com.google.protobuf.util.JsonFormatProto3.StringtoInt.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000080;
+    }
+    /**
+     * <code>.proto3.StringtoInt empty_key_string_to_int3 = 9;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> 
+        internalGetEmptyKeyStringToInt3FieldBuilder(com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> emptyKeyStringToInt3Builder_) {
+      if (emptyKeyStringToInt3Builder_ == null) {
+        emptyKeyStringToInt3Builder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder>(
+                instance.getEmptyKeyStringToInt3(),
+                null,
+                false);
+        instance.emptyKeyStringToInt3_ = null;
+      }
+      instance.bitField0_ |= 0x00000100;
+      return emptyKeyStringToInt3Builder_;
+    }
+    private static void parseEmptyKeyStringToInt3Field(
+        com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> emptyKeyStringToInt3Builder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.emptyKeyStringToInt3_ != null || emptyKeyStringToInt3Builder_ != null) {
+        emptyKeyStringToInt3Builder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.emptyKeyStringToInt3_ = com.google.protobuf.util.JsonFormatProto3.StringtoInt.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000100;
+    }
+    /**
+     * <code>.proto3.BoolToString empty_key_bool_to_string = 10;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.util.JsonFormatProto3.BoolToString, com.google.protobuf.util.JsonFormatProto3.BoolToString.Builder, com.google.protobuf.util.JsonFormatProto3.BoolToStringOrBuilder> 
+        internalGetEmptyKeyBoolToStringFieldBuilder(com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.BoolToString, com.google.protobuf.util.JsonFormatProto3.BoolToString.Builder, com.google.protobuf.util.JsonFormatProto3.BoolToStringOrBuilder> emptyKeyBoolToStringBuilder_) {
+      if (emptyKeyBoolToStringBuilder_ == null) {
+        emptyKeyBoolToStringBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.util.JsonFormatProto3.BoolToString, com.google.protobuf.util.JsonFormatProto3.BoolToString.Builder, com.google.protobuf.util.JsonFormatProto3.BoolToStringOrBuilder>(
+                instance.getEmptyKeyBoolToString(),
+                null,
+                false);
+        instance.emptyKeyBoolToString_ = null;
+      }
+      instance.bitField0_ |= 0x00000200;
+      return emptyKeyBoolToStringBuilder_;
+    }
+    private static void parseEmptyKeyBoolToStringField(
+        com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.BoolToString, com.google.protobuf.util.JsonFormatProto3.BoolToString.Builder, com.google.protobuf.util.JsonFormatProto3.BoolToStringOrBuilder> emptyKeyBoolToStringBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.emptyKeyBoolToString_ != null || emptyKeyBoolToStringBuilder_ != null) {
+        emptyKeyBoolToStringBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.emptyKeyBoolToString_ = com.google.protobuf.util.JsonFormatProto3.BoolToString.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000200;
+    }
+    /**
+     * <code>.proto3.IntToString empty_key_int_to_string = 11;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.util.JsonFormatProto3.IntToString, com.google.protobuf.util.JsonFormatProto3.IntToString.Builder, com.google.protobuf.util.JsonFormatProto3.IntToStringOrBuilder> 
+        internalGetEmptyKeyIntToStringFieldBuilder(com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.IntToString, com.google.protobuf.util.JsonFormatProto3.IntToString.Builder, com.google.protobuf.util.JsonFormatProto3.IntToStringOrBuilder> emptyKeyIntToStringBuilder_) {
+      if (emptyKeyIntToStringBuilder_ == null) {
+        emptyKeyIntToStringBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.util.JsonFormatProto3.IntToString, com.google.protobuf.util.JsonFormatProto3.IntToString.Builder, com.google.protobuf.util.JsonFormatProto3.IntToStringOrBuilder>(
+                instance.getEmptyKeyIntToString(),
+                null,
+                false);
+        instance.emptyKeyIntToString_ = null;
+      }
+      instance.bitField0_ |= 0x00000400;
+      return emptyKeyIntToStringBuilder_;
+    }
+    private static void parseEmptyKeyIntToStringField(
+        com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.IntToString, com.google.protobuf.util.JsonFormatProto3.IntToString.Builder, com.google.protobuf.util.JsonFormatProto3.IntToStringOrBuilder> emptyKeyIntToStringBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.emptyKeyIntToString_ != null || emptyKeyIntToStringBuilder_ != null) {
+        emptyKeyIntToStringBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.emptyKeyIntToString_ = com.google.protobuf.util.JsonFormatProto3.IntToString.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000400;
+    }
+    /**
+     * <code>.proto3.Mixed1 empty_key_mixed = 12;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.util.JsonFormatProto3.Mixed1, com.google.protobuf.util.JsonFormatProto3.Mixed1.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed1OrBuilder> 
+        internalGetEmptyKeyMixedFieldBuilder(com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.Mixed1, com.google.protobuf.util.JsonFormatProto3.Mixed1.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed1OrBuilder> emptyKeyMixedBuilder_) {
+      if (emptyKeyMixedBuilder_ == null) {
+        emptyKeyMixedBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.util.JsonFormatProto3.Mixed1, com.google.protobuf.util.JsonFormatProto3.Mixed1.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed1OrBuilder>(
+                instance.getEmptyKeyMixed(),
+                null,
+                false);
+        instance.emptyKeyMixed_ = null;
+      }
+      instance.bitField0_ |= 0x00000800;
+      return emptyKeyMixedBuilder_;
+    }
+    private static void parseEmptyKeyMixedField(
+        com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.Mixed1, com.google.protobuf.util.JsonFormatProto3.Mixed1.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed1OrBuilder> emptyKeyMixedBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.emptyKeyMixed_ != null || emptyKeyMixedBuilder_ != null) {
+        emptyKeyMixedBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.emptyKeyMixed_ = com.google.protobuf.util.JsonFormatProto3.Mixed1.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000800;
+    }
+    /**
+     * <code>.proto3.MapOfObjects empty_key_map_objects = 13;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.util.JsonFormatProto3.MapOfObjects, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.Builder, com.google.protobuf.util.JsonFormatProto3.MapOfObjectsOrBuilder> 
+        internalGetEmptyKeyMapObjectsFieldBuilder(com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOfObjects, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.Builder, com.google.protobuf.util.JsonFormatProto3.MapOfObjectsOrBuilder> emptyKeyMapObjectsBuilder_) {
+      if (emptyKeyMapObjectsBuilder_ == null) {
+        emptyKeyMapObjectsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.util.JsonFormatProto3.MapOfObjects, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.Builder, com.google.protobuf.util.JsonFormatProto3.MapOfObjectsOrBuilder>(
+                instance.getEmptyKeyMapObjects(),
+                null,
+                false);
+        instance.emptyKeyMapObjects_ = null;
+      }
+      instance.bitField0_ |= 0x00001000;
+      return emptyKeyMapObjectsBuilder_;
+    }
+    private static void parseEmptyKeyMapObjectsField(
+        com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOfObjects, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.Builder, com.google.protobuf.util.JsonFormatProto3.MapOfObjectsOrBuilder> emptyKeyMapObjectsBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.emptyKeyMapObjects_ != null || emptyKeyMapObjectsBuilder_ != null) {
+        emptyKeyMapObjectsBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.emptyKeyMapObjects_ = com.google.protobuf.util.JsonFormatProto3.MapOfObjects.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00001000;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapsTestCases instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.EmptyMap, com.google.protobuf.util.JsonFormatProto3.EmptyMap.Builder, com.google.protobuf.util.JsonFormatProto3.EmptyMapOrBuilder> emptyMapBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> stringToIntBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.IntToString, com.google.protobuf.util.JsonFormatProto3.IntToString.Builder, com.google.protobuf.util.JsonFormatProto3.IntToStringOrBuilder> intToStringBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.Mixed1, com.google.protobuf.util.JsonFormatProto3.Mixed1.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed1OrBuilder> mixed1Builder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.Mixed2, com.google.protobuf.util.JsonFormatProto3.Mixed2.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed2OrBuilder> mixed2Builder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOfObjects, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.Builder, com.google.protobuf.util.JsonFormatProto3.MapOfObjectsOrBuilder> mapOfObjectsBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> emptyKeyStringToInt1Builder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> emptyKeyStringToInt2Builder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.StringtoInt, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder, com.google.protobuf.util.JsonFormatProto3.StringtoIntOrBuilder> emptyKeyStringToInt3Builder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.BoolToString, com.google.protobuf.util.JsonFormatProto3.BoolToString.Builder, com.google.protobuf.util.JsonFormatProto3.BoolToStringOrBuilder> emptyKeyBoolToStringBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.IntToString, com.google.protobuf.util.JsonFormatProto3.IntToString.Builder, com.google.protobuf.util.JsonFormatProto3.IntToStringOrBuilder> emptyKeyIntToStringBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.Mixed1, com.google.protobuf.util.JsonFormatProto3.Mixed1.Builder, com.google.protobuf.util.JsonFormatProto3.Mixed1OrBuilder> emptyKeyMixedBuilder_,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOfObjects, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.Builder, com.google.protobuf.util.JsonFormatProto3.MapOfObjectsOrBuilder> emptyKeyMapObjectsBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.emptyMap_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.emptyMap_ = emptyMapBuilder_ == null
+            ? instance.emptyMap_
+            : emptyMapBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000002) != 0)) instance.stringToInt_ = null;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.stringToInt_ = stringToIntBuilder_ == null
+            ? instance.stringToInt_
+            : stringToIntBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000004) != 0)) instance.intToString_ = null;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.intToString_ = intToStringBuilder_ == null
+            ? instance.intToString_
+            : intToStringBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000008) != 0)) instance.mixed1_ = null;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.mixed1_ = mixed1Builder_ == null
+            ? instance.mixed1_
+            : mixed1Builder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000010) != 0)) instance.mixed2_ = null;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        instance.mixed2_ = mixed2Builder_ == null
+            ? instance.mixed2_
+            : mixed2Builder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000020) != 0)) instance.mapOfObjects_ = null;
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        instance.mapOfObjects_ = mapOfObjectsBuilder_ == null
+            ? instance.mapOfObjects_
+            : mapOfObjectsBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000040) != 0)) instance.emptyKeyStringToInt1_ = null;
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        instance.emptyKeyStringToInt1_ = emptyKeyStringToInt1Builder_ == null
+            ? instance.emptyKeyStringToInt1_
+            : emptyKeyStringToInt1Builder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000080) != 0)) instance.emptyKeyStringToInt2_ = null;
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        instance.emptyKeyStringToInt2_ = emptyKeyStringToInt2Builder_ == null
+            ? instance.emptyKeyStringToInt2_
+            : emptyKeyStringToInt2Builder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000100) != 0)) instance.emptyKeyStringToInt3_ = null;
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        instance.emptyKeyStringToInt3_ = emptyKeyStringToInt3Builder_ == null
+            ? instance.emptyKeyStringToInt3_
+            : emptyKeyStringToInt3Builder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000200) != 0)) instance.emptyKeyBoolToString_ = null;
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        instance.emptyKeyBoolToString_ = emptyKeyBoolToStringBuilder_ == null
+            ? instance.emptyKeyBoolToString_
+            : emptyKeyBoolToStringBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000400) != 0)) instance.emptyKeyIntToString_ = null;
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        instance.emptyKeyIntToString_ = emptyKeyIntToStringBuilder_ == null
+            ? instance.emptyKeyIntToString_
+            : emptyKeyIntToStringBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000800) != 0)) instance.emptyKeyMixed_ = null;
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        instance.emptyKeyMixed_ = emptyKeyMixedBuilder_ == null
+            ? instance.emptyKeyMixed_
+            : emptyKeyMixedBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00001000) != 0)) instance.emptyKeyMapObjects_ = null;
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        instance.emptyKeyMapObjects_ = emptyKeyMapObjectsBuilder_ == null
+            ? instance.emptyKeyMapObjects_
+            : emptyKeyMapObjectsBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<MapsTestCases>
-        PARSER = new com.google.protobuf.AbstractParser<MapsTestCases>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MapsTestCases> {
+      MessageParser() {}
+
       @java.lang.Override
       public MapsTestCases parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return MapsTestCases.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(MapsTestCases instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<MapsTestCases> parser() {
       return PARSER;
@@ -34318,15 +39933,27 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.EmptyMap.class, com.google.protobuf.util.JsonFormatProto3.EmptyMap.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.EmptyMap.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.EmptyMap other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -34366,12 +39993,17 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.EmptyMap result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.map_ = internalGetMap();
           result.map_.makeImmutable();
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.EmptyMap other, java.lang.Object[] parserLocals) {
+        map_ = other.map_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -34580,22 +40212,92 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static EmptyMap parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      EmptyMap instance = new EmptyMap((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              map__ = input.readMessage(
+                  MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMap(instance).getMutableMap().put(
+                  map__.getKey(), map__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableMap(com.google.protobuf.util.JsonFormatProto3.EmptyMap instance) {
+      if (instance.map_ == null) {
+        instance.map_ = com.google.protobuf.MapField.newMapField(
+            MapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.map_.isMutable()) {
+        instance.map_ = instance.map_.copy();
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return instance.map_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.EmptyMap instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.map_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<EmptyMap>
-        PARSER = new com.google.protobuf.AbstractParser<EmptyMap>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<EmptyMap> {
+      MessageParser() {}
+
       @java.lang.Override
       public EmptyMap parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return EmptyMap.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(EmptyMap instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<EmptyMap> parser() {
       return PARSER;
@@ -35000,15 +40702,27 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.StringtoInt.class, com.google.protobuf.util.JsonFormatProto3.StringtoInt.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.StringtoInt.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.StringtoInt other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -35048,12 +40762,17 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.StringtoInt result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.map_ = internalGetMap();
           result.map_.makeImmutable();
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.StringtoInt other, java.lang.Object[] parserLocals) {
+        map_ = other.map_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -35262,22 +40981,92 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static StringtoInt parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      StringtoInt instance = new StringtoInt((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              map__ = input.readMessage(
+                  MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMap(instance).getMutableMap().put(
+                  map__.getKey(), map__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+        internalGetMutableMap(com.google.protobuf.util.JsonFormatProto3.StringtoInt instance) {
+      if (instance.map_ == null) {
+        instance.map_ = com.google.protobuf.MapField.newMapField(
+            MapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.map_.isMutable()) {
+        instance.map_ = instance.map_.copy();
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return instance.map_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.StringtoInt instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.map_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<StringtoInt>
-        PARSER = new com.google.protobuf.AbstractParser<StringtoInt>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<StringtoInt> {
+      MessageParser() {}
+
       @java.lang.Override
       public StringtoInt parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return StringtoInt.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(StringtoInt instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<StringtoInt> parser() {
       return PARSER;
@@ -35686,15 +41475,27 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.IntToString.class, com.google.protobuf.util.JsonFormatProto3.IntToString.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.IntToString.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.IntToString other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -35734,12 +41535,17 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.IntToString result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.map_ = internalGetMap();
           result.map_.makeImmutable();
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.IntToString other, java.lang.Object[] parserLocals) {
+        map_ = other.map_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -35950,22 +41756,92 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static IntToString parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      IntToString instance = new IntToString((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.String>
+              map__ = input.readMessage(
+                  MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMap(instance).getMutableMap().put(
+                  map__.getKey(), map__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.String>
+        internalGetMutableMap(com.google.protobuf.util.JsonFormatProto3.IntToString instance) {
+      if (instance.map_ == null) {
+        instance.map_ = com.google.protobuf.MapField.newMapField(
+            MapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.map_.isMutable()) {
+        instance.map_ = instance.map_.copy();
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return instance.map_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.IntToString instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.map_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<IntToString>
-        PARSER = new com.google.protobuf.AbstractParser<IntToString>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<IntToString> {
+      MessageParser() {}
+
       @java.lang.Override
       public IntToString parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return IntToString.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(IntToString instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<IntToString> parser() {
       return PARSER;
@@ -36374,15 +42250,27 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.BoolToString.class, com.google.protobuf.util.JsonFormatProto3.BoolToString.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.BoolToString.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.BoolToString other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -36422,12 +42310,17 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.BoolToString result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.map_ = internalGetMap();
           result.map_.makeImmutable();
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.BoolToString other, java.lang.Object[] parserLocals) {
+        map_ = other.map_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -36638,22 +42531,92 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static BoolToString parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      BoolToString instance = new BoolToString((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.String>
+              map__ = input.readMessage(
+                  MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMap(instance).getMutableMap().put(
+                  map__.getKey(), map__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.Boolean, java.lang.String>
+        internalGetMutableMap(com.google.protobuf.util.JsonFormatProto3.BoolToString instance) {
+      if (instance.map_ == null) {
+        instance.map_ = com.google.protobuf.MapField.newMapField(
+            MapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.map_.isMutable()) {
+        instance.map_ = instance.map_.copy();
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return instance.map_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.BoolToString instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.map_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<BoolToString>
-        PARSER = new com.google.protobuf.AbstractParser<BoolToString>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<BoolToString> {
+      MessageParser() {}
+
       @java.lang.Override
       public BoolToString parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return BoolToString.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(BoolToString instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<BoolToString> parser() {
       return PARSER;
@@ -37120,15 +43083,28 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.Mixed1.class, com.google.protobuf.util.JsonFormatProto3.Mixed1.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.Mixed1.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        msg_ = "";
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.Mixed1 other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -37169,7 +43145,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.Mixed1 result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.msg_ = msg_;
           ;
@@ -37179,6 +43155,12 @@ java.lang.String defaultValue) {
           result.map_.makeImmutable();
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.Mixed1 other, java.lang.Object[] parserLocals) {
+        msg_ = other.msg_;
+        map_ = other.map_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -37258,7 +43240,7 @@ java.lang.String defaultValue) {
       }
       private int bitField0_;
 
-      private java.lang.Object msg_ = "";
+      private java.lang.Object msg_;
       /**
        * <code>string msg = 1;</code>
        * @return The msg.
@@ -37469,22 +43451,97 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static Mixed1 parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Mixed1 instance = new Mixed1((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.msg_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Float>
+              map__ = input.readMessage(
+                  MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMap(instance).getMutableMap().put(
+                  map__.getKey(), map__.getValue());
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.Float>
+        internalGetMutableMap(com.google.protobuf.util.JsonFormatProto3.Mixed1 instance) {
+      if (instance.map_ == null) {
+        instance.map_ = com.google.protobuf.MapField.newMapField(
+            MapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.map_.isMutable()) {
+        instance.map_ = instance.map_.copy();
+      }
+      instance.bitField0_ |= 0x00000002;
+
+      return instance.map_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.Mixed1 instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.map_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<Mixed1>
-        PARSER = new com.google.protobuf.AbstractParser<Mixed1>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Mixed1> {
+      MessageParser() {}
+
       @java.lang.Override
       public Mixed1 parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Mixed1.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Mixed1 instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Mixed1> parser() {
       return PARSER;
@@ -38064,15 +44121,28 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.Mixed2.class, com.google.protobuf.util.JsonFormatProto3.Mixed2.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.Mixed2.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        ee_ = 0;
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.Mixed2 other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -38113,7 +44183,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.Mixed2 result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.map_ = internalGetMap();
           result.map_.makeImmutable();
@@ -38123,6 +44193,12 @@ java.lang.String defaultValue) {
           ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.Mixed2 other, java.lang.Object[] parserLocals) {
+        map_ = other.map_;
+        ee_ = other.getEeValue();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -38326,7 +44402,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private int ee_ = 0;
+      private int ee_;
       /**
        * <code>.proto3.Mixed2.E ee = 2;</code>
        * @return The enum numeric value on the wire for ee.
@@ -38391,22 +44467,97 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static Mixed2 parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Mixed2 instance = new Mixed2((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Boolean>
+              map__ = input.readMessage(
+                  MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMap(instance).getMutableMap().put(
+                  map__.getKey(), map__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              instance.ee_ = input.readEnum();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Boolean>
+        internalGetMutableMap(com.google.protobuf.util.JsonFormatProto3.Mixed2 instance) {
+      if (instance.map_ == null) {
+        instance.map_ = com.google.protobuf.MapField.newMapField(
+            MapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.map_.isMutable()) {
+        instance.map_ = instance.map_.copy();
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return instance.map_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.Mixed2 instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.map_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<Mixed2>
-        PARSER = new com.google.protobuf.AbstractParser<Mixed2>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Mixed2> {
+      MessageParser() {}
+
       @java.lang.Override
       public Mixed2 parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Mixed2.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Mixed2 instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Mixed2> parser() {
       return PARSER;
@@ -38795,15 +44946,28 @@ com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M defaultValue);
                   com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M.class, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+          innerText_ = "";
+        }
+        private Builder(com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         @java.lang.Override
         public Builder clear() {
@@ -38843,12 +45007,17 @@ com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M defaultValue);
 
         private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.innerText_ = innerText_;
             ;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M other, java.lang.Object[] parserLocals) {
+          innerText_ = other.innerText_;
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -38914,7 +45083,7 @@ com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M defaultValue);
         }
         private int bitField0_;
 
-        private java.lang.Object innerText_ = "";
+        private java.lang.Object innerText_;
         /**
          * <code>string inner_text = 1;</code>
          * @return The innerText.
@@ -38999,22 +45168,67 @@ com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M defaultValue);
         return DEFAULT_INSTANCE;
       }
 
+      static M parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        M instance = new M((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                instance.innerText_ = input.readStringRequireUtf8();
+                instance.bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<M>
-          PARSER = new com.google.protobuf.AbstractParser<M>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<M> {
+        MessageParser() {}
+
         @java.lang.Override
         public M parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return M.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(M instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<M> parser() {
         return PARSER;
@@ -39331,15 +45545,27 @@ com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.MapOfObjects.class, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.MapOfObjects.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.MapOfObjects other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -39379,11 +45605,25 @@ com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOfObjects result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.map_ = internalGetMap().build(MapDefaultEntryHolder.defaultEntry);
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOfObjects other, java.lang.Object[] parserLocals) {
+        if (parserLocals == null && other.map_ != null) {
+          map_ = new com.google.protobuf.MapFieldBuilder<>(mapConverter);
+          map_.ensureBuilderMap().putAll(other.map_.getMap());
+        }
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            map_ = (com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.MOrBuilder, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M.Builder>) parserLocals[0];
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -39621,22 +45861,90 @@ com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static MapOfObjects parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MapOfObjects instance = new MapOfObjects((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.MOrBuilder, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M.Builder> parsed_map = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M>
+              map__ = input.readMessage(
+                  MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              (parsed_map = internalGetMutableMap(instance, parsed_map)).ensureBuilderMap().put(
+                  map__.getKey(), map__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, parsed_map);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.MOrBuilder, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M.Builder>
+        internalGetMutableMap(com.google.protobuf.util.JsonFormatProto3.MapOfObjects instance, com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.MOrBuilder, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M.Builder> parsed_map) {
+      if (parsed_map == null) {
+        parsed_map = new com.google.protobuf.MapFieldBuilder<>(Builder.mapConverter);
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return parsed_map;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOfObjects instance,
+        com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.MOrBuilder, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M, com.google.protobuf.util.JsonFormatProto3.MapOfObjects.M.Builder> parsed_map) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.map_ = parsed_map.build(MapDefaultEntryHolder.defaultEntry);
+      }
+    }
+
     private static final com.google.protobuf.Parser<MapOfObjects>
-        PARSER = new com.google.protobuf.AbstractParser<MapOfObjects>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MapOfObjects> {
+      MessageParser() {}
+
       @java.lang.Override
       public MapOfObjects parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return MapOfObjects.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(MapOfObjects instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<MapOfObjects> parser() {
       return PARSER;
@@ -40127,15 +46435,27 @@ com.google.protobuf.util.JsonFormatProto3.EnumType defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.MapOfEnums.class, com.google.protobuf.util.JsonFormatProto3.MapOfEnums.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.MapOfEnums.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.MapOfEnums other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -40175,12 +46495,17 @@ com.google.protobuf.util.JsonFormatProto3.EnumType defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOfEnums result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.map_ = internalGetMap();
           result.map_.makeImmutable();
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOfEnums other, java.lang.Object[] parserLocals) {
+        map_ = other.map_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -40472,22 +46797,92 @@ com.google.protobuf.util.JsonFormatProto3.EnumType defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static MapOfEnums parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MapOfEnums instance = new MapOfEnums((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              map__ = input.readMessage(
+                  MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMap(instance).getMutableMap().put(
+                  map__.getKey(), map__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+        internalGetMutableMap(com.google.protobuf.util.JsonFormatProto3.MapOfEnums instance) {
+      if (instance.map_ == null) {
+        instance.map_ = com.google.protobuf.MapField.newMapField(
+            MapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.map_.isMutable()) {
+        instance.map_ = instance.map_.copy();
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return instance.map_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOfEnums instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.map_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<MapOfEnums>
-        PARSER = new com.google.protobuf.AbstractParser<MapOfEnums>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MapOfEnums> {
+      MessageParser() {}
+
       @java.lang.Override
       public MapOfEnums parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return MapOfEnums.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(MapOfEnums instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<MapOfEnums> parser() {
       return PARSER;
@@ -41185,15 +47580,30 @@ com.google.protobuf.Any defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.MapIn.class, com.google.protobuf.util.JsonFormatProto3.MapIn.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.MapIn.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        other_ = "";
+        things_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.MapIn other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -41237,7 +47647,7 @@ com.google.protobuf.Any defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapIn result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.other_ = other_;
           ;
@@ -41254,6 +47664,23 @@ com.google.protobuf.Any defaultValue) {
           result.mapAny_ = internalGetMapAny().build(MapAnyDefaultEntryHolder.defaultEntry);
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapIn other, java.lang.Object[] parserLocals) {
+        other_ = other.other_;
+        things_ = other.things_;
+        mapInput_ = other.mapInput_;
+        if (parserLocals == null && other.mapAny_ != null) {
+          mapAny_ = new com.google.protobuf.MapFieldBuilder<>(mapAnyConverter);
+          mapAny_.ensureBuilderMap().putAll(other.mapAny_.getMap());
+        }
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            mapAny_ = (com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.AnyOrBuilder, com.google.protobuf.Any, com.google.protobuf.Any.Builder>) parserLocals[0];
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -41362,7 +47789,7 @@ com.google.protobuf.Any defaultValue) {
       }
       private int bitField0_;
 
-      private java.lang.Object other_ = "";
+      private java.lang.Object other_;
       /**
        * <code>string other = 1;</code>
        * @return The other.
@@ -41434,8 +47861,7 @@ com.google.protobuf.Any defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList things_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList things_;
       private void ensureThingsIsMutable() {
         if (!things_.isModifiable()) {
           things_ = new com.google.protobuf.LazyStringArrayList(things_);
@@ -41841,22 +48267,134 @@ com.google.protobuf.Any defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static MapIn parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MapIn instance = new MapIn((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.AnyOrBuilder, com.google.protobuf.Any, com.google.protobuf.Any.Builder> parsed_mapAny = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.other_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              ensureThingsIsMutable(instance);
+              instance.things_.add(input.readStringRequireUtf8());
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              mapInput__ = input.readMessage(
+                  MapInputDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapInput(instance).getMutableMap().put(
+                  mapInput__.getKey(), mapInput__.getValue());
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Any>
+              mapAny__ = input.readMessage(
+                  MapAnyDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              (parsed_mapAny = internalGetMutableMapAny(instance, parsed_mapAny)).ensureBuilderMap().put(
+                  mapAny__.getKey(), mapAny__.getValue());
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, parsed_mapAny);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureThingsIsMutable(com.google.protobuf.util.JsonFormatProto3.MapIn instance) {
+      if (!instance.things_.isModifiable()) {
+        instance.things_ = new com.google.protobuf.LazyStringArrayList(instance.things_);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMutableMapInput(com.google.protobuf.util.JsonFormatProto3.MapIn instance) {
+      if (instance.mapInput_ == null) {
+        instance.mapInput_ = com.google.protobuf.MapField.newMapField(
+            MapInputDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapInput_.isMutable()) {
+        instance.mapInput_ = instance.mapInput_.copy();
+      }
+      instance.bitField0_ |= 0x00000004;
+
+      return instance.mapInput_;
+    }
+    private static com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.AnyOrBuilder, com.google.protobuf.Any, com.google.protobuf.Any.Builder>
+        internalGetMutableMapAny(com.google.protobuf.util.JsonFormatProto3.MapIn instance, com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.AnyOrBuilder, com.google.protobuf.Any, com.google.protobuf.Any.Builder> parsed_mapAny) {
+      if (parsed_mapAny == null) {
+        parsed_mapAny = new com.google.protobuf.MapFieldBuilder<>(Builder.mapAnyConverter);
+      }
+      instance.bitField0_ |= 0x00000008;
+
+      return parsed_mapAny;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapIn instance,
+        com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.AnyOrBuilder, com.google.protobuf.Any, com.google.protobuf.Any.Builder> parsed_mapAny) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.things_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.mapInput_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.mapAny_ = parsed_mapAny.build(MapAnyDefaultEntryHolder.defaultEntry);
+      }
+    }
+
     private static final com.google.protobuf.Parser<MapIn>
-        PARSER = new com.google.protobuf.AbstractParser<MapIn>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MapIn> {
+      MessageParser() {}
+
       @java.lang.Override
       public MapIn parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return MapIn.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(MapIn instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<MapIn> parser() {
       return PARSER;
@@ -42765,15 +49303,28 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.MapOut.class, com.google.protobuf.util.JsonFormatProto3.MapOut.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.MapOut.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        bar_ = "";
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.MapOut other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -42817,7 +49368,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOut result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.map1_ = internalGetMap1().build(Map1DefaultEntryHolder.defaultEntry);
         }
@@ -42837,6 +49388,30 @@ java.lang.String defaultValue) {
           ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOut other, java.lang.Object[] parserLocals) {
+        if (parserLocals == null && other.map1_ != null) {
+          map1_ = new com.google.protobuf.MapFieldBuilder<>(map1Converter);
+          map1_.ensureBuilderMap().putAll(other.map1_.getMap());
+        }
+        if (parserLocals == null && other.map2_ != null) {
+          map2_ = new com.google.protobuf.MapFieldBuilder<>(map2Converter);
+          map2_.ensureBuilderMap().putAll(other.map2_.getMap());
+        }
+        map3_ = other.map3_;
+        map4_ = other.map4_;
+        bar_ = other.bar_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            map1_ = (com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapMOrBuilder, com.google.protobuf.util.JsonFormatProto3.MapM, com.google.protobuf.util.JsonFormatProto3.MapM.Builder>) parserLocals[0];
+          }
+          if (parserLocals[1] != null) {
+            map2_ = (com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapOutOrBuilder, com.google.protobuf.util.JsonFormatProto3.MapOut, com.google.protobuf.util.JsonFormatProto3.MapOut.Builder>) parserLocals[1];
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -43524,7 +50099,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private java.lang.Object bar_ = "";
+      private java.lang.Object bar_;
       /**
        * <code>string bar = 4;</code>
        * @return The bar.
@@ -43609,22 +50184,168 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static MapOut parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MapOut instance = new MapOut((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapMOrBuilder, com.google.protobuf.util.JsonFormatProto3.MapM, com.google.protobuf.util.JsonFormatProto3.MapM.Builder> parsed_map1 = null;
+      com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapOutOrBuilder, com.google.protobuf.util.JsonFormatProto3.MapOut, com.google.protobuf.util.JsonFormatProto3.MapOut.Builder> parsed_map2 = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapM>
+              map1__ = input.readMessage(
+                  Map1DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              (parsed_map1 = internalGetMutableMap1(instance, parsed_map1)).ensureBuilderMap().put(
+                  map1__.getKey(), map1__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapOut>
+              map2__ = input.readMessage(
+                  Map2DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              (parsed_map2 = internalGetMutableMap2(instance, parsed_map2)).ensureBuilderMap().put(
+                  map2__.getKey(), map2__.getValue());
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.String>
+              map3__ = input.readMessage(
+                  Map3DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMap3(instance).getMutableMap().put(
+                  map3__.getKey(), map3__.getValue());
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              instance.bar_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.String>
+              map4__ = input.readMessage(
+                  Map4DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMap4(instance).getMutableMap().put(
+                  map4__.getKey(), map4__.getValue());
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 42
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, parsed_map1, parsed_map2);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapMOrBuilder, com.google.protobuf.util.JsonFormatProto3.MapM, com.google.protobuf.util.JsonFormatProto3.MapM.Builder>
+        internalGetMutableMap1(com.google.protobuf.util.JsonFormatProto3.MapOut instance, com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapMOrBuilder, com.google.protobuf.util.JsonFormatProto3.MapM, com.google.protobuf.util.JsonFormatProto3.MapM.Builder> parsed_map1) {
+      if (parsed_map1 == null) {
+        parsed_map1 = new com.google.protobuf.MapFieldBuilder<>(Builder.map1Converter);
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return parsed_map1;
+    }
+    private static com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapOutOrBuilder, com.google.protobuf.util.JsonFormatProto3.MapOut, com.google.protobuf.util.JsonFormatProto3.MapOut.Builder>
+        internalGetMutableMap2(com.google.protobuf.util.JsonFormatProto3.MapOut instance, com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapOutOrBuilder, com.google.protobuf.util.JsonFormatProto3.MapOut, com.google.protobuf.util.JsonFormatProto3.MapOut.Builder> parsed_map2) {
+      if (parsed_map2 == null) {
+        parsed_map2 = new com.google.protobuf.MapFieldBuilder<>(Builder.map2Converter);
+      }
+      instance.bitField0_ |= 0x00000002;
+
+      return parsed_map2;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.String>
+        internalGetMutableMap3(com.google.protobuf.util.JsonFormatProto3.MapOut instance) {
+      if (instance.map3_ == null) {
+        instance.map3_ = com.google.protobuf.MapField.newMapField(
+            Map3DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.map3_.isMutable()) {
+        instance.map3_ = instance.map3_.copy();
+      }
+      instance.bitField0_ |= 0x00000004;
+
+      return instance.map3_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Boolean, java.lang.String>
+        internalGetMutableMap4(com.google.protobuf.util.JsonFormatProto3.MapOut instance) {
+      if (instance.map4_ == null) {
+        instance.map4_ = com.google.protobuf.MapField.newMapField(
+            Map4DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.map4_.isMutable()) {
+        instance.map4_ = instance.map4_.copy();
+      }
+      instance.bitField0_ |= 0x00000008;
+
+      return instance.map4_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOut instance,
+        com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapMOrBuilder, com.google.protobuf.util.JsonFormatProto3.MapM, com.google.protobuf.util.JsonFormatProto3.MapM.Builder> parsed_map1,
+        com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.util.JsonFormatProto3.MapOutOrBuilder, com.google.protobuf.util.JsonFormatProto3.MapOut, com.google.protobuf.util.JsonFormatProto3.MapOut.Builder> parsed_map2) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.map1_ = parsed_map1.build(Map1DefaultEntryHolder.defaultEntry);
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.map2_ = parsed_map2.build(Map2DefaultEntryHolder.defaultEntry);
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.map3_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.map4_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<MapOut>
-        PARSER = new com.google.protobuf.AbstractParser<MapOut>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MapOut> {
+      MessageParser() {}
+
       @java.lang.Override
       public MapOut parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return MapOut.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(MapOut instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<MapOut> parser() {
       return PARSER;
@@ -44152,15 +50873,29 @@ java.lang.String defaultValue) {
                   com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry.class, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+          key_ = "";
           maybeForceBuilderInitialization();
+        }
+        private Builder(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         private void maybeForceBuilderInitialization() {
           if (com.google.protobuf.GeneratedMessage
@@ -44211,7 +50946,7 @@ java.lang.String defaultValue) {
 
         private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.value_ = valueBuilder_ == null
                 ? value_
@@ -44223,6 +50958,19 @@ java.lang.String defaultValue) {
             ;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        @java.lang.SuppressWarnings("unchecked")
+        private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry other, java.lang.Object[] parserLocals) {
+          value_ = other.value_;
+          key_ = other.key_;
+          if (parserLocals != null) {
+            if (parserLocals[0] != null) {
+              valueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapM, com.google.protobuf.util.JsonFormatProto3.MapM.Builder, com.google.protobuf.util.JsonFormatProto3.MapMOrBuilder>) parserLocals[0]);
+              value_ = null;
+            }
+          }
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -44293,9 +51041,21 @@ java.lang.String defaultValue) {
           } // finally
           return this;
         }
+        private boolean mergeFromPendingField(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+            throws java.io.IOException {
+          switch (tag) {
+            case 18: {
+              parseValueField(input, extensionRegistry);
+              return true;
+            } // case 18
+            default: return super.parseUnknownField(input, extensionRegistry, tag);
+          }
+        }
         private int bitField0_;
 
-        private java.lang.Object key_ = "";
+        private java.lang.Object key_;
         /**
          * <code>string key = 1;</code>
          * @return The key.
@@ -44486,7 +51246,7 @@ java.lang.String defaultValue) {
             throws java.io.IOException {
           final int oldLimit = input.pushLimitBeforeMessage();
           if (value_ != null || valueBuilder_ != null) {
-            internalGetValueFieldBuilder().getBuilder()
+            internalGetValueFieldBuilder().getBuilderForParsing()
                 .mergeFrom(input, extensionRegistry);
           } else {
             value_ = com.google.protobuf.util.JsonFormatProto3.MapM.parser().parsePartialFrom(input, extensionRegistry);
@@ -44508,22 +51268,137 @@ java.lang.String defaultValue) {
         return DEFAULT_INSTANCE;
       }
 
+      static Map1Entry parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Map1Entry instance = new Map1Entry((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        int pendingTag = 0;
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapM, com.google.protobuf.util.JsonFormatProto3.MapM.Builder, com.google.protobuf.util.JsonFormatProto3.MapMOrBuilder> valueBuilder_ = null;
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          valueBuilder_ = internalGetValueFieldBuilder(instance, valueBuilder_);
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                instance.key_ = input.readStringRequireUtf8();
+                instance.bitField0_ |= 0x00000002;
+                break;
+              } // case 10
+              case 18: {
+                if (instance.value_ != null || valueBuilder_ != null) {
+                  pendingTag = tag;
+                  done = true;
+                  break;
+                }
+                parseValueField(instance, input, extensionRegistry, valueBuilder_);
+                break;
+              } // case 18
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (parseFailure == null && pendingTag != 0) {
+          Builder builder = new Builder(instance, unknown, new java.lang.Object[] {valueBuilder_});
+          try {
+            if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+              builder.mergeFrom(input, extensionRegistry);
+            }
+          } catch (java.io.IOException e) {
+            com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+          }
+          return builder.buildPartial();
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        buildPartial_autosplit_0(instance, valueBuilder_);
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
+      /**
+       * <code>.proto3.MapM value = 2;</code>
+       */
+      private static com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.util.JsonFormatProto3.MapM, com.google.protobuf.util.JsonFormatProto3.MapM.Builder, com.google.protobuf.util.JsonFormatProto3.MapMOrBuilder> 
+          internalGetValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapM, com.google.protobuf.util.JsonFormatProto3.MapM.Builder, com.google.protobuf.util.JsonFormatProto3.MapMOrBuilder> valueBuilder_) {
+        if (valueBuilder_ == null) {
+          valueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.google.protobuf.util.JsonFormatProto3.MapM, com.google.protobuf.util.JsonFormatProto3.MapM.Builder, com.google.protobuf.util.JsonFormatProto3.MapMOrBuilder>(
+                  instance.getValue(),
+                  null,
+                  false);
+          instance.value_ = null;
+        }
+        instance.bitField0_ |= 0x00000001;
+        return valueBuilder_;
+      }
+      private static void parseValueField(
+          com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapM, com.google.protobuf.util.JsonFormatProto3.MapM.Builder, com.google.protobuf.util.JsonFormatProto3.MapMOrBuilder> valueBuilder_)
+          throws java.io.IOException {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value_ != null || valueBuilder_ != null) {
+          valueBuilder_.getBuilderForParsing()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value_ = com.google.protobuf.util.JsonFormatProto3.MapM.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+      }
+      private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry instance,
+          com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapM, com.google.protobuf.util.JsonFormatProto3.MapM.Builder, com.google.protobuf.util.JsonFormatProto3.MapMOrBuilder> valueBuilder_) {
+        int from_bitField0_ = instance.bitField0_;
+        if (!((from_bitField0_ & 0x00000001) != 0)) instance.value_ = null;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          instance.value_ = valueBuilder_ == null
+              ? instance.value_
+              : valueBuilder_.build();
+        }
+      }
+
       private static final com.google.protobuf.Parser<Map1Entry>
-          PARSER = new com.google.protobuf.AbstractParser<Map1Entry>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<Map1Entry> {
+        MessageParser() {}
+
         @java.lang.Override
         public Map1Entry parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return Map1Entry.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(Map1Entry instance) {
+          Builder builder = new Builder(instance, null, null);
+          builder.maybeForceBuilderInitialization();
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<Map1Entry> parser() {
         return PARSER;
@@ -44885,15 +51760,29 @@ java.lang.String defaultValue) {
                   com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry.class, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+          key_ = "";
           maybeForceBuilderInitialization();
+        }
+        private Builder(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         private void maybeForceBuilderInitialization() {
           if (com.google.protobuf.GeneratedMessage
@@ -44944,7 +51833,7 @@ java.lang.String defaultValue) {
 
         private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.value_ = valueBuilder_ == null
                 ? value_
@@ -44956,6 +51845,19 @@ java.lang.String defaultValue) {
             ;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        @java.lang.SuppressWarnings("unchecked")
+        private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry other, java.lang.Object[] parserLocals) {
+          value_ = other.value_;
+          key_ = other.key_;
+          if (parserLocals != null) {
+            if (parserLocals[0] != null) {
+              valueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOut, com.google.protobuf.util.JsonFormatProto3.MapOut.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutOrBuilder>) parserLocals[0]);
+              value_ = null;
+            }
+          }
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -45026,9 +51928,21 @@ java.lang.String defaultValue) {
           } // finally
           return this;
         }
+        private boolean mergeFromPendingField(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+            throws java.io.IOException {
+          switch (tag) {
+            case 18: {
+              parseValueField(input, extensionRegistry);
+              return true;
+            } // case 18
+            default: return super.parseUnknownField(input, extensionRegistry, tag);
+          }
+        }
         private int bitField0_;
 
-        private java.lang.Object key_ = "";
+        private java.lang.Object key_;
         /**
          * <code>string key = 1;</code>
          * @return The key.
@@ -45219,7 +52133,7 @@ java.lang.String defaultValue) {
             throws java.io.IOException {
           final int oldLimit = input.pushLimitBeforeMessage();
           if (value_ != null || valueBuilder_ != null) {
-            internalGetValueFieldBuilder().getBuilder()
+            internalGetValueFieldBuilder().getBuilderForParsing()
                 .mergeFrom(input, extensionRegistry);
           } else {
             value_ = com.google.protobuf.util.JsonFormatProto3.MapOut.parser().parsePartialFrom(input, extensionRegistry);
@@ -45241,22 +52155,137 @@ java.lang.String defaultValue) {
         return DEFAULT_INSTANCE;
       }
 
+      static Map2Entry parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Map2Entry instance = new Map2Entry((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        int pendingTag = 0;
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOut, com.google.protobuf.util.JsonFormatProto3.MapOut.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutOrBuilder> valueBuilder_ = null;
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          valueBuilder_ = internalGetValueFieldBuilder(instance, valueBuilder_);
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                instance.key_ = input.readStringRequireUtf8();
+                instance.bitField0_ |= 0x00000002;
+                break;
+              } // case 10
+              case 18: {
+                if (instance.value_ != null || valueBuilder_ != null) {
+                  pendingTag = tag;
+                  done = true;
+                  break;
+                }
+                parseValueField(instance, input, extensionRegistry, valueBuilder_);
+                break;
+              } // case 18
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (parseFailure == null && pendingTag != 0) {
+          Builder builder = new Builder(instance, unknown, new java.lang.Object[] {valueBuilder_});
+          try {
+            if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+              builder.mergeFrom(input, extensionRegistry);
+            }
+          } catch (java.io.IOException e) {
+            com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+          }
+          return builder.buildPartial();
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        buildPartial_autosplit_0(instance, valueBuilder_);
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
+      /**
+       * <code>.proto3.MapOut value = 2;</code>
+       */
+      private static com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.util.JsonFormatProto3.MapOut, com.google.protobuf.util.JsonFormatProto3.MapOut.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutOrBuilder> 
+          internalGetValueFieldBuilder(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOut, com.google.protobuf.util.JsonFormatProto3.MapOut.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutOrBuilder> valueBuilder_) {
+        if (valueBuilder_ == null) {
+          valueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              com.google.protobuf.util.JsonFormatProto3.MapOut, com.google.protobuf.util.JsonFormatProto3.MapOut.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutOrBuilder>(
+                  instance.getValue(),
+                  null,
+                  false);
+          instance.value_ = null;
+        }
+        instance.bitField0_ |= 0x00000001;
+        return valueBuilder_;
+      }
+      private static void parseValueField(
+          com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOut, com.google.protobuf.util.JsonFormatProto3.MapOut.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutOrBuilder> valueBuilder_)
+          throws java.io.IOException {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value_ != null || valueBuilder_ != null) {
+          valueBuilder_.getBuilderForParsing()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value_ = com.google.protobuf.util.JsonFormatProto3.MapOut.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+      }
+      private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry instance,
+          com.google.protobuf.SingleFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOut, com.google.protobuf.util.JsonFormatProto3.MapOut.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutOrBuilder> valueBuilder_) {
+        int from_bitField0_ = instance.bitField0_;
+        if (!((from_bitField0_ & 0x00000001) != 0)) instance.value_ = null;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          instance.value_ = valueBuilder_ == null
+              ? instance.value_
+              : valueBuilder_.build();
+        }
+      }
+
       private static final com.google.protobuf.Parser<Map2Entry>
-          PARSER = new com.google.protobuf.AbstractParser<Map2Entry>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<Map2Entry> {
+        MessageParser() {}
+
         @java.lang.Override
         public Map2Entry parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return Map2Entry.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(Map2Entry instance) {
+          Builder builder = new Builder(instance, null, null);
+          builder.maybeForceBuilderInitialization();
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<Map2Entry> parser() {
         return PARSER;
@@ -45581,15 +52610,28 @@ java.lang.String defaultValue) {
                   com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry.class, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+          value_ = "";
+        }
+        private Builder(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         @java.lang.Override
         public Builder clear() {
@@ -45630,7 +52672,7 @@ java.lang.String defaultValue) {
 
         private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.key_ = key_;
             
@@ -45640,6 +52682,12 @@ java.lang.String defaultValue) {
             ;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry other, java.lang.Object[] parserLocals) {
+          key_ = other.getKey();
+          value_ = other.value_;
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -45713,7 +52761,7 @@ java.lang.String defaultValue) {
         }
         private int bitField0_;
 
-        private int key_ ;
+        private int key_;
         /**
          * <code>int32 key = 1;</code>
          * @return The key.
@@ -45745,7 +52793,7 @@ java.lang.String defaultValue) {
           return this;
         }
 
-        private java.lang.Object value_ = "";
+        private java.lang.Object value_;
         /**
          * <code>string value = 2;</code>
          * @return The value.
@@ -45830,22 +52878,72 @@ java.lang.String defaultValue) {
         return DEFAULT_INSTANCE;
       }
 
+      static Map3Entry parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Map3Entry instance = new Map3Entry((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                instance.key_ = input.readInt32();
+                instance.bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                instance.value_ = input.readStringRequireUtf8();
+                instance.bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<Map3Entry>
-          PARSER = new com.google.protobuf.AbstractParser<Map3Entry>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<Map3Entry> {
+        MessageParser() {}
+
         @java.lang.Override
         public Map3Entry parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return Map3Entry.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(Map3Entry instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<Map3Entry> parser() {
         return PARSER;
@@ -46171,15 +53269,28 @@ java.lang.String defaultValue) {
                   com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry.class, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+          value_ = "";
+        }
+        private Builder(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         @java.lang.Override
         public Builder clear() {
@@ -46220,7 +53331,7 @@ java.lang.String defaultValue) {
 
         private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.key_ = key_;
             
@@ -46230,6 +53341,12 @@ java.lang.String defaultValue) {
             ;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry other, java.lang.Object[] parserLocals) {
+          key_ = other.getKey();
+          value_ = other.value_;
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -46303,7 +53420,7 @@ java.lang.String defaultValue) {
         }
         private int bitField0_;
 
-        private boolean key_ ;
+        private boolean key_;
         /**
          * <code>bool key = 1;</code>
          * @return The key.
@@ -46335,7 +53452,7 @@ java.lang.String defaultValue) {
           return this;
         }
 
-        private java.lang.Object value_ = "";
+        private java.lang.Object value_;
         /**
          * <code>string value = 2;</code>
          * @return The value.
@@ -46420,22 +53537,72 @@ java.lang.String defaultValue) {
         return DEFAULT_INSTANCE;
       }
 
+      static Map4Entry parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Map4Entry instance = new Map4Entry((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                instance.key_ = input.readBool();
+                instance.bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                instance.value_ = input.readStringRequireUtf8();
+                instance.bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<Map4Entry>
-          PARSER = new com.google.protobuf.AbstractParser<Map4Entry>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<Map4Entry> {
+        MessageParser() {}
+
         @java.lang.Override
         public Map4Entry parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return Map4Entry.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(Map4Entry instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<Map4Entry> parser() {
         return PARSER;
@@ -46948,15 +54115,32 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.class, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        map1_ = emptyList(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry.class);
+        map2_ = emptyList(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry.class);
+        map3_ = emptyList(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry.class);
+        map4_ = emptyList(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry.class);
+        bar_ = "";
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -47024,7 +54208,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
         if (map1Builder_ == null) {
           map1_.makeImmutable();
@@ -47062,6 +54246,34 @@ java.lang.String defaultValue) {
           ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat other, java.lang.Object[] parserLocals) {
+        map1_ = other.map1_;
+        map2_ = other.map2_;
+        map3_ = other.map3_;
+        map4_ = other.map4_;
+        bar_ = other.bar_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            map1Builder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1EntryOrBuilder>) parserLocals[0]);
+            map1_ = null;
+          }
+          if (parserLocals[1] != null) {
+            map2Builder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2EntryOrBuilder>) parserLocals[1]);
+            map2_ = null;
+          }
+          if (parserLocals[2] != null) {
+            map3Builder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3EntryOrBuilder>) parserLocals[2]);
+            map3_ = null;
+          }
+          if (parserLocals[3] != null) {
+            map4Builder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4EntryOrBuilder>) parserLocals[3]);
+            map4_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -47295,8 +54507,7 @@ java.lang.String defaultValue) {
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry> map1_ =
-          emptyList(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry> map1_;
       private void ensureMap1IsMutable() {
         if (!map1_.isModifiable()) {
           map1_ = makeMutableCopy(map1_);
@@ -47529,8 +54740,7 @@ java.lang.String defaultValue) {
         return map1Builder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry> map2_ =
-          emptyList(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry> map2_;
       private void ensureMap2IsMutable() {
         if (!map2_.isModifiable()) {
           map2_ = makeMutableCopy(map2_);
@@ -47763,8 +54973,7 @@ java.lang.String defaultValue) {
         return map2Builder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry> map3_ =
-          emptyList(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry> map3_;
       private void ensureMap3IsMutable() {
         if (!map3_.isModifiable()) {
           map3_ = makeMutableCopy(map3_);
@@ -47997,8 +55206,7 @@ java.lang.String defaultValue) {
         return map3Builder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry> map4_ =
-          emptyList(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry> map4_;
       private void ensureMap4IsMutable() {
         if (!map4_.isModifiable()) {
           map4_ = makeMutableCopy(map4_);
@@ -48231,7 +55439,7 @@ java.lang.String defaultValue) {
         return map4Builder_;
       }
 
-      private java.lang.Object bar_ = "";
+      private java.lang.Object bar_;
       /**
        * <code>string bar = 4;</code>
        * @return The bar.
@@ -48316,22 +55524,188 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static MapOutWireFormat parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MapOutWireFormat instance = new MapOutWireFormat((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1EntryOrBuilder> map1Builder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2EntryOrBuilder> map2Builder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3EntryOrBuilder> map3Builder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4EntryOrBuilder> map4Builder_ = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry m = com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (map1Builder_ == null) {
+                ensureMap1IsMutable(instance);
+                instance.map1_.add(m);
+              } else {
+                map1Builder_.addMessage(m);
+                instance.bitField0_ |= 0x00000001;
+
+              }
+              break;
+            } // case 10
+            case 18: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry m = com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (map2Builder_ == null) {
+                ensureMap2IsMutable(instance);
+                instance.map2_.add(m);
+              } else {
+                map2Builder_.addMessage(m);
+                instance.bitField0_ |= 0x00000002;
+
+              }
+              break;
+            } // case 18
+            case 26: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry m = com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (map3Builder_ == null) {
+                ensureMap3IsMutable(instance);
+                instance.map3_.add(m);
+              } else {
+                map3Builder_.addMessage(m);
+                instance.bitField0_ |= 0x00000004;
+
+              }
+              break;
+            } // case 26
+            case 34: {
+              instance.bar_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry m = com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (map4Builder_ == null) {
+                ensureMap4IsMutable(instance);
+                instance.map4_.add(m);
+              } else {
+                map4Builder_.addMessage(m);
+                instance.bitField0_ |= 0x00000008;
+
+              }
+              break;
+            } // case 42
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, map1Builder_, map2Builder_, map3Builder_, map4Builder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureMap1IsMutable(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat instance) {
+      if (!instance.map1_.isModifiable()) {
+        instance.map1_ = makeMutableCopy(instance.map1_);
+      }
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void ensureMap2IsMutable(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat instance) {
+      if (!instance.map2_.isModifiable()) {
+        instance.map2_ = makeMutableCopy(instance.map2_);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static void ensureMap3IsMutable(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat instance) {
+      if (!instance.map3_.isModifiable()) {
+        instance.map3_ = makeMutableCopy(instance.map3_);
+      }
+      instance.bitField0_ |= 0x00000004;
+    }
+    private static void ensureMap4IsMutable(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat instance) {
+      if (!instance.map4_.isModifiable()) {
+        instance.map4_ = makeMutableCopy(instance.map4_);
+      }
+      instance.bitField0_ |= 0x00000008;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat instance,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1Entry.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map1EntryOrBuilder> map1Builder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2Entry.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map2EntryOrBuilder> map2Builder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3Entry.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map3EntryOrBuilder> map3Builder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4Entry.Builder, com.google.protobuf.util.JsonFormatProto3.MapOutWireFormat.Map4EntryOrBuilder> map4Builder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+      if (map1Builder_ == null) {
+        instance.map1_.makeImmutable();
+      } else {
+        instance.map1_ = map1Builder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (map2Builder_ == null) {
+        instance.map2_.makeImmutable();
+      } else {
+        instance.map2_ = map2Builder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+      if (map3Builder_ == null) {
+        instance.map3_.makeImmutable();
+      } else {
+        instance.map3_ = map3Builder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+      if (map4Builder_ == null) {
+        instance.map4_.makeImmutable();
+      } else {
+        instance.map4_ = map4Builder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<MapOutWireFormat>
-        PARSER = new com.google.protobuf.AbstractParser<MapOutWireFormat>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MapOutWireFormat> {
+      MessageParser() {}
+
       @java.lang.Override
       public MapOutWireFormat parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return MapOutWireFormat.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(MapOutWireFormat instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<MapOutWireFormat> parser() {
       return PARSER;
@@ -48628,15 +56002,28 @@ java.lang.String defaultValue) {
                 com.google.protobuf.util.JsonFormatProto3.MapM.class, com.google.protobuf.util.JsonFormatProto3.MapM.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.util.JsonFormatProto3.MapM.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        foo_ = "";
+      }
+      private Builder(com.google.protobuf.util.JsonFormatProto3.MapM other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -48676,12 +56063,17 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapM result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.foo_ = foo_;
           ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.util.JsonFormatProto3.MapM other, java.lang.Object[] parserLocals) {
+        foo_ = other.foo_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -48747,7 +56139,7 @@ java.lang.String defaultValue) {
       }
       private int bitField0_;
 
-      private java.lang.Object foo_ = "";
+      private java.lang.Object foo_;
       /**
        * <code>string foo = 1;</code>
        * @return The foo.
@@ -48832,22 +56224,67 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static MapM parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MapM instance = new MapM((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.foo_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<MapM>
-        PARSER = new com.google.protobuf.AbstractParser<MapM>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MapM> {
+      MessageParser() {}
+
       @java.lang.Override
       public MapM parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return MapM.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(MapM instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<MapM> parser() {
       return PARSER;

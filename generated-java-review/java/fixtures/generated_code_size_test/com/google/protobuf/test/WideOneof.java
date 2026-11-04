@@ -20124,15 +20124,42 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.test.WideOneof.class, com.google.protobuf.test.WideOneof.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.test.WideOneof.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+    }
+    private Builder(com.google.protobuf.test.WideOneof other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
+      copyFrom_autosplit_1(other, parserLocals);
+      copyFrom_autosplit_2(other, parserLocals);
+      copyFrom_autosplit_3(other, parserLocals);
+      copyFrom_autosplit_4(other, parserLocals);
+      copyFrom_autosplit_5(other, parserLocals);
+      copyFrom_autosplit_6(other, parserLocals);
+      copyFrom_autosplit_7(other, parserLocals);
+      copyFrom_autosplit_8(other, parserLocals);
+      copyFrom_autosplit_9(other, parserLocals);
+      copyFrom_autosplit_10(other, parserLocals);
+      copyFrom_autosplit_11(other, parserLocals);
+      copyFrom_autosplit_12(other, parserLocals);
+      copyFrom_autosplit_13(other, parserLocals);
+      copyFrom_autosplit_14(other, parserLocals);
+      copyFrom_autosplit_15(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -20219,7 +20246,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(com.google.protobuf.test.WideOneof result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       to_bitField0_ |= (from_bitField0_ & 0xffffffff);
       if ((from_bitField0_ & 0xffffffff) != 0) {
         result.choiceCase_ = choiceCase_;
@@ -20228,9 +20255,15 @@ private static final long serialVersionUID = 0L;
       result.bitField0_ |= to_bitField0_;
     }
 
+    private void copyFrom_autosplit_0(com.google.protobuf.test.WideOneof other, java.lang.Object[] parserLocals) {
+      choiceCase_ = other.choiceCase_;
+      choice_ = other.choice_;
+      bitField0_ = other.bitField0_;
+    }
+
     private void buildPartial_autosplit_1(com.google.protobuf.test.WideOneof result) {
       int from_bitField1_ = bitField1_;
-      int to_bitField1_ = 0;
+      int to_bitField1_ = from_bitField1_;
       to_bitField1_ |= (from_bitField1_ & 0xffffffff);
       if ((from_bitField1_ & 0xffffffff) != 0) {
         result.choiceCase_ = choiceCase_;
@@ -20239,9 +20272,13 @@ private static final long serialVersionUID = 0L;
       result.bitField1_ |= to_bitField1_;
     }
 
+    private void copyFrom_autosplit_1(com.google.protobuf.test.WideOneof other, java.lang.Object[] parserLocals) {
+      bitField1_ = other.bitField1_;
+    }
+
     private void buildPartial_autosplit_2(com.google.protobuf.test.WideOneof result) {
       int from_bitField2_ = bitField2_;
-      int to_bitField2_ = 0;
+      int to_bitField2_ = from_bitField2_;
       to_bitField2_ |= (from_bitField2_ & 0xffffffff);
       if ((from_bitField2_ & 0xffffffff) != 0) {
         result.choiceCase_ = choiceCase_;
@@ -20250,9 +20287,13 @@ private static final long serialVersionUID = 0L;
       result.bitField2_ |= to_bitField2_;
     }
 
+    private void copyFrom_autosplit_2(com.google.protobuf.test.WideOneof other, java.lang.Object[] parserLocals) {
+      bitField2_ = other.bitField2_;
+    }
+
     private void buildPartial_autosplit_3(com.google.protobuf.test.WideOneof result) {
       int from_bitField3_ = bitField3_;
-      int to_bitField3_ = 0;
+      int to_bitField3_ = from_bitField3_;
       to_bitField3_ |= (from_bitField3_ & 0xffffffff);
       if ((from_bitField3_ & 0xffffffff) != 0) {
         result.choiceCase_ = choiceCase_;
@@ -20261,9 +20302,13 @@ private static final long serialVersionUID = 0L;
       result.bitField3_ |= to_bitField3_;
     }
 
+    private void copyFrom_autosplit_3(com.google.protobuf.test.WideOneof other, java.lang.Object[] parserLocals) {
+      bitField3_ = other.bitField3_;
+    }
+
     private void buildPartial_autosplit_4(com.google.protobuf.test.WideOneof result) {
       int from_bitField4_ = bitField4_;
-      int to_bitField4_ = 0;
+      int to_bitField4_ = from_bitField4_;
       to_bitField4_ |= (from_bitField4_ & 0xffffffff);
       if ((from_bitField4_ & 0xffffffff) != 0) {
         result.choiceCase_ = choiceCase_;
@@ -20272,9 +20317,13 @@ private static final long serialVersionUID = 0L;
       result.bitField4_ |= to_bitField4_;
     }
 
+    private void copyFrom_autosplit_4(com.google.protobuf.test.WideOneof other, java.lang.Object[] parserLocals) {
+      bitField4_ = other.bitField4_;
+    }
+
     private void buildPartial_autosplit_5(com.google.protobuf.test.WideOneof result) {
       int from_bitField5_ = bitField5_;
-      int to_bitField5_ = 0;
+      int to_bitField5_ = from_bitField5_;
       to_bitField5_ |= (from_bitField5_ & 0xffffffff);
       if ((from_bitField5_ & 0xffffffff) != 0) {
         result.choiceCase_ = choiceCase_;
@@ -20283,9 +20332,13 @@ private static final long serialVersionUID = 0L;
       result.bitField5_ |= to_bitField5_;
     }
 
+    private void copyFrom_autosplit_5(com.google.protobuf.test.WideOneof other, java.lang.Object[] parserLocals) {
+      bitField5_ = other.bitField5_;
+    }
+
     private void buildPartial_autosplit_6(com.google.protobuf.test.WideOneof result) {
       int from_bitField6_ = bitField6_;
-      int to_bitField6_ = 0;
+      int to_bitField6_ = from_bitField6_;
       to_bitField6_ |= (from_bitField6_ & 0xffffffff);
       if ((from_bitField6_ & 0xffffffff) != 0) {
         result.choiceCase_ = choiceCase_;
@@ -20294,9 +20347,13 @@ private static final long serialVersionUID = 0L;
       result.bitField6_ |= to_bitField6_;
     }
 
+    private void copyFrom_autosplit_6(com.google.protobuf.test.WideOneof other, java.lang.Object[] parserLocals) {
+      bitField6_ = other.bitField6_;
+    }
+
     private void buildPartial_autosplit_7(com.google.protobuf.test.WideOneof result) {
       int from_bitField7_ = bitField7_;
-      int to_bitField7_ = 0;
+      int to_bitField7_ = from_bitField7_;
       to_bitField7_ |= (from_bitField7_ & 0xffffffff);
       if ((from_bitField7_ & 0xffffffff) != 0) {
         result.choiceCase_ = choiceCase_;
@@ -20305,9 +20362,13 @@ private static final long serialVersionUID = 0L;
       result.bitField7_ |= to_bitField7_;
     }
 
+    private void copyFrom_autosplit_7(com.google.protobuf.test.WideOneof other, java.lang.Object[] parserLocals) {
+      bitField7_ = other.bitField7_;
+    }
+
     private void buildPartial_autosplit_8(com.google.protobuf.test.WideOneof result) {
       int from_bitField8_ = bitField8_;
-      int to_bitField8_ = 0;
+      int to_bitField8_ = from_bitField8_;
       to_bitField8_ |= (from_bitField8_ & 0xffffffff);
       if ((from_bitField8_ & 0xffffffff) != 0) {
         result.choiceCase_ = choiceCase_;
@@ -20316,9 +20377,13 @@ private static final long serialVersionUID = 0L;
       result.bitField8_ |= to_bitField8_;
     }
 
+    private void copyFrom_autosplit_8(com.google.protobuf.test.WideOneof other, java.lang.Object[] parserLocals) {
+      bitField8_ = other.bitField8_;
+    }
+
     private void buildPartial_autosplit_9(com.google.protobuf.test.WideOneof result) {
       int from_bitField9_ = bitField9_;
-      int to_bitField9_ = 0;
+      int to_bitField9_ = from_bitField9_;
       to_bitField9_ |= (from_bitField9_ & 0xffffffff);
       if ((from_bitField9_ & 0xffffffff) != 0) {
         result.choiceCase_ = choiceCase_;
@@ -20327,9 +20392,13 @@ private static final long serialVersionUID = 0L;
       result.bitField9_ |= to_bitField9_;
     }
 
+    private void copyFrom_autosplit_9(com.google.protobuf.test.WideOneof other, java.lang.Object[] parserLocals) {
+      bitField9_ = other.bitField9_;
+    }
+
     private void buildPartial_autosplit_10(com.google.protobuf.test.WideOneof result) {
       int from_bitField10_ = bitField10_;
-      int to_bitField10_ = 0;
+      int to_bitField10_ = from_bitField10_;
       to_bitField10_ |= (from_bitField10_ & 0xffffffff);
       if ((from_bitField10_ & 0xffffffff) != 0) {
         result.choiceCase_ = choiceCase_;
@@ -20338,9 +20407,13 @@ private static final long serialVersionUID = 0L;
       result.bitField10_ |= to_bitField10_;
     }
 
+    private void copyFrom_autosplit_10(com.google.protobuf.test.WideOneof other, java.lang.Object[] parserLocals) {
+      bitField10_ = other.bitField10_;
+    }
+
     private void buildPartial_autosplit_11(com.google.protobuf.test.WideOneof result) {
       int from_bitField11_ = bitField11_;
-      int to_bitField11_ = 0;
+      int to_bitField11_ = from_bitField11_;
       to_bitField11_ |= (from_bitField11_ & 0xffffffff);
       if ((from_bitField11_ & 0xffffffff) != 0) {
         result.choiceCase_ = choiceCase_;
@@ -20349,9 +20422,13 @@ private static final long serialVersionUID = 0L;
       result.bitField11_ |= to_bitField11_;
     }
 
+    private void copyFrom_autosplit_11(com.google.protobuf.test.WideOneof other, java.lang.Object[] parserLocals) {
+      bitField11_ = other.bitField11_;
+    }
+
     private void buildPartial_autosplit_12(com.google.protobuf.test.WideOneof result) {
       int from_bitField12_ = bitField12_;
-      int to_bitField12_ = 0;
+      int to_bitField12_ = from_bitField12_;
       to_bitField12_ |= (from_bitField12_ & 0xffffffff);
       if ((from_bitField12_ & 0xffffffff) != 0) {
         result.choiceCase_ = choiceCase_;
@@ -20360,9 +20437,13 @@ private static final long serialVersionUID = 0L;
       result.bitField12_ |= to_bitField12_;
     }
 
+    private void copyFrom_autosplit_12(com.google.protobuf.test.WideOneof other, java.lang.Object[] parserLocals) {
+      bitField12_ = other.bitField12_;
+    }
+
     private void buildPartial_autosplit_13(com.google.protobuf.test.WideOneof result) {
       int from_bitField13_ = bitField13_;
-      int to_bitField13_ = 0;
+      int to_bitField13_ = from_bitField13_;
       to_bitField13_ |= (from_bitField13_ & 0xffffffff);
       if ((from_bitField13_ & 0xffffffff) != 0) {
         result.choiceCase_ = choiceCase_;
@@ -20371,9 +20452,13 @@ private static final long serialVersionUID = 0L;
       result.bitField13_ |= to_bitField13_;
     }
 
+    private void copyFrom_autosplit_13(com.google.protobuf.test.WideOneof other, java.lang.Object[] parserLocals) {
+      bitField13_ = other.bitField13_;
+    }
+
     private void buildPartial_autosplit_14(com.google.protobuf.test.WideOneof result) {
       int from_bitField14_ = bitField14_;
-      int to_bitField14_ = 0;
+      int to_bitField14_ = from_bitField14_;
       to_bitField14_ |= (from_bitField14_ & 0xffffffff);
       if ((from_bitField14_ & 0xffffffff) != 0) {
         result.choiceCase_ = choiceCase_;
@@ -20382,15 +20467,23 @@ private static final long serialVersionUID = 0L;
       result.bitField14_ |= to_bitField14_;
     }
 
+    private void copyFrom_autosplit_14(com.google.protobuf.test.WideOneof other, java.lang.Object[] parserLocals) {
+      bitField14_ = other.bitField14_;
+    }
+
     private void buildPartial_autosplit_15(com.google.protobuf.test.WideOneof result) {
       int from_bitField15_ = bitField15_;
-      int to_bitField15_ = 0;
+      int to_bitField15_ = from_bitField15_;
       to_bitField15_ |= (from_bitField15_ & 0x00003fff);
       if ((from_bitField15_ & 0x00003fff) != 0) {
         result.choiceCase_ = choiceCase_;
         result.choice_ = choice_;
       }
       result.bitField15_ |= to_bitField15_;
+    }
+
+    private void copyFrom_autosplit_15(com.google.protobuf.test.WideOneof other, java.lang.Object[] parserLocals) {
+      bitField15_ = other.bitField15_;
     }
 
     @java.lang.Override
@@ -24401,7 +24494,7 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int choiceCase_ = 0;
+    private int choiceCase_;
     private java.lang.Object choice_;
     public ChoiceCase
         getChoiceCase() {
@@ -56592,22 +56685,8974 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static WideOneof parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    WideOneof instance = new WideOneof((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
+            parseValue1(instance, input);
+            break;
+          } // case 8
+          case 16: {
+            parseValue2(instance, input);
+            break;
+          } // case 16
+          case 24: {
+            parseValue3(instance, input);
+            break;
+          } // case 24
+          case 32: {
+            parseValue4(instance, input);
+            break;
+          } // case 32
+          case 40: {
+            parseValue5(instance, input);
+            break;
+          } // case 40
+          case 48: {
+            parseValue6(instance, input);
+            break;
+          } // case 48
+          case 56: {
+            parseValue7(instance, input);
+            break;
+          } // case 56
+          case 64: {
+            parseValue8(instance, input);
+            break;
+          } // case 64
+          case 72: {
+            parseValue9(instance, input);
+            break;
+          } // case 72
+          case 80: {
+            parseValue10(instance, input);
+            break;
+          } // case 80
+          case 88: {
+            parseValue11(instance, input);
+            break;
+          } // case 88
+          case 96: {
+            parseValue12(instance, input);
+            break;
+          } // case 96
+          case 104: {
+            parseValue13(instance, input);
+            break;
+          } // case 104
+          case 112: {
+            parseValue14(instance, input);
+            break;
+          } // case 112
+          case 120: {
+            parseValue15(instance, input);
+            break;
+          } // case 120
+          case 128: {
+            parseValue16(instance, input);
+            break;
+          } // case 128
+          case 136: {
+            parseValue17(instance, input);
+            break;
+          } // case 136
+          case 144: {
+            parseValue18(instance, input);
+            break;
+          } // case 144
+          case 152: {
+            parseValue19(instance, input);
+            break;
+          } // case 152
+          case 160: {
+            parseValue20(instance, input);
+            break;
+          } // case 160
+          case 168: {
+            parseValue21(instance, input);
+            break;
+          } // case 168
+          case 176: {
+            parseValue22(instance, input);
+            break;
+          } // case 176
+          case 184: {
+            parseValue23(instance, input);
+            break;
+          } // case 184
+          case 192: {
+            parseValue24(instance, input);
+            break;
+          } // case 192
+          case 200: {
+            parseValue25(instance, input);
+            break;
+          } // case 200
+          case 208: {
+            parseValue26(instance, input);
+            break;
+          } // case 208
+          case 216: {
+            parseValue27(instance, input);
+            break;
+          } // case 216
+          case 224: {
+            parseValue28(instance, input);
+            break;
+          } // case 224
+          case 232: {
+            parseValue29(instance, input);
+            break;
+          } // case 232
+          case 240: {
+            parseValue30(instance, input);
+            break;
+          } // case 240
+          case 248: {
+            parseValue31(instance, input);
+            break;
+          } // case 248
+          case 256: {
+            parseValue32(instance, input);
+            break;
+          } // case 256
+          case 264: {
+            parseValue33(instance, input);
+            break;
+          } // case 264
+          case 272: {
+            parseValue34(instance, input);
+            break;
+          } // case 272
+          case 280: {
+            parseValue35(instance, input);
+            break;
+          } // case 280
+          case 288: {
+            parseValue36(instance, input);
+            break;
+          } // case 288
+          case 296: {
+            parseValue37(instance, input);
+            break;
+          } // case 296
+          case 304: {
+            parseValue38(instance, input);
+            break;
+          } // case 304
+          case 312: {
+            parseValue39(instance, input);
+            break;
+          } // case 312
+          case 320: {
+            parseValue40(instance, input);
+            break;
+          } // case 320
+          case 328: {
+            parseValue41(instance, input);
+            break;
+          } // case 328
+          case 336: {
+            parseValue42(instance, input);
+            break;
+          } // case 336
+          case 344: {
+            parseValue43(instance, input);
+            break;
+          } // case 344
+          case 352: {
+            parseValue44(instance, input);
+            break;
+          } // case 352
+          case 360: {
+            parseValue45(instance, input);
+            break;
+          } // case 360
+          case 368: {
+            parseValue46(instance, input);
+            break;
+          } // case 368
+          case 376: {
+            parseValue47(instance, input);
+            break;
+          } // case 376
+          case 384: {
+            parseValue48(instance, input);
+            break;
+          } // case 384
+          case 392: {
+            parseValue49(instance, input);
+            break;
+          } // case 392
+          case 400: {
+            parseValue50(instance, input);
+            break;
+          } // case 400
+          case 408: {
+            parseValue51(instance, input);
+            break;
+          } // case 408
+          case 416: {
+            parseValue52(instance, input);
+            break;
+          } // case 416
+          case 424: {
+            parseValue53(instance, input);
+            break;
+          } // case 424
+          case 432: {
+            parseValue54(instance, input);
+            break;
+          } // case 432
+          case 440: {
+            parseValue55(instance, input);
+            break;
+          } // case 440
+          case 448: {
+            parseValue56(instance, input);
+            break;
+          } // case 448
+          case 456: {
+            parseValue57(instance, input);
+            break;
+          } // case 456
+          case 464: {
+            parseValue58(instance, input);
+            break;
+          } // case 464
+          case 472: {
+            parseValue59(instance, input);
+            break;
+          } // case 472
+          case 480: {
+            parseValue60(instance, input);
+            break;
+          } // case 480
+          case 488: {
+            parseValue61(instance, input);
+            break;
+          } // case 488
+          case 496: {
+            parseValue62(instance, input);
+            break;
+          } // case 496
+          case 504: {
+            parseValue63(instance, input);
+            break;
+          } // case 504
+          case 512: {
+            parseValue64(instance, input);
+            break;
+          } // case 512
+          case 520: {
+            parseValue65(instance, input);
+            break;
+          } // case 520
+          case 528: {
+            parseValue66(instance, input);
+            break;
+          } // case 528
+          case 536: {
+            parseValue67(instance, input);
+            break;
+          } // case 536
+          case 544: {
+            parseValue68(instance, input);
+            break;
+          } // case 544
+          case 552: {
+            parseValue69(instance, input);
+            break;
+          } // case 552
+          case 560: {
+            parseValue70(instance, input);
+            break;
+          } // case 560
+          case 568: {
+            parseValue71(instance, input);
+            break;
+          } // case 568
+          case 576: {
+            parseValue72(instance, input);
+            break;
+          } // case 576
+          case 584: {
+            parseValue73(instance, input);
+            break;
+          } // case 584
+          case 592: {
+            parseValue74(instance, input);
+            break;
+          } // case 592
+          case 600: {
+            parseValue75(instance, input);
+            break;
+          } // case 600
+          case 608: {
+            parseValue76(instance, input);
+            break;
+          } // case 608
+          case 616: {
+            parseValue77(instance, input);
+            break;
+          } // case 616
+          case 624: {
+            parseValue78(instance, input);
+            break;
+          } // case 624
+          case 632: {
+            parseValue79(instance, input);
+            break;
+          } // case 632
+          case 640: {
+            parseValue80(instance, input);
+            break;
+          } // case 640
+          case 648: {
+            parseValue81(instance, input);
+            break;
+          } // case 648
+          case 656: {
+            parseValue82(instance, input);
+            break;
+          } // case 656
+          case 664: {
+            parseValue83(instance, input);
+            break;
+          } // case 664
+          case 672: {
+            parseValue84(instance, input);
+            break;
+          } // case 672
+          case 680: {
+            parseValue85(instance, input);
+            break;
+          } // case 680
+          case 688: {
+            parseValue86(instance, input);
+            break;
+          } // case 688
+          case 696: {
+            parseValue87(instance, input);
+            break;
+          } // case 696
+          case 704: {
+            parseValue88(instance, input);
+            break;
+          } // case 704
+          case 712: {
+            parseValue89(instance, input);
+            break;
+          } // case 712
+          case 720: {
+            parseValue90(instance, input);
+            break;
+          } // case 720
+          case 728: {
+            parseValue91(instance, input);
+            break;
+          } // case 728
+          case 736: {
+            parseValue92(instance, input);
+            break;
+          } // case 736
+          case 744: {
+            parseValue93(instance, input);
+            break;
+          } // case 744
+          case 752: {
+            parseValue94(instance, input);
+            break;
+          } // case 752
+          case 760: {
+            parseValue95(instance, input);
+            break;
+          } // case 760
+          case 768: {
+            parseValue96(instance, input);
+            break;
+          } // case 768
+          case 776: {
+            parseValue97(instance, input);
+            break;
+          } // case 776
+          case 784: {
+            parseValue98(instance, input);
+            break;
+          } // case 784
+          case 792: {
+            parseValue99(instance, input);
+            break;
+          } // case 792
+          case 800: {
+            parseValue100(instance, input);
+            break;
+          } // case 800
+          case 808: {
+            parseValue101(instance, input);
+            break;
+          } // case 808
+          case 816: {
+            parseValue102(instance, input);
+            break;
+          } // case 816
+          case 824: {
+            parseValue103(instance, input);
+            break;
+          } // case 824
+          case 832: {
+            parseValue104(instance, input);
+            break;
+          } // case 832
+          case 840: {
+            parseValue105(instance, input);
+            break;
+          } // case 840
+          case 848: {
+            parseValue106(instance, input);
+            break;
+          } // case 848
+          case 856: {
+            parseValue107(instance, input);
+            break;
+          } // case 856
+          case 864: {
+            parseValue108(instance, input);
+            break;
+          } // case 864
+          case 872: {
+            parseValue109(instance, input);
+            break;
+          } // case 872
+          case 880: {
+            parseValue110(instance, input);
+            break;
+          } // case 880
+          case 888: {
+            parseValue111(instance, input);
+            break;
+          } // case 888
+          case 896: {
+            parseValue112(instance, input);
+            break;
+          } // case 896
+          case 904: {
+            parseValue113(instance, input);
+            break;
+          } // case 904
+          case 912: {
+            parseValue114(instance, input);
+            break;
+          } // case 912
+          case 920: {
+            parseValue115(instance, input);
+            break;
+          } // case 920
+          case 928: {
+            parseValue116(instance, input);
+            break;
+          } // case 928
+          case 936: {
+            parseValue117(instance, input);
+            break;
+          } // case 936
+          case 944: {
+            parseValue118(instance, input);
+            break;
+          } // case 944
+          case 952: {
+            parseValue119(instance, input);
+            break;
+          } // case 952
+          case 960: {
+            parseValue120(instance, input);
+            break;
+          } // case 960
+          case 968: {
+            parseValue121(instance, input);
+            break;
+          } // case 968
+          case 976: {
+            parseValue122(instance, input);
+            break;
+          } // case 976
+          case 984: {
+            parseValue123(instance, input);
+            break;
+          } // case 984
+          case 992: {
+            parseValue124(instance, input);
+            break;
+          } // case 992
+          case 1000: {
+            parseValue125(instance, input);
+            break;
+          } // case 1000
+          case 1008: {
+            parseValue126(instance, input);
+            break;
+          } // case 1008
+          case 1016: {
+            parseValue127(instance, input);
+            break;
+          } // case 1016
+          case 1024: {
+            parseValue128(instance, input);
+            break;
+          } // case 1024
+          case 1032: {
+            parseValue129(instance, input);
+            break;
+          } // case 1032
+          case 1040: {
+            parseValue130(instance, input);
+            break;
+          } // case 1040
+          case 1048: {
+            parseValue131(instance, input);
+            break;
+          } // case 1048
+          case 1056: {
+            parseValue132(instance, input);
+            break;
+          } // case 1056
+          case 1064: {
+            parseValue133(instance, input);
+            break;
+          } // case 1064
+          case 1072: {
+            parseValue134(instance, input);
+            break;
+          } // case 1072
+          case 1080: {
+            parseValue135(instance, input);
+            break;
+          } // case 1080
+          case 1088: {
+            parseValue136(instance, input);
+            break;
+          } // case 1088
+          case 1096: {
+            parseValue137(instance, input);
+            break;
+          } // case 1096
+          case 1104: {
+            parseValue138(instance, input);
+            break;
+          } // case 1104
+          case 1112: {
+            parseValue139(instance, input);
+            break;
+          } // case 1112
+          case 1120: {
+            parseValue140(instance, input);
+            break;
+          } // case 1120
+          case 1128: {
+            parseValue141(instance, input);
+            break;
+          } // case 1128
+          case 1136: {
+            parseValue142(instance, input);
+            break;
+          } // case 1136
+          case 1144: {
+            parseValue143(instance, input);
+            break;
+          } // case 1144
+          case 1152: {
+            parseValue144(instance, input);
+            break;
+          } // case 1152
+          case 1160: {
+            parseValue145(instance, input);
+            break;
+          } // case 1160
+          case 1168: {
+            parseValue146(instance, input);
+            break;
+          } // case 1168
+          case 1176: {
+            parseValue147(instance, input);
+            break;
+          } // case 1176
+          case 1184: {
+            parseValue148(instance, input);
+            break;
+          } // case 1184
+          case 1192: {
+            parseValue149(instance, input);
+            break;
+          } // case 1192
+          case 1200: {
+            parseValue150(instance, input);
+            break;
+          } // case 1200
+          case 1208: {
+            parseValue151(instance, input);
+            break;
+          } // case 1208
+          case 1216: {
+            parseValue152(instance, input);
+            break;
+          } // case 1216
+          case 1224: {
+            parseValue153(instance, input);
+            break;
+          } // case 1224
+          case 1232: {
+            parseValue154(instance, input);
+            break;
+          } // case 1232
+          case 1240: {
+            parseValue155(instance, input);
+            break;
+          } // case 1240
+          case 1248: {
+            parseValue156(instance, input);
+            break;
+          } // case 1248
+          case 1256: {
+            parseValue157(instance, input);
+            break;
+          } // case 1256
+          case 1264: {
+            parseValue158(instance, input);
+            break;
+          } // case 1264
+          case 1272: {
+            parseValue159(instance, input);
+            break;
+          } // case 1272
+          case 1280: {
+            parseValue160(instance, input);
+            break;
+          } // case 1280
+          case 1288: {
+            parseValue161(instance, input);
+            break;
+          } // case 1288
+          case 1296: {
+            parseValue162(instance, input);
+            break;
+          } // case 1296
+          case 1304: {
+            parseValue163(instance, input);
+            break;
+          } // case 1304
+          case 1312: {
+            parseValue164(instance, input);
+            break;
+          } // case 1312
+          case 1320: {
+            parseValue165(instance, input);
+            break;
+          } // case 1320
+          case 1328: {
+            parseValue166(instance, input);
+            break;
+          } // case 1328
+          case 1336: {
+            parseValue167(instance, input);
+            break;
+          } // case 1336
+          case 1344: {
+            parseValue168(instance, input);
+            break;
+          } // case 1344
+          case 1352: {
+            parseValue169(instance, input);
+            break;
+          } // case 1352
+          case 1360: {
+            parseValue170(instance, input);
+            break;
+          } // case 1360
+          case 1368: {
+            parseValue171(instance, input);
+            break;
+          } // case 1368
+          case 1376: {
+            parseValue172(instance, input);
+            break;
+          } // case 1376
+          case 1384: {
+            parseValue173(instance, input);
+            break;
+          } // case 1384
+          case 1392: {
+            parseValue174(instance, input);
+            break;
+          } // case 1392
+          case 1400: {
+            parseValue175(instance, input);
+            break;
+          } // case 1400
+          case 1408: {
+            parseValue176(instance, input);
+            break;
+          } // case 1408
+          case 1416: {
+            parseValue177(instance, input);
+            break;
+          } // case 1416
+          case 1424: {
+            parseValue178(instance, input);
+            break;
+          } // case 1424
+          case 1432: {
+            parseValue179(instance, input);
+            break;
+          } // case 1432
+          case 1440: {
+            parseValue180(instance, input);
+            break;
+          } // case 1440
+          case 1448: {
+            parseValue181(instance, input);
+            break;
+          } // case 1448
+          case 1456: {
+            parseValue182(instance, input);
+            break;
+          } // case 1456
+          case 1464: {
+            parseValue183(instance, input);
+            break;
+          } // case 1464
+          case 1472: {
+            parseValue184(instance, input);
+            break;
+          } // case 1472
+          case 1480: {
+            parseValue185(instance, input);
+            break;
+          } // case 1480
+          case 1488: {
+            parseValue186(instance, input);
+            break;
+          } // case 1488
+          case 1496: {
+            parseValue187(instance, input);
+            break;
+          } // case 1496
+          case 1504: {
+            parseValue188(instance, input);
+            break;
+          } // case 1504
+          case 1512: {
+            parseValue189(instance, input);
+            break;
+          } // case 1512
+          case 1520: {
+            parseValue190(instance, input);
+            break;
+          } // case 1520
+          case 1528: {
+            parseValue191(instance, input);
+            break;
+          } // case 1528
+          case 1536: {
+            parseValue192(instance, input);
+            break;
+          } // case 1536
+          case 1544: {
+            parseValue193(instance, input);
+            break;
+          } // case 1544
+          case 1552: {
+            parseValue194(instance, input);
+            break;
+          } // case 1552
+          case 1560: {
+            parseValue195(instance, input);
+            break;
+          } // case 1560
+          case 1568: {
+            parseValue196(instance, input);
+            break;
+          } // case 1568
+          case 1576: {
+            parseValue197(instance, input);
+            break;
+          } // case 1576
+          case 1584: {
+            parseValue198(instance, input);
+            break;
+          } // case 1584
+          case 1592: {
+            parseValue199(instance, input);
+            break;
+          } // case 1592
+          case 1600: {
+            parseValue200(instance, input);
+            break;
+          } // case 1600
+          case 1608: {
+            parseValue201(instance, input);
+            break;
+          } // case 1608
+          case 1616: {
+            parseValue202(instance, input);
+            break;
+          } // case 1616
+          case 1624: {
+            parseValue203(instance, input);
+            break;
+          } // case 1624
+          case 1632: {
+            parseValue204(instance, input);
+            break;
+          } // case 1632
+          case 1640: {
+            parseValue205(instance, input);
+            break;
+          } // case 1640
+          case 1648: {
+            parseValue206(instance, input);
+            break;
+          } // case 1648
+          case 1656: {
+            parseValue207(instance, input);
+            break;
+          } // case 1656
+          case 1664: {
+            parseValue208(instance, input);
+            break;
+          } // case 1664
+          case 1672: {
+            parseValue209(instance, input);
+            break;
+          } // case 1672
+          case 1680: {
+            parseValue210(instance, input);
+            break;
+          } // case 1680
+          case 1688: {
+            parseValue211(instance, input);
+            break;
+          } // case 1688
+          case 1696: {
+            parseValue212(instance, input);
+            break;
+          } // case 1696
+          case 1704: {
+            parseValue213(instance, input);
+            break;
+          } // case 1704
+          case 1712: {
+            parseValue214(instance, input);
+            break;
+          } // case 1712
+          case 1720: {
+            parseValue215(instance, input);
+            break;
+          } // case 1720
+          case 1728: {
+            parseValue216(instance, input);
+            break;
+          } // case 1728
+          case 1736: {
+            parseValue217(instance, input);
+            break;
+          } // case 1736
+          case 1744: {
+            parseValue218(instance, input);
+            break;
+          } // case 1744
+          case 1752: {
+            parseValue219(instance, input);
+            break;
+          } // case 1752
+          case 1760: {
+            parseValue220(instance, input);
+            break;
+          } // case 1760
+          case 1768: {
+            parseValue221(instance, input);
+            break;
+          } // case 1768
+          case 1776: {
+            parseValue222(instance, input);
+            break;
+          } // case 1776
+          case 1784: {
+            parseValue223(instance, input);
+            break;
+          } // case 1784
+          case 1792: {
+            parseValue224(instance, input);
+            break;
+          } // case 1792
+          case 1800: {
+            parseValue225(instance, input);
+            break;
+          } // case 1800
+          case 1808: {
+            parseValue226(instance, input);
+            break;
+          } // case 1808
+          case 1816: {
+            parseValue227(instance, input);
+            break;
+          } // case 1816
+          case 1824: {
+            parseValue228(instance, input);
+            break;
+          } // case 1824
+          case 1832: {
+            parseValue229(instance, input);
+            break;
+          } // case 1832
+          case 1840: {
+            parseValue230(instance, input);
+            break;
+          } // case 1840
+          case 1848: {
+            parseValue231(instance, input);
+            break;
+          } // case 1848
+          case 1856: {
+            parseValue232(instance, input);
+            break;
+          } // case 1856
+          case 1864: {
+            parseValue233(instance, input);
+            break;
+          } // case 1864
+          case 1872: {
+            parseValue234(instance, input);
+            break;
+          } // case 1872
+          case 1880: {
+            parseValue235(instance, input);
+            break;
+          } // case 1880
+          case 1888: {
+            parseValue236(instance, input);
+            break;
+          } // case 1888
+          case 1896: {
+            parseValue237(instance, input);
+            break;
+          } // case 1896
+          case 1904: {
+            parseValue238(instance, input);
+            break;
+          } // case 1904
+          case 1912: {
+            parseValue239(instance, input);
+            break;
+          } // case 1912
+          case 1920: {
+            parseValue240(instance, input);
+            break;
+          } // case 1920
+          case 1928: {
+            parseValue241(instance, input);
+            break;
+          } // case 1928
+          case 1936: {
+            parseValue242(instance, input);
+            break;
+          } // case 1936
+          case 1944: {
+            parseValue243(instance, input);
+            break;
+          } // case 1944
+          case 1952: {
+            parseValue244(instance, input);
+            break;
+          } // case 1952
+          case 1960: {
+            parseValue245(instance, input);
+            break;
+          } // case 1960
+          case 1968: {
+            parseValue246(instance, input);
+            break;
+          } // case 1968
+          case 1976: {
+            parseValue247(instance, input);
+            break;
+          } // case 1976
+          case 1984: {
+            parseValue248(instance, input);
+            break;
+          } // case 1984
+          case 1992: {
+            parseValue249(instance, input);
+            break;
+          } // case 1992
+          case 2000: {
+            parseValue250(instance, input);
+            break;
+          } // case 2000
+          case 2008: {
+            parseValue251(instance, input);
+            break;
+          } // case 2008
+          case 2016: {
+            parseValue252(instance, input);
+            break;
+          } // case 2016
+          case 2024: {
+            parseValue253(instance, input);
+            break;
+          } // case 2024
+          case 2032: {
+            parseValue254(instance, input);
+            break;
+          } // case 2032
+          case 2040: {
+            parseValue255(instance, input);
+            break;
+          } // case 2040
+          case 2048: {
+            parseValue256(instance, input);
+            break;
+          } // case 2048
+          case 2056: {
+            parseValue257(instance, input);
+            break;
+          } // case 2056
+          case 2064: {
+            parseValue258(instance, input);
+            break;
+          } // case 2064
+          case 2072: {
+            parseValue259(instance, input);
+            break;
+          } // case 2072
+          case 2080: {
+            parseValue260(instance, input);
+            break;
+          } // case 2080
+          case 2088: {
+            parseValue261(instance, input);
+            break;
+          } // case 2088
+          case 2096: {
+            parseValue262(instance, input);
+            break;
+          } // case 2096
+          case 2104: {
+            parseValue263(instance, input);
+            break;
+          } // case 2104
+          case 2112: {
+            parseValue264(instance, input);
+            break;
+          } // case 2112
+          case 2120: {
+            parseValue265(instance, input);
+            break;
+          } // case 2120
+          case 2128: {
+            parseValue266(instance, input);
+            break;
+          } // case 2128
+          case 2136: {
+            parseValue267(instance, input);
+            break;
+          } // case 2136
+          case 2144: {
+            parseValue268(instance, input);
+            break;
+          } // case 2144
+          case 2152: {
+            parseValue269(instance, input);
+            break;
+          } // case 2152
+          case 2160: {
+            parseValue270(instance, input);
+            break;
+          } // case 2160
+          case 2168: {
+            parseValue271(instance, input);
+            break;
+          } // case 2168
+          case 2176: {
+            parseValue272(instance, input);
+            break;
+          } // case 2176
+          case 2184: {
+            parseValue273(instance, input);
+            break;
+          } // case 2184
+          case 2192: {
+            parseValue274(instance, input);
+            break;
+          } // case 2192
+          case 2200: {
+            parseValue275(instance, input);
+            break;
+          } // case 2200
+          case 2208: {
+            parseValue276(instance, input);
+            break;
+          } // case 2208
+          case 2216: {
+            parseValue277(instance, input);
+            break;
+          } // case 2216
+          case 2224: {
+            parseValue278(instance, input);
+            break;
+          } // case 2224
+          case 2232: {
+            parseValue279(instance, input);
+            break;
+          } // case 2232
+          case 2240: {
+            parseValue280(instance, input);
+            break;
+          } // case 2240
+          case 2248: {
+            parseValue281(instance, input);
+            break;
+          } // case 2248
+          case 2256: {
+            parseValue282(instance, input);
+            break;
+          } // case 2256
+          case 2264: {
+            parseValue283(instance, input);
+            break;
+          } // case 2264
+          case 2272: {
+            parseValue284(instance, input);
+            break;
+          } // case 2272
+          case 2280: {
+            parseValue285(instance, input);
+            break;
+          } // case 2280
+          case 2288: {
+            parseValue286(instance, input);
+            break;
+          } // case 2288
+          case 2296: {
+            parseValue287(instance, input);
+            break;
+          } // case 2296
+          case 2304: {
+            parseValue288(instance, input);
+            break;
+          } // case 2304
+          case 2312: {
+            parseValue289(instance, input);
+            break;
+          } // case 2312
+          case 2320: {
+            parseValue290(instance, input);
+            break;
+          } // case 2320
+          case 2328: {
+            parseValue291(instance, input);
+            break;
+          } // case 2328
+          case 2336: {
+            parseValue292(instance, input);
+            break;
+          } // case 2336
+          case 2344: {
+            parseValue293(instance, input);
+            break;
+          } // case 2344
+          case 2352: {
+            parseValue294(instance, input);
+            break;
+          } // case 2352
+          case 2360: {
+            parseValue295(instance, input);
+            break;
+          } // case 2360
+          case 2368: {
+            parseValue296(instance, input);
+            break;
+          } // case 2368
+          case 2376: {
+            parseValue297(instance, input);
+            break;
+          } // case 2376
+          case 2384: {
+            parseValue298(instance, input);
+            break;
+          } // case 2384
+          case 2392: {
+            parseValue299(instance, input);
+            break;
+          } // case 2392
+          case 2400: {
+            parseValue300(instance, input);
+            break;
+          } // case 2400
+          case 2408: {
+            parseValue301(instance, input);
+            break;
+          } // case 2408
+          case 2416: {
+            parseValue302(instance, input);
+            break;
+          } // case 2416
+          case 2424: {
+            parseValue303(instance, input);
+            break;
+          } // case 2424
+          case 2432: {
+            parseValue304(instance, input);
+            break;
+          } // case 2432
+          case 2440: {
+            parseValue305(instance, input);
+            break;
+          } // case 2440
+          case 2448: {
+            parseValue306(instance, input);
+            break;
+          } // case 2448
+          case 2456: {
+            parseValue307(instance, input);
+            break;
+          } // case 2456
+          case 2464: {
+            parseValue308(instance, input);
+            break;
+          } // case 2464
+          case 2472: {
+            parseValue309(instance, input);
+            break;
+          } // case 2472
+          case 2480: {
+            parseValue310(instance, input);
+            break;
+          } // case 2480
+          case 2488: {
+            parseValue311(instance, input);
+            break;
+          } // case 2488
+          case 2496: {
+            parseValue312(instance, input);
+            break;
+          } // case 2496
+          case 2504: {
+            parseValue313(instance, input);
+            break;
+          } // case 2504
+          case 2512: {
+            parseValue314(instance, input);
+            break;
+          } // case 2512
+          case 2520: {
+            parseValue315(instance, input);
+            break;
+          } // case 2520
+          case 2528: {
+            parseValue316(instance, input);
+            break;
+          } // case 2528
+          case 2536: {
+            parseValue317(instance, input);
+            break;
+          } // case 2536
+          case 2544: {
+            parseValue318(instance, input);
+            break;
+          } // case 2544
+          case 2552: {
+            parseValue319(instance, input);
+            break;
+          } // case 2552
+          case 2560: {
+            parseValue320(instance, input);
+            break;
+          } // case 2560
+          case 2568: {
+            parseValue321(instance, input);
+            break;
+          } // case 2568
+          case 2576: {
+            parseValue322(instance, input);
+            break;
+          } // case 2576
+          case 2584: {
+            parseValue323(instance, input);
+            break;
+          } // case 2584
+          case 2592: {
+            parseValue324(instance, input);
+            break;
+          } // case 2592
+          case 2600: {
+            parseValue325(instance, input);
+            break;
+          } // case 2600
+          case 2608: {
+            parseValue326(instance, input);
+            break;
+          } // case 2608
+          case 2616: {
+            parseValue327(instance, input);
+            break;
+          } // case 2616
+          case 2624: {
+            parseValue328(instance, input);
+            break;
+          } // case 2624
+          case 2632: {
+            parseValue329(instance, input);
+            break;
+          } // case 2632
+          case 2640: {
+            parseValue330(instance, input);
+            break;
+          } // case 2640
+          case 2648: {
+            parseValue331(instance, input);
+            break;
+          } // case 2648
+          case 2656: {
+            parseValue332(instance, input);
+            break;
+          } // case 2656
+          case 2664: {
+            parseValue333(instance, input);
+            break;
+          } // case 2664
+          case 2672: {
+            parseValue334(instance, input);
+            break;
+          } // case 2672
+          case 2680: {
+            parseValue335(instance, input);
+            break;
+          } // case 2680
+          case 2688: {
+            parseValue336(instance, input);
+            break;
+          } // case 2688
+          case 2696: {
+            parseValue337(instance, input);
+            break;
+          } // case 2696
+          case 2704: {
+            parseValue338(instance, input);
+            break;
+          } // case 2704
+          case 2712: {
+            parseValue339(instance, input);
+            break;
+          } // case 2712
+          case 2720: {
+            parseValue340(instance, input);
+            break;
+          } // case 2720
+          case 2728: {
+            parseValue341(instance, input);
+            break;
+          } // case 2728
+          case 2736: {
+            parseValue342(instance, input);
+            break;
+          } // case 2736
+          case 2744: {
+            parseValue343(instance, input);
+            break;
+          } // case 2744
+          case 2752: {
+            parseValue344(instance, input);
+            break;
+          } // case 2752
+          case 2760: {
+            parseValue345(instance, input);
+            break;
+          } // case 2760
+          case 2768: {
+            parseValue346(instance, input);
+            break;
+          } // case 2768
+          case 2776: {
+            parseValue347(instance, input);
+            break;
+          } // case 2776
+          case 2784: {
+            parseValue348(instance, input);
+            break;
+          } // case 2784
+          case 2792: {
+            parseValue349(instance, input);
+            break;
+          } // case 2792
+          case 2800: {
+            parseValue350(instance, input);
+            break;
+          } // case 2800
+          case 2808: {
+            parseValue351(instance, input);
+            break;
+          } // case 2808
+          case 2816: {
+            parseValue352(instance, input);
+            break;
+          } // case 2816
+          case 2824: {
+            parseValue353(instance, input);
+            break;
+          } // case 2824
+          case 2832: {
+            parseValue354(instance, input);
+            break;
+          } // case 2832
+          case 2840: {
+            parseValue355(instance, input);
+            break;
+          } // case 2840
+          case 2848: {
+            parseValue356(instance, input);
+            break;
+          } // case 2848
+          case 2856: {
+            parseValue357(instance, input);
+            break;
+          } // case 2856
+          case 2864: {
+            parseValue358(instance, input);
+            break;
+          } // case 2864
+          case 2872: {
+            parseValue359(instance, input);
+            break;
+          } // case 2872
+          case 2880: {
+            parseValue360(instance, input);
+            break;
+          } // case 2880
+          case 2888: {
+            parseValue361(instance, input);
+            break;
+          } // case 2888
+          case 2896: {
+            parseValue362(instance, input);
+            break;
+          } // case 2896
+          case 2904: {
+            parseValue363(instance, input);
+            break;
+          } // case 2904
+          case 2912: {
+            parseValue364(instance, input);
+            break;
+          } // case 2912
+          case 2920: {
+            parseValue365(instance, input);
+            break;
+          } // case 2920
+          case 2928: {
+            parseValue366(instance, input);
+            break;
+          } // case 2928
+          case 2936: {
+            parseValue367(instance, input);
+            break;
+          } // case 2936
+          case 2944: {
+            parseValue368(instance, input);
+            break;
+          } // case 2944
+          case 2952: {
+            parseValue369(instance, input);
+            break;
+          } // case 2952
+          case 2960: {
+            parseValue370(instance, input);
+            break;
+          } // case 2960
+          case 2968: {
+            parseValue371(instance, input);
+            break;
+          } // case 2968
+          case 2976: {
+            parseValue372(instance, input);
+            break;
+          } // case 2976
+          case 2984: {
+            parseValue373(instance, input);
+            break;
+          } // case 2984
+          case 2992: {
+            parseValue374(instance, input);
+            break;
+          } // case 2992
+          case 3000: {
+            parseValue375(instance, input);
+            break;
+          } // case 3000
+          case 3008: {
+            parseValue376(instance, input);
+            break;
+          } // case 3008
+          case 3016: {
+            parseValue377(instance, input);
+            break;
+          } // case 3016
+          case 3024: {
+            parseValue378(instance, input);
+            break;
+          } // case 3024
+          case 3032: {
+            parseValue379(instance, input);
+            break;
+          } // case 3032
+          case 3040: {
+            parseValue380(instance, input);
+            break;
+          } // case 3040
+          case 3048: {
+            parseValue381(instance, input);
+            break;
+          } // case 3048
+          case 3056: {
+            parseValue382(instance, input);
+            break;
+          } // case 3056
+          case 3064: {
+            parseValue383(instance, input);
+            break;
+          } // case 3064
+          case 3072: {
+            parseValue384(instance, input);
+            break;
+          } // case 3072
+          case 3080: {
+            parseValue385(instance, input);
+            break;
+          } // case 3080
+          case 3088: {
+            parseValue386(instance, input);
+            break;
+          } // case 3088
+          case 3096: {
+            parseValue387(instance, input);
+            break;
+          } // case 3096
+          case 3104: {
+            parseValue388(instance, input);
+            break;
+          } // case 3104
+          case 3112: {
+            parseValue389(instance, input);
+            break;
+          } // case 3112
+          case 3120: {
+            parseValue390(instance, input);
+            break;
+          } // case 3120
+          case 3128: {
+            parseValue391(instance, input);
+            break;
+          } // case 3128
+          case 3136: {
+            parseValue392(instance, input);
+            break;
+          } // case 3136
+          case 3144: {
+            parseValue393(instance, input);
+            break;
+          } // case 3144
+          case 3152: {
+            parseValue394(instance, input);
+            break;
+          } // case 3152
+          case 3160: {
+            parseValue395(instance, input);
+            break;
+          } // case 3160
+          case 3168: {
+            parseValue396(instance, input);
+            break;
+          } // case 3168
+          case 3176: {
+            parseValue397(instance, input);
+            break;
+          } // case 3176
+          case 3184: {
+            parseValue398(instance, input);
+            break;
+          } // case 3184
+          case 3192: {
+            parseValue399(instance, input);
+            break;
+          } // case 3192
+          case 3200: {
+            parseValue400(instance, input);
+            break;
+          } // case 3200
+          case 3208: {
+            parseValue401(instance, input);
+            break;
+          } // case 3208
+          case 3216: {
+            parseValue402(instance, input);
+            break;
+          } // case 3216
+          case 3224: {
+            parseValue403(instance, input);
+            break;
+          } // case 3224
+          case 3232: {
+            parseValue404(instance, input);
+            break;
+          } // case 3232
+          case 3240: {
+            parseValue405(instance, input);
+            break;
+          } // case 3240
+          case 3248: {
+            parseValue406(instance, input);
+            break;
+          } // case 3248
+          case 3256: {
+            parseValue407(instance, input);
+            break;
+          } // case 3256
+          case 3264: {
+            parseValue408(instance, input);
+            break;
+          } // case 3264
+          case 3272: {
+            parseValue409(instance, input);
+            break;
+          } // case 3272
+          case 3280: {
+            parseValue410(instance, input);
+            break;
+          } // case 3280
+          case 3288: {
+            parseValue411(instance, input);
+            break;
+          } // case 3288
+          case 3296: {
+            parseValue412(instance, input);
+            break;
+          } // case 3296
+          case 3304: {
+            parseValue413(instance, input);
+            break;
+          } // case 3304
+          case 3312: {
+            parseValue414(instance, input);
+            break;
+          } // case 3312
+          case 3320: {
+            parseValue415(instance, input);
+            break;
+          } // case 3320
+          case 3328: {
+            parseValue416(instance, input);
+            break;
+          } // case 3328
+          case 3336: {
+            parseValue417(instance, input);
+            break;
+          } // case 3336
+          case 3344: {
+            parseValue418(instance, input);
+            break;
+          } // case 3344
+          case 3352: {
+            parseValue419(instance, input);
+            break;
+          } // case 3352
+          case 3360: {
+            parseValue420(instance, input);
+            break;
+          } // case 3360
+          case 3368: {
+            parseValue421(instance, input);
+            break;
+          } // case 3368
+          case 3376: {
+            parseValue422(instance, input);
+            break;
+          } // case 3376
+          case 3384: {
+            parseValue423(instance, input);
+            break;
+          } // case 3384
+          case 3392: {
+            parseValue424(instance, input);
+            break;
+          } // case 3392
+          case 3400: {
+            parseValue425(instance, input);
+            break;
+          } // case 3400
+          case 3408: {
+            parseValue426(instance, input);
+            break;
+          } // case 3408
+          case 3416: {
+            parseValue427(instance, input);
+            break;
+          } // case 3416
+          case 3424: {
+            parseValue428(instance, input);
+            break;
+          } // case 3424
+          case 3432: {
+            parseValue429(instance, input);
+            break;
+          } // case 3432
+          case 3440: {
+            parseValue430(instance, input);
+            break;
+          } // case 3440
+          case 3448: {
+            parseValue431(instance, input);
+            break;
+          } // case 3448
+          case 3456: {
+            parseValue432(instance, input);
+            break;
+          } // case 3456
+          case 3464: {
+            parseValue433(instance, input);
+            break;
+          } // case 3464
+          case 3472: {
+            parseValue434(instance, input);
+            break;
+          } // case 3472
+          case 3480: {
+            parseValue435(instance, input);
+            break;
+          } // case 3480
+          case 3488: {
+            parseValue436(instance, input);
+            break;
+          } // case 3488
+          case 3496: {
+            parseValue437(instance, input);
+            break;
+          } // case 3496
+          case 3504: {
+            parseValue438(instance, input);
+            break;
+          } // case 3504
+          case 3512: {
+            parseValue439(instance, input);
+            break;
+          } // case 3512
+          case 3520: {
+            parseValue440(instance, input);
+            break;
+          } // case 3520
+          case 3528: {
+            parseValue441(instance, input);
+            break;
+          } // case 3528
+          case 3536: {
+            parseValue442(instance, input);
+            break;
+          } // case 3536
+          case 3544: {
+            parseValue443(instance, input);
+            break;
+          } // case 3544
+          case 3552: {
+            parseValue444(instance, input);
+            break;
+          } // case 3552
+          case 3560: {
+            parseValue445(instance, input);
+            break;
+          } // case 3560
+          case 3568: {
+            parseValue446(instance, input);
+            break;
+          } // case 3568
+          case 3576: {
+            parseValue447(instance, input);
+            break;
+          } // case 3576
+          case 3584: {
+            parseValue448(instance, input);
+            break;
+          } // case 3584
+          case 3592: {
+            parseValue449(instance, input);
+            break;
+          } // case 3592
+          case 3600: {
+            parseValue450(instance, input);
+            break;
+          } // case 3600
+          case 3608: {
+            parseValue451(instance, input);
+            break;
+          } // case 3608
+          case 3616: {
+            parseValue452(instance, input);
+            break;
+          } // case 3616
+          case 3624: {
+            parseValue453(instance, input);
+            break;
+          } // case 3624
+          case 3632: {
+            parseValue454(instance, input);
+            break;
+          } // case 3632
+          case 3640: {
+            parseValue455(instance, input);
+            break;
+          } // case 3640
+          case 3648: {
+            parseValue456(instance, input);
+            break;
+          } // case 3648
+          case 3656: {
+            parseValue457(instance, input);
+            break;
+          } // case 3656
+          case 3664: {
+            parseValue458(instance, input);
+            break;
+          } // case 3664
+          case 3672: {
+            parseValue459(instance, input);
+            break;
+          } // case 3672
+          case 3680: {
+            parseValue460(instance, input);
+            break;
+          } // case 3680
+          case 3688: {
+            parseValue461(instance, input);
+            break;
+          } // case 3688
+          case 3696: {
+            parseValue462(instance, input);
+            break;
+          } // case 3696
+          case 3704: {
+            parseValue463(instance, input);
+            break;
+          } // case 3704
+          case 3712: {
+            parseValue464(instance, input);
+            break;
+          } // case 3712
+          case 3720: {
+            parseValue465(instance, input);
+            break;
+          } // case 3720
+          case 3728: {
+            parseValue466(instance, input);
+            break;
+          } // case 3728
+          case 3736: {
+            parseValue467(instance, input);
+            break;
+          } // case 3736
+          case 3744: {
+            parseValue468(instance, input);
+            break;
+          } // case 3744
+          case 3752: {
+            parseValue469(instance, input);
+            break;
+          } // case 3752
+          case 3760: {
+            parseValue470(instance, input);
+            break;
+          } // case 3760
+          case 3768: {
+            parseValue471(instance, input);
+            break;
+          } // case 3768
+          case 3776: {
+            parseValue472(instance, input);
+            break;
+          } // case 3776
+          case 3784: {
+            parseValue473(instance, input);
+            break;
+          } // case 3784
+          case 3792: {
+            parseValue474(instance, input);
+            break;
+          } // case 3792
+          case 3800: {
+            parseValue475(instance, input);
+            break;
+          } // case 3800
+          case 3808: {
+            parseValue476(instance, input);
+            break;
+          } // case 3808
+          case 3816: {
+            parseValue477(instance, input);
+            break;
+          } // case 3816
+          case 3824: {
+            parseValue478(instance, input);
+            break;
+          } // case 3824
+          case 3832: {
+            parseValue479(instance, input);
+            break;
+          } // case 3832
+          case 3840: {
+            parseValue480(instance, input);
+            break;
+          } // case 3840
+          case 3848: {
+            parseValue481(instance, input);
+            break;
+          } // case 3848
+          case 3856: {
+            parseValue482(instance, input);
+            break;
+          } // case 3856
+          case 3864: {
+            parseValue483(instance, input);
+            break;
+          } // case 3864
+          case 3872: {
+            parseValue484(instance, input);
+            break;
+          } // case 3872
+          case 3880: {
+            parseValue485(instance, input);
+            break;
+          } // case 3880
+          case 3888: {
+            parseValue486(instance, input);
+            break;
+          } // case 3888
+          case 3896: {
+            parseValue487(instance, input);
+            break;
+          } // case 3896
+          case 3904: {
+            parseValue488(instance, input);
+            break;
+          } // case 3904
+          case 3912: {
+            parseValue489(instance, input);
+            break;
+          } // case 3912
+          case 3920: {
+            parseValue490(instance, input);
+            break;
+          } // case 3920
+          case 3928: {
+            parseValue491(instance, input);
+            break;
+          } // case 3928
+          case 3936: {
+            parseValue492(instance, input);
+            break;
+          } // case 3936
+          case 3944: {
+            parseValue493(instance, input);
+            break;
+          } // case 3944
+          case 3952: {
+            parseValue494(instance, input);
+            break;
+          } // case 3952
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static void parseValue1(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 1;
+      instance.bitField0_ |= 0x00000001; // fallthrough
+    case 1:
+      break;
+    }
+  }
+  private static void parseValue2(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 2;
+      instance.bitField0_ |= 0x00000002; // fallthrough
+    case 2:
+      break;
+    }
+  }
+  private static void parseValue3(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 3;
+      instance.bitField0_ |= 0x00000004; // fallthrough
+    case 3:
+      break;
+    }
+  }
+  private static void parseValue4(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 4;
+      instance.bitField0_ |= 0x00000008; // fallthrough
+    case 4:
+      break;
+    }
+  }
+  private static void parseValue5(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 5;
+      instance.bitField0_ |= 0x00000010; // fallthrough
+    case 5:
+      break;
+    }
+  }
+  private static void parseValue6(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 6;
+      instance.bitField0_ |= 0x00000020; // fallthrough
+    case 6:
+      break;
+    }
+  }
+  private static void parseValue7(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 7;
+      instance.bitField0_ |= 0x00000040; // fallthrough
+    case 7:
+      break;
+    }
+  }
+  private static void parseValue8(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 8;
+      instance.bitField0_ |= 0x00000080; // fallthrough
+    case 8:
+      break;
+    }
+  }
+  private static void parseValue9(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 9;
+      instance.bitField0_ |= 0x00000100; // fallthrough
+    case 9:
+      break;
+    }
+  }
+  private static void parseValue10(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 10;
+      instance.bitField0_ |= 0x00000200; // fallthrough
+    case 10:
+      break;
+    }
+  }
+  private static void parseValue11(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 11;
+      instance.bitField0_ |= 0x00000400; // fallthrough
+    case 11:
+      break;
+    }
+  }
+  private static void parseValue12(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 12;
+      instance.bitField0_ |= 0x00000800; // fallthrough
+    case 12:
+      break;
+    }
+  }
+  private static void parseValue13(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 13;
+      instance.bitField0_ |= 0x00001000; // fallthrough
+    case 13:
+      break;
+    }
+  }
+  private static void parseValue14(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 14;
+      instance.bitField0_ |= 0x00002000; // fallthrough
+    case 14:
+      break;
+    }
+  }
+  private static void parseValue15(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 15;
+      instance.bitField0_ |= 0x00004000; // fallthrough
+    case 15:
+      break;
+    }
+  }
+  private static void parseValue16(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 16;
+      instance.bitField0_ |= 0x00008000; // fallthrough
+    case 16:
+      break;
+    }
+  }
+  private static void parseValue17(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 17;
+      instance.bitField0_ |= 0x00010000; // fallthrough
+    case 17:
+      break;
+    }
+  }
+  private static void parseValue18(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 18;
+      instance.bitField0_ |= 0x00020000; // fallthrough
+    case 18:
+      break;
+    }
+  }
+  private static void parseValue19(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 19;
+      instance.bitField0_ |= 0x00040000; // fallthrough
+    case 19:
+      break;
+    }
+  }
+  private static void parseValue20(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 20;
+      instance.bitField0_ |= 0x00080000; // fallthrough
+    case 20:
+      break;
+    }
+  }
+  private static void parseValue21(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 21;
+      instance.bitField0_ |= 0x00100000; // fallthrough
+    case 21:
+      break;
+    }
+  }
+  private static void parseValue22(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 22;
+      instance.bitField0_ |= 0x00200000; // fallthrough
+    case 22:
+      break;
+    }
+  }
+  private static void parseValue23(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 23;
+      instance.bitField0_ |= 0x00400000; // fallthrough
+    case 23:
+      break;
+    }
+  }
+  private static void parseValue24(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 24;
+      instance.bitField0_ |= 0x00800000; // fallthrough
+    case 24:
+      break;
+    }
+  }
+  private static void parseValue25(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 25;
+      instance.bitField0_ |= 0x01000000; // fallthrough
+    case 25:
+      break;
+    }
+  }
+  private static void parseValue26(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 26;
+      instance.bitField0_ |= 0x02000000; // fallthrough
+    case 26:
+      break;
+    }
+  }
+  private static void parseValue27(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 27;
+      instance.bitField0_ |= 0x04000000; // fallthrough
+    case 27:
+      break;
+    }
+  }
+  private static void parseValue28(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 28;
+      instance.bitField0_ |= 0x08000000; // fallthrough
+    case 28:
+      break;
+    }
+  }
+  private static void parseValue29(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 29;
+      instance.bitField0_ |= 0x10000000; // fallthrough
+    case 29:
+      break;
+    }
+  }
+  private static void parseValue30(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 30;
+      instance.bitField0_ |= 0x20000000; // fallthrough
+    case 30:
+      break;
+    }
+  }
+  private static void parseValue31(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 31;
+      instance.bitField0_ |= 0x40000000; // fallthrough
+    case 31:
+      break;
+    }
+  }
+  private static void parseValue32(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 32;
+      instance.bitField0_ |= 0x80000000; // fallthrough
+    case 32:
+      break;
+    }
+  }
+  private static void parseValue33(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 33;
+      instance.bitField1_ |= 0x00000001; // fallthrough
+    case 33:
+      break;
+    }
+  }
+  private static void parseValue34(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 34;
+      instance.bitField1_ |= 0x00000002; // fallthrough
+    case 34:
+      break;
+    }
+  }
+  private static void parseValue35(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 35;
+      instance.bitField1_ |= 0x00000004; // fallthrough
+    case 35:
+      break;
+    }
+  }
+  private static void parseValue36(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 36;
+      instance.bitField1_ |= 0x00000008; // fallthrough
+    case 36:
+      break;
+    }
+  }
+  private static void parseValue37(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 37;
+      instance.bitField1_ |= 0x00000010; // fallthrough
+    case 37:
+      break;
+    }
+  }
+  private static void parseValue38(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 38;
+      instance.bitField1_ |= 0x00000020; // fallthrough
+    case 38:
+      break;
+    }
+  }
+  private static void parseValue39(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 39;
+      instance.bitField1_ |= 0x00000040; // fallthrough
+    case 39:
+      break;
+    }
+  }
+  private static void parseValue40(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 40;
+      instance.bitField1_ |= 0x00000080; // fallthrough
+    case 40:
+      break;
+    }
+  }
+  private static void parseValue41(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 41;
+      instance.bitField1_ |= 0x00000100; // fallthrough
+    case 41:
+      break;
+    }
+  }
+  private static void parseValue42(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 42;
+      instance.bitField1_ |= 0x00000200; // fallthrough
+    case 42:
+      break;
+    }
+  }
+  private static void parseValue43(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 43;
+      instance.bitField1_ |= 0x00000400; // fallthrough
+    case 43:
+      break;
+    }
+  }
+  private static void parseValue44(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 44;
+      instance.bitField1_ |= 0x00000800; // fallthrough
+    case 44:
+      break;
+    }
+  }
+  private static void parseValue45(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 45;
+      instance.bitField1_ |= 0x00001000; // fallthrough
+    case 45:
+      break;
+    }
+  }
+  private static void parseValue46(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 46;
+      instance.bitField1_ |= 0x00002000; // fallthrough
+    case 46:
+      break;
+    }
+  }
+  private static void parseValue47(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 47;
+      instance.bitField1_ |= 0x00004000; // fallthrough
+    case 47:
+      break;
+    }
+  }
+  private static void parseValue48(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 48;
+      instance.bitField1_ |= 0x00008000; // fallthrough
+    case 48:
+      break;
+    }
+  }
+  private static void parseValue49(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 49;
+      instance.bitField1_ |= 0x00010000; // fallthrough
+    case 49:
+      break;
+    }
+  }
+  private static void parseValue50(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 50;
+      instance.bitField1_ |= 0x00020000; // fallthrough
+    case 50:
+      break;
+    }
+  }
+  private static void parseValue51(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 51;
+      instance.bitField1_ |= 0x00040000; // fallthrough
+    case 51:
+      break;
+    }
+  }
+  private static void parseValue52(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 52;
+      instance.bitField1_ |= 0x00080000; // fallthrough
+    case 52:
+      break;
+    }
+  }
+  private static void parseValue53(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 53;
+      instance.bitField1_ |= 0x00100000; // fallthrough
+    case 53:
+      break;
+    }
+  }
+  private static void parseValue54(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 54;
+      instance.bitField1_ |= 0x00200000; // fallthrough
+    case 54:
+      break;
+    }
+  }
+  private static void parseValue55(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 55;
+      instance.bitField1_ |= 0x00400000; // fallthrough
+    case 55:
+      break;
+    }
+  }
+  private static void parseValue56(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 56;
+      instance.bitField1_ |= 0x00800000; // fallthrough
+    case 56:
+      break;
+    }
+  }
+  private static void parseValue57(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 57;
+      instance.bitField1_ |= 0x01000000; // fallthrough
+    case 57:
+      break;
+    }
+  }
+  private static void parseValue58(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 58;
+      instance.bitField1_ |= 0x02000000; // fallthrough
+    case 58:
+      break;
+    }
+  }
+  private static void parseValue59(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 59;
+      instance.bitField1_ |= 0x04000000; // fallthrough
+    case 59:
+      break;
+    }
+  }
+  private static void parseValue60(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 60;
+      instance.bitField1_ |= 0x08000000; // fallthrough
+    case 60:
+      break;
+    }
+  }
+  private static void parseValue61(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 61;
+      instance.bitField1_ |= 0x10000000; // fallthrough
+    case 61:
+      break;
+    }
+  }
+  private static void parseValue62(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 62;
+      instance.bitField1_ |= 0x20000000; // fallthrough
+    case 62:
+      break;
+    }
+  }
+  private static void parseValue63(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 63;
+      instance.bitField1_ |= 0x40000000; // fallthrough
+    case 63:
+      break;
+    }
+  }
+  private static void parseValue64(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 64;
+      instance.bitField1_ |= 0x80000000; // fallthrough
+    case 64:
+      break;
+    }
+  }
+  private static void parseValue65(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 65;
+      instance.bitField2_ |= 0x00000001; // fallthrough
+    case 65:
+      break;
+    }
+  }
+  private static void parseValue66(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 66;
+      instance.bitField2_ |= 0x00000002; // fallthrough
+    case 66:
+      break;
+    }
+  }
+  private static void parseValue67(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 67;
+      instance.bitField2_ |= 0x00000004; // fallthrough
+    case 67:
+      break;
+    }
+  }
+  private static void parseValue68(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 68;
+      instance.bitField2_ |= 0x00000008; // fallthrough
+    case 68:
+      break;
+    }
+  }
+  private static void parseValue69(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 69;
+      instance.bitField2_ |= 0x00000010; // fallthrough
+    case 69:
+      break;
+    }
+  }
+  private static void parseValue70(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 70;
+      instance.bitField2_ |= 0x00000020; // fallthrough
+    case 70:
+      break;
+    }
+  }
+  private static void parseValue71(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 71;
+      instance.bitField2_ |= 0x00000040; // fallthrough
+    case 71:
+      break;
+    }
+  }
+  private static void parseValue72(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 72;
+      instance.bitField2_ |= 0x00000080; // fallthrough
+    case 72:
+      break;
+    }
+  }
+  private static void parseValue73(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 73;
+      instance.bitField2_ |= 0x00000100; // fallthrough
+    case 73:
+      break;
+    }
+  }
+  private static void parseValue74(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 74;
+      instance.bitField2_ |= 0x00000200; // fallthrough
+    case 74:
+      break;
+    }
+  }
+  private static void parseValue75(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 75;
+      instance.bitField2_ |= 0x00000400; // fallthrough
+    case 75:
+      break;
+    }
+  }
+  private static void parseValue76(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 76;
+      instance.bitField2_ |= 0x00000800; // fallthrough
+    case 76:
+      break;
+    }
+  }
+  private static void parseValue77(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 77;
+      instance.bitField2_ |= 0x00001000; // fallthrough
+    case 77:
+      break;
+    }
+  }
+  private static void parseValue78(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 78;
+      instance.bitField2_ |= 0x00002000; // fallthrough
+    case 78:
+      break;
+    }
+  }
+  private static void parseValue79(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 79;
+      instance.bitField2_ |= 0x00004000; // fallthrough
+    case 79:
+      break;
+    }
+  }
+  private static void parseValue80(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 80;
+      instance.bitField2_ |= 0x00008000; // fallthrough
+    case 80:
+      break;
+    }
+  }
+  private static void parseValue81(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 81;
+      instance.bitField2_ |= 0x00010000; // fallthrough
+    case 81:
+      break;
+    }
+  }
+  private static void parseValue82(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 82;
+      instance.bitField2_ |= 0x00020000; // fallthrough
+    case 82:
+      break;
+    }
+  }
+  private static void parseValue83(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 83;
+      instance.bitField2_ |= 0x00040000; // fallthrough
+    case 83:
+      break;
+    }
+  }
+  private static void parseValue84(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 84;
+      instance.bitField2_ |= 0x00080000; // fallthrough
+    case 84:
+      break;
+    }
+  }
+  private static void parseValue85(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 85;
+      instance.bitField2_ |= 0x00100000; // fallthrough
+    case 85:
+      break;
+    }
+  }
+  private static void parseValue86(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 86;
+      instance.bitField2_ |= 0x00200000; // fallthrough
+    case 86:
+      break;
+    }
+  }
+  private static void parseValue87(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 87;
+      instance.bitField2_ |= 0x00400000; // fallthrough
+    case 87:
+      break;
+    }
+  }
+  private static void parseValue88(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 88;
+      instance.bitField2_ |= 0x00800000; // fallthrough
+    case 88:
+      break;
+    }
+  }
+  private static void parseValue89(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 89;
+      instance.bitField2_ |= 0x01000000; // fallthrough
+    case 89:
+      break;
+    }
+  }
+  private static void parseValue90(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 90;
+      instance.bitField2_ |= 0x02000000; // fallthrough
+    case 90:
+      break;
+    }
+  }
+  private static void parseValue91(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 91;
+      instance.bitField2_ |= 0x04000000; // fallthrough
+    case 91:
+      break;
+    }
+  }
+  private static void parseValue92(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 92;
+      instance.bitField2_ |= 0x08000000; // fallthrough
+    case 92:
+      break;
+    }
+  }
+  private static void parseValue93(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 93;
+      instance.bitField2_ |= 0x10000000; // fallthrough
+    case 93:
+      break;
+    }
+  }
+  private static void parseValue94(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 94;
+      instance.bitField2_ |= 0x20000000; // fallthrough
+    case 94:
+      break;
+    }
+  }
+  private static void parseValue95(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 95;
+      instance.bitField2_ |= 0x40000000; // fallthrough
+    case 95:
+      break;
+    }
+  }
+  private static void parseValue96(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 96;
+      instance.bitField2_ |= 0x80000000; // fallthrough
+    case 96:
+      break;
+    }
+  }
+  private static void parseValue97(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 97;
+      instance.bitField3_ |= 0x00000001; // fallthrough
+    case 97:
+      break;
+    }
+  }
+  private static void parseValue98(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 98;
+      instance.bitField3_ |= 0x00000002; // fallthrough
+    case 98:
+      break;
+    }
+  }
+  private static void parseValue99(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 99;
+      instance.bitField3_ |= 0x00000004; // fallthrough
+    case 99:
+      break;
+    }
+  }
+  private static void parseValue100(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 100;
+      instance.bitField3_ |= 0x00000008; // fallthrough
+    case 100:
+      break;
+    }
+  }
+  private static void parseValue101(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 101;
+      instance.bitField3_ |= 0x00000010; // fallthrough
+    case 101:
+      break;
+    }
+  }
+  private static void parseValue102(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 102;
+      instance.bitField3_ |= 0x00000020; // fallthrough
+    case 102:
+      break;
+    }
+  }
+  private static void parseValue103(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 103;
+      instance.bitField3_ |= 0x00000040; // fallthrough
+    case 103:
+      break;
+    }
+  }
+  private static void parseValue104(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 104;
+      instance.bitField3_ |= 0x00000080; // fallthrough
+    case 104:
+      break;
+    }
+  }
+  private static void parseValue105(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 105;
+      instance.bitField3_ |= 0x00000100; // fallthrough
+    case 105:
+      break;
+    }
+  }
+  private static void parseValue106(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 106;
+      instance.bitField3_ |= 0x00000200; // fallthrough
+    case 106:
+      break;
+    }
+  }
+  private static void parseValue107(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 107;
+      instance.bitField3_ |= 0x00000400; // fallthrough
+    case 107:
+      break;
+    }
+  }
+  private static void parseValue108(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 108;
+      instance.bitField3_ |= 0x00000800; // fallthrough
+    case 108:
+      break;
+    }
+  }
+  private static void parseValue109(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 109;
+      instance.bitField3_ |= 0x00001000; // fallthrough
+    case 109:
+      break;
+    }
+  }
+  private static void parseValue110(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 110;
+      instance.bitField3_ |= 0x00002000; // fallthrough
+    case 110:
+      break;
+    }
+  }
+  private static void parseValue111(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 111;
+      instance.bitField3_ |= 0x00004000; // fallthrough
+    case 111:
+      break;
+    }
+  }
+  private static void parseValue112(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 112;
+      instance.bitField3_ |= 0x00008000; // fallthrough
+    case 112:
+      break;
+    }
+  }
+  private static void parseValue113(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 113;
+      instance.bitField3_ |= 0x00010000; // fallthrough
+    case 113:
+      break;
+    }
+  }
+  private static void parseValue114(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 114;
+      instance.bitField3_ |= 0x00020000; // fallthrough
+    case 114:
+      break;
+    }
+  }
+  private static void parseValue115(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 115;
+      instance.bitField3_ |= 0x00040000; // fallthrough
+    case 115:
+      break;
+    }
+  }
+  private static void parseValue116(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 116;
+      instance.bitField3_ |= 0x00080000; // fallthrough
+    case 116:
+      break;
+    }
+  }
+  private static void parseValue117(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 117;
+      instance.bitField3_ |= 0x00100000; // fallthrough
+    case 117:
+      break;
+    }
+  }
+  private static void parseValue118(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 118;
+      instance.bitField3_ |= 0x00200000; // fallthrough
+    case 118:
+      break;
+    }
+  }
+  private static void parseValue119(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 119;
+      instance.bitField3_ |= 0x00400000; // fallthrough
+    case 119:
+      break;
+    }
+  }
+  private static void parseValue120(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 120;
+      instance.bitField3_ |= 0x00800000; // fallthrough
+    case 120:
+      break;
+    }
+  }
+  private static void parseValue121(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 121;
+      instance.bitField3_ |= 0x01000000; // fallthrough
+    case 121:
+      break;
+    }
+  }
+  private static void parseValue122(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 122;
+      instance.bitField3_ |= 0x02000000; // fallthrough
+    case 122:
+      break;
+    }
+  }
+  private static void parseValue123(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 123;
+      instance.bitField3_ |= 0x04000000; // fallthrough
+    case 123:
+      break;
+    }
+  }
+  private static void parseValue124(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 124;
+      instance.bitField3_ |= 0x08000000; // fallthrough
+    case 124:
+      break;
+    }
+  }
+  private static void parseValue125(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 125;
+      instance.bitField3_ |= 0x10000000; // fallthrough
+    case 125:
+      break;
+    }
+  }
+  private static void parseValue126(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 126;
+      instance.bitField3_ |= 0x20000000; // fallthrough
+    case 126:
+      break;
+    }
+  }
+  private static void parseValue127(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 127;
+      instance.bitField3_ |= 0x40000000; // fallthrough
+    case 127:
+      break;
+    }
+  }
+  private static void parseValue128(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 128;
+      instance.bitField3_ |= 0x80000000; // fallthrough
+    case 128:
+      break;
+    }
+  }
+  private static void parseValue129(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 129;
+      instance.bitField4_ |= 0x00000001; // fallthrough
+    case 129:
+      break;
+    }
+  }
+  private static void parseValue130(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 130;
+      instance.bitField4_ |= 0x00000002; // fallthrough
+    case 130:
+      break;
+    }
+  }
+  private static void parseValue131(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 131;
+      instance.bitField4_ |= 0x00000004; // fallthrough
+    case 131:
+      break;
+    }
+  }
+  private static void parseValue132(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 132;
+      instance.bitField4_ |= 0x00000008; // fallthrough
+    case 132:
+      break;
+    }
+  }
+  private static void parseValue133(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 133;
+      instance.bitField4_ |= 0x00000010; // fallthrough
+    case 133:
+      break;
+    }
+  }
+  private static void parseValue134(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 134;
+      instance.bitField4_ |= 0x00000020; // fallthrough
+    case 134:
+      break;
+    }
+  }
+  private static void parseValue135(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 135;
+      instance.bitField4_ |= 0x00000040; // fallthrough
+    case 135:
+      break;
+    }
+  }
+  private static void parseValue136(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 136;
+      instance.bitField4_ |= 0x00000080; // fallthrough
+    case 136:
+      break;
+    }
+  }
+  private static void parseValue137(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 137;
+      instance.bitField4_ |= 0x00000100; // fallthrough
+    case 137:
+      break;
+    }
+  }
+  private static void parseValue138(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 138;
+      instance.bitField4_ |= 0x00000200; // fallthrough
+    case 138:
+      break;
+    }
+  }
+  private static void parseValue139(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 139;
+      instance.bitField4_ |= 0x00000400; // fallthrough
+    case 139:
+      break;
+    }
+  }
+  private static void parseValue140(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 140;
+      instance.bitField4_ |= 0x00000800; // fallthrough
+    case 140:
+      break;
+    }
+  }
+  private static void parseValue141(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 141;
+      instance.bitField4_ |= 0x00001000; // fallthrough
+    case 141:
+      break;
+    }
+  }
+  private static void parseValue142(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 142;
+      instance.bitField4_ |= 0x00002000; // fallthrough
+    case 142:
+      break;
+    }
+  }
+  private static void parseValue143(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 143;
+      instance.bitField4_ |= 0x00004000; // fallthrough
+    case 143:
+      break;
+    }
+  }
+  private static void parseValue144(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 144;
+      instance.bitField4_ |= 0x00008000; // fallthrough
+    case 144:
+      break;
+    }
+  }
+  private static void parseValue145(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 145;
+      instance.bitField4_ |= 0x00010000; // fallthrough
+    case 145:
+      break;
+    }
+  }
+  private static void parseValue146(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 146;
+      instance.bitField4_ |= 0x00020000; // fallthrough
+    case 146:
+      break;
+    }
+  }
+  private static void parseValue147(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 147;
+      instance.bitField4_ |= 0x00040000; // fallthrough
+    case 147:
+      break;
+    }
+  }
+  private static void parseValue148(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 148;
+      instance.bitField4_ |= 0x00080000; // fallthrough
+    case 148:
+      break;
+    }
+  }
+  private static void parseValue149(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 149;
+      instance.bitField4_ |= 0x00100000; // fallthrough
+    case 149:
+      break;
+    }
+  }
+  private static void parseValue150(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 150;
+      instance.bitField4_ |= 0x00200000; // fallthrough
+    case 150:
+      break;
+    }
+  }
+  private static void parseValue151(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 151;
+      instance.bitField4_ |= 0x00400000; // fallthrough
+    case 151:
+      break;
+    }
+  }
+  private static void parseValue152(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 152;
+      instance.bitField4_ |= 0x00800000; // fallthrough
+    case 152:
+      break;
+    }
+  }
+  private static void parseValue153(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 153;
+      instance.bitField4_ |= 0x01000000; // fallthrough
+    case 153:
+      break;
+    }
+  }
+  private static void parseValue154(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 154;
+      instance.bitField4_ |= 0x02000000; // fallthrough
+    case 154:
+      break;
+    }
+  }
+  private static void parseValue155(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 155;
+      instance.bitField4_ |= 0x04000000; // fallthrough
+    case 155:
+      break;
+    }
+  }
+  private static void parseValue156(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 156;
+      instance.bitField4_ |= 0x08000000; // fallthrough
+    case 156:
+      break;
+    }
+  }
+  private static void parseValue157(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 157;
+      instance.bitField4_ |= 0x10000000; // fallthrough
+    case 157:
+      break;
+    }
+  }
+  private static void parseValue158(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 158;
+      instance.bitField4_ |= 0x20000000; // fallthrough
+    case 158:
+      break;
+    }
+  }
+  private static void parseValue159(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 159;
+      instance.bitField4_ |= 0x40000000; // fallthrough
+    case 159:
+      break;
+    }
+  }
+  private static void parseValue160(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 160;
+      instance.bitField4_ |= 0x80000000; // fallthrough
+    case 160:
+      break;
+    }
+  }
+  private static void parseValue161(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 161;
+      instance.bitField5_ |= 0x00000001; // fallthrough
+    case 161:
+      break;
+    }
+  }
+  private static void parseValue162(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 162;
+      instance.bitField5_ |= 0x00000002; // fallthrough
+    case 162:
+      break;
+    }
+  }
+  private static void parseValue163(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 163;
+      instance.bitField5_ |= 0x00000004; // fallthrough
+    case 163:
+      break;
+    }
+  }
+  private static void parseValue164(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 164;
+      instance.bitField5_ |= 0x00000008; // fallthrough
+    case 164:
+      break;
+    }
+  }
+  private static void parseValue165(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 165;
+      instance.bitField5_ |= 0x00000010; // fallthrough
+    case 165:
+      break;
+    }
+  }
+  private static void parseValue166(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 166;
+      instance.bitField5_ |= 0x00000020; // fallthrough
+    case 166:
+      break;
+    }
+  }
+  private static void parseValue167(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 167;
+      instance.bitField5_ |= 0x00000040; // fallthrough
+    case 167:
+      break;
+    }
+  }
+  private static void parseValue168(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 168;
+      instance.bitField5_ |= 0x00000080; // fallthrough
+    case 168:
+      break;
+    }
+  }
+  private static void parseValue169(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 169;
+      instance.bitField5_ |= 0x00000100; // fallthrough
+    case 169:
+      break;
+    }
+  }
+  private static void parseValue170(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 170;
+      instance.bitField5_ |= 0x00000200; // fallthrough
+    case 170:
+      break;
+    }
+  }
+  private static void parseValue171(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 171;
+      instance.bitField5_ |= 0x00000400; // fallthrough
+    case 171:
+      break;
+    }
+  }
+  private static void parseValue172(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 172;
+      instance.bitField5_ |= 0x00000800; // fallthrough
+    case 172:
+      break;
+    }
+  }
+  private static void parseValue173(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 173;
+      instance.bitField5_ |= 0x00001000; // fallthrough
+    case 173:
+      break;
+    }
+  }
+  private static void parseValue174(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 174;
+      instance.bitField5_ |= 0x00002000; // fallthrough
+    case 174:
+      break;
+    }
+  }
+  private static void parseValue175(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 175;
+      instance.bitField5_ |= 0x00004000; // fallthrough
+    case 175:
+      break;
+    }
+  }
+  private static void parseValue176(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 176;
+      instance.bitField5_ |= 0x00008000; // fallthrough
+    case 176:
+      break;
+    }
+  }
+  private static void parseValue177(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 177;
+      instance.bitField5_ |= 0x00010000; // fallthrough
+    case 177:
+      break;
+    }
+  }
+  private static void parseValue178(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 178;
+      instance.bitField5_ |= 0x00020000; // fallthrough
+    case 178:
+      break;
+    }
+  }
+  private static void parseValue179(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 179;
+      instance.bitField5_ |= 0x00040000; // fallthrough
+    case 179:
+      break;
+    }
+  }
+  private static void parseValue180(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 180;
+      instance.bitField5_ |= 0x00080000; // fallthrough
+    case 180:
+      break;
+    }
+  }
+  private static void parseValue181(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 181;
+      instance.bitField5_ |= 0x00100000; // fallthrough
+    case 181:
+      break;
+    }
+  }
+  private static void parseValue182(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 182;
+      instance.bitField5_ |= 0x00200000; // fallthrough
+    case 182:
+      break;
+    }
+  }
+  private static void parseValue183(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 183;
+      instance.bitField5_ |= 0x00400000; // fallthrough
+    case 183:
+      break;
+    }
+  }
+  private static void parseValue184(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 184;
+      instance.bitField5_ |= 0x00800000; // fallthrough
+    case 184:
+      break;
+    }
+  }
+  private static void parseValue185(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 185;
+      instance.bitField5_ |= 0x01000000; // fallthrough
+    case 185:
+      break;
+    }
+  }
+  private static void parseValue186(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 186;
+      instance.bitField5_ |= 0x02000000; // fallthrough
+    case 186:
+      break;
+    }
+  }
+  private static void parseValue187(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 187;
+      instance.bitField5_ |= 0x04000000; // fallthrough
+    case 187:
+      break;
+    }
+  }
+  private static void parseValue188(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 188;
+      instance.bitField5_ |= 0x08000000; // fallthrough
+    case 188:
+      break;
+    }
+  }
+  private static void parseValue189(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 189;
+      instance.bitField5_ |= 0x10000000; // fallthrough
+    case 189:
+      break;
+    }
+  }
+  private static void parseValue190(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 190;
+      instance.bitField5_ |= 0x20000000; // fallthrough
+    case 190:
+      break;
+    }
+  }
+  private static void parseValue191(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 191;
+      instance.bitField5_ |= 0x40000000; // fallthrough
+    case 191:
+      break;
+    }
+  }
+  private static void parseValue192(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 192;
+      instance.bitField5_ |= 0x80000000; // fallthrough
+    case 192:
+      break;
+    }
+  }
+  private static void parseValue193(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 193;
+      instance.bitField6_ |= 0x00000001; // fallthrough
+    case 193:
+      break;
+    }
+  }
+  private static void parseValue194(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 194;
+      instance.bitField6_ |= 0x00000002; // fallthrough
+    case 194:
+      break;
+    }
+  }
+  private static void parseValue195(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 195;
+      instance.bitField6_ |= 0x00000004; // fallthrough
+    case 195:
+      break;
+    }
+  }
+  private static void parseValue196(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 196;
+      instance.bitField6_ |= 0x00000008; // fallthrough
+    case 196:
+      break;
+    }
+  }
+  private static void parseValue197(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 197;
+      instance.bitField6_ |= 0x00000010; // fallthrough
+    case 197:
+      break;
+    }
+  }
+  private static void parseValue198(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 198;
+      instance.bitField6_ |= 0x00000020; // fallthrough
+    case 198:
+      break;
+    }
+  }
+  private static void parseValue199(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 199;
+      instance.bitField6_ |= 0x00000040; // fallthrough
+    case 199:
+      break;
+    }
+  }
+  private static void parseValue200(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 200;
+      instance.bitField6_ |= 0x00000080; // fallthrough
+    case 200:
+      break;
+    }
+  }
+  private static void parseValue201(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 201;
+      instance.bitField6_ |= 0x00000100; // fallthrough
+    case 201:
+      break;
+    }
+  }
+  private static void parseValue202(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 202;
+      instance.bitField6_ |= 0x00000200; // fallthrough
+    case 202:
+      break;
+    }
+  }
+  private static void parseValue203(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 203;
+      instance.bitField6_ |= 0x00000400; // fallthrough
+    case 203:
+      break;
+    }
+  }
+  private static void parseValue204(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 204;
+      instance.bitField6_ |= 0x00000800; // fallthrough
+    case 204:
+      break;
+    }
+  }
+  private static void parseValue205(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 205;
+      instance.bitField6_ |= 0x00001000; // fallthrough
+    case 205:
+      break;
+    }
+  }
+  private static void parseValue206(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 206;
+      instance.bitField6_ |= 0x00002000; // fallthrough
+    case 206:
+      break;
+    }
+  }
+  private static void parseValue207(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 207;
+      instance.bitField6_ |= 0x00004000; // fallthrough
+    case 207:
+      break;
+    }
+  }
+  private static void parseValue208(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 208;
+      instance.bitField6_ |= 0x00008000; // fallthrough
+    case 208:
+      break;
+    }
+  }
+  private static void parseValue209(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 209;
+      instance.bitField6_ |= 0x00010000; // fallthrough
+    case 209:
+      break;
+    }
+  }
+  private static void parseValue210(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 210;
+      instance.bitField6_ |= 0x00020000; // fallthrough
+    case 210:
+      break;
+    }
+  }
+  private static void parseValue211(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 211;
+      instance.bitField6_ |= 0x00040000; // fallthrough
+    case 211:
+      break;
+    }
+  }
+  private static void parseValue212(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 212;
+      instance.bitField6_ |= 0x00080000; // fallthrough
+    case 212:
+      break;
+    }
+  }
+  private static void parseValue213(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 213;
+      instance.bitField6_ |= 0x00100000; // fallthrough
+    case 213:
+      break;
+    }
+  }
+  private static void parseValue214(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 214;
+      instance.bitField6_ |= 0x00200000; // fallthrough
+    case 214:
+      break;
+    }
+  }
+  private static void parseValue215(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 215;
+      instance.bitField6_ |= 0x00400000; // fallthrough
+    case 215:
+      break;
+    }
+  }
+  private static void parseValue216(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 216;
+      instance.bitField6_ |= 0x00800000; // fallthrough
+    case 216:
+      break;
+    }
+  }
+  private static void parseValue217(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 217;
+      instance.bitField6_ |= 0x01000000; // fallthrough
+    case 217:
+      break;
+    }
+  }
+  private static void parseValue218(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 218;
+      instance.bitField6_ |= 0x02000000; // fallthrough
+    case 218:
+      break;
+    }
+  }
+  private static void parseValue219(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 219;
+      instance.bitField6_ |= 0x04000000; // fallthrough
+    case 219:
+      break;
+    }
+  }
+  private static void parseValue220(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 220;
+      instance.bitField6_ |= 0x08000000; // fallthrough
+    case 220:
+      break;
+    }
+  }
+  private static void parseValue221(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 221;
+      instance.bitField6_ |= 0x10000000; // fallthrough
+    case 221:
+      break;
+    }
+  }
+  private static void parseValue222(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 222;
+      instance.bitField6_ |= 0x20000000; // fallthrough
+    case 222:
+      break;
+    }
+  }
+  private static void parseValue223(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 223;
+      instance.bitField6_ |= 0x40000000; // fallthrough
+    case 223:
+      break;
+    }
+  }
+  private static void parseValue224(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 224;
+      instance.bitField6_ |= 0x80000000; // fallthrough
+    case 224:
+      break;
+    }
+  }
+  private static void parseValue225(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 225;
+      instance.bitField7_ |= 0x00000001; // fallthrough
+    case 225:
+      break;
+    }
+  }
+  private static void parseValue226(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 226;
+      instance.bitField7_ |= 0x00000002; // fallthrough
+    case 226:
+      break;
+    }
+  }
+  private static void parseValue227(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 227;
+      instance.bitField7_ |= 0x00000004; // fallthrough
+    case 227:
+      break;
+    }
+  }
+  private static void parseValue228(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 228;
+      instance.bitField7_ |= 0x00000008; // fallthrough
+    case 228:
+      break;
+    }
+  }
+  private static void parseValue229(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 229;
+      instance.bitField7_ |= 0x00000010; // fallthrough
+    case 229:
+      break;
+    }
+  }
+  private static void parseValue230(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 230;
+      instance.bitField7_ |= 0x00000020; // fallthrough
+    case 230:
+      break;
+    }
+  }
+  private static void parseValue231(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 231;
+      instance.bitField7_ |= 0x00000040; // fallthrough
+    case 231:
+      break;
+    }
+  }
+  private static void parseValue232(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 232;
+      instance.bitField7_ |= 0x00000080; // fallthrough
+    case 232:
+      break;
+    }
+  }
+  private static void parseValue233(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 233;
+      instance.bitField7_ |= 0x00000100; // fallthrough
+    case 233:
+      break;
+    }
+  }
+  private static void parseValue234(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 234;
+      instance.bitField7_ |= 0x00000200; // fallthrough
+    case 234:
+      break;
+    }
+  }
+  private static void parseValue235(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 235;
+      instance.bitField7_ |= 0x00000400; // fallthrough
+    case 235:
+      break;
+    }
+  }
+  private static void parseValue236(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 236;
+      instance.bitField7_ |= 0x00000800; // fallthrough
+    case 236:
+      break;
+    }
+  }
+  private static void parseValue237(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 237;
+      instance.bitField7_ |= 0x00001000; // fallthrough
+    case 237:
+      break;
+    }
+  }
+  private static void parseValue238(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 238;
+      instance.bitField7_ |= 0x00002000; // fallthrough
+    case 238:
+      break;
+    }
+  }
+  private static void parseValue239(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 239;
+      instance.bitField7_ |= 0x00004000; // fallthrough
+    case 239:
+      break;
+    }
+  }
+  private static void parseValue240(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 240;
+      instance.bitField7_ |= 0x00008000; // fallthrough
+    case 240:
+      break;
+    }
+  }
+  private static void parseValue241(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 241;
+      instance.bitField7_ |= 0x00010000; // fallthrough
+    case 241:
+      break;
+    }
+  }
+  private static void parseValue242(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 242;
+      instance.bitField7_ |= 0x00020000; // fallthrough
+    case 242:
+      break;
+    }
+  }
+  private static void parseValue243(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 243;
+      instance.bitField7_ |= 0x00040000; // fallthrough
+    case 243:
+      break;
+    }
+  }
+  private static void parseValue244(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 244;
+      instance.bitField7_ |= 0x00080000; // fallthrough
+    case 244:
+      break;
+    }
+  }
+  private static void parseValue245(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 245;
+      instance.bitField7_ |= 0x00100000; // fallthrough
+    case 245:
+      break;
+    }
+  }
+  private static void parseValue246(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 246;
+      instance.bitField7_ |= 0x00200000; // fallthrough
+    case 246:
+      break;
+    }
+  }
+  private static void parseValue247(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 247;
+      instance.bitField7_ |= 0x00400000; // fallthrough
+    case 247:
+      break;
+    }
+  }
+  private static void parseValue248(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 248;
+      instance.bitField7_ |= 0x00800000; // fallthrough
+    case 248:
+      break;
+    }
+  }
+  private static void parseValue249(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 249;
+      instance.bitField7_ |= 0x01000000; // fallthrough
+    case 249:
+      break;
+    }
+  }
+  private static void parseValue250(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 250;
+      instance.bitField7_ |= 0x02000000; // fallthrough
+    case 250:
+      break;
+    }
+  }
+  private static void parseValue251(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 251;
+      instance.bitField7_ |= 0x04000000; // fallthrough
+    case 251:
+      break;
+    }
+  }
+  private static void parseValue252(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 252;
+      instance.bitField7_ |= 0x08000000; // fallthrough
+    case 252:
+      break;
+    }
+  }
+  private static void parseValue253(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 253;
+      instance.bitField7_ |= 0x10000000; // fallthrough
+    case 253:
+      break;
+    }
+  }
+  private static void parseValue254(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 254;
+      instance.bitField7_ |= 0x20000000; // fallthrough
+    case 254:
+      break;
+    }
+  }
+  private static void parseValue255(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 255;
+      instance.bitField7_ |= 0x40000000; // fallthrough
+    case 255:
+      break;
+    }
+  }
+  private static void parseValue256(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 256;
+      instance.bitField7_ |= 0x80000000; // fallthrough
+    case 256:
+      break;
+    }
+  }
+  private static void parseValue257(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 257;
+      instance.bitField8_ |= 0x00000001; // fallthrough
+    case 257:
+      break;
+    }
+  }
+  private static void parseValue258(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 258;
+      instance.bitField8_ |= 0x00000002; // fallthrough
+    case 258:
+      break;
+    }
+  }
+  private static void parseValue259(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 259;
+      instance.bitField8_ |= 0x00000004; // fallthrough
+    case 259:
+      break;
+    }
+  }
+  private static void parseValue260(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 260;
+      instance.bitField8_ |= 0x00000008; // fallthrough
+    case 260:
+      break;
+    }
+  }
+  private static void parseValue261(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 261;
+      instance.bitField8_ |= 0x00000010; // fallthrough
+    case 261:
+      break;
+    }
+  }
+  private static void parseValue262(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 262;
+      instance.bitField8_ |= 0x00000020; // fallthrough
+    case 262:
+      break;
+    }
+  }
+  private static void parseValue263(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 263;
+      instance.bitField8_ |= 0x00000040; // fallthrough
+    case 263:
+      break;
+    }
+  }
+  private static void parseValue264(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 264;
+      instance.bitField8_ |= 0x00000080; // fallthrough
+    case 264:
+      break;
+    }
+  }
+  private static void parseValue265(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 265;
+      instance.bitField8_ |= 0x00000100; // fallthrough
+    case 265:
+      break;
+    }
+  }
+  private static void parseValue266(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 266;
+      instance.bitField8_ |= 0x00000200; // fallthrough
+    case 266:
+      break;
+    }
+  }
+  private static void parseValue267(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 267;
+      instance.bitField8_ |= 0x00000400; // fallthrough
+    case 267:
+      break;
+    }
+  }
+  private static void parseValue268(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 268;
+      instance.bitField8_ |= 0x00000800; // fallthrough
+    case 268:
+      break;
+    }
+  }
+  private static void parseValue269(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 269;
+      instance.bitField8_ |= 0x00001000; // fallthrough
+    case 269:
+      break;
+    }
+  }
+  private static void parseValue270(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 270;
+      instance.bitField8_ |= 0x00002000; // fallthrough
+    case 270:
+      break;
+    }
+  }
+  private static void parseValue271(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 271;
+      instance.bitField8_ |= 0x00004000; // fallthrough
+    case 271:
+      break;
+    }
+  }
+  private static void parseValue272(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 272;
+      instance.bitField8_ |= 0x00008000; // fallthrough
+    case 272:
+      break;
+    }
+  }
+  private static void parseValue273(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 273;
+      instance.bitField8_ |= 0x00010000; // fallthrough
+    case 273:
+      break;
+    }
+  }
+  private static void parseValue274(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 274;
+      instance.bitField8_ |= 0x00020000; // fallthrough
+    case 274:
+      break;
+    }
+  }
+  private static void parseValue275(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 275;
+      instance.bitField8_ |= 0x00040000; // fallthrough
+    case 275:
+      break;
+    }
+  }
+  private static void parseValue276(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 276;
+      instance.bitField8_ |= 0x00080000; // fallthrough
+    case 276:
+      break;
+    }
+  }
+  private static void parseValue277(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 277;
+      instance.bitField8_ |= 0x00100000; // fallthrough
+    case 277:
+      break;
+    }
+  }
+  private static void parseValue278(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 278;
+      instance.bitField8_ |= 0x00200000; // fallthrough
+    case 278:
+      break;
+    }
+  }
+  private static void parseValue279(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 279;
+      instance.bitField8_ |= 0x00400000; // fallthrough
+    case 279:
+      break;
+    }
+  }
+  private static void parseValue280(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 280;
+      instance.bitField8_ |= 0x00800000; // fallthrough
+    case 280:
+      break;
+    }
+  }
+  private static void parseValue281(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 281;
+      instance.bitField8_ |= 0x01000000; // fallthrough
+    case 281:
+      break;
+    }
+  }
+  private static void parseValue282(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 282;
+      instance.bitField8_ |= 0x02000000; // fallthrough
+    case 282:
+      break;
+    }
+  }
+  private static void parseValue283(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 283;
+      instance.bitField8_ |= 0x04000000; // fallthrough
+    case 283:
+      break;
+    }
+  }
+  private static void parseValue284(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 284;
+      instance.bitField8_ |= 0x08000000; // fallthrough
+    case 284:
+      break;
+    }
+  }
+  private static void parseValue285(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 285;
+      instance.bitField8_ |= 0x10000000; // fallthrough
+    case 285:
+      break;
+    }
+  }
+  private static void parseValue286(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 286;
+      instance.bitField8_ |= 0x20000000; // fallthrough
+    case 286:
+      break;
+    }
+  }
+  private static void parseValue287(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 287;
+      instance.bitField8_ |= 0x40000000; // fallthrough
+    case 287:
+      break;
+    }
+  }
+  private static void parseValue288(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 288;
+      instance.bitField8_ |= 0x80000000; // fallthrough
+    case 288:
+      break;
+    }
+  }
+  private static void parseValue289(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 289;
+      instance.bitField9_ |= 0x00000001; // fallthrough
+    case 289:
+      break;
+    }
+  }
+  private static void parseValue290(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 290;
+      instance.bitField9_ |= 0x00000002; // fallthrough
+    case 290:
+      break;
+    }
+  }
+  private static void parseValue291(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 291;
+      instance.bitField9_ |= 0x00000004; // fallthrough
+    case 291:
+      break;
+    }
+  }
+  private static void parseValue292(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 292;
+      instance.bitField9_ |= 0x00000008; // fallthrough
+    case 292:
+      break;
+    }
+  }
+  private static void parseValue293(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 293;
+      instance.bitField9_ |= 0x00000010; // fallthrough
+    case 293:
+      break;
+    }
+  }
+  private static void parseValue294(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 294;
+      instance.bitField9_ |= 0x00000020; // fallthrough
+    case 294:
+      break;
+    }
+  }
+  private static void parseValue295(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 295;
+      instance.bitField9_ |= 0x00000040; // fallthrough
+    case 295:
+      break;
+    }
+  }
+  private static void parseValue296(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 296;
+      instance.bitField9_ |= 0x00000080; // fallthrough
+    case 296:
+      break;
+    }
+  }
+  private static void parseValue297(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 297;
+      instance.bitField9_ |= 0x00000100; // fallthrough
+    case 297:
+      break;
+    }
+  }
+  private static void parseValue298(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 298;
+      instance.bitField9_ |= 0x00000200; // fallthrough
+    case 298:
+      break;
+    }
+  }
+  private static void parseValue299(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 299;
+      instance.bitField9_ |= 0x00000400; // fallthrough
+    case 299:
+      break;
+    }
+  }
+  private static void parseValue300(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 300;
+      instance.bitField9_ |= 0x00000800; // fallthrough
+    case 300:
+      break;
+    }
+  }
+  private static void parseValue301(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 301;
+      instance.bitField9_ |= 0x00001000; // fallthrough
+    case 301:
+      break;
+    }
+  }
+  private static void parseValue302(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 302;
+      instance.bitField9_ |= 0x00002000; // fallthrough
+    case 302:
+      break;
+    }
+  }
+  private static void parseValue303(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 303;
+      instance.bitField9_ |= 0x00004000; // fallthrough
+    case 303:
+      break;
+    }
+  }
+  private static void parseValue304(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 304;
+      instance.bitField9_ |= 0x00008000; // fallthrough
+    case 304:
+      break;
+    }
+  }
+  private static void parseValue305(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 305;
+      instance.bitField9_ |= 0x00010000; // fallthrough
+    case 305:
+      break;
+    }
+  }
+  private static void parseValue306(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 306;
+      instance.bitField9_ |= 0x00020000; // fallthrough
+    case 306:
+      break;
+    }
+  }
+  private static void parseValue307(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 307;
+      instance.bitField9_ |= 0x00040000; // fallthrough
+    case 307:
+      break;
+    }
+  }
+  private static void parseValue308(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 308;
+      instance.bitField9_ |= 0x00080000; // fallthrough
+    case 308:
+      break;
+    }
+  }
+  private static void parseValue309(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 309;
+      instance.bitField9_ |= 0x00100000; // fallthrough
+    case 309:
+      break;
+    }
+  }
+  private static void parseValue310(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 310;
+      instance.bitField9_ |= 0x00200000; // fallthrough
+    case 310:
+      break;
+    }
+  }
+  private static void parseValue311(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 311;
+      instance.bitField9_ |= 0x00400000; // fallthrough
+    case 311:
+      break;
+    }
+  }
+  private static void parseValue312(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 312;
+      instance.bitField9_ |= 0x00800000; // fallthrough
+    case 312:
+      break;
+    }
+  }
+  private static void parseValue313(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 313;
+      instance.bitField9_ |= 0x01000000; // fallthrough
+    case 313:
+      break;
+    }
+  }
+  private static void parseValue314(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 314;
+      instance.bitField9_ |= 0x02000000; // fallthrough
+    case 314:
+      break;
+    }
+  }
+  private static void parseValue315(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 315;
+      instance.bitField9_ |= 0x04000000; // fallthrough
+    case 315:
+      break;
+    }
+  }
+  private static void parseValue316(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 316;
+      instance.bitField9_ |= 0x08000000; // fallthrough
+    case 316:
+      break;
+    }
+  }
+  private static void parseValue317(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 317;
+      instance.bitField9_ |= 0x10000000; // fallthrough
+    case 317:
+      break;
+    }
+  }
+  private static void parseValue318(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 318;
+      instance.bitField9_ |= 0x20000000; // fallthrough
+    case 318:
+      break;
+    }
+  }
+  private static void parseValue319(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 319;
+      instance.bitField9_ |= 0x40000000; // fallthrough
+    case 319:
+      break;
+    }
+  }
+  private static void parseValue320(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 320;
+      instance.bitField9_ |= 0x80000000; // fallthrough
+    case 320:
+      break;
+    }
+  }
+  private static void parseValue321(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 321;
+      instance.bitField10_ |= 0x00000001; // fallthrough
+    case 321:
+      break;
+    }
+  }
+  private static void parseValue322(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 322;
+      instance.bitField10_ |= 0x00000002; // fallthrough
+    case 322:
+      break;
+    }
+  }
+  private static void parseValue323(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 323;
+      instance.bitField10_ |= 0x00000004; // fallthrough
+    case 323:
+      break;
+    }
+  }
+  private static void parseValue324(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 324;
+      instance.bitField10_ |= 0x00000008; // fallthrough
+    case 324:
+      break;
+    }
+  }
+  private static void parseValue325(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 325;
+      instance.bitField10_ |= 0x00000010; // fallthrough
+    case 325:
+      break;
+    }
+  }
+  private static void parseValue326(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 326;
+      instance.bitField10_ |= 0x00000020; // fallthrough
+    case 326:
+      break;
+    }
+  }
+  private static void parseValue327(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 327;
+      instance.bitField10_ |= 0x00000040; // fallthrough
+    case 327:
+      break;
+    }
+  }
+  private static void parseValue328(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 328;
+      instance.bitField10_ |= 0x00000080; // fallthrough
+    case 328:
+      break;
+    }
+  }
+  private static void parseValue329(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 329;
+      instance.bitField10_ |= 0x00000100; // fallthrough
+    case 329:
+      break;
+    }
+  }
+  private static void parseValue330(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 330;
+      instance.bitField10_ |= 0x00000200; // fallthrough
+    case 330:
+      break;
+    }
+  }
+  private static void parseValue331(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 331;
+      instance.bitField10_ |= 0x00000400; // fallthrough
+    case 331:
+      break;
+    }
+  }
+  private static void parseValue332(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 332;
+      instance.bitField10_ |= 0x00000800; // fallthrough
+    case 332:
+      break;
+    }
+  }
+  private static void parseValue333(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 333;
+      instance.bitField10_ |= 0x00001000; // fallthrough
+    case 333:
+      break;
+    }
+  }
+  private static void parseValue334(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 334;
+      instance.bitField10_ |= 0x00002000; // fallthrough
+    case 334:
+      break;
+    }
+  }
+  private static void parseValue335(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 335;
+      instance.bitField10_ |= 0x00004000; // fallthrough
+    case 335:
+      break;
+    }
+  }
+  private static void parseValue336(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 336;
+      instance.bitField10_ |= 0x00008000; // fallthrough
+    case 336:
+      break;
+    }
+  }
+  private static void parseValue337(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 337;
+      instance.bitField10_ |= 0x00010000; // fallthrough
+    case 337:
+      break;
+    }
+  }
+  private static void parseValue338(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 338;
+      instance.bitField10_ |= 0x00020000; // fallthrough
+    case 338:
+      break;
+    }
+  }
+  private static void parseValue339(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 339;
+      instance.bitField10_ |= 0x00040000; // fallthrough
+    case 339:
+      break;
+    }
+  }
+  private static void parseValue340(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 340;
+      instance.bitField10_ |= 0x00080000; // fallthrough
+    case 340:
+      break;
+    }
+  }
+  private static void parseValue341(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 341;
+      instance.bitField10_ |= 0x00100000; // fallthrough
+    case 341:
+      break;
+    }
+  }
+  private static void parseValue342(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 342;
+      instance.bitField10_ |= 0x00200000; // fallthrough
+    case 342:
+      break;
+    }
+  }
+  private static void parseValue343(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 343;
+      instance.bitField10_ |= 0x00400000; // fallthrough
+    case 343:
+      break;
+    }
+  }
+  private static void parseValue344(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 344;
+      instance.bitField10_ |= 0x00800000; // fallthrough
+    case 344:
+      break;
+    }
+  }
+  private static void parseValue345(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 345;
+      instance.bitField10_ |= 0x01000000; // fallthrough
+    case 345:
+      break;
+    }
+  }
+  private static void parseValue346(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 346;
+      instance.bitField10_ |= 0x02000000; // fallthrough
+    case 346:
+      break;
+    }
+  }
+  private static void parseValue347(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 347;
+      instance.bitField10_ |= 0x04000000; // fallthrough
+    case 347:
+      break;
+    }
+  }
+  private static void parseValue348(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 348;
+      instance.bitField10_ |= 0x08000000; // fallthrough
+    case 348:
+      break;
+    }
+  }
+  private static void parseValue349(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 349;
+      instance.bitField10_ |= 0x10000000; // fallthrough
+    case 349:
+      break;
+    }
+  }
+  private static void parseValue350(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 350;
+      instance.bitField10_ |= 0x20000000; // fallthrough
+    case 350:
+      break;
+    }
+  }
+  private static void parseValue351(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 351;
+      instance.bitField10_ |= 0x40000000; // fallthrough
+    case 351:
+      break;
+    }
+  }
+  private static void parseValue352(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 352;
+      instance.bitField10_ |= 0x80000000; // fallthrough
+    case 352:
+      break;
+    }
+  }
+  private static void parseValue353(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 353;
+      instance.bitField11_ |= 0x00000001; // fallthrough
+    case 353:
+      break;
+    }
+  }
+  private static void parseValue354(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 354;
+      instance.bitField11_ |= 0x00000002; // fallthrough
+    case 354:
+      break;
+    }
+  }
+  private static void parseValue355(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 355;
+      instance.bitField11_ |= 0x00000004; // fallthrough
+    case 355:
+      break;
+    }
+  }
+  private static void parseValue356(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 356;
+      instance.bitField11_ |= 0x00000008; // fallthrough
+    case 356:
+      break;
+    }
+  }
+  private static void parseValue357(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 357;
+      instance.bitField11_ |= 0x00000010; // fallthrough
+    case 357:
+      break;
+    }
+  }
+  private static void parseValue358(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 358;
+      instance.bitField11_ |= 0x00000020; // fallthrough
+    case 358:
+      break;
+    }
+  }
+  private static void parseValue359(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 359;
+      instance.bitField11_ |= 0x00000040; // fallthrough
+    case 359:
+      break;
+    }
+  }
+  private static void parseValue360(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 360;
+      instance.bitField11_ |= 0x00000080; // fallthrough
+    case 360:
+      break;
+    }
+  }
+  private static void parseValue361(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 361;
+      instance.bitField11_ |= 0x00000100; // fallthrough
+    case 361:
+      break;
+    }
+  }
+  private static void parseValue362(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 362;
+      instance.bitField11_ |= 0x00000200; // fallthrough
+    case 362:
+      break;
+    }
+  }
+  private static void parseValue363(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 363;
+      instance.bitField11_ |= 0x00000400; // fallthrough
+    case 363:
+      break;
+    }
+  }
+  private static void parseValue364(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 364;
+      instance.bitField11_ |= 0x00000800; // fallthrough
+    case 364:
+      break;
+    }
+  }
+  private static void parseValue365(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 365;
+      instance.bitField11_ |= 0x00001000; // fallthrough
+    case 365:
+      break;
+    }
+  }
+  private static void parseValue366(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 366;
+      instance.bitField11_ |= 0x00002000; // fallthrough
+    case 366:
+      break;
+    }
+  }
+  private static void parseValue367(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 367;
+      instance.bitField11_ |= 0x00004000; // fallthrough
+    case 367:
+      break;
+    }
+  }
+  private static void parseValue368(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 368;
+      instance.bitField11_ |= 0x00008000; // fallthrough
+    case 368:
+      break;
+    }
+  }
+  private static void parseValue369(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 369;
+      instance.bitField11_ |= 0x00010000; // fallthrough
+    case 369:
+      break;
+    }
+  }
+  private static void parseValue370(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 370;
+      instance.bitField11_ |= 0x00020000; // fallthrough
+    case 370:
+      break;
+    }
+  }
+  private static void parseValue371(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 371;
+      instance.bitField11_ |= 0x00040000; // fallthrough
+    case 371:
+      break;
+    }
+  }
+  private static void parseValue372(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 372;
+      instance.bitField11_ |= 0x00080000; // fallthrough
+    case 372:
+      break;
+    }
+  }
+  private static void parseValue373(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 373;
+      instance.bitField11_ |= 0x00100000; // fallthrough
+    case 373:
+      break;
+    }
+  }
+  private static void parseValue374(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 374;
+      instance.bitField11_ |= 0x00200000; // fallthrough
+    case 374:
+      break;
+    }
+  }
+  private static void parseValue375(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 375;
+      instance.bitField11_ |= 0x00400000; // fallthrough
+    case 375:
+      break;
+    }
+  }
+  private static void parseValue376(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 376;
+      instance.bitField11_ |= 0x00800000; // fallthrough
+    case 376:
+      break;
+    }
+  }
+  private static void parseValue377(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 377;
+      instance.bitField11_ |= 0x01000000; // fallthrough
+    case 377:
+      break;
+    }
+  }
+  private static void parseValue378(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 378;
+      instance.bitField11_ |= 0x02000000; // fallthrough
+    case 378:
+      break;
+    }
+  }
+  private static void parseValue379(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 379;
+      instance.bitField11_ |= 0x04000000; // fallthrough
+    case 379:
+      break;
+    }
+  }
+  private static void parseValue380(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 380;
+      instance.bitField11_ |= 0x08000000; // fallthrough
+    case 380:
+      break;
+    }
+  }
+  private static void parseValue381(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 381;
+      instance.bitField11_ |= 0x10000000; // fallthrough
+    case 381:
+      break;
+    }
+  }
+  private static void parseValue382(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 382;
+      instance.bitField11_ |= 0x20000000; // fallthrough
+    case 382:
+      break;
+    }
+  }
+  private static void parseValue383(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 383;
+      instance.bitField11_ |= 0x40000000; // fallthrough
+    case 383:
+      break;
+    }
+  }
+  private static void parseValue384(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 384;
+      instance.bitField11_ |= 0x80000000; // fallthrough
+    case 384:
+      break;
+    }
+  }
+  private static void parseValue385(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 385;
+      instance.bitField12_ |= 0x00000001; // fallthrough
+    case 385:
+      break;
+    }
+  }
+  private static void parseValue386(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 386;
+      instance.bitField12_ |= 0x00000002; // fallthrough
+    case 386:
+      break;
+    }
+  }
+  private static void parseValue387(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 387;
+      instance.bitField12_ |= 0x00000004; // fallthrough
+    case 387:
+      break;
+    }
+  }
+  private static void parseValue388(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 388;
+      instance.bitField12_ |= 0x00000008; // fallthrough
+    case 388:
+      break;
+    }
+  }
+  private static void parseValue389(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 389;
+      instance.bitField12_ |= 0x00000010; // fallthrough
+    case 389:
+      break;
+    }
+  }
+  private static void parseValue390(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 390;
+      instance.bitField12_ |= 0x00000020; // fallthrough
+    case 390:
+      break;
+    }
+  }
+  private static void parseValue391(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 391;
+      instance.bitField12_ |= 0x00000040; // fallthrough
+    case 391:
+      break;
+    }
+  }
+  private static void parseValue392(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 392;
+      instance.bitField12_ |= 0x00000080; // fallthrough
+    case 392:
+      break;
+    }
+  }
+  private static void parseValue393(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 393;
+      instance.bitField12_ |= 0x00000100; // fallthrough
+    case 393:
+      break;
+    }
+  }
+  private static void parseValue394(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 394;
+      instance.bitField12_ |= 0x00000200; // fallthrough
+    case 394:
+      break;
+    }
+  }
+  private static void parseValue395(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 395;
+      instance.bitField12_ |= 0x00000400; // fallthrough
+    case 395:
+      break;
+    }
+  }
+  private static void parseValue396(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 396;
+      instance.bitField12_ |= 0x00000800; // fallthrough
+    case 396:
+      break;
+    }
+  }
+  private static void parseValue397(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 397;
+      instance.bitField12_ |= 0x00001000; // fallthrough
+    case 397:
+      break;
+    }
+  }
+  private static void parseValue398(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 398;
+      instance.bitField12_ |= 0x00002000; // fallthrough
+    case 398:
+      break;
+    }
+  }
+  private static void parseValue399(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 399;
+      instance.bitField12_ |= 0x00004000; // fallthrough
+    case 399:
+      break;
+    }
+  }
+  private static void parseValue400(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 400;
+      instance.bitField12_ |= 0x00008000; // fallthrough
+    case 400:
+      break;
+    }
+  }
+  private static void parseValue401(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 401;
+      instance.bitField12_ |= 0x00010000; // fallthrough
+    case 401:
+      break;
+    }
+  }
+  private static void parseValue402(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 402;
+      instance.bitField12_ |= 0x00020000; // fallthrough
+    case 402:
+      break;
+    }
+  }
+  private static void parseValue403(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 403;
+      instance.bitField12_ |= 0x00040000; // fallthrough
+    case 403:
+      break;
+    }
+  }
+  private static void parseValue404(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 404;
+      instance.bitField12_ |= 0x00080000; // fallthrough
+    case 404:
+      break;
+    }
+  }
+  private static void parseValue405(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 405;
+      instance.bitField12_ |= 0x00100000; // fallthrough
+    case 405:
+      break;
+    }
+  }
+  private static void parseValue406(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 406;
+      instance.bitField12_ |= 0x00200000; // fallthrough
+    case 406:
+      break;
+    }
+  }
+  private static void parseValue407(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 407;
+      instance.bitField12_ |= 0x00400000; // fallthrough
+    case 407:
+      break;
+    }
+  }
+  private static void parseValue408(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 408;
+      instance.bitField12_ |= 0x00800000; // fallthrough
+    case 408:
+      break;
+    }
+  }
+  private static void parseValue409(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 409;
+      instance.bitField12_ |= 0x01000000; // fallthrough
+    case 409:
+      break;
+    }
+  }
+  private static void parseValue410(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 410;
+      instance.bitField12_ |= 0x02000000; // fallthrough
+    case 410:
+      break;
+    }
+  }
+  private static void parseValue411(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 411;
+      instance.bitField12_ |= 0x04000000; // fallthrough
+    case 411:
+      break;
+    }
+  }
+  private static void parseValue412(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 412;
+      instance.bitField12_ |= 0x08000000; // fallthrough
+    case 412:
+      break;
+    }
+  }
+  private static void parseValue413(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 413;
+      instance.bitField12_ |= 0x10000000; // fallthrough
+    case 413:
+      break;
+    }
+  }
+  private static void parseValue414(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 414;
+      instance.bitField12_ |= 0x20000000; // fallthrough
+    case 414:
+      break;
+    }
+  }
+  private static void parseValue415(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 415;
+      instance.bitField12_ |= 0x40000000; // fallthrough
+    case 415:
+      break;
+    }
+  }
+  private static void parseValue416(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 416;
+      instance.bitField12_ |= 0x80000000; // fallthrough
+    case 416:
+      break;
+    }
+  }
+  private static void parseValue417(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 417;
+      instance.bitField13_ |= 0x00000001; // fallthrough
+    case 417:
+      break;
+    }
+  }
+  private static void parseValue418(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 418;
+      instance.bitField13_ |= 0x00000002; // fallthrough
+    case 418:
+      break;
+    }
+  }
+  private static void parseValue419(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 419;
+      instance.bitField13_ |= 0x00000004; // fallthrough
+    case 419:
+      break;
+    }
+  }
+  private static void parseValue420(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 420;
+      instance.bitField13_ |= 0x00000008; // fallthrough
+    case 420:
+      break;
+    }
+  }
+  private static void parseValue421(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 421;
+      instance.bitField13_ |= 0x00000010; // fallthrough
+    case 421:
+      break;
+    }
+  }
+  private static void parseValue422(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 422;
+      instance.bitField13_ |= 0x00000020; // fallthrough
+    case 422:
+      break;
+    }
+  }
+  private static void parseValue423(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 423;
+      instance.bitField13_ |= 0x00000040; // fallthrough
+    case 423:
+      break;
+    }
+  }
+  private static void parseValue424(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 424;
+      instance.bitField13_ |= 0x00000080; // fallthrough
+    case 424:
+      break;
+    }
+  }
+  private static void parseValue425(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 425;
+      instance.bitField13_ |= 0x00000100; // fallthrough
+    case 425:
+      break;
+    }
+  }
+  private static void parseValue426(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 426;
+      instance.bitField13_ |= 0x00000200; // fallthrough
+    case 426:
+      break;
+    }
+  }
+  private static void parseValue427(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 427;
+      instance.bitField13_ |= 0x00000400; // fallthrough
+    case 427:
+      break;
+    }
+  }
+  private static void parseValue428(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 428;
+      instance.bitField13_ |= 0x00000800; // fallthrough
+    case 428:
+      break;
+    }
+  }
+  private static void parseValue429(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 429;
+      instance.bitField13_ |= 0x00001000; // fallthrough
+    case 429:
+      break;
+    }
+  }
+  private static void parseValue430(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 430;
+      instance.bitField13_ |= 0x00002000; // fallthrough
+    case 430:
+      break;
+    }
+  }
+  private static void parseValue431(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 431;
+      instance.bitField13_ |= 0x00004000; // fallthrough
+    case 431:
+      break;
+    }
+  }
+  private static void parseValue432(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 432;
+      instance.bitField13_ |= 0x00008000; // fallthrough
+    case 432:
+      break;
+    }
+  }
+  private static void parseValue433(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 433;
+      instance.bitField13_ |= 0x00010000; // fallthrough
+    case 433:
+      break;
+    }
+  }
+  private static void parseValue434(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 434;
+      instance.bitField13_ |= 0x00020000; // fallthrough
+    case 434:
+      break;
+    }
+  }
+  private static void parseValue435(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 435;
+      instance.bitField13_ |= 0x00040000; // fallthrough
+    case 435:
+      break;
+    }
+  }
+  private static void parseValue436(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 436;
+      instance.bitField13_ |= 0x00080000; // fallthrough
+    case 436:
+      break;
+    }
+  }
+  private static void parseValue437(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 437;
+      instance.bitField13_ |= 0x00100000; // fallthrough
+    case 437:
+      break;
+    }
+  }
+  private static void parseValue438(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 438;
+      instance.bitField13_ |= 0x00200000; // fallthrough
+    case 438:
+      break;
+    }
+  }
+  private static void parseValue439(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 439;
+      instance.bitField13_ |= 0x00400000; // fallthrough
+    case 439:
+      break;
+    }
+  }
+  private static void parseValue440(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 440;
+      instance.bitField13_ |= 0x00800000; // fallthrough
+    case 440:
+      break;
+    }
+  }
+  private static void parseValue441(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 441;
+      instance.bitField13_ |= 0x01000000; // fallthrough
+    case 441:
+      break;
+    }
+  }
+  private static void parseValue442(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 442;
+      instance.bitField13_ |= 0x02000000; // fallthrough
+    case 442:
+      break;
+    }
+  }
+  private static void parseValue443(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 443;
+      instance.bitField13_ |= 0x04000000; // fallthrough
+    case 443:
+      break;
+    }
+  }
+  private static void parseValue444(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 444;
+      instance.bitField13_ |= 0x08000000; // fallthrough
+    case 444:
+      break;
+    }
+  }
+  private static void parseValue445(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 445;
+      instance.bitField13_ |= 0x10000000; // fallthrough
+    case 445:
+      break;
+    }
+  }
+  private static void parseValue446(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 446;
+      instance.bitField13_ |= 0x20000000; // fallthrough
+    case 446:
+      break;
+    }
+  }
+  private static void parseValue447(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 447;
+      instance.bitField13_ |= 0x40000000; // fallthrough
+    case 447:
+      break;
+    }
+  }
+  private static void parseValue448(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 448;
+      instance.bitField13_ |= 0x80000000; // fallthrough
+    case 448:
+      break;
+    }
+  }
+  private static void parseValue449(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 449;
+      instance.bitField14_ |= 0x00000001; // fallthrough
+    case 449:
+      break;
+    }
+  }
+  private static void parseValue450(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 450;
+      instance.bitField14_ |= 0x00000002; // fallthrough
+    case 450:
+      break;
+    }
+  }
+  private static void parseValue451(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 451;
+      instance.bitField14_ |= 0x00000004; // fallthrough
+    case 451:
+      break;
+    }
+  }
+  private static void parseValue452(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 452;
+      instance.bitField14_ |= 0x00000008; // fallthrough
+    case 452:
+      break;
+    }
+  }
+  private static void parseValue453(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 453;
+      instance.bitField14_ |= 0x00000010; // fallthrough
+    case 453:
+      break;
+    }
+  }
+  private static void parseValue454(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 454;
+      instance.bitField14_ |= 0x00000020; // fallthrough
+    case 454:
+      break;
+    }
+  }
+  private static void parseValue455(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 455;
+      instance.bitField14_ |= 0x00000040; // fallthrough
+    case 455:
+      break;
+    }
+  }
+  private static void parseValue456(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 456;
+      instance.bitField14_ |= 0x00000080; // fallthrough
+    case 456:
+      break;
+    }
+  }
+  private static void parseValue457(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 457;
+      instance.bitField14_ |= 0x00000100; // fallthrough
+    case 457:
+      break;
+    }
+  }
+  private static void parseValue458(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 458;
+      instance.bitField14_ |= 0x00000200; // fallthrough
+    case 458:
+      break;
+    }
+  }
+  private static void parseValue459(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 459;
+      instance.bitField14_ |= 0x00000400; // fallthrough
+    case 459:
+      break;
+    }
+  }
+  private static void parseValue460(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 460;
+      instance.bitField14_ |= 0x00000800; // fallthrough
+    case 460:
+      break;
+    }
+  }
+  private static void parseValue461(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 461;
+      instance.bitField14_ |= 0x00001000; // fallthrough
+    case 461:
+      break;
+    }
+  }
+  private static void parseValue462(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 462;
+      instance.bitField14_ |= 0x00002000; // fallthrough
+    case 462:
+      break;
+    }
+  }
+  private static void parseValue463(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 463;
+      instance.bitField14_ |= 0x00004000; // fallthrough
+    case 463:
+      break;
+    }
+  }
+  private static void parseValue464(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 464;
+      instance.bitField14_ |= 0x00008000; // fallthrough
+    case 464:
+      break;
+    }
+  }
+  private static void parseValue465(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 465;
+      instance.bitField14_ |= 0x00010000; // fallthrough
+    case 465:
+      break;
+    }
+  }
+  private static void parseValue466(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 466;
+      instance.bitField14_ |= 0x00020000; // fallthrough
+    case 466:
+      break;
+    }
+  }
+  private static void parseValue467(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 467;
+      instance.bitField14_ |= 0x00040000; // fallthrough
+    case 467:
+      break;
+    }
+  }
+  private static void parseValue468(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 468;
+      instance.bitField14_ |= 0x00080000; // fallthrough
+    case 468:
+      break;
+    }
+  }
+  private static void parseValue469(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 469;
+      instance.bitField14_ |= 0x00100000; // fallthrough
+    case 469:
+      break;
+    }
+  }
+  private static void parseValue470(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 470;
+      instance.bitField14_ |= 0x00200000; // fallthrough
+    case 470:
+      break;
+    }
+  }
+  private static void parseValue471(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 471;
+      instance.bitField14_ |= 0x00400000; // fallthrough
+    case 471:
+      break;
+    }
+  }
+  private static void parseValue472(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 472;
+      instance.bitField14_ |= 0x00800000; // fallthrough
+    case 472:
+      break;
+    }
+  }
+  private static void parseValue473(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 473;
+      instance.bitField14_ |= 0x01000000; // fallthrough
+    case 473:
+      break;
+    }
+  }
+  private static void parseValue474(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 474;
+      instance.bitField14_ |= 0x02000000; // fallthrough
+    case 474:
+      break;
+    }
+  }
+  private static void parseValue475(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 475;
+      instance.bitField14_ |= 0x04000000; // fallthrough
+    case 475:
+      break;
+    }
+  }
+  private static void parseValue476(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 476;
+      instance.bitField14_ |= 0x08000000; // fallthrough
+    case 476:
+      break;
+    }
+  }
+  private static void parseValue477(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 477;
+      instance.bitField14_ |= 0x10000000; // fallthrough
+    case 477:
+      break;
+    }
+  }
+  private static void parseValue478(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 478;
+      instance.bitField14_ |= 0x20000000; // fallthrough
+    case 478:
+      break;
+    }
+  }
+  private static void parseValue479(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 479;
+      instance.bitField14_ |= 0x40000000; // fallthrough
+    case 479:
+      break;
+    }
+  }
+  private static void parseValue480(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 480;
+      instance.bitField14_ |= 0x80000000; // fallthrough
+    case 480:
+      break;
+    }
+  }
+  private static void parseValue481(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 481;
+      instance.bitField15_ |= 0x00000001; // fallthrough
+    case 481:
+      break;
+    }
+  }
+  private static void parseValue482(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 482;
+      instance.bitField15_ |= 0x00000002; // fallthrough
+    case 482:
+      break;
+    }
+  }
+  private static void parseValue483(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 483;
+      instance.bitField15_ |= 0x00000004; // fallthrough
+    case 483:
+      break;
+    }
+  }
+  private static void parseValue484(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 484;
+      instance.bitField15_ |= 0x00000008; // fallthrough
+    case 484:
+      break;
+    }
+  }
+  private static void parseValue485(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 485;
+      instance.bitField15_ |= 0x00000010; // fallthrough
+    case 485:
+      break;
+    }
+  }
+  private static void parseValue486(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 486;
+      instance.bitField15_ |= 0x00000020; // fallthrough
+    case 486:
+      break;
+    }
+  }
+  private static void parseValue487(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 487;
+      instance.bitField15_ |= 0x00000040; // fallthrough
+    case 487:
+      break;
+    }
+  }
+  private static void parseValue488(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 488;
+      instance.bitField15_ |= 0x00000080; // fallthrough
+    case 488:
+      break;
+    }
+  }
+  private static void parseValue489(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 489;
+      instance.bitField15_ |= 0x00000100; // fallthrough
+    case 489:
+      break;
+    }
+  }
+  private static void parseValue490(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 490;
+      instance.bitField15_ |= 0x00000200; // fallthrough
+    case 490:
+      break;
+    }
+  }
+  private static void parseValue491(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 491;
+      instance.bitField15_ |= 0x00000400; // fallthrough
+    case 491:
+      break;
+    }
+  }
+  private static void parseValue492(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 492;
+      instance.bitField15_ |= 0x00000800; // fallthrough
+    case 492:
+      break;
+    }
+  }
+  private static void parseValue493(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 493;
+      instance.bitField15_ |= 0x00001000; // fallthrough
+    case 493:
+      break;
+    }
+  }
+  private static void parseValue494(
+      com.google.protobuf.test.WideOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.choice_ = input.readInt32();
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 494;
+      instance.bitField15_ |= 0x00002000; // fallthrough
+    case 494:
+      break;
+    }
+  }
+
+  private static void clearChoiceHasBits(com.google.protobuf.test.WideOneof instance) {
+    instance.bitField0_ = (instance.bitField0_ & ~0xffffffff);
+    instance.bitField1_ = (instance.bitField1_ & ~0xffffffff);
+    instance.bitField2_ = (instance.bitField2_ & ~0xffffffff);
+    instance.bitField3_ = (instance.bitField3_ & ~0xffffffff);
+    instance.bitField4_ = (instance.bitField4_ & ~0xffffffff);
+    instance.bitField5_ = (instance.bitField5_ & ~0xffffffff);
+    instance.bitField6_ = (instance.bitField6_ & ~0xffffffff);
+    instance.bitField7_ = (instance.bitField7_ & ~0xffffffff);
+    instance.bitField8_ = (instance.bitField8_ & ~0xffffffff);
+    instance.bitField9_ = (instance.bitField9_ & ~0xffffffff);
+    instance.bitField10_ = (instance.bitField10_ & ~0xffffffff);
+    instance.bitField11_ = (instance.bitField11_ & ~0xffffffff);
+    instance.bitField12_ = (instance.bitField12_ & ~0xffffffff);
+    instance.bitField13_ = (instance.bitField13_ & ~0xffffffff);
+    instance.bitField14_ = (instance.bitField14_ & ~0xffffffff);
+    instance.bitField15_ = (instance.bitField15_ & ~0x00003fff);
+  }
+
   private static final com.google.protobuf.Parser<WideOneof>
-      PARSER = new com.google.protobuf.AbstractParser<WideOneof>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<WideOneof> {
+    MessageParser() {}
+
     @java.lang.Override
     public WideOneof parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return WideOneof.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(WideOneof instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<WideOneof> parser() {
     return PARSER;

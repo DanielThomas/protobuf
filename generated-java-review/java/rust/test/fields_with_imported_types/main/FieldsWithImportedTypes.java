@@ -522,15 +522,29 @@ public final class FieldsWithImportedTypes extends com.google.protobuf.Generated
                 main.FieldsWithImportedTypes.MsgWithFieldsWithImportedTypes.class, main.FieldsWithImportedTypes.MsgWithFieldsWithImportedTypes.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using main.FieldsWithImportedTypes.MsgWithFieldsWithImportedTypes.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        importedEnumField_ = 0;
         maybeForceBuilderInitialization();
+      }
+      private Builder(main.FieldsWithImportedTypes.MsgWithFieldsWithImportedTypes other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -587,7 +601,7 @@ public final class FieldsWithImportedTypes extends com.google.protobuf.Generated
 
       private void buildPartial_autosplit_0(main.FieldsWithImportedTypes.MsgWithFieldsWithImportedTypes result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.importedMessageField_ = importedMessageFieldBuilder_ == null
               ? importedMessageField_
@@ -611,6 +625,25 @@ public final class FieldsWithImportedTypes extends com.google.protobuf.Generated
           result.importedTypesOneof_ = importedTypesOneof_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(main.FieldsWithImportedTypes.MsgWithFieldsWithImportedTypes other, java.lang.Object[] parserLocals) {
+        importedMessageField_ = other.importedMessageField_;
+        importedEnumField_ = other.importedEnumField_;
+        importedTypesOneofCase_ = other.importedTypesOneofCase_;
+        importedTypesOneof_ = other.importedTypesOneof_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            importedMessageFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<imported_types.ImportedTypes.ImportedMessage, imported_types.ImportedTypes.ImportedMessage.Builder, imported_types.ImportedTypes.ImportedMessageOrBuilder>) parserLocals[0]);
+            importedMessageField_ = null;
+          }
+          if (parserLocals[1] != null) {
+            importedMessageOneofBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<imported_types.ImportedTypes.ImportedMessage, imported_types.ImportedTypes.ImportedMessage.Builder, imported_types.ImportedTypes.ImportedMessageOrBuilder>) parserLocals[1]);
+            if (importedTypesOneofCase_ == 3) importedTypesOneof_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -707,7 +740,23 @@ public final class FieldsWithImportedTypes extends com.google.protobuf.Generated
         } // finally
         return this;
       }
-      private int importedTypesOneofCase_ = 0;
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseImportedMessageFieldField(input, extensionRegistry);
+            return true;
+          } // case 10
+          case 26: {
+            parseImportedMessageOneof(input, extensionRegistry);
+            return true;
+          } // case 26
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
+      private int importedTypesOneofCase_;
       private java.lang.Object importedTypesOneof_;
       public ImportedTypesOneofCase
           getImportedTypesOneofCase() {
@@ -849,7 +898,7 @@ public final class FieldsWithImportedTypes extends com.google.protobuf.Generated
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (importedMessageField_ != null || importedMessageFieldBuilder_ != null) {
-          internalGetImportedMessageFieldFieldBuilder().getBuilder()
+          internalGetImportedMessageFieldFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           importedMessageField_ = imported_types.ImportedTypes.ImportedMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -858,7 +907,7 @@ public final class FieldsWithImportedTypes extends com.google.protobuf.Generated
         bitField0_ |= 0x00000001;
       }
 
-      private int importedEnumField_ = 0;
+      private int importedEnumField_;
       /**
        * <code>optional .imported_types.ImportedEnum imported_enum_field = 2;</code>
        * @return Whether the importedEnumField field is set.
@@ -1062,7 +1111,7 @@ public final class FieldsWithImportedTypes extends com.google.protobuf.Generated
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
         input.readMessage(
-            internalGetImportedMessageOneofFieldBuilder().getBuilder(),
+            internalGetImportedMessageOneofFieldBuilder().getBuilderForParsing(),
             extensionRegistry);
         switch (importedTypesOneofCase_) {
         default:
@@ -1164,22 +1213,239 @@ public final class FieldsWithImportedTypes extends com.google.protobuf.Generated
       return DEFAULT_INSTANCE;
     }
 
+    static MsgWithFieldsWithImportedTypes parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MsgWithFieldsWithImportedTypes instance = new MsgWithFieldsWithImportedTypes((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<imported_types.ImportedTypes.ImportedMessage, imported_types.ImportedTypes.ImportedMessage.Builder, imported_types.ImportedTypes.ImportedMessageOrBuilder> importedMessageFieldBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<imported_types.ImportedTypes.ImportedMessage, imported_types.ImportedTypes.ImportedMessage.Builder, imported_types.ImportedTypes.ImportedMessageOrBuilder> importedMessageOneofBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        importedMessageFieldBuilder_ = internalGetImportedMessageFieldFieldBuilder(instance, importedMessageFieldBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.importedMessageField_ != null || importedMessageFieldBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseImportedMessageFieldField(instance, input, extensionRegistry, importedMessageFieldBuilder_);
+              break;
+            } // case 10
+            case 16: {
+              int tmpRaw = input.readEnum();
+              imported_types.ImportedTypes.ImportedEnum tmpValue =
+                  imported_types.ImportedTypes.ImportedEnum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 2, tmpRaw);
+              } else {
+                instance.importedEnumField_ = tmpRaw;
+                instance.bitField0_ |= 0x00000002;
+              }
+              break;
+            } // case 16
+            case 26: {
+              if (importedMessageOneofBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              importedMessageOneofBuilder_ = internalGetImportedMessageOneofFieldBuilder(instance, importedMessageOneofBuilder_);
+              parseImportedMessageOneof(instance, input, extensionRegistry, importedMessageOneofBuilder_);
+              break;
+            } // case 26
+            case 32: {
+              unknown = parseImportedEnumOneof(instance, input, unknown);
+              break;
+            } // case 32
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {importedMessageFieldBuilder_, importedMessageOneofBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, importedMessageFieldBuilder_, importedMessageOneofBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional .imported_types.ImportedMessage imported_message_field = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        imported_types.ImportedTypes.ImportedMessage, imported_types.ImportedTypes.ImportedMessage.Builder, imported_types.ImportedTypes.ImportedMessageOrBuilder> 
+        internalGetImportedMessageFieldFieldBuilder(main.FieldsWithImportedTypes.MsgWithFieldsWithImportedTypes instance, com.google.protobuf.SingleFieldBuilder<imported_types.ImportedTypes.ImportedMessage, imported_types.ImportedTypes.ImportedMessage.Builder, imported_types.ImportedTypes.ImportedMessageOrBuilder> importedMessageFieldBuilder_) {
+      if (importedMessageFieldBuilder_ == null) {
+        importedMessageFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            imported_types.ImportedTypes.ImportedMessage, imported_types.ImportedTypes.ImportedMessage.Builder, imported_types.ImportedTypes.ImportedMessageOrBuilder>(
+                instance.getImportedMessageField(),
+                null,
+                false);
+        instance.importedMessageField_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return importedMessageFieldBuilder_;
+    }
+    private static void parseImportedMessageFieldField(
+        main.FieldsWithImportedTypes.MsgWithFieldsWithImportedTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<imported_types.ImportedTypes.ImportedMessage, imported_types.ImportedTypes.ImportedMessage.Builder, imported_types.ImportedTypes.ImportedMessageOrBuilder> importedMessageFieldBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.importedMessageField_ != null || importedMessageFieldBuilder_ != null) {
+        importedMessageFieldBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.importedMessageField_ = imported_types.ImportedTypes.ImportedMessage.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    /**
+     * <code>.imported_types.ImportedMessage imported_message_oneof = 3;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        imported_types.ImportedTypes.ImportedMessage, imported_types.ImportedTypes.ImportedMessage.Builder, imported_types.ImportedTypes.ImportedMessageOrBuilder> 
+        internalGetImportedMessageOneofFieldBuilder(main.FieldsWithImportedTypes.MsgWithFieldsWithImportedTypes instance, com.google.protobuf.SingleFieldBuilder<imported_types.ImportedTypes.ImportedMessage, imported_types.ImportedTypes.ImportedMessage.Builder, imported_types.ImportedTypes.ImportedMessageOrBuilder> importedMessageOneofBuilder_) {
+      if (importedMessageOneofBuilder_ == null) {
+        if (!(instance.importedTypesOneofCase_ == 3)) {
+          instance.importedTypesOneof_ = imported_types.ImportedTypes.ImportedMessage.getDefaultInstance();
+        }
+        importedMessageOneofBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            imported_types.ImportedTypes.ImportedMessage, imported_types.ImportedTypes.ImportedMessage.Builder, imported_types.ImportedTypes.ImportedMessageOrBuilder>(
+                (imported_types.ImportedTypes.ImportedMessage) instance.importedTypesOneof_,
+                null,
+                false);
+        instance.importedTypesOneof_ = null;
+      }
+      switch (instance.importedTypesOneofCase_) {
+      default:
+        clearImportedTypesOneofHasBits(instance); // fallthrough
+      case 0:
+        instance.importedTypesOneofCase_ = 3;
+        instance.bitField0_ |= 0x00000004; // fallthrough
+      case 3:
+        break;
+      }
+
+      return importedMessageOneofBuilder_;
+    }
+    private static void parseImportedMessageOneof(
+        main.FieldsWithImportedTypes.MsgWithFieldsWithImportedTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<imported_types.ImportedTypes.ImportedMessage, imported_types.ImportedTypes.ImportedMessage.Builder, imported_types.ImportedTypes.ImportedMessageOrBuilder> importedMessageOneofBuilder_)
+        throws java.io.IOException {
+      input.readMessage(
+          importedMessageOneofBuilder_.getBuilderForParsing(),
+          extensionRegistry);
+      switch (instance.importedTypesOneofCase_) {
+      default:
+        clearImportedTypesOneofHasBits(instance); // fallthrough
+      case 0:
+        instance.importedTypesOneofCase_ = 3;
+        instance.bitField0_ |= 0x00000004; // fallthrough
+      case 3:
+        break;
+      }
+    }
+    private static com.google.protobuf.UnknownFieldSet.Builder parseImportedEnumOneof(
+        main.FieldsWithImportedTypes.MsgWithFieldsWithImportedTypes instance, com.google.protobuf.CodedInputStream input, com.google.protobuf.UnknownFieldSet.Builder unknown)
+        throws java.io.IOException {
+      int rawValue = input.readEnum();
+      imported_types.ImportedTypes.ImportedEnum value =
+          imported_types.ImportedTypes.ImportedEnum.forNumber(rawValue);
+      if (value == null) {
+        unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 4, rawValue);
+      } else {
+        switch (instance.importedTypesOneofCase_) {
+        default:
+          clearImportedTypesOneofHasBits(instance); // fallthrough
+        case 0:
+          instance.importedTypesOneofCase_ = 4;
+          instance.bitField0_ |= 0x00000008; // fallthrough
+        case 4:
+          break;
+        }
+        instance.importedTypesOneof_ = rawValue;
+      }
+      return unknown;
+    }
+
+    private static void clearImportedTypesOneofHasBits(main.FieldsWithImportedTypes.MsgWithFieldsWithImportedTypes instance) {
+      instance.bitField0_ = (instance.bitField0_ & ~0x0000000c);
+    }
+
+    private static void buildPartial_autosplit_0(main.FieldsWithImportedTypes.MsgWithFieldsWithImportedTypes instance,
+        com.google.protobuf.SingleFieldBuilder<imported_types.ImportedTypes.ImportedMessage, imported_types.ImportedTypes.ImportedMessage.Builder, imported_types.ImportedTypes.ImportedMessageOrBuilder> importedMessageFieldBuilder_,
+        com.google.protobuf.SingleFieldBuilder<imported_types.ImportedTypes.ImportedMessage, imported_types.ImportedTypes.ImportedMessage.Builder, imported_types.ImportedTypes.ImportedMessageOrBuilder> importedMessageOneofBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.importedMessageField_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.importedMessageField_ = importedMessageFieldBuilder_ == null
+            ? instance.importedMessageField_
+            : importedMessageFieldBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.importedTypesOneof_ = importedMessageOneofBuilder_ == null
+            ? instance.importedTypesOneof_
+            : importedMessageOneofBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<MsgWithFieldsWithImportedTypes>
-        PARSER = new com.google.protobuf.AbstractParser<MsgWithFieldsWithImportedTypes>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MsgWithFieldsWithImportedTypes> {
+      MessageParser() {}
+
       @java.lang.Override
       public MsgWithFieldsWithImportedTypes parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return MsgWithFieldsWithImportedTypes.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(MsgWithFieldsWithImportedTypes instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<MsgWithFieldsWithImportedTypes> parser() {
       return PARSER;
@@ -1459,15 +1725,26 @@ public final class FieldsWithImportedTypes extends com.google.protobuf.Generated
                   main.FieldsWithImportedTypes.ImportedTypesProto.Nested.class, main.FieldsWithImportedTypes.ImportedTypesProto.Nested.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using main.FieldsWithImportedTypes.ImportedTypesProto.Nested.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+        }
+        private Builder(main.FieldsWithImportedTypes.ImportedTypesProto.Nested other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
         }
         @java.lang.Override
         public Builder clear() {
@@ -1567,22 +1844,62 @@ public final class FieldsWithImportedTypes extends com.google.protobuf.Generated
         return DEFAULT_INSTANCE;
       }
 
+      static Nested parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Nested instance = new Nested((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<Nested>
-          PARSER = new com.google.protobuf.AbstractParser<Nested>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<Nested> {
+        MessageParser() {}
+
         @java.lang.Override
         public Nested parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return Nested.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(Nested instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<Nested> parser() {
         return PARSER;
@@ -1770,15 +2087,26 @@ public final class FieldsWithImportedTypes extends com.google.protobuf.Generated
                 main.FieldsWithImportedTypes.ImportedTypesProto.class, main.FieldsWithImportedTypes.ImportedTypesProto.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using main.FieldsWithImportedTypes.ImportedTypesProto.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(main.FieldsWithImportedTypes.ImportedTypesProto other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
       }
       @java.lang.Override
       public Builder clear() {
@@ -1878,22 +2206,62 @@ public final class FieldsWithImportedTypes extends com.google.protobuf.Generated
       return DEFAULT_INSTANCE;
     }
 
+    static ImportedTypesProto parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ImportedTypesProto instance = new ImportedTypesProto((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<ImportedTypesProto>
-        PARSER = new com.google.protobuf.AbstractParser<ImportedTypesProto>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ImportedTypesProto> {
+      MessageParser() {}
+
       @java.lang.Override
       public ImportedTypesProto parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return ImportedTypesProto.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(ImportedTypesProto instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<ImportedTypesProto> parser() {
       return PARSER;

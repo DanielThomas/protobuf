@@ -465,15 +465,30 @@ private static final long serialVersionUID = 0L;
               upb.test_2023.EditionsMessage.class, upb.test_2023.EditionsMessage.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using upb.test_2023.EditionsMessage.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      enumField_ = 1;
+      unpackedField_ = emptyIntList();
       maybeForceBuilderInitialization();
+    }
+    private Builder(upb.test_2023.EditionsMessage other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -528,7 +543,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(upb.test_2023.EditionsMessage result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.plainField_ = plainField_;
         to_bitField0_ |= 0x00000001;
@@ -556,6 +571,23 @@ private static final long serialVersionUID = 0L;
         result.unpackedField_ = unpackedField_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(upb.test_2023.EditionsMessage other, java.lang.Object[] parserLocals) {
+      plainField_ = other.getPlainField();
+      requiredField_ = other.getRequiredField();
+      delimitedField_ = other.delimitedField_;
+      enumField_ = other.enumField_;
+      implicitPresenceField_ = other.getImplicitPresenceField();
+      unpackedField_ = other.unpackedField_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          delimitedFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<upb.test_2023.EditionsMessage, upb.test_2023.EditionsMessage.Builder, upb.test_2023.EditionsMessageOrBuilder>) parserLocals[0]);
+          delimitedField_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     public <Type> Builder setExtension(
@@ -718,9 +750,21 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 35: {
+          parseDelimitedFieldField(input, extensionRegistry);
+          return true;
+        } // case 35
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
+    }
     private int bitField0_;
 
-    private int plainField_ ;
+    private int plainField_;
     /**
      * <code>int32 plain_field = 1;</code>
      * @return Whether the plainField field is set.
@@ -760,7 +804,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int implicitPresenceField_ ;
+    private int implicitPresenceField_;
     /**
      * <code>int32 implicit_presence_field = 2 [features = { ... }</code>
      * @return The implicitPresenceField.
@@ -792,7 +836,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int requiredField_ ;
+    private int requiredField_;
     /**
      * <code>int32 required_field = 3 [features = { ... }</code>
      * @return Whether the requiredField field is set.
@@ -951,7 +995,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       if (delimitedField_ != null || delimitedFieldBuilder_ != null) {
         input.readGroup(4,
-            internalGetDelimitedFieldFieldBuilder().getBuilder(),
+            internalGetDelimitedFieldFieldBuilder().getBuilderForParsing(),
             extensionRegistry);
       } else {
         delimitedField_ = input.readGroup(4, upb.test_2023.EditionsMessage.parser(),
@@ -960,7 +1004,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000004;
     }
 
-    private int enumField_ = 1;
+    private int enumField_;
     /**
      * <code>.upb.test_2023.EditionsEnum enum_field = 5;</code>
      * @return Whether the enumField field is set.
@@ -1000,7 +1044,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList unpackedField_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList unpackedField_;
     private void ensureUnpackedFieldIsMutable(int capacity) {
       if (!unpackedField_.isModifiable()) {
         unpackedField_ = makeMutableCopy(unpackedField_, capacity);
@@ -1097,22 +1141,183 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static EditionsMessage parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    EditionsMessage instance = new EditionsMessage((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<upb.test_2023.EditionsMessage, upb.test_2023.EditionsMessage.Builder, upb.test_2023.EditionsMessageOrBuilder> delimitedFieldBuilder_ = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      delimitedFieldBuilder_ = internalGetDelimitedFieldFieldBuilder(instance, delimitedFieldBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
+            instance.plainField_ = input.readInt32();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 8
+          case 16: {
+            instance.implicitPresenceField_ = input.readInt32();
+            instance.bitField0_ |= 0x00000010;
+            break;
+          } // case 16
+          case 24: {
+            instance.requiredField_ = input.readInt32();
+            instance.bitField0_ |= 0x00000002;
+            break;
+          } // case 24
+          case 35: {
+            if (instance.delimitedField_ != null || delimitedFieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseDelimitedFieldField(instance, input, extensionRegistry, delimitedFieldBuilder_);
+            break;
+          } // case 35
+          case 40: {
+            int tmpRaw = input.readEnum();
+            upb.test_2023.EditionsEnum tmpValue =
+                upb.test_2023.EditionsEnum.forNumber(tmpRaw);
+            if (tmpValue == null) {
+              unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 5, tmpRaw);
+            } else {
+              instance.enumField_ = tmpRaw;
+              instance.bitField0_ |= 0x00000008;
+            }
+            break;
+          } // case 40
+          case 48: {
+            int v = input.readInt32();
+            ensureUnpackedFieldIsMutable(instance, /* capacity= */ -1);
+            instance.unpackedField_.addInt(v);
+            break;
+          } // case 48
+          case 50: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureUnpackedFieldIsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.unpackedField_.addInt(input.readInt32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 50
+          default: {
+            pendingTag = tag;
+            done = true;
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {delimitedFieldBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, delimitedFieldBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>.upb.test_2023.EditionsMessage delimited_field = 4 [features = { ... }</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      upb.test_2023.EditionsMessage, upb.test_2023.EditionsMessage.Builder, upb.test_2023.EditionsMessageOrBuilder> 
+      internalGetDelimitedFieldFieldBuilder(upb.test_2023.EditionsMessage instance, com.google.protobuf.SingleFieldBuilder<upb.test_2023.EditionsMessage, upb.test_2023.EditionsMessage.Builder, upb.test_2023.EditionsMessageOrBuilder> delimitedFieldBuilder_) {
+    if (delimitedFieldBuilder_ == null) {
+      delimitedFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          upb.test_2023.EditionsMessage, upb.test_2023.EditionsMessage.Builder, upb.test_2023.EditionsMessageOrBuilder>(
+              instance.getDelimitedField(),
+              null,
+              false);
+      instance.delimitedField_ = null;
+    }
+    instance.bitField0_ |= 0x00000004;
+    return delimitedFieldBuilder_;
+  }
+  private static void parseDelimitedFieldField(
+      upb.test_2023.EditionsMessage instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<upb.test_2023.EditionsMessage, upb.test_2023.EditionsMessage.Builder, upb.test_2023.EditionsMessageOrBuilder> delimitedFieldBuilder_)
+      throws java.io.IOException {
+    if (instance.delimitedField_ != null || delimitedFieldBuilder_ != null) {
+      input.readGroup(4,
+          delimitedFieldBuilder_.getBuilderForParsing(),
+          extensionRegistry);
+    } else {
+      instance.delimitedField_ = input.readGroup(4, upb.test_2023.EditionsMessage.parser(),
+          extensionRegistry);
+    }
+    instance.bitField0_ |= 0x00000004;
+  }
+  private static void ensureUnpackedFieldIsMutable(upb.test_2023.EditionsMessage instance, int capacity) {
+    if (!instance.unpackedField_.isModifiable()) {
+      instance.unpackedField_ = makeMutableCopy(instance.unpackedField_, capacity);
+    }
+    instance.bitField0_ |= 0x00000020;
+  }
+  private static void buildPartial_autosplit_0(upb.test_2023.EditionsMessage instance,
+      com.google.protobuf.SingleFieldBuilder<upb.test_2023.EditionsMessage, upb.test_2023.EditionsMessage.Builder, upb.test_2023.EditionsMessageOrBuilder> delimitedFieldBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00000004) != 0)) instance.delimitedField_ = null;
+    if (((from_bitField0_ & 0x00000004) != 0)) {
+      instance.delimitedField_ = delimitedFieldBuilder_ == null
+          ? instance.delimitedField_
+          : delimitedFieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000020) != 0)) {
+      instance.unpackedField_.makeImmutable();
+    }
+  }
+
   private static final com.google.protobuf.Parser<EditionsMessage>
-      PARSER = new com.google.protobuf.AbstractParser<EditionsMessage>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<EditionsMessage> {
+    MessageParser() {}
+
     @java.lang.Override
     public EditionsMessage parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return EditionsMessage.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(EditionsMessage instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<EditionsMessage> parser() {
     return PARSER;

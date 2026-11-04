@@ -297,15 +297,28 @@ private static final long serialVersionUID = 0L;
               com.google.protos.TestMessageEnum.class, com.google.protos.TestMessageEnum.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protos.TestMessageEnum.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      redactableEnum_ = emptyIntList();
+    }
+    private Builder(com.google.protos.TestMessageEnum other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -345,12 +358,17 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(com.google.protos.TestMessageEnum result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         redactableEnum_.makeImmutable();
         result.redactableEnum_ = redactableEnum_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.google.protos.TestMessageEnum other, java.lang.Object[] parserLocals) {
+      redactableEnum_ = other.redactableEnum_;
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -434,7 +452,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.Internal.IntList redactableEnum_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList redactableEnum_;
     private void ensureRedactableEnumIsMutable(int capacity) {
       if (!redactableEnum_.isModifiable()) {
         redactableEnum_ = makeMutableCopy(redactableEnum_, capacity);
@@ -585,22 +603,93 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static TestMessageEnum parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    TestMessageEnum instance = new TestMessageEnum((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
+            int tmpRaw = input.readEnum();
+            ensureRedactableEnumIsMutable(instance, /* capacity= */ -1);
+            instance.redactableEnum_.addInt(tmpRaw);
+            break;
+          } // case 8
+          case 10: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureRedactableEnumIsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.redactableEnum_.addInt(input.readEnum());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 10
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static void ensureRedactableEnumIsMutable(com.google.protos.TestMessageEnum instance, int capacity) {
+    if (!instance.redactableEnum_.isModifiable()) {
+      instance.redactableEnum_ = makeMutableCopy(instance.redactableEnum_, capacity);
+    }
+    instance.bitField0_ |= 0x00000001;
+  }
+  private static void buildPartial_autosplit_0(com.google.protos.TestMessageEnum instance) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.redactableEnum_.makeImmutable();
+    }
+  }
+
   private static final com.google.protobuf.Parser<TestMessageEnum>
-      PARSER = new com.google.protobuf.AbstractParser<TestMessageEnum>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestMessageEnum> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestMessageEnum parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return TestMessageEnum.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(TestMessageEnum instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<TestMessageEnum> parser() {
     return PARSER;

@@ -269,15 +269,28 @@ private static final long serialVersionUID = 0L;
               proto2_unittest.lazy_imports.ImportedMessage.class, proto2_unittest.lazy_imports.ImportedMessage.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using proto2_unittest.lazy_imports.ImportedMessage.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
+    }
+    private Builder(proto2_unittest.lazy_imports.ImportedMessage other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -327,7 +340,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(proto2_unittest.lazy_imports.ImportedMessage result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.lazyMessage_ = lazyMessageBuilder_ == null
             ? lazyMessage_
@@ -335,6 +348,18 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(proto2_unittest.lazy_imports.ImportedMessage other, java.lang.Object[] parserLocals) {
+      lazyMessage_ = other.lazyMessage_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          lazyMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<proto2_unittest.lazy_imports.LazyMessage, proto2_unittest.lazy_imports.LazyMessage.Builder, proto2_unittest.lazy_imports.LazyMessageOrBuilder>) parserLocals[0]);
+          lazyMessage_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -394,6 +419,18 @@ private static final long serialVersionUID = 0L;
         onChanged();
       } // finally
       return this;
+    }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 10: {
+          parseLazyMessageField(input, extensionRegistry);
+          return true;
+        } // case 10
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
     }
     private int bitField0_;
 
@@ -516,7 +553,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (lazyMessage_ != null || lazyMessageBuilder_ != null) {
-        internalGetLazyMessageFieldBuilder().getBuilder()
+        internalGetLazyMessageFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         lazyMessage_ = proto2_unittest.lazy_imports.LazyMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -538,22 +575,132 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static ImportedMessage parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    ImportedMessage instance = new ImportedMessage((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<proto2_unittest.lazy_imports.LazyMessage, proto2_unittest.lazy_imports.LazyMessage.Builder, proto2_unittest.lazy_imports.LazyMessageOrBuilder> lazyMessageBuilder_ = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      lazyMessageBuilder_ = internalGetLazyMessageFieldBuilder(instance, lazyMessageBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            if (instance.lazyMessage_ != null || lazyMessageBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseLazyMessageField(instance, input, extensionRegistry, lazyMessageBuilder_);
+            break;
+          } // case 10
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {lazyMessageBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, lazyMessageBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>.proto2_unittest.lazy_imports.LazyMessage lazy_message = 1;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      proto2_unittest.lazy_imports.LazyMessage, proto2_unittest.lazy_imports.LazyMessage.Builder, proto2_unittest.lazy_imports.LazyMessageOrBuilder> 
+      internalGetLazyMessageFieldBuilder(proto2_unittest.lazy_imports.ImportedMessage instance, com.google.protobuf.SingleFieldBuilder<proto2_unittest.lazy_imports.LazyMessage, proto2_unittest.lazy_imports.LazyMessage.Builder, proto2_unittest.lazy_imports.LazyMessageOrBuilder> lazyMessageBuilder_) {
+    if (lazyMessageBuilder_ == null) {
+      lazyMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          proto2_unittest.lazy_imports.LazyMessage, proto2_unittest.lazy_imports.LazyMessage.Builder, proto2_unittest.lazy_imports.LazyMessageOrBuilder>(
+              instance.getLazyMessage(),
+              null,
+              false);
+      instance.lazyMessage_ = null;
+    }
+    instance.bitField0_ |= 0x00000001;
+    return lazyMessageBuilder_;
+  }
+  private static void parseLazyMessageField(
+      proto2_unittest.lazy_imports.ImportedMessage instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<proto2_unittest.lazy_imports.LazyMessage, proto2_unittest.lazy_imports.LazyMessage.Builder, proto2_unittest.lazy_imports.LazyMessageOrBuilder> lazyMessageBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.lazyMessage_ != null || lazyMessageBuilder_ != null) {
+      lazyMessageBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.lazyMessage_ = proto2_unittest.lazy_imports.LazyMessage.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000001;
+  }
+  private static void buildPartial_autosplit_0(proto2_unittest.lazy_imports.ImportedMessage instance,
+      com.google.protobuf.SingleFieldBuilder<proto2_unittest.lazy_imports.LazyMessage, proto2_unittest.lazy_imports.LazyMessage.Builder, proto2_unittest.lazy_imports.LazyMessageOrBuilder> lazyMessageBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00000001) != 0)) instance.lazyMessage_ = null;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.lazyMessage_ = lazyMessageBuilder_ == null
+          ? instance.lazyMessage_
+          : lazyMessageBuilder_.build();
+    }
+  }
+
   private static final com.google.protobuf.Parser<ImportedMessage>
-      PARSER = new com.google.protobuf.AbstractParser<ImportedMessage>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<ImportedMessage> {
+    MessageParser() {}
+
     @java.lang.Override
     public ImportedMessage parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return ImportedMessage.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(ImportedMessage instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<ImportedMessage> parser() {
     return PARSER;

@@ -2932,15 +2932,48 @@ java.lang.String defaultValue) {
                 com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3.class, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        bar_ = "";
+        aLLCAPS_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        extension_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        class__ = "";
+        sealed_ = "";
+        object_ = "";
+        cachedSize__ = "";
+        value_ = "";
+        values_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        newValues_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        LeadingUnderscore_ = "";
+        dEPRECATEDFoo_ = "";
+        iD_ = "";
+        aBNotification_ = "";
+        DEPRECATEDBar_ = "";
+        notDEPRECATEDFoo_ = "";
+      }
+      private Builder(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
+        copyFrom_autosplit_1(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -3027,7 +3060,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.dEPRECATEDFoo_ = dEPRECATEDFoo_;
           to_bitField0_ |= 0x00000001;
@@ -3159,9 +3192,45 @@ java.lang.String defaultValue) {
         result.bitField0_ |= to_bitField0_;
       }
 
+      private void copyFrom_autosplit_0(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 other, java.lang.Object[] parserLocals) {
+        dEPRECATEDFoo_ = other.dEPRECATEDFoo_;
+        iD_ = other.iD_;
+        aBNotification_ = other.aBNotification_;
+        DEPRECATEDBar_ = other.DEPRECATEDBar_;
+        notDEPRECATEDFoo_ = other.notDEPRECATEDFoo_;
+        initialized_ = other.getInitialized();
+        hasFoo_ = other.getHasFoo();
+        bar_ = other.bar_;
+        isInitialized_ = other.getIsInitialized();
+        aLLCAPS_ = other.aLLCAPS_;
+        aLLCAPSMAP_ = other.aLLCAPSMAP_;
+        hasUnderbarPrecedingNumeric1Foo_ = other.getHasUnderbarPrecedingNumeric1Foo();
+        hasUnderbarPrecedingNumeric42Bar_ = other.getHasUnderbarPrecedingNumeric42Bar();
+        hasUnderbarPrecedingNumeric123Foo42BarBaz_ = other.getHasUnderbarPrecedingNumeric123Foo42BarBaz();
+        extension_ = other.extension_;
+        class__ = other.class__;
+        int_ = other.getInt();
+        long_ = other.getLong();
+        boolean_ = other.getBoolean();
+        sealed_ = other.sealed_;
+        interface_ = other.getInterface();
+        in_ = other.getIn();
+        object_ = other.object_;
+        cachedSize__ = other.cachedSize__;
+        serializedSize__ = other.getSerializedSize_();
+        value_ = other.value_;
+        index_ = other.getIndex();
+        values_ = other.values_;
+        newValues_ = other.newValues_;
+        builder_ = other.getBuilder();
+        k_ = other.k_;
+        v_ = other.v_;
+        bitField0_ = other.bitField0_;
+      }
+
       private void buildPartial_autosplit_1(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 result) {
         int from_bitField1_ = bitField1_;
-        int to_bitField1_ = 0;
+        int to_bitField1_ = from_bitField1_;
         if (((from_bitField1_ & 0x00000001) != 0)) {
           result.key_ = internalGetKey();
           result.key_.makeImmutable();
@@ -3189,6 +3258,18 @@ java.lang.String defaultValue) {
           result.LeadingUnderscoreOneof_ = LeadingUnderscoreOneof_;
         }
         result.bitField1_ |= to_bitField1_;
+      }
+
+      private void copyFrom_autosplit_1(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 other, java.lang.Object[] parserLocals) {
+        key_ = other.key_;
+        map_ = other.map_;
+        pairs_ = other.pairs_;
+        LeadingUnderscore_ = other.LeadingUnderscore_;
+        camelCaseCase_ = other.camelCaseCase_;
+        camelCase_ = other.camelCase_;
+        LeadingUnderscoreOneofCase_ = other.LeadingUnderscoreOneofCase_;
+        LeadingUnderscoreOneof_ = other.LeadingUnderscoreOneof_;
+        bitField1_ = other.bitField1_;
       }
 
       @java.lang.Override
@@ -3662,7 +3743,7 @@ java.lang.String defaultValue) {
         } // finally
         return this;
       }
-      private int camelCaseCase_ = 0;
+      private int camelCaseCase_;
       private java.lang.Object camelCase_;
       public CamelCaseCase
           getCamelCaseCase() {
@@ -3683,7 +3764,7 @@ java.lang.String defaultValue) {
         bitField1_ = (bitField1_ & ~0x00000010);
       }
 
-      private int LeadingUnderscoreOneofCase_ = 0;
+      private int LeadingUnderscoreOneofCase_;
       private java.lang.Object LeadingUnderscoreOneof_;
       public LeadingUnderscoreOneofCase
           getLeadingUnderscoreOneofCase() {
@@ -3707,7 +3788,7 @@ java.lang.String defaultValue) {
       private int bitField0_;
       private int bitField1_;
 
-      private boolean initialized_ ;
+      private boolean initialized_;
       /**
        * <code>bool initialized = 1;</code>
        * @return The initialized.
@@ -3739,7 +3820,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private boolean hasFoo_ ;
+      private boolean hasFoo_;
       /**
        * <code>bool has_foo = 2;</code>
        * @return The hasFoo.
@@ -3771,7 +3852,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private java.lang.Object bar_ = "";
+      private java.lang.Object bar_;
       /**
        * <code>string Bar = 3;</code>
        * @return The bar.
@@ -3843,7 +3924,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private boolean isInitialized_ ;
+      private boolean isInitialized_;
       /**
        * <code>bool is_initialized = 4;</code>
        * @return The isInitialized.
@@ -3995,8 +4076,7 @@ java.lang.String defaultValue) {
         camelCase_ = input.readStringRequireUtf8();
       }
 
-      private com.google.protobuf.LazyStringArrayList aLLCAPS_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList aLLCAPS_;
       private void ensureALLCAPSIsMutable() {
         if (!aLLCAPS_.isModifiable()) {
           aLLCAPS_ = new com.google.protobuf.LazyStringArrayList(aLLCAPS_);
@@ -4232,7 +4312,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private boolean hasUnderbarPrecedingNumeric1Foo_ ;
+      private boolean hasUnderbarPrecedingNumeric1Foo_;
       /**
        * <code>bool has_underbar_preceding_numeric_1foo = 9;</code>
        * @return The hasUnderbarPrecedingNumeric1foo.
@@ -4264,7 +4344,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private boolean hasUnderbarPrecedingNumeric42Bar_ ;
+      private boolean hasUnderbarPrecedingNumeric42Bar_;
       /**
        * <code>bool has_underbar_preceding_numeric_42bar = 10;</code>
        * @return The hasUnderbarPrecedingNumeric42bar.
@@ -4296,7 +4376,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private boolean hasUnderbarPrecedingNumeric123Foo42BarBaz_ ;
+      private boolean hasUnderbarPrecedingNumeric123Foo42BarBaz_;
       /**
        * <code>bool has_underbar_preceding_numeric_123foo42bar_baz = 11;</code>
        * @return The hasUnderbarPrecedingNumeric123foo42barBaz.
@@ -4328,8 +4408,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList extension_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList extension_;
       private void ensureExtensionIsMutable() {
         if (!extension_.isModifiable()) {
           extension_ = new com.google.protobuf.LazyStringArrayList(extension_);
@@ -4439,7 +4518,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private java.lang.Object class__ = "";
+      private java.lang.Object class__;
       /**
        * <code>string class = 13;</code>
        * @return The class.
@@ -4511,7 +4590,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private double int_ ;
+      private double int_;
       /**
        * <code>double int = 14;</code>
        * @return The int.
@@ -4543,7 +4622,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private boolean long_ ;
+      private boolean long_;
       /**
        * <code>bool long = 15;</code>
        * @return The long.
@@ -4575,7 +4654,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private long boolean_ ;
+      private long boolean_;
       /**
        * <code>int64 boolean = 16;</code>
        * @return The boolean.
@@ -4607,7 +4686,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private java.lang.Object sealed_ = "";
+      private java.lang.Object sealed_;
       /**
        * <code>string sealed = 17;</code>
        * @return The sealed.
@@ -4679,7 +4758,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private float interface_ ;
+      private float interface_;
       /**
        * <code>float interface = 18;</code>
        * @return The interface.
@@ -4711,7 +4790,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private int in_ ;
+      private int in_;
       /**
        * <code>int32 in = 19;</code>
        * @return The in.
@@ -4743,7 +4822,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private java.lang.Object object_ = "";
+      private java.lang.Object object_;
       /**
        * <code>string object = 20;</code>
        * @return The object.
@@ -4815,7 +4894,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private java.lang.Object cachedSize__ = "";
+      private java.lang.Object cachedSize__;
       /**
        * <code>string cached_size = 21;</code>
        * @return The cachedSize.
@@ -4887,7 +4966,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private boolean serializedSize__ ;
+      private boolean serializedSize__;
       /**
        * <code>bool serialized_size = 22;</code>
        * @return The serializedSize.
@@ -4919,7 +4998,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private java.lang.Object value_ = "";
+      private java.lang.Object value_;
       /**
        * <code>string value = 23;</code>
        * @return The value.
@@ -4991,7 +5070,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private long index_ ;
+      private long index_;
       /**
        * <code>int64 index = 24;</code>
        * @return The index.
@@ -5023,8 +5102,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList values_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList values_;
       private void ensureValuesIsMutable() {
         if (!values_.isModifiable()) {
           values_ = new com.google.protobuf.LazyStringArrayList(values_);
@@ -5134,8 +5212,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList newValues_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList newValues_;
       private void ensureNewValuesIsMutable() {
         if (!newValues_.isModifiable()) {
           newValues_ = new com.google.protobuf.LazyStringArrayList(newValues_);
@@ -5245,7 +5322,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private boolean builder_ ;
+      private boolean builder_;
       /**
        * <code>bool builder = 27;</code>
        * @return The builder.
@@ -5911,7 +5988,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private java.lang.Object LeadingUnderscore_ = "";
+      private java.lang.Object LeadingUnderscore_;
       /**
        * <code>string _leading_underscore = 33;</code>
        * @return The leadingUnderscore.
@@ -6048,7 +6125,7 @@ java.lang.String defaultValue) {
         }
       }
 
-      private java.lang.Object dEPRECATEDFoo_ = "";
+      private java.lang.Object dEPRECATEDFoo_;
       /**
        * <code>optional string DEPRECATED_foo = 35;</code>
        * @return Whether the dEPRECATEDFoo field is set.
@@ -6127,7 +6204,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private java.lang.Object iD_ = "";
+      private java.lang.Object iD_;
       /**
        * <code>optional string ID = 36;</code>
        * @return Whether the iD field is set.
@@ -6206,7 +6283,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private java.lang.Object aBNotification_ = "";
+      private java.lang.Object aBNotification_;
       /**
        * <code>optional string a_b_notification = 37;</code>
        * @return Whether the aBNotification field is set.
@@ -6285,7 +6362,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private java.lang.Object DEPRECATEDBar_ = "";
+      private java.lang.Object DEPRECATEDBar_;
       /**
        * <code>optional string __DEPRECATED_Bar = 38;</code>
        * @return Whether the dEPRECATEDBar field is set.
@@ -6364,7 +6441,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private java.lang.Object notDEPRECATEDFoo_ = "";
+      private java.lang.Object notDEPRECATEDFoo_;
       /**
        * <code>optional string not_DEPRECATED_foo = 39;</code>
        * @return Whether the notDEPRECATEDFoo field is set.
@@ -6456,22 +6533,454 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static EvilNamesProto3 parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      EvilNamesProto3 instance = new EvilNamesProto3((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.initialized_ = input.readBool();
+              instance.bitField0_ |= 0x00000020;
+              break;
+            } // case 8
+            case 16: {
+              instance.hasFoo_ = input.readBool();
+              instance.bitField0_ |= 0x00000040;
+              break;
+            } // case 16
+            case 26: {
+              instance.bar_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000080;
+              break;
+            } // case 26
+            case 32: {
+              instance.isInitialized_ = input.readBool();
+              instance.bitField0_ |= 0x00000100;
+              break;
+            } // case 32
+            case 42: {
+              parseFooBar(instance, input);
+              break;
+            } // case 42
+            case 58: {
+              ensureALLCAPSIsMutable(instance);
+              instance.aLLCAPS_.add(input.readStringRequireUtf8());
+              break;
+            } // case 58
+            case 66: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Boolean>
+              aLLCAPSMAP__ = input.readMessage(
+                  ALLCAPSMAPDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableALLCAPSMAP(instance).getMutableMap().put(
+                  aLLCAPSMAP__.getKey(), aLLCAPSMAP__.getValue());
+              instance.bitField0_ |= 0x00000400;
+              break;
+            } // case 66
+            case 72: {
+              instance.hasUnderbarPrecedingNumeric1Foo_ = input.readBool();
+              instance.bitField0_ |= 0x00000800;
+              break;
+            } // case 72
+            case 80: {
+              instance.hasUnderbarPrecedingNumeric42Bar_ = input.readBool();
+              instance.bitField0_ |= 0x00001000;
+              break;
+            } // case 80
+            case 88: {
+              instance.hasUnderbarPrecedingNumeric123Foo42BarBaz_ = input.readBool();
+              instance.bitField0_ |= 0x00002000;
+              break;
+            } // case 88
+            case 98: {
+              ensureExtensionIsMutable(instance);
+              instance.extension_.add(input.readStringRequireUtf8());
+              break;
+            } // case 98
+            case 106: {
+              instance.class__ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00008000;
+              break;
+            } // case 106
+            case 113: {
+              instance.int_ = input.readDouble();
+              instance.bitField0_ |= 0x00010000;
+              break;
+            } // case 113
+            case 120: {
+              instance.long_ = input.readBool();
+              instance.bitField0_ |= 0x00020000;
+              break;
+            } // case 120
+            case 128: {
+              instance.boolean_ = input.readInt64();
+              instance.bitField0_ |= 0x00040000;
+              break;
+            } // case 128
+            case 138: {
+              instance.sealed_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00080000;
+              break;
+            } // case 138
+            case 149: {
+              instance.interface_ = input.readFloat();
+              instance.bitField0_ |= 0x00100000;
+              break;
+            } // case 149
+            case 152: {
+              instance.in_ = input.readInt32();
+              instance.bitField0_ |= 0x00200000;
+              break;
+            } // case 152
+            case 162: {
+              instance.object_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00400000;
+              break;
+            } // case 162
+            case 170: {
+              instance.cachedSize__ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00800000;
+              break;
+            } // case 170
+            case 176: {
+              instance.serializedSize__ = input.readBool();
+              instance.bitField0_ |= 0x01000000;
+              break;
+            } // case 176
+            case 186: {
+              instance.value_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x02000000;
+              break;
+            } // case 186
+            case 192: {
+              instance.index_ = input.readInt64();
+              instance.bitField0_ |= 0x04000000;
+              break;
+            } // case 192
+            case 202: {
+              ensureValuesIsMutable(instance);
+              instance.values_.add(input.readStringRequireUtf8());
+              break;
+            } // case 202
+            case 210: {
+              ensureNewValuesIsMutable(instance);
+              instance.newValues_.add(input.readStringRequireUtf8());
+              break;
+            } // case 210
+            case 216: {
+              instance.builder_ = input.readBool();
+              instance.bitField0_ |= 0x20000000;
+              break;
+            } // case 216
+            case 226: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              k__ = input.readMessage(
+                  KDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableK(instance).getMutableMap().put(
+                  k__.getKey(), k__.getValue());
+              instance.bitField0_ |= 0x40000000;
+              break;
+            } // case 226
+            case 234: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              v__ = input.readMessage(
+                  VDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableV(instance).getMutableMap().put(
+                  v__.getKey(), v__.getValue());
+              instance.bitField0_ |= 0x80000000;
+              break;
+            } // case 234
+            case 242: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              key__ = input.readMessage(
+                  KeyDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableKey(instance).getMutableMap().put(
+                  key__.getKey(), key__.getValue());
+              instance.bitField1_ |= 0x00000001;
+              break;
+            } // case 242
+            case 250: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.String>
+              map__ = input.readMessage(
+                  MapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMap(instance).getMutableMap().put(
+                  map__.getKey(), map__.getValue());
+              instance.bitField1_ |= 0x00000002;
+              break;
+            } // case 250
+            case 258: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              pairs__ = input.readMessage(
+                  PairsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutablePairs(instance).getMutableMap().put(
+                  pairs__.getKey(), pairs__.getValue());
+              instance.bitField1_ |= 0x00000004;
+              break;
+            } // case 258
+            case 266: {
+              instance.LeadingUnderscore_ = input.readStringRequireUtf8();
+              instance.bitField1_ |= 0x00000008;
+              break;
+            } // case 266
+            case 272: {
+              parseOption(instance, input);
+              break;
+            } // case 272
+            case 282: {
+              instance.dEPRECATEDFoo_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 282
+            case 290: {
+              instance.iD_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 290
+            case 298: {
+              instance.aBNotification_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 298
+            case 306: {
+              instance.DEPRECATEDBar_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 306
+            case 314: {
+              instance.notDEPRECATEDFoo_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 314
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      buildPartial_autosplit_1(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void parseFooBar(
+        com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      switch (instance.camelCaseCase_) {
+      default:
+        clearCamelCaseHasBits(instance); // fallthrough
+      case 0:
+        instance.camelCaseCase_ = 5;
+        instance.bitField1_ |= 0x00000010; // fallthrough
+      case 5:
+        break;
+      }
+      instance.camelCase_ = input.readStringRequireUtf8();
+    }
+    private static void ensureALLCAPSIsMutable(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 instance) {
+      if (!instance.aLLCAPS_.isModifiable()) {
+        instance.aLLCAPS_ = new com.google.protobuf.LazyStringArrayList(instance.aLLCAPS_);
+      }
+      instance.bitField0_ |= 0x00000200;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Boolean>
+        internalGetMutableALLCAPSMAP(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 instance) {
+      if (instance.aLLCAPSMAP_ == null) {
+        instance.aLLCAPSMAP_ = com.google.protobuf.MapField.newMapField(
+            ALLCAPSMAPDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.aLLCAPSMAP_.isMutable()) {
+        instance.aLLCAPSMAP_ = instance.aLLCAPSMAP_.copy();
+      }
+      instance.bitField0_ |= 0x00000400;
+
+      return instance.aLLCAPSMAP_;
+    }
+    private static void ensureExtensionIsMutable(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 instance) {
+      if (!instance.extension_.isModifiable()) {
+        instance.extension_ = new com.google.protobuf.LazyStringArrayList(instance.extension_);
+      }
+      instance.bitField0_ |= 0x00004000;
+    }
+    private static void ensureValuesIsMutable(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 instance) {
+      if (!instance.values_.isModifiable()) {
+        instance.values_ = new com.google.protobuf.LazyStringArrayList(instance.values_);
+      }
+      instance.bitField0_ |= 0x08000000;
+    }
+    private static void ensureNewValuesIsMutable(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 instance) {
+      if (!instance.newValues_.isModifiable()) {
+        instance.newValues_ = new com.google.protobuf.LazyStringArrayList(instance.newValues_);
+      }
+      instance.bitField0_ |= 0x10000000;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableK(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 instance) {
+      if (instance.k_ == null) {
+        instance.k_ = com.google.protobuf.MapField.newMapField(
+            KDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.k_.isMutable()) {
+        instance.k_ = instance.k_.copy();
+      }
+      instance.bitField0_ |= 0x40000000;
+
+      return instance.k_;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMutableV(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 instance) {
+      if (instance.v_ == null) {
+        instance.v_ = com.google.protobuf.MapField.newMapField(
+            VDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.v_.isMutable()) {
+        instance.v_ = instance.v_.copy();
+      }
+      instance.bitField0_ |= 0x80000000;
+
+      return instance.v_;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+        internalGetMutableKey(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 instance) {
+      if (instance.key_ == null) {
+        instance.key_ = com.google.protobuf.MapField.newMapField(
+            KeyDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.key_.isMutable()) {
+        instance.key_ = instance.key_.copy();
+      }
+      instance.bitField1_ |= 0x00000001;
+
+      return instance.key_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.String>
+        internalGetMutableMap(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 instance) {
+      if (instance.map_ == null) {
+        instance.map_ = com.google.protobuf.MapField.newMapField(
+            MapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.map_.isMutable()) {
+        instance.map_ = instance.map_.copy();
+      }
+      instance.bitField1_ |= 0x00000002;
+
+      return instance.map_;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+        internalGetMutablePairs(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 instance) {
+      if (instance.pairs_ == null) {
+        instance.pairs_ = com.google.protobuf.MapField.newMapField(
+            PairsDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.pairs_.isMutable()) {
+        instance.pairs_ = instance.pairs_.copy();
+      }
+      instance.bitField1_ |= 0x00000004;
+
+      return instance.pairs_;
+    }
+    private static void parseOption(
+        com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      instance.LeadingUnderscoreOneof_ = input.readInt32();
+      switch (instance.LeadingUnderscoreOneofCase_) {
+      default:
+        clearLeadingUnderscoreOneofHasBits(instance); // fallthrough
+      case 0:
+        instance.LeadingUnderscoreOneofCase_ = 34;
+        instance.bitField1_ |= 0x00000020; // fallthrough
+      case 34:
+        break;
+      }
+    }
+
+    private static void clearCamelCaseHasBits(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 instance) {
+      instance.bitField1_ = (instance.bitField1_ & ~0x00000010);
+    }
+
+
+    private static void clearLeadingUnderscoreOneofHasBits(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 instance) {
+      instance.bitField1_ = (instance.bitField1_ & ~0x00000020);
+    }
+
+    private static void buildPartial_autosplit_0(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        instance.aLLCAPS_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        instance.aLLCAPSMAP_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        instance.extension_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x08000000) != 0)) {
+        instance.values_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x10000000) != 0)) {
+        instance.newValues_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x40000000) != 0)) {
+        instance.k_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x80000000) != 0)) {
+        instance.v_.makeImmutable();
+      }
+    }
+
+    private static void buildPartial_autosplit_1(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.EvilNamesProto3 instance) {
+      int from_bitField1_ = instance.bitField1_;
+      if (((from_bitField1_ & 0x00000001) != 0)) {
+        instance.key_.makeImmutable();
+      }
+      if (((from_bitField1_ & 0x00000002) != 0)) {
+        instance.map_.makeImmutable();
+      }
+      if (((from_bitField1_ & 0x00000004) != 0)) {
+        instance.pairs_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<EvilNamesProto3>
-        PARSER = new com.google.protobuf.AbstractParser<EvilNamesProto3>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<EvilNamesProto3> {
+      MessageParser() {}
+
       @java.lang.Override
       public EvilNamesProto3 parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return EvilNamesProto3.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(EvilNamesProto3 instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<EvilNamesProto3> parser() {
       return PARSER;
@@ -7129,15 +7638,27 @@ java.lang.String defaultValue) {
                   com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.class, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+        }
+        private Builder(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         @java.lang.Override
         public Builder clear() {
@@ -7177,12 +7698,17 @@ java.lang.String defaultValue) {
 
         private void buildPartial_autosplit_0(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.while_ = while_;
             to_bitField0_ |= 0x00000001;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage other, java.lang.Object[] parserLocals) {
+          while_ = other.getWhile();
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -7246,7 +7772,7 @@ java.lang.String defaultValue) {
         }
         private int bitField0_;
 
-        private int while_ ;
+        private int while_;
         /**
          * <code>optional int32 while = 1;</code>
          * @return Whether the while field is set.
@@ -7299,22 +7825,67 @@ java.lang.String defaultValue) {
         return DEFAULT_INSTANCE;
       }
 
+      static NestedMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        NestedMessage instance = new NestedMessage((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                instance.while_ = input.readInt32();
+                instance.bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<NestedMessage>
-          PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<NestedMessage> {
+        MessageParser() {}
+
         @java.lang.Override
         public NestedMessage parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return NestedMessage.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(NestedMessage instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<NestedMessage> parser() {
         return PARSER;
@@ -8080,15 +8651,35 @@ java.lang.String defaultValue) {
                 com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.class, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        in_ = "";
+        break_ = 0;
+        else_ = emptyIntList();
+        for_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        fun_ = emptyIntList();
+        if_ = emptyList(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.class);
         maybeForceBuilderInitialization();
+      }
+      private Builder(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3 other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -8154,7 +8745,7 @@ java.lang.String defaultValue) {
 
       private void buildPartial_autosplit_0(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3 result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.as_ = as_;
           to_bitField0_ |= 0x00000001;
@@ -8198,6 +8789,30 @@ java.lang.String defaultValue) {
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3 other, java.lang.Object[] parserLocals) {
+        as_ = other.getAs();
+        in_ = other.in_;
+        break_ = other.getBreakValue();
+        do_ = other.do_;
+        continue_ = other.continue_;
+        else_ = other.else_;
+        for_ = other.for_;
+        fun_ = other.fun_;
+        if_ = other.if_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            doBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.Builder, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessageOrBuilder>) parserLocals[0]);
+            do_ = null;
+          }
+          if (parserLocals[1] != null) {
+            ifBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.Builder, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessageOrBuilder>) parserLocals[1]);
+            if_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -8411,9 +9026,21 @@ java.lang.String defaultValue) {
         } // finally
         return this;
       }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 42: {
+            parseDoField(input, extensionRegistry);
+            return true;
+          } // case 42
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
       private int bitField0_;
 
-      private int as_ ;
+      private int as_;
       /**
        * <code>optional int32 as = 1;</code>
        * @return Whether the as field is set.
@@ -8453,7 +9080,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private java.lang.Object in_ = "";
+      private java.lang.Object in_;
       /**
        * <code>optional string in = 2;</code>
        * @return Whether the in field is set.
@@ -8532,7 +9159,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private int break_ = 0;
+      private int break_;
       /**
        * <code>optional .protobuf.kotlin.generator.HardKeywordsAllTypesProto3.NestedEnum break = 3;</code>
        * @return Whether the break field is set.
@@ -8836,7 +9463,7 @@ java.lang.String defaultValue) {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (do_ != null || doBuilder_ != null) {
-          internalGetDoFieldBuilder().getBuilder()
+          internalGetDoFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           do_ = com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -8845,7 +9472,7 @@ java.lang.String defaultValue) {
         bitField0_ |= 0x00000008;
       }
 
-      private com.google.protobuf.Internal.IntList else_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList else_;
       private void ensureElseIsMutable(int capacity) {
         if (!else_.isModifiable()) {
           else_ = makeMutableCopy(else_, capacity);
@@ -8929,8 +9556,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList for_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList for_;
       private void ensureForIsMutable() {
         if (!for_.isModifiable()) {
           for_ = new com.google.protobuf.LazyStringArrayList(for_);
@@ -9040,7 +9666,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList fun_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList fun_;
       private void ensureFunIsMutable(int capacity) {
         if (!fun_.isModifiable()) {
           fun_ = makeMutableCopy(fun_, capacity);
@@ -9178,8 +9804,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage> if_ =
-          emptyList(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage> if_;
       private void ensureIfIsMutable() {
         if (!if_.isModifiable()) {
           if_ = makeMutableCopy(if_);
@@ -9425,22 +10050,284 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static HardKeywordsAllTypesProto3 parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      HardKeywordsAllTypesProto3 instance = new HardKeywordsAllTypesProto3((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.Builder, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessageOrBuilder> doBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.Builder, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessageOrBuilder> ifBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        doBuilder_ = internalGetDoFieldBuilder(instance, doBuilder_);
+        ifBuilder_ = internalGetIfFieldBuilder(instance, ifBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.as_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              instance.in_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              instance.break_ = input.readEnum();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              continue__ = input.readMessage(
+                  ContinueDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableContinue(instance).getMutableMap().put(
+                  continue__.getKey(), continue__.getValue());
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 34
+            case 42: {
+              if (instance.do_ != null || doBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseDoField(instance, input, extensionRegistry, doBuilder_);
+              break;
+            } // case 42
+            case 48: {
+              int v = input.readInt32();
+              ensureElseIsMutable(instance, /* capacity= */ -1);
+              instance.else_.addInt(v);
+              break;
+            } // case 48
+            case 50: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureElseIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.else_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 50
+            case 58: {
+              ensureForIsMutable(instance);
+              instance.for_.add(input.readStringRequireUtf8());
+              break;
+            } // case 58
+            case 64: {
+              int tmpRaw = input.readEnum();
+              ensureFunIsMutable(instance, /* capacity= */ -1);
+              instance.fun_.addInt(tmpRaw);
+              break;
+            } // case 64
+            case 66: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureFunIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.fun_.addInt(input.readEnum());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 66
+            case 74: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage m = com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (ifBuilder_ == null) {
+                ensureIfIsMutable(instance);
+                instance.if_.add(m);
+              } else {
+                ifBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000100;
+
+              }
+              break;
+            } // case 74
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {doBuilder_, ifBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, doBuilder_, ifBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableContinue(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3 instance) {
+      if (instance.continue_ == null) {
+        instance.continue_ = com.google.protobuf.MapField.newMapField(
+            ContinueDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.continue_.isMutable()) {
+        instance.continue_ = instance.continue_.copy();
+      }
+      instance.bitField0_ |= 0x00000010;
+
+      return instance.continue_;
+    }
+    /**
+     * <code>optional .protobuf.kotlin.generator.HardKeywordsAllTypesProto3.NestedMessage do = 5;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.Builder, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessageOrBuilder> 
+        internalGetDoFieldBuilder(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3 instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.Builder, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessageOrBuilder> doBuilder_) {
+      if (doBuilder_ == null) {
+        doBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.Builder, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessageOrBuilder>(
+                instance.getDo(),
+                null,
+                false);
+        instance.do_ = null;
+      }
+      instance.bitField0_ |= 0x00000008;
+      return doBuilder_;
+    }
+    private static void parseDoField(
+        com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3 instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.Builder, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessageOrBuilder> doBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.do_ != null || doBuilder_ != null) {
+        doBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.do_ = com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000008;
+    }
+    private static void ensureElseIsMutable(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3 instance, int capacity) {
+      if (!instance.else_.isModifiable()) {
+        instance.else_ = makeMutableCopy(instance.else_, capacity);
+      }
+      instance.bitField0_ |= 0x00000020;
+    }
+    private static void ensureForIsMutable(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3 instance) {
+      if (!instance.for_.isModifiable()) {
+        instance.for_ = new com.google.protobuf.LazyStringArrayList(instance.for_);
+      }
+      instance.bitField0_ |= 0x00000040;
+    }
+    private static void ensureFunIsMutable(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3 instance, int capacity) {
+      if (!instance.fun_.isModifiable()) {
+        instance.fun_ = makeMutableCopy(instance.fun_, capacity);
+      }
+      instance.bitField0_ |= 0x00000080;
+    }
+    private static void ensureIfIsMutable(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3 instance) {
+      if (!instance.if_.isModifiable()) {
+        instance.if_ = makeMutableCopy(instance.if_);
+      }
+      instance.bitField0_ |= 0x00000100;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.Builder, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessageOrBuilder> 
+        internalGetIfFieldBuilder(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3 instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.Builder, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessageOrBuilder> ifBuilder_) {
+      if (ifBuilder_ == null) {
+        ifBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.Builder, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessageOrBuilder>(
+                instance.if_,
+                instance.if_.isModifiable(),
+                null,
+                false);
+        instance.if_ = null;
+      }
+      instance.bitField0_ |= 0x00000100;
+
+      return ifBuilder_;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3 instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.Builder, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessageOrBuilder> doBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessage.Builder, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.HardKeywordsAllTypesProto3.NestedMessageOrBuilder> ifBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000008) != 0)) instance.do_ = null;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.do_ = doBuilder_ == null
+            ? instance.do_
+            : doBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        instance.continue_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        instance.else_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        instance.for_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        instance.fun_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+      if (ifBuilder_ == null) {
+        instance.if_.makeImmutable();
+      } else {
+        instance.if_ = ifBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<HardKeywordsAllTypesProto3>
-        PARSER = new com.google.protobuf.AbstractParser<HardKeywordsAllTypesProto3>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<HardKeywordsAllTypesProto3> {
+      MessageParser() {}
+
       @java.lang.Override
       public HardKeywordsAllTypesProto3 parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return HardKeywordsAllTypesProto3.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(HardKeywordsAllTypesProto3 instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<HardKeywordsAllTypesProto3> parser() {
       return PARSER;
@@ -9669,15 +10556,26 @@ java.lang.String defaultValue) {
                 com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.Class.class, com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.Class.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.Class.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.kotlin.generator.in.EvilNamesProto3OuterClass.Class other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
       }
       @java.lang.Override
       public Builder clear() {
@@ -9777,22 +10675,62 @@ java.lang.String defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static Class parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Class instance = new Class((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<Class>
-        PARSER = new com.google.protobuf.AbstractParser<Class>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Class> {
+      MessageParser() {}
+
       @java.lang.Override
       public Class parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Class.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Class instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Class> parser() {
       return PARSER;

@@ -1274,15 +1274,27 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.test.OneofWellKnownTypes.class, com.google.protobuf.test.OneofWellKnownTypes.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.test.OneofWellKnownTypes.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+    }
+    private Builder(com.google.protobuf.test.OneofWellKnownTypes other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -1378,7 +1390,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(com.google.protobuf.test.OneofWellKnownTypes result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.oneofField_ = anyFieldBuilder_ == null
             ? oneofField_
@@ -1506,6 +1518,87 @@ private static final long serialVersionUID = 0L;
         ;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(com.google.protobuf.test.OneofWellKnownTypes other, java.lang.Object[] parserLocals) {
+      oneofFieldCase_ = other.oneofFieldCase_;
+      oneofField_ = other.oneofField_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          anyFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>) parserLocals[0]);
+          if (oneofFieldCase_ == 1) oneofField_ = null;
+        }
+        if (parserLocals[1] != null) {
+          apiFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Api, com.google.protobuf.Api.Builder, com.google.protobuf.ApiOrBuilder>) parserLocals[1]);
+          if (oneofFieldCase_ == 2) oneofField_ = null;
+        }
+        if (parserLocals[2] != null) {
+          durationFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>) parserLocals[2]);
+          if (oneofFieldCase_ == 3) oneofField_ = null;
+        }
+        if (parserLocals[3] != null) {
+          emptyFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Empty, com.google.protobuf.Empty.Builder, com.google.protobuf.EmptyOrBuilder>) parserLocals[3]);
+          if (oneofFieldCase_ == 4) oneofField_ = null;
+        }
+        if (parserLocals[4] != null) {
+          fieldMaskFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder>) parserLocals[4]);
+          if (oneofFieldCase_ == 5) oneofField_ = null;
+        }
+        if (parserLocals[5] != null) {
+          sourceContextFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder, com.google.protobuf.SourceContextOrBuilder>) parserLocals[5]);
+          if (oneofFieldCase_ == 6) oneofField_ = null;
+        }
+        if (parserLocals[6] != null) {
+          structFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>) parserLocals[6]);
+          if (oneofFieldCase_ == 7) oneofField_ = null;
+        }
+        if (parserLocals[7] != null) {
+          timestampFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>) parserLocals[7]);
+          if (oneofFieldCase_ == 8) oneofField_ = null;
+        }
+        if (parserLocals[8] != null) {
+          typeFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Type, com.google.protobuf.Type.Builder, com.google.protobuf.TypeOrBuilder>) parserLocals[8]);
+          if (oneofFieldCase_ == 9) oneofField_ = null;
+        }
+        if (parserLocals[9] != null) {
+          doubleFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder>) parserLocals[9]);
+          if (oneofFieldCase_ == 10) oneofField_ = null;
+        }
+        if (parserLocals[10] != null) {
+          floatFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder>) parserLocals[10]);
+          if (oneofFieldCase_ == 11) oneofField_ = null;
+        }
+        if (parserLocals[11] != null) {
+          int64FieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder>) parserLocals[11]);
+          if (oneofFieldCase_ == 12) oneofField_ = null;
+        }
+        if (parserLocals[12] != null) {
+          uint64FieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder>) parserLocals[12]);
+          if (oneofFieldCase_ == 13) oneofField_ = null;
+        }
+        if (parserLocals[13] != null) {
+          int32FieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>) parserLocals[13]);
+          if (oneofFieldCase_ == 14) oneofField_ = null;
+        }
+        if (parserLocals[14] != null) {
+          uint32FieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder>) parserLocals[14]);
+          if (oneofFieldCase_ == 15) oneofField_ = null;
+        }
+        if (parserLocals[15] != null) {
+          boolFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder>) parserLocals[15]);
+          if (oneofFieldCase_ == 16) oneofField_ = null;
+        }
+        if (parserLocals[16] != null) {
+          stringFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>) parserLocals[16]);
+          if (oneofFieldCase_ == 17) oneofField_ = null;
+        }
+        if (parserLocals[17] != null) {
+          bytesFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder>) parserLocals[17]);
+          if (oneofFieldCase_ == 18) oneofField_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -1708,7 +1801,87 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int oneofFieldCase_ = 0;
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 10: {
+          parseAnyField(input, extensionRegistry);
+          return true;
+        } // case 10
+        case 18: {
+          parseApiField(input, extensionRegistry);
+          return true;
+        } // case 18
+        case 26: {
+          parseDurationField(input, extensionRegistry);
+          return true;
+        } // case 26
+        case 34: {
+          parseEmptyField(input, extensionRegistry);
+          return true;
+        } // case 34
+        case 42: {
+          parseFieldMaskField(input, extensionRegistry);
+          return true;
+        } // case 42
+        case 50: {
+          parseSourceContextField(input, extensionRegistry);
+          return true;
+        } // case 50
+        case 58: {
+          parseStructField(input, extensionRegistry);
+          return true;
+        } // case 58
+        case 66: {
+          parseTimestampField(input, extensionRegistry);
+          return true;
+        } // case 66
+        case 74: {
+          parseTypeField(input, extensionRegistry);
+          return true;
+        } // case 74
+        case 82: {
+          parseDoubleField(input, extensionRegistry);
+          return true;
+        } // case 82
+        case 90: {
+          parseFloatField(input, extensionRegistry);
+          return true;
+        } // case 90
+        case 98: {
+          parseInt64Field(input, extensionRegistry);
+          return true;
+        } // case 98
+        case 106: {
+          parseUint64Field(input, extensionRegistry);
+          return true;
+        } // case 106
+        case 114: {
+          parseInt32Field(input, extensionRegistry);
+          return true;
+        } // case 114
+        case 122: {
+          parseUint32Field(input, extensionRegistry);
+          return true;
+        } // case 122
+        case 130: {
+          parseBoolField(input, extensionRegistry);
+          return true;
+        } // case 130
+        case 138: {
+          parseStringField(input, extensionRegistry);
+          return true;
+        } // case 138
+        case 146: {
+          parseBytesField(input, extensionRegistry);
+          return true;
+        } // case 146
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
+    }
+    private int oneofFieldCase_;
     private java.lang.Object oneofField_;
     public OneofFieldCase
         getOneofFieldCase() {
@@ -1895,7 +2068,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetAnyFieldFieldBuilder().getBuilder(),
+          internalGetAnyFieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -2072,7 +2245,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetApiFieldFieldBuilder().getBuilder(),
+          internalGetApiFieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -2249,7 +2422,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetDurationFieldFieldBuilder().getBuilder(),
+          internalGetDurationFieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -2426,7 +2599,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetEmptyFieldFieldBuilder().getBuilder(),
+          internalGetEmptyFieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -2603,7 +2776,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetFieldMaskFieldFieldBuilder().getBuilder(),
+          internalGetFieldMaskFieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -2780,7 +2953,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetSourceContextFieldFieldBuilder().getBuilder(),
+          internalGetSourceContextFieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -2957,7 +3130,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetStructFieldFieldBuilder().getBuilder(),
+          internalGetStructFieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -3134,7 +3307,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetTimestampFieldFieldBuilder().getBuilder(),
+          internalGetTimestampFieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -3311,7 +3484,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetTypeFieldFieldBuilder().getBuilder(),
+          internalGetTypeFieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -3488,7 +3661,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetDoubleFieldFieldBuilder().getBuilder(),
+          internalGetDoubleFieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -3665,7 +3838,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetFloatFieldFieldBuilder().getBuilder(),
+          internalGetFloatFieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -3842,7 +4015,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetInt64FieldFieldBuilder().getBuilder(),
+          internalGetInt64FieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -4019,7 +4192,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetUint64FieldFieldBuilder().getBuilder(),
+          internalGetUint64FieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -4196,7 +4369,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetInt32FieldFieldBuilder().getBuilder(),
+          internalGetInt32FieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -4373,7 +4546,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetUint32FieldFieldBuilder().getBuilder(),
+          internalGetUint32FieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -4550,7 +4723,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetBoolFieldFieldBuilder().getBuilder(),
+          internalGetBoolFieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -4727,7 +4900,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetStringFieldFieldBuilder().getBuilder(),
+          internalGetStringFieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -4904,7 +5077,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetBytesFieldFieldBuilder().getBuilder(),
+          internalGetBytesFieldFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -4930,22 +5103,1236 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static OneofWellKnownTypes parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    OneofWellKnownTypes instance = new OneofWellKnownTypes((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> anyFieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Api, com.google.protobuf.Api.Builder, com.google.protobuf.ApiOrBuilder> apiFieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> durationFieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Empty, com.google.protobuf.Empty.Builder, com.google.protobuf.EmptyOrBuilder> emptyFieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> fieldMaskFieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder, com.google.protobuf.SourceContextOrBuilder> sourceContextFieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> structFieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timestampFieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Type, com.google.protobuf.Type.Builder, com.google.protobuf.TypeOrBuilder> typeFieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> doubleFieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> floatFieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> int64FieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder> uint64FieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> int32FieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> uint32FieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> boolFieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> stringFieldBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder> bytesFieldBuilder_ = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            if (anyFieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            anyFieldBuilder_ = internalGetAnyFieldFieldBuilder(instance, anyFieldBuilder_);
+            parseAnyField(instance, input, extensionRegistry, anyFieldBuilder_);
+            break;
+          } // case 10
+          case 18: {
+            if (apiFieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            apiFieldBuilder_ = internalGetApiFieldFieldBuilder(instance, apiFieldBuilder_);
+            parseApiField(instance, input, extensionRegistry, apiFieldBuilder_);
+            break;
+          } // case 18
+          case 26: {
+            if (durationFieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            durationFieldBuilder_ = internalGetDurationFieldFieldBuilder(instance, durationFieldBuilder_);
+            parseDurationField(instance, input, extensionRegistry, durationFieldBuilder_);
+            break;
+          } // case 26
+          case 34: {
+            if (emptyFieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            emptyFieldBuilder_ = internalGetEmptyFieldFieldBuilder(instance, emptyFieldBuilder_);
+            parseEmptyField(instance, input, extensionRegistry, emptyFieldBuilder_);
+            break;
+          } // case 34
+          case 42: {
+            if (fieldMaskFieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            fieldMaskFieldBuilder_ = internalGetFieldMaskFieldFieldBuilder(instance, fieldMaskFieldBuilder_);
+            parseFieldMaskField(instance, input, extensionRegistry, fieldMaskFieldBuilder_);
+            break;
+          } // case 42
+          case 50: {
+            if (sourceContextFieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            sourceContextFieldBuilder_ = internalGetSourceContextFieldFieldBuilder(instance, sourceContextFieldBuilder_);
+            parseSourceContextField(instance, input, extensionRegistry, sourceContextFieldBuilder_);
+            break;
+          } // case 50
+          case 58: {
+            if (structFieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            structFieldBuilder_ = internalGetStructFieldFieldBuilder(instance, structFieldBuilder_);
+            parseStructField(instance, input, extensionRegistry, structFieldBuilder_);
+            break;
+          } // case 58
+          case 66: {
+            if (timestampFieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            timestampFieldBuilder_ = internalGetTimestampFieldFieldBuilder(instance, timestampFieldBuilder_);
+            parseTimestampField(instance, input, extensionRegistry, timestampFieldBuilder_);
+            break;
+          } // case 66
+          case 74: {
+            if (typeFieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            typeFieldBuilder_ = internalGetTypeFieldFieldBuilder(instance, typeFieldBuilder_);
+            parseTypeField(instance, input, extensionRegistry, typeFieldBuilder_);
+            break;
+          } // case 74
+          case 82: {
+            if (doubleFieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            doubleFieldBuilder_ = internalGetDoubleFieldFieldBuilder(instance, doubleFieldBuilder_);
+            parseDoubleField(instance, input, extensionRegistry, doubleFieldBuilder_);
+            break;
+          } // case 82
+          case 90: {
+            if (floatFieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            floatFieldBuilder_ = internalGetFloatFieldFieldBuilder(instance, floatFieldBuilder_);
+            parseFloatField(instance, input, extensionRegistry, floatFieldBuilder_);
+            break;
+          } // case 90
+          case 98: {
+            if (int64FieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            int64FieldBuilder_ = internalGetInt64FieldFieldBuilder(instance, int64FieldBuilder_);
+            parseInt64Field(instance, input, extensionRegistry, int64FieldBuilder_);
+            break;
+          } // case 98
+          case 106: {
+            if (uint64FieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            uint64FieldBuilder_ = internalGetUint64FieldFieldBuilder(instance, uint64FieldBuilder_);
+            parseUint64Field(instance, input, extensionRegistry, uint64FieldBuilder_);
+            break;
+          } // case 106
+          case 114: {
+            if (int32FieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            int32FieldBuilder_ = internalGetInt32FieldFieldBuilder(instance, int32FieldBuilder_);
+            parseInt32Field(instance, input, extensionRegistry, int32FieldBuilder_);
+            break;
+          } // case 114
+          case 122: {
+            if (uint32FieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            uint32FieldBuilder_ = internalGetUint32FieldFieldBuilder(instance, uint32FieldBuilder_);
+            parseUint32Field(instance, input, extensionRegistry, uint32FieldBuilder_);
+            break;
+          } // case 122
+          case 130: {
+            if (boolFieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            boolFieldBuilder_ = internalGetBoolFieldFieldBuilder(instance, boolFieldBuilder_);
+            parseBoolField(instance, input, extensionRegistry, boolFieldBuilder_);
+            break;
+          } // case 130
+          case 138: {
+            if (stringFieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            stringFieldBuilder_ = internalGetStringFieldFieldBuilder(instance, stringFieldBuilder_);
+            parseStringField(instance, input, extensionRegistry, stringFieldBuilder_);
+            break;
+          } // case 138
+          case 146: {
+            if (bytesFieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            bytesFieldBuilder_ = internalGetBytesFieldFieldBuilder(instance, bytesFieldBuilder_);
+            parseBytesField(instance, input, extensionRegistry, bytesFieldBuilder_);
+            break;
+          } // case 146
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {anyFieldBuilder_, apiFieldBuilder_, durationFieldBuilder_, emptyFieldBuilder_, fieldMaskFieldBuilder_, sourceContextFieldBuilder_, structFieldBuilder_, timestampFieldBuilder_, typeFieldBuilder_, doubleFieldBuilder_, floatFieldBuilder_, int64FieldBuilder_, uint64FieldBuilder_, int32FieldBuilder_, uint32FieldBuilder_, boolFieldBuilder_, stringFieldBuilder_, bytesFieldBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, anyFieldBuilder_, apiFieldBuilder_, durationFieldBuilder_, emptyFieldBuilder_, fieldMaskFieldBuilder_, sourceContextFieldBuilder_, structFieldBuilder_, timestampFieldBuilder_, typeFieldBuilder_, doubleFieldBuilder_, floatFieldBuilder_, int64FieldBuilder_, uint64FieldBuilder_, int32FieldBuilder_, uint32FieldBuilder_, boolFieldBuilder_, stringFieldBuilder_, bytesFieldBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>.google.protobuf.Any any_field = 1;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> 
+      internalGetAnyFieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> anyFieldBuilder_) {
+    if (anyFieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 1)) {
+        instance.oneofField_ = com.google.protobuf.Any.getDefaultInstance();
+      }
+      anyFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
+              (com.google.protobuf.Any) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 1;
+      instance.bitField0_ |= 0x00000001; // fallthrough
+    case 1:
+      break;
+    }
+
+    return anyFieldBuilder_;
+  }
+  private static void parseAnyField(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> anyFieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        anyFieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 1;
+      instance.bitField0_ |= 0x00000001; // fallthrough
+    case 1:
+      break;
+    }
+  }
+  /**
+   * <code>.google.protobuf.Api api_field = 2;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.Api, com.google.protobuf.Api.Builder, com.google.protobuf.ApiOrBuilder> 
+      internalGetApiFieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Api, com.google.protobuf.Api.Builder, com.google.protobuf.ApiOrBuilder> apiFieldBuilder_) {
+    if (apiFieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 2)) {
+        instance.oneofField_ = com.google.protobuf.Api.getDefaultInstance();
+      }
+      apiFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.Api, com.google.protobuf.Api.Builder, com.google.protobuf.ApiOrBuilder>(
+              (com.google.protobuf.Api) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 2;
+      instance.bitField0_ |= 0x00000002; // fallthrough
+    case 2:
+      break;
+    }
+
+    return apiFieldBuilder_;
+  }
+  private static void parseApiField(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Api, com.google.protobuf.Api.Builder, com.google.protobuf.ApiOrBuilder> apiFieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        apiFieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 2;
+      instance.bitField0_ |= 0x00000002; // fallthrough
+    case 2:
+      break;
+    }
+  }
+  /**
+   * <code>.google.protobuf.Duration duration_field = 3;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> 
+      internalGetDurationFieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> durationFieldBuilder_) {
+    if (durationFieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 3)) {
+        instance.oneofField_ = com.google.protobuf.Duration.getDefaultInstance();
+      }
+      durationFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+              (com.google.protobuf.Duration) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 3;
+      instance.bitField0_ |= 0x00000004; // fallthrough
+    case 3:
+      break;
+    }
+
+    return durationFieldBuilder_;
+  }
+  private static void parseDurationField(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> durationFieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        durationFieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 3;
+      instance.bitField0_ |= 0x00000004; // fallthrough
+    case 3:
+      break;
+    }
+  }
+  /**
+   * <code>.google.protobuf.Empty empty_field = 4;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.Empty, com.google.protobuf.Empty.Builder, com.google.protobuf.EmptyOrBuilder> 
+      internalGetEmptyFieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Empty, com.google.protobuf.Empty.Builder, com.google.protobuf.EmptyOrBuilder> emptyFieldBuilder_) {
+    if (emptyFieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 4)) {
+        instance.oneofField_ = com.google.protobuf.Empty.getDefaultInstance();
+      }
+      emptyFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.Empty, com.google.protobuf.Empty.Builder, com.google.protobuf.EmptyOrBuilder>(
+              (com.google.protobuf.Empty) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 4;
+      instance.bitField0_ |= 0x00000008; // fallthrough
+    case 4:
+      break;
+    }
+
+    return emptyFieldBuilder_;
+  }
+  private static void parseEmptyField(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Empty, com.google.protobuf.Empty.Builder, com.google.protobuf.EmptyOrBuilder> emptyFieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        emptyFieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 4;
+      instance.bitField0_ |= 0x00000008; // fallthrough
+    case 4:
+      break;
+    }
+  }
+  /**
+   * <code>.google.protobuf.FieldMask field_mask_field = 5;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> 
+      internalGetFieldMaskFieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> fieldMaskFieldBuilder_) {
+    if (fieldMaskFieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 5)) {
+        instance.oneofField_ = com.google.protobuf.FieldMask.getDefaultInstance();
+      }
+      fieldMaskFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder>(
+              (com.google.protobuf.FieldMask) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 5;
+      instance.bitField0_ |= 0x00000010; // fallthrough
+    case 5:
+      break;
+    }
+
+    return fieldMaskFieldBuilder_;
+  }
+  private static void parseFieldMaskField(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> fieldMaskFieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        fieldMaskFieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 5;
+      instance.bitField0_ |= 0x00000010; // fallthrough
+    case 5:
+      break;
+    }
+  }
+  /**
+   * <code>.google.protobuf.SourceContext source_context_field = 6;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder, com.google.protobuf.SourceContextOrBuilder> 
+      internalGetSourceContextFieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder, com.google.protobuf.SourceContextOrBuilder> sourceContextFieldBuilder_) {
+    if (sourceContextFieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 6)) {
+        instance.oneofField_ = com.google.protobuf.SourceContext.getDefaultInstance();
+      }
+      sourceContextFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder, com.google.protobuf.SourceContextOrBuilder>(
+              (com.google.protobuf.SourceContext) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 6;
+      instance.bitField0_ |= 0x00000020; // fallthrough
+    case 6:
+      break;
+    }
+
+    return sourceContextFieldBuilder_;
+  }
+  private static void parseSourceContextField(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder, com.google.protobuf.SourceContextOrBuilder> sourceContextFieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        sourceContextFieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 6;
+      instance.bitField0_ |= 0x00000020; // fallthrough
+    case 6:
+      break;
+    }
+  }
+  /**
+   * <code>.google.protobuf.Struct struct_field = 7;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+      internalGetStructFieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> structFieldBuilder_) {
+    if (structFieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 7)) {
+        instance.oneofField_ = com.google.protobuf.Struct.getDefaultInstance();
+      }
+      structFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+              (com.google.protobuf.Struct) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 7;
+      instance.bitField0_ |= 0x00000040; // fallthrough
+    case 7:
+      break;
+    }
+
+    return structFieldBuilder_;
+  }
+  private static void parseStructField(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> structFieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        structFieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 7;
+      instance.bitField0_ |= 0x00000040; // fallthrough
+    case 7:
+      break;
+    }
+  }
+  /**
+   * <code>.google.protobuf.Timestamp timestamp_field = 8;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+      internalGetTimestampFieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timestampFieldBuilder_) {
+    if (timestampFieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 8)) {
+        instance.oneofField_ = com.google.protobuf.Timestamp.getDefaultInstance();
+      }
+      timestampFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+              (com.google.protobuf.Timestamp) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 8;
+      instance.bitField0_ |= 0x00000080; // fallthrough
+    case 8:
+      break;
+    }
+
+    return timestampFieldBuilder_;
+  }
+  private static void parseTimestampField(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timestampFieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        timestampFieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 8;
+      instance.bitField0_ |= 0x00000080; // fallthrough
+    case 8:
+      break;
+    }
+  }
+  /**
+   * <code>.google.protobuf.Type type_field = 9;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.Type, com.google.protobuf.Type.Builder, com.google.protobuf.TypeOrBuilder> 
+      internalGetTypeFieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Type, com.google.protobuf.Type.Builder, com.google.protobuf.TypeOrBuilder> typeFieldBuilder_) {
+    if (typeFieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 9)) {
+        instance.oneofField_ = com.google.protobuf.Type.getDefaultInstance();
+      }
+      typeFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.Type, com.google.protobuf.Type.Builder, com.google.protobuf.TypeOrBuilder>(
+              (com.google.protobuf.Type) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 9;
+      instance.bitField0_ |= 0x00000100; // fallthrough
+    case 9:
+      break;
+    }
+
+    return typeFieldBuilder_;
+  }
+  private static void parseTypeField(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Type, com.google.protobuf.Type.Builder, com.google.protobuf.TypeOrBuilder> typeFieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        typeFieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 9;
+      instance.bitField0_ |= 0x00000100; // fallthrough
+    case 9:
+      break;
+    }
+  }
+  /**
+   * <code>.google.protobuf.DoubleValue double_field = 10;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> 
+      internalGetDoubleFieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> doubleFieldBuilder_) {
+    if (doubleFieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 10)) {
+        instance.oneofField_ = com.google.protobuf.DoubleValue.getDefaultInstance();
+      }
+      doubleFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder>(
+              (com.google.protobuf.DoubleValue) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 10;
+      instance.bitField0_ |= 0x00000200; // fallthrough
+    case 10:
+      break;
+    }
+
+    return doubleFieldBuilder_;
+  }
+  private static void parseDoubleField(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> doubleFieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        doubleFieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 10;
+      instance.bitField0_ |= 0x00000200; // fallthrough
+    case 10:
+      break;
+    }
+  }
+  /**
+   * <code>.google.protobuf.FloatValue float_field = 11;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> 
+      internalGetFloatFieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> floatFieldBuilder_) {
+    if (floatFieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 11)) {
+        instance.oneofField_ = com.google.protobuf.FloatValue.getDefaultInstance();
+      }
+      floatFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder>(
+              (com.google.protobuf.FloatValue) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 11;
+      instance.bitField0_ |= 0x00000400; // fallthrough
+    case 11:
+      break;
+    }
+
+    return floatFieldBuilder_;
+  }
+  private static void parseFloatField(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> floatFieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        floatFieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 11;
+      instance.bitField0_ |= 0x00000400; // fallthrough
+    case 11:
+      break;
+    }
+  }
+  /**
+   * <code>.google.protobuf.Int64Value int64_field = 12;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> 
+      internalGetInt64FieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> int64FieldBuilder_) {
+    if (int64FieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 12)) {
+        instance.oneofField_ = com.google.protobuf.Int64Value.getDefaultInstance();
+      }
+      int64FieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder>(
+              (com.google.protobuf.Int64Value) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 12;
+      instance.bitField0_ |= 0x00000800; // fallthrough
+    case 12:
+      break;
+    }
+
+    return int64FieldBuilder_;
+  }
+  private static void parseInt64Field(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> int64FieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        int64FieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 12;
+      instance.bitField0_ |= 0x00000800; // fallthrough
+    case 12:
+      break;
+    }
+  }
+  /**
+   * <code>.google.protobuf.UInt64Value uint64_field = 13;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder> 
+      internalGetUint64FieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder> uint64FieldBuilder_) {
+    if (uint64FieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 13)) {
+        instance.oneofField_ = com.google.protobuf.UInt64Value.getDefaultInstance();
+      }
+      uint64FieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder>(
+              (com.google.protobuf.UInt64Value) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 13;
+      instance.bitField0_ |= 0x00001000; // fallthrough
+    case 13:
+      break;
+    }
+
+    return uint64FieldBuilder_;
+  }
+  private static void parseUint64Field(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder> uint64FieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        uint64FieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 13;
+      instance.bitField0_ |= 0x00001000; // fallthrough
+    case 13:
+      break;
+    }
+  }
+  /**
+   * <code>.google.protobuf.Int32Value int32_field = 14;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> 
+      internalGetInt32FieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> int32FieldBuilder_) {
+    if (int32FieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 14)) {
+        instance.oneofField_ = com.google.protobuf.Int32Value.getDefaultInstance();
+      }
+      int32FieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>(
+              (com.google.protobuf.Int32Value) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 14;
+      instance.bitField0_ |= 0x00002000; // fallthrough
+    case 14:
+      break;
+    }
+
+    return int32FieldBuilder_;
+  }
+  private static void parseInt32Field(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> int32FieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        int32FieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 14;
+      instance.bitField0_ |= 0x00002000; // fallthrough
+    case 14:
+      break;
+    }
+  }
+  /**
+   * <code>.google.protobuf.UInt32Value uint32_field = 15;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> 
+      internalGetUint32FieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> uint32FieldBuilder_) {
+    if (uint32FieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 15)) {
+        instance.oneofField_ = com.google.protobuf.UInt32Value.getDefaultInstance();
+      }
+      uint32FieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder>(
+              (com.google.protobuf.UInt32Value) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 15;
+      instance.bitField0_ |= 0x00004000; // fallthrough
+    case 15:
+      break;
+    }
+
+    return uint32FieldBuilder_;
+  }
+  private static void parseUint32Field(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> uint32FieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        uint32FieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 15;
+      instance.bitField0_ |= 0x00004000; // fallthrough
+    case 15:
+      break;
+    }
+  }
+  /**
+   * <code>.google.protobuf.BoolValue bool_field = 16;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> 
+      internalGetBoolFieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> boolFieldBuilder_) {
+    if (boolFieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 16)) {
+        instance.oneofField_ = com.google.protobuf.BoolValue.getDefaultInstance();
+      }
+      boolFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder>(
+              (com.google.protobuf.BoolValue) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 16;
+      instance.bitField0_ |= 0x00008000; // fallthrough
+    case 16:
+      break;
+    }
+
+    return boolFieldBuilder_;
+  }
+  private static void parseBoolField(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> boolFieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        boolFieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 16;
+      instance.bitField0_ |= 0x00008000; // fallthrough
+    case 16:
+      break;
+    }
+  }
+  /**
+   * <code>.google.protobuf.StringValue string_field = 17;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> 
+      internalGetStringFieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> stringFieldBuilder_) {
+    if (stringFieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 17)) {
+        instance.oneofField_ = com.google.protobuf.StringValue.getDefaultInstance();
+      }
+      stringFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+              (com.google.protobuf.StringValue) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 17;
+      instance.bitField0_ |= 0x00010000; // fallthrough
+    case 17:
+      break;
+    }
+
+    return stringFieldBuilder_;
+  }
+  private static void parseStringField(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> stringFieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        stringFieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 17;
+      instance.bitField0_ |= 0x00010000; // fallthrough
+    case 17:
+      break;
+    }
+  }
+  /**
+   * <code>.google.protobuf.BytesValue bytes_field = 18;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder> 
+      internalGetBytesFieldFieldBuilder(com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder> bytesFieldBuilder_) {
+    if (bytesFieldBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 18)) {
+        instance.oneofField_ = com.google.protobuf.BytesValue.getDefaultInstance();
+      }
+      bytesFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder>(
+              (com.google.protobuf.BytesValue) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 18;
+      instance.bitField0_ |= 0x00020000; // fallthrough
+    case 18:
+      break;
+    }
+
+    return bytesFieldBuilder_;
+  }
+  private static void parseBytesField(
+      com.google.protobuf.test.OneofWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder> bytesFieldBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        bytesFieldBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 18;
+      instance.bitField0_ |= 0x00020000; // fallthrough
+    case 18:
+      break;
+    }
+  }
+
+  private static void clearOneofFieldHasBits(com.google.protobuf.test.OneofWellKnownTypes instance) {
+    instance.bitField0_ = (instance.bitField0_ & ~0x0003ffff);
+  }
+
+  private static void buildPartial_autosplit_0(com.google.protobuf.test.OneofWellKnownTypes instance,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> anyFieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Api, com.google.protobuf.Api.Builder, com.google.protobuf.ApiOrBuilder> apiFieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder> durationFieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Empty, com.google.protobuf.Empty.Builder, com.google.protobuf.EmptyOrBuilder> emptyFieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder> fieldMaskFieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder, com.google.protobuf.SourceContextOrBuilder> sourceContextFieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> structFieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> timestampFieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Type, com.google.protobuf.Type.Builder, com.google.protobuf.TypeOrBuilder> typeFieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder> doubleFieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder> floatFieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder> int64FieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder> uint64FieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder> int32FieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder> uint32FieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder> boolFieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder> stringFieldBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder> bytesFieldBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.oneofField_ = anyFieldBuilder_ == null
+          ? instance.oneofField_
+          : anyFieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000002) != 0)) {
+      instance.oneofField_ = apiFieldBuilder_ == null
+          ? instance.oneofField_
+          : apiFieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000004) != 0)) {
+      instance.oneofField_ = durationFieldBuilder_ == null
+          ? instance.oneofField_
+          : durationFieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000008) != 0)) {
+      instance.oneofField_ = emptyFieldBuilder_ == null
+          ? instance.oneofField_
+          : emptyFieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000010) != 0)) {
+      instance.oneofField_ = fieldMaskFieldBuilder_ == null
+          ? instance.oneofField_
+          : fieldMaskFieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000020) != 0)) {
+      instance.oneofField_ = sourceContextFieldBuilder_ == null
+          ? instance.oneofField_
+          : sourceContextFieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000040) != 0)) {
+      instance.oneofField_ = structFieldBuilder_ == null
+          ? instance.oneofField_
+          : structFieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000080) != 0)) {
+      instance.oneofField_ = timestampFieldBuilder_ == null
+          ? instance.oneofField_
+          : timestampFieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000100) != 0)) {
+      instance.oneofField_ = typeFieldBuilder_ == null
+          ? instance.oneofField_
+          : typeFieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000200) != 0)) {
+      instance.oneofField_ = doubleFieldBuilder_ == null
+          ? instance.oneofField_
+          : doubleFieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000400) != 0)) {
+      instance.oneofField_ = floatFieldBuilder_ == null
+          ? instance.oneofField_
+          : floatFieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000800) != 0)) {
+      instance.oneofField_ = int64FieldBuilder_ == null
+          ? instance.oneofField_
+          : int64FieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00001000) != 0)) {
+      instance.oneofField_ = uint64FieldBuilder_ == null
+          ? instance.oneofField_
+          : uint64FieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00002000) != 0)) {
+      instance.oneofField_ = int32FieldBuilder_ == null
+          ? instance.oneofField_
+          : int32FieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00004000) != 0)) {
+      instance.oneofField_ = uint32FieldBuilder_ == null
+          ? instance.oneofField_
+          : uint32FieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00008000) != 0)) {
+      instance.oneofField_ = boolFieldBuilder_ == null
+          ? instance.oneofField_
+          : boolFieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00010000) != 0)) {
+      instance.oneofField_ = stringFieldBuilder_ == null
+          ? instance.oneofField_
+          : stringFieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00020000) != 0)) {
+      instance.oneofField_ = bytesFieldBuilder_ == null
+          ? instance.oneofField_
+          : bytesFieldBuilder_.build();
+    }
+  }
+
   private static final com.google.protobuf.Parser<OneofWellKnownTypes>
-      PARSER = new com.google.protobuf.AbstractParser<OneofWellKnownTypes>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<OneofWellKnownTypes> {
+    MessageParser() {}
+
     @java.lang.Override
     public OneofWellKnownTypes parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return OneofWellKnownTypes.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(OneofWellKnownTypes instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<OneofWellKnownTypes> parser() {
     return PARSER;

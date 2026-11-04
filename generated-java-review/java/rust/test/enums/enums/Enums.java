@@ -927,15 +927,26 @@ enums.Enums.TestMapWithNestedEnum.InnerNested.NestedEnum         defaultValue);
                   enums.Enums.TestMapWithNestedEnum.InnerNested.class, enums.Enums.TestMapWithNestedEnum.InnerNested.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using enums.Enums.TestMapWithNestedEnum.InnerNested.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+        }
+        private Builder(enums.Enums.TestMapWithNestedEnum.InnerNested other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
         }
         @java.lang.Override
         public Builder clear() {
@@ -1035,22 +1046,62 @@ enums.Enums.TestMapWithNestedEnum.InnerNested.NestedEnum         defaultValue);
         return DEFAULT_INSTANCE;
       }
 
+      static InnerNested parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        InnerNested instance = new InnerNested((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<InnerNested>
-          PARSER = new com.google.protobuf.AbstractParser<InnerNested>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<InnerNested> {
+        MessageParser() {}
+
         @java.lang.Override
         public InnerNested parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return InnerNested.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(InnerNested instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<InnerNested> parser() {
         return PARSER;
@@ -1431,15 +1482,27 @@ enums.Enums.TestMapWithNestedEnum.InnerNested.NestedEnum defaultValue) {
                 enums.Enums.TestMapWithNestedEnum.class, enums.Enums.TestMapWithNestedEnum.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using enums.Enums.TestMapWithNestedEnum.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(enums.Enums.TestMapWithNestedEnum other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -1479,12 +1542,17 @@ enums.Enums.TestMapWithNestedEnum.InnerNested.NestedEnum defaultValue) {
 
       private void buildPartial_autosplit_0(enums.Enums.TestMapWithNestedEnum result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.stringMap_ = internalGetStringMap();
           result.stringMap_.makeImmutable();
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(enums.Enums.TestMapWithNestedEnum other, java.lang.Object[] parserLocals) {
+        stringMap_ = other.stringMap_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1776,22 +1844,92 @@ enums.Enums.TestMapWithNestedEnum.InnerNested.NestedEnum defaultValue) {
       return DEFAULT_INSTANCE;
     }
 
+    static TestMapWithNestedEnum parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestMapWithNestedEnum instance = new TestMapWithNestedEnum((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              stringMap__ = input.readMessage(
+                  StringMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableStringMap(instance).getMutableMap().put(
+                  stringMap__.getKey(), stringMap__.getValue());
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+        internalGetMutableStringMap(enums.Enums.TestMapWithNestedEnum instance) {
+      if (instance.stringMap_ == null) {
+        instance.stringMap_ = com.google.protobuf.MapField.newMapField(
+            StringMapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.stringMap_.isMutable()) {
+        instance.stringMap_ = instance.stringMap_.copy();
+      }
+      instance.bitField0_ |= 0x00000001;
+
+      return instance.stringMap_;
+    }
+    private static void buildPartial_autosplit_0(enums.Enums.TestMapWithNestedEnum instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.stringMap_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestMapWithNestedEnum>
-        PARSER = new com.google.protobuf.AbstractParser<TestMapWithNestedEnum>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestMapWithNestedEnum> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestMapWithNestedEnum parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestMapWithNestedEnum.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestMapWithNestedEnum instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestMapWithNestedEnum> parser() {
       return PARSER;

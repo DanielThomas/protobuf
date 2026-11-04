@@ -849,15 +849,37 @@ private static final long serialVersionUID = 0L;
               proto2_unittest.proto_with_many_options.BenchmarkMessage.class, proto2_unittest.proto_with_many_options.BenchmarkMessage.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using proto2_unittest.proto_with_many_options.BenchmarkMessage.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      fieldOne_ = "";
+      fieldTwo_ = "";
+      fieldThree_ = "";
+      fieldFour_ = "";
+      fieldFive_ = "";
+      fieldSix_ = "";
+      fieldSeven_ = "";
+      fieldEight_ = "";
+      fieldNine_ = "";
+      fieldTen_ = "";
+    }
+    private Builder(proto2_unittest.proto_with_many_options.BenchmarkMessage other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -906,7 +928,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(proto2_unittest.proto_with_many_options.BenchmarkMessage result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.fieldOne_ = fieldOne_;
         to_bitField0_ |= 0x00000001;
@@ -948,6 +970,20 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000200;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(proto2_unittest.proto_with_many_options.BenchmarkMessage other, java.lang.Object[] parserLocals) {
+      fieldOne_ = other.fieldOne_;
+      fieldTwo_ = other.fieldTwo_;
+      fieldThree_ = other.fieldThree_;
+      fieldFour_ = other.fieldFour_;
+      fieldFive_ = other.fieldFive_;
+      fieldSix_ = other.fieldSix_;
+      fieldSeven_ = other.fieldSeven_;
+      fieldEight_ = other.fieldEight_;
+      fieldNine_ = other.fieldNine_;
+      fieldTen_ = other.fieldTen_;
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -1103,7 +1139,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object fieldOne_ = "";
+    private java.lang.Object fieldOne_;
     /**
      * <code>string field_one = 1 [(.proto2_unittest.proto_with_many_options.custom_opt) = { ... }</code>
      * @return Whether the fieldOne field is set.
@@ -1182,7 +1218,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object fieldTwo_ = "";
+    private java.lang.Object fieldTwo_;
     /**
      * <code>string field_two = 2 [(.proto2_unittest.proto_with_many_options.custom_opt) = { ... }</code>
      * @return Whether the fieldTwo field is set.
@@ -1261,7 +1297,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object fieldThree_ = "";
+    private java.lang.Object fieldThree_;
     /**
      * <code>string field_three = 3 [(.proto2_unittest.proto_with_many_options.custom_opt) = { ... }</code>
      * @return Whether the fieldThree field is set.
@@ -1340,7 +1376,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object fieldFour_ = "";
+    private java.lang.Object fieldFour_;
     /**
      * <code>string field_four = 4 [(.proto2_unittest.proto_with_many_options.custom_opt) = { ... }</code>
      * @return Whether the fieldFour field is set.
@@ -1419,7 +1455,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object fieldFive_ = "";
+    private java.lang.Object fieldFive_;
     /**
      * <code>string field_five = 5 [(.proto2_unittest.proto_with_many_options.custom_opt) = { ... }</code>
      * @return Whether the fieldFive field is set.
@@ -1498,7 +1534,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object fieldSix_ = "";
+    private java.lang.Object fieldSix_;
     /**
      * <code>string field_six = 6 [(.proto2_unittest.proto_with_many_options.custom_opt) = { ... }</code>
      * @return Whether the fieldSix field is set.
@@ -1577,7 +1613,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object fieldSeven_ = "";
+    private java.lang.Object fieldSeven_;
     /**
      * <code>string field_seven = 7 [(.proto2_unittest.proto_with_many_options.custom_opt) = { ... }</code>
      * @return Whether the fieldSeven field is set.
@@ -1656,7 +1692,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object fieldEight_ = "";
+    private java.lang.Object fieldEight_;
     /**
      * <code>string field_eight = 8 [(.proto2_unittest.proto_with_many_options.custom_opt) = { ... }</code>
      * @return Whether the fieldEight field is set.
@@ -1735,7 +1771,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object fieldNine_ = "";
+    private java.lang.Object fieldNine_;
     /**
      * <code>string field_nine = 9 [(.proto2_unittest.proto_with_many_options.custom_opt) = { ... }</code>
      * @return Whether the fieldNine field is set.
@@ -1814,7 +1850,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object fieldTen_ = "";
+    private java.lang.Object fieldTen_;
     /**
      * <code>string field_ten = 10 [(.proto2_unittest.proto_with_many_options.custom_opt) = { ... }</code>
      * @return Whether the fieldTen field is set.
@@ -1906,22 +1942,112 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static BenchmarkMessage parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    BenchmarkMessage instance = new BenchmarkMessage((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            instance.fieldOne_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 10
+          case 18: {
+            instance.fieldTwo_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000002;
+            break;
+          } // case 18
+          case 26: {
+            instance.fieldThree_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000004;
+            break;
+          } // case 26
+          case 34: {
+            instance.fieldFour_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000008;
+            break;
+          } // case 34
+          case 42: {
+            instance.fieldFive_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000010;
+            break;
+          } // case 42
+          case 50: {
+            instance.fieldSix_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000020;
+            break;
+          } // case 50
+          case 58: {
+            instance.fieldSeven_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000040;
+            break;
+          } // case 58
+          case 66: {
+            instance.fieldEight_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000080;
+            break;
+          } // case 66
+          case 74: {
+            instance.fieldNine_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000100;
+            break;
+          } // case 74
+          case 82: {
+            instance.fieldTen_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000200;
+            break;
+          } // case 82
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
   private static final com.google.protobuf.Parser<BenchmarkMessage>
-      PARSER = new com.google.protobuf.AbstractParser<BenchmarkMessage>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<BenchmarkMessage> {
+    MessageParser() {}
+
     @java.lang.Override
     public BenchmarkMessage parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return BenchmarkMessage.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(BenchmarkMessage instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<BenchmarkMessage> parser() {
     return PARSER;

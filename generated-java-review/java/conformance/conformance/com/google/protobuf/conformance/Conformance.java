@@ -818,15 +818,30 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
                 com.google.protobuf.conformance.Conformance.TestStatus.class, com.google.protobuf.conformance.Conformance.TestStatus.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.conformance.Conformance.TestStatus.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        name_ = "";
+        failureMessage_ = "";
+        matchedName_ = "";
+      }
+      private Builder(com.google.protobuf.conformance.Conformance.TestStatus other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -868,7 +883,7 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(com.google.protobuf.conformance.Conformance.TestStatus result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.name_ = name_;
           ;
@@ -882,6 +897,13 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
           ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.conformance.Conformance.TestStatus other, java.lang.Object[] parserLocals) {
+        name_ = other.name_;
+        failureMessage_ = other.failureMessage_;
+        matchedName_ = other.matchedName_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -967,7 +989,7 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private java.lang.Object name_ = "";
+      private java.lang.Object name_;
       /**
        * <code>string name = 1;</code>
        * @return The name.
@@ -1039,7 +1061,7 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private java.lang.Object failureMessage_ = "";
+      private java.lang.Object failureMessage_;
       /**
        * <code>string failure_message = 2;</code>
        * @return The failureMessage.
@@ -1111,7 +1133,7 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private java.lang.Object matchedName_ = "";
+      private java.lang.Object matchedName_;
       /**
        * <pre>
        * What an actual test name matched to in a failure list. Can be wildcarded or
@@ -1221,22 +1243,77 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static TestStatus parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestStatus instance = new TestStatus((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.name_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              instance.failureMessage_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              instance.matchedName_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<TestStatus>
-        PARSER = new com.google.protobuf.AbstractParser<TestStatus>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestStatus> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestStatus parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestStatus.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestStatus instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestStatus> parser() {
       return PARSER;
@@ -1575,15 +1652,28 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
                 com.google.protobuf.conformance.Conformance.FailureSet.class, com.google.protobuf.conformance.Conformance.FailureSet.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.conformance.Conformance.FailureSet.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        test_ = emptyList(com.google.protobuf.conformance.Conformance.TestStatus.class);
+      }
+      private Builder(com.google.protobuf.conformance.Conformance.FailureSet other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -1629,7 +1719,7 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(com.google.protobuf.conformance.Conformance.FailureSet result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
         if (testBuilder_ == null) {
           test_.makeImmutable();
@@ -1639,6 +1729,18 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.conformance.Conformance.FailureSet other, java.lang.Object[] parserLocals) {
+        test_ = other.test_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            testBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.conformance.Conformance.TestStatus, com.google.protobuf.conformance.Conformance.TestStatus.Builder, com.google.protobuf.conformance.Conformance.TestStatusOrBuilder>) parserLocals[0]);
+            test_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1736,8 +1838,7 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.conformance.Conformance.TestStatus> test_ =
-          emptyList(com.google.protobuf.conformance.Conformance.TestStatus.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.conformance.Conformance.TestStatus> test_;
       private void ensureTestIsMutable() {
         if (!test_.isModifiable()) {
           test_ = makeMutableCopy(test_);
@@ -1983,22 +2084,96 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static FailureSet parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      FailureSet instance = new FailureSet((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.conformance.Conformance.TestStatus, com.google.protobuf.conformance.Conformance.TestStatus.Builder, com.google.protobuf.conformance.Conformance.TestStatusOrBuilder> testBuilder_ = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.conformance.Conformance.TestStatus m = com.google.protobuf.conformance.Conformance.TestStatus.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (testBuilder_ == null) {
+                ensureTestIsMutable(instance);
+                instance.test_.add(m);
+              } else {
+                testBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000001;
+
+              }
+              break;
+            } // case 18
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, testBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureTestIsMutable(com.google.protobuf.conformance.Conformance.FailureSet instance) {
+      if (!instance.test_.isModifiable()) {
+        instance.test_ = makeMutableCopy(instance.test_);
+      }
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.conformance.Conformance.FailureSet instance,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.conformance.Conformance.TestStatus, com.google.protobuf.conformance.Conformance.TestStatus.Builder, com.google.protobuf.conformance.Conformance.TestStatusOrBuilder> testBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+      if (testBuilder_ == null) {
+        instance.test_.makeImmutable();
+      } else {
+        instance.test_ = testBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<FailureSet>
-        PARSER = new com.google.protobuf.AbstractParser<FailureSet>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<FailureSet> {
+      MessageParser() {}
+
       @java.lang.Override
       public FailureSet parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return FailureSet.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(FailureSet instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<FailureSet> parser() {
       return PARSER;
@@ -2970,15 +3145,31 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
                 com.google.protobuf.conformance.Conformance.ConformanceRequest.class, com.google.protobuf.conformance.Conformance.ConformanceRequest.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.conformance.Conformance.ConformanceRequest.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        requestedOutputFormat_ = 0;
+        messageType_ = "";
+        testCategory_ = 0;
         maybeForceBuilderInitialization();
+      }
+      private Builder(com.google.protobuf.conformance.Conformance.ConformanceRequest other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -3035,7 +3226,7 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(com.google.protobuf.conformance.Conformance.ConformanceRequest result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.jspbEncodingOptions_ = jspbEncodingOptionsBuilder_ == null
               ? jspbEncodingOptions_
@@ -3064,6 +3255,24 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
           result.payload_ = payload_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.conformance.Conformance.ConformanceRequest other, java.lang.Object[] parserLocals) {
+        jspbEncodingOptions_ = other.jspbEncodingOptions_;
+        requestedOutputFormat_ = other.getRequestedOutputFormatValue();
+        messageType_ = other.messageType_;
+        testCategory_ = other.getTestCategoryValue();
+        printUnknownFields_ = other.getPrintUnknownFields();
+        payloadCase_ = other.payloadCase_;
+        payload_ = other.payload_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            jspbEncodingOptionsBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.conformance.Conformance.JspbEncodingConfig, com.google.protobuf.conformance.Conformance.JspbEncodingConfig.Builder, com.google.protobuf.conformance.Conformance.JspbEncodingConfigOrBuilder>) parserLocals[0]);
+            jspbEncodingOptions_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -3225,7 +3434,19 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
         } // finally
         return this;
       }
-      private int payloadCase_ = 0;
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 50: {
+            parseJspbEncodingOptionsField(input, extensionRegistry);
+            return true;
+          } // case 50
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
+      private int payloadCase_;
       private java.lang.Object payload_;
       public PayloadCase
           getPayloadCase() {
@@ -3697,7 +3918,7 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
         payload_ = input.readStringRequireUtf8();
       }
 
-      private int requestedOutputFormat_ = 0;
+      private int requestedOutputFormat_;
       /**
        * <pre>
        * Which format should the testee serialize its message to?
@@ -3769,7 +3990,7 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private java.lang.Object messageType_ = "";
+      private java.lang.Object messageType_;
       /**
        * <pre>
        * The full name for the test message to use; for the moment, either:
@@ -3896,7 +4117,7 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int testCategory_ = 0;
+      private int testCategory_;
       /**
        * <pre>
        * Each test is given a specific test category. Some category may need
@@ -4133,7 +4354,7 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (jspbEncodingOptions_ != null || jspbEncodingOptionsBuilder_ != null) {
-          internalGetJspbEncodingOptionsFieldBuilder().getBuilder()
+          internalGetJspbEncodingOptionsFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           jspbEncodingOptions_ = com.google.protobuf.conformance.Conformance.JspbEncodingConfig.parser().parsePartialFrom(input, extensionRegistry);
@@ -4142,7 +4363,7 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
         bitField0_ |= 0x00000001;
       }
 
-      private boolean printUnknownFields_ ;
+      private boolean printUnknownFields_;
       /**
        * <pre>
        * This can be used in json and text format. If true, testee should print
@@ -4202,22 +4423,233 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static ConformanceRequest parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ConformanceRequest instance = new ConformanceRequest((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.conformance.Conformance.JspbEncodingConfig, com.google.protobuf.conformance.Conformance.JspbEncodingConfig.Builder, com.google.protobuf.conformance.Conformance.JspbEncodingConfigOrBuilder> jspbEncodingOptionsBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        jspbEncodingOptionsBuilder_ = internalGetJspbEncodingOptionsFieldBuilder(instance, jspbEncodingOptionsBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parseProtobufPayload(instance, input);
+              break;
+            } // case 10
+            case 18: {
+              parseJsonPayload(instance, input);
+              break;
+            } // case 18
+            case 24: {
+              instance.requestedOutputFormat_ = input.readEnum();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 24
+            case 34: {
+              instance.messageType_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 34
+            case 40: {
+              instance.testCategory_ = input.readEnum();
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 40
+            case 50: {
+              if (instance.jspbEncodingOptions_ != null || jspbEncodingOptionsBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseJspbEncodingOptionsField(instance, input, extensionRegistry, jspbEncodingOptionsBuilder_);
+              break;
+            } // case 50
+            case 58: {
+              parseJspbPayload(instance, input);
+              break;
+            } // case 58
+            case 66: {
+              parseTextPayload(instance, input);
+              break;
+            } // case 66
+            case 72: {
+              instance.printUnknownFields_ = input.readBool();
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 72
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {jspbEncodingOptionsBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, jspbEncodingOptionsBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void parseProtobufPayload(
+        com.google.protobuf.conformance.Conformance.ConformanceRequest instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      instance.payload_ = input.readBytes();
+      switch (instance.payloadCase_) {
+      default:
+        clearPayloadHasBits(instance); // fallthrough
+      case 0:
+        instance.payloadCase_ = 1;
+        instance.bitField0_ |= 0x00000020; // fallthrough
+      case 1:
+        break;
+      }
+    }
+    private static void parseJsonPayload(
+        com.google.protobuf.conformance.Conformance.ConformanceRequest instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      switch (instance.payloadCase_) {
+      default:
+        clearPayloadHasBits(instance); // fallthrough
+      case 0:
+        instance.payloadCase_ = 2;
+        instance.bitField0_ |= 0x00000040; // fallthrough
+      case 2:
+        break;
+      }
+      instance.payload_ = input.readStringRequireUtf8();
+    }
+    private static void parseJspbPayload(
+        com.google.protobuf.conformance.Conformance.ConformanceRequest instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      switch (instance.payloadCase_) {
+      default:
+        clearPayloadHasBits(instance); // fallthrough
+      case 0:
+        instance.payloadCase_ = 7;
+        instance.bitField0_ |= 0x00000080; // fallthrough
+      case 7:
+        break;
+      }
+      instance.payload_ = input.readStringRequireUtf8();
+    }
+    private static void parseTextPayload(
+        com.google.protobuf.conformance.Conformance.ConformanceRequest instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      switch (instance.payloadCase_) {
+      default:
+        clearPayloadHasBits(instance); // fallthrough
+      case 0:
+        instance.payloadCase_ = 8;
+        instance.bitField0_ |= 0x00000100; // fallthrough
+      case 8:
+        break;
+      }
+      instance.payload_ = input.readStringRequireUtf8();
+    }
+    /**
+     * <pre>
+     * Specify details for how to encode jspb.
+     * </pre>
+     *
+     * <code>.conformance.JspbEncodingConfig jspb_encoding_options = 6;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.conformance.Conformance.JspbEncodingConfig, com.google.protobuf.conformance.Conformance.JspbEncodingConfig.Builder, com.google.protobuf.conformance.Conformance.JspbEncodingConfigOrBuilder> 
+        internalGetJspbEncodingOptionsFieldBuilder(com.google.protobuf.conformance.Conformance.ConformanceRequest instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.conformance.Conformance.JspbEncodingConfig, com.google.protobuf.conformance.Conformance.JspbEncodingConfig.Builder, com.google.protobuf.conformance.Conformance.JspbEncodingConfigOrBuilder> jspbEncodingOptionsBuilder_) {
+      if (jspbEncodingOptionsBuilder_ == null) {
+        jspbEncodingOptionsBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.conformance.Conformance.JspbEncodingConfig, com.google.protobuf.conformance.Conformance.JspbEncodingConfig.Builder, com.google.protobuf.conformance.Conformance.JspbEncodingConfigOrBuilder>(
+                instance.getJspbEncodingOptions(),
+                null,
+                false);
+        instance.jspbEncodingOptions_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return jspbEncodingOptionsBuilder_;
+    }
+    private static void parseJspbEncodingOptionsField(
+        com.google.protobuf.conformance.Conformance.ConformanceRequest instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.conformance.Conformance.JspbEncodingConfig, com.google.protobuf.conformance.Conformance.JspbEncodingConfig.Builder, com.google.protobuf.conformance.Conformance.JspbEncodingConfigOrBuilder> jspbEncodingOptionsBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.jspbEncodingOptions_ != null || jspbEncodingOptionsBuilder_ != null) {
+        jspbEncodingOptionsBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.jspbEncodingOptions_ = com.google.protobuf.conformance.Conformance.JspbEncodingConfig.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+
+    private static void clearPayloadHasBits(com.google.protobuf.conformance.Conformance.ConformanceRequest instance) {
+      instance.bitField0_ = (instance.bitField0_ & ~0x000001e0);
+    }
+
+    private static void buildPartial_autosplit_0(com.google.protobuf.conformance.Conformance.ConformanceRequest instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.conformance.Conformance.JspbEncodingConfig, com.google.protobuf.conformance.Conformance.JspbEncodingConfig.Builder, com.google.protobuf.conformance.Conformance.JspbEncodingConfigOrBuilder> jspbEncodingOptionsBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.jspbEncodingOptions_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.jspbEncodingOptions_ = jspbEncodingOptionsBuilder_ == null
+            ? instance.jspbEncodingOptions_
+            : jspbEncodingOptionsBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<ConformanceRequest>
-        PARSER = new com.google.protobuf.AbstractParser<ConformanceRequest>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ConformanceRequest> {
+      MessageParser() {}
+
       @java.lang.Override
       public ConformanceRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return ConformanceRequest.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(ConformanceRequest instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<ConformanceRequest> parser() {
       return PARSER;
@@ -5510,15 +5942,27 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
                 com.google.protobuf.conformance.Conformance.ConformanceResponse.class, com.google.protobuf.conformance.Conformance.ConformanceResponse.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.conformance.Conformance.ConformanceResponse.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.conformance.Conformance.ConformanceResponse other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -5560,13 +6004,19 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(com.google.protobuf.conformance.Conformance.ConformanceResponse result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         to_bitField0_ |= (from_bitField0_ & 0x000001ff);
         if ((from_bitField0_ & 0x000001ff) != 0) {
           result.resultCase_ = resultCase_;
           result.result_ = result_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.conformance.Conformance.ConformanceResponse other, java.lang.Object[] parserLocals) {
+        resultCase_ = other.resultCase_;
+        result_ = other.result_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -5777,7 +6227,7 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
         } // finally
         return this;
       }
-      private int resultCase_ = 0;
+      private int resultCase_;
       private java.lang.Object result_;
       public ResultCase
           getResultCase() {
@@ -7140,22 +7590,229 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static ConformanceResponse parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ConformanceResponse instance = new ConformanceResponse((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              parseParseError(instance, input);
+              break;
+            } // case 10
+            case 18: {
+              parseRuntimeError(instance, input);
+              break;
+            } // case 18
+            case 26: {
+              parseProtobufPayload(instance, input);
+              break;
+            } // case 26
+            case 34: {
+              parseJsonPayload(instance, input);
+              break;
+            } // case 34
+            case 42: {
+              parseSkipped(instance, input);
+              break;
+            } // case 42
+            case 50: {
+              parseSerializeError(instance, input);
+              break;
+            } // case 50
+            case 58: {
+              parseJspbPayload(instance, input);
+              break;
+            } // case 58
+            case 66: {
+              parseTextPayload(instance, input);
+              break;
+            } // case 66
+            case 74: {
+              parseTimeoutError(instance, input);
+              break;
+            } // case 74
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void parseParseError(
+        com.google.protobuf.conformance.Conformance.ConformanceResponse instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      switch (instance.resultCase_) {
+      default:
+        clearResultHasBits(instance); // fallthrough
+      case 0:
+        instance.resultCase_ = 1;
+        instance.bitField0_ |= 0x00000001; // fallthrough
+      case 1:
+        break;
+      }
+      instance.result_ = input.readStringRequireUtf8();
+    }
+    private static void parseSerializeError(
+        com.google.protobuf.conformance.Conformance.ConformanceResponse instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      switch (instance.resultCase_) {
+      default:
+        clearResultHasBits(instance); // fallthrough
+      case 0:
+        instance.resultCase_ = 6;
+        instance.bitField0_ |= 0x00000002; // fallthrough
+      case 6:
+        break;
+      }
+      instance.result_ = input.readStringRequireUtf8();
+    }
+    private static void parseTimeoutError(
+        com.google.protobuf.conformance.Conformance.ConformanceResponse instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      switch (instance.resultCase_) {
+      default:
+        clearResultHasBits(instance); // fallthrough
+      case 0:
+        instance.resultCase_ = 9;
+        instance.bitField0_ |= 0x00000004; // fallthrough
+      case 9:
+        break;
+      }
+      instance.result_ = input.readStringRequireUtf8();
+    }
+    private static void parseRuntimeError(
+        com.google.protobuf.conformance.Conformance.ConformanceResponse instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      switch (instance.resultCase_) {
+      default:
+        clearResultHasBits(instance); // fallthrough
+      case 0:
+        instance.resultCase_ = 2;
+        instance.bitField0_ |= 0x00000008; // fallthrough
+      case 2:
+        break;
+      }
+      instance.result_ = input.readStringRequireUtf8();
+    }
+    private static void parseProtobufPayload(
+        com.google.protobuf.conformance.Conformance.ConformanceResponse instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      instance.result_ = input.readBytes();
+      switch (instance.resultCase_) {
+      default:
+        clearResultHasBits(instance); // fallthrough
+      case 0:
+        instance.resultCase_ = 3;
+        instance.bitField0_ |= 0x00000010; // fallthrough
+      case 3:
+        break;
+      }
+    }
+    private static void parseJsonPayload(
+        com.google.protobuf.conformance.Conformance.ConformanceResponse instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      switch (instance.resultCase_) {
+      default:
+        clearResultHasBits(instance); // fallthrough
+      case 0:
+        instance.resultCase_ = 4;
+        instance.bitField0_ |= 0x00000020; // fallthrough
+      case 4:
+        break;
+      }
+      instance.result_ = input.readStringRequireUtf8();
+    }
+    private static void parseSkipped(
+        com.google.protobuf.conformance.Conformance.ConformanceResponse instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      switch (instance.resultCase_) {
+      default:
+        clearResultHasBits(instance); // fallthrough
+      case 0:
+        instance.resultCase_ = 5;
+        instance.bitField0_ |= 0x00000040; // fallthrough
+      case 5:
+        break;
+      }
+      instance.result_ = input.readStringRequireUtf8();
+    }
+    private static void parseJspbPayload(
+        com.google.protobuf.conformance.Conformance.ConformanceResponse instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      switch (instance.resultCase_) {
+      default:
+        clearResultHasBits(instance); // fallthrough
+      case 0:
+        instance.resultCase_ = 7;
+        instance.bitField0_ |= 0x00000080; // fallthrough
+      case 7:
+        break;
+      }
+      instance.result_ = input.readStringRequireUtf8();
+    }
+    private static void parseTextPayload(
+        com.google.protobuf.conformance.Conformance.ConformanceResponse instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      switch (instance.resultCase_) {
+      default:
+        clearResultHasBits(instance); // fallthrough
+      case 0:
+        instance.resultCase_ = 8;
+        instance.bitField0_ |= 0x00000100; // fallthrough
+      case 8:
+        break;
+      }
+      instance.result_ = input.readStringRequireUtf8();
+    }
+
+    private static void clearResultHasBits(com.google.protobuf.conformance.Conformance.ConformanceResponse instance) {
+      instance.bitField0_ = (instance.bitField0_ & ~0x000001ff);
+    }
+
     private static final com.google.protobuf.Parser<ConformanceResponse>
-        PARSER = new com.google.protobuf.AbstractParser<ConformanceResponse>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ConformanceResponse> {
+      MessageParser() {}
+
       @java.lang.Override
       public ConformanceResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return ConformanceResponse.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(ConformanceResponse instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<ConformanceResponse> parser() {
       return PARSER;
@@ -7435,15 +8092,27 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
                 com.google.protobuf.conformance.Conformance.JspbEncodingConfig.class, com.google.protobuf.conformance.Conformance.JspbEncodingConfig.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.conformance.Conformance.JspbEncodingConfig.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.conformance.Conformance.JspbEncodingConfig other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -7483,12 +8152,17 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(com.google.protobuf.conformance.Conformance.JspbEncodingConfig result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.useJspbArrayAnyFormat_ = useJspbArrayAnyFormat_;
           
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.conformance.Conformance.JspbEncodingConfig other, java.lang.Object[] parserLocals) {
+        useJspbArrayAnyFormat_ = other.getUseJspbArrayAnyFormat();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -7552,7 +8226,7 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private boolean useJspbArrayAnyFormat_ ;
+      private boolean useJspbArrayAnyFormat_;
       /**
        * <pre>
        * Encode the value field of Any as jspb array if true, otherwise binary.
@@ -7609,22 +8283,67 @@ public final class Conformance extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static JspbEncodingConfig parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      JspbEncodingConfig instance = new JspbEncodingConfig((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.useJspbArrayAnyFormat_ = input.readBool();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<JspbEncodingConfig>
-        PARSER = new com.google.protobuf.AbstractParser<JspbEncodingConfig>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<JspbEncodingConfig> {
+      MessageParser() {}
+
       @java.lang.Override
       public JspbEncodingConfig parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return JspbEncodingConfig.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(JspbEncodingConfig instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<JspbEncodingConfig> parser() {
       return PARSER;

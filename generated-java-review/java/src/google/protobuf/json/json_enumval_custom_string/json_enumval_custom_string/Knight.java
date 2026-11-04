@@ -547,15 +547,29 @@ json_enumval_custom_string.Armor defaultValue) {
               json_enumval_custom_string.Knight.class, json_enumval_custom_string.Knight.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using json_enumval_custom_string.Knight.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      armor_ = 0;
+      armors_ = emptyIntList();
+    }
+    private Builder(json_enumval_custom_string.Knight other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -597,7 +611,7 @@ json_enumval_custom_string.Armor defaultValue) {
 
     private void buildPartial_autosplit_0(json_enumval_custom_string.Knight result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.armor_ = armor_;
         to_bitField0_ |= 0x00000001;
@@ -611,6 +625,13 @@ json_enumval_custom_string.Armor defaultValue) {
         result.armorMap_.makeImmutable();
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(json_enumval_custom_string.Knight other, java.lang.Object[] parserLocals) {
+      armor_ = other.getArmorValue();
+      armors_ = other.armors_;
+      armorMap_ = other.armorMap_;
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -716,7 +737,7 @@ json_enumval_custom_string.Armor defaultValue) {
     }
     private int bitField0_;
 
-    private int armor_ = 0;
+    private int armor_;
     /**
      * <code>.json_enumval_custom_string.Armor armor = 1;</code>
      * @return Whether the armor field is set.
@@ -775,7 +796,7 @@ json_enumval_custom_string.Armor defaultValue) {
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList armors_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList armors_;
     private void ensureArmorsIsMutable(int capacity) {
       if (!armors_.isModifiable()) {
         armors_ = makeMutableCopy(armors_, capacity);
@@ -1135,22 +1156,123 @@ json_enumval_custom_string.Armor defaultValue) {
     return DEFAULT_INSTANCE;
   }
 
+  static Knight parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    Knight instance = new Knight((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
+            instance.armor_ = input.readEnum();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 8
+          case 16: {
+            int tmpRaw = input.readEnum();
+            ensureArmorsIsMutable(instance, /* capacity= */ -1);
+            instance.armors_.addInt(tmpRaw);
+            break;
+          } // case 16
+          case 18: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureArmorsIsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.armors_.addInt(input.readEnum());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 18
+          case 26: {
+            com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+            armorMap__ = input.readMessage(
+                ArmorMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableArmorMap(instance).getMutableMap().put(
+                armorMap__.getKey(), armorMap__.getValue());
+            instance.bitField0_ |= 0x00000004;
+            break;
+          } // case 26
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static void ensureArmorsIsMutable(json_enumval_custom_string.Knight instance, int capacity) {
+    if (!instance.armors_.isModifiable()) {
+      instance.armors_ = makeMutableCopy(instance.armors_, capacity);
+    }
+    instance.bitField0_ |= 0x00000002;
+  }
+  private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+      internalGetMutableArmorMap(json_enumval_custom_string.Knight instance) {
+    if (instance.armorMap_ == null) {
+      instance.armorMap_ = com.google.protobuf.MapField.newMapField(
+          ArmorMapDefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.armorMap_.isMutable()) {
+      instance.armorMap_ = instance.armorMap_.copy();
+    }
+    instance.bitField0_ |= 0x00000004;
+
+    return instance.armorMap_;
+  }
+  private static void buildPartial_autosplit_0(json_enumval_custom_string.Knight instance) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000002) != 0)) {
+      instance.armors_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000004) != 0)) {
+      instance.armorMap_.makeImmutable();
+    }
+  }
+
   private static final com.google.protobuf.Parser<Knight>
-      PARSER = new com.google.protobuf.AbstractParser<Knight>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<Knight> {
+    MessageParser() {}
+
     @java.lang.Override
     public Knight parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Knight.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(Knight instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<Knight> parser() {
     return PARSER;

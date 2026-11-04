@@ -724,15 +724,33 @@ private static final long serialVersionUID = 0L;
               edition_unittest.BoolParseTester.class, edition_unittest.BoolParseTester.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.BoolParseTester.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      repeatedBoolLowfield_ = emptyBooleanList();
+      repeatedBoolMidfield_ = emptyBooleanList();
+      repeatedBoolHifield_ = emptyBooleanList();
+      packedBoolLowfield_ = emptyBooleanList();
+      packedBoolMidfield_ = emptyBooleanList();
+      packedBoolHifield_ = emptyBooleanList();
+    }
+    private Builder(edition_unittest.BoolParseTester other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -781,7 +799,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(edition_unittest.BoolParseTester result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.optionalBoolLowfield_ = optionalBoolLowfield_;
         to_bitField0_ |= 0x00000001;
@@ -823,6 +841,20 @@ private static final long serialVersionUID = 0L;
         result.packedBoolHifield_ = packedBoolHifield_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.BoolParseTester other, java.lang.Object[] parserLocals) {
+      optionalBoolLowfield_ = other.getOptionalBoolLowfield();
+      optionalBoolMidfield_ = other.getOptionalBoolMidfield();
+      optionalBoolHifield_ = other.getOptionalBoolHifield();
+      otherField_ = other.getOtherField();
+      repeatedBoolLowfield_ = other.repeatedBoolLowfield_;
+      repeatedBoolMidfield_ = other.repeatedBoolMidfield_;
+      repeatedBoolHifield_ = other.repeatedBoolHifield_;
+      packedBoolLowfield_ = other.packedBoolLowfield_;
+      packedBoolMidfield_ = other.packedBoolMidfield_;
+      packedBoolHifield_ = other.packedBoolHifield_;
+      bitField0_ = other.bitField0_;
     }
 
     public <Type> Builder setExtension(
@@ -1103,9 +1135,17 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
+    }
     private int bitField0_;
 
-    private boolean optionalBoolLowfield_ ;
+    private boolean optionalBoolLowfield_;
     /**
      * <code>bool optional_bool_lowfield = 1;</code>
      * @return Whether the optionalBoolLowfield field is set.
@@ -1145,7 +1185,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean optionalBoolMidfield_ ;
+    private boolean optionalBoolMidfield_;
     /**
      * <code>bool optional_bool_midfield = 1001;</code>
      * @return Whether the optionalBoolMidfield field is set.
@@ -1185,7 +1225,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean optionalBoolHifield_ ;
+    private boolean optionalBoolHifield_;
     /**
      * <code>bool optional_bool_hifield = 1000001;</code>
      * @return Whether the optionalBoolHifield field is set.
@@ -1225,7 +1265,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.BooleanList repeatedBoolLowfield_ = emptyBooleanList();
+    private com.google.protobuf.Internal.BooleanList repeatedBoolLowfield_;
     private void ensureRepeatedBoolLowfieldIsMutable(int capacity) {
       if (!repeatedBoolLowfield_.isModifiable()) {
         repeatedBoolLowfield_ = makeMutableCopy(repeatedBoolLowfield_, capacity);
@@ -1309,7 +1349,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.BooleanList repeatedBoolMidfield_ = emptyBooleanList();
+    private com.google.protobuf.Internal.BooleanList repeatedBoolMidfield_;
     private void ensureRepeatedBoolMidfieldIsMutable(int capacity) {
       if (!repeatedBoolMidfield_.isModifiable()) {
         repeatedBoolMidfield_ = makeMutableCopy(repeatedBoolMidfield_, capacity);
@@ -1393,7 +1433,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.BooleanList repeatedBoolHifield_ = emptyBooleanList();
+    private com.google.protobuf.Internal.BooleanList repeatedBoolHifield_;
     private void ensureRepeatedBoolHifieldIsMutable(int capacity) {
       if (!repeatedBoolHifield_.isModifiable()) {
         repeatedBoolHifield_ = makeMutableCopy(repeatedBoolHifield_, capacity);
@@ -1477,7 +1517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.BooleanList packedBoolLowfield_ = emptyBooleanList();
+    private com.google.protobuf.Internal.BooleanList packedBoolLowfield_;
     private void ensurePackedBoolLowfieldIsMutable(int capacity) {
       if (!packedBoolLowfield_.isModifiable()) {
         packedBoolLowfield_ = makeMutableCopy(packedBoolLowfield_, capacity);
@@ -1561,7 +1601,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.BooleanList packedBoolMidfield_ = emptyBooleanList();
+    private com.google.protobuf.Internal.BooleanList packedBoolMidfield_;
     private void ensurePackedBoolMidfieldIsMutable(int capacity) {
       if (!packedBoolMidfield_.isModifiable()) {
         packedBoolMidfield_ = makeMutableCopy(packedBoolMidfield_, capacity);
@@ -1645,7 +1685,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.BooleanList packedBoolHifield_ = emptyBooleanList();
+    private com.google.protobuf.Internal.BooleanList packedBoolHifield_;
     private void ensurePackedBoolHifieldIsMutable(int capacity) {
       if (!packedBoolHifield_.isModifiable()) {
         packedBoolHifield_ = makeMutableCopy(packedBoolHifield_, capacity);
@@ -1729,7 +1769,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int otherField_ ;
+    private int otherField_;
     /**
      * <pre>
      * An arbitrary field we can append to to break the runs of repeated fields.
@@ -1798,22 +1838,253 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static BoolParseTester parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    BoolParseTester instance = new BoolParseTester((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
+            instance.optionalBoolLowfield_ = input.readBool();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 8
+          case 16: {
+            boolean v = input.readBool();
+            ensureRepeatedBoolLowfieldIsMutable(instance, /* capacity= */ -1);
+            instance.repeatedBoolLowfield_.addBoolean(v);
+            break;
+          } // case 16
+          case 18: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureRepeatedBoolLowfieldIsMutable(instance, alloc / 1);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedBoolLowfield_.addBoolean(input.readBool());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 18
+          case 24: {
+            boolean v = input.readBool();
+            ensurePackedBoolLowfieldIsMutable(instance, /* capacity= */ -1);
+            instance.packedBoolLowfield_.addBoolean(v);
+            break;
+          } // case 24
+          case 26: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensurePackedBoolLowfieldIsMutable(instance, alloc / 1);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.packedBoolLowfield_.addBoolean(input.readBool());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 26
+          case 792: {
+            instance.otherField_ = input.readInt32();
+            instance.bitField0_ |= 0x00000008;
+            break;
+          } // case 792
+          case 8008: {
+            instance.optionalBoolMidfield_ = input.readBool();
+            instance.bitField0_ |= 0x00000002;
+            break;
+          } // case 8008
+          case 8016: {
+            boolean v = input.readBool();
+            ensureRepeatedBoolMidfieldIsMutable(instance, /* capacity= */ -1);
+            instance.repeatedBoolMidfield_.addBoolean(v);
+            break;
+          } // case 8016
+          case 8018: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureRepeatedBoolMidfieldIsMutable(instance, alloc / 1);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedBoolMidfield_.addBoolean(input.readBool());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 8018
+          case 8024: {
+            boolean v = input.readBool();
+            ensurePackedBoolMidfieldIsMutable(instance, /* capacity= */ -1);
+            instance.packedBoolMidfield_.addBoolean(v);
+            break;
+          } // case 8024
+          case 8026: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensurePackedBoolMidfieldIsMutable(instance, alloc / 1);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.packedBoolMidfield_.addBoolean(input.readBool());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 8026
+          case 8000008: {
+            instance.optionalBoolHifield_ = input.readBool();
+            instance.bitField0_ |= 0x00000004;
+            break;
+          } // case 8000008
+          case 8000016: {
+            boolean v = input.readBool();
+            ensureRepeatedBoolHifieldIsMutable(instance, /* capacity= */ -1);
+            instance.repeatedBoolHifield_.addBoolean(v);
+            break;
+          } // case 8000016
+          case 8000018: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureRepeatedBoolHifieldIsMutable(instance, alloc / 1);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedBoolHifield_.addBoolean(input.readBool());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 8000018
+          case 8000024: {
+            boolean v = input.readBool();
+            ensurePackedBoolHifieldIsMutable(instance, /* capacity= */ -1);
+            instance.packedBoolHifield_.addBoolean(v);
+            break;
+          } // case 8000024
+          case 8000026: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensurePackedBoolHifieldIsMutable(instance, alloc / 1);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.packedBoolHifield_.addBoolean(input.readBool());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 8000026
+          default: {
+            pendingTag = tag;
+            done = true;
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, null);
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static void ensureRepeatedBoolLowfieldIsMutable(edition_unittest.BoolParseTester instance, int capacity) {
+    if (!instance.repeatedBoolLowfield_.isModifiable()) {
+      instance.repeatedBoolLowfield_ = makeMutableCopy(instance.repeatedBoolLowfield_, capacity);
+    }
+    instance.bitField0_ |= 0x00000010;
+  }
+  private static void ensureRepeatedBoolMidfieldIsMutable(edition_unittest.BoolParseTester instance, int capacity) {
+    if (!instance.repeatedBoolMidfield_.isModifiable()) {
+      instance.repeatedBoolMidfield_ = makeMutableCopy(instance.repeatedBoolMidfield_, capacity);
+    }
+    instance.bitField0_ |= 0x00000020;
+  }
+  private static void ensureRepeatedBoolHifieldIsMutable(edition_unittest.BoolParseTester instance, int capacity) {
+    if (!instance.repeatedBoolHifield_.isModifiable()) {
+      instance.repeatedBoolHifield_ = makeMutableCopy(instance.repeatedBoolHifield_, capacity);
+    }
+    instance.bitField0_ |= 0x00000040;
+  }
+  private static void ensurePackedBoolLowfieldIsMutable(edition_unittest.BoolParseTester instance, int capacity) {
+    if (!instance.packedBoolLowfield_.isModifiable()) {
+      instance.packedBoolLowfield_ = makeMutableCopy(instance.packedBoolLowfield_, capacity);
+    }
+    instance.bitField0_ |= 0x00000080;
+  }
+  private static void ensurePackedBoolMidfieldIsMutable(edition_unittest.BoolParseTester instance, int capacity) {
+    if (!instance.packedBoolMidfield_.isModifiable()) {
+      instance.packedBoolMidfield_ = makeMutableCopy(instance.packedBoolMidfield_, capacity);
+    }
+    instance.bitField0_ |= 0x00000100;
+  }
+  private static void ensurePackedBoolHifieldIsMutable(edition_unittest.BoolParseTester instance, int capacity) {
+    if (!instance.packedBoolHifield_.isModifiable()) {
+      instance.packedBoolHifield_ = makeMutableCopy(instance.packedBoolHifield_, capacity);
+    }
+    instance.bitField0_ |= 0x00000200;
+  }
+  private static void buildPartial_autosplit_0(edition_unittest.BoolParseTester instance) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000010) != 0)) {
+      instance.repeatedBoolLowfield_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000020) != 0)) {
+      instance.repeatedBoolMidfield_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000040) != 0)) {
+      instance.repeatedBoolHifield_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000080) != 0)) {
+      instance.packedBoolLowfield_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000100) != 0)) {
+      instance.packedBoolMidfield_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000200) != 0)) {
+      instance.packedBoolHifield_.makeImmutable();
+    }
+  }
+
   private static final com.google.protobuf.Parser<BoolParseTester>
-      PARSER = new com.google.protobuf.AbstractParser<BoolParseTester>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<BoolParseTester> {
+    MessageParser() {}
+
     @java.lang.Override
     public BoolParseTester parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return BoolParseTester.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(BoolParseTester instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<BoolParseTester> parser() {
     return PARSER;

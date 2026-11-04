@@ -306,15 +306,28 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.large.openaliasingenum.edition.LargeOpenAliasingEnumParent.class, com.google.protobuf.large.openaliasingenum.edition.LargeOpenAliasingEnumParent.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.large.openaliasingenum.edition.LargeOpenAliasingEnumParent.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      values_ = emptyIntList();
+    }
+    private Builder(com.google.protobuf.large.openaliasingenum.edition.LargeOpenAliasingEnumParent other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -354,12 +367,17 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(com.google.protobuf.large.openaliasingenum.edition.LargeOpenAliasingEnumParent result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         values_.makeImmutable();
         result.values_ = values_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.google.protobuf.large.openaliasingenum.edition.LargeOpenAliasingEnumParent other, java.lang.Object[] parserLocals) {
+      values_ = other.values_;
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -443,7 +461,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.Internal.IntList values_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList values_;
     private void ensureValuesIsMutable(int capacity) {
       if (!values_.isModifiable()) {
         values_ = makeMutableCopy(values_, capacity);
@@ -594,22 +612,93 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static LargeOpenAliasingEnumParent parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    LargeOpenAliasingEnumParent instance = new LargeOpenAliasingEnumParent((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
+            int tmpRaw = input.readEnum();
+            ensureValuesIsMutable(instance, /* capacity= */ -1);
+            instance.values_.addInt(tmpRaw);
+            break;
+          } // case 8
+          case 10: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureValuesIsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.values_.addInt(input.readEnum());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 10
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static void ensureValuesIsMutable(com.google.protobuf.large.openaliasingenum.edition.LargeOpenAliasingEnumParent instance, int capacity) {
+    if (!instance.values_.isModifiable()) {
+      instance.values_ = makeMutableCopy(instance.values_, capacity);
+    }
+    instance.bitField0_ |= 0x00000001;
+  }
+  private static void buildPartial_autosplit_0(com.google.protobuf.large.openaliasingenum.edition.LargeOpenAliasingEnumParent instance) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.values_.makeImmutable();
+    }
+  }
+
   private static final com.google.protobuf.Parser<LargeOpenAliasingEnumParent>
-      PARSER = new com.google.protobuf.AbstractParser<LargeOpenAliasingEnumParent>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<LargeOpenAliasingEnumParent> {
+    MessageParser() {}
+
     @java.lang.Override
     public LargeOpenAliasingEnumParent parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return LargeOpenAliasingEnumParent.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(LargeOpenAliasingEnumParent instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<LargeOpenAliasingEnumParent> parser() {
     return PARSER;
