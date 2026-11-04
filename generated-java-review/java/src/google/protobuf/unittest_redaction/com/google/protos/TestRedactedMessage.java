@@ -831,7 +831,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -860,14 +860,35 @@ private static final long serialVersionUID = 0L;
               com.google.protos.TestRedactedMessage.class, com.google.protos.TestRedactedMessage.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protos.TestRedactedMessage.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      textField_ = "";
+      metaAnnotated_ = "";
+      repeatedMetaAnnotated_ = "";
+      unredactedRepeatedAnnotations_ = "";
+      unreportedNonMetaDebugRedactField_ = "";
+      redactableFalse_ = "";
+      testDirectMessageEnum_ = "";
+      testNestedMessageEnum_ = "";
+      testRedactedMessageEnum_ = "";
+      maybeForceBuilderInitialization();
+    }
+    private Builder(com.google.protos.TestRedactedMessage other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -971,6 +992,21 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000200;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.google.protos.TestRedactedMessage other) {
+      int to_bitField0_ = (other.bitField0_ & 0x000003ff);
+      textField_ = other.textField_;
+      metaAnnotated_ = other.metaAnnotated_;
+      repeatedMetaAnnotated_ = other.repeatedMetaAnnotated_;
+      unredactedRepeatedAnnotations_ = other.unredactedRepeatedAnnotations_;
+      unreportedNonMetaDebugRedactField_ = other.unreportedNonMetaDebugRedactField_;
+      anyField_ = other.anyField_;
+      redactableFalse_ = other.redactableFalse_;
+      testDirectMessageEnum_ = other.testDirectMessageEnum_;
+      testNestedMessageEnum_ = other.testNestedMessageEnum_;
+      testRedactedMessageEnum_ = other.testRedactedMessageEnum_;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1123,7 +1159,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object textField_ = "";
+    private java.lang.Object textField_;
     /**
      * <code>string text_field = 1 [deprecated = true];</code>
      * @deprecated proto2_unittest.TestRedactedMessage.text_field is deprecated.
@@ -1215,7 +1251,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object metaAnnotated_ = "";
+    private java.lang.Object metaAnnotated_;
     /**
      * <code>string meta_annotated = 8 [(.proto2_unittest.meta_annotated_enum) = TEST_REDACTABLE];</code>
      * @return Whether the metaAnnotated field is set.
@@ -1295,7 +1331,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object repeatedMetaAnnotated_ = "";
+    private java.lang.Object repeatedMetaAnnotated_;
     /**
      * <code>string repeated_meta_annotated = 9 [(.proto2_unittest.repeated_meta_annotated_enum) = TEST_NO_REDACT, (.proto2_unittest.repeated_meta_annotated_enum) = TEST_REDACTABLE];</code>
      * @return Whether the repeatedMetaAnnotated field is set.
@@ -1375,7 +1411,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object unredactedRepeatedAnnotations_ = "";
+    private java.lang.Object unredactedRepeatedAnnotations_;
     /**
      * <code>string unredacted_repeated_annotations = 10 [(.proto2_unittest.repeated_meta_annotated_enum) = TEST_NO_REDACT, (.proto2_unittest.repeated_meta_annotated_enum) = TEST_NO_REDACT_AGAIN];</code>
      * @return Whether the unredactedRepeatedAnnotations field is set.
@@ -1455,7 +1491,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object unreportedNonMetaDebugRedactField_ = "";
+    private java.lang.Object unreportedNonMetaDebugRedactField_;
     /**
      * <code>string unreported_non_meta_debug_redact_field = 17 [debug_redact = true];</code>
      * @return Whether the unreportedNonMetaDebugRedactField field is set.
@@ -1663,7 +1699,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000020;
     }
 
-    private java.lang.Object redactableFalse_ = "";
+    private java.lang.Object redactableFalse_;
     /**
      * <code>string redactable_false = 19 [(.proto2_unittest.meta_annotated_enum) = TEST_REDACTABLE_FALSE];</code>
      * @return Whether the redactableFalse field is set.
@@ -1743,7 +1779,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object testDirectMessageEnum_ = "";
+    private java.lang.Object testDirectMessageEnum_;
     /**
      * <code>string test_direct_message_enum = 22 [(.proto2_unittest.test_nested_message_enum) = { ... }</code>
      * @return Whether the testDirectMessageEnum field is set.
@@ -1823,7 +1859,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object testNestedMessageEnum_ = "";
+    private java.lang.Object testNestedMessageEnum_;
     /**
      * <code>string test_nested_message_enum = 23 [(.proto2_unittest.test_nested_message_enum) = { ... }</code>
      * @return Whether the testNestedMessageEnum field is set.
@@ -1903,7 +1939,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object testRedactedMessageEnum_ = "";
+    private java.lang.Object testRedactedMessageEnum_;
     /**
      * <code>string test_redacted_message_enum = 24 [(.proto2_unittest.test_nested_message_enum) = { ... }</code>
      * @return Whether the testRedactedMessageEnum field is set.
@@ -1997,21 +2033,177 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestRedactedMessage>
-      PARSER = new com.google.protobuf.AbstractParser<TestRedactedMessage>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestRedactedMessage> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestRedactedMessage parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestRedactedMessage instance = new TestRedactedMessage((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.lang.Object parsed_textField = null;
+      java.lang.Object parsed_metaAnnotated = null;
+      java.lang.Object parsed_repeatedMetaAnnotated = null;
+      java.lang.Object parsed_unredactedRepeatedAnnotations = null;
+      java.lang.Object parsed_unreportedNonMetaDebugRedactField = null;
+      java.lang.Object parsed_redactableFalse = null;
+      java.lang.Object parsed_testDirectMessageEnum = null;
+      java.lang.Object parsed_testNestedMessageEnum = null;
+      java.lang.Object parsed_testRedactedMessageEnum = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              parsed_textField = input.readBytes();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 66: {
+              parsed_metaAnnotated = input.readBytes();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 66
+            case 74: {
+              parsed_repeatedMetaAnnotated = input.readBytes();
+              to_bitField0_ |= 0x00000004;
+              break;
+            } // case 74
+            case 82: {
+              parsed_unredactedRepeatedAnnotations = input.readBytes();
+              to_bitField0_ |= 0x00000008;
+              break;
+            } // case 82
+            case 138: {
+              parsed_unreportedNonMetaDebugRedactField = input.readBytes();
+              to_bitField0_ |= 0x00000010;
+              break;
+            } // case 138
+            case 146: {
+              pendingTag = parseAnyFieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 146
+            case 154: {
+              parsed_redactableFalse = input.readBytes();
+              to_bitField0_ |= 0x00000040;
+              break;
+            } // case 154
+            case 178: {
+              parsed_testDirectMessageEnum = input.readBytes();
+              to_bitField0_ |= 0x00000080;
+              break;
+            } // case 178
+            case 186: {
+              parsed_testNestedMessageEnum = input.readBytes();
+              to_bitField0_ |= 0x00000100;
+              break;
+            } // case 186
+            case 194: {
+              parsed_testRedactedMessageEnum = input.readBytes();
+              to_bitField0_ |= 0x00000200;
+              break;
+            } // case 194
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parsed_textField != null) instance.textField_ = parsed_textField;
+      if (parsed_metaAnnotated != null) instance.metaAnnotated_ = parsed_metaAnnotated;
+      if (parsed_repeatedMetaAnnotated != null) instance.repeatedMetaAnnotated_ = parsed_repeatedMetaAnnotated;
+      if (parsed_unredactedRepeatedAnnotations != null) instance.unredactedRepeatedAnnotations_ = parsed_unredactedRepeatedAnnotations;
+      if (parsed_unreportedNonMetaDebugRedactField != null) instance.unreportedNonMetaDebugRedactField_ = parsed_unreportedNonMetaDebugRedactField;
+      if (parsed_redactableFalse != null) instance.redactableFalse_ = parsed_redactableFalse;
+      if (parsed_testDirectMessageEnum != null) instance.testDirectMessageEnum_ = parsed_testDirectMessageEnum;
+      if (parsed_testNestedMessageEnum != null) instance.testNestedMessageEnum_ = parsed_testNestedMessageEnum;
+      if (parsed_testRedactedMessageEnum != null) instance.testRedactedMessageEnum_ = parsed_testRedactedMessageEnum;
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseAnyFieldField(
+        com.google.protos.TestRedactedMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.anyField_ != null) {
+        return 146;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.anyField_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
+                      instance.getAnyField(),
+                      null,
+                      false);
+              instance.anyField_ = null;
+            }
+            instance.bitField0_ |= 0x00000020;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.anyField_ = com.google.protobuf.Any.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000020;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.anyField_ = com.google.protobuf.Any.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000020;
+      return 0;
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        TestRedactedMessage instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        TestRedactedMessage instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasAnyField()) instance.anyField_ = null;
+      if (instance.hasAnyField()) {
+        instance.anyField_ = fieldBuilders[0] == null
+            ? instance.anyField_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>) fieldBuilders[0]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<TestRedactedMessage> parser() {
     return PARSER;

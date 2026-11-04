@@ -416,7 +416,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -445,14 +445,26 @@ private static final long serialVersionUID = 0L;
                 edition_unittest.TestDynamicExtensions.DynamicMessageType.class, edition_unittest.TestDynamicExtensions.DynamicMessageType.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using edition_unittest.TestDynamicExtensions.DynamicMessageType.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(edition_unittest.TestDynamicExtensions.DynamicMessageType other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -499,6 +511,12 @@ private static final long serialVersionUID = 0L;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(edition_unittest.TestDynamicExtensions.DynamicMessageType other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        dynamicField_ = other.getDynamicField();
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -562,7 +580,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private int dynamicField_ ;
+      private int dynamicField_;
       /**
        * <code>int32 dynamic_field = 2100;</code>
        * @return Whether the dynamicField field is set.
@@ -616,21 +634,54 @@ private static final long serialVersionUID = 0L;
     }
 
     private static final com.google.protobuf.Parser<DynamicMessageType>
-        PARSER = new com.google.protobuf.AbstractParser<DynamicMessageType>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<DynamicMessageType> {
+      MessageParser() {}
+
       @java.lang.Override
       public DynamicMessageType parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        DynamicMessageType instance = new DynamicMessageType((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 16800: {
+                instance.dynamicField_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 16800
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<DynamicMessageType> parser() {
       return PARSER;
@@ -1103,7 +1154,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -1138,14 +1189,31 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestDynamicExtensions.class, edition_unittest.TestDynamicExtensions.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestDynamicExtensions.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      enumExtension_ = 4;
+      dynamicEnumExtension_ = 0;
+      repeatedExtension_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      packedExtension_ = emptyIntList();
+      maybeForceBuilderInitialization();
+    }
+    private Builder(edition_unittest.TestDynamicExtensions other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -1242,6 +1310,24 @@ private static final long serialVersionUID = 0L;
         result.packedExtension_ = packedExtension_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestDynamicExtensions other) {
+      int to_bitField0_ = (other.bitField0_ & 0x0000001f);
+      scalarExtension_ = other.getScalarExtension();
+      enumExtension_ = other.enumExtension_;
+      dynamicEnumExtension_ = other.dynamicEnumExtension_;
+      messageExtension_ = other.messageExtension_;
+      dynamicMessageExtension_ = other.dynamicMessageExtension_;
+      repeatedExtension_ = other.repeatedExtension_;
+      if (!repeatedExtension_.isEmpty()) {
+        to_bitField0_ |= 0x00000020;
+      }
+      packedExtension_ = other.packedExtension_;
+      if (!packedExtension_.isEmpty()) {
+        to_bitField0_ |= 0x00000040;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1392,7 +1478,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int scalarExtension_ ;
+    private int scalarExtension_;
     /**
      * <code>fixed32 scalar_extension = 2000;</code>
      * @return Whether the scalarExtension field is set.
@@ -1432,7 +1518,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int enumExtension_ = 4;
+    private int enumExtension_;
     /**
      * <code>.edition_unittest.ForeignEnum enum_extension = 2001;</code>
      * @return Whether the enumExtension field is set.
@@ -1472,7 +1558,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dynamicEnumExtension_ = 0;
+    private int dynamicEnumExtension_;
     /**
      * <code>.edition_unittest.TestDynamicExtensions.DynamicEnumType dynamic_enum_extension = 2002;</code>
      * @return Whether the dynamicEnumExtension field is set.
@@ -1768,8 +1854,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000010;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedExtension_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedExtension_;
     private void ensureRepeatedExtensionIsMutable() {
       if (!repeatedExtension_.isModifiable()) {
         repeatedExtension_ = new com.google.protobuf.LazyStringArrayList(repeatedExtension_);
@@ -1879,7 +1964,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedExtension_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedExtension_;
     private void ensurePackedExtensionIsMutable(int capacity) {
       if (!packedExtension_.isModifiable()) {
         packedExtension_ = makeMutableCopy(packedExtension_, capacity);
@@ -1977,21 +2062,222 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestDynamicExtensions>
-      PARSER = new com.google.protobuf.AbstractParser<TestDynamicExtensions>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestDynamicExtensions> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestDynamicExtensions parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestDynamicExtensions instance = new TestDynamicExtensions((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 16005: {
+              instance.scalarExtension_ = input.readFixed32();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 16005
+            case 16008: {
+              int tmpRaw = input.readEnum();
+              if (edition_unittest.ForeignEnum.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 2001, tmpRaw);
+              } else {
+                instance.enumExtension_ = tmpRaw;
+                to_bitField0_ |= 0x00000002;
+              }
+              break;
+            } // case 16008
+            case 16016: {
+              int tmpRaw = input.readEnum();
+              if (edition_unittest.TestDynamicExtensions.DynamicEnumType.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 2002, tmpRaw);
+              } else {
+                instance.dynamicEnumExtension_ = tmpRaw;
+                to_bitField0_ |= 0x00000004;
+              }
+              break;
+            } // case 16016
+            case 16026: {
+              pendingTag = parseMessageExtensionField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 16026
+            case 16034: {
+              pendingTag = parseDynamicMessageExtensionField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 16034
+            case 16042: {
+              ensureRepeatedExtensionIsMutable(instance);
+              instance.repeatedExtension_.add(input.readStringRequireUtf8());
+              break;
+            } // case 16042
+            case 16048: {
+              int v = input.readSInt32();
+              ensurePackedExtensionIsMutable(instance, /* capacity= */ -1);
+              instance.packedExtension_.addInt(v);
+              break;
+            } // case 16048
+            case 16050: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedExtensionIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.packedExtension_.addInt(input.readSInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 16050
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      finishCollections0(instance);
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseMessageExtensionField(
+        edition_unittest.TestDynamicExtensions instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.messageExtension_ != null) {
+        return 16026;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.messageExtension_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  edition_unittest.ForeignMessage, edition_unittest.ForeignMessage.Builder, edition_unittest.ForeignMessageOrBuilder>(
+                      instance.getMessageExtension(),
+                      null,
+                      false);
+              instance.messageExtension_ = null;
+            }
+            instance.bitField0_ |= 0x00000008;
+          ((com.google.protobuf.SingleFieldBuilder<edition_unittest.ForeignMessage, edition_unittest.ForeignMessage.Builder, edition_unittest.ForeignMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.messageExtension_ = edition_unittest.ForeignMessage.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000008;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.messageExtension_ = edition_unittest.ForeignMessage.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000008;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseDynamicMessageExtensionField(
+        edition_unittest.TestDynamicExtensions instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.dynamicMessageExtension_ != null) {
+        return 16034;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.dynamicMessageExtension_ != null || fieldBuilders[1] != null) {
+            if (fieldBuilders[1] == null) {
+              fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+                  edition_unittest.TestDynamicExtensions.DynamicMessageType, edition_unittest.TestDynamicExtensions.DynamicMessageType.Builder, edition_unittest.TestDynamicExtensions.DynamicMessageTypeOrBuilder>(
+                      instance.getDynamicMessageExtension(),
+                      null,
+                      false);
+              instance.dynamicMessageExtension_ = null;
+            }
+            instance.bitField0_ |= 0x00000010;
+          ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestDynamicExtensions.DynamicMessageType, edition_unittest.TestDynamicExtensions.DynamicMessageType.Builder, edition_unittest.TestDynamicExtensions.DynamicMessageTypeOrBuilder>) fieldBuilders[1]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.dynamicMessageExtension_ = edition_unittest.TestDynamicExtensions.DynamicMessageType.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000010;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.dynamicMessageExtension_ = edition_unittest.TestDynamicExtensions.DynamicMessageType.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000010;
+      return 0;
+    }
+    private static void ensureRepeatedExtensionIsMutable(edition_unittest.TestDynamicExtensions instance) {
+      if (!instance.repeatedExtension_.isModifiable()) {
+        instance.repeatedExtension_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedExtension_);
+      }
+    }
+    private static void ensurePackedExtensionIsMutable(edition_unittest.TestDynamicExtensions instance, int minCapacity) {
+      if (!instance.packedExtension_.isModifiable()) {
+        instance.packedExtension_ = makeMutableCopy(instance.packedExtension_, minCapacity);
+      }
+    }
+    private static void finishCollections0(TestDynamicExtensions instance) {
+      instance.repeatedExtension_.makeImmutable();
+      instance.packedExtension_.makeImmutable();
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        TestDynamicExtensions instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[2];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        TestDynamicExtensions instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasMessageExtension()) instance.messageExtension_ = null;
+      if (instance.hasMessageExtension()) {
+        instance.messageExtension_ = fieldBuilders[0] == null
+            ? instance.messageExtension_
+            : ((com.google.protobuf.SingleFieldBuilder<edition_unittest.ForeignMessage, edition_unittest.ForeignMessage.Builder, edition_unittest.ForeignMessageOrBuilder>) fieldBuilders[0]).build();
+
+      }
+      if (!instance.hasDynamicMessageExtension()) instance.dynamicMessageExtension_ = null;
+      if (instance.hasDynamicMessageExtension()) {
+        instance.dynamicMessageExtension_ = fieldBuilders[1] == null
+            ? instance.dynamicMessageExtension_
+            : ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestDynamicExtensions.DynamicMessageType, edition_unittest.TestDynamicExtensions.DynamicMessageType.Builder, edition_unittest.TestDynamicExtensions.DynamicMessageTypeOrBuilder>) fieldBuilders[1]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<TestDynamicExtensions> parser() {
     return PARSER;

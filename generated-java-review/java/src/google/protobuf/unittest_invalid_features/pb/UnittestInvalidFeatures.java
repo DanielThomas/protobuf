@@ -282,7 +282,7 @@ public final class UnittestInvalidFeatures extends com.google.protobuf.Generated
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -311,14 +311,27 @@ public final class UnittestInvalidFeatures extends com.google.protobuf.Generated
                 pb.UnittestInvalidFeatures.TestInvalidFeatures.class, pb.UnittestInvalidFeatures.TestInvalidFeatures.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using pb.UnittestInvalidFeatures.TestInvalidFeatures.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        repeatedFeature_ = emptyIntList();
+
+      }
+      private Builder(pb.UnittestInvalidFeatures.TestInvalidFeatures other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -365,6 +378,15 @@ public final class UnittestInvalidFeatures extends com.google.protobuf.Generated
           result.repeatedFeature_ = repeatedFeature_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(pb.UnittestInvalidFeatures.TestInvalidFeatures other) {
+        int to_bitField0_ = 0;
+        repeatedFeature_ = other.repeatedFeature_;
+        if (!repeatedFeature_.isEmpty()) {
+          to_bitField0_ |= 0x00000001;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -448,7 +470,7 @@ public final class UnittestInvalidFeatures extends com.google.protobuf.Generated
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.IntList repeatedFeature_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedFeature_;
       private void ensureRepeatedFeatureIsMutable(int capacity) {
         if (!repeatedFeature_.isModifiable()) {
           repeatedFeature_ = makeMutableCopy(repeatedFeature_, capacity);
@@ -546,21 +568,71 @@ public final class UnittestInvalidFeatures extends com.google.protobuf.Generated
     }
 
     private static final com.google.protobuf.Parser<TestInvalidFeatures>
-        PARSER = new com.google.protobuf.AbstractParser<TestInvalidFeatures>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestInvalidFeatures> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestInvalidFeatures parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestInvalidFeatures instance = new TestInvalidFeatures((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                int v = input.readInt32();
+                ensureRepeatedFeatureIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedFeature_.addInt(v);
+                break;
+              } // case 8
+              case 10: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedFeatureIsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedFeature_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        finishCollections0(instance);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static void ensureRepeatedFeatureIsMutable(pb.UnittestInvalidFeatures.TestInvalidFeatures instance, int minCapacity) {
+        if (!instance.repeatedFeature_.isModifiable()) {
+          instance.repeatedFeature_ = makeMutableCopy(instance.repeatedFeature_, minCapacity);
+        }
+      }
+      private static void finishCollections0(TestInvalidFeatures instance) {
+        instance.repeatedFeature_.makeImmutable();
+      }
+    }
 
     public static com.google.protobuf.Parser<TestInvalidFeatures> parser() {
       return PARSER;

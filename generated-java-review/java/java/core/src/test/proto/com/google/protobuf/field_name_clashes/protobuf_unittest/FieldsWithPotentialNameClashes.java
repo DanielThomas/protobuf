@@ -349,7 +349,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -387,14 +387,26 @@ private static final long serialVersionUID = 0L;
               protobuf_unittest.FieldsWithPotentialNameClashes.class, protobuf_unittest.FieldsWithPotentialNameClashes.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using protobuf_unittest.FieldsWithPotentialNameClashes.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      maybeForceBuilderInitialization();
+    }
+    private Builder(protobuf_unittest.FieldsWithPotentialNameClashes other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -477,6 +489,14 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000004;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(protobuf_unittest.FieldsWithPotentialNameClashes other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000007);
+      foo_ = other.foo_;
+      fooField_ = other.fooField_;
+      fooFieldAccessorTable_ = other.fooFieldAccessorTable_;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -951,21 +971,202 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<FieldsWithPotentialNameClashes>
-      PARSER = new com.google.protobuf.AbstractParser<FieldsWithPotentialNameClashes>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<FieldsWithPotentialNameClashes> {
+    MessageParser() {}
+
     @java.lang.Override
     public FieldsWithPotentialNameClashes parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      FieldsWithPotentialNameClashes instance = new FieldsWithPotentialNameClashes((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              pendingTag = parseFooField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 10
+            case 18: {
+              pendingTag = parseFooFieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 18
+            case 26: {
+              pendingTag = parseFooFieldAccessorTableField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 26
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseFooField(
+        protobuf_unittest.FieldsWithPotentialNameClashes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.foo_ != null) {
+        return 10;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.foo_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder>(
+                      instance.getFoo(),
+                      null,
+                      false);
+              instance.foo_ = null;
+            }
+            instance.bitField0_ |= 0x00000001;
+          ((com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.foo_ = protobuf_unittest.BlankMessage.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.foo_ = protobuf_unittest.BlankMessage.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseFooFieldField(
+        protobuf_unittest.FieldsWithPotentialNameClashes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.fooField_ != null) {
+        return 18;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.fooField_ != null || fieldBuilders[1] != null) {
+            if (fieldBuilders[1] == null) {
+              fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+                  protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder>(
+                      instance.getFooField(),
+                      null,
+                      false);
+              instance.fooField_ = null;
+            }
+            instance.bitField0_ |= 0x00000002;
+          ((com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder>) fieldBuilders[1]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.fooField_ = protobuf_unittest.BlankMessage.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000002;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.fooField_ = protobuf_unittest.BlankMessage.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseFooFieldAccessorTableField(
+        protobuf_unittest.FieldsWithPotentialNameClashes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.fooFieldAccessorTable_ != null) {
+        return 26;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.fooFieldAccessorTable_ != null || fieldBuilders[2] != null) {
+            if (fieldBuilders[2] == null) {
+              fieldBuilders[2] = new com.google.protobuf.SingleFieldBuilder<
+                  protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder>(
+                      instance.getFooFieldAccessorTable(),
+                      null,
+                      false);
+              instance.fooFieldAccessorTable_ = null;
+            }
+            instance.bitField0_ |= 0x00000004;
+          ((com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder>) fieldBuilders[2]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.fooFieldAccessorTable_ = protobuf_unittest.BlankMessage.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000004;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.fooFieldAccessorTable_ = protobuf_unittest.BlankMessage.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+      return 0;
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        FieldsWithPotentialNameClashes instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[3];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        FieldsWithPotentialNameClashes instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasFoo()) instance.foo_ = null;
+      if (instance.hasFoo()) {
+        instance.foo_ = fieldBuilders[0] == null
+            ? instance.foo_
+            : ((com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder>) fieldBuilders[0]).build();
+
+      }
+      if (!instance.hasFooField()) instance.fooField_ = null;
+      if (instance.hasFooField()) {
+        instance.fooField_ = fieldBuilders[1] == null
+            ? instance.fooField_
+            : ((com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder>) fieldBuilders[1]).build();
+
+      }
+      if (!instance.hasFooFieldAccessorTable()) instance.fooFieldAccessorTable_ = null;
+      if (instance.hasFooFieldAccessorTable()) {
+        instance.fooFieldAccessorTable_ = fieldBuilders[2] == null
+            ? instance.fooFieldAccessorTable_
+            : ((com.google.protobuf.SingleFieldBuilder<protobuf_unittest.BlankMessage, protobuf_unittest.BlankMessage.Builder, protobuf_unittest.BlankMessageOrBuilder>) fieldBuilders[2]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<FieldsWithPotentialNameClashes> parser() {
     return PARSER;

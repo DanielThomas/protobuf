@@ -310,7 +310,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -339,14 +339,26 @@ private static final long serialVersionUID = 0L;
                 in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequested.class, in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequested.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequested.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequested other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -393,6 +405,12 @@ private static final long serialVersionUID = 0L;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequested other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        dEPRECATEDFooBar_ = other.getDEPRECATEDFooBar();
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -456,7 +474,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private int dEPRECATEDFooBar_ ;
+      private int dEPRECATEDFooBar_;
       /**
        * <code>optional int32 DEPRECATED_FooBar = 28;</code>
        * @return Whether the dEPRECATEDFooBar field is set.
@@ -510,21 +528,54 @@ private static final long serialVersionUID = 0L;
     }
 
     private static final com.google.protobuf.Parser<DEPRECATED_NavigationImageRequested>
-        PARSER = new com.google.protobuf.AbstractParser<DEPRECATED_NavigationImageRequested>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<DEPRECATED_NavigationImageRequested> {
+      MessageParser() {}
+
       @java.lang.Override
       public DEPRECATED_NavigationImageRequested parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        DEPRECATED_NavigationImageRequested instance = new DEPRECATED_NavigationImageRequested((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 224: {
+                instance.dEPRECATEDFooBar_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 224
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<DEPRECATED_NavigationImageRequested> parser() {
       return PARSER;
@@ -2154,7 +2205,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -2206,14 +2257,41 @@ private static final long serialVersionUID = 0L;
               in.com.google.protobuf.kotlin.generator.EvilNamesProto2.class, in.com.google.protobuf.kotlin.generator.EvilNamesProto2.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using in.com.google.protobuf.kotlin.generator.EvilNamesProto2.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      bar_ = "";
+      aLLCAPS_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      extension_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      class__ = emptyIntList();
+      sealed_ = "";
+      object_ = "";
+      cachedSize__ = "";
+      by_ = "";
+      dEPRECATEDFoo_ = "";
+      DEPRECATEDBar_ = "";
+      iD_ = "";
+      aBNotification_ = "";
+      notDEPRECATEDFoo_ = "";
+      maybeForceBuilderInitialization();
+    }
+    private Builder(in.com.google.protobuf.kotlin.generator.EvilNamesProto2 other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -2407,6 +2485,54 @@ private static final long serialVersionUID = 0L;
         result.camelCase_ = camelCase_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(in.com.google.protobuf.kotlin.generator.EvilNamesProto2 other) {
+      int to_bitField0_ = (other.bitField0_ & 0x003fffff);
+      initialized_ = other.getInitialized();
+      hasFoo_ = other.getHasFoo();
+      bar_ = other.bar_;
+      isInitialized_ = other.getIsInitialized();
+      hasUnderbarPrecedingNumeric1Foo_ = other.getHasUnderbarPrecedingNumeric1Foo();
+      hasUnderbarPrecedingNumeric42Bar_ = other.getHasUnderbarPrecedingNumeric42Bar();
+      hasUnderbarPrecedingNumeric123Foo42BarBaz_ = other.getHasUnderbarPrecedingNumeric123Foo42BarBaz();
+      int_ = other.getInt();
+      long_ = other.getLong();
+      boolean_ = other.getBoolean();
+      sealed_ = other.sealed_;
+      interface_ = other.getInterface();
+      object_ = other.object_;
+      cachedSize__ = other.cachedSize__;
+      serializedSize__ = other.getSerializedSize_();
+      by_ = other.by_;
+      dEPRECATEDFoo_ = other.dEPRECATEDFoo_;
+      dEPRECATEDNavigationImageRequested_ = other.dEPRECATEDNavigationImageRequested_;
+      DEPRECATEDBar_ = other.DEPRECATEDBar_;
+      iD_ = other.iD_;
+      aBNotification_ = other.aBNotification_;
+      notDEPRECATEDFoo_ = other.notDEPRECATEDFoo_;
+      aLLCAPS_ = other.aLLCAPS_;
+      if (!aLLCAPS_.isEmpty()) {
+        to_bitField0_ |= 0x00400000;
+      }
+      aLLCAPSMAP_ = other.aLLCAPSMAP_;
+      if (aLLCAPSMAP_ != null) {
+        to_bitField0_ |= 0x00800000;
+      }
+      extension_ = other.extension_;
+      if (!extension_.isEmpty()) {
+        to_bitField0_ |= 0x01000000;
+      }
+      class__ = other.class__;
+      if (!class__.isEmpty()) {
+        to_bitField0_ |= 0x02000000;
+      }
+      if (other.camelCaseCase_ == 5) {
+        to_bitField0_ |= 0x04000000;
+      }
+      camelCaseCase_ = other.camelCaseCase_;
+      camelCase_ = other.camelCase_;
+      bitField0_ |= to_bitField0_;
     }
 
     public <Type> Builder setExtension(
@@ -2779,7 +2905,7 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int camelCaseCase_ = 0;
+    private int camelCaseCase_;
     private java.lang.Object camelCase_;
     public CamelCaseCase
         getCamelCaseCase() {
@@ -2802,7 +2928,7 @@ private static final long serialVersionUID = 0L;
 
     private int bitField0_;
 
-    private boolean initialized_ ;
+    private boolean initialized_;
     /**
      * <code>optional bool initialized = 1;</code>
      * @return Whether the initialized field is set.
@@ -2842,7 +2968,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean hasFoo_ ;
+    private boolean hasFoo_;
     /**
      * <code>optional bool has_foo = 2;</code>
      * @return Whether the hasFoo field is set.
@@ -2882,7 +3008,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object bar_ = "";
+    private java.lang.Object bar_;
     /**
      * <code>optional string Bar = 3;</code>
      * @return Whether the bar field is set.
@@ -2962,7 +3088,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean isInitialized_ ;
+    private boolean isInitialized_;
     /**
      * <code>optional bool is_initialized = 4;</code>
      * @return Whether the isInitialized field is set.
@@ -3124,8 +3250,7 @@ private static final long serialVersionUID = 0L;
       camelCase_ = bs;
     }
 
-    private com.google.protobuf.LazyStringArrayList aLLCAPS_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList aLLCAPS_;
     private void ensureALLCAPSIsMutable() {
       if (!aLLCAPS_.isModifiable()) {
         aLLCAPS_ = new com.google.protobuf.LazyStringArrayList(aLLCAPS_);
@@ -3360,7 +3485,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean hasUnderbarPrecedingNumeric1Foo_ ;
+    private boolean hasUnderbarPrecedingNumeric1Foo_;
     /**
      * <code>optional bool has_underbar_preceding_numeric_1foo = 9;</code>
      * @return Whether the hasUnderbarPrecedingNumeric1foo field is set.
@@ -3400,7 +3525,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean hasUnderbarPrecedingNumeric42Bar_ ;
+    private boolean hasUnderbarPrecedingNumeric42Bar_;
     /**
      * <code>optional bool has_underbar_preceding_numeric_42bar = 13;</code>
      * @return Whether the hasUnderbarPrecedingNumeric42bar field is set.
@@ -3440,7 +3565,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean hasUnderbarPrecedingNumeric123Foo42BarBaz_ ;
+    private boolean hasUnderbarPrecedingNumeric123Foo42BarBaz_;
     /**
      * <code>optional bool has_underbar_preceding_numeric_123foo42bar_baz = 14;</code>
      * @return Whether the hasUnderbarPrecedingNumeric123foo42barBaz field is set.
@@ -3480,8 +3605,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList extension_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList extension_;
     private void ensureExtensionIsMutable() {
       if (!extension_.isModifiable()) {
         extension_ = new com.google.protobuf.LazyStringArrayList(extension_);
@@ -3590,7 +3714,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList class__ = emptyIntList();
+    private com.google.protobuf.Internal.IntList class__;
     private void ensureClass_IsMutable(int capacity) {
       if (!class__.isModifiable()) {
         class__ = makeMutableCopy(class__, capacity);
@@ -3674,7 +3798,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double int_ ;
+    private double int_;
     /**
      * <code>optional double int = 16;</code>
      * @return Whether the int field is set.
@@ -3714,7 +3838,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean long_ ;
+    private boolean long_;
     /**
      * <code>optional bool long = 17;</code>
      * @return Whether the long field is set.
@@ -3754,7 +3878,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long boolean_ ;
+    private long boolean_;
     /**
      * <code>optional int64 boolean = 18;</code>
      * @return Whether the boolean field is set.
@@ -3794,7 +3918,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object sealed_ = "";
+    private java.lang.Object sealed_;
     /**
      * <code>optional string sealed = 19;</code>
      * @return Whether the sealed field is set.
@@ -3874,7 +3998,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float interface_ ;
+    private float interface_;
     /**
      * <code>optional float interface = 20;</code>
      * @return Whether the interface field is set.
@@ -3914,7 +4038,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object object_ = "";
+    private java.lang.Object object_;
     /**
      * <code>optional string object = 22;</code>
      * @return Whether the object field is set.
@@ -3994,7 +4118,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object cachedSize__ = "";
+    private java.lang.Object cachedSize__;
     /**
      * <code>optional string cached_size = 23;</code>
      * @return Whether the cachedSize field is set.
@@ -4074,7 +4198,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean serializedSize__ ;
+    private boolean serializedSize__;
     /**
      * <code>optional bool serialized_size = 24;</code>
      * @return Whether the serializedSize field is set.
@@ -4114,7 +4238,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object by_ = "";
+    private java.lang.Object by_;
     /**
      * <code>optional string by = 25;</code>
      * @return Whether the by field is set.
@@ -4194,7 +4318,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object dEPRECATEDFoo_ = "";
+    private java.lang.Object dEPRECATEDFoo_;
     /**
      * <code>optional string DEPRECATED_foo = 26;</code>
      * @return Whether the dEPRECATEDFoo field is set.
@@ -4402,7 +4526,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00020000;
     }
 
-    private java.lang.Object DEPRECATEDBar_ = "";
+    private java.lang.Object DEPRECATEDBar_;
     /**
      * <code>optional string __DEPRECATED_Bar = 29;</code>
      * @return Whether the dEPRECATEDBar field is set.
@@ -4482,7 +4606,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object iD_ = "";
+    private java.lang.Object iD_;
     /**
      * <code>optional string ID = 30;</code>
      * @return Whether the iD field is set.
@@ -4562,7 +4686,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object aBNotification_ = "";
+    private java.lang.Object aBNotification_;
     /**
      * <code>optional string a_b_notification = 31;</code>
      * @return Whether the aBNotification field is set.
@@ -4642,7 +4766,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object notDEPRECATEDFoo_ = "";
+    private java.lang.Object notDEPRECATEDFoo_;
     /**
      * <code>optional string not_DEPRECATED_foo = 32;</code>
      * @return Whether the notDEPRECATEDFoo field is set.
@@ -4721,6 +4845,14 @@ private static final long serialVersionUID = 0L;
       onChanged();
       return this;
     }
+    @java.lang.SuppressWarnings("unchecked")
+    private void transferChildren0(
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[0] != null) {
+        if (dEPRECATEDNavigationImageRequestedBuilder_ != null) dEPRECATEDNavigationImageRequestedBuilder_.dispose();
+        dEPRECATEDNavigationImageRequestedBuilder_ = ((com.google.protobuf.SingleFieldBuilder<in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequested, in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequested.Builder, in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequestedOrBuilder>) fieldBuilders[0]);
+      }
+    }
 
     // @@protoc_insertion_point(builder_scope:protobuf.kotlin.generator.EvilNamesProto2)
   }
@@ -4736,21 +4868,327 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<EvilNamesProto2>
-      PARSER = new com.google.protobuf.AbstractParser<EvilNamesProto2>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<EvilNamesProto2> {
+    MessageParser() {}
+
     @java.lang.Override
     public EvilNamesProto2 parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      EvilNamesProto2 instance = new EvilNamesProto2((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.lang.Object parsed_bar = null;
+      java.lang.Object parsed_sealed = null;
+      java.lang.Object parsed_object = null;
+      java.lang.Object parsed_cachedSize_ = null;
+      java.lang.Object parsed_by = null;
+      java.lang.Object parsed_dEPRECATEDFoo = null;
+      java.lang.Object parsed_DEPRECATEDBar = null;
+      java.lang.Object parsed_iD = null;
+      java.lang.Object parsed_aBNotification = null;
+      java.lang.Object parsed_notDEPRECATEDFoo = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.initialized_ = input.readBool();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.hasFoo_ = input.readBool();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              parsed_bar = input.readBytes();
+              to_bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 32: {
+              instance.isInitialized_ = input.readBool();
+              to_bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 42:
+            {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              instance.camelCaseCase_ = tag >>> 3;
+              instance.camelCase_ = bs;
+              break;
+            }
+            case 58: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureALLCAPSIsMutable(instance);
+              instance.aLLCAPS_.add(bs);
+              break;
+            } // case 58
+            case 66: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Boolean>
+              aLLCAPSMAP__ = input.readMessage(
+                  ALLCAPSMAPDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableALLCAPSMAP(instance).getMutableMap().put(
+                  aLLCAPSMAP__.getKey(), aLLCAPSMAP__.getValue());
+
+              break;
+            } // case 66
+            case 72: {
+              instance.hasUnderbarPrecedingNumeric1Foo_ = input.readBool();
+              to_bitField0_ |= 0x00000010;
+              break;
+            } // case 72
+            case 98: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureExtensionIsMutable(instance);
+              instance.extension_.add(bs);
+              break;
+            } // case 98
+            case 104: {
+              instance.hasUnderbarPrecedingNumeric42Bar_ = input.readBool();
+              to_bitField0_ |= 0x00000020;
+              break;
+            } // case 104
+            case 112: {
+              instance.hasUnderbarPrecedingNumeric123Foo42BarBaz_ = input.readBool();
+              to_bitField0_ |= 0x00000040;
+              break;
+            } // case 112
+            case 120: {
+              int v = input.readInt32();
+              ensureClass_IsMutable(instance, /* capacity= */ -1);
+              instance.class__.addInt(v);
+              break;
+            } // case 120
+            case 122: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureClass_IsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.class__.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 122
+            case 129: {
+              instance.int_ = input.readDouble();
+              to_bitField0_ |= 0x00000080;
+              break;
+            } // case 129
+            case 136: {
+              instance.long_ = input.readBool();
+              to_bitField0_ |= 0x00000100;
+              break;
+            } // case 136
+            case 144: {
+              instance.boolean_ = input.readInt64();
+              to_bitField0_ |= 0x00000200;
+              break;
+            } // case 144
+            case 154: {
+              parsed_sealed = input.readBytes();
+              to_bitField0_ |= 0x00000400;
+              break;
+            } // case 154
+            case 165: {
+              instance.interface_ = input.readFloat();
+              to_bitField0_ |= 0x00000800;
+              break;
+            } // case 165
+            case 178: {
+              parsed_object = input.readBytes();
+              to_bitField0_ |= 0x00001000;
+              break;
+            } // case 178
+            case 186: {
+              parsed_cachedSize_ = input.readBytes();
+              to_bitField0_ |= 0x00002000;
+              break;
+            } // case 186
+            case 192: {
+              instance.serializedSize__ = input.readBool();
+              to_bitField0_ |= 0x00004000;
+              break;
+            } // case 192
+            case 202: {
+              parsed_by = input.readBytes();
+              to_bitField0_ |= 0x00008000;
+              break;
+            } // case 202
+            case 210: {
+              parsed_dEPRECATEDFoo = input.readBytes();
+              to_bitField0_ |= 0x00010000;
+              break;
+            } // case 210
+            case 219: {
+              pendingTag = parseDEPRECATEDNavigationImageRequestedField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 219
+            case 234: {
+              parsed_DEPRECATEDBar = input.readBytes();
+              to_bitField0_ |= 0x00040000;
+              break;
+            } // case 234
+            case 242: {
+              parsed_iD = input.readBytes();
+              to_bitField0_ |= 0x00080000;
+              break;
+            } // case 242
+            case 250: {
+              parsed_aBNotification = input.readBytes();
+              to_bitField0_ |= 0x00100000;
+              break;
+            } // case 250
+            case 258: {
+              parsed_notDEPRECATEDFoo = input.readBytes();
+              to_bitField0_ |= 0x00200000;
+              break;
+            } // case 258
+            default: {
+              pendingTag = tag;
+              break parseLoop;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parsed_bar != null) instance.bar_ = parsed_bar;
+      if (parsed_sealed != null) instance.sealed_ = parsed_sealed;
+      if (parsed_object != null) instance.object_ = parsed_object;
+      if (parsed_cachedSize_ != null) instance.cachedSize__ = parsed_cachedSize_;
+      if (parsed_by != null) instance.by_ = parsed_by;
+      if (parsed_dEPRECATEDFoo != null) instance.dEPRECATEDFoo_ = parsed_dEPRECATEDFoo;
+      if (parsed_DEPRECATEDBar != null) instance.DEPRECATEDBar_ = parsed_DEPRECATEDBar;
+      if (parsed_iD != null) instance.iD_ = parsed_iD;
+      if (parsed_aBNotification != null) instance.aBNotification_ = parsed_aBNotification;
+      if (parsed_notDEPRECATEDFoo != null) instance.notDEPRECATEDFoo_ = parsed_notDEPRECATEDFoo;
+      finishCollections0(instance);
+      if (pendingTag != 0 && parseFailure == null) {
+        return mergeWithBuilder(instance, input, extensionRegistry, pendingTag, fieldBuilders);
+      }
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensureALLCAPSIsMutable(in.com.google.protobuf.kotlin.generator.EvilNamesProto2 instance) {
+      if (!instance.aLLCAPS_.isModifiable()) {
+        instance.aLLCAPS_ = new com.google.protobuf.LazyStringArrayList(instance.aLLCAPS_);
+      }
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Boolean>
+        internalGetMutableALLCAPSMAP(in.com.google.protobuf.kotlin.generator.EvilNamesProto2 instance) {
+      if (instance.aLLCAPSMAP_ == null) {
+        instance.aLLCAPSMAP_ = com.google.protobuf.MapField.newMapField(
+            ALLCAPSMAPDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.aLLCAPSMAP_.isMutable()) {
+        instance.aLLCAPSMAP_ = instance.aLLCAPSMAP_.copy();
+      }
+      return instance.aLLCAPSMAP_;
+    }
+    private static void ensureExtensionIsMutable(in.com.google.protobuf.kotlin.generator.EvilNamesProto2 instance) {
+      if (!instance.extension_.isModifiable()) {
+        instance.extension_ = new com.google.protobuf.LazyStringArrayList(instance.extension_);
+      }
+    }
+    private static void ensureClass_IsMutable(in.com.google.protobuf.kotlin.generator.EvilNamesProto2 instance, int minCapacity) {
+      if (!instance.class__.isModifiable()) {
+        instance.class__ = makeMutableCopy(instance.class__, minCapacity);
+      }
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseDEPRECATEDNavigationImageRequestedField(
+        in.com.google.protobuf.kotlin.generator.EvilNamesProto2 instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.dEPRECATEDNavigationImageRequested_ != null) {
+        return 219;
+      }
+      if (fieldBuilders != null) {
+        if (instance.dEPRECATEDNavigationImageRequested_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequested, in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequested.Builder, in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequestedOrBuilder>(
+                      instance.getDEPRECATEDNavigationImageRequested(),
+                      null,
+                      false);
+              instance.dEPRECATEDNavigationImageRequested_ = null;
+            }
+            instance.bitField0_ |= 0x00020000;
+          input.readGroup(27,
+              ((com.google.protobuf.SingleFieldBuilder<in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequested, in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequested.Builder, in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequestedOrBuilder>) fieldBuilders[0]).getBuilder(),
+              extensionRegistry);
+        } else {
+          instance.dEPRECATEDNavigationImageRequested_ = input.readGroup(27, in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequested.parser(),
+              extensionRegistry);
+        }
+        instance.bitField0_ |= 0x00020000;
+        return 0;
+      }
+      instance.dEPRECATEDNavigationImageRequested_ = input.readGroup(27, in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequested.parser(), extensionRegistry);
+      instance.bitField0_ |= 0x00020000;
+      return 0;
+    }
+    private static void finishCollections0(EvilNamesProto2 instance) {
+      instance.aLLCAPS_.makeImmutable();
+      if (instance.aLLCAPSMAP_ != null) instance.aLLCAPSMAP_.makeImmutable();
+      instance.extension_.makeImmutable();
+      instance.class__.makeImmutable();
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        EvilNamesProto2 instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        EvilNamesProto2 instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasDEPRECATEDNavigationImageRequested()) instance.dEPRECATEDNavigationImageRequested_ = null;
+      if (instance.hasDEPRECATEDNavigationImageRequested()) {
+        instance.dEPRECATEDNavigationImageRequested_ = fieldBuilders[0] == null
+            ? instance.dEPRECATEDNavigationImageRequested_
+            : ((com.google.protobuf.SingleFieldBuilder<in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequested, in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequested.Builder, in.com.google.protobuf.kotlin.generator.EvilNamesProto2.DEPRECATED_NavigationImageRequestedOrBuilder>) fieldBuilders[0]).build();
+
+      }
+    }
+    private static EvilNamesProto2 mergeWithBuilder(
+        EvilNamesProto2 instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite registry, int tag,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      Builder builder = new Builder(instance);
+      if (fieldBuilders == null) {
+      } else {
+        builder.transferChildren0(fieldBuilders);
+      }
+      return mergeFrom(builder, input, registry, tag, null);
+    }
+  }
 
   public static com.google.protobuf.Parser<EvilNamesProto2> parser() {
     return PARSER;

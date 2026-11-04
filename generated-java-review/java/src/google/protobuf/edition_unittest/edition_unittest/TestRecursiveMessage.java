@@ -275,7 +275,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -304,14 +304,26 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestRecursiveMessage.class, edition_unittest.TestRecursiveMessage.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestRecursiveMessage.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      maybeForceBuilderInitialization();
+    }
+    private Builder(edition_unittest.TestRecursiveMessage other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -375,6 +387,13 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000002;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestRecursiveMessage other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000003);
+      a_ = other.a_;
+      i_ = other.getI();
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -573,7 +592,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000001;
     }
 
-    private int i_ ;
+    private int i_;
     /**
      * <code>int32 i = 2;</code>
      * @return Whether the i field is set.
@@ -627,21 +646,119 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestRecursiveMessage>
-      PARSER = new com.google.protobuf.AbstractParser<TestRecursiveMessage>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestRecursiveMessage> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestRecursiveMessage parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestRecursiveMessage instance = new TestRecursiveMessage((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              pendingTag = parseAField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 10
+            case 16: {
+              instance.i_ = input.readInt32();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseAField(
+        edition_unittest.TestRecursiveMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.a_ != null) {
+        return 10;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.a_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  edition_unittest.TestRecursiveMessage, edition_unittest.TestRecursiveMessage.Builder, edition_unittest.TestRecursiveMessageOrBuilder>(
+                      instance.getA(),
+                      null,
+                      false);
+              instance.a_ = null;
+            }
+            instance.bitField0_ |= 0x00000001;
+          ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRecursiveMessage, edition_unittest.TestRecursiveMessage.Builder, edition_unittest.TestRecursiveMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.a_ = edition_unittest.TestRecursiveMessage.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.a_ = edition_unittest.TestRecursiveMessage.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+      return 0;
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        TestRecursiveMessage instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        TestRecursiveMessage instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasA()) instance.a_ = null;
+      if (instance.hasA()) {
+        instance.a_ = fieldBuilders[0] == null
+            ? instance.a_
+            : ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRecursiveMessage, edition_unittest.TestRecursiveMessage.Builder, edition_unittest.TestRecursiveMessageOrBuilder>) fieldBuilders[0]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<TestRecursiveMessage> parser() {
     return PARSER;

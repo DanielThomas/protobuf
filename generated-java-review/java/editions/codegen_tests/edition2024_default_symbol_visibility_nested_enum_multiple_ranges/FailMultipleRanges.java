@@ -290,7 +290,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -319,14 +319,25 @@ private static final long serialVersionUID = 0L;
               FailMultipleRanges.class, FailMultipleRanges.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using FailMultipleRanges.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+
+    }
+    private Builder(FailMultipleRanges other) {
+      super(other, null);
 
     }
     @java.lang.Override
@@ -428,21 +439,45 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<FailMultipleRanges>
-      PARSER = new com.google.protobuf.AbstractParser<FailMultipleRanges>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<FailMultipleRanges> {
+    MessageParser() {}
+
     @java.lang.Override
     public FailMultipleRanges parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      FailMultipleRanges instance = new FailMultipleRanges((Builder) null);
+      java.lang.Object unknown = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<FailMultipleRanges> parser() {
     return PARSER;

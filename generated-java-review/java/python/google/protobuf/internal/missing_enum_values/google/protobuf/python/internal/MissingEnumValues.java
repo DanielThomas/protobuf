@@ -527,7 +527,7 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -556,14 +556,29 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
                 google.protobuf.python.internal.MissingEnumValues.TestEnumValues.class, google.protobuf.python.internal.MissingEnumValues.TestEnumValues.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.MissingEnumValues.TestEnumValues.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        optionalNestedEnum_ = 0;
+        repeatedNestedEnum_ = emptyIntList();
+        packedNestedEnum_ = emptyIntList();
+
+      }
+      private Builder(google.protobuf.python.internal.MissingEnumValues.TestEnumValues other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -620,6 +635,20 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
           result.packedNestedEnum_ = packedNestedEnum_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.python.internal.MissingEnumValues.TestEnumValues other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        optionalNestedEnum_ = other.optionalNestedEnum_;
+        repeatedNestedEnum_ = other.repeatedNestedEnum_;
+        if (!repeatedNestedEnum_.isEmpty()) {
+          to_bitField0_ |= 0x00000002;
+        }
+        packedNestedEnum_ = other.packedNestedEnum_;
+        if (!packedNestedEnum_.isEmpty()) {
+          to_bitField0_ |= 0x00000004;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -772,7 +801,7 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int optionalNestedEnum_ = 0;
+      private int optionalNestedEnum_;
       /**
        * <code>optional .google.protobuf.python.internal.TestEnumValues.NestedEnum optional_nested_enum = 1;</code>
        * @return Whether the optionalNestedEnum field is set.
@@ -812,7 +841,7 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedNestedEnum_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedNestedEnum_;
       private void ensureRepeatedNestedEnumIsMutable(int capacity) {
         if (!repeatedNestedEnum_.isModifiable()) {
           repeatedNestedEnum_ = makeMutableCopy(repeatedNestedEnum_, capacity);
@@ -893,7 +922,7 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList packedNestedEnum_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList packedNestedEnum_;
       private void ensurePackedNestedEnumIsMutable(int capacity) {
         if (!packedNestedEnum_.isModifiable()) {
           packedNestedEnum_ = makeMutableCopy(packedNestedEnum_, capacity);
@@ -988,21 +1017,134 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<TestEnumValues>
-        PARSER = new com.google.protobuf.AbstractParser<TestEnumValues>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestEnumValues> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestEnumValues parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestEnumValues instance = new TestEnumValues((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                int tmpRaw = input.readEnum();
+                if (google.protobuf.python.internal.MissingEnumValues.TestEnumValues.NestedEnum.forNumber(tmpRaw) == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1, tmpRaw);
+                } else {
+                  instance.optionalNestedEnum_ = tmpRaw;
+                  to_bitField0_ |= 0x00000001;
+                }
+                break;
+              } // case 8
+              case 16: {
+                int tmpRaw = input.readEnum();
+                google.protobuf.python.internal.MissingEnumValues.TestEnumValues.NestedEnum tmpValue =
+                    google.protobuf.python.internal.MissingEnumValues.TestEnumValues.NestedEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 2, tmpRaw);
+                } else {
+                  ensureRepeatedNestedEnumIsMutable(instance, /* capacity= */ -1);
+                  instance.repeatedNestedEnum_.addInt(tmpRaw);
+                }
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedNestedEnumIsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  google.protobuf.python.internal.MissingEnumValues.TestEnumValues.NestedEnum tmpValue =
+                      google.protobuf.python.internal.MissingEnumValues.TestEnumValues.NestedEnum.forNumber(tmpRaw);
+                  if (tmpValue == null) {
+                    unknown = mergeUnknownVarintField(unknown, 2, tmpRaw);
+                  } else {
+                    instance.repeatedNestedEnum_.addInt(tmpRaw);
+                  }
+                }
+                input.popLimit(limit);
+                break;
+              } // case 18
+              case 24: {
+                int tmpRaw = input.readEnum();
+                google.protobuf.python.internal.MissingEnumValues.TestEnumValues.NestedEnum tmpValue =
+                    google.protobuf.python.internal.MissingEnumValues.TestEnumValues.NestedEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 3, tmpRaw);
+                } else {
+                  ensurePackedNestedEnumIsMutable(instance, /* capacity= */ -1);
+                  instance.packedNestedEnum_.addInt(tmpRaw);
+                }
+                break;
+              } // case 24
+              case 26: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensurePackedNestedEnumIsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  google.protobuf.python.internal.MissingEnumValues.TestEnumValues.NestedEnum tmpValue =
+                      google.protobuf.python.internal.MissingEnumValues.TestEnumValues.NestedEnum.forNumber(tmpRaw);
+                  if (tmpValue == null) {
+                    unknown = mergeUnknownVarintField(unknown, 3, tmpRaw);
+                  } else {
+                    instance.packedNestedEnum_.addInt(tmpRaw);
+                  }
+                }
+                input.popLimit(limit);
+                break;
+              } // case 26
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        finishCollections0(instance);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static void ensureRepeatedNestedEnumIsMutable(google.protobuf.python.internal.MissingEnumValues.TestEnumValues instance, int minCapacity) {
+        if (!instance.repeatedNestedEnum_.isModifiable()) {
+          instance.repeatedNestedEnum_ = makeMutableCopy(instance.repeatedNestedEnum_, minCapacity);
+        }
+      }
+      private static void ensurePackedNestedEnumIsMutable(google.protobuf.python.internal.MissingEnumValues.TestEnumValues instance, int minCapacity) {
+        if (!instance.packedNestedEnum_.isModifiable()) {
+          instance.packedNestedEnum_ = makeMutableCopy(instance.packedNestedEnum_, minCapacity);
+        }
+      }
+      private static void finishCollections0(TestEnumValues instance) {
+        instance.repeatedNestedEnum_.makeImmutable();
+        instance.packedNestedEnum_.makeImmutable();
+      }
+    }
 
     public static com.google.protobuf.Parser<TestEnumValues> parser() {
       return PARSER;
@@ -1512,7 +1654,7 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -1541,14 +1683,29 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
                 google.protobuf.python.internal.MissingEnumValues.TestMissingEnumValues.class, google.protobuf.python.internal.MissingEnumValues.TestMissingEnumValues.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.MissingEnumValues.TestMissingEnumValues.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        optionalNestedEnum_ = 2;
+        repeatedNestedEnum_ = emptyIntList();
+        packedNestedEnum_ = emptyIntList();
+
+      }
+      private Builder(google.protobuf.python.internal.MissingEnumValues.TestMissingEnumValues other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -1605,6 +1762,20 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
           result.packedNestedEnum_ = packedNestedEnum_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.python.internal.MissingEnumValues.TestMissingEnumValues other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        optionalNestedEnum_ = other.optionalNestedEnum_;
+        repeatedNestedEnum_ = other.repeatedNestedEnum_;
+        if (!repeatedNestedEnum_.isEmpty()) {
+          to_bitField0_ |= 0x00000002;
+        }
+        packedNestedEnum_ = other.packedNestedEnum_;
+        if (!packedNestedEnum_.isEmpty()) {
+          to_bitField0_ |= 0x00000004;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1757,7 +1928,7 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int optionalNestedEnum_ = 2;
+      private int optionalNestedEnum_;
       /**
        * <code>optional .google.protobuf.python.internal.TestMissingEnumValues.NestedEnum optional_nested_enum = 1;</code>
        * @return Whether the optionalNestedEnum field is set.
@@ -1797,7 +1968,7 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedNestedEnum_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedNestedEnum_;
       private void ensureRepeatedNestedEnumIsMutable(int capacity) {
         if (!repeatedNestedEnum_.isModifiable()) {
           repeatedNestedEnum_ = makeMutableCopy(repeatedNestedEnum_, capacity);
@@ -1878,7 +2049,7 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList packedNestedEnum_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList packedNestedEnum_;
       private void ensurePackedNestedEnumIsMutable(int capacity) {
         if (!packedNestedEnum_.isModifiable()) {
           packedNestedEnum_ = makeMutableCopy(packedNestedEnum_, capacity);
@@ -1973,21 +2144,134 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<TestMissingEnumValues>
-        PARSER = new com.google.protobuf.AbstractParser<TestMissingEnumValues>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestMissingEnumValues> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestMissingEnumValues parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestMissingEnumValues instance = new TestMissingEnumValues((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                int tmpRaw = input.readEnum();
+                if (google.protobuf.python.internal.MissingEnumValues.TestMissingEnumValues.NestedEnum.forNumber(tmpRaw) == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1, tmpRaw);
+                } else {
+                  instance.optionalNestedEnum_ = tmpRaw;
+                  to_bitField0_ |= 0x00000001;
+                }
+                break;
+              } // case 8
+              case 16: {
+                int tmpRaw = input.readEnum();
+                google.protobuf.python.internal.MissingEnumValues.TestMissingEnumValues.NestedEnum tmpValue =
+                    google.protobuf.python.internal.MissingEnumValues.TestMissingEnumValues.NestedEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 2, tmpRaw);
+                } else {
+                  ensureRepeatedNestedEnumIsMutable(instance, /* capacity= */ -1);
+                  instance.repeatedNestedEnum_.addInt(tmpRaw);
+                }
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedNestedEnumIsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  google.protobuf.python.internal.MissingEnumValues.TestMissingEnumValues.NestedEnum tmpValue =
+                      google.protobuf.python.internal.MissingEnumValues.TestMissingEnumValues.NestedEnum.forNumber(tmpRaw);
+                  if (tmpValue == null) {
+                    unknown = mergeUnknownVarintField(unknown, 2, tmpRaw);
+                  } else {
+                    instance.repeatedNestedEnum_.addInt(tmpRaw);
+                  }
+                }
+                input.popLimit(limit);
+                break;
+              } // case 18
+              case 24: {
+                int tmpRaw = input.readEnum();
+                google.protobuf.python.internal.MissingEnumValues.TestMissingEnumValues.NestedEnum tmpValue =
+                    google.protobuf.python.internal.MissingEnumValues.TestMissingEnumValues.NestedEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 3, tmpRaw);
+                } else {
+                  ensurePackedNestedEnumIsMutable(instance, /* capacity= */ -1);
+                  instance.packedNestedEnum_.addInt(tmpRaw);
+                }
+                break;
+              } // case 24
+              case 26: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensurePackedNestedEnumIsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  google.protobuf.python.internal.MissingEnumValues.TestMissingEnumValues.NestedEnum tmpValue =
+                      google.protobuf.python.internal.MissingEnumValues.TestMissingEnumValues.NestedEnum.forNumber(tmpRaw);
+                  if (tmpValue == null) {
+                    unknown = mergeUnknownVarintField(unknown, 3, tmpRaw);
+                  } else {
+                    instance.packedNestedEnum_.addInt(tmpRaw);
+                  }
+                }
+                input.popLimit(limit);
+                break;
+              } // case 26
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        finishCollections0(instance);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static void ensureRepeatedNestedEnumIsMutable(google.protobuf.python.internal.MissingEnumValues.TestMissingEnumValues instance, int minCapacity) {
+        if (!instance.repeatedNestedEnum_.isModifiable()) {
+          instance.repeatedNestedEnum_ = makeMutableCopy(instance.repeatedNestedEnum_, minCapacity);
+        }
+      }
+      private static void ensurePackedNestedEnumIsMutable(google.protobuf.python.internal.MissingEnumValues.TestMissingEnumValues instance, int minCapacity) {
+        if (!instance.packedNestedEnum_.isModifiable()) {
+          instance.packedNestedEnum_ = makeMutableCopy(instance.packedNestedEnum_, minCapacity);
+        }
+      }
+      private static void finishCollections0(TestMissingEnumValues instance) {
+        instance.repeatedNestedEnum_.makeImmutable();
+        instance.packedNestedEnum_.makeImmutable();
+      }
+    }
 
     public static com.google.protobuf.Parser<TestMissingEnumValues> parser() {
       return PARSER;
@@ -2275,7 +2559,7 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -2304,14 +2588,27 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
                 google.protobuf.python.internal.MissingEnumValues.JustString.class, google.protobuf.python.internal.MissingEnumValues.JustString.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.MissingEnumValues.JustString.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        dummy_ = "";
+
+      }
+      private Builder(google.protobuf.python.internal.MissingEnumValues.JustString other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -2358,6 +2655,12 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.python.internal.MissingEnumValues.JustString other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        dummy_ = other.dummy_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -2423,7 +2726,7 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private java.lang.Object dummy_ = "";
+      private java.lang.Object dummy_;
       /**
        * <code>optional string dummy = 1;</code>
        * @return Whether the dummy field is set.
@@ -2517,21 +2820,56 @@ public final class MissingEnumValues extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<JustString>
-        PARSER = new com.google.protobuf.AbstractParser<JustString>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<JustString> {
+      MessageParser() {}
+
       @java.lang.Override
       public JustString parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        JustString instance = new JustString((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.lang.Object parsed_dummy = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                parsed_dummy = input.readBytes();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parsed_dummy != null) instance.dummy_ = parsed_dummy;
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<JustString> parser() {
       return PARSER;

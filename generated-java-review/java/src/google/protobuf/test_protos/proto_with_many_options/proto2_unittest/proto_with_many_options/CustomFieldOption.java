@@ -318,7 +318,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -347,14 +347,27 @@ private static final long serialVersionUID = 0L;
                 proto2_unittest.proto_with_many_options.CustomFieldOption.NestedOption.class, proto2_unittest.proto_with_many_options.CustomFieldOption.NestedOption.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.proto_with_many_options.CustomFieldOption.NestedOption.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        detail_ = "";
+
+      }
+      private Builder(proto2_unittest.proto_with_many_options.CustomFieldOption.NestedOption other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -401,6 +414,12 @@ private static final long serialVersionUID = 0L;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_unittest.proto_with_many_options.CustomFieldOption.NestedOption other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        detail_ = other.detail_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -466,7 +485,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private java.lang.Object detail_ = "";
+      private java.lang.Object detail_;
       /**
        * <code>string detail = 1;</code>
        * @return Whether the detail field is set.
@@ -559,21 +578,56 @@ private static final long serialVersionUID = 0L;
     }
 
     private static final com.google.protobuf.Parser<NestedOption>
-        PARSER = new com.google.protobuf.AbstractParser<NestedOption>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<NestedOption> {
+      MessageParser() {}
+
       @java.lang.Override
       public NestedOption parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        NestedOption instance = new NestedOption((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.lang.Object parsed_detail = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                parsed_detail = input.readStringRequireUtf8();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parsed_detail != null) instance.detail_ = parsed_detail;
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<NestedOption> parser() {
       return PARSER;
@@ -903,7 +957,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -932,14 +986,28 @@ private static final long serialVersionUID = 0L;
               proto2_unittest.proto_with_many_options.CustomFieldOption.class, proto2_unittest.proto_with_many_options.CustomFieldOption.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using proto2_unittest.proto_with_many_options.CustomFieldOption.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      description_ = "";
+      priorities_ = emptyIntList();
+      maybeForceBuilderInitialization();
+    }
+    private Builder(proto2_unittest.proto_with_many_options.CustomFieldOption other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -1008,6 +1076,17 @@ private static final long serialVersionUID = 0L;
         result.priorities_ = priorities_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(proto2_unittest.proto_with_many_options.CustomFieldOption other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000003);
+      description_ = other.description_;
+      nested_ = other.nested_;
+      priorities_ = other.priorities_;
+      if (!priorities_.isEmpty()) {
+        to_bitField0_ |= 0x00000004;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1108,7 +1187,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object description_ = "";
+    private java.lang.Object description_;
     /**
      * <code>string description = 1;</code>
      * @return Whether the description field is set.
@@ -1187,7 +1266,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList priorities_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList priorities_;
     private void ensurePrioritiesIsMutable(int capacity) {
       if (!priorities_.isModifiable()) {
         priorities_ = makeMutableCopy(priorities_, capacity);
@@ -1413,21 +1492,147 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<CustomFieldOption>
-      PARSER = new com.google.protobuf.AbstractParser<CustomFieldOption>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<CustomFieldOption> {
+    MessageParser() {}
+
     @java.lang.Override
     public CustomFieldOption parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      CustomFieldOption instance = new CustomFieldOption((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.lang.Object parsed_description = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              parsed_description = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              int v = input.readInt32();
+              ensurePrioritiesIsMutable(instance, /* capacity= */ -1);
+              instance.priorities_.addInt(v);
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePrioritiesIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.priorities_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            case 26: {
+              pendingTag = parseNestedField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 26
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parsed_description != null) instance.description_ = parsed_description;
+      finishCollections0(instance);
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensurePrioritiesIsMutable(proto2_unittest.proto_with_many_options.CustomFieldOption instance, int minCapacity) {
+      if (!instance.priorities_.isModifiable()) {
+        instance.priorities_ = makeMutableCopy(instance.priorities_, minCapacity);
+      }
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseNestedField(
+        proto2_unittest.proto_with_many_options.CustomFieldOption instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.nested_ != null) {
+        return 26;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.nested_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  proto2_unittest.proto_with_many_options.CustomFieldOption.NestedOption, proto2_unittest.proto_with_many_options.CustomFieldOption.NestedOption.Builder, proto2_unittest.proto_with_many_options.CustomFieldOption.NestedOptionOrBuilder>(
+                      instance.getNested(),
+                      null,
+                      false);
+              instance.nested_ = null;
+            }
+            instance.bitField0_ |= 0x00000002;
+          ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.proto_with_many_options.CustomFieldOption.NestedOption, proto2_unittest.proto_with_many_options.CustomFieldOption.NestedOption.Builder, proto2_unittest.proto_with_many_options.CustomFieldOption.NestedOptionOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.nested_ = proto2_unittest.proto_with_many_options.CustomFieldOption.NestedOption.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000002;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.nested_ = proto2_unittest.proto_with_many_options.CustomFieldOption.NestedOption.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+      return 0;
+    }
+    private static void finishCollections0(CustomFieldOption instance) {
+      instance.priorities_.makeImmutable();
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        CustomFieldOption instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        CustomFieldOption instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasNested()) instance.nested_ = null;
+      if (instance.hasNested()) {
+        instance.nested_ = fieldBuilders[0] == null
+            ? instance.nested_
+            : ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.proto_with_many_options.CustomFieldOption.NestedOption, proto2_unittest.proto_with_many_options.CustomFieldOption.NestedOption.Builder, proto2_unittest.proto_with_many_options.CustomFieldOption.NestedOptionOrBuilder>) fieldBuilders[0]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<CustomFieldOption> parser() {
     return PARSER;

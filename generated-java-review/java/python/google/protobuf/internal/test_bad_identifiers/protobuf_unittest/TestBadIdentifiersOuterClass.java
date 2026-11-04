@@ -225,7 +225,7 @@ public final class TestBadIdentifiersOuterClass extends com.google.protobuf.Gene
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -255,14 +255,25 @@ public final class TestBadIdentifiersOuterClass extends com.google.protobuf.Gene
                 protobuf_unittest.TestBadIdentifiersOuterClass.TestBadIdentifiers.class, protobuf_unittest.TestBadIdentifiersOuterClass.TestBadIdentifiers.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_unittest.TestBadIdentifiersOuterClass.TestBadIdentifiers.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(protobuf_unittest.TestBadIdentifiersOuterClass.TestBadIdentifiers other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -391,21 +402,46 @@ public final class TestBadIdentifiersOuterClass extends com.google.protobuf.Gene
     }
 
     private static final com.google.protobuf.Parser<TestBadIdentifiers>
-        PARSER = new com.google.protobuf.AbstractParser<TestBadIdentifiers>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestBadIdentifiers> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestBadIdentifiers parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestBadIdentifiers instance = new TestBadIdentifiers((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                pendingTag = tag;
+                break parseLoop;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        if (pendingTag != 0) {
+          return mergeFrom(instance.toBuilder(), input, extensionRegistry, pendingTag, null);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<TestBadIdentifiers> parser() {
       return PARSER;
@@ -605,7 +641,7 @@ public final class TestBadIdentifiersOuterClass extends com.google.protobuf.Gene
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -634,14 +670,25 @@ public final class TestBadIdentifiersOuterClass extends com.google.protobuf.Gene
                 protobuf_unittest.TestBadIdentifiersOuterClass.AnotherMessage.class, protobuf_unittest.TestBadIdentifiersOuterClass.AnotherMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_unittest.TestBadIdentifiersOuterClass.AnotherMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(protobuf_unittest.TestBadIdentifiersOuterClass.AnotherMessage other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -743,21 +790,45 @@ public final class TestBadIdentifiersOuterClass extends com.google.protobuf.Gene
     }
 
     private static final com.google.protobuf.Parser<AnotherMessage>
-        PARSER = new com.google.protobuf.AbstractParser<AnotherMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<AnotherMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public AnotherMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        AnotherMessage instance = new AnotherMessage((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<AnotherMessage> parser() {
       return PARSER;

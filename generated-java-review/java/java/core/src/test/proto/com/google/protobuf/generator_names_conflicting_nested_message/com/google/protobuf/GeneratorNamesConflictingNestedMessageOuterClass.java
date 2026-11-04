@@ -254,7 +254,7 @@ public final class GeneratorNamesConflictingNestedMessageOuterClass extends com.
       @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
+            ? new Builder() : new Builder(this);
       }
 
       @java.lang.Override
@@ -283,14 +283,25 @@ public final class GeneratorNamesConflictingNestedMessageOuterClass extends com.
                   com.google.protobuf.GeneratorNamesConflictingNestedMessageOuterClass.MessageContainer.GeneratorNamesConflictingNestedMessage.class, com.google.protobuf.GeneratorNamesConflictingNestedMessageOuterClass.MessageContainer.GeneratorNamesConflictingNestedMessage.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using com.google.protobuf.GeneratorNamesConflictingNestedMessageOuterClass.MessageContainer.GeneratorNamesConflictingNestedMessage.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+
+        }
+        private Builder(com.google.protobuf.GeneratorNamesConflictingNestedMessageOuterClass.MessageContainer.GeneratorNamesConflictingNestedMessage other) {
+          super(other, null);
 
         }
         @java.lang.Override
@@ -392,21 +403,45 @@ public final class GeneratorNamesConflictingNestedMessageOuterClass extends com.
       }
 
       private static final com.google.protobuf.Parser<GeneratorNamesConflictingNestedMessage>
-          PARSER = new com.google.protobuf.AbstractParser<GeneratorNamesConflictingNestedMessage>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<GeneratorNamesConflictingNestedMessage> {
+        MessageParser() {}
+
         @java.lang.Override
         public GeneratorNamesConflictingNestedMessage parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
+          java.util.Objects.requireNonNull(extensionRegistry);
+          GeneratorNamesConflictingNestedMessage instance = new GeneratorNamesConflictingNestedMessage((Builder) null);
+          java.lang.Object unknown = null;
+          java.io.IOException parseFailure = null;
           try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
+            parseLoop: while (true) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0: break parseLoop;
+                default: {
+                  unknown = prepareUnknownFields(unknown, input);
+                  if (!parseUnknownField(input, unknown, tag)) {
+                    break parseLoop;
+                  }
+                  break;
+                }
+              }
+            }
+          } catch (java.io.IOException e) {
+            parseFailure = e;
           }
-          return builder.buildPartial();
+          finishUnknownFields(instance, unknown);
+          if (parseFailure != null) {
+            throwParseException(parseFailure, instance);
+          }
+          return instance;
         }
-      };
+      }
 
       public static com.google.protobuf.Parser<GeneratorNamesConflictingNestedMessage> parser() {
         return PARSER;
@@ -560,7 +595,7 @@ public final class GeneratorNamesConflictingNestedMessageOuterClass extends com.
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -589,14 +624,25 @@ public final class GeneratorNamesConflictingNestedMessageOuterClass extends com.
                 com.google.protobuf.GeneratorNamesConflictingNestedMessageOuterClass.MessageContainer.class, com.google.protobuf.GeneratorNamesConflictingNestedMessageOuterClass.MessageContainer.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.GeneratorNamesConflictingNestedMessageOuterClass.MessageContainer.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(com.google.protobuf.GeneratorNamesConflictingNestedMessageOuterClass.MessageContainer other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -698,21 +744,45 @@ public final class GeneratorNamesConflictingNestedMessageOuterClass extends com.
     }
 
     private static final com.google.protobuf.Parser<MessageContainer>
-        PARSER = new com.google.protobuf.AbstractParser<MessageContainer>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MessageContainer> {
+      MessageParser() {}
+
       @java.lang.Override
       public MessageContainer parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        MessageContainer instance = new MessageContainer((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<MessageContainer> parser() {
       return PARSER;

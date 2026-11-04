@@ -427,7 +427,7 @@ public final class TestPrefixOuterClass extends com.google.protobuf.GeneratedFil
       @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
+            ? new Builder() : new Builder(this);
       }
 
       @java.lang.Override
@@ -456,14 +456,26 @@ public final class TestPrefixOuterClass extends com.google.protobuf.GeneratedFil
                   TestPrefixOuterClass.TestPrefix.NestedMessage.class, TestPrefixOuterClass.TestPrefix.NestedMessage.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using TestPrefixOuterClass.TestPrefix.NestedMessage.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+
+        }
+        private Builder(TestPrefixOuterClass.TestPrefix.NestedMessage other) {
+          super(other, null);
+          copyFrom_autosplit_0(other);
 
         }
         @java.lang.Override
@@ -507,9 +519,15 @@ public final class TestPrefixOuterClass extends com.google.protobuf.GeneratedFil
           int to_bitField0_ = 0;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.a_ = a_;
-            
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(TestPrefixOuterClass.TestPrefix.NestedMessage other) {
+          int to_bitField0_ = 0;
+          a_ = other.getA();
+          to_bitField0_ |= 0x00000001;
+          bitField0_ |= to_bitField0_;
         }
 
         @java.lang.Override
@@ -573,7 +591,7 @@ public final class TestPrefixOuterClass extends com.google.protobuf.GeneratedFil
         }
         private int bitField0_;
 
-        private int a_ ;
+        private int a_;
         /**
          * <code>int32 a = 1;</code>
          * @return The a.
@@ -619,21 +637,50 @@ public final class TestPrefixOuterClass extends com.google.protobuf.GeneratedFil
       }
 
       private static final com.google.protobuf.Parser<NestedMessage>
-          PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<NestedMessage> {
+        MessageParser() {}
+
         @java.lang.Override
         public NestedMessage parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
+          java.util.Objects.requireNonNull(extensionRegistry);
+          NestedMessage instance = new NestedMessage((Builder) null);
+          java.lang.Object unknown = null;
+          java.io.IOException parseFailure = null;
           try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
+            parseLoop: while (true) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0: break parseLoop;
+                case 8: {
+                  instance.a_ = input.readInt32();
+
+                  break;
+                } // case 8
+                default: {
+                  unknown = prepareUnknownFields(unknown, input);
+                  if (!parseUnknownField(input, unknown, tag)) {
+                    break parseLoop;
+                  }
+                  break;
+                }
+              }
+            }
+          } catch (java.io.IOException e) {
+            parseFailure = e;
           }
-          return builder.buildPartial();
+          finishUnknownFields(instance, unknown);
+          if (parseFailure != null) {
+            throwParseException(parseFailure, instance);
+          }
+          return instance;
         }
-      };
+      }
 
       public static com.google.protobuf.Parser<NestedMessage> parser() {
         return PARSER;
@@ -893,7 +940,7 @@ public final class TestPrefixOuterClass extends com.google.protobuf.GeneratedFil
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -922,14 +969,27 @@ public final class TestPrefixOuterClass extends com.google.protobuf.GeneratedFil
                 TestPrefixOuterClass.TestPrefix.class, TestPrefixOuterClass.TestPrefix.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using TestPrefixOuterClass.TestPrefix.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        nestedEnum_ = 0;
+        maybeForceBuilderInitialization();
+      }
+      private Builder(TestPrefixOuterClass.TestPrefix other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -991,13 +1051,21 @@ public final class TestPrefixOuterClass extends com.google.protobuf.GeneratedFil
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.a_ = a_;
-          
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
           result.nestedEnum_ = nestedEnum_;
-          ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(TestPrefixOuterClass.TestPrefix other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        nestedMessage_ = other.nestedMessage_;
+        a_ = other.getA();
+        to_bitField0_ |= 0x00000002;
+        nestedEnum_ = other.getNestedEnumValue();
+        to_bitField0_ |= 0x00000004;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1076,7 +1144,7 @@ public final class TestPrefixOuterClass extends com.google.protobuf.GeneratedFil
       }
       private int bitField0_;
 
-      private int a_ ;
+      private int a_;
       /**
        * <code>int32 a = 1;</code>
        * @return The a.
@@ -1236,7 +1304,7 @@ public final class TestPrefixOuterClass extends com.google.protobuf.GeneratedFil
         bitField0_ |= 0x00000001;
       }
 
-      private int nestedEnum_ = 0;
+      private int nestedEnum_;
       /**
        * <code>.TestPrefix.NestedEnum nested_enum = 3;</code>
        * @return The enum numeric value on the wire for nestedEnum.
@@ -1302,21 +1370,120 @@ public final class TestPrefixOuterClass extends com.google.protobuf.GeneratedFil
     }
 
     private static final com.google.protobuf.Parser<TestPrefix>
-        PARSER = new com.google.protobuf.AbstractParser<TestPrefix>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestPrefix> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestPrefix parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestPrefix instance = new TestPrefix((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.a_ = input.readInt32();
+
+                break;
+              } // case 8
+              case 18: {
+                pendingTag = parseNestedMessageField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 18
+              case 24: {
+                instance.nestedEnum_ = input.readEnum();
+
+                break;
+              } // case 24
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseNestedMessageField(
+          TestPrefixOuterClass.TestPrefix instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.nestedMessage_ != null) {
+          return 18;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.nestedMessage_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    TestPrefixOuterClass.TestPrefix.NestedMessage, TestPrefixOuterClass.TestPrefix.NestedMessage.Builder, TestPrefixOuterClass.TestPrefix.NestedMessageOrBuilder>(
+                        instance.getNestedMessage(),
+                        null,
+                        false);
+                instance.nestedMessage_ = null;
+              }
+              instance.bitField0_ |= 0x00000001;
+            ((com.google.protobuf.SingleFieldBuilder<TestPrefixOuterClass.TestPrefix.NestedMessage, TestPrefixOuterClass.TestPrefix.NestedMessage.Builder, TestPrefixOuterClass.TestPrefix.NestedMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.nestedMessage_ = TestPrefixOuterClass.TestPrefix.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000001;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.nestedMessage_ = TestPrefixOuterClass.TestPrefix.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          TestPrefix instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          TestPrefix instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasNestedMessage()) instance.nestedMessage_ = null;
+        if (instance.hasNestedMessage()) {
+          instance.nestedMessage_ = fieldBuilders[0] == null
+              ? instance.nestedMessage_
+              : ((com.google.protobuf.SingleFieldBuilder<TestPrefixOuterClass.TestPrefix.NestedMessage, TestPrefixOuterClass.TestPrefix.NestedMessage.Builder, TestPrefixOuterClass.TestPrefix.NestedMessageOrBuilder>) fieldBuilders[0]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<TestPrefix> parser() {
       return PARSER;
@@ -1554,7 +1721,7 @@ public final class TestPrefixOuterClass extends com.google.protobuf.GeneratedFil
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -1587,14 +1754,26 @@ public final class TestPrefixOuterClass extends com.google.protobuf.GeneratedFil
                 TestPrefixOuterClass.Empty.class, TestPrefixOuterClass.Empty.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using TestPrefixOuterClass.Empty.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(TestPrefixOuterClass.Empty other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -1638,9 +1817,15 @@ public final class TestPrefixOuterClass extends com.google.protobuf.GeneratedFil
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.a_ = a_;
-          
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(TestPrefixOuterClass.Empty other) {
+        int to_bitField0_ = 0;
+        a_ = other.getA();
+        to_bitField0_ |= 0x00000001;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1704,7 +1889,7 @@ public final class TestPrefixOuterClass extends com.google.protobuf.GeneratedFil
       }
       private int bitField0_;
 
-      private int a_ ;
+      private int a_;
       /**
        * <code>int32 a = 1;</code>
        * @return The a.
@@ -1750,21 +1935,50 @@ public final class TestPrefixOuterClass extends com.google.protobuf.GeneratedFil
     }
 
     private static final com.google.protobuf.Parser<Empty>
-        PARSER = new com.google.protobuf.AbstractParser<Empty>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Empty> {
+      MessageParser() {}
+
       @java.lang.Override
       public Empty parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Empty instance = new Empty((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.a_ = input.readInt32();
+
+                break;
+              } // case 8
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<Empty> parser() {
       return PARSER;

@@ -385,7 +385,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -414,14 +414,28 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.test.WideMessageOneof.Child.class, com.google.protobuf.test.WideMessageOneof.Child.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.test.WideMessageOneof.Child.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        values_ = emptyIntList();
+        text_ = "";
+
+      }
+      private Builder(com.google.protobuf.test.WideMessageOneof.Child other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -473,6 +487,16 @@ private static final long serialVersionUID = 0L;
           result.values_ = values_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.test.WideMessageOneof.Child other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        text_ = other.text_;
+        values_ = other.values_;
+        if (!values_.isEmpty()) {
+          to_bitField0_ |= 0x00000002;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -566,7 +590,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.IntList values_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList values_;
       private void ensureValuesIsMutable(int capacity) {
         if (!values_.isModifiable()) {
           values_ = makeMutableCopy(values_, capacity);
@@ -650,7 +674,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
-      private java.lang.Object text_ = "";
+      private java.lang.Object text_;
       /**
        * <code>optional string text = 2;</code>
        * @return Whether the text field is set.
@@ -744,21 +768,82 @@ private static final long serialVersionUID = 0L;
     }
 
     private static final com.google.protobuf.Parser<Child>
-        PARSER = new com.google.protobuf.AbstractParser<Child>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Child> {
+      MessageParser() {}
+
       @java.lang.Override
       public Child parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Child instance = new Child((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.lang.Object parsed_text = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                int v = input.readInt32();
+                ensureValuesIsMutable(instance, /* capacity= */ -1);
+                instance.values_.addInt(v);
+                break;
+              } // case 8
+              case 10: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureValuesIsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.values_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 10
+              case 18: {
+                parsed_text = input.readBytes();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 18
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parsed_text != null) instance.text_ = parsed_text;
+        finishCollections0(instance);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static void ensureValuesIsMutable(com.google.protobuf.test.WideMessageOneof.Child instance, int minCapacity) {
+        if (!instance.values_.isModifiable()) {
+          instance.values_ = makeMutableCopy(instance.values_, minCapacity);
+        }
+      }
+      private static void finishCollections0(Child instance) {
+        instance.values_.makeImmutable();
+      }
+    }
 
     public static com.google.protobuf.Parser<Child> parser() {
       return PARSER;
@@ -8151,7 +8236,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -8180,14 +8265,29 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.test.WideMessageOneof.class, com.google.protobuf.test.WideMessageOneof.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.test.WideMessageOneof.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+
+    }
+    private Builder(com.google.protobuf.test.WideMessageOneof other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
+      copyFrom_autosplit_1(other);
+      copyFrom_autosplit_2(other);
+      copyFrom_autosplit_3(other);
 
     }
     @java.lang.Override
@@ -8851,6 +8951,109 @@ private static final long serialVersionUID = 0L;
       result.bitField0_ |= to_bitField0_;
     }
 
+    private void copyFrom_autosplit_0(com.google.protobuf.test.WideMessageOneof other) {
+      int to_bitField0_ = 0;
+      if (other.choiceCase_ == 1) {
+        to_bitField0_ |= 0x00000001;
+      }
+      if (other.choiceCase_ == 2) {
+        to_bitField0_ |= 0x00000002;
+      }
+      if (other.choiceCase_ == 3) {
+        to_bitField0_ |= 0x00000004;
+      }
+      if (other.choiceCase_ == 4) {
+        to_bitField0_ |= 0x00000008;
+      }
+      if (other.choiceCase_ == 5) {
+        to_bitField0_ |= 0x00000010;
+      }
+      if (other.choiceCase_ == 6) {
+        to_bitField0_ |= 0x00000020;
+      }
+      if (other.choiceCase_ == 7) {
+        to_bitField0_ |= 0x00000040;
+      }
+      if (other.choiceCase_ == 8) {
+        to_bitField0_ |= 0x00000080;
+      }
+      if (other.choiceCase_ == 9) {
+        to_bitField0_ |= 0x00000100;
+      }
+      if (other.choiceCase_ == 10) {
+        to_bitField0_ |= 0x00000200;
+      }
+      if (other.choiceCase_ == 11) {
+        to_bitField0_ |= 0x00000400;
+      }
+      if (other.choiceCase_ == 12) {
+        to_bitField0_ |= 0x00000800;
+      }
+      if (other.choiceCase_ == 13) {
+        to_bitField0_ |= 0x00001000;
+      }
+      if (other.choiceCase_ == 14) {
+        to_bitField0_ |= 0x00002000;
+      }
+      if (other.choiceCase_ == 15) {
+        to_bitField0_ |= 0x00004000;
+      }
+      if (other.choiceCase_ == 16) {
+        to_bitField0_ |= 0x00008000;
+      }
+      if (other.choiceCase_ == 17) {
+        to_bitField0_ |= 0x00010000;
+      }
+      if (other.choiceCase_ == 18) {
+        to_bitField0_ |= 0x00020000;
+      }
+      if (other.choiceCase_ == 19) {
+        to_bitField0_ |= 0x00040000;
+      }
+      if (other.choiceCase_ == 20) {
+        to_bitField0_ |= 0x00080000;
+      }
+      if (other.choiceCase_ == 21) {
+        to_bitField0_ |= 0x00100000;
+      }
+      if (other.choiceCase_ == 22) {
+        to_bitField0_ |= 0x00200000;
+      }
+      if (other.choiceCase_ == 23) {
+        to_bitField0_ |= 0x00400000;
+      }
+      if (other.choiceCase_ == 24) {
+        to_bitField0_ |= 0x00800000;
+      }
+      if (other.choiceCase_ == 25) {
+        to_bitField0_ |= 0x01000000;
+      }
+      if (other.choiceCase_ == 26) {
+        to_bitField0_ |= 0x02000000;
+      }
+      if (other.choiceCase_ == 27) {
+        to_bitField0_ |= 0x04000000;
+      }
+      if (other.choiceCase_ == 28) {
+        to_bitField0_ |= 0x08000000;
+      }
+      if (other.choiceCase_ == 29) {
+        to_bitField0_ |= 0x10000000;
+      }
+      if (other.choiceCase_ == 30) {
+        to_bitField0_ |= 0x20000000;
+      }
+      if (other.choiceCase_ == 31) {
+        to_bitField0_ |= 0x40000000;
+      }
+      if (other.choiceCase_ == 32) {
+        to_bitField0_ |= 0x80000000;
+      }
+      choiceCase_ = other.choiceCase_;
+      choice_ = other.choice_;
+      bitField0_ |= to_bitField0_;
+    }
+
     private void buildPartial_autosplit_1(com.google.protobuf.test.WideMessageOneof result) {
       int from_bitField1_ = bitField1_;
       int to_bitField1_ = 0;
@@ -9079,6 +9282,107 @@ private static final long serialVersionUID = 0L;
         ;
       }
       result.bitField1_ |= to_bitField1_;
+    }
+
+    private void copyFrom_autosplit_1(com.google.protobuf.test.WideMessageOneof other) {
+      int to_bitField1_ = 0;
+      if (other.choiceCase_ == 33) {
+        to_bitField1_ |= 0x00000001;
+      }
+      if (other.choiceCase_ == 34) {
+        to_bitField1_ |= 0x00000002;
+      }
+      if (other.choiceCase_ == 35) {
+        to_bitField1_ |= 0x00000004;
+      }
+      if (other.choiceCase_ == 36) {
+        to_bitField1_ |= 0x00000008;
+      }
+      if (other.choiceCase_ == 37) {
+        to_bitField1_ |= 0x00000010;
+      }
+      if (other.choiceCase_ == 38) {
+        to_bitField1_ |= 0x00000020;
+      }
+      if (other.choiceCase_ == 39) {
+        to_bitField1_ |= 0x00000040;
+      }
+      if (other.choiceCase_ == 40) {
+        to_bitField1_ |= 0x00000080;
+      }
+      if (other.choiceCase_ == 41) {
+        to_bitField1_ |= 0x00000100;
+      }
+      if (other.choiceCase_ == 42) {
+        to_bitField1_ |= 0x00000200;
+      }
+      if (other.choiceCase_ == 43) {
+        to_bitField1_ |= 0x00000400;
+      }
+      if (other.choiceCase_ == 44) {
+        to_bitField1_ |= 0x00000800;
+      }
+      if (other.choiceCase_ == 45) {
+        to_bitField1_ |= 0x00001000;
+      }
+      if (other.choiceCase_ == 46) {
+        to_bitField1_ |= 0x00002000;
+      }
+      if (other.choiceCase_ == 47) {
+        to_bitField1_ |= 0x00004000;
+      }
+      if (other.choiceCase_ == 48) {
+        to_bitField1_ |= 0x00008000;
+      }
+      if (other.choiceCase_ == 49) {
+        to_bitField1_ |= 0x00010000;
+      }
+      if (other.choiceCase_ == 50) {
+        to_bitField1_ |= 0x00020000;
+      }
+      if (other.choiceCase_ == 51) {
+        to_bitField1_ |= 0x00040000;
+      }
+      if (other.choiceCase_ == 52) {
+        to_bitField1_ |= 0x00080000;
+      }
+      if (other.choiceCase_ == 53) {
+        to_bitField1_ |= 0x00100000;
+      }
+      if (other.choiceCase_ == 54) {
+        to_bitField1_ |= 0x00200000;
+      }
+      if (other.choiceCase_ == 55) {
+        to_bitField1_ |= 0x00400000;
+      }
+      if (other.choiceCase_ == 56) {
+        to_bitField1_ |= 0x00800000;
+      }
+      if (other.choiceCase_ == 57) {
+        to_bitField1_ |= 0x01000000;
+      }
+      if (other.choiceCase_ == 58) {
+        to_bitField1_ |= 0x02000000;
+      }
+      if (other.choiceCase_ == 59) {
+        to_bitField1_ |= 0x04000000;
+      }
+      if (other.choiceCase_ == 60) {
+        to_bitField1_ |= 0x08000000;
+      }
+      if (other.choiceCase_ == 61) {
+        to_bitField1_ |= 0x10000000;
+      }
+      if (other.choiceCase_ == 62) {
+        to_bitField1_ |= 0x20000000;
+      }
+      if (other.choiceCase_ == 63) {
+        to_bitField1_ |= 0x40000000;
+      }
+      if (other.choiceCase_ == 64) {
+        to_bitField1_ |= 0x80000000;
+      }
+      bitField1_ |= to_bitField1_;
     }
 
     private void buildPartial_autosplit_2(com.google.protobuf.test.WideMessageOneof result) {
@@ -9311,6 +9615,107 @@ private static final long serialVersionUID = 0L;
       result.bitField2_ |= to_bitField2_;
     }
 
+    private void copyFrom_autosplit_2(com.google.protobuf.test.WideMessageOneof other) {
+      int to_bitField2_ = 0;
+      if (other.choiceCase_ == 65) {
+        to_bitField2_ |= 0x00000001;
+      }
+      if (other.choiceCase_ == 66) {
+        to_bitField2_ |= 0x00000002;
+      }
+      if (other.choiceCase_ == 67) {
+        to_bitField2_ |= 0x00000004;
+      }
+      if (other.choiceCase_ == 68) {
+        to_bitField2_ |= 0x00000008;
+      }
+      if (other.choiceCase_ == 69) {
+        to_bitField2_ |= 0x00000010;
+      }
+      if (other.choiceCase_ == 70) {
+        to_bitField2_ |= 0x00000020;
+      }
+      if (other.choiceCase_ == 71) {
+        to_bitField2_ |= 0x00000040;
+      }
+      if (other.choiceCase_ == 72) {
+        to_bitField2_ |= 0x00000080;
+      }
+      if (other.choiceCase_ == 73) {
+        to_bitField2_ |= 0x00000100;
+      }
+      if (other.choiceCase_ == 74) {
+        to_bitField2_ |= 0x00000200;
+      }
+      if (other.choiceCase_ == 75) {
+        to_bitField2_ |= 0x00000400;
+      }
+      if (other.choiceCase_ == 76) {
+        to_bitField2_ |= 0x00000800;
+      }
+      if (other.choiceCase_ == 77) {
+        to_bitField2_ |= 0x00001000;
+      }
+      if (other.choiceCase_ == 78) {
+        to_bitField2_ |= 0x00002000;
+      }
+      if (other.choiceCase_ == 79) {
+        to_bitField2_ |= 0x00004000;
+      }
+      if (other.choiceCase_ == 80) {
+        to_bitField2_ |= 0x00008000;
+      }
+      if (other.choiceCase_ == 81) {
+        to_bitField2_ |= 0x00010000;
+      }
+      if (other.choiceCase_ == 82) {
+        to_bitField2_ |= 0x00020000;
+      }
+      if (other.choiceCase_ == 83) {
+        to_bitField2_ |= 0x00040000;
+      }
+      if (other.choiceCase_ == 84) {
+        to_bitField2_ |= 0x00080000;
+      }
+      if (other.choiceCase_ == 85) {
+        to_bitField2_ |= 0x00100000;
+      }
+      if (other.choiceCase_ == 86) {
+        to_bitField2_ |= 0x00200000;
+      }
+      if (other.choiceCase_ == 87) {
+        to_bitField2_ |= 0x00400000;
+      }
+      if (other.choiceCase_ == 88) {
+        to_bitField2_ |= 0x00800000;
+      }
+      if (other.choiceCase_ == 89) {
+        to_bitField2_ |= 0x01000000;
+      }
+      if (other.choiceCase_ == 90) {
+        to_bitField2_ |= 0x02000000;
+      }
+      if (other.choiceCase_ == 91) {
+        to_bitField2_ |= 0x04000000;
+      }
+      if (other.choiceCase_ == 92) {
+        to_bitField2_ |= 0x08000000;
+      }
+      if (other.choiceCase_ == 93) {
+        to_bitField2_ |= 0x10000000;
+      }
+      if (other.choiceCase_ == 94) {
+        to_bitField2_ |= 0x20000000;
+      }
+      if (other.choiceCase_ == 95) {
+        to_bitField2_ |= 0x40000000;
+      }
+      if (other.choiceCase_ == 96) {
+        to_bitField2_ |= 0x80000000;
+      }
+      bitField2_ |= to_bitField2_;
+    }
+
     private void buildPartial_autosplit_3(com.google.protobuf.test.WideMessageOneof result) {
       int from_bitField3_ = bitField3_;
       int to_bitField3_ = 0;
@@ -9539,6 +9944,107 @@ private static final long serialVersionUID = 0L;
         ;
       }
       result.bitField3_ |= to_bitField3_;
+    }
+
+    private void copyFrom_autosplit_3(com.google.protobuf.test.WideMessageOneof other) {
+      int to_bitField3_ = 0;
+      if (other.choiceCase_ == 97) {
+        to_bitField3_ |= 0x00000001;
+      }
+      if (other.choiceCase_ == 98) {
+        to_bitField3_ |= 0x00000002;
+      }
+      if (other.choiceCase_ == 99) {
+        to_bitField3_ |= 0x00000004;
+      }
+      if (other.choiceCase_ == 100) {
+        to_bitField3_ |= 0x00000008;
+      }
+      if (other.choiceCase_ == 101) {
+        to_bitField3_ |= 0x00000010;
+      }
+      if (other.choiceCase_ == 102) {
+        to_bitField3_ |= 0x00000020;
+      }
+      if (other.choiceCase_ == 103) {
+        to_bitField3_ |= 0x00000040;
+      }
+      if (other.choiceCase_ == 104) {
+        to_bitField3_ |= 0x00000080;
+      }
+      if (other.choiceCase_ == 105) {
+        to_bitField3_ |= 0x00000100;
+      }
+      if (other.choiceCase_ == 106) {
+        to_bitField3_ |= 0x00000200;
+      }
+      if (other.choiceCase_ == 107) {
+        to_bitField3_ |= 0x00000400;
+      }
+      if (other.choiceCase_ == 108) {
+        to_bitField3_ |= 0x00000800;
+      }
+      if (other.choiceCase_ == 109) {
+        to_bitField3_ |= 0x00001000;
+      }
+      if (other.choiceCase_ == 110) {
+        to_bitField3_ |= 0x00002000;
+      }
+      if (other.choiceCase_ == 111) {
+        to_bitField3_ |= 0x00004000;
+      }
+      if (other.choiceCase_ == 112) {
+        to_bitField3_ |= 0x00008000;
+      }
+      if (other.choiceCase_ == 113) {
+        to_bitField3_ |= 0x00010000;
+      }
+      if (other.choiceCase_ == 114) {
+        to_bitField3_ |= 0x00020000;
+      }
+      if (other.choiceCase_ == 115) {
+        to_bitField3_ |= 0x00040000;
+      }
+      if (other.choiceCase_ == 116) {
+        to_bitField3_ |= 0x00080000;
+      }
+      if (other.choiceCase_ == 117) {
+        to_bitField3_ |= 0x00100000;
+      }
+      if (other.choiceCase_ == 118) {
+        to_bitField3_ |= 0x00200000;
+      }
+      if (other.choiceCase_ == 119) {
+        to_bitField3_ |= 0x00400000;
+      }
+      if (other.choiceCase_ == 120) {
+        to_bitField3_ |= 0x00800000;
+      }
+      if (other.choiceCase_ == 121) {
+        to_bitField3_ |= 0x01000000;
+      }
+      if (other.choiceCase_ == 122) {
+        to_bitField3_ |= 0x02000000;
+      }
+      if (other.choiceCase_ == 123) {
+        to_bitField3_ |= 0x04000000;
+      }
+      if (other.choiceCase_ == 124) {
+        to_bitField3_ |= 0x08000000;
+      }
+      if (other.choiceCase_ == 125) {
+        to_bitField3_ |= 0x10000000;
+      }
+      if (other.choiceCase_ == 126) {
+        to_bitField3_ |= 0x20000000;
+      }
+      if (other.choiceCase_ == 127) {
+        to_bitField3_ |= 0x40000000;
+      }
+      if (other.choiceCase_ == 128) {
+        to_bitField3_ |= 0x80000000;
+      }
+      bitField3_ |= to_bitField3_;
     }
 
     @java.lang.Override
@@ -10621,7 +11127,7 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int choiceCase_ = 0;
+    private int choiceCase_;
     private java.lang.Object choice_;
     public ChoiceCase
         getChoiceCase() {
@@ -33323,21 +33829,9601 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<WideMessageOneof>
-      PARSER = new com.google.protobuf.AbstractParser<WideMessageOneof>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<WideMessageOneof> {
+    MessageParser() {}
+
     @java.lang.Override
     public WideMessageOneof parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      WideMessageOneof instance = new WideMessageOneof((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              pendingTag = parseValue1Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 10
+            case 18: {
+              pendingTag = parseValue2Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 18
+            case 26: {
+              pendingTag = parseValue3Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 26
+            case 34: {
+              pendingTag = parseValue4Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 34
+            case 42: {
+              pendingTag = parseValue5Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 42
+            case 50: {
+              pendingTag = parseValue6Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 50
+            case 58: {
+              pendingTag = parseValue7Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 58
+            case 66: {
+              pendingTag = parseValue8Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 66
+            case 74: {
+              pendingTag = parseValue9Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 74
+            case 82: {
+              pendingTag = parseValue10Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 82
+            case 90: {
+              pendingTag = parseValue11Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 90
+            case 98: {
+              pendingTag = parseValue12Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 98
+            case 106: {
+              pendingTag = parseValue13Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 106
+            case 114: {
+              pendingTag = parseValue14Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 114
+            case 122: {
+              pendingTag = parseValue15Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 122
+            case 130: {
+              pendingTag = parseValue16Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 130
+            case 138: {
+              pendingTag = parseValue17Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 138
+            case 146: {
+              pendingTag = parseValue18Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 146
+            case 154: {
+              pendingTag = parseValue19Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 154
+            case 162: {
+              pendingTag = parseValue20Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 162
+            case 170: {
+              pendingTag = parseValue21Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 170
+            case 178: {
+              pendingTag = parseValue22Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 178
+            case 186: {
+              pendingTag = parseValue23Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 186
+            case 194: {
+              pendingTag = parseValue24Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 194
+            case 202: {
+              pendingTag = parseValue25Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 202
+            case 210: {
+              pendingTag = parseValue26Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 210
+            case 218: {
+              pendingTag = parseValue27Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 218
+            case 226: {
+              pendingTag = parseValue28Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 226
+            case 234: {
+              pendingTag = parseValue29Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 234
+            case 242: {
+              pendingTag = parseValue30Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 242
+            case 250: {
+              pendingTag = parseValue31Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 250
+            case 258: {
+              pendingTag = parseValue32Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 258
+            case 266: {
+              pendingTag = parseValue33Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 266
+            case 274: {
+              pendingTag = parseValue34Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 274
+            case 282: {
+              pendingTag = parseValue35Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 282
+            case 290: {
+              pendingTag = parseValue36Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 290
+            case 298: {
+              pendingTag = parseValue37Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 298
+            case 306: {
+              pendingTag = parseValue38Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 306
+            case 314: {
+              pendingTag = parseValue39Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 314
+            case 322: {
+              pendingTag = parseValue40Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 322
+            case 330: {
+              pendingTag = parseValue41Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 330
+            case 338: {
+              pendingTag = parseValue42Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 338
+            case 346: {
+              pendingTag = parseValue43Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 346
+            case 354: {
+              pendingTag = parseValue44Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 354
+            case 362: {
+              pendingTag = parseValue45Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 362
+            case 370: {
+              pendingTag = parseValue46Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 370
+            case 378: {
+              pendingTag = parseValue47Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 378
+            case 386: {
+              pendingTag = parseValue48Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 386
+            case 394: {
+              pendingTag = parseValue49Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 394
+            case 402: {
+              pendingTag = parseValue50Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 402
+            case 410: {
+              pendingTag = parseValue51Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 410
+            case 418: {
+              pendingTag = parseValue52Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 418
+            case 426: {
+              pendingTag = parseValue53Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 426
+            case 434: {
+              pendingTag = parseValue54Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 434
+            case 442: {
+              pendingTag = parseValue55Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 442
+            case 450: {
+              pendingTag = parseValue56Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 450
+            case 458: {
+              pendingTag = parseValue57Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 458
+            case 466: {
+              pendingTag = parseValue58Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 466
+            case 474: {
+              pendingTag = parseValue59Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 474
+            case 482: {
+              pendingTag = parseValue60Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 482
+            case 490: {
+              pendingTag = parseValue61Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 490
+            case 498: {
+              pendingTag = parseValue62Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 498
+            case 506: {
+              pendingTag = parseValue63Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 506
+            case 514: {
+              pendingTag = parseValue64Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 514
+            case 522: {
+              pendingTag = parseValue65Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 522
+            case 530: {
+              pendingTag = parseValue66Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 530
+            case 538: {
+              pendingTag = parseValue67Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 538
+            case 546: {
+              pendingTag = parseValue68Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 546
+            case 554: {
+              pendingTag = parseValue69Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 554
+            case 562: {
+              pendingTag = parseValue70Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 562
+            case 570: {
+              pendingTag = parseValue71Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 570
+            case 578: {
+              pendingTag = parseValue72Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 578
+            case 586: {
+              pendingTag = parseValue73Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 586
+            case 594: {
+              pendingTag = parseValue74Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 594
+            case 602: {
+              pendingTag = parseValue75Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 602
+            case 610: {
+              pendingTag = parseValue76Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 610
+            case 618: {
+              pendingTag = parseValue77Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 618
+            case 626: {
+              pendingTag = parseValue78Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 626
+            case 634: {
+              pendingTag = parseValue79Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 634
+            case 642: {
+              pendingTag = parseValue80Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 642
+            case 650: {
+              pendingTag = parseValue81Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 650
+            case 658: {
+              pendingTag = parseValue82Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 658
+            case 666: {
+              pendingTag = parseValue83Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 666
+            case 674: {
+              pendingTag = parseValue84Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 674
+            case 682: {
+              pendingTag = parseValue85Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 682
+            case 690: {
+              pendingTag = parseValue86Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 690
+            case 698: {
+              pendingTag = parseValue87Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 698
+            case 706: {
+              pendingTag = parseValue88Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 706
+            case 714: {
+              pendingTag = parseValue89Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 714
+            case 722: {
+              pendingTag = parseValue90Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 722
+            case 730: {
+              pendingTag = parseValue91Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 730
+            case 738: {
+              pendingTag = parseValue92Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 738
+            case 746: {
+              pendingTag = parseValue93Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 746
+            case 754: {
+              pendingTag = parseValue94Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 754
+            case 762: {
+              pendingTag = parseValue95Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 762
+            case 770: {
+              pendingTag = parseValue96Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 770
+            case 778: {
+              pendingTag = parseValue97Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 778
+            case 786: {
+              pendingTag = parseValue98Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 786
+            case 794: {
+              pendingTag = parseValue99Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 794
+            case 802: {
+              pendingTag = parseValue100Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 802
+            case 810: {
+              pendingTag = parseValue101Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 810
+            case 818: {
+              pendingTag = parseValue102Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 818
+            case 826: {
+              pendingTag = parseValue103Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 826
+            case 834: {
+              pendingTag = parseValue104Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 834
+            case 842: {
+              pendingTag = parseValue105Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 842
+            case 850: {
+              pendingTag = parseValue106Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 850
+            case 858: {
+              pendingTag = parseValue107Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 858
+            case 866: {
+              pendingTag = parseValue108Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 866
+            case 874: {
+              pendingTag = parseValue109Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 874
+            case 882: {
+              pendingTag = parseValue110Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 882
+            case 890: {
+              pendingTag = parseValue111Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 890
+            case 898: {
+              pendingTag = parseValue112Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 898
+            case 906: {
+              pendingTag = parseValue113Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 906
+            case 914: {
+              pendingTag = parseValue114Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 914
+            case 922: {
+              pendingTag = parseValue115Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 922
+            case 930: {
+              pendingTag = parseValue116Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 930
+            case 938: {
+              pendingTag = parseValue117Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 938
+            case 946: {
+              pendingTag = parseValue118Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 946
+            case 954: {
+              pendingTag = parseValue119Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 954
+            case 962: {
+              pendingTag = parseValue120Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 962
+            case 970: {
+              pendingTag = parseValue121Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 970
+            case 978: {
+              pendingTag = parseValue122Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 978
+            case 986: {
+              pendingTag = parseValue123Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 986
+            case 994: {
+              pendingTag = parseValue124Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 994
+            case 1002: {
+              pendingTag = parseValue125Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 1002
+            case 1010: {
+              pendingTag = parseValue126Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 1010
+            case 1018: {
+              pendingTag = parseValue127Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 1018
+            case 1026: {
+              pendingTag = parseValue128Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 1026
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (fieldBuilders != null) finishChildren1(instance, fieldBuilders);
+      if (fieldBuilders != null) finishChildren2(instance, fieldBuilders);
+      if (fieldBuilders != null) finishChildren3(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue1Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 10;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue1FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 1;
+           // fallthrough
+        case 1:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 1;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue1FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[0] == null) {
+        if (!(instance.hasValue1())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 1;
+         // fallthrough
+      case 1:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[0]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue2Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 18;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue2FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 2;
+           // fallthrough
+        case 2:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 2;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue2FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[1] == null) {
+        if (!(instance.hasValue2())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 2;
+         // fallthrough
+      case 2:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[1]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue3Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 26;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue3FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 3;
+           // fallthrough
+        case 3:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 3;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue3FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[2] == null) {
+        if (!(instance.hasValue3())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[2] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 3;
+         // fallthrough
+      case 3:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[2]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue4Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 34;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue4FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 4;
+           // fallthrough
+        case 4:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 4;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue4FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[3] == null) {
+        if (!(instance.hasValue4())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[3] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 4;
+         // fallthrough
+      case 4:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[3]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue5Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 42;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue5FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 5;
+           // fallthrough
+        case 5:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 5;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue5FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[4] == null) {
+        if (!(instance.hasValue5())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[4] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 5;
+         // fallthrough
+      case 5:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[4]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue6Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 50;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue6FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 6;
+           // fallthrough
+        case 6:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 6;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue6FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[5] == null) {
+        if (!(instance.hasValue6())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[5] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 6;
+         // fallthrough
+      case 6:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[5]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue7Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 58;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue7FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 7;
+           // fallthrough
+        case 7:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 7;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue7FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[6] == null) {
+        if (!(instance.hasValue7())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[6] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 7;
+         // fallthrough
+      case 7:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[6]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue8Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 66;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue8FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 8;
+           // fallthrough
+        case 8:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 8;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue8FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[7] == null) {
+        if (!(instance.hasValue8())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[7] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 8;
+         // fallthrough
+      case 8:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[7]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue9Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 74;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue9FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 9;
+           // fallthrough
+        case 9:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 9;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue9FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[8] == null) {
+        if (!(instance.hasValue9())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[8] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 9;
+         // fallthrough
+      case 9:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[8]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue10Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 82;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue10FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 10;
+           // fallthrough
+        case 10:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 10;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue10FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[9] == null) {
+        if (!(instance.hasValue10())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[9] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 10;
+         // fallthrough
+      case 10:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[9]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue11Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 90;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue11FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 11;
+           // fallthrough
+        case 11:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 11;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue11FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[10] == null) {
+        if (!(instance.hasValue11())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[10] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 11;
+         // fallthrough
+      case 11:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[10]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue12Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 98;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue12FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 12;
+           // fallthrough
+        case 12:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 12;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue12FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[11] == null) {
+        if (!(instance.hasValue12())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[11] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 12;
+         // fallthrough
+      case 12:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[11]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue13Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 106;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue13FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 13;
+           // fallthrough
+        case 13:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 13;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue13FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[12] == null) {
+        if (!(instance.hasValue13())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[12] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 13;
+         // fallthrough
+      case 13:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[12]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue14Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 114;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue14FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 14;
+           // fallthrough
+        case 14:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 14;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue14FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[13] == null) {
+        if (!(instance.hasValue14())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[13] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 14;
+         // fallthrough
+      case 14:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[13]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue15Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 122;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue15FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 15;
+           // fallthrough
+        case 15:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 15;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue15FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[14] == null) {
+        if (!(instance.hasValue15())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[14] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 15;
+         // fallthrough
+      case 15:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[14]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue16Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 130;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue16FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 16;
+           // fallthrough
+        case 16:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 16;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue16FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[15] == null) {
+        if (!(instance.hasValue16())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[15] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 16;
+         // fallthrough
+      case 16:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[15]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue17Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 138;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue17FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 17;
+           // fallthrough
+        case 17:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 17;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue17FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[16] == null) {
+        if (!(instance.hasValue17())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[16] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 17;
+         // fallthrough
+      case 17:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[16]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue18Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 146;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue18FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 18;
+           // fallthrough
+        case 18:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 18;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue18FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[17] == null) {
+        if (!(instance.hasValue18())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[17] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 18;
+         // fallthrough
+      case 18:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[17]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue19Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 154;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue19FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 19;
+           // fallthrough
+        case 19:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 19;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue19FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[18] == null) {
+        if (!(instance.hasValue19())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[18] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 19;
+         // fallthrough
+      case 19:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[18]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue20Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 162;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue20FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 20;
+           // fallthrough
+        case 20:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 20;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue20FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[19] == null) {
+        if (!(instance.hasValue20())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[19] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 20;
+         // fallthrough
+      case 20:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[19]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue21Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 170;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue21FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 21;
+           // fallthrough
+        case 21:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 21;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue21FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[20] == null) {
+        if (!(instance.hasValue21())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[20] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 21;
+         // fallthrough
+      case 21:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[20]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue22Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 178;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue22FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 22;
+           // fallthrough
+        case 22:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 22;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue22FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[21] == null) {
+        if (!(instance.hasValue22())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[21] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 22;
+         // fallthrough
+      case 22:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[21]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue23Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 186;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue23FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 23;
+           // fallthrough
+        case 23:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 23;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue23FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[22] == null) {
+        if (!(instance.hasValue23())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[22] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 23;
+         // fallthrough
+      case 23:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[22]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue24Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 194;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue24FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 24;
+           // fallthrough
+        case 24:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 24;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue24FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[23] == null) {
+        if (!(instance.hasValue24())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[23] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 24;
+         // fallthrough
+      case 24:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[23]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue25Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 202;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue25FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 25;
+           // fallthrough
+        case 25:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 25;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue25FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[24] == null) {
+        if (!(instance.hasValue25())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[24] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 25;
+         // fallthrough
+      case 25:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[24]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue26Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 210;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue26FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 26;
+           // fallthrough
+        case 26:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 26;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue26FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[25] == null) {
+        if (!(instance.hasValue26())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[25] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 26;
+         // fallthrough
+      case 26:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[25]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue27Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 218;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue27FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 27;
+           // fallthrough
+        case 27:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 27;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue27FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[26] == null) {
+        if (!(instance.hasValue27())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[26] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 27;
+         // fallthrough
+      case 27:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[26]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue28Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 226;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue28FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 28;
+           // fallthrough
+        case 28:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 28;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue28FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[27] == null) {
+        if (!(instance.hasValue28())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[27] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 28;
+         // fallthrough
+      case 28:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[27]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue29Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 234;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue29FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 29;
+           // fallthrough
+        case 29:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 29;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue29FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[28] == null) {
+        if (!(instance.hasValue29())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[28] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 29;
+         // fallthrough
+      case 29:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[28]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue30Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 242;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue30FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 30;
+           // fallthrough
+        case 30:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 30;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue30FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[29] == null) {
+        if (!(instance.hasValue30())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[29] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 30;
+         // fallthrough
+      case 30:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[29]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue31Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 250;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue31FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 31;
+           // fallthrough
+        case 31:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 31;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue31FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[30] == null) {
+        if (!(instance.hasValue31())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[30] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 31;
+         // fallthrough
+      case 31:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[30]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue32Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 258;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue32FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 32;
+           // fallthrough
+        case 32:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 32;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue32FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[31] == null) {
+        if (!(instance.hasValue32())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[31] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 32;
+         // fallthrough
+      case 32:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[31]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue33Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 266;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue33FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 33;
+           // fallthrough
+        case 33:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 33;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue33FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[32] == null) {
+        if (!(instance.hasValue33())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[32] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 33;
+         // fallthrough
+      case 33:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[32]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue34Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 274;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue34FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 34;
+           // fallthrough
+        case 34:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 34;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue34FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[33] == null) {
+        if (!(instance.hasValue34())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[33] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 34;
+         // fallthrough
+      case 34:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[33]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue35Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 282;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue35FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 35;
+           // fallthrough
+        case 35:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 35;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue35FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[34] == null) {
+        if (!(instance.hasValue35())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[34] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 35;
+         // fallthrough
+      case 35:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[34]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue36Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 290;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue36FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 36;
+           // fallthrough
+        case 36:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 36;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue36FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[35] == null) {
+        if (!(instance.hasValue36())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[35] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 36;
+         // fallthrough
+      case 36:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[35]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue37Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 298;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue37FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 37;
+           // fallthrough
+        case 37:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 37;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue37FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[36] == null) {
+        if (!(instance.hasValue37())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[36] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 37;
+         // fallthrough
+      case 37:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[36]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue38Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 306;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue38FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 38;
+           // fallthrough
+        case 38:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 38;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue38FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[37] == null) {
+        if (!(instance.hasValue38())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[37] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 38;
+         // fallthrough
+      case 38:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[37]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue39Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 314;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue39FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 39;
+           // fallthrough
+        case 39:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 39;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue39FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[38] == null) {
+        if (!(instance.hasValue39())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[38] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 39;
+         // fallthrough
+      case 39:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[38]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue40Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 322;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue40FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 40;
+           // fallthrough
+        case 40:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 40;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue40FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[39] == null) {
+        if (!(instance.hasValue40())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[39] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 40;
+         // fallthrough
+      case 40:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[39]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue41Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 330;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue41FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 41;
+           // fallthrough
+        case 41:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 41;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue41FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[40] == null) {
+        if (!(instance.hasValue41())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[40] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 41;
+         // fallthrough
+      case 41:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[40]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue42Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 338;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue42FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 42;
+           // fallthrough
+        case 42:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 42;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue42FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[41] == null) {
+        if (!(instance.hasValue42())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[41] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 42;
+         // fallthrough
+      case 42:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[41]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue43Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 346;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue43FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 43;
+           // fallthrough
+        case 43:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 43;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue43FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[42] == null) {
+        if (!(instance.hasValue43())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[42] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 43;
+         // fallthrough
+      case 43:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[42]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue44Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 354;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue44FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 44;
+           // fallthrough
+        case 44:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 44;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue44FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[43] == null) {
+        if (!(instance.hasValue44())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[43] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 44;
+         // fallthrough
+      case 44:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[43]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue45Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 362;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue45FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 45;
+           // fallthrough
+        case 45:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 45;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue45FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[44] == null) {
+        if (!(instance.hasValue45())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[44] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 45;
+         // fallthrough
+      case 45:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[44]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue46Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 370;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue46FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 46;
+           // fallthrough
+        case 46:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 46;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue46FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[45] == null) {
+        if (!(instance.hasValue46())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[45] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 46;
+         // fallthrough
+      case 46:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[45]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue47Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 378;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue47FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 47;
+           // fallthrough
+        case 47:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 47;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue47FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[46] == null) {
+        if (!(instance.hasValue47())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[46] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 47;
+         // fallthrough
+      case 47:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[46]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue48Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 386;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue48FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 48;
+           // fallthrough
+        case 48:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 48;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue48FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[47] == null) {
+        if (!(instance.hasValue48())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[47] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 48;
+         // fallthrough
+      case 48:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[47]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue49Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 394;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue49FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 49;
+           // fallthrough
+        case 49:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 49;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue49FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[48] == null) {
+        if (!(instance.hasValue49())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[48] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 49;
+         // fallthrough
+      case 49:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[48]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue50Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 402;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue50FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 50;
+           // fallthrough
+        case 50:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 50;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue50FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[49] == null) {
+        if (!(instance.hasValue50())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[49] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 50;
+         // fallthrough
+      case 50:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[49]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue51Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 410;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue51FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 51;
+           // fallthrough
+        case 51:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 51;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue51FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[50] == null) {
+        if (!(instance.hasValue51())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[50] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 51;
+         // fallthrough
+      case 51:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[50]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue52Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 418;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue52FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 52;
+           // fallthrough
+        case 52:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 52;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue52FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[51] == null) {
+        if (!(instance.hasValue52())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[51] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 52;
+         // fallthrough
+      case 52:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[51]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue53Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 426;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue53FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 53;
+           // fallthrough
+        case 53:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 53;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue53FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[52] == null) {
+        if (!(instance.hasValue53())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[52] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 53;
+         // fallthrough
+      case 53:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[52]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue54Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 434;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue54FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 54;
+           // fallthrough
+        case 54:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 54;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue54FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[53] == null) {
+        if (!(instance.hasValue54())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[53] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 54;
+         // fallthrough
+      case 54:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[53]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue55Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 442;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue55FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 55;
+           // fallthrough
+        case 55:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 55;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue55FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[54] == null) {
+        if (!(instance.hasValue55())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[54] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 55;
+         // fallthrough
+      case 55:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[54]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue56Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 450;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue56FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 56;
+           // fallthrough
+        case 56:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 56;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue56FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[55] == null) {
+        if (!(instance.hasValue56())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[55] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 56;
+         // fallthrough
+      case 56:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[55]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue57Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 458;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue57FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 57;
+           // fallthrough
+        case 57:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 57;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue57FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[56] == null) {
+        if (!(instance.hasValue57())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[56] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 57;
+         // fallthrough
+      case 57:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[56]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue58Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 466;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue58FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 58;
+           // fallthrough
+        case 58:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 58;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue58FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[57] == null) {
+        if (!(instance.hasValue58())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[57] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 58;
+         // fallthrough
+      case 58:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[57]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue59Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 474;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue59FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 59;
+           // fallthrough
+        case 59:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 59;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue59FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[58] == null) {
+        if (!(instance.hasValue59())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[58] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 59;
+         // fallthrough
+      case 59:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[58]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue60Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 482;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue60FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 60;
+           // fallthrough
+        case 60:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 60;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue60FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[59] == null) {
+        if (!(instance.hasValue60())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[59] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 60;
+         // fallthrough
+      case 60:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[59]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue61Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 490;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue61FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 61;
+           // fallthrough
+        case 61:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 61;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue61FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[60] == null) {
+        if (!(instance.hasValue61())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[60] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 61;
+         // fallthrough
+      case 61:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[60]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue62Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 498;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue62FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 62;
+           // fallthrough
+        case 62:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 62;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue62FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[61] == null) {
+        if (!(instance.hasValue62())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[61] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 62;
+         // fallthrough
+      case 62:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[61]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue63Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 506;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue63FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 63;
+           // fallthrough
+        case 63:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 63;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue63FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[62] == null) {
+        if (!(instance.hasValue63())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[62] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 63;
+         // fallthrough
+      case 63:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[62]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue64Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 514;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue64FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 64;
+           // fallthrough
+        case 64:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 64;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue64FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[63] == null) {
+        if (!(instance.hasValue64())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[63] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 64;
+         // fallthrough
+      case 64:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[63]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue65Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 522;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue65FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 65;
+           // fallthrough
+        case 65:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 65;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue65FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[64] == null) {
+        if (!(instance.hasValue65())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[64] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 65;
+         // fallthrough
+      case 65:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[64]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue66Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 530;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue66FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 66;
+           // fallthrough
+        case 66:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 66;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue66FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[65] == null) {
+        if (!(instance.hasValue66())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[65] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 66;
+         // fallthrough
+      case 66:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[65]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue67Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 538;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue67FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 67;
+           // fallthrough
+        case 67:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 67;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue67FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[66] == null) {
+        if (!(instance.hasValue67())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[66] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 67;
+         // fallthrough
+      case 67:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[66]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue68Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 546;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue68FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 68;
+           // fallthrough
+        case 68:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 68;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue68FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[67] == null) {
+        if (!(instance.hasValue68())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[67] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 68;
+         // fallthrough
+      case 68:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[67]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue69Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 554;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue69FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 69;
+           // fallthrough
+        case 69:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 69;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue69FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[68] == null) {
+        if (!(instance.hasValue69())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[68] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 69;
+         // fallthrough
+      case 69:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[68]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue70Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 562;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue70FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 70;
+           // fallthrough
+        case 70:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 70;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue70FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[69] == null) {
+        if (!(instance.hasValue70())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[69] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 70;
+         // fallthrough
+      case 70:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[69]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue71Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 570;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue71FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 71;
+           // fallthrough
+        case 71:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 71;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue71FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[70] == null) {
+        if (!(instance.hasValue71())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[70] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 71;
+         // fallthrough
+      case 71:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[70]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue72Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 578;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue72FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 72;
+           // fallthrough
+        case 72:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 72;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue72FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[71] == null) {
+        if (!(instance.hasValue72())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[71] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 72;
+         // fallthrough
+      case 72:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[71]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue73Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 586;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue73FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 73;
+           // fallthrough
+        case 73:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 73;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue73FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[72] == null) {
+        if (!(instance.hasValue73())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[72] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 73;
+         // fallthrough
+      case 73:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[72]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue74Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 594;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue74FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 74;
+           // fallthrough
+        case 74:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 74;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue74FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[73] == null) {
+        if (!(instance.hasValue74())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[73] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 74;
+         // fallthrough
+      case 74:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[73]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue75Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 602;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue75FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 75;
+           // fallthrough
+        case 75:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 75;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue75FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[74] == null) {
+        if (!(instance.hasValue75())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[74] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 75;
+         // fallthrough
+      case 75:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[74]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue76Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 610;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue76FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 76;
+           // fallthrough
+        case 76:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 76;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue76FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[75] == null) {
+        if (!(instance.hasValue76())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[75] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 76;
+         // fallthrough
+      case 76:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[75]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue77Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 618;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue77FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 77;
+           // fallthrough
+        case 77:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 77;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue77FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[76] == null) {
+        if (!(instance.hasValue77())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[76] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 77;
+         // fallthrough
+      case 77:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[76]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue78Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 626;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue78FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 78;
+           // fallthrough
+        case 78:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 78;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue78FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[77] == null) {
+        if (!(instance.hasValue78())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[77] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 78;
+         // fallthrough
+      case 78:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[77]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue79Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 634;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue79FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 79;
+           // fallthrough
+        case 79:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 79;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue79FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[78] == null) {
+        if (!(instance.hasValue79())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[78] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 79;
+         // fallthrough
+      case 79:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[78]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue80Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 642;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue80FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 80;
+           // fallthrough
+        case 80:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 80;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue80FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[79] == null) {
+        if (!(instance.hasValue80())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[79] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 80;
+         // fallthrough
+      case 80:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[79]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue81Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 650;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue81FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 81;
+           // fallthrough
+        case 81:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 81;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue81FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[80] == null) {
+        if (!(instance.hasValue81())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[80] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 81;
+         // fallthrough
+      case 81:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[80]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue82Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 658;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue82FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 82;
+           // fallthrough
+        case 82:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 82;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue82FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[81] == null) {
+        if (!(instance.hasValue82())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[81] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 82;
+         // fallthrough
+      case 82:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[81]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue83Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 666;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue83FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 83;
+           // fallthrough
+        case 83:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 83;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue83FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[82] == null) {
+        if (!(instance.hasValue83())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[82] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 83;
+         // fallthrough
+      case 83:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[82]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue84Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 674;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue84FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 84;
+           // fallthrough
+        case 84:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 84;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue84FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[83] == null) {
+        if (!(instance.hasValue84())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[83] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 84;
+         // fallthrough
+      case 84:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[83]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue85Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 682;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue85FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 85;
+           // fallthrough
+        case 85:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 85;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue85FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[84] == null) {
+        if (!(instance.hasValue85())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[84] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 85;
+         // fallthrough
+      case 85:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[84]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue86Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 690;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue86FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 86;
+           // fallthrough
+        case 86:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 86;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue86FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[85] == null) {
+        if (!(instance.hasValue86())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[85] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 86;
+         // fallthrough
+      case 86:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[85]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue87Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 698;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue87FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 87;
+           // fallthrough
+        case 87:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 87;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue87FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[86] == null) {
+        if (!(instance.hasValue87())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[86] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 87;
+         // fallthrough
+      case 87:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[86]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue88Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 706;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue88FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 88;
+           // fallthrough
+        case 88:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 88;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue88FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[87] == null) {
+        if (!(instance.hasValue88())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[87] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 88;
+         // fallthrough
+      case 88:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[87]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue89Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 714;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue89FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 89;
+           // fallthrough
+        case 89:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 89;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue89FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[88] == null) {
+        if (!(instance.hasValue89())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[88] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 89;
+         // fallthrough
+      case 89:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[88]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue90Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 722;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue90FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 90;
+           // fallthrough
+        case 90:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 90;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue90FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[89] == null) {
+        if (!(instance.hasValue90())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[89] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 90;
+         // fallthrough
+      case 90:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[89]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue91Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 730;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue91FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 91;
+           // fallthrough
+        case 91:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 91;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue91FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[90] == null) {
+        if (!(instance.hasValue91())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[90] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 91;
+         // fallthrough
+      case 91:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[90]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue92Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 738;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue92FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 92;
+           // fallthrough
+        case 92:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 92;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue92FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[91] == null) {
+        if (!(instance.hasValue92())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[91] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 92;
+         // fallthrough
+      case 92:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[91]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue93Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 746;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue93FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 93;
+           // fallthrough
+        case 93:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 93;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue93FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[92] == null) {
+        if (!(instance.hasValue93())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[92] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 93;
+         // fallthrough
+      case 93:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[92]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue94Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 754;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue94FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 94;
+           // fallthrough
+        case 94:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 94;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue94FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[93] == null) {
+        if (!(instance.hasValue94())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[93] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 94;
+         // fallthrough
+      case 94:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[93]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue95Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 762;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue95FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 95;
+           // fallthrough
+        case 95:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 95;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue95FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[94] == null) {
+        if (!(instance.hasValue95())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[94] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 95;
+         // fallthrough
+      case 95:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[94]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue96Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 770;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue96FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 96;
+           // fallthrough
+        case 96:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 96;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue96FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[95] == null) {
+        if (!(instance.hasValue96())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[95] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 96;
+         // fallthrough
+      case 96:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[95]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue97Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 778;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue97FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 97;
+           // fallthrough
+        case 97:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 97;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue97FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[96] == null) {
+        if (!(instance.hasValue97())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[96] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 97;
+         // fallthrough
+      case 97:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[96]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue98Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 786;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue98FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 98;
+           // fallthrough
+        case 98:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 98;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue98FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[97] == null) {
+        if (!(instance.hasValue98())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[97] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 98;
+         // fallthrough
+      case 98:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[97]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue99Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 794;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue99FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 99;
+           // fallthrough
+        case 99:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 99;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue99FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[98] == null) {
+        if (!(instance.hasValue99())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[98] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 99;
+         // fallthrough
+      case 99:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[98]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue100Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 802;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue100FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 100;
+           // fallthrough
+        case 100:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 100;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue100FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[99] == null) {
+        if (!(instance.hasValue100())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[99] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 100;
+         // fallthrough
+      case 100:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[99]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue101Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 810;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue101FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 101;
+           // fallthrough
+        case 101:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 101;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue101FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[100] == null) {
+        if (!(instance.hasValue101())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[100] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 101;
+         // fallthrough
+      case 101:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[100]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue102Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 818;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue102FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 102;
+           // fallthrough
+        case 102:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 102;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue102FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[101] == null) {
+        if (!(instance.hasValue102())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[101] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 102;
+         // fallthrough
+      case 102:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[101]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue103Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 826;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue103FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 103;
+           // fallthrough
+        case 103:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 103;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue103FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[102] == null) {
+        if (!(instance.hasValue103())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[102] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 103;
+         // fallthrough
+      case 103:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[102]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue104Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 834;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue104FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 104;
+           // fallthrough
+        case 104:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 104;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue104FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[103] == null) {
+        if (!(instance.hasValue104())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[103] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 104;
+         // fallthrough
+      case 104:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[103]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue105Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 842;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue105FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 105;
+           // fallthrough
+        case 105:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 105;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue105FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[104] == null) {
+        if (!(instance.hasValue105())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[104] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 105;
+         // fallthrough
+      case 105:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[104]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue106Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 850;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue106FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 106;
+           // fallthrough
+        case 106:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 106;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue106FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[105] == null) {
+        if (!(instance.hasValue106())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[105] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 106;
+         // fallthrough
+      case 106:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[105]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue107Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 858;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue107FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 107;
+           // fallthrough
+        case 107:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 107;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue107FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[106] == null) {
+        if (!(instance.hasValue107())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[106] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 107;
+         // fallthrough
+      case 107:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[106]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue108Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 866;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue108FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 108;
+           // fallthrough
+        case 108:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 108;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue108FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[107] == null) {
+        if (!(instance.hasValue108())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[107] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 108;
+         // fallthrough
+      case 108:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[107]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue109Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 874;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue109FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 109;
+           // fallthrough
+        case 109:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 109;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue109FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[108] == null) {
+        if (!(instance.hasValue109())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[108] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 109;
+         // fallthrough
+      case 109:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[108]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue110Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 882;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue110FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 110;
+           // fallthrough
+        case 110:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 110;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue110FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[109] == null) {
+        if (!(instance.hasValue110())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[109] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 110;
+         // fallthrough
+      case 110:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[109]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue111Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 890;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue111FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 111;
+           // fallthrough
+        case 111:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 111;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue111FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[110] == null) {
+        if (!(instance.hasValue111())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[110] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 111;
+         // fallthrough
+      case 111:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[110]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue112Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 898;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue112FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 112;
+           // fallthrough
+        case 112:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 112;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue112FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[111] == null) {
+        if (!(instance.hasValue112())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[111] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 112;
+         // fallthrough
+      case 112:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[111]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue113Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 906;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue113FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 113;
+           // fallthrough
+        case 113:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 113;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue113FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[112] == null) {
+        if (!(instance.hasValue113())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[112] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 113;
+         // fallthrough
+      case 113:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[112]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue114Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 914;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue114FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 114;
+           // fallthrough
+        case 114:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 114;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue114FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[113] == null) {
+        if (!(instance.hasValue114())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[113] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 114;
+         // fallthrough
+      case 114:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[113]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue115Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 922;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue115FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 115;
+           // fallthrough
+        case 115:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 115;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue115FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[114] == null) {
+        if (!(instance.hasValue115())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[114] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 115;
+         // fallthrough
+      case 115:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[114]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue116Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 930;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue116FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 116;
+           // fallthrough
+        case 116:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 116;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue116FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[115] == null) {
+        if (!(instance.hasValue116())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[115] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 116;
+         // fallthrough
+      case 116:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[115]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue117Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 938;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue117FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 117;
+           // fallthrough
+        case 117:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 117;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue117FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[116] == null) {
+        if (!(instance.hasValue117())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[116] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 117;
+         // fallthrough
+      case 117:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[116]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue118Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 946;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue118FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 118;
+           // fallthrough
+        case 118:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 118;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue118FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[117] == null) {
+        if (!(instance.hasValue118())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[117] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 118;
+         // fallthrough
+      case 118:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[117]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue119Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 954;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue119FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 119;
+           // fallthrough
+        case 119:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 119;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue119FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[118] == null) {
+        if (!(instance.hasValue119())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[118] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 119;
+         // fallthrough
+      case 119:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[118]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue120Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 962;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue120FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 120;
+           // fallthrough
+        case 120:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 120;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue120FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[119] == null) {
+        if (!(instance.hasValue120())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[119] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 120;
+         // fallthrough
+      case 120:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[119]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue121Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 970;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue121FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 121;
+           // fallthrough
+        case 121:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 121;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue121FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[120] == null) {
+        if (!(instance.hasValue121())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[120] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 121;
+         // fallthrough
+      case 121:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[120]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue122Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 978;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue122FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 122;
+           // fallthrough
+        case 122:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 122;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue122FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[121] == null) {
+        if (!(instance.hasValue122())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[121] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 122;
+         // fallthrough
+      case 122:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[121]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue123Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 986;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue123FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 123;
+           // fallthrough
+        case 123:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 123;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue123FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[122] == null) {
+        if (!(instance.hasValue123())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[122] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 123;
+         // fallthrough
+      case 123:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[122]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue124Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 994;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue124FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 124;
+           // fallthrough
+        case 124:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 124;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue124FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[123] == null) {
+        if (!(instance.hasValue124())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[123] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 124;
+         // fallthrough
+      case 124:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[123]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue125Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 1002;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue125FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 125;
+           // fallthrough
+        case 125:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 125;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue125FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[124] == null) {
+        if (!(instance.hasValue125())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[124] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 125;
+         // fallthrough
+      case 125:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[124]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue126Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 1010;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue126FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 126;
+           // fallthrough
+        case 126:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 126;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue126FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[125] == null) {
+        if (!(instance.hasValue126())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[125] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 126;
+         // fallthrough
+      case 126:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[125]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue127Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 1018;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue127FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 127;
+           // fallthrough
+        case 127:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 127;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue127FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[126] == null) {
+        if (!(instance.hasValue127())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[126] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 127;
+         // fallthrough
+      case 127:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[126]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue128Field(
+        com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.choice_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 1026;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetValue128FieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.choiceCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.choiceCase_ = 128;
+           // fallthrough
+        case 128:
+          break;
+        }
+        return 0;
+      }
+      instance.choiceCase_ = 128;
+      instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      try {
+        instance.choice_ = input.readMessage(com.google.protobuf.test.WideMessageOneof.Child.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>
+        internalGetValue128FieldBuilder(
+            com.google.protobuf.test.WideMessageOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[127] == null) {
+        if (!(instance.hasValue128())) {
+          instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+        }
+        fieldBuilders[127] = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+                null,
+                false);
+        instance.choice_ = null;
+      }
+      switch (instance.choiceCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.choiceCase_ = 128;
+         // fallthrough
+      case 128:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[127]);
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        WideMessageOneof instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[128];
+      switch (instance.choiceCase_) {
+        case 1:
+          if (tag != 10) {
+        internalGetValue1FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 2:
+          if (tag != 18) {
+        internalGetValue2FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 3:
+          if (tag != 26) {
+        internalGetValue3FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 4:
+          if (tag != 34) {
+        internalGetValue4FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 5:
+          if (tag != 42) {
+        internalGetValue5FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 6:
+          if (tag != 50) {
+        internalGetValue6FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 7:
+          if (tag != 58) {
+        internalGetValue7FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 8:
+          if (tag != 66) {
+        internalGetValue8FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 9:
+          if (tag != 74) {
+        internalGetValue9FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 10:
+          if (tag != 82) {
+        internalGetValue10FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 11:
+          if (tag != 90) {
+        internalGetValue11FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 12:
+          if (tag != 98) {
+        internalGetValue12FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 13:
+          if (tag != 106) {
+        internalGetValue13FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 14:
+          if (tag != 114) {
+        internalGetValue14FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 15:
+          if (tag != 122) {
+        internalGetValue15FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 16:
+          if (tag != 130) {
+        internalGetValue16FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 17:
+          if (tag != 138) {
+        internalGetValue17FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 18:
+          if (tag != 146) {
+        internalGetValue18FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 19:
+          if (tag != 154) {
+        internalGetValue19FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 20:
+          if (tag != 162) {
+        internalGetValue20FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 21:
+          if (tag != 170) {
+        internalGetValue21FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 22:
+          if (tag != 178) {
+        internalGetValue22FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 23:
+          if (tag != 186) {
+        internalGetValue23FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 24:
+          if (tag != 194) {
+        internalGetValue24FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 25:
+          if (tag != 202) {
+        internalGetValue25FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 26:
+          if (tag != 210) {
+        internalGetValue26FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 27:
+          if (tag != 218) {
+        internalGetValue27FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 28:
+          if (tag != 226) {
+        internalGetValue28FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 29:
+          if (tag != 234) {
+        internalGetValue29FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 30:
+          if (tag != 242) {
+        internalGetValue30FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 31:
+          if (tag != 250) {
+        internalGetValue31FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 32:
+          if (tag != 258) {
+        internalGetValue32FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 33:
+          if (tag != 266) {
+        internalGetValue33FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 34:
+          if (tag != 274) {
+        internalGetValue34FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 35:
+          if (tag != 282) {
+        internalGetValue35FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 36:
+          if (tag != 290) {
+        internalGetValue36FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 37:
+          if (tag != 298) {
+        internalGetValue37FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 38:
+          if (tag != 306) {
+        internalGetValue38FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 39:
+          if (tag != 314) {
+        internalGetValue39FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 40:
+          if (tag != 322) {
+        internalGetValue40FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 41:
+          if (tag != 330) {
+        internalGetValue41FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 42:
+          if (tag != 338) {
+        internalGetValue42FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 43:
+          if (tag != 346) {
+        internalGetValue43FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 44:
+          if (tag != 354) {
+        internalGetValue44FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 45:
+          if (tag != 362) {
+        internalGetValue45FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 46:
+          if (tag != 370) {
+        internalGetValue46FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 47:
+          if (tag != 378) {
+        internalGetValue47FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 48:
+          if (tag != 386) {
+        internalGetValue48FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 49:
+          if (tag != 394) {
+        internalGetValue49FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 50:
+          if (tag != 402) {
+        internalGetValue50FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 51:
+          if (tag != 410) {
+        internalGetValue51FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 52:
+          if (tag != 418) {
+        internalGetValue52FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 53:
+          if (tag != 426) {
+        internalGetValue53FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 54:
+          if (tag != 434) {
+        internalGetValue54FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 55:
+          if (tag != 442) {
+        internalGetValue55FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 56:
+          if (tag != 450) {
+        internalGetValue56FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 57:
+          if (tag != 458) {
+        internalGetValue57FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 58:
+          if (tag != 466) {
+        internalGetValue58FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 59:
+          if (tag != 474) {
+        internalGetValue59FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 60:
+          if (tag != 482) {
+        internalGetValue60FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 61:
+          if (tag != 490) {
+        internalGetValue61FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 62:
+          if (tag != 498) {
+        internalGetValue62FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 63:
+          if (tag != 506) {
+        internalGetValue63FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 64:
+          if (tag != 514) {
+        internalGetValue64FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 65:
+          if (tag != 522) {
+        internalGetValue65FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 66:
+          if (tag != 530) {
+        internalGetValue66FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 67:
+          if (tag != 538) {
+        internalGetValue67FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 68:
+          if (tag != 546) {
+        internalGetValue68FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 69:
+          if (tag != 554) {
+        internalGetValue69FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 70:
+          if (tag != 562) {
+        internalGetValue70FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 71:
+          if (tag != 570) {
+        internalGetValue71FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 72:
+          if (tag != 578) {
+        internalGetValue72FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 73:
+          if (tag != 586) {
+        internalGetValue73FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 74:
+          if (tag != 594) {
+        internalGetValue74FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 75:
+          if (tag != 602) {
+        internalGetValue75FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 76:
+          if (tag != 610) {
+        internalGetValue76FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 77:
+          if (tag != 618) {
+        internalGetValue77FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 78:
+          if (tag != 626) {
+        internalGetValue78FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 79:
+          if (tag != 634) {
+        internalGetValue79FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 80:
+          if (tag != 642) {
+        internalGetValue80FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 81:
+          if (tag != 650) {
+        internalGetValue81FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 82:
+          if (tag != 658) {
+        internalGetValue82FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 83:
+          if (tag != 666) {
+        internalGetValue83FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 84:
+          if (tag != 674) {
+        internalGetValue84FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 85:
+          if (tag != 682) {
+        internalGetValue85FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 86:
+          if (tag != 690) {
+        internalGetValue86FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 87:
+          if (tag != 698) {
+        internalGetValue87FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 88:
+          if (tag != 706) {
+        internalGetValue88FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 89:
+          if (tag != 714) {
+        internalGetValue89FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 90:
+          if (tag != 722) {
+        internalGetValue90FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 91:
+          if (tag != 730) {
+        internalGetValue91FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 92:
+          if (tag != 738) {
+        internalGetValue92FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 93:
+          if (tag != 746) {
+        internalGetValue93FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 94:
+          if (tag != 754) {
+        internalGetValue94FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 95:
+          if (tag != 762) {
+        internalGetValue95FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 96:
+          if (tag != 770) {
+        internalGetValue96FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 97:
+          if (tag != 778) {
+        internalGetValue97FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 98:
+          if (tag != 786) {
+        internalGetValue98FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 99:
+          if (tag != 794) {
+        internalGetValue99FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 100:
+          if (tag != 802) {
+        internalGetValue100FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 101:
+          if (tag != 810) {
+        internalGetValue101FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 102:
+          if (tag != 818) {
+        internalGetValue102FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 103:
+          if (tag != 826) {
+        internalGetValue103FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 104:
+          if (tag != 834) {
+        internalGetValue104FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 105:
+          if (tag != 842) {
+        internalGetValue105FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 106:
+          if (tag != 850) {
+        internalGetValue106FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 107:
+          if (tag != 858) {
+        internalGetValue107FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 108:
+          if (tag != 866) {
+        internalGetValue108FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 109:
+          if (tag != 874) {
+        internalGetValue109FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 110:
+          if (tag != 882) {
+        internalGetValue110FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 111:
+          if (tag != 890) {
+        internalGetValue111FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 112:
+          if (tag != 898) {
+        internalGetValue112FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 113:
+          if (tag != 906) {
+        internalGetValue113FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 114:
+          if (tag != 914) {
+        internalGetValue114FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 115:
+          if (tag != 922) {
+        internalGetValue115FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 116:
+          if (tag != 930) {
+        internalGetValue116FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 117:
+          if (tag != 938) {
+        internalGetValue117FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 118:
+          if (tag != 946) {
+        internalGetValue118FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 119:
+          if (tag != 954) {
+        internalGetValue119FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 120:
+          if (tag != 962) {
+        internalGetValue120FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 121:
+          if (tag != 970) {
+        internalGetValue121FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 122:
+          if (tag != 978) {
+        internalGetValue122FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 123:
+          if (tag != 986) {
+        internalGetValue123FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 124:
+          if (tag != 994) {
+        internalGetValue124FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 125:
+          if (tag != 1002) {
+        internalGetValue125FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 126:
+          if (tag != 1010) {
+        internalGetValue126FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 127:
+          if (tag != 1018) {
+        internalGetValue127FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 128:
+          if (tag != 1026) {
+        internalGetValue128FieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        default: break;
+      }
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        WideMessageOneof instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?> child = null;
+        switch (instance.choiceCase_) {
+          case 1: child = fieldBuilders[0]; break;
+          case 2: child = fieldBuilders[1]; break;
+          case 3: child = fieldBuilders[2]; break;
+          case 4: child = fieldBuilders[3]; break;
+          case 5: child = fieldBuilders[4]; break;
+          case 6: child = fieldBuilders[5]; break;
+          case 7: child = fieldBuilders[6]; break;
+          case 8: child = fieldBuilders[7]; break;
+          case 9: child = fieldBuilders[8]; break;
+          case 10: child = fieldBuilders[9]; break;
+          case 11: child = fieldBuilders[10]; break;
+          case 12: child = fieldBuilders[11]; break;
+          case 13: child = fieldBuilders[12]; break;
+          case 14: child = fieldBuilders[13]; break;
+          case 15: child = fieldBuilders[14]; break;
+          case 16: child = fieldBuilders[15]; break;
+          case 17: child = fieldBuilders[16]; break;
+          case 18: child = fieldBuilders[17]; break;
+          case 19: child = fieldBuilders[18]; break;
+          case 20: child = fieldBuilders[19]; break;
+          case 21: child = fieldBuilders[20]; break;
+          case 22: child = fieldBuilders[21]; break;
+          case 23: child = fieldBuilders[22]; break;
+          case 24: child = fieldBuilders[23]; break;
+          case 25: child = fieldBuilders[24]; break;
+          case 26: child = fieldBuilders[25]; break;
+          case 27: child = fieldBuilders[26]; break;
+          case 28: child = fieldBuilders[27]; break;
+          case 29: child = fieldBuilders[28]; break;
+          case 30: child = fieldBuilders[29]; break;
+          case 31: child = fieldBuilders[30]; break;
+          case 32: child = fieldBuilders[31]; break;
+          default: break;
+        }
+        if (child != null) {
+          instance.choice_ = child == null
+              ? instance.choice_
+              : child.build();
+        }
+      }
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren1(
+        WideMessageOneof instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?> child = null;
+        switch (instance.choiceCase_) {
+          case 33: child = fieldBuilders[32]; break;
+          case 34: child = fieldBuilders[33]; break;
+          case 35: child = fieldBuilders[34]; break;
+          case 36: child = fieldBuilders[35]; break;
+          case 37: child = fieldBuilders[36]; break;
+          case 38: child = fieldBuilders[37]; break;
+          case 39: child = fieldBuilders[38]; break;
+          case 40: child = fieldBuilders[39]; break;
+          case 41: child = fieldBuilders[40]; break;
+          case 42: child = fieldBuilders[41]; break;
+          case 43: child = fieldBuilders[42]; break;
+          case 44: child = fieldBuilders[43]; break;
+          case 45: child = fieldBuilders[44]; break;
+          case 46: child = fieldBuilders[45]; break;
+          case 47: child = fieldBuilders[46]; break;
+          case 48: child = fieldBuilders[47]; break;
+          case 49: child = fieldBuilders[48]; break;
+          case 50: child = fieldBuilders[49]; break;
+          case 51: child = fieldBuilders[50]; break;
+          case 52: child = fieldBuilders[51]; break;
+          case 53: child = fieldBuilders[52]; break;
+          case 54: child = fieldBuilders[53]; break;
+          case 55: child = fieldBuilders[54]; break;
+          case 56: child = fieldBuilders[55]; break;
+          case 57: child = fieldBuilders[56]; break;
+          case 58: child = fieldBuilders[57]; break;
+          case 59: child = fieldBuilders[58]; break;
+          case 60: child = fieldBuilders[59]; break;
+          case 61: child = fieldBuilders[60]; break;
+          case 62: child = fieldBuilders[61]; break;
+          case 63: child = fieldBuilders[62]; break;
+          case 64: child = fieldBuilders[63]; break;
+          default: break;
+        }
+        if (child != null) {
+          instance.choice_ = child == null
+              ? instance.choice_
+              : child.build();
+        }
+      }
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren2(
+        WideMessageOneof instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?> child = null;
+        switch (instance.choiceCase_) {
+          case 65: child = fieldBuilders[64]; break;
+          case 66: child = fieldBuilders[65]; break;
+          case 67: child = fieldBuilders[66]; break;
+          case 68: child = fieldBuilders[67]; break;
+          case 69: child = fieldBuilders[68]; break;
+          case 70: child = fieldBuilders[69]; break;
+          case 71: child = fieldBuilders[70]; break;
+          case 72: child = fieldBuilders[71]; break;
+          case 73: child = fieldBuilders[72]; break;
+          case 74: child = fieldBuilders[73]; break;
+          case 75: child = fieldBuilders[74]; break;
+          case 76: child = fieldBuilders[75]; break;
+          case 77: child = fieldBuilders[76]; break;
+          case 78: child = fieldBuilders[77]; break;
+          case 79: child = fieldBuilders[78]; break;
+          case 80: child = fieldBuilders[79]; break;
+          case 81: child = fieldBuilders[80]; break;
+          case 82: child = fieldBuilders[81]; break;
+          case 83: child = fieldBuilders[82]; break;
+          case 84: child = fieldBuilders[83]; break;
+          case 85: child = fieldBuilders[84]; break;
+          case 86: child = fieldBuilders[85]; break;
+          case 87: child = fieldBuilders[86]; break;
+          case 88: child = fieldBuilders[87]; break;
+          case 89: child = fieldBuilders[88]; break;
+          case 90: child = fieldBuilders[89]; break;
+          case 91: child = fieldBuilders[90]; break;
+          case 92: child = fieldBuilders[91]; break;
+          case 93: child = fieldBuilders[92]; break;
+          case 94: child = fieldBuilders[93]; break;
+          case 95: child = fieldBuilders[94]; break;
+          case 96: child = fieldBuilders[95]; break;
+          default: break;
+        }
+        if (child != null) {
+          instance.choice_ = child == null
+              ? instance.choice_
+              : child.build();
+        }
+      }
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren3(
+        WideMessageOneof instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?> child = null;
+        switch (instance.choiceCase_) {
+          case 97: child = fieldBuilders[96]; break;
+          case 98: child = fieldBuilders[97]; break;
+          case 99: child = fieldBuilders[98]; break;
+          case 100: child = fieldBuilders[99]; break;
+          case 101: child = fieldBuilders[100]; break;
+          case 102: child = fieldBuilders[101]; break;
+          case 103: child = fieldBuilders[102]; break;
+          case 104: child = fieldBuilders[103]; break;
+          case 105: child = fieldBuilders[104]; break;
+          case 106: child = fieldBuilders[105]; break;
+          case 107: child = fieldBuilders[106]; break;
+          case 108: child = fieldBuilders[107]; break;
+          case 109: child = fieldBuilders[108]; break;
+          case 110: child = fieldBuilders[109]; break;
+          case 111: child = fieldBuilders[110]; break;
+          case 112: child = fieldBuilders[111]; break;
+          case 113: child = fieldBuilders[112]; break;
+          case 114: child = fieldBuilders[113]; break;
+          case 115: child = fieldBuilders[114]; break;
+          case 116: child = fieldBuilders[115]; break;
+          case 117: child = fieldBuilders[116]; break;
+          case 118: child = fieldBuilders[117]; break;
+          case 119: child = fieldBuilders[118]; break;
+          case 120: child = fieldBuilders[119]; break;
+          case 121: child = fieldBuilders[120]; break;
+          case 122: child = fieldBuilders[121]; break;
+          case 123: child = fieldBuilders[122]; break;
+          case 124: child = fieldBuilders[123]; break;
+          case 125: child = fieldBuilders[124]; break;
+          case 126: child = fieldBuilders[125]; break;
+          case 127: child = fieldBuilders[126]; break;
+          case 128: child = fieldBuilders[127]; break;
+          default: break;
+        }
+        if (child != null) {
+          instance.choice_ = child == null
+              ? instance.choice_
+              : child.build();
+        }
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<WideMessageOneof> parser() {
     return PARSER;

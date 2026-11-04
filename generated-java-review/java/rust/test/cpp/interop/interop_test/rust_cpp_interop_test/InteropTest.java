@@ -416,7 +416,7 @@ public final class InteropTest extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -446,14 +446,28 @@ public final class InteropTest extends com.google.protobuf.GeneratedFile {
                 rust_cpp_interop_test.InteropTest.InteropTestMessage.class, rust_cpp_interop_test.InteropTest.InteropTestMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using rust_cpp_interop_test.InteropTest.InteropTestMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        bytes_ = com.google.protobuf.ByteString.EMPTY;
+        defaultInt32_ = 41;
+
+      }
+      private Builder(rust_cpp_interop_test.InteropTest.InteropTestMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -515,6 +529,15 @@ public final class InteropTest extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000008;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(rust_cpp_interop_test.InteropTest.InteropTestMessage other) {
+        int to_bitField0_ = (other.bitField0_ & 0x0000000f);
+        i64_ = other.getI64();
+        bytes_ = other.getBytes();
+        b_ = other.getB();
+        defaultInt32_ = other.getDefaultInt32();
+        bitField0_ |= to_bitField0_;
       }
 
       public <Type> Builder setExtension(
@@ -629,7 +652,7 @@ public final class InteropTest extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private long i64_ ;
+      private long i64_;
       /**
        * <code>int64 i64 = 1;</code>
        * @return Whether the i64 field is set.
@@ -669,7 +692,7 @@ public final class InteropTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.ByteString bytes_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString bytes_;
       /**
        * <code>bytes bytes = 2;</code>
        * @return Whether the bytes field is set.
@@ -709,7 +732,7 @@ public final class InteropTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private boolean b_ ;
+      private boolean b_;
       /**
        * <code>bool b = 3;</code>
        * @return Whether the b field is set.
@@ -749,7 +772,7 @@ public final class InteropTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int defaultInt32_ = 41;
+      private int defaultInt32_;
       /**
        * <code>int32 default_int32 = 4 [default = 41];</code>
        * @return Whether the defaultInt32 field is set.
@@ -803,21 +826,70 @@ public final class InteropTest extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<InteropTestMessage>
-        PARSER = new com.google.protobuf.AbstractParser<InteropTestMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<InteropTestMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public InteropTestMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        InteropTestMessage instance = new InteropTestMessage((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.i64_ = input.readInt64();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                instance.bytes_ = input.readBytes();
+                to_bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                instance.b_ = input.readBool();
+                to_bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                instance.defaultInt32_ = input.readInt32();
+                to_bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              default: {
+                pendingTag = tag;
+                break parseLoop;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        if (pendingTag != 0) {
+          return mergeFrom(instance.toBuilder(), input, extensionRegistry, pendingTag, null);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<InteropTestMessage> parser() {
       return PARSER;

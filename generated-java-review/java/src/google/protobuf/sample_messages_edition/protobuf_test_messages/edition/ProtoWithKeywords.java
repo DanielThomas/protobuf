@@ -344,7 +344,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -373,14 +373,29 @@ private static final long serialVersionUID = 0L;
               protobuf_test_messages.edition.ProtoWithKeywords.class, protobuf_test_messages.edition.ProtoWithKeywords.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using protobuf_test_messages.edition.ProtoWithKeywords.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      concept_ = "";
+      requires_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+
+    }
+    private Builder(protobuf_test_messages.edition.ProtoWithKeywords other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -438,6 +453,17 @@ private static final long serialVersionUID = 0L;
         result.requires_ = requires_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(protobuf_test_messages.edition.ProtoWithKeywords other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000003);
+      inline_ = other.getInline();
+      concept_ = other.concept_;
+      requires_ = other.requires_;
+      if (!requires_.isEmpty()) {
+        to_bitField0_ |= 0x00000004;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -526,7 +552,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int inline_ ;
+    private int inline_;
     /**
      * <code>int32 inline = 1;</code>
      * @return Whether the inline field is set.
@@ -566,7 +592,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object concept_ = "";
+    private java.lang.Object concept_;
     /**
      * <code>string concept = 2;</code>
      * @return Whether the concept field is set.
@@ -645,8 +671,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList requires_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList requires_;
     private void ensureRequiresIsMutable() {
       if (!requires_.isModifiable()) {
         requires_ = new com.google.protobuf.LazyStringArrayList(requires_);
@@ -770,21 +795,75 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<ProtoWithKeywords>
-      PARSER = new com.google.protobuf.AbstractParser<ProtoWithKeywords>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<ProtoWithKeywords> {
+    MessageParser() {}
+
     @java.lang.Override
     public ProtoWithKeywords parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ProtoWithKeywords instance = new ProtoWithKeywords((Builder) null);
+      java.lang.Object unknown = null;
+      int to_bitField0_ = 0;
+      java.lang.Object parsed_concept = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.inline_ = input.readInt32();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              parsed_concept = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              ensureRequiresIsMutable(instance);
+              instance.requires_.add(input.readStringRequireUtf8());
+              break;
+            } // case 26
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parsed_concept != null) instance.concept_ = parsed_concept;
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensureRequiresIsMutable(protobuf_test_messages.edition.ProtoWithKeywords instance) {
+      if (!instance.requires_.isModifiable()) {
+        instance.requires_ = new com.google.protobuf.LazyStringArrayList(instance.requires_);
+      }
+    }
+    private static void finishCollections0(ProtoWithKeywords instance) {
+      instance.requires_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<ProtoWithKeywords> parser() {
     return PARSER;

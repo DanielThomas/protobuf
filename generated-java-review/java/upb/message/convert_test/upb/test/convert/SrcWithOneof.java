@@ -343,7 +343,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -372,14 +372,26 @@ private static final long serialVersionUID = 0L;
               upb.test.convert.SrcWithOneof.class, upb.test.convert.SrcWithOneof.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using upb.test.convert.SrcWithOneof.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+
+    }
+    private Builder(upb.test.convert.SrcWithOneof other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -429,6 +441,19 @@ private static final long serialVersionUID = 0L;
         result.myOneof_ = myOneof_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(upb.test.convert.SrcWithOneof other) {
+      int to_bitField0_ = 0;
+      if (other.myOneofCase_ == 1) {
+        to_bitField0_ |= 0x00000001;
+      }
+      if (other.myOneofCase_ == 2) {
+        to_bitField0_ |= 0x00000002;
+      }
+      myOneofCase_ = other.myOneofCase_;
+      myOneof_ = other.myOneof_;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -513,7 +538,7 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int myOneofCase_ = 0;
+    private int myOneofCase_;
     private java.lang.Object myOneof_;
     public MyOneofCase
         getMyOneofCase() {
@@ -737,21 +762,69 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<SrcWithOneof>
-      PARSER = new com.google.protobuf.AbstractParser<SrcWithOneof>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<SrcWithOneof> {
+    MessageParser() {}
+
     @java.lang.Override
     public SrcWithOneof parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      SrcWithOneof instance = new SrcWithOneof((Builder) null);
+      java.lang.Object unknown = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              parseOneofInt32Field(instance, input, extensionRegistry);
+              break;
+            } // case 8
+            case 18: {
+              parseOneofStringField(instance, input, extensionRegistry);
+              break;
+            } // case 18
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void parseOneofInt32Field(
+        upb.test.convert.SrcWithOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      int value = input.readInt32();
+      instance.myOneofCase_ = 1;
+      instance.myOneof_ = value;
+    }
+    private static void parseOneofStringField(
+        upb.test.convert.SrcWithOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      com.google.protobuf.ByteString bs = input.readBytes();
+      instance.myOneofCase_ = 2;
+      instance.myOneof_ = bs;
+    }
+  }
 
   public static com.google.protobuf.Parser<SrcWithOneof> parser() {
     return PARSER;

@@ -288,7 +288,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -317,14 +317,26 @@ private static final long serialVersionUID = 0L;
                 edition_unittest.TestRequiredOneof.NestedMessage.class, edition_unittest.TestRequiredOneof.NestedMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using edition_unittest.TestRequiredOneof.NestedMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(edition_unittest.TestRequiredOneof.NestedMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -371,6 +383,12 @@ private static final long serialVersionUID = 0L;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(edition_unittest.TestRequiredOneof.NestedMessage other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        requiredDouble_ = other.getRequiredDouble();
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -437,7 +455,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private double requiredDouble_ ;
+      private double requiredDouble_;
       /**
        * <code>double required_double = 1 [features = { ... }</code>
        * @return Whether the requiredDouble field is set.
@@ -491,21 +509,54 @@ private static final long serialVersionUID = 0L;
     }
 
     private static final com.google.protobuf.Parser<NestedMessage>
-        PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<NestedMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public NestedMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        NestedMessage instance = new NestedMessage((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 9: {
+                instance.requiredDouble_ = input.readDouble();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 9
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<NestedMessage> parser() {
       return PARSER;
@@ -940,7 +991,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -969,14 +1020,26 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestRequiredOneof.class, edition_unittest.TestRequiredOneof.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestRequiredOneof.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+
+    }
+    private Builder(edition_unittest.TestRequiredOneof other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -1046,6 +1109,25 @@ private static final long serialVersionUID = 0L;
         result.foo_ = foo_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestRequiredOneof other) {
+      int to_bitField0_ = 0;
+      if (other.fooCase_ == 1) {
+        to_bitField0_ |= 0x00000001;
+      }
+      if (other.fooCase_ == 2) {
+        to_bitField0_ |= 0x00000002;
+      }
+      if (other.fooCase_ == 3) {
+        to_bitField0_ |= 0x00000004;
+      }
+      if (other.fooCase_ == 4) {
+        to_bitField0_ |= 0x00000008;
+      }
+      fooCase_ = other.fooCase_;
+      foo_ = other.foo_;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1156,7 +1238,7 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int fooCase_ = 0;
+    private int fooCase_;
     private java.lang.Object foo_;
     public FooCase
         getFooCase() {
@@ -1732,21 +1814,258 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestRequiredOneof>
-      PARSER = new com.google.protobuf.AbstractParser<TestRequiredOneof>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestRequiredOneof> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestRequiredOneof parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestRequiredOneof instance = new TestRequiredOneof((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              pendingTag = parseFooIntField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 8
+            case 18: {
+              pendingTag = parseFooStringField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 18
+            case 26: {
+              pendingTag = parseFooMessageField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 26
+            case 34: {
+              pendingTag = parseFooLazyMessageField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 34
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static int parseFooIntField(
+        edition_unittest.TestRequiredOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.foo_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 8;
+      }
+      int value = input.readInt32();
+      instance.fooCase_ = 1;
+      instance.foo_ = value;
+      return 0;
+    }
+    private static int parseFooStringField(
+        edition_unittest.TestRequiredOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.foo_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 18;
+      }
+      java.lang.String value = input.readStringRequireUtf8();
+      instance.fooCase_ = 2;
+      instance.foo_ = value;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseFooMessageField(
+        edition_unittest.TestRequiredOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.foo_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 26;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetFooMessageFieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.fooCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.fooCase_ = 3;
+           // fallthrough
+        case 3:
+          break;
+        }
+        return 0;
+      }
+      instance.fooCase_ = 3;
+      instance.foo_ = edition_unittest.TestRequiredOneof.NestedMessage.getDefaultInstance();
+      try {
+        instance.foo_ = input.readMessage(edition_unittest.TestRequiredOneof.NestedMessage.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.foo_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        edition_unittest.TestRequiredOneof.NestedMessage, edition_unittest.TestRequiredOneof.NestedMessage.Builder, edition_unittest.TestRequiredOneof.NestedMessageOrBuilder>
+        internalGetFooMessageFieldBuilder(
+            edition_unittest.TestRequiredOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[0] == null) {
+        if (!(instance.hasFooMessage())) {
+          instance.foo_ = edition_unittest.TestRequiredOneof.NestedMessage.getDefaultInstance();
+        }
+        fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+            edition_unittest.TestRequiredOneof.NestedMessage, edition_unittest.TestRequiredOneof.NestedMessage.Builder, edition_unittest.TestRequiredOneof.NestedMessageOrBuilder>(
+                (edition_unittest.TestRequiredOneof.NestedMessage) instance.foo_,
+                null,
+                false);
+        instance.foo_ = null;
+      }
+      switch (instance.fooCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.fooCase_ = 3;
+         // fallthrough
+      case 3:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredOneof.NestedMessage, edition_unittest.TestRequiredOneof.NestedMessage.Builder, edition_unittest.TestRequiredOneof.NestedMessageOrBuilder>) fieldBuilders[0]);
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseFooLazyMessageField(
+        edition_unittest.TestRequiredOneof instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.foo_ instanceof com.google.protobuf.GeneratedMessage) {
+        return 34;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetFooLazyMessageFieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.fooCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.fooCase_ = 4;
+           // fallthrough
+        case 4:
+          break;
+        }
+        return 0;
+      }
+      instance.fooCase_ = 4;
+      instance.foo_ = edition_unittest.TestRequiredOneof.NestedMessage.getDefaultInstance();
+      try {
+        instance.foo_ = input.readMessage(edition_unittest.TestRequiredOneof.NestedMessage.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.foo_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        edition_unittest.TestRequiredOneof.NestedMessage, edition_unittest.TestRequiredOneof.NestedMessage.Builder, edition_unittest.TestRequiredOneof.NestedMessageOrBuilder>
+        internalGetFooLazyMessageFieldBuilder(
+            edition_unittest.TestRequiredOneof instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[1] == null) {
+        if (!(instance.hasFooLazyMessage())) {
+          instance.foo_ = edition_unittest.TestRequiredOneof.NestedMessage.getDefaultInstance();
+        }
+        fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+            edition_unittest.TestRequiredOneof.NestedMessage, edition_unittest.TestRequiredOneof.NestedMessage.Builder, edition_unittest.TestRequiredOneof.NestedMessageOrBuilder>(
+                (edition_unittest.TestRequiredOneof.NestedMessage) instance.foo_,
+                null,
+                false);
+        instance.foo_ = null;
+      }
+      switch (instance.fooCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.fooCase_ = 4;
+         // fallthrough
+      case 4:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredOneof.NestedMessage, edition_unittest.TestRequiredOneof.NestedMessage.Builder, edition_unittest.TestRequiredOneof.NestedMessageOrBuilder>) fieldBuilders[1]);
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        TestRequiredOneof instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[2];
+      switch (instance.fooCase_) {
+        case 3:
+          if (tag != 26) {
+        internalGetFooMessageFieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        case 4:
+          if (tag != 34) {
+        internalGetFooLazyMessageFieldBuilder(instance, fieldBuilders);
+          }
+          break;
+        default: break;
+      }
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        TestRequiredOneof instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?> child = null;
+        switch (instance.fooCase_) {
+          case 3: child = fieldBuilders[0]; break;
+          case 4: child = fieldBuilders[1]; break;
+          default: break;
+        }
+        if (child != null) {
+          instance.foo_ = child == null
+              ? instance.foo_
+              : child.build();
+        }
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<TestRequiredOneof> parser() {
     return PARSER;

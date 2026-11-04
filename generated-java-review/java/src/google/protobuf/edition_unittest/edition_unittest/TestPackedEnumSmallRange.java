@@ -382,7 +382,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -411,14 +411,27 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestPackedEnumSmallRange.class, edition_unittest.TestPackedEnumSmallRange.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestPackedEnumSmallRange.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      vals_ = emptyIntList();
+
+    }
+    private Builder(edition_unittest.TestPackedEnumSmallRange other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -465,6 +478,15 @@ private static final long serialVersionUID = 0L;
         result.vals_ = vals_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestPackedEnumSmallRange other) {
+      int to_bitField0_ = 0;
+      vals_ = other.vals_;
+      if (!vals_.isEmpty()) {
+        to_bitField0_ |= 0x00000001;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -561,7 +583,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.Internal.IntList vals_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList vals_;
     private void ensureValsIsMutable(int capacity) {
       if (!vals_.isModifiable()) {
         vals_ = makeMutableCopy(vals_, capacity);
@@ -656,21 +678,84 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestPackedEnumSmallRange>
-      PARSER = new com.google.protobuf.AbstractParser<TestPackedEnumSmallRange>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestPackedEnumSmallRange> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestPackedEnumSmallRange parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestPackedEnumSmallRange instance = new TestPackedEnumSmallRange((Builder) null);
+      java.lang.Object unknown = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.TestPackedEnumSmallRange.NestedEnum tmpValue =
+                  edition_unittest.TestPackedEnumSmallRange.NestedEnum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 1, tmpRaw);
+              } else {
+                ensureValsIsMutable(instance, /* capacity= */ -1);
+                instance.vals_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureValsIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.TestPackedEnumSmallRange.NestedEnum tmpValue =
+                    edition_unittest.TestPackedEnumSmallRange.NestedEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1, tmpRaw);
+                } else {
+                  instance.vals_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 10
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensureValsIsMutable(edition_unittest.TestPackedEnumSmallRange instance, int minCapacity) {
+      if (!instance.vals_.isModifiable()) {
+        instance.vals_ = makeMutableCopy(instance.vals_, minCapacity);
+      }
+    }
+    private static void finishCollections0(TestPackedEnumSmallRange instance) {
+      instance.vals_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<TestPackedEnumSmallRange> parser() {
     return PARSER;

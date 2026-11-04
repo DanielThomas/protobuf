@@ -371,7 +371,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -409,14 +409,28 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.EnumValue.class, com.google.protobuf.EnumValue.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.EnumValue.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      name_ = "";
+      options_ = emptyList(com.google.protobuf.Option.class);
+
+    }
+    private Builder(com.google.protobuf.EnumValue other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -468,11 +482,9 @@ private static final long serialVersionUID = 0L;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.name_ = name_;
-        ;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.number_ = number_;
-        
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
       if (optionsBuilder_ == null) {
@@ -483,6 +495,19 @@ private static final long serialVersionUID = 0L;
       }
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.google.protobuf.EnumValue other) {
+      int to_bitField0_ = 0;
+      name_ = other.name_;
+      to_bitField0_ |= 0x00000001;
+      number_ = other.getNumber();
+      to_bitField0_ |= 0x00000002;
+      options_ = other.options_;
+      if (!options_.isEmpty()) {
+        to_bitField0_ |= 0x00000004;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -598,7 +623,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object name_ = "";
+    private java.lang.Object name_;
     /**
      * <pre>
      * Enum value name.
@@ -690,7 +715,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int number_ ;
+    private int number_;
     /**
      * <pre>
      * Enum value number.
@@ -734,8 +759,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Option> options_ =
-        emptyList(com.google.protobuf.Option.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Option> options_;
     private void ensureOptionsIsMutable() {
       if (!options_.isModifiable()) {
         options_ = makeMutableCopy(options_);
@@ -1054,21 +1078,71 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<EnumValue>
-      PARSER = new com.google.protobuf.AbstractParser<EnumValue>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<EnumValue> {
+    MessageParser() {}
+
     @java.lang.Override
     public EnumValue parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      EnumValue instance = new EnumValue((Builder) null);
+      java.lang.Object unknown = null;
+      java.lang.Object parsed_name = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              parsed_name = input.readStringRequireUtf8();
+
+              break;
+            } // case 10
+            case 16: {
+              instance.number_ = input.readInt32();
+
+              break;
+            } // case 16
+            case 26: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Option m = com.google.protobuf.Option.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.options_.isModifiable()) {
+  instance.options_ = makeMutableCopy(instance.options_);
+}
+              instance.options_.add(m);
+              break;
+            } // case 26
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (parsed_name != null) instance.name_ = parsed_name;
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void finishCollections0(EnumValue instance) {
+      instance.options_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<EnumValue> parser() {
     return PARSER;

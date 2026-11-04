@@ -1410,7 +1410,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -1439,14 +1439,40 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
                 google.protobuf.python.internal.PackedFieldTest.TestPackedTypes.class, google.protobuf.python.internal.PackedFieldTest.TestPackedTypes.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.PackedFieldTest.TestPackedTypes.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        repeatedInt32_ = emptyIntList();
+        repeatedInt64_ = emptyLongList();
+        repeatedUint32_ = emptyIntList();
+        repeatedUint64_ = emptyLongList();
+        repeatedSint32_ = emptyIntList();
+        repeatedSint64_ = emptyLongList();
+        repeatedFixed32_ = emptyIntList();
+        repeatedFixed64_ = emptyLongList();
+        repeatedSfixed32_ = emptyIntList();
+        repeatedSfixed64_ = emptyLongList();
+        repeatedFloat_ = emptyFloatList();
+        repeatedDouble_ = emptyDoubleList();
+        repeatedBool_ = emptyBooleanList();
+        repeatedNestedEnum_ = emptyIntList();
+
+      }
+      private Builder(google.protobuf.python.internal.PackedFieldTest.TestPackedTypes other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -1558,6 +1584,67 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
           result.repeatedNestedEnum_ = repeatedNestedEnum_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.python.internal.PackedFieldTest.TestPackedTypes other) {
+        int to_bitField0_ = 0;
+        repeatedInt32_ = other.repeatedInt32_;
+        if (!repeatedInt32_.isEmpty()) {
+          to_bitField0_ |= 0x00000001;
+        }
+        repeatedInt64_ = other.repeatedInt64_;
+        if (!repeatedInt64_.isEmpty()) {
+          to_bitField0_ |= 0x00000002;
+        }
+        repeatedUint32_ = other.repeatedUint32_;
+        if (!repeatedUint32_.isEmpty()) {
+          to_bitField0_ |= 0x00000004;
+        }
+        repeatedUint64_ = other.repeatedUint64_;
+        if (!repeatedUint64_.isEmpty()) {
+          to_bitField0_ |= 0x00000008;
+        }
+        repeatedSint32_ = other.repeatedSint32_;
+        if (!repeatedSint32_.isEmpty()) {
+          to_bitField0_ |= 0x00000010;
+        }
+        repeatedSint64_ = other.repeatedSint64_;
+        if (!repeatedSint64_.isEmpty()) {
+          to_bitField0_ |= 0x00000020;
+        }
+        repeatedFixed32_ = other.repeatedFixed32_;
+        if (!repeatedFixed32_.isEmpty()) {
+          to_bitField0_ |= 0x00000040;
+        }
+        repeatedFixed64_ = other.repeatedFixed64_;
+        if (!repeatedFixed64_.isEmpty()) {
+          to_bitField0_ |= 0x00000080;
+        }
+        repeatedSfixed32_ = other.repeatedSfixed32_;
+        if (!repeatedSfixed32_.isEmpty()) {
+          to_bitField0_ |= 0x00000100;
+        }
+        repeatedSfixed64_ = other.repeatedSfixed64_;
+        if (!repeatedSfixed64_.isEmpty()) {
+          to_bitField0_ |= 0x00000200;
+        }
+        repeatedFloat_ = other.repeatedFloat_;
+        if (!repeatedFloat_.isEmpty()) {
+          to_bitField0_ |= 0x00000400;
+        }
+        repeatedDouble_ = other.repeatedDouble_;
+        if (!repeatedDouble_.isEmpty()) {
+          to_bitField0_ |= 0x00000800;
+        }
+        repeatedBool_ = other.repeatedBool_;
+        if (!repeatedBool_.isEmpty()) {
+          to_bitField0_ |= 0x00001000;
+        }
+        repeatedNestedEnum_ = other.repeatedNestedEnum_;
+        if (!repeatedNestedEnum_.isEmpty()) {
+          to_bitField0_ |= 0x00002000;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -2005,7 +2092,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.IntList repeatedInt32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedInt32_;
       private void ensureRepeatedInt32IsMutable(int capacity) {
         if (!repeatedInt32_.isModifiable()) {
           repeatedInt32_ = makeMutableCopy(repeatedInt32_, capacity);
@@ -2089,7 +2176,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedInt64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedInt64_;
       private void ensureRepeatedInt64IsMutable(int capacity) {
         if (!repeatedInt64_.isModifiable()) {
           repeatedInt64_ = makeMutableCopy(repeatedInt64_, capacity);
@@ -2173,7 +2260,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedUint32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedUint32_;
       private void ensureRepeatedUint32IsMutable(int capacity) {
         if (!repeatedUint32_.isModifiable()) {
           repeatedUint32_ = makeMutableCopy(repeatedUint32_, capacity);
@@ -2257,7 +2344,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedUint64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedUint64_;
       private void ensureRepeatedUint64IsMutable(int capacity) {
         if (!repeatedUint64_.isModifiable()) {
           repeatedUint64_ = makeMutableCopy(repeatedUint64_, capacity);
@@ -2341,7 +2428,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedSint32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedSint32_;
       private void ensureRepeatedSint32IsMutable(int capacity) {
         if (!repeatedSint32_.isModifiable()) {
           repeatedSint32_ = makeMutableCopy(repeatedSint32_, capacity);
@@ -2425,7 +2512,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedSint64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedSint64_;
       private void ensureRepeatedSint64IsMutable(int capacity) {
         if (!repeatedSint64_.isModifiable()) {
           repeatedSint64_ = makeMutableCopy(repeatedSint64_, capacity);
@@ -2509,7 +2596,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedFixed32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedFixed32_;
       private void ensureRepeatedFixed32IsMutable(int capacity) {
         if (!repeatedFixed32_.isModifiable()) {
           repeatedFixed32_ = makeMutableCopy(repeatedFixed32_, capacity);
@@ -2593,7 +2680,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedFixed64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedFixed64_;
       private void ensureRepeatedFixed64IsMutable(int capacity) {
         if (!repeatedFixed64_.isModifiable()) {
           repeatedFixed64_ = makeMutableCopy(repeatedFixed64_, capacity);
@@ -2677,7 +2764,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedSfixed32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedSfixed32_;
       private void ensureRepeatedSfixed32IsMutable(int capacity) {
         if (!repeatedSfixed32_.isModifiable()) {
           repeatedSfixed32_ = makeMutableCopy(repeatedSfixed32_, capacity);
@@ -2761,7 +2848,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedSfixed64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedSfixed64_;
       private void ensureRepeatedSfixed64IsMutable(int capacity) {
         if (!repeatedSfixed64_.isModifiable()) {
           repeatedSfixed64_ = makeMutableCopy(repeatedSfixed64_, capacity);
@@ -2845,7 +2932,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.FloatList repeatedFloat_ = emptyFloatList();
+      private com.google.protobuf.Internal.FloatList repeatedFloat_;
       private void ensureRepeatedFloatIsMutable(int capacity) {
         if (!repeatedFloat_.isModifiable()) {
           repeatedFloat_ = makeMutableCopy(repeatedFloat_, capacity);
@@ -2929,7 +3016,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.DoubleList repeatedDouble_ = emptyDoubleList();
+      private com.google.protobuf.Internal.DoubleList repeatedDouble_;
       private void ensureRepeatedDoubleIsMutable(int capacity) {
         if (!repeatedDouble_.isModifiable()) {
           repeatedDouble_ = makeMutableCopy(repeatedDouble_, capacity);
@@ -3013,7 +3100,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.BooleanList repeatedBool_ = emptyBooleanList();
+      private com.google.protobuf.Internal.BooleanList repeatedBool_;
       private void ensureRepeatedBoolIsMutable(int capacity) {
         if (!repeatedBool_.isModifiable()) {
           repeatedBool_ = makeMutableCopy(repeatedBool_, capacity);
@@ -3097,7 +3184,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedNestedEnum_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedNestedEnum_;
       private void ensureRepeatedNestedEnumIsMutable(int capacity) {
         if (!repeatedNestedEnum_.isModifiable()) {
           repeatedNestedEnum_ = makeMutableCopy(repeatedNestedEnum_, capacity);
@@ -3249,21 +3336,370 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<TestPackedTypes>
-        PARSER = new com.google.protobuf.AbstractParser<TestPackedTypes>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestPackedTypes> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestPackedTypes parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestPackedTypes instance = new TestPackedTypes((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                int v = input.readInt32();
+                ensureRepeatedInt32IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedInt32_.addInt(v);
+                break;
+              } // case 8
+              case 10: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedInt32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedInt32_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 10
+              case 16: {
+                long v = input.readInt64();
+                ensureRepeatedInt64IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedInt64_.addLong(v);
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedInt64IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedInt64_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 18
+              case 24: {
+                int v = input.readUInt32();
+                ensureRepeatedUint32IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedUint32_.addInt(v);
+                break;
+              } // case 24
+              case 26: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedUint32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedUint32_.addInt(input.readUInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 26
+              case 32: {
+                long v = input.readUInt64();
+                ensureRepeatedUint64IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedUint64_.addLong(v);
+                break;
+              } // case 32
+              case 34: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedUint64IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedUint64_.addLong(input.readUInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 34
+              case 40: {
+                int v = input.readSInt32();
+                ensureRepeatedSint32IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSint32_.addInt(v);
+                break;
+              } // case 40
+              case 42: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedSint32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedSint32_.addInt(input.readSInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 42
+              case 48: {
+                long v = input.readSInt64();
+                ensureRepeatedSint64IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSint64_.addLong(v);
+                break;
+              } // case 48
+              case 50: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedSint64IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedSint64_.addLong(input.readSInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 50
+              case 61: {
+                int v = input.readFixed32();
+                ensureRepeatedFixed32IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedFixed32_.addInt(v);
+                break;
+              } // case 61
+              case 58: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedFixed32IsMutable(instance, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedFixed32_.addInt(input.readFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 58
+              case 65: {
+                long v = input.readFixed64();
+                ensureRepeatedFixed64IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedFixed64_.addLong(v);
+                break;
+              } // case 65
+              case 66: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedFixed64IsMutable(instance, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedFixed64_.addLong(input.readFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 66
+              case 77: {
+                int v = input.readSFixed32();
+                ensureRepeatedSfixed32IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSfixed32_.addInt(v);
+                break;
+              } // case 77
+              case 74: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedSfixed32IsMutable(instance, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedSfixed32_.addInt(input.readSFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 74
+              case 81: {
+                long v = input.readSFixed64();
+                ensureRepeatedSfixed64IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSfixed64_.addLong(v);
+                break;
+              } // case 81
+              case 82: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedSfixed64IsMutable(instance, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedSfixed64_.addLong(input.readSFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 82
+              case 93: {
+                float v = input.readFloat();
+                ensureRepeatedFloatIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedFloat_.addFloat(v);
+                break;
+              } // case 93
+              case 90: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedFloatIsMutable(instance, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedFloat_.addFloat(input.readFloat());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 90
+              case 97: {
+                double v = input.readDouble();
+                ensureRepeatedDoubleIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedDouble_.addDouble(v);
+                break;
+              } // case 97
+              case 98: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedDoubleIsMutable(instance, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedDouble_.addDouble(input.readDouble());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 98
+              case 104: {
+                boolean v = input.readBool();
+                ensureRepeatedBoolIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedBool_.addBoolean(v);
+                break;
+              } // case 104
+              case 106: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedBoolIsMutable(instance, alloc / 1);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedBool_.addBoolean(input.readBool());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 106
+              case 112: {
+                int tmpRaw = input.readEnum();
+                ensureRepeatedNestedEnumIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedNestedEnum_.addInt(tmpRaw);
+                break;
+              } // case 112
+              case 114: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedNestedEnumIsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedNestedEnum_.addInt(input.readEnum());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 114
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        finishCollections0(instance);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static void ensureRepeatedInt32IsMutable(google.protobuf.python.internal.PackedFieldTest.TestPackedTypes instance, int minCapacity) {
+        if (!instance.repeatedInt32_.isModifiable()) {
+          instance.repeatedInt32_ = makeMutableCopy(instance.repeatedInt32_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedInt64IsMutable(google.protobuf.python.internal.PackedFieldTest.TestPackedTypes instance, int minCapacity) {
+        if (!instance.repeatedInt64_.isModifiable()) {
+          instance.repeatedInt64_ = makeMutableCopy(instance.repeatedInt64_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedUint32IsMutable(google.protobuf.python.internal.PackedFieldTest.TestPackedTypes instance, int minCapacity) {
+        if (!instance.repeatedUint32_.isModifiable()) {
+          instance.repeatedUint32_ = makeMutableCopy(instance.repeatedUint32_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedUint64IsMutable(google.protobuf.python.internal.PackedFieldTest.TestPackedTypes instance, int minCapacity) {
+        if (!instance.repeatedUint64_.isModifiable()) {
+          instance.repeatedUint64_ = makeMutableCopy(instance.repeatedUint64_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedSint32IsMutable(google.protobuf.python.internal.PackedFieldTest.TestPackedTypes instance, int minCapacity) {
+        if (!instance.repeatedSint32_.isModifiable()) {
+          instance.repeatedSint32_ = makeMutableCopy(instance.repeatedSint32_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedSint64IsMutable(google.protobuf.python.internal.PackedFieldTest.TestPackedTypes instance, int minCapacity) {
+        if (!instance.repeatedSint64_.isModifiable()) {
+          instance.repeatedSint64_ = makeMutableCopy(instance.repeatedSint64_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedFixed32IsMutable(google.protobuf.python.internal.PackedFieldTest.TestPackedTypes instance, int minCapacity) {
+        if (!instance.repeatedFixed32_.isModifiable()) {
+          instance.repeatedFixed32_ = makeMutableCopy(instance.repeatedFixed32_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedFixed64IsMutable(google.protobuf.python.internal.PackedFieldTest.TestPackedTypes instance, int minCapacity) {
+        if (!instance.repeatedFixed64_.isModifiable()) {
+          instance.repeatedFixed64_ = makeMutableCopy(instance.repeatedFixed64_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedSfixed32IsMutable(google.protobuf.python.internal.PackedFieldTest.TestPackedTypes instance, int minCapacity) {
+        if (!instance.repeatedSfixed32_.isModifiable()) {
+          instance.repeatedSfixed32_ = makeMutableCopy(instance.repeatedSfixed32_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedSfixed64IsMutable(google.protobuf.python.internal.PackedFieldTest.TestPackedTypes instance, int minCapacity) {
+        if (!instance.repeatedSfixed64_.isModifiable()) {
+          instance.repeatedSfixed64_ = makeMutableCopy(instance.repeatedSfixed64_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedFloatIsMutable(google.protobuf.python.internal.PackedFieldTest.TestPackedTypes instance, int minCapacity) {
+        if (!instance.repeatedFloat_.isModifiable()) {
+          instance.repeatedFloat_ = makeMutableCopy(instance.repeatedFloat_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedDoubleIsMutable(google.protobuf.python.internal.PackedFieldTest.TestPackedTypes instance, int minCapacity) {
+        if (!instance.repeatedDouble_.isModifiable()) {
+          instance.repeatedDouble_ = makeMutableCopy(instance.repeatedDouble_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedBoolIsMutable(google.protobuf.python.internal.PackedFieldTest.TestPackedTypes instance, int minCapacity) {
+        if (!instance.repeatedBool_.isModifiable()) {
+          instance.repeatedBool_ = makeMutableCopy(instance.repeatedBool_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedNestedEnumIsMutable(google.protobuf.python.internal.PackedFieldTest.TestPackedTypes instance, int minCapacity) {
+        if (!instance.repeatedNestedEnum_.isModifiable()) {
+          instance.repeatedNestedEnum_ = makeMutableCopy(instance.repeatedNestedEnum_, minCapacity);
+        }
+      }
+      private static void finishCollections0(TestPackedTypes instance) {
+        instance.repeatedInt32_.makeImmutable();
+        instance.repeatedInt64_.makeImmutable();
+        instance.repeatedUint32_.makeImmutable();
+        instance.repeatedUint64_.makeImmutable();
+        instance.repeatedSint32_.makeImmutable();
+        instance.repeatedSint64_.makeImmutable();
+        instance.repeatedFixed32_.makeImmutable();
+        instance.repeatedFixed64_.makeImmutable();
+        instance.repeatedSfixed32_.makeImmutable();
+        instance.repeatedSfixed64_.makeImmutable();
+        instance.repeatedFloat_.makeImmutable();
+        instance.repeatedDouble_.makeImmutable();
+        instance.repeatedBool_.makeImmutable();
+        instance.repeatedNestedEnum_.makeImmutable();
+      }
+    }
 
     public static com.google.protobuf.Parser<TestPackedTypes> parser() {
       return PARSER;
@@ -4426,7 +4862,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -4455,14 +4891,40 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
                 google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes.class, google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        repeatedInt32_ = emptyIntList();
+        repeatedInt64_ = emptyLongList();
+        repeatedUint32_ = emptyIntList();
+        repeatedUint64_ = emptyLongList();
+        repeatedSint32_ = emptyIntList();
+        repeatedSint64_ = emptyLongList();
+        repeatedFixed32_ = emptyIntList();
+        repeatedFixed64_ = emptyLongList();
+        repeatedSfixed32_ = emptyIntList();
+        repeatedSfixed64_ = emptyLongList();
+        repeatedFloat_ = emptyFloatList();
+        repeatedDouble_ = emptyDoubleList();
+        repeatedBool_ = emptyBooleanList();
+        repeatedNestedEnum_ = emptyIntList();
+
+      }
+      private Builder(google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -4574,6 +5036,67 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
           result.repeatedNestedEnum_ = repeatedNestedEnum_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes other) {
+        int to_bitField0_ = 0;
+        repeatedInt32_ = other.repeatedInt32_;
+        if (!repeatedInt32_.isEmpty()) {
+          to_bitField0_ |= 0x00000001;
+        }
+        repeatedInt64_ = other.repeatedInt64_;
+        if (!repeatedInt64_.isEmpty()) {
+          to_bitField0_ |= 0x00000002;
+        }
+        repeatedUint32_ = other.repeatedUint32_;
+        if (!repeatedUint32_.isEmpty()) {
+          to_bitField0_ |= 0x00000004;
+        }
+        repeatedUint64_ = other.repeatedUint64_;
+        if (!repeatedUint64_.isEmpty()) {
+          to_bitField0_ |= 0x00000008;
+        }
+        repeatedSint32_ = other.repeatedSint32_;
+        if (!repeatedSint32_.isEmpty()) {
+          to_bitField0_ |= 0x00000010;
+        }
+        repeatedSint64_ = other.repeatedSint64_;
+        if (!repeatedSint64_.isEmpty()) {
+          to_bitField0_ |= 0x00000020;
+        }
+        repeatedFixed32_ = other.repeatedFixed32_;
+        if (!repeatedFixed32_.isEmpty()) {
+          to_bitField0_ |= 0x00000040;
+        }
+        repeatedFixed64_ = other.repeatedFixed64_;
+        if (!repeatedFixed64_.isEmpty()) {
+          to_bitField0_ |= 0x00000080;
+        }
+        repeatedSfixed32_ = other.repeatedSfixed32_;
+        if (!repeatedSfixed32_.isEmpty()) {
+          to_bitField0_ |= 0x00000100;
+        }
+        repeatedSfixed64_ = other.repeatedSfixed64_;
+        if (!repeatedSfixed64_.isEmpty()) {
+          to_bitField0_ |= 0x00000200;
+        }
+        repeatedFloat_ = other.repeatedFloat_;
+        if (!repeatedFloat_.isEmpty()) {
+          to_bitField0_ |= 0x00000400;
+        }
+        repeatedDouble_ = other.repeatedDouble_;
+        if (!repeatedDouble_.isEmpty()) {
+          to_bitField0_ |= 0x00000800;
+        }
+        repeatedBool_ = other.repeatedBool_;
+        if (!repeatedBool_.isEmpty()) {
+          to_bitField0_ |= 0x00001000;
+        }
+        repeatedNestedEnum_ = other.repeatedNestedEnum_;
+        if (!repeatedNestedEnum_.isEmpty()) {
+          to_bitField0_ |= 0x00002000;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -5021,7 +5544,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.IntList repeatedInt32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedInt32_;
       private void ensureRepeatedInt32IsMutable(int capacity) {
         if (!repeatedInt32_.isModifiable()) {
           repeatedInt32_ = makeMutableCopy(repeatedInt32_, capacity);
@@ -5105,7 +5628,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedInt64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedInt64_;
       private void ensureRepeatedInt64IsMutable(int capacity) {
         if (!repeatedInt64_.isModifiable()) {
           repeatedInt64_ = makeMutableCopy(repeatedInt64_, capacity);
@@ -5189,7 +5712,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedUint32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedUint32_;
       private void ensureRepeatedUint32IsMutable(int capacity) {
         if (!repeatedUint32_.isModifiable()) {
           repeatedUint32_ = makeMutableCopy(repeatedUint32_, capacity);
@@ -5273,7 +5796,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedUint64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedUint64_;
       private void ensureRepeatedUint64IsMutable(int capacity) {
         if (!repeatedUint64_.isModifiable()) {
           repeatedUint64_ = makeMutableCopy(repeatedUint64_, capacity);
@@ -5357,7 +5880,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedSint32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedSint32_;
       private void ensureRepeatedSint32IsMutable(int capacity) {
         if (!repeatedSint32_.isModifiable()) {
           repeatedSint32_ = makeMutableCopy(repeatedSint32_, capacity);
@@ -5441,7 +5964,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedSint64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedSint64_;
       private void ensureRepeatedSint64IsMutable(int capacity) {
         if (!repeatedSint64_.isModifiable()) {
           repeatedSint64_ = makeMutableCopy(repeatedSint64_, capacity);
@@ -5525,7 +6048,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedFixed32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedFixed32_;
       private void ensureRepeatedFixed32IsMutable(int capacity) {
         if (!repeatedFixed32_.isModifiable()) {
           repeatedFixed32_ = makeMutableCopy(repeatedFixed32_, capacity);
@@ -5609,7 +6132,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedFixed64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedFixed64_;
       private void ensureRepeatedFixed64IsMutable(int capacity) {
         if (!repeatedFixed64_.isModifiable()) {
           repeatedFixed64_ = makeMutableCopy(repeatedFixed64_, capacity);
@@ -5693,7 +6216,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedSfixed32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedSfixed32_;
       private void ensureRepeatedSfixed32IsMutable(int capacity) {
         if (!repeatedSfixed32_.isModifiable()) {
           repeatedSfixed32_ = makeMutableCopy(repeatedSfixed32_, capacity);
@@ -5777,7 +6300,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedSfixed64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedSfixed64_;
       private void ensureRepeatedSfixed64IsMutable(int capacity) {
         if (!repeatedSfixed64_.isModifiable()) {
           repeatedSfixed64_ = makeMutableCopy(repeatedSfixed64_, capacity);
@@ -5861,7 +6384,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.FloatList repeatedFloat_ = emptyFloatList();
+      private com.google.protobuf.Internal.FloatList repeatedFloat_;
       private void ensureRepeatedFloatIsMutable(int capacity) {
         if (!repeatedFloat_.isModifiable()) {
           repeatedFloat_ = makeMutableCopy(repeatedFloat_, capacity);
@@ -5945,7 +6468,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.DoubleList repeatedDouble_ = emptyDoubleList();
+      private com.google.protobuf.Internal.DoubleList repeatedDouble_;
       private void ensureRepeatedDoubleIsMutable(int capacity) {
         if (!repeatedDouble_.isModifiable()) {
           repeatedDouble_ = makeMutableCopy(repeatedDouble_, capacity);
@@ -6029,7 +6552,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.BooleanList repeatedBool_ = emptyBooleanList();
+      private com.google.protobuf.Internal.BooleanList repeatedBool_;
       private void ensureRepeatedBoolIsMutable(int capacity) {
         if (!repeatedBool_.isModifiable()) {
           repeatedBool_ = makeMutableCopy(repeatedBool_, capacity);
@@ -6113,7 +6636,7 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedNestedEnum_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedNestedEnum_;
       private void ensureRepeatedNestedEnumIsMutable(int capacity) {
         if (!repeatedNestedEnum_.isModifiable()) {
           repeatedNestedEnum_ = makeMutableCopy(repeatedNestedEnum_, capacity);
@@ -6265,21 +6788,370 @@ public final class PackedFieldTest extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<TestUnpackedTypes>
-        PARSER = new com.google.protobuf.AbstractParser<TestUnpackedTypes>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestUnpackedTypes> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestUnpackedTypes parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestUnpackedTypes instance = new TestUnpackedTypes((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                int v = input.readInt32();
+                ensureRepeatedInt32IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedInt32_.addInt(v);
+                break;
+              } // case 8
+              case 10: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedInt32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedInt32_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 10
+              case 16: {
+                long v = input.readInt64();
+                ensureRepeatedInt64IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedInt64_.addLong(v);
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedInt64IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedInt64_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 18
+              case 24: {
+                int v = input.readUInt32();
+                ensureRepeatedUint32IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedUint32_.addInt(v);
+                break;
+              } // case 24
+              case 26: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedUint32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedUint32_.addInt(input.readUInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 26
+              case 32: {
+                long v = input.readUInt64();
+                ensureRepeatedUint64IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedUint64_.addLong(v);
+                break;
+              } // case 32
+              case 34: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedUint64IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedUint64_.addLong(input.readUInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 34
+              case 40: {
+                int v = input.readSInt32();
+                ensureRepeatedSint32IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSint32_.addInt(v);
+                break;
+              } // case 40
+              case 42: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedSint32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedSint32_.addInt(input.readSInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 42
+              case 48: {
+                long v = input.readSInt64();
+                ensureRepeatedSint64IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSint64_.addLong(v);
+                break;
+              } // case 48
+              case 50: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedSint64IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedSint64_.addLong(input.readSInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 50
+              case 61: {
+                int v = input.readFixed32();
+                ensureRepeatedFixed32IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedFixed32_.addInt(v);
+                break;
+              } // case 61
+              case 58: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedFixed32IsMutable(instance, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedFixed32_.addInt(input.readFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 58
+              case 65: {
+                long v = input.readFixed64();
+                ensureRepeatedFixed64IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedFixed64_.addLong(v);
+                break;
+              } // case 65
+              case 66: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedFixed64IsMutable(instance, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedFixed64_.addLong(input.readFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 66
+              case 77: {
+                int v = input.readSFixed32();
+                ensureRepeatedSfixed32IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSfixed32_.addInt(v);
+                break;
+              } // case 77
+              case 74: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedSfixed32IsMutable(instance, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedSfixed32_.addInt(input.readSFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 74
+              case 81: {
+                long v = input.readSFixed64();
+                ensureRepeatedSfixed64IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSfixed64_.addLong(v);
+                break;
+              } // case 81
+              case 82: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedSfixed64IsMutable(instance, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedSfixed64_.addLong(input.readSFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 82
+              case 93: {
+                float v = input.readFloat();
+                ensureRepeatedFloatIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedFloat_.addFloat(v);
+                break;
+              } // case 93
+              case 90: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedFloatIsMutable(instance, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedFloat_.addFloat(input.readFloat());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 90
+              case 97: {
+                double v = input.readDouble();
+                ensureRepeatedDoubleIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedDouble_.addDouble(v);
+                break;
+              } // case 97
+              case 98: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedDoubleIsMutable(instance, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedDouble_.addDouble(input.readDouble());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 98
+              case 104: {
+                boolean v = input.readBool();
+                ensureRepeatedBoolIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedBool_.addBoolean(v);
+                break;
+              } // case 104
+              case 106: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedBoolIsMutable(instance, alloc / 1);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedBool_.addBoolean(input.readBool());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 106
+              case 112: {
+                int tmpRaw = input.readEnum();
+                ensureRepeatedNestedEnumIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedNestedEnum_.addInt(tmpRaw);
+                break;
+              } // case 112
+              case 114: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedNestedEnumIsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedNestedEnum_.addInt(input.readEnum());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 114
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        finishCollections0(instance);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static void ensureRepeatedInt32IsMutable(google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes instance, int minCapacity) {
+        if (!instance.repeatedInt32_.isModifiable()) {
+          instance.repeatedInt32_ = makeMutableCopy(instance.repeatedInt32_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedInt64IsMutable(google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes instance, int minCapacity) {
+        if (!instance.repeatedInt64_.isModifiable()) {
+          instance.repeatedInt64_ = makeMutableCopy(instance.repeatedInt64_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedUint32IsMutable(google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes instance, int minCapacity) {
+        if (!instance.repeatedUint32_.isModifiable()) {
+          instance.repeatedUint32_ = makeMutableCopy(instance.repeatedUint32_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedUint64IsMutable(google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes instance, int minCapacity) {
+        if (!instance.repeatedUint64_.isModifiable()) {
+          instance.repeatedUint64_ = makeMutableCopy(instance.repeatedUint64_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedSint32IsMutable(google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes instance, int minCapacity) {
+        if (!instance.repeatedSint32_.isModifiable()) {
+          instance.repeatedSint32_ = makeMutableCopy(instance.repeatedSint32_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedSint64IsMutable(google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes instance, int minCapacity) {
+        if (!instance.repeatedSint64_.isModifiable()) {
+          instance.repeatedSint64_ = makeMutableCopy(instance.repeatedSint64_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedFixed32IsMutable(google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes instance, int minCapacity) {
+        if (!instance.repeatedFixed32_.isModifiable()) {
+          instance.repeatedFixed32_ = makeMutableCopy(instance.repeatedFixed32_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedFixed64IsMutable(google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes instance, int minCapacity) {
+        if (!instance.repeatedFixed64_.isModifiable()) {
+          instance.repeatedFixed64_ = makeMutableCopy(instance.repeatedFixed64_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedSfixed32IsMutable(google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes instance, int minCapacity) {
+        if (!instance.repeatedSfixed32_.isModifiable()) {
+          instance.repeatedSfixed32_ = makeMutableCopy(instance.repeatedSfixed32_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedSfixed64IsMutable(google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes instance, int minCapacity) {
+        if (!instance.repeatedSfixed64_.isModifiable()) {
+          instance.repeatedSfixed64_ = makeMutableCopy(instance.repeatedSfixed64_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedFloatIsMutable(google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes instance, int minCapacity) {
+        if (!instance.repeatedFloat_.isModifiable()) {
+          instance.repeatedFloat_ = makeMutableCopy(instance.repeatedFloat_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedDoubleIsMutable(google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes instance, int minCapacity) {
+        if (!instance.repeatedDouble_.isModifiable()) {
+          instance.repeatedDouble_ = makeMutableCopy(instance.repeatedDouble_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedBoolIsMutable(google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes instance, int minCapacity) {
+        if (!instance.repeatedBool_.isModifiable()) {
+          instance.repeatedBool_ = makeMutableCopy(instance.repeatedBool_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedNestedEnumIsMutable(google.protobuf.python.internal.PackedFieldTest.TestUnpackedTypes instance, int minCapacity) {
+        if (!instance.repeatedNestedEnum_.isModifiable()) {
+          instance.repeatedNestedEnum_ = makeMutableCopy(instance.repeatedNestedEnum_, minCapacity);
+        }
+      }
+      private static void finishCollections0(TestUnpackedTypes instance) {
+        instance.repeatedInt32_.makeImmutable();
+        instance.repeatedInt64_.makeImmutable();
+        instance.repeatedUint32_.makeImmutable();
+        instance.repeatedUint64_.makeImmutable();
+        instance.repeatedSint32_.makeImmutable();
+        instance.repeatedSint64_.makeImmutable();
+        instance.repeatedFixed32_.makeImmutable();
+        instance.repeatedFixed64_.makeImmutable();
+        instance.repeatedSfixed32_.makeImmutable();
+        instance.repeatedSfixed64_.makeImmutable();
+        instance.repeatedFloat_.makeImmutable();
+        instance.repeatedDouble_.makeImmutable();
+        instance.repeatedBool_.makeImmutable();
+        instance.repeatedNestedEnum_.makeImmutable();
+      }
+    }
 
     public static com.google.protobuf.Parser<TestUnpackedTypes> parser() {
       return PARSER;

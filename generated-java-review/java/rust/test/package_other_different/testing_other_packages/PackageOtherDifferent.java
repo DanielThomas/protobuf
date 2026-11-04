@@ -304,7 +304,7 @@ public final class PackageOtherDifferent extends com.google.protobuf.GeneratedFi
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -333,14 +333,25 @@ public final class PackageOtherDifferent extends com.google.protobuf.GeneratedFi
                 testing_other_packages.PackageOtherDifferent.OtherMsgInDifferentPackage.class, testing_other_packages.PackageOtherDifferent.OtherMsgInDifferentPackage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using testing_other_packages.PackageOtherDifferent.OtherMsgInDifferentPackage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(testing_other_packages.PackageOtherDifferent.OtherMsgInDifferentPackage other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -442,21 +453,45 @@ public final class PackageOtherDifferent extends com.google.protobuf.GeneratedFi
     }
 
     private static final com.google.protobuf.Parser<OtherMsgInDifferentPackage>
-        PARSER = new com.google.protobuf.AbstractParser<OtherMsgInDifferentPackage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<OtherMsgInDifferentPackage> {
+      MessageParser() {}
+
       @java.lang.Override
       public OtherMsgInDifferentPackage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        OtherMsgInDifferentPackage instance = new OtherMsgInDifferentPackage((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<OtherMsgInDifferentPackage> parser() {
       return PARSER;

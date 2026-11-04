@@ -427,7 +427,7 @@ public final class Edition2023SymbolVisibility extends com.google.protobuf.Gener
       @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
+            ? new Builder() : new Builder(this);
       }
 
       @java.lang.Override
@@ -456,14 +456,26 @@ public final class Edition2023SymbolVisibility extends com.google.protobuf.Gener
                   protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage.class, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+
+        }
+        private Builder(protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage other) {
+          super(other, null);
+          copyFrom_autosplit_0(other);
 
         }
         @java.lang.Override
@@ -510,6 +522,12 @@ public final class Edition2023SymbolVisibility extends com.google.protobuf.Gener
             to_bitField0_ |= 0x00000001;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage other) {
+          int to_bitField0_ = (other.bitField0_ & 0x00000001);
+          a_ = other.getA();
+          bitField0_ |= to_bitField0_;
         }
 
         @java.lang.Override
@@ -573,7 +591,7 @@ public final class Edition2023SymbolVisibility extends com.google.protobuf.Gener
         }
         private int bitField0_;
 
-        private int a_ ;
+        private int a_;
         /**
          * <code>int32 a = 1;</code>
          * @return Whether the a field is set.
@@ -627,21 +645,54 @@ public final class Edition2023SymbolVisibility extends com.google.protobuf.Gener
       }
 
       private static final com.google.protobuf.Parser<NestedMessage>
-          PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<NestedMessage> {
+        MessageParser() {}
+
         @java.lang.Override
         public NestedMessage parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
+          java.util.Objects.requireNonNull(extensionRegistry);
+          NestedMessage instance = new NestedMessage((Builder) null);
+          java.lang.Object unknown = null;
+          int to_bitField0_ = 0;
+          java.io.IOException parseFailure = null;
           try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
+            parseLoop: while (true) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0: break parseLoop;
+                case 8: {
+                  instance.a_ = input.readInt32();
+                  to_bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+                default: {
+                  unknown = prepareUnknownFields(unknown, input);
+                  if (!parseUnknownField(input, unknown, tag)) {
+                    break parseLoop;
+                  }
+                  break;
+                }
+              }
+            }
+          } catch (java.io.IOException e) {
+            parseFailure = e;
           }
-          return builder.buildPartial();
+          finishUnknownFields(instance, unknown);
+          if (to_bitField0_ != 0) {
+            instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+          }
+          if (parseFailure != null) {
+            throwParseException(parseFailure, instance);
+          }
+          return instance;
         }
-      };
+      }
 
       public static com.google.protobuf.Parser<NestedMessage> parser() {
         return PARSER;
@@ -795,7 +846,7 @@ public final class Edition2023SymbolVisibility extends com.google.protobuf.Gener
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -828,14 +879,25 @@ public final class Edition2023SymbolVisibility extends com.google.protobuf.Gener
                 protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.class, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -937,21 +999,45 @@ public final class Edition2023SymbolVisibility extends com.google.protobuf.Gener
     }
 
     private static final com.google.protobuf.Parser<SymbolVisibilityMessage>
-        PARSER = new com.google.protobuf.AbstractParser<SymbolVisibilityMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<SymbolVisibilityMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public SymbolVisibilityMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        SymbolVisibilityMessage instance = new SymbolVisibilityMessage((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<SymbolVisibilityMessage> parser() {
       return PARSER;

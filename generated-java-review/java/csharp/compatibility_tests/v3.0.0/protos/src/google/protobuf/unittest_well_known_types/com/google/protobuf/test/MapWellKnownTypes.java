@@ -2150,7 +2150,7 @@ com.google.protobuf.BytesValue defaultValue) {
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -2275,14 +2275,26 @@ com.google.protobuf.BytesValue defaultValue) {
               com.google.protobuf.test.MapWellKnownTypes.class, com.google.protobuf.test.MapWellKnownTypes.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.test.MapWellKnownTypes.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+
+    }
+    private Builder(com.google.protobuf.test.MapWellKnownTypes other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -2396,6 +2408,101 @@ com.google.protobuf.BytesValue defaultValue) {
         result.bytesField_ = internalGetBytesField().build(BytesFieldDefaultEntryHolder.defaultEntry);
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.google.protobuf.test.MapWellKnownTypes other) {
+      int to_bitField0_ = 0;
+      if (other.getAnyFieldCount() > 0) {
+        internalGetMutableAnyField().mergeFrom(
+            other.internalGetAnyField());
+        bitField0_ |= 0x00000001;
+      }
+      if (other.getApiFieldCount() > 0) {
+        internalGetMutableApiField().mergeFrom(
+            other.internalGetApiField());
+        bitField0_ |= 0x00000002;
+      }
+      if (other.getDurationFieldCount() > 0) {
+        internalGetMutableDurationField().mergeFrom(
+            other.internalGetDurationField());
+        bitField0_ |= 0x00000004;
+      }
+      if (other.getEmptyFieldCount() > 0) {
+        internalGetMutableEmptyField().mergeFrom(
+            other.internalGetEmptyField());
+        bitField0_ |= 0x00000008;
+      }
+      if (other.getFieldMaskFieldCount() > 0) {
+        internalGetMutableFieldMaskField().mergeFrom(
+            other.internalGetFieldMaskField());
+        bitField0_ |= 0x00000010;
+      }
+      if (other.getSourceContextFieldCount() > 0) {
+        internalGetMutableSourceContextField().mergeFrom(
+            other.internalGetSourceContextField());
+        bitField0_ |= 0x00000020;
+      }
+      if (other.getStructFieldCount() > 0) {
+        internalGetMutableStructField().mergeFrom(
+            other.internalGetStructField());
+        bitField0_ |= 0x00000040;
+      }
+      if (other.getTimestampFieldCount() > 0) {
+        internalGetMutableTimestampField().mergeFrom(
+            other.internalGetTimestampField());
+        bitField0_ |= 0x00000080;
+      }
+      if (other.getTypeFieldCount() > 0) {
+        internalGetMutableTypeField().mergeFrom(
+            other.internalGetTypeField());
+        bitField0_ |= 0x00000100;
+      }
+      if (other.getDoubleFieldCount() > 0) {
+        internalGetMutableDoubleField().mergeFrom(
+            other.internalGetDoubleField());
+        bitField0_ |= 0x00000200;
+      }
+      if (other.getFloatFieldCount() > 0) {
+        internalGetMutableFloatField().mergeFrom(
+            other.internalGetFloatField());
+        bitField0_ |= 0x00000400;
+      }
+      if (other.getInt64FieldCount() > 0) {
+        internalGetMutableInt64Field().mergeFrom(
+            other.internalGetInt64Field());
+        bitField0_ |= 0x00000800;
+      }
+      if (other.getUint64FieldCount() > 0) {
+        internalGetMutableUint64Field().mergeFrom(
+            other.internalGetUint64Field());
+        bitField0_ |= 0x00001000;
+      }
+      if (other.getInt32FieldCount() > 0) {
+        internalGetMutableInt32Field().mergeFrom(
+            other.internalGetInt32Field());
+        bitField0_ |= 0x00002000;
+      }
+      if (other.getUint32FieldCount() > 0) {
+        internalGetMutableUint32Field().mergeFrom(
+            other.internalGetUint32Field());
+        bitField0_ |= 0x00004000;
+      }
+      if (other.getBoolFieldCount() > 0) {
+        internalGetMutableBoolField().mergeFrom(
+            other.internalGetBoolField());
+        bitField0_ |= 0x00008000;
+      }
+      if (other.getStringFieldCount() > 0) {
+        internalGetMutableStringField().mergeFrom(
+            other.internalGetStringField());
+        bitField0_ |= 0x00010000;
+      }
+      if (other.getBytesFieldCount() > 0) {
+        internalGetMutableBytesField().mergeFrom(
+            other.internalGetBytesField());
+        bitField0_ |= 0x00020000;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -5507,21 +5614,426 @@ com.google.protobuf.BytesValue defaultValue) {
   }
 
   private static final com.google.protobuf.Parser<MapWellKnownTypes>
-      PARSER = new com.google.protobuf.AbstractParser<MapWellKnownTypes>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<MapWellKnownTypes> {
+    MessageParser() {}
+
     @java.lang.Override
     public MapWellKnownTypes parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MapWellKnownTypes instance = new MapWellKnownTypes((Builder) null);
+      java.lang.Object unknown = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Any>
+              anyField__ = input.readMessage(
+                  AnyFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableAnyField(instance).getMutableMap().put(
+                  anyField__.getKey(), anyField__.getValue());
+
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Api>
+              apiField__ = input.readMessage(
+                  ApiFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableApiField(instance).getMutableMap().put(
+                  apiField__.getKey(), apiField__.getValue());
+
+              break;
+            } // case 18
+            case 26: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Duration>
+              durationField__ = input.readMessage(
+                  DurationFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableDurationField(instance).getMutableMap().put(
+                  durationField__.getKey(), durationField__.getValue());
+
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Empty>
+              emptyField__ = input.readMessage(
+                  EmptyFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableEmptyField(instance).getMutableMap().put(
+                  emptyField__.getKey(), emptyField__.getValue());
+
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.FieldMask>
+              fieldMaskField__ = input.readMessage(
+                  FieldMaskFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableFieldMaskField(instance).getMutableMap().put(
+                  fieldMaskField__.getKey(), fieldMaskField__.getValue());
+
+              break;
+            } // case 42
+            case 50: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.SourceContext>
+              sourceContextField__ = input.readMessage(
+                  SourceContextFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableSourceContextField(instance).getMutableMap().put(
+                  sourceContextField__.getKey(), sourceContextField__.getValue());
+
+              break;
+            } // case 50
+            case 58: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Struct>
+              structField__ = input.readMessage(
+                  StructFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableStructField(instance).getMutableMap().put(
+                  structField__.getKey(), structField__.getValue());
+
+              break;
+            } // case 58
+            case 66: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Timestamp>
+              timestampField__ = input.readMessage(
+                  TimestampFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableTimestampField(instance).getMutableMap().put(
+                  timestampField__.getKey(), timestampField__.getValue());
+
+              break;
+            } // case 66
+            case 74: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Type>
+              typeField__ = input.readMessage(
+                  TypeFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableTypeField(instance).getMutableMap().put(
+                  typeField__.getKey(), typeField__.getValue());
+
+              break;
+            } // case 74
+            case 82: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.DoubleValue>
+              doubleField__ = input.readMessage(
+                  DoubleFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableDoubleField(instance).getMutableMap().put(
+                  doubleField__.getKey(), doubleField__.getValue());
+
+              break;
+            } // case 82
+            case 90: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.FloatValue>
+              floatField__ = input.readMessage(
+                  FloatFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableFloatField(instance).getMutableMap().put(
+                  floatField__.getKey(), floatField__.getValue());
+
+              break;
+            } // case 90
+            case 98: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Int64Value>
+              int64Field__ = input.readMessage(
+                  Int64FieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableInt64Field(instance).getMutableMap().put(
+                  int64Field__.getKey(), int64Field__.getValue());
+
+              break;
+            } // case 98
+            case 106: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.UInt64Value>
+              uint64Field__ = input.readMessage(
+                  Uint64FieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableUint64Field(instance).getMutableMap().put(
+                  uint64Field__.getKey(), uint64Field__.getValue());
+
+              break;
+            } // case 106
+            case 114: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Int32Value>
+              int32Field__ = input.readMessage(
+                  Int32FieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableInt32Field(instance).getMutableMap().put(
+                  int32Field__.getKey(), int32Field__.getValue());
+
+              break;
+            } // case 114
+            case 122: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.UInt32Value>
+              uint32Field__ = input.readMessage(
+                  Uint32FieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableUint32Field(instance).getMutableMap().put(
+                  uint32Field__.getKey(), uint32Field__.getValue());
+
+              break;
+            } // case 122
+            case 130: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.BoolValue>
+              boolField__ = input.readMessage(
+                  BoolFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableBoolField(instance).getMutableMap().put(
+                  boolField__.getKey(), boolField__.getValue());
+
+              break;
+            } // case 130
+            case 138: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.StringValue>
+              stringField__ = input.readMessage(
+                  StringFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableStringField(instance).getMutableMap().put(
+                  stringField__.getKey(), stringField__.getValue());
+
+              break;
+            } // case 138
+            case 146: {
+              com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.BytesValue>
+              bytesField__ = input.readMessage(
+                  BytesFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableBytesField(instance).getMutableMap().put(
+                  bytesField__.getKey(), bytesField__.getValue());
+
+              break;
+            } // case 146
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Any>
+        internalGetMutableAnyField(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.anyField_ == null) {
+        instance.anyField_ = com.google.protobuf.MapField.newMapField(
+            AnyFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.anyField_.isMutable()) {
+        instance.anyField_ = instance.anyField_.copy();
+      }
+      return instance.anyField_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Api>
+        internalGetMutableApiField(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.apiField_ == null) {
+        instance.apiField_ = com.google.protobuf.MapField.newMapField(
+            ApiFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.apiField_.isMutable()) {
+        instance.apiField_ = instance.apiField_.copy();
+      }
+      return instance.apiField_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Duration>
+        internalGetMutableDurationField(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.durationField_ == null) {
+        instance.durationField_ = com.google.protobuf.MapField.newMapField(
+            DurationFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.durationField_.isMutable()) {
+        instance.durationField_ = instance.durationField_.copy();
+      }
+      return instance.durationField_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Empty>
+        internalGetMutableEmptyField(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.emptyField_ == null) {
+        instance.emptyField_ = com.google.protobuf.MapField.newMapField(
+            EmptyFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.emptyField_.isMutable()) {
+        instance.emptyField_ = instance.emptyField_.copy();
+      }
+      return instance.emptyField_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.FieldMask>
+        internalGetMutableFieldMaskField(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.fieldMaskField_ == null) {
+        instance.fieldMaskField_ = com.google.protobuf.MapField.newMapField(
+            FieldMaskFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.fieldMaskField_.isMutable()) {
+        instance.fieldMaskField_ = instance.fieldMaskField_.copy();
+      }
+      return instance.fieldMaskField_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.SourceContext>
+        internalGetMutableSourceContextField(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.sourceContextField_ == null) {
+        instance.sourceContextField_ = com.google.protobuf.MapField.newMapField(
+            SourceContextFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.sourceContextField_.isMutable()) {
+        instance.sourceContextField_ = instance.sourceContextField_.copy();
+      }
+      return instance.sourceContextField_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Struct>
+        internalGetMutableStructField(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.structField_ == null) {
+        instance.structField_ = com.google.protobuf.MapField.newMapField(
+            StructFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.structField_.isMutable()) {
+        instance.structField_ = instance.structField_.copy();
+      }
+      return instance.structField_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Timestamp>
+        internalGetMutableTimestampField(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.timestampField_ == null) {
+        instance.timestampField_ = com.google.protobuf.MapField.newMapField(
+            TimestampFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.timestampField_.isMutable()) {
+        instance.timestampField_ = instance.timestampField_.copy();
+      }
+      return instance.timestampField_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Type>
+        internalGetMutableTypeField(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.typeField_ == null) {
+        instance.typeField_ = com.google.protobuf.MapField.newMapField(
+            TypeFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.typeField_.isMutable()) {
+        instance.typeField_ = instance.typeField_.copy();
+      }
+      return instance.typeField_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.DoubleValue>
+        internalGetMutableDoubleField(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.doubleField_ == null) {
+        instance.doubleField_ = com.google.protobuf.MapField.newMapField(
+            DoubleFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.doubleField_.isMutable()) {
+        instance.doubleField_ = instance.doubleField_.copy();
+      }
+      return instance.doubleField_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.FloatValue>
+        internalGetMutableFloatField(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.floatField_ == null) {
+        instance.floatField_ = com.google.protobuf.MapField.newMapField(
+            FloatFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.floatField_.isMutable()) {
+        instance.floatField_ = instance.floatField_.copy();
+      }
+      return instance.floatField_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Int64Value>
+        internalGetMutableInt64Field(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.int64Field_ == null) {
+        instance.int64Field_ = com.google.protobuf.MapField.newMapField(
+            Int64FieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.int64Field_.isMutable()) {
+        instance.int64Field_ = instance.int64Field_.copy();
+      }
+      return instance.int64Field_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.UInt64Value>
+        internalGetMutableUint64Field(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.uint64Field_ == null) {
+        instance.uint64Field_ = com.google.protobuf.MapField.newMapField(
+            Uint64FieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.uint64Field_.isMutable()) {
+        instance.uint64Field_ = instance.uint64Field_.copy();
+      }
+      return instance.uint64Field_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.Int32Value>
+        internalGetMutableInt32Field(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.int32Field_ == null) {
+        instance.int32Field_ = com.google.protobuf.MapField.newMapField(
+            Int32FieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.int32Field_.isMutable()) {
+        instance.int32Field_ = instance.int32Field_.copy();
+      }
+      return instance.int32Field_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.UInt32Value>
+        internalGetMutableUint32Field(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.uint32Field_ == null) {
+        instance.uint32Field_ = com.google.protobuf.MapField.newMapField(
+            Uint32FieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.uint32Field_.isMutable()) {
+        instance.uint32Field_ = instance.uint32Field_.copy();
+      }
+      return instance.uint32Field_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.BoolValue>
+        internalGetMutableBoolField(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.boolField_ == null) {
+        instance.boolField_ = com.google.protobuf.MapField.newMapField(
+            BoolFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.boolField_.isMutable()) {
+        instance.boolField_ = instance.boolField_.copy();
+      }
+      return instance.boolField_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.StringValue>
+        internalGetMutableStringField(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.stringField_ == null) {
+        instance.stringField_ = com.google.protobuf.MapField.newMapField(
+            StringFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.stringField_.isMutable()) {
+        instance.stringField_ = instance.stringField_.copy();
+      }
+      return instance.stringField_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, com.google.protobuf.BytesValue>
+        internalGetMutableBytesField(com.google.protobuf.test.MapWellKnownTypes instance) {
+      if (instance.bytesField_ == null) {
+        instance.bytesField_ = com.google.protobuf.MapField.newMapField(
+            BytesFieldDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.bytesField_.isMutable()) {
+        instance.bytesField_ = instance.bytesField_.copy();
+      }
+      return instance.bytesField_;
+    }
+    private static void finishCollections0(MapWellKnownTypes instance) {
+      if (instance.anyField_ != null) instance.anyField_.makeImmutable();
+      if (instance.apiField_ != null) instance.apiField_.makeImmutable();
+      if (instance.durationField_ != null) instance.durationField_.makeImmutable();
+      if (instance.emptyField_ != null) instance.emptyField_.makeImmutable();
+      if (instance.fieldMaskField_ != null) instance.fieldMaskField_.makeImmutable();
+      if (instance.sourceContextField_ != null) instance.sourceContextField_.makeImmutable();
+      if (instance.structField_ != null) instance.structField_.makeImmutable();
+      if (instance.timestampField_ != null) instance.timestampField_.makeImmutable();
+      if (instance.typeField_ != null) instance.typeField_.makeImmutable();
+      if (instance.doubleField_ != null) instance.doubleField_.makeImmutable();
+      if (instance.floatField_ != null) instance.floatField_.makeImmutable();
+      if (instance.int64Field_ != null) instance.int64Field_.makeImmutable();
+      if (instance.uint64Field_ != null) instance.uint64Field_.makeImmutable();
+      if (instance.int32Field_ != null) instance.int32Field_.makeImmutable();
+      if (instance.uint32Field_ != null) instance.uint32Field_.makeImmutable();
+      if (instance.boolField_ != null) instance.boolField_.makeImmutable();
+      if (instance.stringField_ != null) instance.stringField_.makeImmutable();
+      if (instance.bytesField_ != null) instance.bytesField_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<MapWellKnownTypes> parser() {
     return PARSER;

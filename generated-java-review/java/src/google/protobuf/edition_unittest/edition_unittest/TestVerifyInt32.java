@@ -448,7 +448,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -477,14 +477,27 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestVerifyInt32.class, edition_unittest.TestVerifyInt32.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestVerifyInt32.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      repeatedAllTypes_ = emptyList(edition_unittest.TestAllTypes.class);
+      maybeForceBuilderInitialization();
+    }
+    private Builder(edition_unittest.TestVerifyInt32 other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -579,6 +592,20 @@ private static final long serialVersionUID = 0L;
       }
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestVerifyInt32 other) {
+      int to_bitField0_ = (other.bitField0_ & 0x0000001f);
+      optionalInt321_ = other.getOptionalInt321();
+      optionalInt322_ = other.getOptionalInt322();
+      optionalInt3263_ = other.getOptionalInt3263();
+      optionalInt3264_ = other.getOptionalInt3264();
+      optionalAllTypes_ = other.optionalAllTypes_;
+      repeatedAllTypes_ = other.repeatedAllTypes_;
+      if (!repeatedAllTypes_.isEmpty()) {
+        to_bitField0_ |= 0x00000020;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -715,7 +742,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int optionalInt321_ ;
+    private int optionalInt321_;
     /**
      * <code>int32 optional_int32_1 = 1;</code>
      * @return Whether the optionalInt321 field is set.
@@ -755,7 +782,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalInt322_ ;
+    private int optionalInt322_;
     /**
      * <code>int32 optional_int32_2 = 2;</code>
      * @return Whether the optionalInt322 field is set.
@@ -795,7 +822,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalInt3263_ ;
+    private int optionalInt3263_;
     /**
      * <code>int32 optional_int32_63 = 63;</code>
      * @return Whether the optionalInt3263 field is set.
@@ -835,7 +862,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalInt3264_ ;
+    private int optionalInt3264_;
     /**
      * <code>int32 optional_int32_64 = 64;</code>
      * @return Whether the optionalInt3264 field is set.
@@ -1003,8 +1030,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000010;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<edition_unittest.TestAllTypes> repeatedAllTypes_ =
-        emptyList(edition_unittest.TestAllTypes.class);
+    private com.google.protobuf.Internal.ProtobufList<edition_unittest.TestAllTypes> repeatedAllTypes_;
     private void ensureRepeatedAllTypesIsMutable() {
       if (!repeatedAllTypes_.isModifiable()) {
         repeatedAllTypes_ = makeMutableCopy(repeatedAllTypes_);
@@ -1251,21 +1277,148 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestVerifyInt32>
-      PARSER = new com.google.protobuf.AbstractParser<TestVerifyInt32>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestVerifyInt32> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestVerifyInt32 parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestVerifyInt32 instance = new TestVerifyInt32((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.optionalInt321_ = input.readInt32();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.optionalInt322_ = input.readInt32();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 74: {
+              pendingTag = parseOptionalAllTypesField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 74
+            case 82: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              edition_unittest.TestAllTypes m = edition_unittest.TestAllTypes.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.repeatedAllTypes_.isModifiable()) {
+  instance.repeatedAllTypes_ = makeMutableCopy(instance.repeatedAllTypes_);
+}
+              instance.repeatedAllTypes_.add(m);
+              break;
+            } // case 82
+            case 504: {
+              instance.optionalInt3263_ = input.readInt32();
+              to_bitField0_ |= 0x00000004;
+              break;
+            } // case 504
+            case 512: {
+              instance.optionalInt3264_ = input.readInt32();
+              to_bitField0_ |= 0x00000008;
+              break;
+            } // case 512
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      finishCollections0(instance);
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseOptionalAllTypesField(
+        edition_unittest.TestVerifyInt32 instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.optionalAllTypes_ != null) {
+        return 74;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.optionalAllTypes_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder>(
+                      instance.getOptionalAllTypes(),
+                      null,
+                      false);
+              instance.optionalAllTypes_ = null;
+            }
+            instance.bitField0_ |= 0x00000010;
+          ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.optionalAllTypes_ = edition_unittest.TestAllTypes.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000010;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.optionalAllTypes_ = edition_unittest.TestAllTypes.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000010;
+      return 0;
+    }
+    private static void finishCollections0(TestVerifyInt32 instance) {
+      instance.repeatedAllTypes_.makeImmutable();
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        TestVerifyInt32 instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        TestVerifyInt32 instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasOptionalAllTypes()) instance.optionalAllTypes_ = null;
+      if (instance.hasOptionalAllTypes()) {
+        instance.optionalAllTypes_ = fieldBuilders[0] == null
+            ? instance.optionalAllTypes_
+            : ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder>) fieldBuilders[0]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<TestVerifyInt32> parser() {
     return PARSER;

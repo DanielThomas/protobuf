@@ -208,7 +208,7 @@ public final class RequiredFieldsEditionsTest extends com.google.protobuf.Genera
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -237,14 +237,25 @@ public final class RequiredFieldsEditionsTest extends com.google.protobuf.Genera
                 upb_util_2023_test.RequiredFieldsEditionsTest.EmptyMessage.class, upb_util_2023_test.RequiredFieldsEditionsTest.EmptyMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using upb_util_2023_test.RequiredFieldsEditionsTest.EmptyMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(upb_util_2023_test.RequiredFieldsEditionsTest.EmptyMessage other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -346,21 +357,45 @@ public final class RequiredFieldsEditionsTest extends com.google.protobuf.Genera
     }
 
     private static final com.google.protobuf.Parser<EmptyMessage>
-        PARSER = new com.google.protobuf.AbstractParser<EmptyMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<EmptyMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public EmptyMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        EmptyMessage instance = new EmptyMessage((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<EmptyMessage> parser() {
       return PARSER;
@@ -616,7 +651,7 @@ public final class RequiredFieldsEditionsTest extends com.google.protobuf.Genera
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -645,14 +680,26 @@ public final class RequiredFieldsEditionsTest extends com.google.protobuf.Genera
                 upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField.class, upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -699,6 +746,12 @@ public final class RequiredFieldsEditionsTest extends com.google.protobuf.Genera
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        requiredInt32_ = other.getRequiredInt32();
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -765,7 +818,7 @@ public final class RequiredFieldsEditionsTest extends com.google.protobuf.Genera
       }
       private int bitField0_;
 
-      private int requiredInt32_ ;
+      private int requiredInt32_;
       /**
        * <code>int32 required_int32 = 1 [features = { ... }</code>
        * @return Whether the requiredInt32 field is set.
@@ -819,21 +872,54 @@ public final class RequiredFieldsEditionsTest extends com.google.protobuf.Genera
     }
 
     private static final com.google.protobuf.Parser<HasRequiredField>
-        PARSER = new com.google.protobuf.AbstractParser<HasRequiredField>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<HasRequiredField> {
+      MessageParser() {}
+
       @java.lang.Override
       public HasRequiredField parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        HasRequiredField instance = new HasRequiredField((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.requiredInt32_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<HasRequiredField> parser() {
       return PARSER;
@@ -2175,7 +2261,7 @@ upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField defaultValue) {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -2246,14 +2332,27 @@ upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField defaultValue) {
                 upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields.class, upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        repeatedMessage_ = emptyList(upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField.class);
+        maybeForceBuilderInitialization();
+      }
+      private Builder(upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -2364,6 +2463,47 @@ upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField defaultValue) {
           result.mapStringMessage_ = internalGetMapStringMessage().build(MapStringMessageDefaultEntryHolder.defaultEntry);
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000003);
+        requiredMessage_ = other.requiredMessage_;
+        optionalMessage_ = other.optionalMessage_;
+        repeatedMessage_ = other.repeatedMessage_;
+        if (!repeatedMessage_.isEmpty()) {
+          to_bitField0_ |= 0x00000004;
+        }
+        if (other.getMapInt32MessageCount() > 0) {
+          internalGetMutableMapInt32Message().mergeFrom(
+              other.internalGetMapInt32Message());
+          bitField0_ |= 0x00000008;
+        }
+        if (other.getMapInt64MessageCount() > 0) {
+          internalGetMutableMapInt64Message().mergeFrom(
+              other.internalGetMapInt64Message());
+          bitField0_ |= 0x00000010;
+        }
+        if (other.getMapUint32MessageCount() > 0) {
+          internalGetMutableMapUint32Message().mergeFrom(
+              other.internalGetMapUint32Message());
+          bitField0_ |= 0x00000020;
+        }
+        if (other.getMapUint64MessageCount() > 0) {
+          internalGetMutableMapUint64Message().mergeFrom(
+              other.internalGetMapUint64Message());
+          bitField0_ |= 0x00000040;
+        }
+        if (other.getMapBoolMessageCount() > 0) {
+          internalGetMutableMapBoolMessage().mergeFrom(
+              other.internalGetMapBoolMessage());
+          bitField0_ |= 0x00000080;
+        }
+        if (other.getMapStringMessageCount() > 0) {
+          internalGetMutableMapStringMessage().mergeFrom(
+              other.internalGetMapStringMessage());
+          bitField0_ |= 0x00000100;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -2858,8 +2998,7 @@ upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField defaultValue) {
         bitField0_ |= 0x00000002;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField> repeatedMessage_ =
-          emptyList(upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField.class);
+      private com.google.protobuf.Internal.ProtobufList<upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField> repeatedMessage_;
       private void ensureRepeatedMessageIsMutable() {
         if (!repeatedMessage_.isModifiable()) {
           repeatedMessage_ = makeMutableCopy(repeatedMessage_);
@@ -4036,21 +4175,296 @@ upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField defaultValue) {
     }
 
     private static final com.google.protobuf.Parser<TestRequiredFields>
-        PARSER = new com.google.protobuf.AbstractParser<TestRequiredFields>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestRequiredFields> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestRequiredFields parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestRequiredFields instance = new TestRequiredFields((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                pendingTag = parseRequiredMessageField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 10
+              case 18: {
+                pendingTag = parseOptionalMessageField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 18
+              case 26: {
+                final int oldLimit = input.pushLimitBeforeMessage();
+                upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField m = upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField.parser().parsePartialFrom(input, extensionRegistry);
+                input.popLimitAfterMessage(oldLimit);
+                if (!instance.repeatedMessage_.isModifiable()) {
+  instance.repeatedMessage_ = makeMutableCopy(instance.repeatedMessage_);
+}
+                instance.repeatedMessage_.add(m);
+                break;
+              } // case 26
+              case 34: {
+                com.google.protobuf.MapEntry<java.lang.Integer, upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField>
+                mapInt32Message__ = input.readMessage(
+                    MapInt32MessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Message(instance).getMutableMap().put(
+                    mapInt32Message__.getKey(), mapInt32Message__.getValue());
+
+                break;
+              } // case 34
+              case 42: {
+                com.google.protobuf.MapEntry<java.lang.Long, upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField>
+                mapInt64Message__ = input.readMessage(
+                    MapInt64MessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt64Message(instance).getMutableMap().put(
+                    mapInt64Message__.getKey(), mapInt64Message__.getValue());
+
+                break;
+              } // case 42
+              case 50: {
+                com.google.protobuf.MapEntry<java.lang.Integer, upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField>
+                mapUint32Message__ = input.readMessage(
+                    MapUint32MessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapUint32Message(instance).getMutableMap().put(
+                    mapUint32Message__.getKey(), mapUint32Message__.getValue());
+
+                break;
+              } // case 50
+              case 58: {
+                com.google.protobuf.MapEntry<java.lang.Long, upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField>
+                mapUint64Message__ = input.readMessage(
+                    MapUint64MessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapUint64Message(instance).getMutableMap().put(
+                    mapUint64Message__.getKey(), mapUint64Message__.getValue());
+
+                break;
+              } // case 58
+              case 66: {
+                com.google.protobuf.MapEntry<java.lang.Boolean, upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField>
+                mapBoolMessage__ = input.readMessage(
+                    MapBoolMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapBoolMessage(instance).getMutableMap().put(
+                    mapBoolMessage__.getKey(), mapBoolMessage__.getValue());
+
+                break;
+              } // case 66
+              case 74: {
+                com.google.protobuf.MapEntry<java.lang.String, upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField>
+                mapStringMessage__ = input.readMessage(
+                    MapStringMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapStringMessage(instance).getMutableMap().put(
+                    mapStringMessage__.getKey(), mapStringMessage__.getValue());
+
+                break;
+              } // case 74
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        finishCollections0(instance);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseRequiredMessageField(
+          upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.requiredMessage_ != null) {
+          return 10;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.requiredMessage_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    upb_util_2023_test.RequiredFieldsEditionsTest.EmptyMessage, upb_util_2023_test.RequiredFieldsEditionsTest.EmptyMessage.Builder, upb_util_2023_test.RequiredFieldsEditionsTest.EmptyMessageOrBuilder>(
+                        instance.getRequiredMessage(),
+                        null,
+                        false);
+                instance.requiredMessage_ = null;
+              }
+              instance.bitField0_ |= 0x00000001;
+            ((com.google.protobuf.SingleFieldBuilder<upb_util_2023_test.RequiredFieldsEditionsTest.EmptyMessage, upb_util_2023_test.RequiredFieldsEditionsTest.EmptyMessage.Builder, upb_util_2023_test.RequiredFieldsEditionsTest.EmptyMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.requiredMessage_ = upb_util_2023_test.RequiredFieldsEditionsTest.EmptyMessage.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000001;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.requiredMessage_ = upb_util_2023_test.RequiredFieldsEditionsTest.EmptyMessage.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseOptionalMessageField(
+          upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.optionalMessage_ != null) {
+          return 18;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.optionalMessage_ != null || fieldBuilders[1] != null) {
+              if (fieldBuilders[1] == null) {
+                fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+                    upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields, upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields.Builder, upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFieldsOrBuilder>(
+                        instance.getOptionalMessage(),
+                        null,
+                        false);
+                instance.optionalMessage_ = null;
+              }
+              instance.bitField0_ |= 0x00000002;
+            ((com.google.protobuf.SingleFieldBuilder<upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields, upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields.Builder, upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFieldsOrBuilder>) fieldBuilders[1]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.optionalMessage_ = upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000002;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.optionalMessage_ = upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000002;
+        return 0;
+      }
+      private static com.google.protobuf.MapField<java.lang.Integer, upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField>
+          internalGetMutableMapInt32Message(upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields instance) {
+        if (instance.mapInt32Message_ == null) {
+          instance.mapInt32Message_ = com.google.protobuf.MapField.newMapField(
+              MapInt32MessageDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapInt32Message_.isMutable()) {
+          instance.mapInt32Message_ = instance.mapInt32Message_.copy();
+        }
+        return instance.mapInt32Message_;
+      }
+      private static com.google.protobuf.MapField<java.lang.Long, upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField>
+          internalGetMutableMapInt64Message(upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields instance) {
+        if (instance.mapInt64Message_ == null) {
+          instance.mapInt64Message_ = com.google.protobuf.MapField.newMapField(
+              MapInt64MessageDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapInt64Message_.isMutable()) {
+          instance.mapInt64Message_ = instance.mapInt64Message_.copy();
+        }
+        return instance.mapInt64Message_;
+      }
+      private static com.google.protobuf.MapField<java.lang.Integer, upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField>
+          internalGetMutableMapUint32Message(upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields instance) {
+        if (instance.mapUint32Message_ == null) {
+          instance.mapUint32Message_ = com.google.protobuf.MapField.newMapField(
+              MapUint32MessageDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapUint32Message_.isMutable()) {
+          instance.mapUint32Message_ = instance.mapUint32Message_.copy();
+        }
+        return instance.mapUint32Message_;
+      }
+      private static com.google.protobuf.MapField<java.lang.Long, upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField>
+          internalGetMutableMapUint64Message(upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields instance) {
+        if (instance.mapUint64Message_ == null) {
+          instance.mapUint64Message_ = com.google.protobuf.MapField.newMapField(
+              MapUint64MessageDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapUint64Message_.isMutable()) {
+          instance.mapUint64Message_ = instance.mapUint64Message_.copy();
+        }
+        return instance.mapUint64Message_;
+      }
+      private static com.google.protobuf.MapField<java.lang.Boolean, upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField>
+          internalGetMutableMapBoolMessage(upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields instance) {
+        if (instance.mapBoolMessage_ == null) {
+          instance.mapBoolMessage_ = com.google.protobuf.MapField.newMapField(
+              MapBoolMessageDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapBoolMessage_.isMutable()) {
+          instance.mapBoolMessage_ = instance.mapBoolMessage_.copy();
+        }
+        return instance.mapBoolMessage_;
+      }
+      private static com.google.protobuf.MapField<java.lang.String, upb_util_2023_test.RequiredFieldsEditionsTest.HasRequiredField>
+          internalGetMutableMapStringMessage(upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields instance) {
+        if (instance.mapStringMessage_ == null) {
+          instance.mapStringMessage_ = com.google.protobuf.MapField.newMapField(
+              MapStringMessageDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapStringMessage_.isMutable()) {
+          instance.mapStringMessage_ = instance.mapStringMessage_.copy();
+        }
+        return instance.mapStringMessage_;
+      }
+      private static void finishCollections0(TestRequiredFields instance) {
+        instance.repeatedMessage_.makeImmutable();
+        if (instance.mapInt32Message_ != null) instance.mapInt32Message_.makeImmutable();
+        if (instance.mapInt64Message_ != null) instance.mapInt64Message_.makeImmutable();
+        if (instance.mapUint32Message_ != null) instance.mapUint32Message_.makeImmutable();
+        if (instance.mapUint64Message_ != null) instance.mapUint64Message_.makeImmutable();
+        if (instance.mapBoolMessage_ != null) instance.mapBoolMessage_.makeImmutable();
+        if (instance.mapStringMessage_ != null) instance.mapStringMessage_.makeImmutable();
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          TestRequiredFields instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[2];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          TestRequiredFields instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasRequiredMessage()) instance.requiredMessage_ = null;
+        if (instance.hasRequiredMessage()) {
+          instance.requiredMessage_ = fieldBuilders[0] == null
+              ? instance.requiredMessage_
+              : ((com.google.protobuf.SingleFieldBuilder<upb_util_2023_test.RequiredFieldsEditionsTest.EmptyMessage, upb_util_2023_test.RequiredFieldsEditionsTest.EmptyMessage.Builder, upb_util_2023_test.RequiredFieldsEditionsTest.EmptyMessageOrBuilder>) fieldBuilders[0]).build();
+
+        }
+        if (!instance.hasOptionalMessage()) instance.optionalMessage_ = null;
+        if (instance.hasOptionalMessage()) {
+          instance.optionalMessage_ = fieldBuilders[1] == null
+              ? instance.optionalMessage_
+              : ((com.google.protobuf.SingleFieldBuilder<upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields, upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFields.Builder, upb_util_2023_test.RequiredFieldsEditionsTest.TestRequiredFieldsOrBuilder>) fieldBuilders[1]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<TestRequiredFields> parser() {
       return PARSER;

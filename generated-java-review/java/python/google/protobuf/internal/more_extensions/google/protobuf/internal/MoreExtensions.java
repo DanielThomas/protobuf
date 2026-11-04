@@ -360,7 +360,7 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -389,14 +389,26 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
                 google.protobuf.internal.MoreExtensions.TopLevelMessage.class, google.protobuf.internal.MoreExtensions.TopLevelMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.internal.MoreExtensions.TopLevelMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private Builder(google.protobuf.internal.MoreExtensions.TopLevelMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -467,6 +479,13 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.internal.MoreExtensions.TopLevelMessage other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000003);
+        submessage_ = other.submessage_;
+        nestedMessage_ = other.nestedMessage_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -816,21 +835,156 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<TopLevelMessage>
-        PARSER = new com.google.protobuf.AbstractParser<TopLevelMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TopLevelMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public TopLevelMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TopLevelMessage instance = new TopLevelMessage((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                pendingTag = parseSubmessageField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 10
+              case 18: {
+                pendingTag = parseNestedMessageField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 18
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseSubmessageField(
+          google.protobuf.internal.MoreExtensions.TopLevelMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.submessage_ != null) {
+          return 10;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.submessage_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    google.protobuf.internal.MoreExtensions.ExtendedMessage, google.protobuf.internal.MoreExtensions.ExtendedMessage.Builder, google.protobuf.internal.MoreExtensions.ExtendedMessageOrBuilder>(
+                        instance.getSubmessage(),
+                        null,
+                        false);
+                instance.submessage_ = null;
+              }
+              instance.bitField0_ |= 0x00000001;
+            ((com.google.protobuf.SingleFieldBuilder<google.protobuf.internal.MoreExtensions.ExtendedMessage, google.protobuf.internal.MoreExtensions.ExtendedMessage.Builder, google.protobuf.internal.MoreExtensions.ExtendedMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.submessage_ = google.protobuf.internal.MoreExtensions.ExtendedMessage.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000001;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.submessage_ = google.protobuf.internal.MoreExtensions.ExtendedMessage.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseNestedMessageField(
+          google.protobuf.internal.MoreExtensions.TopLevelMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.nestedMessage_ != null) {
+          return 18;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.nestedMessage_ != null || fieldBuilders[1] != null) {
+              if (fieldBuilders[1] == null) {
+                fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+                    google.protobuf.internal.MoreExtensions.NestedMessage, google.protobuf.internal.MoreExtensions.NestedMessage.Builder, google.protobuf.internal.MoreExtensions.NestedMessageOrBuilder>(
+                        instance.getNestedMessage(),
+                        null,
+                        false);
+                instance.nestedMessage_ = null;
+              }
+              instance.bitField0_ |= 0x00000002;
+            ((com.google.protobuf.SingleFieldBuilder<google.protobuf.internal.MoreExtensions.NestedMessage, google.protobuf.internal.MoreExtensions.NestedMessage.Builder, google.protobuf.internal.MoreExtensions.NestedMessageOrBuilder>) fieldBuilders[1]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.nestedMessage_ = google.protobuf.internal.MoreExtensions.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000002;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.nestedMessage_ = google.protobuf.internal.MoreExtensions.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000002;
+        return 0;
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          TopLevelMessage instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[2];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          TopLevelMessage instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasSubmessage()) instance.submessage_ = null;
+        if (instance.hasSubmessage()) {
+          instance.submessage_ = fieldBuilders[0] == null
+              ? instance.submessage_
+              : ((com.google.protobuf.SingleFieldBuilder<google.protobuf.internal.MoreExtensions.ExtendedMessage, google.protobuf.internal.MoreExtensions.ExtendedMessage.Builder, google.protobuf.internal.MoreExtensions.ExtendedMessageOrBuilder>) fieldBuilders[0]).build();
+
+        }
+        if (!instance.hasNestedMessage()) instance.nestedMessage_ = null;
+        if (instance.hasNestedMessage()) {
+          instance.nestedMessage_ = fieldBuilders[1] == null
+              ? instance.nestedMessage_
+              : ((com.google.protobuf.SingleFieldBuilder<google.protobuf.internal.MoreExtensions.NestedMessage, google.protobuf.internal.MoreExtensions.NestedMessage.Builder, google.protobuf.internal.MoreExtensions.NestedMessageOrBuilder>) fieldBuilders[1]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<TopLevelMessage> parser() {
       return PARSER;
@@ -1107,7 +1261,7 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -1136,14 +1290,26 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
                 google.protobuf.internal.MoreExtensions.NestedMessage.class, google.protobuf.internal.MoreExtensions.NestedMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.internal.MoreExtensions.NestedMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private Builder(google.protobuf.internal.MoreExtensions.NestedMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -1202,6 +1368,12 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.internal.MoreExtensions.NestedMessage other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        submessage_ = other.submessage_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1411,21 +1583,110 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<NestedMessage>
-        PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<NestedMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public NestedMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        NestedMessage instance = new NestedMessage((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                pendingTag = parseSubmessageField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseSubmessageField(
+          google.protobuf.internal.MoreExtensions.NestedMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.submessage_ != null) {
+          return 10;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.submessage_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    google.protobuf.internal.MoreExtensions.ExtendedMessage, google.protobuf.internal.MoreExtensions.ExtendedMessage.Builder, google.protobuf.internal.MoreExtensions.ExtendedMessageOrBuilder>(
+                        instance.getSubmessage(),
+                        null,
+                        false);
+                instance.submessage_ = null;
+              }
+              instance.bitField0_ |= 0x00000001;
+            ((com.google.protobuf.SingleFieldBuilder<google.protobuf.internal.MoreExtensions.ExtendedMessage, google.protobuf.internal.MoreExtensions.ExtendedMessage.Builder, google.protobuf.internal.MoreExtensions.ExtendedMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.submessage_ = google.protobuf.internal.MoreExtensions.ExtendedMessage.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000001;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.submessage_ = google.protobuf.internal.MoreExtensions.ExtendedMessage.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          NestedMessage instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          NestedMessage instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasSubmessage()) instance.submessage_ = null;
+        if (instance.hasSubmessage()) {
+          instance.submessage_ = fieldBuilders[0] == null
+              ? instance.submessage_
+              : ((com.google.protobuf.SingleFieldBuilder<google.protobuf.internal.MoreExtensions.ExtendedMessage, google.protobuf.internal.MoreExtensions.ExtendedMessage.Builder, google.protobuf.internal.MoreExtensions.ExtendedMessageOrBuilder>) fieldBuilders[0]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<NestedMessage> parser() {
       return PARSER;
@@ -1771,7 +2032,7 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -1801,14 +2062,28 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
                 google.protobuf.internal.MoreExtensions.ExtendedMessage.class, google.protobuf.internal.MoreExtensions.ExtendedMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.internal.MoreExtensions.ExtendedMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        repeatedString_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+
+      }
+      private Builder(google.protobuf.internal.MoreExtensions.ExtendedMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -1861,6 +2136,16 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
           result.repeatedString_ = repeatedString_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.internal.MoreExtensions.ExtendedMessage other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        optionalInt32_ = other.getOptionalInt32();
+        repeatedString_ = other.repeatedString_;
+        if (!repeatedString_.isEmpty()) {
+          to_bitField0_ |= 0x00000002;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       public <Type> Builder setExtension(
@@ -1967,7 +2252,7 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int optionalInt32_ ;
+      private int optionalInt32_;
       /**
        * <code>optional int32 optional_int32 = 1001;</code>
        * @return Whether the optionalInt32 field is set.
@@ -2007,8 +2292,7 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList repeatedString_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList repeatedString_;
       private void ensureRepeatedStringIsMutable() {
         if (!repeatedString_.isModifiable()) {
           repeatedString_ = new com.google.protobuf.LazyStringArrayList(repeatedString_);
@@ -2131,21 +2415,70 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<ExtendedMessage>
-        PARSER = new com.google.protobuf.AbstractParser<ExtendedMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ExtendedMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public ExtendedMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        ExtendedMessage instance = new ExtendedMessage((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8008: {
+                instance.optionalInt32_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8008
+              case 8018: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                ensureRepeatedStringIsMutable(instance);
+                instance.repeatedString_.add(bs);
+                break;
+              } // case 8018
+              default: {
+                pendingTag = tag;
+                break parseLoop;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        finishCollections0(instance);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        if (pendingTag != 0) {
+          return mergeFrom(instance.toBuilder(), input, extensionRegistry, pendingTag, null);
+        }
+        return instance;
       }
-    };
+      private static void ensureRepeatedStringIsMutable(google.protobuf.internal.MoreExtensions.ExtendedMessage instance) {
+        if (!instance.repeatedString_.isModifiable()) {
+          instance.repeatedString_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString_);
+        }
+      }
+      private static void finishCollections0(ExtendedMessage instance) {
+        instance.repeatedString_.makeImmutable();
+      }
+    }
 
     public static com.google.protobuf.Parser<ExtendedMessage> parser() {
       return PARSER;
@@ -2397,7 +2730,7 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -2426,14 +2759,26 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
                 google.protobuf.internal.MoreExtensions.ForeignMessage.class, google.protobuf.internal.MoreExtensions.ForeignMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.internal.MoreExtensions.ForeignMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(google.protobuf.internal.MoreExtensions.ForeignMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -2480,6 +2825,12 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.internal.MoreExtensions.ForeignMessage other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        foreignMessageInt_ = other.getForeignMessageInt();
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -2543,7 +2894,7 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int foreignMessageInt_ ;
+      private int foreignMessageInt_;
       /**
        * <code>optional int32 foreign_message_int = 1;</code>
        * @return Whether the foreignMessageInt field is set.
@@ -2597,21 +2948,54 @@ public final class MoreExtensions extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<ForeignMessage>
-        PARSER = new com.google.protobuf.AbstractParser<ForeignMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ForeignMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public ForeignMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        ForeignMessage instance = new ForeignMessage((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.foreignMessageInt_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<ForeignMessage> parser() {
       return PARSER;

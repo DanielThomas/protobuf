@@ -300,7 +300,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -329,14 +329,26 @@ private static final long serialVersionUID = 0L;
                 edition_unittest.TestHugeFieldNumbers.OptionalGroup.class, edition_unittest.TestHugeFieldNumbers.OptionalGroup.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using edition_unittest.TestHugeFieldNumbers.OptionalGroup.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(edition_unittest.TestHugeFieldNumbers.OptionalGroup other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -383,6 +395,12 @@ private static final long serialVersionUID = 0L;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(edition_unittest.TestHugeFieldNumbers.OptionalGroup other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        groupA_ = other.getGroupA();
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -446,7 +464,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private int groupA_ ;
+      private int groupA_;
       /**
        * <code>int32 group_a = 536870009;</code>
        * @return Whether the groupA field is set.
@@ -500,21 +518,54 @@ private static final long serialVersionUID = 0L;
     }
 
     private static final com.google.protobuf.Parser<OptionalGroup>
-        PARSER = new com.google.protobuf.AbstractParser<OptionalGroup>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<OptionalGroup> {
+      MessageParser() {}
+
       @java.lang.Override
       public OptionalGroup parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        OptionalGroup instance = new OptionalGroup((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case -7224: {
+                instance.groupA_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case -7224
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<OptionalGroup> parser() {
       return PARSER;
@@ -1442,7 +1493,7 @@ java.lang.String defaultValue) {
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -1494,14 +1545,31 @@ java.lang.String defaultValue) {
               edition_unittest.TestHugeFieldNumbers.class, edition_unittest.TestHugeFieldNumbers.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestHugeFieldNumbers.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      repeatedInt32_ = emptyIntList();
+      packedInt32_ = emptyIntList();
+      optionalEnum_ = 4;
+      optionalString_ = "";
+      optionalBytes_ = com.google.protobuf.ByteString.EMPTY;
+      maybeForceBuilderInitialization();
+    }
+    private Builder(edition_unittest.TestHugeFieldNumbers other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -1630,6 +1698,44 @@ java.lang.String defaultValue) {
         result.oneofField_ = oneofField_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestHugeFieldNumbers other) {
+      int to_bitField0_ = (other.bitField0_ & 0x0000007f);
+      optionalInt32_ = other.getOptionalInt32();
+      fixed32_ = other.getFixed32();
+      optionalEnum_ = other.optionalEnum_;
+      optionalString_ = other.optionalString_;
+      optionalBytes_ = other.getOptionalBytes();
+      optionalMessage_ = other.optionalMessage_;
+      optionalGroup_ = other.optionalGroup_;
+      repeatedInt32_ = other.repeatedInt32_;
+      if (!repeatedInt32_.isEmpty()) {
+        to_bitField0_ |= 0x00000080;
+      }
+      packedInt32_ = other.packedInt32_;
+      if (!packedInt32_.isEmpty()) {
+        to_bitField0_ |= 0x00000100;
+      }
+      stringStringMap_ = other.stringStringMap_;
+      if (stringStringMap_ != null) {
+        to_bitField0_ |= 0x00000200;
+      }
+      if (other.oneofFieldCase_ == 536870011) {
+        to_bitField0_ |= 0x00000400;
+      }
+      if (other.oneofFieldCase_ == 536870012) {
+        to_bitField0_ |= 0x00000800;
+      }
+      if (other.oneofFieldCase_ == 536870013) {
+        to_bitField0_ |= 0x00001000;
+      }
+      if (other.oneofFieldCase_ == 536870014) {
+        to_bitField0_ |= 0x00002000;
+      }
+      oneofFieldCase_ = other.oneofFieldCase_;
+      oneofField_ = other.oneofField_;
+      bitField0_ |= to_bitField0_;
     }
 
     public <Type> Builder setExtension(
@@ -1890,7 +1996,7 @@ java.lang.String defaultValue) {
       } // finally
       return this;
     }
-    private int oneofFieldCase_ = 0;
+    private int oneofFieldCase_;
     private java.lang.Object oneofField_;
     public OneofFieldCase
         getOneofFieldCase() {
@@ -1913,7 +2019,7 @@ java.lang.String defaultValue) {
 
     private int bitField0_;
 
-    private int optionalInt32_ ;
+    private int optionalInt32_;
     /**
      * <code>int32 optional_int32 = 536870000;</code>
      * @return Whether the optionalInt32 field is set.
@@ -1953,7 +2059,7 @@ java.lang.String defaultValue) {
       return this;
     }
 
-    private int fixed32_ ;
+    private int fixed32_;
     /**
      * <code>int32 fixed_32 = 536870001 [features = { ... }</code>
      * @return Whether the fixed32 field is set.
@@ -1993,7 +2099,7 @@ java.lang.String defaultValue) {
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedInt32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedInt32_;
     private void ensureRepeatedInt32IsMutable(int capacity) {
       if (!repeatedInt32_.isModifiable()) {
         repeatedInt32_ = makeMutableCopy(repeatedInt32_, capacity);
@@ -2077,7 +2183,7 @@ java.lang.String defaultValue) {
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedInt32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedInt32_;
     private void ensurePackedInt32IsMutable(int capacity) {
       if (!packedInt32_.isModifiable()) {
         packedInt32_ = makeMutableCopy(packedInt32_, capacity);
@@ -2161,7 +2267,7 @@ java.lang.String defaultValue) {
       return this;
     }
 
-    private int optionalEnum_ = 4;
+    private int optionalEnum_;
     /**
      * <code>.edition_unittest.ForeignEnum optional_enum = 536870004;</code>
      * @return Whether the optionalEnum field is set.
@@ -2201,7 +2307,7 @@ java.lang.String defaultValue) {
       return this;
     }
 
-    private java.lang.Object optionalString_ = "";
+    private java.lang.Object optionalString_;
     /**
      * <code>string optional_string = 536870005;</code>
      * @return Whether the optionalString field is set.
@@ -2280,7 +2386,7 @@ java.lang.String defaultValue) {
       return this;
     }
 
-    private com.google.protobuf.ByteString optionalBytes_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString optionalBytes_;
     /**
      * <code>bytes optional_bytes = 536870006;</code>
      * @return Whether the optionalBytes field is set.
@@ -3130,6 +3236,22 @@ java.lang.String defaultValue) {
         break;
       }
     }
+    @java.lang.SuppressWarnings("unchecked")
+    private void transferChildren0(
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[0] != null) {
+        if (optionalMessageBuilder_ != null) optionalMessageBuilder_.dispose();
+        optionalMessageBuilder_ = ((com.google.protobuf.SingleFieldBuilder<edition_unittest.ForeignMessage, edition_unittest.ForeignMessage.Builder, edition_unittest.ForeignMessageOrBuilder>) fieldBuilders[0]);
+      }
+      if (fieldBuilders[1] != null) {
+        if (optionalGroupBuilder_ != null) optionalGroupBuilder_.dispose();
+        optionalGroupBuilder_ = ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestHugeFieldNumbers.OptionalGroup, edition_unittest.TestHugeFieldNumbers.OptionalGroup.Builder, edition_unittest.TestHugeFieldNumbers.OptionalGroupOrBuilder>) fieldBuilders[1]);
+      }
+      if (fieldBuilders[2] != null) {
+        if (oneofTestAllTypesBuilder_ != null) oneofTestAllTypesBuilder_.dispose();
+        oneofTestAllTypesBuilder_ = ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder>) fieldBuilders[2]);
+      }
+    }
 
     // @@protoc_insertion_point(builder_scope:edition_unittest.TestHugeFieldNumbers)
   }
@@ -3145,21 +3267,404 @@ java.lang.String defaultValue) {
   }
 
   private static final com.google.protobuf.Parser<TestHugeFieldNumbers>
-      PARSER = new com.google.protobuf.AbstractParser<TestHugeFieldNumbers>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestHugeFieldNumbers> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestHugeFieldNumbers parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestHugeFieldNumbers instance = new TestHugeFieldNumbers((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.lang.Object parsed_optionalString = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case -7296: {
+              instance.optionalInt32_ = input.readInt32();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case -7296
+            case -7288: {
+              instance.fixed32_ = input.readInt32();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case -7288
+            case -7280: {
+              int v = input.readInt32();
+              ensureRepeatedInt32IsMutable(instance, /* capacity= */ -1);
+              instance.repeatedInt32_.addInt(v);
+              break;
+            } // case -7280
+            case -7278: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedInt32IsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedInt32_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case -7278
+            case -7272: {
+              int v = input.readInt32();
+              ensurePackedInt32IsMutable(instance, /* capacity= */ -1);
+              instance.packedInt32_.addInt(v);
+              break;
+            } // case -7272
+            case -7270: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedInt32IsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.packedInt32_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case -7270
+            case -7264: {
+              int tmpRaw = input.readEnum();
+              if (edition_unittest.ForeignEnum.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 536870004, tmpRaw);
+              } else {
+                instance.optionalEnum_ = tmpRaw;
+                to_bitField0_ |= 0x00000004;
+              }
+              break;
+            } // case -7264
+            case -7254: {
+              parsed_optionalString = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000008;
+              break;
+            } // case -7254
+            case -7246: {
+              instance.optionalBytes_ = input.readBytes();
+              to_bitField0_ |= 0x00000010;
+              break;
+            } // case -7246
+            case -7238: {
+              pendingTag = parseOptionalMessageField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case -7238
+            case -7229: {
+              pendingTag = parseOptionalGroupField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case -7229
+            case -7214: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+              stringStringMap__ = input.readMessage(
+                  StringStringMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableStringStringMap(instance).getMutableMap().put(
+                  stringStringMap__.getKey(), stringStringMap__.getValue());
+
+              break;
+            } // case -7214
+            case -7208: {
+              pendingTag = parseOneofUint32Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case -7208
+            case -7198: {
+              pendingTag = parseOneofTestAllTypesField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case -7198
+            case -7190: {
+              pendingTag = parseOneofStringField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case -7190
+            case -7182: {
+              pendingTag = parseOneofBytesField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case -7182
+            default: {
+              pendingTag = tag;
+              break parseLoop;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parsed_optionalString != null) instance.optionalString_ = parsed_optionalString;
+      finishCollections0(instance);
+      if (pendingTag != 0 && parseFailure == null) {
+        return mergeWithBuilder(instance, input, extensionRegistry, pendingTag, fieldBuilders);
+      }
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensureRepeatedInt32IsMutable(edition_unittest.TestHugeFieldNumbers instance, int minCapacity) {
+      if (!instance.repeatedInt32_.isModifiable()) {
+        instance.repeatedInt32_ = makeMutableCopy(instance.repeatedInt32_, minCapacity);
+      }
+    }
+    private static void ensurePackedInt32IsMutable(edition_unittest.TestHugeFieldNumbers instance, int minCapacity) {
+      if (!instance.packedInt32_.isModifiable()) {
+        instance.packedInt32_ = makeMutableCopy(instance.packedInt32_, minCapacity);
+      }
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseOptionalMessageField(
+        edition_unittest.TestHugeFieldNumbers instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.optionalMessage_ != null) {
+        return -7238;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.optionalMessage_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  edition_unittest.ForeignMessage, edition_unittest.ForeignMessage.Builder, edition_unittest.ForeignMessageOrBuilder>(
+                      instance.getOptionalMessage(),
+                      null,
+                      false);
+              instance.optionalMessage_ = null;
+            }
+            instance.bitField0_ |= 0x00000020;
+          ((com.google.protobuf.SingleFieldBuilder<edition_unittest.ForeignMessage, edition_unittest.ForeignMessage.Builder, edition_unittest.ForeignMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.optionalMessage_ = edition_unittest.ForeignMessage.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000020;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.optionalMessage_ = edition_unittest.ForeignMessage.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000020;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseOptionalGroupField(
+        edition_unittest.TestHugeFieldNumbers instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.optionalGroup_ != null) {
+        return -7229;
+      }
+      if (fieldBuilders != null) {
+        if (instance.optionalGroup_ != null || fieldBuilders[1] != null) {
+            if (fieldBuilders[1] == null) {
+              fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+                  edition_unittest.TestHugeFieldNumbers.OptionalGroup, edition_unittest.TestHugeFieldNumbers.OptionalGroup.Builder, edition_unittest.TestHugeFieldNumbers.OptionalGroupOrBuilder>(
+                      instance.getOptionalGroup(),
+                      null,
+                      false);
+              instance.optionalGroup_ = null;
+            }
+            instance.bitField0_ |= 0x00000040;
+          input.readGroup(536870008,
+              ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestHugeFieldNumbers.OptionalGroup, edition_unittest.TestHugeFieldNumbers.OptionalGroup.Builder, edition_unittest.TestHugeFieldNumbers.OptionalGroupOrBuilder>) fieldBuilders[1]).getBuilder(),
+              extensionRegistry);
+        } else {
+          instance.optionalGroup_ = input.readGroup(536870008, edition_unittest.TestHugeFieldNumbers.OptionalGroup.parser(),
+              extensionRegistry);
+        }
+        instance.bitField0_ |= 0x00000040;
+        return 0;
+      }
+      instance.optionalGroup_ = input.readGroup(536870008, edition_unittest.TestHugeFieldNumbers.OptionalGroup.parser(), extensionRegistry);
+      instance.bitField0_ |= 0x00000040;
+      return 0;
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.String>
+        internalGetMutableStringStringMap(edition_unittest.TestHugeFieldNumbers instance) {
+      if (instance.stringStringMap_ == null) {
+        instance.stringStringMap_ = com.google.protobuf.MapField.newMapField(
+            StringStringMapDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.stringStringMap_.isMutable()) {
+        instance.stringStringMap_ = instance.stringStringMap_.copy();
+      }
+      return instance.stringStringMap_;
+    }
+    private static int parseOneofUint32Field(
+        edition_unittest.TestHugeFieldNumbers instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.oneofField_ instanceof com.google.protobuf.GeneratedMessage) {
+        return -7208;
+      }
+      int value = input.readUInt32();
+      instance.oneofFieldCase_ = 536870011;
+      instance.oneofField_ = value;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseOneofTestAllTypesField(
+        edition_unittest.TestHugeFieldNumbers instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.oneofField_ instanceof com.google.protobuf.GeneratedMessage) {
+        return -7198;
+      }
+      if (fieldBuilders != null) {
+        input.readMessage(
+            internalGetOneofTestAllTypesFieldBuilder(instance, fieldBuilders).getBuilder(),
+            extensionRegistry);
+        switch (instance.oneofFieldCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.oneofFieldCase_ = 536870012;
+           // fallthrough
+        case 536870012:
+          break;
+        }
+        return 0;
+      }
+      instance.oneofFieldCase_ = 536870012;
+      instance.oneofField_ = edition_unittest.TestAllTypes.getDefaultInstance();
+      try {
+        instance.oneofField_ = input.readMessage(edition_unittest.TestAllTypes.parser(), extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+          instance.oneofField_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static com.google.protobuf.SingleFieldBuilder<
+        edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder>
+        internalGetOneofTestAllTypesFieldBuilder(
+            edition_unittest.TestHugeFieldNumbers instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (fieldBuilders[2] == null) {
+        if (!(instance.hasOneofTestAllTypes())) {
+          instance.oneofField_ = edition_unittest.TestAllTypes.getDefaultInstance();
+        }
+        fieldBuilders[2] = new com.google.protobuf.SingleFieldBuilder<
+            edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder>(
+                (edition_unittest.TestAllTypes) instance.oneofField_,
+                null,
+                false);
+        instance.oneofField_ = null;
+      }
+      switch (instance.oneofFieldCase_) {
+      default:
+         // fallthrough
+      case 0:
+        instance.oneofFieldCase_ = 536870012;
+         // fallthrough
+      case 536870012:
+        break;
+      }
+
+      return ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder>) fieldBuilders[2]);
+    }
+    private static int parseOneofStringField(
+        edition_unittest.TestHugeFieldNumbers instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.oneofField_ instanceof com.google.protobuf.GeneratedMessage) {
+        return -7190;
+      }
+      java.lang.String value = input.readStringRequireUtf8();
+      instance.oneofFieldCase_ = 536870013;
+      instance.oneofField_ = value;
+      return 0;
+    }
+    private static int parseOneofBytesField(
+        edition_unittest.TestHugeFieldNumbers instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.oneofField_ instanceof com.google.protobuf.GeneratedMessage) {
+        return -7182;
+      }
+      com.google.protobuf.ByteString value = input.readBytes();
+      instance.oneofFieldCase_ = 536870014;
+      instance.oneofField_ = value;
+      return 0;
+    }
+    private static void finishCollections0(TestHugeFieldNumbers instance) {
+      instance.repeatedInt32_.makeImmutable();
+      instance.packedInt32_.makeImmutable();
+      if (instance.stringStringMap_ != null) instance.stringStringMap_.makeImmutable();
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        TestHugeFieldNumbers instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[3];
+      if (instance.oneofFieldCase_ == 536870012 && tag != -7198) {
+        internalGetOneofTestAllTypesFieldBuilder(instance, fieldBuilders);
+      }
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        TestHugeFieldNumbers instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasOptionalMessage()) instance.optionalMessage_ = null;
+      if (instance.hasOptionalMessage()) {
+        instance.optionalMessage_ = fieldBuilders[0] == null
+            ? instance.optionalMessage_
+            : ((com.google.protobuf.SingleFieldBuilder<edition_unittest.ForeignMessage, edition_unittest.ForeignMessage.Builder, edition_unittest.ForeignMessageOrBuilder>) fieldBuilders[0]).build();
+
+      }
+      if (!instance.hasOptionalGroup()) instance.optionalGroup_ = null;
+      if (instance.hasOptionalGroup()) {
+        instance.optionalGroup_ = fieldBuilders[1] == null
+            ? instance.optionalGroup_
+            : ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestHugeFieldNumbers.OptionalGroup, edition_unittest.TestHugeFieldNumbers.OptionalGroup.Builder, edition_unittest.TestHugeFieldNumbers.OptionalGroupOrBuilder>) fieldBuilders[1]).build();
+
+      }
+      {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?> child = null;
+        switch (instance.oneofFieldCase_) {
+          case 536870012: child = fieldBuilders[2]; break;
+          default: break;
+        }
+        if (child != null) {
+          instance.oneofField_ = child == null
+              ? instance.oneofField_
+              : child.build();
+        }
+      }
+    }
+    private static TestHugeFieldNumbers mergeWithBuilder(
+        TestHugeFieldNumbers instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite registry, int tag,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      Builder builder = new Builder(instance);
+      if (fieldBuilders == null) {
+        if (instance.oneofFieldCase_ == 536870012) builder.getOneofTestAllTypesBuilder();
+      } else {
+        builder.transferChildren0(fieldBuilders);
+      }
+      return mergeFrom(builder, input, registry, tag, null);
+    }
+  }
 
   public static com.google.protobuf.Parser<TestHugeFieldNumbers> parser() {
     return PARSER;

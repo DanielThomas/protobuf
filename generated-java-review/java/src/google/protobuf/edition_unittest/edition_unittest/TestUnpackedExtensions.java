@@ -196,7 +196,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -226,14 +226,25 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestUnpackedExtensions.class, edition_unittest.TestUnpackedExtensions.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestUnpackedExtensions.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+
+    }
+    private Builder(edition_unittest.TestUnpackedExtensions other) {
+      super(other, null);
 
     }
     @java.lang.Override
@@ -362,21 +373,46 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestUnpackedExtensions>
-      PARSER = new com.google.protobuf.AbstractParser<TestUnpackedExtensions>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestUnpackedExtensions> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestUnpackedExtensions parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestUnpackedExtensions instance = new TestUnpackedExtensions((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            default: {
+              pendingTag = tag;
+              break parseLoop;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      if (pendingTag != 0) {
+        return mergeFrom(instance.toBuilder(), input, extensionRegistry, pendingTag, null);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<TestUnpackedExtensions> parser() {
     return PARSER;

@@ -407,7 +407,7 @@ public final class FieldMaskUtilTest extends com.google.protobuf.GeneratedFile {
       @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
+            ? new Builder() : new Builder(this);
       }
 
       @java.lang.Override
@@ -436,14 +436,26 @@ public final class FieldMaskUtilTest extends com.google.protobuf.GeneratedFile {
                   third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage.class, third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+
+        }
+        private Builder(third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage other) {
+          super(other, null);
+          copyFrom_autosplit_0(other);
 
         }
         @java.lang.Override
@@ -495,6 +507,13 @@ public final class FieldMaskUtilTest extends com.google.protobuf.GeneratedFile {
             to_bitField0_ |= 0x00000002;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage other) {
+          int to_bitField0_ = (other.bitField0_ & 0x00000003);
+          f1_ = other.getF1();
+          f2_ = other.getF2();
+          bitField0_ |= to_bitField0_;
         }
 
         @java.lang.Override
@@ -566,7 +585,7 @@ public final class FieldMaskUtilTest extends com.google.protobuf.GeneratedFile {
         }
         private int bitField0_;
 
-        private int f1_ ;
+        private int f1_;
         /**
          * <code>optional int32 f1 = 1;</code>
          * @return Whether the f1 field is set.
@@ -606,7 +625,7 @@ public final class FieldMaskUtilTest extends com.google.protobuf.GeneratedFile {
           return this;
         }
 
-        private int f2_ ;
+        private int f2_;
         /**
          * <code>optional int32 f2 = 2;</code>
          * @return Whether the f2 field is set.
@@ -660,21 +679,59 @@ public final class FieldMaskUtilTest extends com.google.protobuf.GeneratedFile {
       }
 
       private static final com.google.protobuf.Parser<NestedMessage>
-          PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<NestedMessage> {
+        MessageParser() {}
+
         @java.lang.Override
         public NestedMessage parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
+          java.util.Objects.requireNonNull(extensionRegistry);
+          NestedMessage instance = new NestedMessage((Builder) null);
+          java.lang.Object unknown = null;
+          int to_bitField0_ = 0;
+          java.io.IOException parseFailure = null;
           try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
+            parseLoop: while (true) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0: break parseLoop;
+                case 8: {
+                  instance.f1_ = input.readInt32();
+                  to_bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+                case 16: {
+                  instance.f2_ = input.readInt32();
+                  to_bitField0_ |= 0x00000002;
+                  break;
+                } // case 16
+                default: {
+                  unknown = prepareUnknownFields(unknown, input);
+                  if (!parseUnknownField(input, unknown, tag)) {
+                    break parseLoop;
+                  }
+                  break;
+                }
+              }
+            }
+          } catch (java.io.IOException e) {
+            parseFailure = e;
           }
-          return builder.buildPartial();
+          finishUnknownFields(instance, unknown);
+          if (to_bitField0_ != 0) {
+            instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+          }
+          if (parseFailure != null) {
+            throwParseException(parseFailure, instance);
+          }
+          return instance;
         }
-      };
+      }
 
       public static com.google.protobuf.Parser<NestedMessage> parser() {
         return PARSER;
@@ -1001,7 +1058,7 @@ public final class FieldMaskUtilTest extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -1030,14 +1087,27 @@ public final class FieldMaskUtilTest extends com.google.protobuf.GeneratedFile {
                 third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.class, third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        repeatedNestedMessage_ = emptyList(third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage.class);
+        maybeForceBuilderInitialization();
+      }
+      private Builder(third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -1124,6 +1194,17 @@ public final class FieldMaskUtilTest extends com.google.protobuf.GeneratedFile {
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000003);
+        nestedMessage_ = other.nestedMessage_;
+        nestedMessage2_ = other.nestedMessage2_;
+        repeatedNestedMessage_ = other.repeatedNestedMessage_;
+        if (!repeatedNestedMessage_.isEmpty()) {
+          to_bitField0_ |= 0x00000004;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1363,8 +1444,7 @@ public final class FieldMaskUtilTest extends com.google.protobuf.GeneratedFile {
         bitField0_ |= 0x00000001;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage> repeatedNestedMessage_ =
-          emptyList(third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage.class);
+      private com.google.protobuf.Internal.ProtobufList<third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage> repeatedNestedMessage_;
       private void ensureRepeatedNestedMessageIsMutable() {
         if (!repeatedNestedMessage_.isModifiable()) {
           repeatedNestedMessage_ = makeMutableCopy(repeatedNestedMessage_);
@@ -1739,21 +1819,170 @@ public final class FieldMaskUtilTest extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<TestTrimMessageRepeatedField>
-        PARSER = new com.google.protobuf.AbstractParser<TestTrimMessageRepeatedField>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestTrimMessageRepeatedField> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestTrimMessageRepeatedField parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestTrimMessageRepeatedField instance = new TestTrimMessageRepeatedField((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                pendingTag = parseNestedMessageField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 10
+              case 18: {
+                final int oldLimit = input.pushLimitBeforeMessage();
+                third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage m = third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+                input.popLimitAfterMessage(oldLimit);
+                if (!instance.repeatedNestedMessage_.isModifiable()) {
+  instance.repeatedNestedMessage_ = makeMutableCopy(instance.repeatedNestedMessage_);
+}
+                instance.repeatedNestedMessage_.add(m);
+                break;
+              } // case 18
+              case 26: {
+                pendingTag = parseNestedMessage2Field(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 26
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        finishCollections0(instance);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseNestedMessageField(
+          third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.nestedMessage_ != null) {
+          return 10;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.nestedMessage_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage, third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage.Builder, third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessageOrBuilder>(
+                        instance.getNestedMessage(),
+                        null,
+                        false);
+                instance.nestedMessage_ = null;
+              }
+              instance.bitField0_ |= 0x00000001;
+            ((com.google.protobuf.SingleFieldBuilder<third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage, third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage.Builder, third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.nestedMessage_ = third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000001;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.nestedMessage_ = third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseNestedMessage2Field(
+          third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.nestedMessage2_ != null) {
+          return 26;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.nestedMessage2_ != null || fieldBuilders[1] != null) {
+              if (fieldBuilders[1] == null) {
+                fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+                    third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage, third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage.Builder, third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessageOrBuilder>(
+                        instance.getNestedMessage2(),
+                        null,
+                        false);
+                instance.nestedMessage2_ = null;
+              }
+              instance.bitField0_ |= 0x00000002;
+            ((com.google.protobuf.SingleFieldBuilder<third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage, third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage.Builder, third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessageOrBuilder>) fieldBuilders[1]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.nestedMessage2_ = third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000002;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.nestedMessage2_ = third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000002;
+        return 0;
+      }
+      private static void finishCollections0(TestTrimMessageRepeatedField instance) {
+        instance.repeatedNestedMessage_.makeImmutable();
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          TestTrimMessageRepeatedField instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[2];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          TestTrimMessageRepeatedField instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasNestedMessage()) instance.nestedMessage_ = null;
+        if (instance.hasNestedMessage()) {
+          instance.nestedMessage_ = fieldBuilders[0] == null
+              ? instance.nestedMessage_
+              : ((com.google.protobuf.SingleFieldBuilder<third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage, third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage.Builder, third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessageOrBuilder>) fieldBuilders[0]).build();
+
+        }
+        if (!instance.hasNestedMessage2()) instance.nestedMessage2_ = null;
+        if (instance.hasNestedMessage2()) {
+          instance.nestedMessage2_ = fieldBuilders[1] == null
+              ? instance.nestedMessage2_
+              : ((com.google.protobuf.SingleFieldBuilder<third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage, third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessage.Builder, third_party_protobuf_util.FieldMaskUtilTest.TestTrimMessageRepeatedField.NestedMessageOrBuilder>) fieldBuilders[1]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<TestTrimMessageRepeatedField> parser() {
       return PARSER;

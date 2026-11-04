@@ -394,7 +394,7 @@ public final class TestSpecialCharactersOuterClass extends com.google.protobuf.G
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -423,14 +423,28 @@ public final class TestSpecialCharactersOuterClass extends com.google.protobuf.G
                 foo.TestSpecialCharactersOuterClass.TestSpecialCharacters.class, foo.TestSpecialCharactersOuterClass.TestSpecialCharacters.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using foo.TestSpecialCharactersOuterClass.TestSpecialCharacters.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        a_ = "";
+        b_ = "";
+
+      }
+      private Builder(foo.TestSpecialCharactersOuterClass.TestSpecialCharacters other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -475,13 +489,20 @@ public final class TestSpecialCharactersOuterClass extends com.google.protobuf.G
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.a_ = a_;
-          ;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.b_ = b_;
-          ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(foo.TestSpecialCharactersOuterClass.TestSpecialCharacters other) {
+        int to_bitField0_ = 0;
+        a_ = other.a_;
+        to_bitField0_ |= 0x00000001;
+        b_ = other.b_;
+        to_bitField0_ |= 0x00000002;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -557,7 +578,7 @@ public final class TestSpecialCharactersOuterClass extends com.google.protobuf.G
       }
       private int bitField0_;
 
-      private java.lang.Object a_ = "";
+      private java.lang.Object a_;
       /**
        * <pre>
        * test special characters (shouldn't escape): ;,/?:&amp;=+$-_.!~*'()
@@ -674,7 +695,7 @@ public final class TestSpecialCharactersOuterClass extends com.google.protobuf.G
         return this;
       }
 
-      private java.lang.Object b_ = "";
+      private java.lang.Object b_;
       /**
        * <pre>
        * &#47;
@@ -785,21 +806,59 @@ public final class TestSpecialCharactersOuterClass extends com.google.protobuf.G
     }
 
     private static final com.google.protobuf.Parser<TestSpecialCharacters>
-        PARSER = new com.google.protobuf.AbstractParser<TestSpecialCharacters>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestSpecialCharacters> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestSpecialCharacters parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestSpecialCharacters instance = new TestSpecialCharacters((Builder) null);
+        java.lang.Object unknown = null;
+        java.lang.Object parsed_a = null;
+        java.lang.Object parsed_b = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                parsed_a = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              case 18: {
+                parsed_b = input.readStringRequireUtf8();
+
+                break;
+              } // case 18
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parsed_a != null) instance.a_ = parsed_a;
+        if (parsed_b != null) instance.b_ = parsed_b;
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<TestSpecialCharacters> parser() {
       return PARSER;

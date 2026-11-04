@@ -563,7 +563,7 @@ public final class Proto3EnumOuterClass extends com.google.protobuf.GeneratedFil
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -592,14 +592,28 @@ public final class Proto3EnumOuterClass extends com.google.protobuf.GeneratedFil
                 protobuf_editions_test.proto3.Proto3EnumOuterClass.Proto3EnumMessage.class, protobuf_editions_test.proto3.Proto3EnumOuterClass.Proto3EnumMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.proto3.Proto3EnumOuterClass.Proto3EnumMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        enumField_ = 0;
+        nestedEnumField_ = 0;
+
+      }
+      private Builder(protobuf_editions_test.proto3.Proto3EnumOuterClass.Proto3EnumMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -648,9 +662,16 @@ public final class Proto3EnumOuterClass extends com.google.protobuf.GeneratedFil
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.enumField_ = enumField_;
-          ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(protobuf_editions_test.proto3.Proto3EnumOuterClass.Proto3EnumMessage other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        nestedEnumField_ = other.getNestedEnumFieldValue();
+        enumField_ = other.getEnumFieldValue();
+        to_bitField0_ |= 0x00000002;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -722,7 +743,7 @@ public final class Proto3EnumOuterClass extends com.google.protobuf.GeneratedFil
       }
       private int bitField0_;
 
-      private int enumField_ = 0;
+      private int enumField_;
       /**
        * <code>.protobuf_editions_test.proto3.Proto3Enum enum_field = 1;</code>
        * @return The enum numeric value on the wire for enumField.
@@ -774,7 +795,7 @@ public final class Proto3EnumOuterClass extends com.google.protobuf.GeneratedFil
         return this;
       }
 
-      private int nestedEnumField_ = 0;
+      private int nestedEnumField_;
       /**
        * <code>optional .protobuf_editions_test.proto3.Proto3EnumMessage.Proto3NestedEnum nested_enum_field = 3;</code>
        * @return Whether the nestedEnumField field is set.
@@ -847,21 +868,59 @@ public final class Proto3EnumOuterClass extends com.google.protobuf.GeneratedFil
     }
 
     private static final com.google.protobuf.Parser<Proto3EnumMessage>
-        PARSER = new com.google.protobuf.AbstractParser<Proto3EnumMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Proto3EnumMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public Proto3EnumMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Proto3EnumMessage instance = new Proto3EnumMessage((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.enumField_ = input.readEnum();
+
+                break;
+              } // case 8
+              case 24: {
+                instance.nestedEnumField_ = input.readEnum();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 24
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<Proto3EnumMessage> parser() {
       return PARSER;

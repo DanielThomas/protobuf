@@ -405,7 +405,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -434,14 +434,26 @@ private static final long serialVersionUID = 0L;
                 in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage.class, in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -488,6 +500,12 @@ private static final long serialVersionUID = 0L;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        while_ = other.getWhile();
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -551,7 +569,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private int while_ ;
+      private int while_;
       /**
        * <code>optional int32 while = 1;</code>
        * @return Whether the while field is set.
@@ -605,21 +623,54 @@ private static final long serialVersionUID = 0L;
     }
 
     private static final com.google.protobuf.Parser<NestedMessage>
-        PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<NestedMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public NestedMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        NestedMessage instance = new NestedMessage((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.while_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<NestedMessage> parser() {
       return PARSER;
@@ -1230,7 +1281,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -1281,14 +1332,32 @@ private static final long serialVersionUID = 0L;
               in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.class, in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      break_ = 1;
+      else_ = emptyIntList();
+      for_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      fun_ = emptyIntList();
+      if_ = emptyList(in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage.class);
+      maybeForceBuilderInitialization();
+    }
+    private Builder(in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2 other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -1394,6 +1463,34 @@ private static final long serialVersionUID = 0L;
       }
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2 other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000007);
+      as_ = other.getAs();
+      break_ = other.break_;
+      do_ = other.do_;
+      continue_ = other.continue_;
+      if (continue_ != null) {
+        to_bitField0_ |= 0x00000008;
+      }
+      else_ = other.else_;
+      if (!else_.isEmpty()) {
+        to_bitField0_ |= 0x00000010;
+      }
+      for_ = other.for_;
+      if (!for_.isEmpty()) {
+        to_bitField0_ |= 0x00000020;
+      }
+      fun_ = other.fun_;
+      if (!fun_.isEmpty()) {
+        to_bitField0_ |= 0x00000040;
+      }
+      if_ = other.if_;
+      if (!if_.isEmpty()) {
+        to_bitField0_ |= 0x00000080;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1620,7 +1717,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int as_ ;
+    private int as_;
     /**
      * <code>optional int32 as = 1;</code>
      * @return Whether the as field is set.
@@ -1660,7 +1757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int break_ = 1;
+    private int break_;
     /**
      * <code>optional .protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedEnum break = 3;</code>
      * @return Whether the break field is set.
@@ -1954,7 +2051,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000004;
     }
 
-    private com.google.protobuf.Internal.IntList else_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList else_;
     private void ensureElseIsMutable(int capacity) {
       if (!else_.isModifiable()) {
         else_ = makeMutableCopy(else_, capacity);
@@ -2038,8 +2135,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList for_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList for_;
     private void ensureForIsMutable() {
       if (!for_.isModifiable()) {
         for_ = new com.google.protobuf.LazyStringArrayList(for_);
@@ -2148,7 +2244,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList fun_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList fun_;
     private void ensureFunIsMutable(int capacity) {
       if (!fun_.isModifiable()) {
         fun_ = makeMutableCopy(fun_, capacity);
@@ -2229,8 +2325,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage> if_ =
-        emptyList(in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage.class);
+    private com.google.protobuf.Internal.ProtobufList<in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage> if_;
     private void ensureIfIsMutable() {
       if (!if_.isModifiable()) {
         if_ = makeMutableCopy(if_);
@@ -2477,21 +2572,235 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<HardKeywordsAllTypesProto2>
-      PARSER = new com.google.protobuf.AbstractParser<HardKeywordsAllTypesProto2>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<HardKeywordsAllTypesProto2> {
+    MessageParser() {}
+
     @java.lang.Override
     public HardKeywordsAllTypesProto2 parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      HardKeywordsAllTypesProto2 instance = new HardKeywordsAllTypesProto2((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.as_ = input.readInt32();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 24: {
+              int tmpRaw = input.readEnum();
+              if (in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedEnum.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 3, tmpRaw);
+              } else {
+                instance.break_ = tmpRaw;
+                to_bitField0_ |= 0x00000002;
+              }
+              break;
+            } // case 24
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              continue__ = input.readMessage(
+                  ContinueDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableContinue(instance).getMutableMap().put(
+                  continue__.getKey(), continue__.getValue());
+
+              break;
+            } // case 34
+            case 42: {
+              pendingTag = parseDoField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 42
+            case 48: {
+              int v = input.readInt32();
+              ensureElseIsMutable(instance, /* capacity= */ -1);
+              instance.else_.addInt(v);
+              break;
+            } // case 48
+            case 50: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureElseIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.else_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 50
+            case 58: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureForIsMutable(instance);
+              instance.for_.add(bs);
+              break;
+            } // case 58
+            case 64: {
+              int tmpRaw = input.readEnum();
+              in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedEnum tmpValue =
+                  in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedEnum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 8, tmpRaw);
+              } else {
+                ensureFunIsMutable(instance, /* capacity= */ -1);
+                instance.fun_.addInt(tmpRaw);
+              }
+              break;
+            } // case 64
+            case 66: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureFunIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedEnum tmpValue =
+                    in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 8, tmpRaw);
+                } else {
+                  instance.fun_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 66
+            case 74: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage m = in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.if_.isModifiable()) {
+  instance.if_ = makeMutableCopy(instance.if_);
+}
+              instance.if_.add(m);
+              break;
+            } // case 74
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      finishCollections0(instance);
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableContinue(in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2 instance) {
+      if (instance.continue_ == null) {
+        instance.continue_ = com.google.protobuf.MapField.newMapField(
+            ContinueDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.continue_.isMutable()) {
+        instance.continue_ = instance.continue_.copy();
+      }
+      return instance.continue_;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseDoField(
+        in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2 instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.do_ != null) {
+        return 42;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.do_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage, in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage.Builder, in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessageOrBuilder>(
+                      instance.getDo(),
+                      null,
+                      false);
+              instance.do_ = null;
+            }
+            instance.bitField0_ |= 0x00000004;
+          ((com.google.protobuf.SingleFieldBuilder<in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage, in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage.Builder, in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.do_ = in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000004;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.do_ = in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+      return 0;
+    }
+    private static void ensureElseIsMutable(in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2 instance, int minCapacity) {
+      if (!instance.else_.isModifiable()) {
+        instance.else_ = makeMutableCopy(instance.else_, minCapacity);
+      }
+    }
+    private static void ensureForIsMutable(in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2 instance) {
+      if (!instance.for_.isModifiable()) {
+        instance.for_ = new com.google.protobuf.LazyStringArrayList(instance.for_);
+      }
+    }
+    private static void ensureFunIsMutable(in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2 instance, int minCapacity) {
+      if (!instance.fun_.isModifiable()) {
+        instance.fun_ = makeMutableCopy(instance.fun_, minCapacity);
+      }
+    }
+    private static void finishCollections0(HardKeywordsAllTypesProto2 instance) {
+      if (instance.continue_ != null) instance.continue_.makeImmutable();
+      instance.else_.makeImmutable();
+      instance.for_.makeImmutable();
+      instance.fun_.makeImmutable();
+      instance.if_.makeImmutable();
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        HardKeywordsAllTypesProto2 instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        HardKeywordsAllTypesProto2 instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasDo()) instance.do_ = null;
+      if (instance.hasDo()) {
+        instance.do_ = fieldBuilders[0] == null
+            ? instance.do_
+            : ((com.google.protobuf.SingleFieldBuilder<in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage, in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessage.Builder, in.com.google.protobuf.kotlin.generator.HardKeywordsAllTypesProto2.NestedMessageOrBuilder>) fieldBuilders[0]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<HardKeywordsAllTypesProto2> parser() {
     return PARSER;

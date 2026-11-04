@@ -332,7 +332,7 @@ public final class DefToProtoEditionsTest extends com.google.protobuf.GeneratedF
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -361,14 +361,26 @@ public final class DefToProtoEditionsTest extends com.google.protobuf.GeneratedF
                 pkg.DefToProtoEditionsTest.EditionsMessage.class, pkg.DefToProtoEditionsTest.EditionsMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using pkg.DefToProtoEditionsTest.EditionsMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private Builder(pkg.DefToProtoEditionsTest.EditionsMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -432,6 +444,13 @@ public final class DefToProtoEditionsTest extends com.google.protobuf.GeneratedF
           to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(pkg.DefToProtoEditionsTest.EditionsMessage other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000003);
+        requiredField_ = other.getRequiredField();
+        delimitedField_ = other.delimitedField_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -510,7 +529,7 @@ public final class DefToProtoEditionsTest extends com.google.protobuf.GeneratedF
       }
       private int bitField0_;
 
-      private int requiredField_ ;
+      private int requiredField_;
       /**
        * <code>int32 required_field = 1 [features = { ... }</code>
        * @return Whether the requiredField field is set.
@@ -692,21 +711,117 @@ public final class DefToProtoEditionsTest extends com.google.protobuf.GeneratedF
     }
 
     private static final com.google.protobuf.Parser<EditionsMessage>
-        PARSER = new com.google.protobuf.AbstractParser<EditionsMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<EditionsMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public EditionsMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        EditionsMessage instance = new EditionsMessage((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.requiredField_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 19: {
+                pendingTag = parseDelimitedFieldField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 19
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseDelimitedFieldField(
+          pkg.DefToProtoEditionsTest.EditionsMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.delimitedField_ != null) {
+          return 19;
+        }
+        if (fieldBuilders != null) {
+          if (instance.delimitedField_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    pkg.DefToProtoEditionsTest.EditionsMessage, pkg.DefToProtoEditionsTest.EditionsMessage.Builder, pkg.DefToProtoEditionsTest.EditionsMessageOrBuilder>(
+                        instance.getDelimitedField(),
+                        null,
+                        false);
+                instance.delimitedField_ = null;
+              }
+              instance.bitField0_ |= 0x00000002;
+            input.readGroup(2,
+                ((com.google.protobuf.SingleFieldBuilder<pkg.DefToProtoEditionsTest.EditionsMessage, pkg.DefToProtoEditionsTest.EditionsMessage.Builder, pkg.DefToProtoEditionsTest.EditionsMessageOrBuilder>) fieldBuilders[0]).getBuilder(),
+                extensionRegistry);
+          } else {
+            instance.delimitedField_ = input.readGroup(2, pkg.DefToProtoEditionsTest.EditionsMessage.parser(),
+                extensionRegistry);
+          }
+          instance.bitField0_ |= 0x00000002;
+          return 0;
+        }
+        instance.delimitedField_ = input.readGroup(2, pkg.DefToProtoEditionsTest.EditionsMessage.parser(), extensionRegistry);
+        instance.bitField0_ |= 0x00000002;
+        return 0;
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          EditionsMessage instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          EditionsMessage instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasDelimitedField()) instance.delimitedField_ = null;
+        if (instance.hasDelimitedField()) {
+          instance.delimitedField_ = fieldBuilders[0] == null
+              ? instance.delimitedField_
+              : ((com.google.protobuf.SingleFieldBuilder<pkg.DefToProtoEditionsTest.EditionsMessage, pkg.DefToProtoEditionsTest.EditionsMessage.Builder, pkg.DefToProtoEditionsTest.EditionsMessageOrBuilder>) fieldBuilders[0]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<EditionsMessage> parser() {
       return PARSER;

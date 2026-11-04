@@ -258,7 +258,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -287,14 +287,27 @@ private static final long serialVersionUID = 0L;
               proto2_unittest.TestRepeatedImportMessageProxy.class, proto2_unittest.TestRepeatedImportMessageProxy.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using proto2_unittest.TestRepeatedImportMessageProxy.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      importMessagesProxy_ = emptyList(proto2_unittest.RepeatedFieldProxyTestImportMessage.class);
+
+    }
+    private Builder(proto2_unittest.TestRepeatedImportMessageProxy other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -351,6 +364,15 @@ private static final long serialVersionUID = 0L;
       }
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(proto2_unittest.TestRepeatedImportMessageProxy other) {
+      int to_bitField0_ = 0;
+      importMessagesProxy_ = other.importMessagesProxy_;
+      if (!importMessagesProxy_.isEmpty()) {
+        to_bitField0_ |= 0x00000001;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -448,8 +470,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.Internal.ProtobufList<proto2_unittest.RepeatedFieldProxyTestImportMessage> importMessagesProxy_ =
-        emptyList(proto2_unittest.RepeatedFieldProxyTestImportMessage.class);
+    private com.google.protobuf.Internal.ProtobufList<proto2_unittest.RepeatedFieldProxyTestImportMessage> importMessagesProxy_;
     private void ensureImportMessagesProxyIsMutable() {
       if (!importMessagesProxy_.isModifiable()) {
         importMessagesProxy_ = makeMutableCopy(importMessagesProxy_);
@@ -696,21 +717,59 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestRepeatedImportMessageProxy>
-      PARSER = new com.google.protobuf.AbstractParser<TestRepeatedImportMessageProxy>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestRepeatedImportMessageProxy> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestRepeatedImportMessageProxy parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestRepeatedImportMessageProxy instance = new TestRepeatedImportMessageProxy((Builder) null);
+      java.lang.Object unknown = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              proto2_unittest.RepeatedFieldProxyTestImportMessage m = proto2_unittest.RepeatedFieldProxyTestImportMessage.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.importMessagesProxy_.isModifiable()) {
+  instance.importMessagesProxy_ = makeMutableCopy(instance.importMessagesProxy_);
+}
+              instance.importMessagesProxy_.add(m);
+              break;
+            } // case 10
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void finishCollections0(TestRepeatedImportMessageProxy instance) {
+      instance.importMessagesProxy_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<TestRepeatedImportMessageProxy> parser() {
     return PARSER;

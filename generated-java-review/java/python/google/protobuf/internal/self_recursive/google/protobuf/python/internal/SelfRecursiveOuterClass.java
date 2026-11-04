@@ -387,7 +387,7 @@ public final class SelfRecursiveOuterClass extends com.google.protobuf.Generated
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -416,14 +416,26 @@ public final class SelfRecursiveOuterClass extends com.google.protobuf.Generated
                 google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive.class, google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private Builder(google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -499,6 +511,14 @@ public final class SelfRecursiveOuterClass extends com.google.protobuf.Generated
           to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000007);
+        sub_ = other.sub_;
+        i_ = other.getI();
+        subGroup_ = other.subGroup_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -704,7 +724,7 @@ public final class SelfRecursiveOuterClass extends com.google.protobuf.Generated
         bitField0_ |= 0x00000001;
       }
 
-      private int i_ ;
+      private int i_;
       /**
        * <code>int32 i = 2;</code>
        * @return Whether the i field is set.
@@ -886,21 +906,163 @@ public final class SelfRecursiveOuterClass extends com.google.protobuf.Generated
     }
 
     private static final com.google.protobuf.Parser<SelfRecursive>
-        PARSER = new com.google.protobuf.AbstractParser<SelfRecursive>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<SelfRecursive> {
+      MessageParser() {}
+
       @java.lang.Override
       public SelfRecursive parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        SelfRecursive instance = new SelfRecursive((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                pendingTag = parseSubField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 10
+              case 16: {
+                instance.i_ = input.readInt32();
+                to_bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 27: {
+                pendingTag = parseSubGroupField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 27
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseSubField(
+          google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.sub_ != null) {
+          return 10;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.sub_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive, google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive.Builder, google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursiveOrBuilder>(
+                        instance.getSub(),
+                        null,
+                        false);
+                instance.sub_ = null;
+              }
+              instance.bitField0_ |= 0x00000001;
+            ((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive, google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive.Builder, google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursiveOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.sub_ = google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000001;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.sub_ = google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseSubGroupField(
+          google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.subGroup_ != null) {
+          return 27;
+        }
+        if (fieldBuilders != null) {
+          if (instance.subGroup_ != null || fieldBuilders[1] != null) {
+              if (fieldBuilders[1] == null) {
+                fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+                    google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive, google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive.Builder, google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursiveOrBuilder>(
+                        instance.getSubGroup(),
+                        null,
+                        false);
+                instance.subGroup_ = null;
+              }
+              instance.bitField0_ |= 0x00000004;
+            input.readGroup(3,
+                ((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive, google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive.Builder, google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursiveOrBuilder>) fieldBuilders[1]).getBuilder(),
+                extensionRegistry);
+          } else {
+            instance.subGroup_ = input.readGroup(3, google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive.parser(),
+                extensionRegistry);
+          }
+          instance.bitField0_ |= 0x00000004;
+          return 0;
+        }
+        instance.subGroup_ = input.readGroup(3, google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive.parser(), extensionRegistry);
+        instance.bitField0_ |= 0x00000004;
+        return 0;
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          SelfRecursive instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[2];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          SelfRecursive instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasSub()) instance.sub_ = null;
+        if (instance.hasSub()) {
+          instance.sub_ = fieldBuilders[0] == null
+              ? instance.sub_
+              : ((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive, google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive.Builder, google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursiveOrBuilder>) fieldBuilders[0]).build();
+
+        }
+        if (!instance.hasSubGroup()) instance.subGroup_ = null;
+        if (instance.hasSubGroup()) {
+          instance.subGroup_ = fieldBuilders[1] == null
+              ? instance.subGroup_
+              : ((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive, google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursive.Builder, google.protobuf.python.internal.SelfRecursiveOuterClass.SelfRecursiveOrBuilder>) fieldBuilders[1]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<SelfRecursive> parser() {
       return PARSER;
@@ -1171,7 +1333,7 @@ public final class SelfRecursiveOuterClass extends com.google.protobuf.Generated
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -1200,14 +1362,26 @@ public final class SelfRecursiveOuterClass extends com.google.protobuf.Generated
                 google.protobuf.python.internal.SelfRecursiveOuterClass.IndirectRecursive.class, google.protobuf.python.internal.SelfRecursiveOuterClass.IndirectRecursive.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.SelfRecursiveOuterClass.IndirectRecursive.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private Builder(google.protobuf.python.internal.SelfRecursiveOuterClass.IndirectRecursive other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -1266,6 +1440,12 @@ public final class SelfRecursiveOuterClass extends com.google.protobuf.Generated
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.python.internal.SelfRecursiveOuterClass.IndirectRecursive other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        intermediate_ = other.intermediate_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1470,21 +1650,110 @@ public final class SelfRecursiveOuterClass extends com.google.protobuf.Generated
     }
 
     private static final com.google.protobuf.Parser<IndirectRecursive>
-        PARSER = new com.google.protobuf.AbstractParser<IndirectRecursive>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<IndirectRecursive> {
+      MessageParser() {}
+
       @java.lang.Override
       public IndirectRecursive parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        IndirectRecursive instance = new IndirectRecursive((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                pendingTag = parseIntermediateField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseIntermediateField(
+          google.protobuf.python.internal.SelfRecursiveOuterClass.IndirectRecursive instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.intermediate_ != null) {
+          return 10;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.intermediate_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    google.protobuf.python.internal.SelfRecursiveOuterClass.IntermediateRecursive, google.protobuf.python.internal.SelfRecursiveOuterClass.IntermediateRecursive.Builder, google.protobuf.python.internal.SelfRecursiveOuterClass.IntermediateRecursiveOrBuilder>(
+                        instance.getIntermediate(),
+                        null,
+                        false);
+                instance.intermediate_ = null;
+              }
+              instance.bitField0_ |= 0x00000001;
+            ((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.SelfRecursiveOuterClass.IntermediateRecursive, google.protobuf.python.internal.SelfRecursiveOuterClass.IntermediateRecursive.Builder, google.protobuf.python.internal.SelfRecursiveOuterClass.IntermediateRecursiveOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.intermediate_ = google.protobuf.python.internal.SelfRecursiveOuterClass.IntermediateRecursive.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000001;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.intermediate_ = google.protobuf.python.internal.SelfRecursiveOuterClass.IntermediateRecursive.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          IndirectRecursive instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          IndirectRecursive instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasIntermediate()) instance.intermediate_ = null;
+        if (instance.hasIntermediate()) {
+          instance.intermediate_ = fieldBuilders[0] == null
+              ? instance.intermediate_
+              : ((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.SelfRecursiveOuterClass.IntermediateRecursive, google.protobuf.python.internal.SelfRecursiveOuterClass.IntermediateRecursive.Builder, google.protobuf.python.internal.SelfRecursiveOuterClass.IntermediateRecursiveOrBuilder>) fieldBuilders[0]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<IndirectRecursive> parser() {
       return PARSER;
@@ -1755,7 +2024,7 @@ public final class SelfRecursiveOuterClass extends com.google.protobuf.Generated
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -1784,14 +2053,26 @@ public final class SelfRecursiveOuterClass extends com.google.protobuf.Generated
                 google.protobuf.python.internal.SelfRecursiveOuterClass.IntermediateRecursive.class, google.protobuf.python.internal.SelfRecursiveOuterClass.IntermediateRecursive.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.SelfRecursiveOuterClass.IntermediateRecursive.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private Builder(google.protobuf.python.internal.SelfRecursiveOuterClass.IntermediateRecursive other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -1850,6 +2131,12 @@ public final class SelfRecursiveOuterClass extends com.google.protobuf.Generated
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.python.internal.SelfRecursiveOuterClass.IntermediateRecursive other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        indirect_ = other.indirect_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -2054,21 +2341,110 @@ public final class SelfRecursiveOuterClass extends com.google.protobuf.Generated
     }
 
     private static final com.google.protobuf.Parser<IntermediateRecursive>
-        PARSER = new com.google.protobuf.AbstractParser<IntermediateRecursive>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<IntermediateRecursive> {
+      MessageParser() {}
+
       @java.lang.Override
       public IntermediateRecursive parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        IntermediateRecursive instance = new IntermediateRecursive((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                pendingTag = parseIndirectField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseIndirectField(
+          google.protobuf.python.internal.SelfRecursiveOuterClass.IntermediateRecursive instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.indirect_ != null) {
+          return 10;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.indirect_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    google.protobuf.python.internal.SelfRecursiveOuterClass.IndirectRecursive, google.protobuf.python.internal.SelfRecursiveOuterClass.IndirectRecursive.Builder, google.protobuf.python.internal.SelfRecursiveOuterClass.IndirectRecursiveOrBuilder>(
+                        instance.getIndirect(),
+                        null,
+                        false);
+                instance.indirect_ = null;
+              }
+              instance.bitField0_ |= 0x00000001;
+            ((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.SelfRecursiveOuterClass.IndirectRecursive, google.protobuf.python.internal.SelfRecursiveOuterClass.IndirectRecursive.Builder, google.protobuf.python.internal.SelfRecursiveOuterClass.IndirectRecursiveOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.indirect_ = google.protobuf.python.internal.SelfRecursiveOuterClass.IndirectRecursive.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000001;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.indirect_ = google.protobuf.python.internal.SelfRecursiveOuterClass.IndirectRecursive.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          IntermediateRecursive instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          IntermediateRecursive instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasIndirect()) instance.indirect_ = null;
+        if (instance.hasIndirect()) {
+          instance.indirect_ = fieldBuilders[0] == null
+              ? instance.indirect_
+              : ((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.SelfRecursiveOuterClass.IndirectRecursive, google.protobuf.python.internal.SelfRecursiveOuterClass.IndirectRecursive.Builder, google.protobuf.python.internal.SelfRecursiveOuterClass.IndirectRecursiveOrBuilder>) fieldBuilders[0]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<IntermediateRecursive> parser() {
       return PARSER;

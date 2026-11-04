@@ -1443,7 +1443,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -1480,14 +1480,27 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestRequired.class, edition_unittest.TestRequired.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestRequired.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      maybeForceBuilderInitialization();
+    }
+    private Builder(edition_unittest.TestRequired other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
+      copyFrom_autosplit_1(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -1705,6 +1718,43 @@ private static final long serialVersionUID = 0L;
       result.bitField0_ |= to_bitField0_;
     }
 
+    private void copyFrom_autosplit_0(edition_unittest.TestRequired other) {
+      int to_bitField0_ = other.bitField0_;
+      a_ = other.getA();
+      dummy2_ = other.getDummy2();
+      b_ = other.getB();
+      dummy4_ = other.getDummy4();
+      dummy5_ = other.getDummy5();
+      dummy6_ = other.getDummy6();
+      dummy7_ = other.getDummy7();
+      dummy8_ = other.getDummy8();
+      dummy9_ = other.getDummy9();
+      dummy10_ = other.getDummy10();
+      dummy11_ = other.getDummy11();
+      dummy12_ = other.getDummy12();
+      dummy13_ = other.getDummy13();
+      dummy14_ = other.getDummy14();
+      dummy15_ = other.getDummy15();
+      dummy16_ = other.getDummy16();
+      dummy17_ = other.getDummy17();
+      dummy18_ = other.getDummy18();
+      dummy19_ = other.getDummy19();
+      dummy20_ = other.getDummy20();
+      dummy21_ = other.getDummy21();
+      dummy22_ = other.getDummy22();
+      dummy23_ = other.getDummy23();
+      dummy24_ = other.getDummy24();
+      dummy25_ = other.getDummy25();
+      dummy26_ = other.getDummy26();
+      dummy27_ = other.getDummy27();
+      dummy28_ = other.getDummy28();
+      dummy29_ = other.getDummy29();
+      dummy30_ = other.getDummy30();
+      dummy31_ = other.getDummy31();
+      dummy32_ = other.getDummy32();
+      bitField0_ |= to_bitField0_;
+    }
+
     private void buildPartial_autosplit_1(edition_unittest.TestRequired result) {
       int from_bitField1_ = bitField1_;
       int to_bitField1_ = 0;
@@ -1719,6 +1769,13 @@ private static final long serialVersionUID = 0L;
         to_bitField1_ |= 0x00000002;
       }
       result.bitField1_ |= to_bitField1_;
+    }
+
+    private void copyFrom_autosplit_1(edition_unittest.TestRequired other) {
+      int to_bitField1_ = (other.bitField1_ & 0x00000003);
+      c_ = other.getC();
+      optionalForeign_ = other.optionalForeign_;
+      bitField1_ |= to_bitField1_;
     }
 
     @java.lang.Override
@@ -2063,7 +2120,7 @@ private static final long serialVersionUID = 0L;
     private int bitField0_;
     private int bitField1_;
 
-    private int a_ ;
+    private int a_;
     /**
      * <code>int32 a = 1 [features = { ... }</code>
      * @return Whether the a field is set.
@@ -2103,7 +2160,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy2_ ;
+    private int dummy2_;
     /**
      * <code>int32 dummy2 = 2;</code>
      * @return Whether the dummy2 field is set.
@@ -2143,7 +2200,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int b_ ;
+    private int b_;
     /**
      * <code>int32 b = 3 [features = { ... }</code>
      * @return Whether the b field is set.
@@ -2183,7 +2240,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy4_ ;
+    private int dummy4_;
     /**
      * <pre>
      * Pad the field count to 32 so that we can test that IsInitialized()
@@ -2243,7 +2300,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy5_ ;
+    private int dummy5_;
     /**
      * <code>int32 dummy5 = 5;</code>
      * @return Whether the dummy5 field is set.
@@ -2283,7 +2340,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy6_ ;
+    private int dummy6_;
     /**
      * <code>int32 dummy6 = 6;</code>
      * @return Whether the dummy6 field is set.
@@ -2323,7 +2380,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy7_ ;
+    private int dummy7_;
     /**
      * <code>int32 dummy7 = 7;</code>
      * @return Whether the dummy7 field is set.
@@ -2363,7 +2420,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy8_ ;
+    private int dummy8_;
     /**
      * <code>int32 dummy8 = 8;</code>
      * @return Whether the dummy8 field is set.
@@ -2403,7 +2460,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy9_ ;
+    private int dummy9_;
     /**
      * <code>int32 dummy9 = 9;</code>
      * @return Whether the dummy9 field is set.
@@ -2443,7 +2500,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy10_ ;
+    private int dummy10_;
     /**
      * <code>int32 dummy10 = 10;</code>
      * @return Whether the dummy10 field is set.
@@ -2483,7 +2540,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy11_ ;
+    private int dummy11_;
     /**
      * <code>int32 dummy11 = 11;</code>
      * @return Whether the dummy11 field is set.
@@ -2523,7 +2580,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy12_ ;
+    private int dummy12_;
     /**
      * <code>int32 dummy12 = 12;</code>
      * @return Whether the dummy12 field is set.
@@ -2563,7 +2620,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy13_ ;
+    private int dummy13_;
     /**
      * <code>int32 dummy13 = 13;</code>
      * @return Whether the dummy13 field is set.
@@ -2603,7 +2660,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy14_ ;
+    private int dummy14_;
     /**
      * <code>int32 dummy14 = 14;</code>
      * @return Whether the dummy14 field is set.
@@ -2643,7 +2700,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy15_ ;
+    private int dummy15_;
     /**
      * <code>int32 dummy15 = 15;</code>
      * @return Whether the dummy15 field is set.
@@ -2683,7 +2740,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy16_ ;
+    private int dummy16_;
     /**
      * <code>int32 dummy16 = 16;</code>
      * @return Whether the dummy16 field is set.
@@ -2723,7 +2780,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy17_ ;
+    private int dummy17_;
     /**
      * <code>int32 dummy17 = 17;</code>
      * @return Whether the dummy17 field is set.
@@ -2763,7 +2820,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy18_ ;
+    private int dummy18_;
     /**
      * <code>int32 dummy18 = 18;</code>
      * @return Whether the dummy18 field is set.
@@ -2803,7 +2860,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy19_ ;
+    private int dummy19_;
     /**
      * <code>int32 dummy19 = 19;</code>
      * @return Whether the dummy19 field is set.
@@ -2843,7 +2900,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy20_ ;
+    private int dummy20_;
     /**
      * <code>int32 dummy20 = 20;</code>
      * @return Whether the dummy20 field is set.
@@ -2883,7 +2940,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy21_ ;
+    private int dummy21_;
     /**
      * <code>int32 dummy21 = 21;</code>
      * @return Whether the dummy21 field is set.
@@ -2923,7 +2980,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy22_ ;
+    private int dummy22_;
     /**
      * <code>int32 dummy22 = 22;</code>
      * @return Whether the dummy22 field is set.
@@ -2963,7 +3020,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy23_ ;
+    private int dummy23_;
     /**
      * <code>int32 dummy23 = 23;</code>
      * @return Whether the dummy23 field is set.
@@ -3003,7 +3060,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy24_ ;
+    private int dummy24_;
     /**
      * <code>int32 dummy24 = 24;</code>
      * @return Whether the dummy24 field is set.
@@ -3043,7 +3100,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy25_ ;
+    private int dummy25_;
     /**
      * <code>int32 dummy25 = 25;</code>
      * @return Whether the dummy25 field is set.
@@ -3083,7 +3140,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy26_ ;
+    private int dummy26_;
     /**
      * <code>int32 dummy26 = 26;</code>
      * @return Whether the dummy26 field is set.
@@ -3123,7 +3180,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy27_ ;
+    private int dummy27_;
     /**
      * <code>int32 dummy27 = 27;</code>
      * @return Whether the dummy27 field is set.
@@ -3163,7 +3220,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy28_ ;
+    private int dummy28_;
     /**
      * <code>int32 dummy28 = 28;</code>
      * @return Whether the dummy28 field is set.
@@ -3203,7 +3260,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy29_ ;
+    private int dummy29_;
     /**
      * <code>int32 dummy29 = 29;</code>
      * @return Whether the dummy29 field is set.
@@ -3243,7 +3300,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy30_ ;
+    private int dummy30_;
     /**
      * <code>int32 dummy30 = 30;</code>
      * @return Whether the dummy30 field is set.
@@ -3283,7 +3340,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy31_ ;
+    private int dummy31_;
     /**
      * <code>int32 dummy31 = 31;</code>
      * @return Whether the dummy31 field is set.
@@ -3323,7 +3380,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int dummy32_ ;
+    private int dummy32_;
     /**
      * <code>int32 dummy32 = 32;</code>
      * @return Whether the dummy32 field is set.
@@ -3363,7 +3420,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int c_ ;
+    private int c_;
     /**
      * <code>int32 c = 33 [features = { ... }</code>
      * @return Whether the c field is set.
@@ -3581,21 +3638,283 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestRequired>
-      PARSER = new com.google.protobuf.AbstractParser<TestRequired>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestRequired> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestRequired parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestRequired instance = new TestRequired((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      int to_bitField1_ = 0;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.a_ = input.readInt32();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.dummy2_ = input.readInt32();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              instance.b_ = input.readInt32();
+              to_bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              instance.dummy4_ = input.readInt32();
+              to_bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              instance.dummy5_ = input.readInt32();
+              to_bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              instance.dummy6_ = input.readInt32();
+              to_bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              instance.dummy7_ = input.readInt32();
+              to_bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              instance.dummy8_ = input.readInt32();
+              to_bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 72: {
+              instance.dummy9_ = input.readInt32();
+              to_bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 80: {
+              instance.dummy10_ = input.readInt32();
+              to_bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 88: {
+              instance.dummy11_ = input.readInt32();
+              to_bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 96: {
+              instance.dummy12_ = input.readInt32();
+              to_bitField0_ |= 0x00000800;
+              break;
+            } // case 96
+            case 104: {
+              instance.dummy13_ = input.readInt32();
+              to_bitField0_ |= 0x00001000;
+              break;
+            } // case 104
+            case 112: {
+              instance.dummy14_ = input.readInt32();
+              to_bitField0_ |= 0x00002000;
+              break;
+            } // case 112
+            case 120: {
+              instance.dummy15_ = input.readInt32();
+              to_bitField0_ |= 0x00004000;
+              break;
+            } // case 120
+            case 128: {
+              instance.dummy16_ = input.readInt32();
+              to_bitField0_ |= 0x00008000;
+              break;
+            } // case 128
+            case 136: {
+              instance.dummy17_ = input.readInt32();
+              to_bitField0_ |= 0x00010000;
+              break;
+            } // case 136
+            case 144: {
+              instance.dummy18_ = input.readInt32();
+              to_bitField0_ |= 0x00020000;
+              break;
+            } // case 144
+            case 152: {
+              instance.dummy19_ = input.readInt32();
+              to_bitField0_ |= 0x00040000;
+              break;
+            } // case 152
+            case 160: {
+              instance.dummy20_ = input.readInt32();
+              to_bitField0_ |= 0x00080000;
+              break;
+            } // case 160
+            case 168: {
+              instance.dummy21_ = input.readInt32();
+              to_bitField0_ |= 0x00100000;
+              break;
+            } // case 168
+            case 176: {
+              instance.dummy22_ = input.readInt32();
+              to_bitField0_ |= 0x00200000;
+              break;
+            } // case 176
+            case 184: {
+              instance.dummy23_ = input.readInt32();
+              to_bitField0_ |= 0x00400000;
+              break;
+            } // case 184
+            case 192: {
+              instance.dummy24_ = input.readInt32();
+              to_bitField0_ |= 0x00800000;
+              break;
+            } // case 192
+            case 200: {
+              instance.dummy25_ = input.readInt32();
+              to_bitField0_ |= 0x01000000;
+              break;
+            } // case 200
+            case 208: {
+              instance.dummy26_ = input.readInt32();
+              to_bitField0_ |= 0x02000000;
+              break;
+            } // case 208
+            case 216: {
+              instance.dummy27_ = input.readInt32();
+              to_bitField0_ |= 0x04000000;
+              break;
+            } // case 216
+            case 224: {
+              instance.dummy28_ = input.readInt32();
+              to_bitField0_ |= 0x08000000;
+              break;
+            } // case 224
+            case 232: {
+              instance.dummy29_ = input.readInt32();
+              to_bitField0_ |= 0x10000000;
+              break;
+            } // case 232
+            case 240: {
+              instance.dummy30_ = input.readInt32();
+              to_bitField0_ |= 0x20000000;
+              break;
+            } // case 240
+            case 248: {
+              instance.dummy31_ = input.readInt32();
+              to_bitField0_ |= 0x40000000;
+              break;
+            } // case 248
+            case 256: {
+              instance.dummy32_ = input.readInt32();
+              to_bitField0_ |= 0x80000000;
+              break;
+            } // case 256
+            case 264: {
+              instance.c_ = input.readInt32();
+              to_bitField1_ |= 0x00000001;
+              break;
+            } // case 264
+            case 274: {
+              pendingTag = parseOptionalForeignField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 274
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (to_bitField1_ != 0) {
+        instance.bitField1_ = instance.bitField1_ | to_bitField1_;
+      }
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseOptionalForeignField(
+        edition_unittest.TestRequired instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.optionalForeign_ != null) {
+        return 274;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.optionalForeign_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  edition_unittest.ForeignMessage, edition_unittest.ForeignMessage.Builder, edition_unittest.ForeignMessageOrBuilder>(
+                      instance.getOptionalForeign(),
+                      null,
+                      false);
+              instance.optionalForeign_ = null;
+            }
+            instance.bitField1_ |= 0x00000002;
+          ((com.google.protobuf.SingleFieldBuilder<edition_unittest.ForeignMessage, edition_unittest.ForeignMessage.Builder, edition_unittest.ForeignMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.optionalForeign_ = edition_unittest.ForeignMessage.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00000002;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.optionalForeign_ = edition_unittest.ForeignMessage.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00000002;
+      return 0;
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        TestRequired instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        TestRequired instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasOptionalForeign()) instance.optionalForeign_ = null;
+      if (instance.hasOptionalForeign()) {
+        instance.optionalForeign_ = fieldBuilders[0] == null
+            ? instance.optionalForeign_
+            : ((com.google.protobuf.SingleFieldBuilder<edition_unittest.ForeignMessage, edition_unittest.ForeignMessage.Builder, edition_unittest.ForeignMessageOrBuilder>) fieldBuilders[0]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<TestRequired> parser() {
     return PARSER;

@@ -240,7 +240,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -269,14 +269,26 @@ private static final long serialVersionUID = 0L;
               upb.test.convert.MessageWithKnownMsg.class, upb.test.convert.MessageWithKnownMsg.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using upb.test.convert.MessageWithKnownMsg.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      maybeForceBuilderInitialization();
+    }
+    private Builder(upb.test.convert.MessageWithKnownMsg other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -335,6 +347,12 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(upb.test.convert.MessageWithKnownMsg other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000001);
+      knownMsg_ = other.knownMsg_;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -539,21 +557,110 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<MessageWithKnownMsg>
-      PARSER = new com.google.protobuf.AbstractParser<MessageWithKnownMsg>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<MessageWithKnownMsg> {
+    MessageParser() {}
+
     @java.lang.Override
     public MessageWithKnownMsg parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MessageWithKnownMsg instance = new MessageWithKnownMsg((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8018: {
+              pendingTag = parseKnownMsgField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 8018
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseKnownMsgField(
+        upb.test.convert.MessageWithKnownMsg instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.knownMsg_ != null) {
+        return 8018;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.knownMsg_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  upb.test.convert.MessageWithInt32, upb.test.convert.MessageWithInt32.Builder, upb.test.convert.MessageWithInt32OrBuilder>(
+                      instance.getKnownMsg(),
+                      null,
+                      false);
+              instance.knownMsg_ = null;
+            }
+            instance.bitField0_ |= 0x00000001;
+          ((com.google.protobuf.SingleFieldBuilder<upb.test.convert.MessageWithInt32, upb.test.convert.MessageWithInt32.Builder, upb.test.convert.MessageWithInt32OrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.knownMsg_ = upb.test.convert.MessageWithInt32.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.knownMsg_ = upb.test.convert.MessageWithInt32.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+      return 0;
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        MessageWithKnownMsg instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        MessageWithKnownMsg instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasKnownMsg()) instance.knownMsg_ = null;
+      if (instance.hasKnownMsg()) {
+        instance.knownMsg_ = fieldBuilders[0] == null
+            ? instance.knownMsg_
+            : ((com.google.protobuf.SingleFieldBuilder<upb.test.convert.MessageWithInt32, upb.test.convert.MessageWithInt32.Builder, upb.test.convert.MessageWithInt32OrBuilder>) fieldBuilders[0]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<MessageWithKnownMsg> parser() {
     return PARSER;

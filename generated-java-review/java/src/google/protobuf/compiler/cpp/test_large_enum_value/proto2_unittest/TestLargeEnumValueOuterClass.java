@@ -313,7 +313,7 @@ public final class TestLargeEnumValueOuterClass extends com.google.protobuf.Gene
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -342,14 +342,25 @@ public final class TestLargeEnumValueOuterClass extends com.google.protobuf.Gene
                 proto2_unittest.TestLargeEnumValueOuterClass.TestLargeEnumValue.class, proto2_unittest.TestLargeEnumValueOuterClass.TestLargeEnumValue.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.TestLargeEnumValueOuterClass.TestLargeEnumValue.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(proto2_unittest.TestLargeEnumValueOuterClass.TestLargeEnumValue other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -451,21 +462,45 @@ public final class TestLargeEnumValueOuterClass extends com.google.protobuf.Gene
     }
 
     private static final com.google.protobuf.Parser<TestLargeEnumValue>
-        PARSER = new com.google.protobuf.AbstractParser<TestLargeEnumValue>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestLargeEnumValue> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestLargeEnumValue parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestLargeEnumValue instance = new TestLargeEnumValue((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<TestLargeEnumValue> parser() {
       return PARSER;

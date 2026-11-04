@@ -20327,7 +20327,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -20356,14 +20356,41 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.LargeButSafeOneof.class, com.google.protobuf.LargeButSafeOneof.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.LargeButSafeOneof.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+
+    }
+    private Builder(com.google.protobuf.LargeButSafeOneof other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
+      copyFrom_autosplit_1(other);
+      copyFrom_autosplit_2(other);
+      copyFrom_autosplit_3(other);
+      copyFrom_autosplit_4(other);
+      copyFrom_autosplit_5(other);
+      copyFrom_autosplit_6(other);
+      copyFrom_autosplit_7(other);
+      copyFrom_autosplit_8(other);
+      copyFrom_autosplit_9(other);
+      copyFrom_autosplit_10(other);
+      copyFrom_autosplit_11(other);
+      copyFrom_autosplit_12(other);
+      copyFrom_autosplit_13(other);
+      copyFrom_autosplit_14(other);
+      copyFrom_autosplit_15(other);
 
     }
     @java.lang.Override
@@ -20460,6 +20487,109 @@ private static final long serialVersionUID = 0L;
       result.bitField0_ |= to_bitField0_;
     }
 
+    private void copyFrom_autosplit_0(com.google.protobuf.LargeButSafeOneof other) {
+      int to_bitField0_ = 0;
+      if (other.safeOneofCase_ == 1) {
+        to_bitField0_ |= 0x00000001;
+      }
+      if (other.safeOneofCase_ == 2) {
+        to_bitField0_ |= 0x00000002;
+      }
+      if (other.safeOneofCase_ == 3) {
+        to_bitField0_ |= 0x00000004;
+      }
+      if (other.safeOneofCase_ == 4) {
+        to_bitField0_ |= 0x00000008;
+      }
+      if (other.safeOneofCase_ == 5) {
+        to_bitField0_ |= 0x00000010;
+      }
+      if (other.safeOneofCase_ == 6) {
+        to_bitField0_ |= 0x00000020;
+      }
+      if (other.safeOneofCase_ == 7) {
+        to_bitField0_ |= 0x00000040;
+      }
+      if (other.safeOneofCase_ == 8) {
+        to_bitField0_ |= 0x00000080;
+      }
+      if (other.safeOneofCase_ == 9) {
+        to_bitField0_ |= 0x00000100;
+      }
+      if (other.safeOneofCase_ == 10) {
+        to_bitField0_ |= 0x00000200;
+      }
+      if (other.safeOneofCase_ == 11) {
+        to_bitField0_ |= 0x00000400;
+      }
+      if (other.safeOneofCase_ == 12) {
+        to_bitField0_ |= 0x00000800;
+      }
+      if (other.safeOneofCase_ == 13) {
+        to_bitField0_ |= 0x00001000;
+      }
+      if (other.safeOneofCase_ == 14) {
+        to_bitField0_ |= 0x00002000;
+      }
+      if (other.safeOneofCase_ == 15) {
+        to_bitField0_ |= 0x00004000;
+      }
+      if (other.safeOneofCase_ == 16) {
+        to_bitField0_ |= 0x00008000;
+      }
+      if (other.safeOneofCase_ == 17) {
+        to_bitField0_ |= 0x00010000;
+      }
+      if (other.safeOneofCase_ == 18) {
+        to_bitField0_ |= 0x00020000;
+      }
+      if (other.safeOneofCase_ == 19) {
+        to_bitField0_ |= 0x00040000;
+      }
+      if (other.safeOneofCase_ == 20) {
+        to_bitField0_ |= 0x00080000;
+      }
+      if (other.safeOneofCase_ == 21) {
+        to_bitField0_ |= 0x00100000;
+      }
+      if (other.safeOneofCase_ == 22) {
+        to_bitField0_ |= 0x00200000;
+      }
+      if (other.safeOneofCase_ == 23) {
+        to_bitField0_ |= 0x00400000;
+      }
+      if (other.safeOneofCase_ == 24) {
+        to_bitField0_ |= 0x00800000;
+      }
+      if (other.safeOneofCase_ == 25) {
+        to_bitField0_ |= 0x01000000;
+      }
+      if (other.safeOneofCase_ == 26) {
+        to_bitField0_ |= 0x02000000;
+      }
+      if (other.safeOneofCase_ == 27) {
+        to_bitField0_ |= 0x04000000;
+      }
+      if (other.safeOneofCase_ == 28) {
+        to_bitField0_ |= 0x08000000;
+      }
+      if (other.safeOneofCase_ == 29) {
+        to_bitField0_ |= 0x10000000;
+      }
+      if (other.safeOneofCase_ == 30) {
+        to_bitField0_ |= 0x20000000;
+      }
+      if (other.safeOneofCase_ == 31) {
+        to_bitField0_ |= 0x40000000;
+      }
+      if (other.safeOneofCase_ == 32) {
+        to_bitField0_ |= 0x80000000;
+      }
+      safeOneofCase_ = other.safeOneofCase_;
+      safeOneof_ = other.safeOneof_;
+      bitField0_ |= to_bitField0_;
+    }
+
     private void buildPartial_autosplit_1(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField1_ = bitField1_;
       int to_bitField1_ = 0;
@@ -20469,6 +20599,107 @@ private static final long serialVersionUID = 0L;
         result.safeOneof_ = safeOneof_;
       }
       result.bitField1_ |= to_bitField1_;
+    }
+
+    private void copyFrom_autosplit_1(com.google.protobuf.LargeButSafeOneof other) {
+      int to_bitField1_ = 0;
+      if (other.safeOneofCase_ == 33) {
+        to_bitField1_ |= 0x00000001;
+      }
+      if (other.safeOneofCase_ == 34) {
+        to_bitField1_ |= 0x00000002;
+      }
+      if (other.safeOneofCase_ == 35) {
+        to_bitField1_ |= 0x00000004;
+      }
+      if (other.safeOneofCase_ == 36) {
+        to_bitField1_ |= 0x00000008;
+      }
+      if (other.safeOneofCase_ == 37) {
+        to_bitField1_ |= 0x00000010;
+      }
+      if (other.safeOneofCase_ == 38) {
+        to_bitField1_ |= 0x00000020;
+      }
+      if (other.safeOneofCase_ == 39) {
+        to_bitField1_ |= 0x00000040;
+      }
+      if (other.safeOneofCase_ == 40) {
+        to_bitField1_ |= 0x00000080;
+      }
+      if (other.safeOneofCase_ == 41) {
+        to_bitField1_ |= 0x00000100;
+      }
+      if (other.safeOneofCase_ == 42) {
+        to_bitField1_ |= 0x00000200;
+      }
+      if (other.safeOneofCase_ == 43) {
+        to_bitField1_ |= 0x00000400;
+      }
+      if (other.safeOneofCase_ == 44) {
+        to_bitField1_ |= 0x00000800;
+      }
+      if (other.safeOneofCase_ == 45) {
+        to_bitField1_ |= 0x00001000;
+      }
+      if (other.safeOneofCase_ == 46) {
+        to_bitField1_ |= 0x00002000;
+      }
+      if (other.safeOneofCase_ == 47) {
+        to_bitField1_ |= 0x00004000;
+      }
+      if (other.safeOneofCase_ == 48) {
+        to_bitField1_ |= 0x00008000;
+      }
+      if (other.safeOneofCase_ == 49) {
+        to_bitField1_ |= 0x00010000;
+      }
+      if (other.safeOneofCase_ == 50) {
+        to_bitField1_ |= 0x00020000;
+      }
+      if (other.safeOneofCase_ == 51) {
+        to_bitField1_ |= 0x00040000;
+      }
+      if (other.safeOneofCase_ == 52) {
+        to_bitField1_ |= 0x00080000;
+      }
+      if (other.safeOneofCase_ == 53) {
+        to_bitField1_ |= 0x00100000;
+      }
+      if (other.safeOneofCase_ == 54) {
+        to_bitField1_ |= 0x00200000;
+      }
+      if (other.safeOneofCase_ == 55) {
+        to_bitField1_ |= 0x00400000;
+      }
+      if (other.safeOneofCase_ == 56) {
+        to_bitField1_ |= 0x00800000;
+      }
+      if (other.safeOneofCase_ == 57) {
+        to_bitField1_ |= 0x01000000;
+      }
+      if (other.safeOneofCase_ == 58) {
+        to_bitField1_ |= 0x02000000;
+      }
+      if (other.safeOneofCase_ == 59) {
+        to_bitField1_ |= 0x04000000;
+      }
+      if (other.safeOneofCase_ == 60) {
+        to_bitField1_ |= 0x08000000;
+      }
+      if (other.safeOneofCase_ == 61) {
+        to_bitField1_ |= 0x10000000;
+      }
+      if (other.safeOneofCase_ == 62) {
+        to_bitField1_ |= 0x20000000;
+      }
+      if (other.safeOneofCase_ == 63) {
+        to_bitField1_ |= 0x40000000;
+      }
+      if (other.safeOneofCase_ == 64) {
+        to_bitField1_ |= 0x80000000;
+      }
+      bitField1_ |= to_bitField1_;
     }
 
     private void buildPartial_autosplit_2(com.google.protobuf.LargeButSafeOneof result) {
@@ -20482,6 +20713,107 @@ private static final long serialVersionUID = 0L;
       result.bitField2_ |= to_bitField2_;
     }
 
+    private void copyFrom_autosplit_2(com.google.protobuf.LargeButSafeOneof other) {
+      int to_bitField2_ = 0;
+      if (other.safeOneofCase_ == 65) {
+        to_bitField2_ |= 0x00000001;
+      }
+      if (other.safeOneofCase_ == 66) {
+        to_bitField2_ |= 0x00000002;
+      }
+      if (other.safeOneofCase_ == 67) {
+        to_bitField2_ |= 0x00000004;
+      }
+      if (other.safeOneofCase_ == 68) {
+        to_bitField2_ |= 0x00000008;
+      }
+      if (other.safeOneofCase_ == 69) {
+        to_bitField2_ |= 0x00000010;
+      }
+      if (other.safeOneofCase_ == 70) {
+        to_bitField2_ |= 0x00000020;
+      }
+      if (other.safeOneofCase_ == 71) {
+        to_bitField2_ |= 0x00000040;
+      }
+      if (other.safeOneofCase_ == 72) {
+        to_bitField2_ |= 0x00000080;
+      }
+      if (other.safeOneofCase_ == 73) {
+        to_bitField2_ |= 0x00000100;
+      }
+      if (other.safeOneofCase_ == 74) {
+        to_bitField2_ |= 0x00000200;
+      }
+      if (other.safeOneofCase_ == 75) {
+        to_bitField2_ |= 0x00000400;
+      }
+      if (other.safeOneofCase_ == 76) {
+        to_bitField2_ |= 0x00000800;
+      }
+      if (other.safeOneofCase_ == 77) {
+        to_bitField2_ |= 0x00001000;
+      }
+      if (other.safeOneofCase_ == 78) {
+        to_bitField2_ |= 0x00002000;
+      }
+      if (other.safeOneofCase_ == 79) {
+        to_bitField2_ |= 0x00004000;
+      }
+      if (other.safeOneofCase_ == 80) {
+        to_bitField2_ |= 0x00008000;
+      }
+      if (other.safeOneofCase_ == 81) {
+        to_bitField2_ |= 0x00010000;
+      }
+      if (other.safeOneofCase_ == 82) {
+        to_bitField2_ |= 0x00020000;
+      }
+      if (other.safeOneofCase_ == 83) {
+        to_bitField2_ |= 0x00040000;
+      }
+      if (other.safeOneofCase_ == 84) {
+        to_bitField2_ |= 0x00080000;
+      }
+      if (other.safeOneofCase_ == 85) {
+        to_bitField2_ |= 0x00100000;
+      }
+      if (other.safeOneofCase_ == 86) {
+        to_bitField2_ |= 0x00200000;
+      }
+      if (other.safeOneofCase_ == 87) {
+        to_bitField2_ |= 0x00400000;
+      }
+      if (other.safeOneofCase_ == 88) {
+        to_bitField2_ |= 0x00800000;
+      }
+      if (other.safeOneofCase_ == 89) {
+        to_bitField2_ |= 0x01000000;
+      }
+      if (other.safeOneofCase_ == 90) {
+        to_bitField2_ |= 0x02000000;
+      }
+      if (other.safeOneofCase_ == 91) {
+        to_bitField2_ |= 0x04000000;
+      }
+      if (other.safeOneofCase_ == 92) {
+        to_bitField2_ |= 0x08000000;
+      }
+      if (other.safeOneofCase_ == 93) {
+        to_bitField2_ |= 0x10000000;
+      }
+      if (other.safeOneofCase_ == 94) {
+        to_bitField2_ |= 0x20000000;
+      }
+      if (other.safeOneofCase_ == 95) {
+        to_bitField2_ |= 0x40000000;
+      }
+      if (other.safeOneofCase_ == 96) {
+        to_bitField2_ |= 0x80000000;
+      }
+      bitField2_ |= to_bitField2_;
+    }
+
     private void buildPartial_autosplit_3(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField3_ = bitField3_;
       int to_bitField3_ = 0;
@@ -20491,6 +20823,107 @@ private static final long serialVersionUID = 0L;
         result.safeOneof_ = safeOneof_;
       }
       result.bitField3_ |= to_bitField3_;
+    }
+
+    private void copyFrom_autosplit_3(com.google.protobuf.LargeButSafeOneof other) {
+      int to_bitField3_ = 0;
+      if (other.safeOneofCase_ == 97) {
+        to_bitField3_ |= 0x00000001;
+      }
+      if (other.safeOneofCase_ == 98) {
+        to_bitField3_ |= 0x00000002;
+      }
+      if (other.safeOneofCase_ == 99) {
+        to_bitField3_ |= 0x00000004;
+      }
+      if (other.safeOneofCase_ == 100) {
+        to_bitField3_ |= 0x00000008;
+      }
+      if (other.safeOneofCase_ == 101) {
+        to_bitField3_ |= 0x00000010;
+      }
+      if (other.safeOneofCase_ == 102) {
+        to_bitField3_ |= 0x00000020;
+      }
+      if (other.safeOneofCase_ == 103) {
+        to_bitField3_ |= 0x00000040;
+      }
+      if (other.safeOneofCase_ == 104) {
+        to_bitField3_ |= 0x00000080;
+      }
+      if (other.safeOneofCase_ == 105) {
+        to_bitField3_ |= 0x00000100;
+      }
+      if (other.safeOneofCase_ == 106) {
+        to_bitField3_ |= 0x00000200;
+      }
+      if (other.safeOneofCase_ == 107) {
+        to_bitField3_ |= 0x00000400;
+      }
+      if (other.safeOneofCase_ == 108) {
+        to_bitField3_ |= 0x00000800;
+      }
+      if (other.safeOneofCase_ == 109) {
+        to_bitField3_ |= 0x00001000;
+      }
+      if (other.safeOneofCase_ == 110) {
+        to_bitField3_ |= 0x00002000;
+      }
+      if (other.safeOneofCase_ == 111) {
+        to_bitField3_ |= 0x00004000;
+      }
+      if (other.safeOneofCase_ == 112) {
+        to_bitField3_ |= 0x00008000;
+      }
+      if (other.safeOneofCase_ == 113) {
+        to_bitField3_ |= 0x00010000;
+      }
+      if (other.safeOneofCase_ == 114) {
+        to_bitField3_ |= 0x00020000;
+      }
+      if (other.safeOneofCase_ == 115) {
+        to_bitField3_ |= 0x00040000;
+      }
+      if (other.safeOneofCase_ == 116) {
+        to_bitField3_ |= 0x00080000;
+      }
+      if (other.safeOneofCase_ == 117) {
+        to_bitField3_ |= 0x00100000;
+      }
+      if (other.safeOneofCase_ == 118) {
+        to_bitField3_ |= 0x00200000;
+      }
+      if (other.safeOneofCase_ == 119) {
+        to_bitField3_ |= 0x00400000;
+      }
+      if (other.safeOneofCase_ == 120) {
+        to_bitField3_ |= 0x00800000;
+      }
+      if (other.safeOneofCase_ == 121) {
+        to_bitField3_ |= 0x01000000;
+      }
+      if (other.safeOneofCase_ == 122) {
+        to_bitField3_ |= 0x02000000;
+      }
+      if (other.safeOneofCase_ == 123) {
+        to_bitField3_ |= 0x04000000;
+      }
+      if (other.safeOneofCase_ == 124) {
+        to_bitField3_ |= 0x08000000;
+      }
+      if (other.safeOneofCase_ == 125) {
+        to_bitField3_ |= 0x10000000;
+      }
+      if (other.safeOneofCase_ == 126) {
+        to_bitField3_ |= 0x20000000;
+      }
+      if (other.safeOneofCase_ == 127) {
+        to_bitField3_ |= 0x40000000;
+      }
+      if (other.safeOneofCase_ == 128) {
+        to_bitField3_ |= 0x80000000;
+      }
+      bitField3_ |= to_bitField3_;
     }
 
     private void buildPartial_autosplit_4(com.google.protobuf.LargeButSafeOneof result) {
@@ -20504,6 +20937,107 @@ private static final long serialVersionUID = 0L;
       result.bitField4_ |= to_bitField4_;
     }
 
+    private void copyFrom_autosplit_4(com.google.protobuf.LargeButSafeOneof other) {
+      int to_bitField4_ = 0;
+      if (other.safeOneofCase_ == 129) {
+        to_bitField4_ |= 0x00000001;
+      }
+      if (other.safeOneofCase_ == 130) {
+        to_bitField4_ |= 0x00000002;
+      }
+      if (other.safeOneofCase_ == 131) {
+        to_bitField4_ |= 0x00000004;
+      }
+      if (other.safeOneofCase_ == 132) {
+        to_bitField4_ |= 0x00000008;
+      }
+      if (other.safeOneofCase_ == 133) {
+        to_bitField4_ |= 0x00000010;
+      }
+      if (other.safeOneofCase_ == 134) {
+        to_bitField4_ |= 0x00000020;
+      }
+      if (other.safeOneofCase_ == 135) {
+        to_bitField4_ |= 0x00000040;
+      }
+      if (other.safeOneofCase_ == 136) {
+        to_bitField4_ |= 0x00000080;
+      }
+      if (other.safeOneofCase_ == 137) {
+        to_bitField4_ |= 0x00000100;
+      }
+      if (other.safeOneofCase_ == 138) {
+        to_bitField4_ |= 0x00000200;
+      }
+      if (other.safeOneofCase_ == 139) {
+        to_bitField4_ |= 0x00000400;
+      }
+      if (other.safeOneofCase_ == 140) {
+        to_bitField4_ |= 0x00000800;
+      }
+      if (other.safeOneofCase_ == 141) {
+        to_bitField4_ |= 0x00001000;
+      }
+      if (other.safeOneofCase_ == 142) {
+        to_bitField4_ |= 0x00002000;
+      }
+      if (other.safeOneofCase_ == 143) {
+        to_bitField4_ |= 0x00004000;
+      }
+      if (other.safeOneofCase_ == 144) {
+        to_bitField4_ |= 0x00008000;
+      }
+      if (other.safeOneofCase_ == 145) {
+        to_bitField4_ |= 0x00010000;
+      }
+      if (other.safeOneofCase_ == 146) {
+        to_bitField4_ |= 0x00020000;
+      }
+      if (other.safeOneofCase_ == 147) {
+        to_bitField4_ |= 0x00040000;
+      }
+      if (other.safeOneofCase_ == 148) {
+        to_bitField4_ |= 0x00080000;
+      }
+      if (other.safeOneofCase_ == 149) {
+        to_bitField4_ |= 0x00100000;
+      }
+      if (other.safeOneofCase_ == 150) {
+        to_bitField4_ |= 0x00200000;
+      }
+      if (other.safeOneofCase_ == 151) {
+        to_bitField4_ |= 0x00400000;
+      }
+      if (other.safeOneofCase_ == 152) {
+        to_bitField4_ |= 0x00800000;
+      }
+      if (other.safeOneofCase_ == 153) {
+        to_bitField4_ |= 0x01000000;
+      }
+      if (other.safeOneofCase_ == 154) {
+        to_bitField4_ |= 0x02000000;
+      }
+      if (other.safeOneofCase_ == 155) {
+        to_bitField4_ |= 0x04000000;
+      }
+      if (other.safeOneofCase_ == 156) {
+        to_bitField4_ |= 0x08000000;
+      }
+      if (other.safeOneofCase_ == 157) {
+        to_bitField4_ |= 0x10000000;
+      }
+      if (other.safeOneofCase_ == 158) {
+        to_bitField4_ |= 0x20000000;
+      }
+      if (other.safeOneofCase_ == 159) {
+        to_bitField4_ |= 0x40000000;
+      }
+      if (other.safeOneofCase_ == 160) {
+        to_bitField4_ |= 0x80000000;
+      }
+      bitField4_ |= to_bitField4_;
+    }
+
     private void buildPartial_autosplit_5(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField5_ = bitField5_;
       int to_bitField5_ = 0;
@@ -20513,6 +21047,107 @@ private static final long serialVersionUID = 0L;
         result.safeOneof_ = safeOneof_;
       }
       result.bitField5_ |= to_bitField5_;
+    }
+
+    private void copyFrom_autosplit_5(com.google.protobuf.LargeButSafeOneof other) {
+      int to_bitField5_ = 0;
+      if (other.safeOneofCase_ == 161) {
+        to_bitField5_ |= 0x00000001;
+      }
+      if (other.safeOneofCase_ == 162) {
+        to_bitField5_ |= 0x00000002;
+      }
+      if (other.safeOneofCase_ == 163) {
+        to_bitField5_ |= 0x00000004;
+      }
+      if (other.safeOneofCase_ == 164) {
+        to_bitField5_ |= 0x00000008;
+      }
+      if (other.safeOneofCase_ == 165) {
+        to_bitField5_ |= 0x00000010;
+      }
+      if (other.safeOneofCase_ == 166) {
+        to_bitField5_ |= 0x00000020;
+      }
+      if (other.safeOneofCase_ == 167) {
+        to_bitField5_ |= 0x00000040;
+      }
+      if (other.safeOneofCase_ == 168) {
+        to_bitField5_ |= 0x00000080;
+      }
+      if (other.safeOneofCase_ == 169) {
+        to_bitField5_ |= 0x00000100;
+      }
+      if (other.safeOneofCase_ == 170) {
+        to_bitField5_ |= 0x00000200;
+      }
+      if (other.safeOneofCase_ == 171) {
+        to_bitField5_ |= 0x00000400;
+      }
+      if (other.safeOneofCase_ == 172) {
+        to_bitField5_ |= 0x00000800;
+      }
+      if (other.safeOneofCase_ == 173) {
+        to_bitField5_ |= 0x00001000;
+      }
+      if (other.safeOneofCase_ == 174) {
+        to_bitField5_ |= 0x00002000;
+      }
+      if (other.safeOneofCase_ == 175) {
+        to_bitField5_ |= 0x00004000;
+      }
+      if (other.safeOneofCase_ == 176) {
+        to_bitField5_ |= 0x00008000;
+      }
+      if (other.safeOneofCase_ == 177) {
+        to_bitField5_ |= 0x00010000;
+      }
+      if (other.safeOneofCase_ == 178) {
+        to_bitField5_ |= 0x00020000;
+      }
+      if (other.safeOneofCase_ == 179) {
+        to_bitField5_ |= 0x00040000;
+      }
+      if (other.safeOneofCase_ == 180) {
+        to_bitField5_ |= 0x00080000;
+      }
+      if (other.safeOneofCase_ == 181) {
+        to_bitField5_ |= 0x00100000;
+      }
+      if (other.safeOneofCase_ == 182) {
+        to_bitField5_ |= 0x00200000;
+      }
+      if (other.safeOneofCase_ == 183) {
+        to_bitField5_ |= 0x00400000;
+      }
+      if (other.safeOneofCase_ == 184) {
+        to_bitField5_ |= 0x00800000;
+      }
+      if (other.safeOneofCase_ == 185) {
+        to_bitField5_ |= 0x01000000;
+      }
+      if (other.safeOneofCase_ == 186) {
+        to_bitField5_ |= 0x02000000;
+      }
+      if (other.safeOneofCase_ == 187) {
+        to_bitField5_ |= 0x04000000;
+      }
+      if (other.safeOneofCase_ == 188) {
+        to_bitField5_ |= 0x08000000;
+      }
+      if (other.safeOneofCase_ == 189) {
+        to_bitField5_ |= 0x10000000;
+      }
+      if (other.safeOneofCase_ == 190) {
+        to_bitField5_ |= 0x20000000;
+      }
+      if (other.safeOneofCase_ == 191) {
+        to_bitField5_ |= 0x40000000;
+      }
+      if (other.safeOneofCase_ == 192) {
+        to_bitField5_ |= 0x80000000;
+      }
+      bitField5_ |= to_bitField5_;
     }
 
     private void buildPartial_autosplit_6(com.google.protobuf.LargeButSafeOneof result) {
@@ -20526,6 +21161,107 @@ private static final long serialVersionUID = 0L;
       result.bitField6_ |= to_bitField6_;
     }
 
+    private void copyFrom_autosplit_6(com.google.protobuf.LargeButSafeOneof other) {
+      int to_bitField6_ = 0;
+      if (other.safeOneofCase_ == 193) {
+        to_bitField6_ |= 0x00000001;
+      }
+      if (other.safeOneofCase_ == 194) {
+        to_bitField6_ |= 0x00000002;
+      }
+      if (other.safeOneofCase_ == 195) {
+        to_bitField6_ |= 0x00000004;
+      }
+      if (other.safeOneofCase_ == 196) {
+        to_bitField6_ |= 0x00000008;
+      }
+      if (other.safeOneofCase_ == 197) {
+        to_bitField6_ |= 0x00000010;
+      }
+      if (other.safeOneofCase_ == 198) {
+        to_bitField6_ |= 0x00000020;
+      }
+      if (other.safeOneofCase_ == 199) {
+        to_bitField6_ |= 0x00000040;
+      }
+      if (other.safeOneofCase_ == 200) {
+        to_bitField6_ |= 0x00000080;
+      }
+      if (other.safeOneofCase_ == 201) {
+        to_bitField6_ |= 0x00000100;
+      }
+      if (other.safeOneofCase_ == 202) {
+        to_bitField6_ |= 0x00000200;
+      }
+      if (other.safeOneofCase_ == 203) {
+        to_bitField6_ |= 0x00000400;
+      }
+      if (other.safeOneofCase_ == 204) {
+        to_bitField6_ |= 0x00000800;
+      }
+      if (other.safeOneofCase_ == 205) {
+        to_bitField6_ |= 0x00001000;
+      }
+      if (other.safeOneofCase_ == 206) {
+        to_bitField6_ |= 0x00002000;
+      }
+      if (other.safeOneofCase_ == 207) {
+        to_bitField6_ |= 0x00004000;
+      }
+      if (other.safeOneofCase_ == 208) {
+        to_bitField6_ |= 0x00008000;
+      }
+      if (other.safeOneofCase_ == 209) {
+        to_bitField6_ |= 0x00010000;
+      }
+      if (other.safeOneofCase_ == 210) {
+        to_bitField6_ |= 0x00020000;
+      }
+      if (other.safeOneofCase_ == 211) {
+        to_bitField6_ |= 0x00040000;
+      }
+      if (other.safeOneofCase_ == 212) {
+        to_bitField6_ |= 0x00080000;
+      }
+      if (other.safeOneofCase_ == 213) {
+        to_bitField6_ |= 0x00100000;
+      }
+      if (other.safeOneofCase_ == 214) {
+        to_bitField6_ |= 0x00200000;
+      }
+      if (other.safeOneofCase_ == 215) {
+        to_bitField6_ |= 0x00400000;
+      }
+      if (other.safeOneofCase_ == 216) {
+        to_bitField6_ |= 0x00800000;
+      }
+      if (other.safeOneofCase_ == 217) {
+        to_bitField6_ |= 0x01000000;
+      }
+      if (other.safeOneofCase_ == 218) {
+        to_bitField6_ |= 0x02000000;
+      }
+      if (other.safeOneofCase_ == 219) {
+        to_bitField6_ |= 0x04000000;
+      }
+      if (other.safeOneofCase_ == 220) {
+        to_bitField6_ |= 0x08000000;
+      }
+      if (other.safeOneofCase_ == 221) {
+        to_bitField6_ |= 0x10000000;
+      }
+      if (other.safeOneofCase_ == 222) {
+        to_bitField6_ |= 0x20000000;
+      }
+      if (other.safeOneofCase_ == 223) {
+        to_bitField6_ |= 0x40000000;
+      }
+      if (other.safeOneofCase_ == 224) {
+        to_bitField6_ |= 0x80000000;
+      }
+      bitField6_ |= to_bitField6_;
+    }
+
     private void buildPartial_autosplit_7(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField7_ = bitField7_;
       int to_bitField7_ = 0;
@@ -20535,6 +21271,107 @@ private static final long serialVersionUID = 0L;
         result.safeOneof_ = safeOneof_;
       }
       result.bitField7_ |= to_bitField7_;
+    }
+
+    private void copyFrom_autosplit_7(com.google.protobuf.LargeButSafeOneof other) {
+      int to_bitField7_ = 0;
+      if (other.safeOneofCase_ == 225) {
+        to_bitField7_ |= 0x00000001;
+      }
+      if (other.safeOneofCase_ == 226) {
+        to_bitField7_ |= 0x00000002;
+      }
+      if (other.safeOneofCase_ == 227) {
+        to_bitField7_ |= 0x00000004;
+      }
+      if (other.safeOneofCase_ == 228) {
+        to_bitField7_ |= 0x00000008;
+      }
+      if (other.safeOneofCase_ == 229) {
+        to_bitField7_ |= 0x00000010;
+      }
+      if (other.safeOneofCase_ == 230) {
+        to_bitField7_ |= 0x00000020;
+      }
+      if (other.safeOneofCase_ == 231) {
+        to_bitField7_ |= 0x00000040;
+      }
+      if (other.safeOneofCase_ == 232) {
+        to_bitField7_ |= 0x00000080;
+      }
+      if (other.safeOneofCase_ == 233) {
+        to_bitField7_ |= 0x00000100;
+      }
+      if (other.safeOneofCase_ == 234) {
+        to_bitField7_ |= 0x00000200;
+      }
+      if (other.safeOneofCase_ == 235) {
+        to_bitField7_ |= 0x00000400;
+      }
+      if (other.safeOneofCase_ == 236) {
+        to_bitField7_ |= 0x00000800;
+      }
+      if (other.safeOneofCase_ == 237) {
+        to_bitField7_ |= 0x00001000;
+      }
+      if (other.safeOneofCase_ == 238) {
+        to_bitField7_ |= 0x00002000;
+      }
+      if (other.safeOneofCase_ == 239) {
+        to_bitField7_ |= 0x00004000;
+      }
+      if (other.safeOneofCase_ == 240) {
+        to_bitField7_ |= 0x00008000;
+      }
+      if (other.safeOneofCase_ == 241) {
+        to_bitField7_ |= 0x00010000;
+      }
+      if (other.safeOneofCase_ == 242) {
+        to_bitField7_ |= 0x00020000;
+      }
+      if (other.safeOneofCase_ == 243) {
+        to_bitField7_ |= 0x00040000;
+      }
+      if (other.safeOneofCase_ == 244) {
+        to_bitField7_ |= 0x00080000;
+      }
+      if (other.safeOneofCase_ == 245) {
+        to_bitField7_ |= 0x00100000;
+      }
+      if (other.safeOneofCase_ == 246) {
+        to_bitField7_ |= 0x00200000;
+      }
+      if (other.safeOneofCase_ == 247) {
+        to_bitField7_ |= 0x00400000;
+      }
+      if (other.safeOneofCase_ == 248) {
+        to_bitField7_ |= 0x00800000;
+      }
+      if (other.safeOneofCase_ == 249) {
+        to_bitField7_ |= 0x01000000;
+      }
+      if (other.safeOneofCase_ == 250) {
+        to_bitField7_ |= 0x02000000;
+      }
+      if (other.safeOneofCase_ == 251) {
+        to_bitField7_ |= 0x04000000;
+      }
+      if (other.safeOneofCase_ == 252) {
+        to_bitField7_ |= 0x08000000;
+      }
+      if (other.safeOneofCase_ == 253) {
+        to_bitField7_ |= 0x10000000;
+      }
+      if (other.safeOneofCase_ == 254) {
+        to_bitField7_ |= 0x20000000;
+      }
+      if (other.safeOneofCase_ == 255) {
+        to_bitField7_ |= 0x40000000;
+      }
+      if (other.safeOneofCase_ == 256) {
+        to_bitField7_ |= 0x80000000;
+      }
+      bitField7_ |= to_bitField7_;
     }
 
     private void buildPartial_autosplit_8(com.google.protobuf.LargeButSafeOneof result) {
@@ -20548,6 +21385,107 @@ private static final long serialVersionUID = 0L;
       result.bitField8_ |= to_bitField8_;
     }
 
+    private void copyFrom_autosplit_8(com.google.protobuf.LargeButSafeOneof other) {
+      int to_bitField8_ = 0;
+      if (other.safeOneofCase_ == 257) {
+        to_bitField8_ |= 0x00000001;
+      }
+      if (other.safeOneofCase_ == 258) {
+        to_bitField8_ |= 0x00000002;
+      }
+      if (other.safeOneofCase_ == 259) {
+        to_bitField8_ |= 0x00000004;
+      }
+      if (other.safeOneofCase_ == 260) {
+        to_bitField8_ |= 0x00000008;
+      }
+      if (other.safeOneofCase_ == 261) {
+        to_bitField8_ |= 0x00000010;
+      }
+      if (other.safeOneofCase_ == 262) {
+        to_bitField8_ |= 0x00000020;
+      }
+      if (other.safeOneofCase_ == 263) {
+        to_bitField8_ |= 0x00000040;
+      }
+      if (other.safeOneofCase_ == 264) {
+        to_bitField8_ |= 0x00000080;
+      }
+      if (other.safeOneofCase_ == 265) {
+        to_bitField8_ |= 0x00000100;
+      }
+      if (other.safeOneofCase_ == 266) {
+        to_bitField8_ |= 0x00000200;
+      }
+      if (other.safeOneofCase_ == 267) {
+        to_bitField8_ |= 0x00000400;
+      }
+      if (other.safeOneofCase_ == 268) {
+        to_bitField8_ |= 0x00000800;
+      }
+      if (other.safeOneofCase_ == 269) {
+        to_bitField8_ |= 0x00001000;
+      }
+      if (other.safeOneofCase_ == 270) {
+        to_bitField8_ |= 0x00002000;
+      }
+      if (other.safeOneofCase_ == 271) {
+        to_bitField8_ |= 0x00004000;
+      }
+      if (other.safeOneofCase_ == 272) {
+        to_bitField8_ |= 0x00008000;
+      }
+      if (other.safeOneofCase_ == 273) {
+        to_bitField8_ |= 0x00010000;
+      }
+      if (other.safeOneofCase_ == 274) {
+        to_bitField8_ |= 0x00020000;
+      }
+      if (other.safeOneofCase_ == 275) {
+        to_bitField8_ |= 0x00040000;
+      }
+      if (other.safeOneofCase_ == 276) {
+        to_bitField8_ |= 0x00080000;
+      }
+      if (other.safeOneofCase_ == 277) {
+        to_bitField8_ |= 0x00100000;
+      }
+      if (other.safeOneofCase_ == 278) {
+        to_bitField8_ |= 0x00200000;
+      }
+      if (other.safeOneofCase_ == 279) {
+        to_bitField8_ |= 0x00400000;
+      }
+      if (other.safeOneofCase_ == 280) {
+        to_bitField8_ |= 0x00800000;
+      }
+      if (other.safeOneofCase_ == 281) {
+        to_bitField8_ |= 0x01000000;
+      }
+      if (other.safeOneofCase_ == 282) {
+        to_bitField8_ |= 0x02000000;
+      }
+      if (other.safeOneofCase_ == 283) {
+        to_bitField8_ |= 0x04000000;
+      }
+      if (other.safeOneofCase_ == 284) {
+        to_bitField8_ |= 0x08000000;
+      }
+      if (other.safeOneofCase_ == 285) {
+        to_bitField8_ |= 0x10000000;
+      }
+      if (other.safeOneofCase_ == 286) {
+        to_bitField8_ |= 0x20000000;
+      }
+      if (other.safeOneofCase_ == 287) {
+        to_bitField8_ |= 0x40000000;
+      }
+      if (other.safeOneofCase_ == 288) {
+        to_bitField8_ |= 0x80000000;
+      }
+      bitField8_ |= to_bitField8_;
+    }
+
     private void buildPartial_autosplit_9(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField9_ = bitField9_;
       int to_bitField9_ = 0;
@@ -20557,6 +21495,107 @@ private static final long serialVersionUID = 0L;
         result.safeOneof_ = safeOneof_;
       }
       result.bitField9_ |= to_bitField9_;
+    }
+
+    private void copyFrom_autosplit_9(com.google.protobuf.LargeButSafeOneof other) {
+      int to_bitField9_ = 0;
+      if (other.safeOneofCase_ == 289) {
+        to_bitField9_ |= 0x00000001;
+      }
+      if (other.safeOneofCase_ == 290) {
+        to_bitField9_ |= 0x00000002;
+      }
+      if (other.safeOneofCase_ == 291) {
+        to_bitField9_ |= 0x00000004;
+      }
+      if (other.safeOneofCase_ == 292) {
+        to_bitField9_ |= 0x00000008;
+      }
+      if (other.safeOneofCase_ == 293) {
+        to_bitField9_ |= 0x00000010;
+      }
+      if (other.safeOneofCase_ == 294) {
+        to_bitField9_ |= 0x00000020;
+      }
+      if (other.safeOneofCase_ == 295) {
+        to_bitField9_ |= 0x00000040;
+      }
+      if (other.safeOneofCase_ == 296) {
+        to_bitField9_ |= 0x00000080;
+      }
+      if (other.safeOneofCase_ == 297) {
+        to_bitField9_ |= 0x00000100;
+      }
+      if (other.safeOneofCase_ == 298) {
+        to_bitField9_ |= 0x00000200;
+      }
+      if (other.safeOneofCase_ == 299) {
+        to_bitField9_ |= 0x00000400;
+      }
+      if (other.safeOneofCase_ == 300) {
+        to_bitField9_ |= 0x00000800;
+      }
+      if (other.safeOneofCase_ == 301) {
+        to_bitField9_ |= 0x00001000;
+      }
+      if (other.safeOneofCase_ == 302) {
+        to_bitField9_ |= 0x00002000;
+      }
+      if (other.safeOneofCase_ == 303) {
+        to_bitField9_ |= 0x00004000;
+      }
+      if (other.safeOneofCase_ == 304) {
+        to_bitField9_ |= 0x00008000;
+      }
+      if (other.safeOneofCase_ == 305) {
+        to_bitField9_ |= 0x00010000;
+      }
+      if (other.safeOneofCase_ == 306) {
+        to_bitField9_ |= 0x00020000;
+      }
+      if (other.safeOneofCase_ == 307) {
+        to_bitField9_ |= 0x00040000;
+      }
+      if (other.safeOneofCase_ == 308) {
+        to_bitField9_ |= 0x00080000;
+      }
+      if (other.safeOneofCase_ == 309) {
+        to_bitField9_ |= 0x00100000;
+      }
+      if (other.safeOneofCase_ == 310) {
+        to_bitField9_ |= 0x00200000;
+      }
+      if (other.safeOneofCase_ == 311) {
+        to_bitField9_ |= 0x00400000;
+      }
+      if (other.safeOneofCase_ == 312) {
+        to_bitField9_ |= 0x00800000;
+      }
+      if (other.safeOneofCase_ == 313) {
+        to_bitField9_ |= 0x01000000;
+      }
+      if (other.safeOneofCase_ == 314) {
+        to_bitField9_ |= 0x02000000;
+      }
+      if (other.safeOneofCase_ == 315) {
+        to_bitField9_ |= 0x04000000;
+      }
+      if (other.safeOneofCase_ == 316) {
+        to_bitField9_ |= 0x08000000;
+      }
+      if (other.safeOneofCase_ == 317) {
+        to_bitField9_ |= 0x10000000;
+      }
+      if (other.safeOneofCase_ == 318) {
+        to_bitField9_ |= 0x20000000;
+      }
+      if (other.safeOneofCase_ == 319) {
+        to_bitField9_ |= 0x40000000;
+      }
+      if (other.safeOneofCase_ == 320) {
+        to_bitField9_ |= 0x80000000;
+      }
+      bitField9_ |= to_bitField9_;
     }
 
     private void buildPartial_autosplit_10(com.google.protobuf.LargeButSafeOneof result) {
@@ -20570,6 +21609,107 @@ private static final long serialVersionUID = 0L;
       result.bitField10_ |= to_bitField10_;
     }
 
+    private void copyFrom_autosplit_10(com.google.protobuf.LargeButSafeOneof other) {
+      int to_bitField10_ = 0;
+      if (other.safeOneofCase_ == 321) {
+        to_bitField10_ |= 0x00000001;
+      }
+      if (other.safeOneofCase_ == 322) {
+        to_bitField10_ |= 0x00000002;
+      }
+      if (other.safeOneofCase_ == 323) {
+        to_bitField10_ |= 0x00000004;
+      }
+      if (other.safeOneofCase_ == 324) {
+        to_bitField10_ |= 0x00000008;
+      }
+      if (other.safeOneofCase_ == 325) {
+        to_bitField10_ |= 0x00000010;
+      }
+      if (other.safeOneofCase_ == 326) {
+        to_bitField10_ |= 0x00000020;
+      }
+      if (other.safeOneofCase_ == 327) {
+        to_bitField10_ |= 0x00000040;
+      }
+      if (other.safeOneofCase_ == 328) {
+        to_bitField10_ |= 0x00000080;
+      }
+      if (other.safeOneofCase_ == 329) {
+        to_bitField10_ |= 0x00000100;
+      }
+      if (other.safeOneofCase_ == 330) {
+        to_bitField10_ |= 0x00000200;
+      }
+      if (other.safeOneofCase_ == 331) {
+        to_bitField10_ |= 0x00000400;
+      }
+      if (other.safeOneofCase_ == 332) {
+        to_bitField10_ |= 0x00000800;
+      }
+      if (other.safeOneofCase_ == 333) {
+        to_bitField10_ |= 0x00001000;
+      }
+      if (other.safeOneofCase_ == 334) {
+        to_bitField10_ |= 0x00002000;
+      }
+      if (other.safeOneofCase_ == 335) {
+        to_bitField10_ |= 0x00004000;
+      }
+      if (other.safeOneofCase_ == 336) {
+        to_bitField10_ |= 0x00008000;
+      }
+      if (other.safeOneofCase_ == 337) {
+        to_bitField10_ |= 0x00010000;
+      }
+      if (other.safeOneofCase_ == 338) {
+        to_bitField10_ |= 0x00020000;
+      }
+      if (other.safeOneofCase_ == 339) {
+        to_bitField10_ |= 0x00040000;
+      }
+      if (other.safeOneofCase_ == 340) {
+        to_bitField10_ |= 0x00080000;
+      }
+      if (other.safeOneofCase_ == 341) {
+        to_bitField10_ |= 0x00100000;
+      }
+      if (other.safeOneofCase_ == 342) {
+        to_bitField10_ |= 0x00200000;
+      }
+      if (other.safeOneofCase_ == 343) {
+        to_bitField10_ |= 0x00400000;
+      }
+      if (other.safeOneofCase_ == 344) {
+        to_bitField10_ |= 0x00800000;
+      }
+      if (other.safeOneofCase_ == 345) {
+        to_bitField10_ |= 0x01000000;
+      }
+      if (other.safeOneofCase_ == 346) {
+        to_bitField10_ |= 0x02000000;
+      }
+      if (other.safeOneofCase_ == 347) {
+        to_bitField10_ |= 0x04000000;
+      }
+      if (other.safeOneofCase_ == 348) {
+        to_bitField10_ |= 0x08000000;
+      }
+      if (other.safeOneofCase_ == 349) {
+        to_bitField10_ |= 0x10000000;
+      }
+      if (other.safeOneofCase_ == 350) {
+        to_bitField10_ |= 0x20000000;
+      }
+      if (other.safeOneofCase_ == 351) {
+        to_bitField10_ |= 0x40000000;
+      }
+      if (other.safeOneofCase_ == 352) {
+        to_bitField10_ |= 0x80000000;
+      }
+      bitField10_ |= to_bitField10_;
+    }
+
     private void buildPartial_autosplit_11(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField11_ = bitField11_;
       int to_bitField11_ = 0;
@@ -20579,6 +21719,107 @@ private static final long serialVersionUID = 0L;
         result.safeOneof_ = safeOneof_;
       }
       result.bitField11_ |= to_bitField11_;
+    }
+
+    private void copyFrom_autosplit_11(com.google.protobuf.LargeButSafeOneof other) {
+      int to_bitField11_ = 0;
+      if (other.safeOneofCase_ == 353) {
+        to_bitField11_ |= 0x00000001;
+      }
+      if (other.safeOneofCase_ == 354) {
+        to_bitField11_ |= 0x00000002;
+      }
+      if (other.safeOneofCase_ == 355) {
+        to_bitField11_ |= 0x00000004;
+      }
+      if (other.safeOneofCase_ == 356) {
+        to_bitField11_ |= 0x00000008;
+      }
+      if (other.safeOneofCase_ == 357) {
+        to_bitField11_ |= 0x00000010;
+      }
+      if (other.safeOneofCase_ == 358) {
+        to_bitField11_ |= 0x00000020;
+      }
+      if (other.safeOneofCase_ == 359) {
+        to_bitField11_ |= 0x00000040;
+      }
+      if (other.safeOneofCase_ == 360) {
+        to_bitField11_ |= 0x00000080;
+      }
+      if (other.safeOneofCase_ == 361) {
+        to_bitField11_ |= 0x00000100;
+      }
+      if (other.safeOneofCase_ == 362) {
+        to_bitField11_ |= 0x00000200;
+      }
+      if (other.safeOneofCase_ == 363) {
+        to_bitField11_ |= 0x00000400;
+      }
+      if (other.safeOneofCase_ == 364) {
+        to_bitField11_ |= 0x00000800;
+      }
+      if (other.safeOneofCase_ == 365) {
+        to_bitField11_ |= 0x00001000;
+      }
+      if (other.safeOneofCase_ == 366) {
+        to_bitField11_ |= 0x00002000;
+      }
+      if (other.safeOneofCase_ == 367) {
+        to_bitField11_ |= 0x00004000;
+      }
+      if (other.safeOneofCase_ == 368) {
+        to_bitField11_ |= 0x00008000;
+      }
+      if (other.safeOneofCase_ == 369) {
+        to_bitField11_ |= 0x00010000;
+      }
+      if (other.safeOneofCase_ == 370) {
+        to_bitField11_ |= 0x00020000;
+      }
+      if (other.safeOneofCase_ == 371) {
+        to_bitField11_ |= 0x00040000;
+      }
+      if (other.safeOneofCase_ == 372) {
+        to_bitField11_ |= 0x00080000;
+      }
+      if (other.safeOneofCase_ == 373) {
+        to_bitField11_ |= 0x00100000;
+      }
+      if (other.safeOneofCase_ == 374) {
+        to_bitField11_ |= 0x00200000;
+      }
+      if (other.safeOneofCase_ == 375) {
+        to_bitField11_ |= 0x00400000;
+      }
+      if (other.safeOneofCase_ == 376) {
+        to_bitField11_ |= 0x00800000;
+      }
+      if (other.safeOneofCase_ == 377) {
+        to_bitField11_ |= 0x01000000;
+      }
+      if (other.safeOneofCase_ == 378) {
+        to_bitField11_ |= 0x02000000;
+      }
+      if (other.safeOneofCase_ == 379) {
+        to_bitField11_ |= 0x04000000;
+      }
+      if (other.safeOneofCase_ == 380) {
+        to_bitField11_ |= 0x08000000;
+      }
+      if (other.safeOneofCase_ == 381) {
+        to_bitField11_ |= 0x10000000;
+      }
+      if (other.safeOneofCase_ == 382) {
+        to_bitField11_ |= 0x20000000;
+      }
+      if (other.safeOneofCase_ == 383) {
+        to_bitField11_ |= 0x40000000;
+      }
+      if (other.safeOneofCase_ == 384) {
+        to_bitField11_ |= 0x80000000;
+      }
+      bitField11_ |= to_bitField11_;
     }
 
     private void buildPartial_autosplit_12(com.google.protobuf.LargeButSafeOneof result) {
@@ -20592,6 +21833,107 @@ private static final long serialVersionUID = 0L;
       result.bitField12_ |= to_bitField12_;
     }
 
+    private void copyFrom_autosplit_12(com.google.protobuf.LargeButSafeOneof other) {
+      int to_bitField12_ = 0;
+      if (other.safeOneofCase_ == 385) {
+        to_bitField12_ |= 0x00000001;
+      }
+      if (other.safeOneofCase_ == 386) {
+        to_bitField12_ |= 0x00000002;
+      }
+      if (other.safeOneofCase_ == 387) {
+        to_bitField12_ |= 0x00000004;
+      }
+      if (other.safeOneofCase_ == 388) {
+        to_bitField12_ |= 0x00000008;
+      }
+      if (other.safeOneofCase_ == 389) {
+        to_bitField12_ |= 0x00000010;
+      }
+      if (other.safeOneofCase_ == 390) {
+        to_bitField12_ |= 0x00000020;
+      }
+      if (other.safeOneofCase_ == 391) {
+        to_bitField12_ |= 0x00000040;
+      }
+      if (other.safeOneofCase_ == 392) {
+        to_bitField12_ |= 0x00000080;
+      }
+      if (other.safeOneofCase_ == 393) {
+        to_bitField12_ |= 0x00000100;
+      }
+      if (other.safeOneofCase_ == 394) {
+        to_bitField12_ |= 0x00000200;
+      }
+      if (other.safeOneofCase_ == 395) {
+        to_bitField12_ |= 0x00000400;
+      }
+      if (other.safeOneofCase_ == 396) {
+        to_bitField12_ |= 0x00000800;
+      }
+      if (other.safeOneofCase_ == 397) {
+        to_bitField12_ |= 0x00001000;
+      }
+      if (other.safeOneofCase_ == 398) {
+        to_bitField12_ |= 0x00002000;
+      }
+      if (other.safeOneofCase_ == 399) {
+        to_bitField12_ |= 0x00004000;
+      }
+      if (other.safeOneofCase_ == 400) {
+        to_bitField12_ |= 0x00008000;
+      }
+      if (other.safeOneofCase_ == 401) {
+        to_bitField12_ |= 0x00010000;
+      }
+      if (other.safeOneofCase_ == 402) {
+        to_bitField12_ |= 0x00020000;
+      }
+      if (other.safeOneofCase_ == 403) {
+        to_bitField12_ |= 0x00040000;
+      }
+      if (other.safeOneofCase_ == 404) {
+        to_bitField12_ |= 0x00080000;
+      }
+      if (other.safeOneofCase_ == 405) {
+        to_bitField12_ |= 0x00100000;
+      }
+      if (other.safeOneofCase_ == 406) {
+        to_bitField12_ |= 0x00200000;
+      }
+      if (other.safeOneofCase_ == 407) {
+        to_bitField12_ |= 0x00400000;
+      }
+      if (other.safeOneofCase_ == 408) {
+        to_bitField12_ |= 0x00800000;
+      }
+      if (other.safeOneofCase_ == 409) {
+        to_bitField12_ |= 0x01000000;
+      }
+      if (other.safeOneofCase_ == 410) {
+        to_bitField12_ |= 0x02000000;
+      }
+      if (other.safeOneofCase_ == 411) {
+        to_bitField12_ |= 0x04000000;
+      }
+      if (other.safeOneofCase_ == 412) {
+        to_bitField12_ |= 0x08000000;
+      }
+      if (other.safeOneofCase_ == 413) {
+        to_bitField12_ |= 0x10000000;
+      }
+      if (other.safeOneofCase_ == 414) {
+        to_bitField12_ |= 0x20000000;
+      }
+      if (other.safeOneofCase_ == 415) {
+        to_bitField12_ |= 0x40000000;
+      }
+      if (other.safeOneofCase_ == 416) {
+        to_bitField12_ |= 0x80000000;
+      }
+      bitField12_ |= to_bitField12_;
+    }
+
     private void buildPartial_autosplit_13(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField13_ = bitField13_;
       int to_bitField13_ = 0;
@@ -20601,6 +21943,107 @@ private static final long serialVersionUID = 0L;
         result.safeOneof_ = safeOneof_;
       }
       result.bitField13_ |= to_bitField13_;
+    }
+
+    private void copyFrom_autosplit_13(com.google.protobuf.LargeButSafeOneof other) {
+      int to_bitField13_ = 0;
+      if (other.safeOneofCase_ == 417) {
+        to_bitField13_ |= 0x00000001;
+      }
+      if (other.safeOneofCase_ == 418) {
+        to_bitField13_ |= 0x00000002;
+      }
+      if (other.safeOneofCase_ == 419) {
+        to_bitField13_ |= 0x00000004;
+      }
+      if (other.safeOneofCase_ == 420) {
+        to_bitField13_ |= 0x00000008;
+      }
+      if (other.safeOneofCase_ == 421) {
+        to_bitField13_ |= 0x00000010;
+      }
+      if (other.safeOneofCase_ == 422) {
+        to_bitField13_ |= 0x00000020;
+      }
+      if (other.safeOneofCase_ == 423) {
+        to_bitField13_ |= 0x00000040;
+      }
+      if (other.safeOneofCase_ == 424) {
+        to_bitField13_ |= 0x00000080;
+      }
+      if (other.safeOneofCase_ == 425) {
+        to_bitField13_ |= 0x00000100;
+      }
+      if (other.safeOneofCase_ == 426) {
+        to_bitField13_ |= 0x00000200;
+      }
+      if (other.safeOneofCase_ == 427) {
+        to_bitField13_ |= 0x00000400;
+      }
+      if (other.safeOneofCase_ == 428) {
+        to_bitField13_ |= 0x00000800;
+      }
+      if (other.safeOneofCase_ == 429) {
+        to_bitField13_ |= 0x00001000;
+      }
+      if (other.safeOneofCase_ == 430) {
+        to_bitField13_ |= 0x00002000;
+      }
+      if (other.safeOneofCase_ == 431) {
+        to_bitField13_ |= 0x00004000;
+      }
+      if (other.safeOneofCase_ == 432) {
+        to_bitField13_ |= 0x00008000;
+      }
+      if (other.safeOneofCase_ == 433) {
+        to_bitField13_ |= 0x00010000;
+      }
+      if (other.safeOneofCase_ == 434) {
+        to_bitField13_ |= 0x00020000;
+      }
+      if (other.safeOneofCase_ == 435) {
+        to_bitField13_ |= 0x00040000;
+      }
+      if (other.safeOneofCase_ == 436) {
+        to_bitField13_ |= 0x00080000;
+      }
+      if (other.safeOneofCase_ == 437) {
+        to_bitField13_ |= 0x00100000;
+      }
+      if (other.safeOneofCase_ == 438) {
+        to_bitField13_ |= 0x00200000;
+      }
+      if (other.safeOneofCase_ == 439) {
+        to_bitField13_ |= 0x00400000;
+      }
+      if (other.safeOneofCase_ == 440) {
+        to_bitField13_ |= 0x00800000;
+      }
+      if (other.safeOneofCase_ == 441) {
+        to_bitField13_ |= 0x01000000;
+      }
+      if (other.safeOneofCase_ == 442) {
+        to_bitField13_ |= 0x02000000;
+      }
+      if (other.safeOneofCase_ == 443) {
+        to_bitField13_ |= 0x04000000;
+      }
+      if (other.safeOneofCase_ == 444) {
+        to_bitField13_ |= 0x08000000;
+      }
+      if (other.safeOneofCase_ == 445) {
+        to_bitField13_ |= 0x10000000;
+      }
+      if (other.safeOneofCase_ == 446) {
+        to_bitField13_ |= 0x20000000;
+      }
+      if (other.safeOneofCase_ == 447) {
+        to_bitField13_ |= 0x40000000;
+      }
+      if (other.safeOneofCase_ == 448) {
+        to_bitField13_ |= 0x80000000;
+      }
+      bitField13_ |= to_bitField13_;
     }
 
     private void buildPartial_autosplit_14(com.google.protobuf.LargeButSafeOneof result) {
@@ -20614,6 +22057,107 @@ private static final long serialVersionUID = 0L;
       result.bitField14_ |= to_bitField14_;
     }
 
+    private void copyFrom_autosplit_14(com.google.protobuf.LargeButSafeOneof other) {
+      int to_bitField14_ = 0;
+      if (other.safeOneofCase_ == 449) {
+        to_bitField14_ |= 0x00000001;
+      }
+      if (other.safeOneofCase_ == 450) {
+        to_bitField14_ |= 0x00000002;
+      }
+      if (other.safeOneofCase_ == 451) {
+        to_bitField14_ |= 0x00000004;
+      }
+      if (other.safeOneofCase_ == 452) {
+        to_bitField14_ |= 0x00000008;
+      }
+      if (other.safeOneofCase_ == 453) {
+        to_bitField14_ |= 0x00000010;
+      }
+      if (other.safeOneofCase_ == 454) {
+        to_bitField14_ |= 0x00000020;
+      }
+      if (other.safeOneofCase_ == 455) {
+        to_bitField14_ |= 0x00000040;
+      }
+      if (other.safeOneofCase_ == 456) {
+        to_bitField14_ |= 0x00000080;
+      }
+      if (other.safeOneofCase_ == 457) {
+        to_bitField14_ |= 0x00000100;
+      }
+      if (other.safeOneofCase_ == 458) {
+        to_bitField14_ |= 0x00000200;
+      }
+      if (other.safeOneofCase_ == 459) {
+        to_bitField14_ |= 0x00000400;
+      }
+      if (other.safeOneofCase_ == 460) {
+        to_bitField14_ |= 0x00000800;
+      }
+      if (other.safeOneofCase_ == 461) {
+        to_bitField14_ |= 0x00001000;
+      }
+      if (other.safeOneofCase_ == 462) {
+        to_bitField14_ |= 0x00002000;
+      }
+      if (other.safeOneofCase_ == 463) {
+        to_bitField14_ |= 0x00004000;
+      }
+      if (other.safeOneofCase_ == 464) {
+        to_bitField14_ |= 0x00008000;
+      }
+      if (other.safeOneofCase_ == 465) {
+        to_bitField14_ |= 0x00010000;
+      }
+      if (other.safeOneofCase_ == 466) {
+        to_bitField14_ |= 0x00020000;
+      }
+      if (other.safeOneofCase_ == 467) {
+        to_bitField14_ |= 0x00040000;
+      }
+      if (other.safeOneofCase_ == 468) {
+        to_bitField14_ |= 0x00080000;
+      }
+      if (other.safeOneofCase_ == 469) {
+        to_bitField14_ |= 0x00100000;
+      }
+      if (other.safeOneofCase_ == 470) {
+        to_bitField14_ |= 0x00200000;
+      }
+      if (other.safeOneofCase_ == 471) {
+        to_bitField14_ |= 0x00400000;
+      }
+      if (other.safeOneofCase_ == 472) {
+        to_bitField14_ |= 0x00800000;
+      }
+      if (other.safeOneofCase_ == 473) {
+        to_bitField14_ |= 0x01000000;
+      }
+      if (other.safeOneofCase_ == 474) {
+        to_bitField14_ |= 0x02000000;
+      }
+      if (other.safeOneofCase_ == 475) {
+        to_bitField14_ |= 0x04000000;
+      }
+      if (other.safeOneofCase_ == 476) {
+        to_bitField14_ |= 0x08000000;
+      }
+      if (other.safeOneofCase_ == 477) {
+        to_bitField14_ |= 0x10000000;
+      }
+      if (other.safeOneofCase_ == 478) {
+        to_bitField14_ |= 0x20000000;
+      }
+      if (other.safeOneofCase_ == 479) {
+        to_bitField14_ |= 0x40000000;
+      }
+      if (other.safeOneofCase_ == 480) {
+        to_bitField14_ |= 0x80000000;
+      }
+      bitField14_ |= to_bitField14_;
+    }
+
     private void buildPartial_autosplit_15(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField15_ = bitField15_;
       int to_bitField15_ = 0;
@@ -20623,6 +22167,71 @@ private static final long serialVersionUID = 0L;
         result.safeOneof_ = safeOneof_;
       }
       result.bitField15_ |= to_bitField15_;
+    }
+
+    private void copyFrom_autosplit_15(com.google.protobuf.LargeButSafeOneof other) {
+      int to_bitField15_ = 0;
+      if (other.safeOneofCase_ == 481) {
+        to_bitField15_ |= 0x00000001;
+      }
+      if (other.safeOneofCase_ == 482) {
+        to_bitField15_ |= 0x00000002;
+      }
+      if (other.safeOneofCase_ == 483) {
+        to_bitField15_ |= 0x00000004;
+      }
+      if (other.safeOneofCase_ == 484) {
+        to_bitField15_ |= 0x00000008;
+      }
+      if (other.safeOneofCase_ == 485) {
+        to_bitField15_ |= 0x00000010;
+      }
+      if (other.safeOneofCase_ == 486) {
+        to_bitField15_ |= 0x00000020;
+      }
+      if (other.safeOneofCase_ == 487) {
+        to_bitField15_ |= 0x00000040;
+      }
+      if (other.safeOneofCase_ == 488) {
+        to_bitField15_ |= 0x00000080;
+      }
+      if (other.safeOneofCase_ == 489) {
+        to_bitField15_ |= 0x00000100;
+      }
+      if (other.safeOneofCase_ == 490) {
+        to_bitField15_ |= 0x00000200;
+      }
+      if (other.safeOneofCase_ == 491) {
+        to_bitField15_ |= 0x00000400;
+      }
+      if (other.safeOneofCase_ == 492) {
+        to_bitField15_ |= 0x00000800;
+      }
+      if (other.safeOneofCase_ == 493) {
+        to_bitField15_ |= 0x00001000;
+      }
+      if (other.safeOneofCase_ == 494) {
+        to_bitField15_ |= 0x00002000;
+      }
+      if (other.safeOneofCase_ == 495) {
+        to_bitField15_ |= 0x00004000;
+      }
+      if (other.safeOneofCase_ == 496) {
+        to_bitField15_ |= 0x00008000;
+      }
+      if (other.safeOneofCase_ == 497) {
+        to_bitField15_ |= 0x00010000;
+      }
+      if (other.safeOneofCase_ == 498) {
+        to_bitField15_ |= 0x00020000;
+      }
+      if (other.safeOneofCase_ == 499) {
+        to_bitField15_ |= 0x00040000;
+      }
+      if (other.safeOneofCase_ == 500) {
+        to_bitField15_ |= 0x00080000;
+      }
+      bitField15_ |= to_bitField15_;
     }
 
     @java.lang.Override
@@ -24681,7 +26290,7 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int safeOneofCase_ = 0;
+    private int safeOneofCase_;
     private java.lang.Object safeOneof_;
     public SafeOneofCase
         getSafeOneofCase() {
@@ -57263,21 +58872,551 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<LargeButSafeOneof>
-      PARSER = new com.google.protobuf.AbstractParser<LargeButSafeOneof>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<LargeButSafeOneof> {
+    MessageParser() {}
+
     @java.lang.Override
     public LargeButSafeOneof parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      LargeButSafeOneof instance = new LargeButSafeOneof((Builder) null);
+      java.lang.Object unknown = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8:
+            case 16:
+            case 24:
+            case 32:
+            case 40:
+            case 48:
+            case 56:
+            case 64:
+            case 72:
+            case 80:
+            case 88:
+            case 96:
+            case 104:
+            case 112:
+            case 120:
+            case 128:
+            case 136:
+            case 144:
+            case 152:
+            case 160:
+            case 168:
+            case 176:
+            case 184:
+            case 192:
+            case 200:
+            case 208:
+            case 216:
+            case 224:
+            case 232:
+            case 240:
+            case 248:
+            case 256:
+            case 264:
+            case 272:
+            case 280:
+            case 288:
+            case 296:
+            case 304:
+            case 312:
+            case 320:
+            case 328:
+            case 336:
+            case 344:
+            case 352:
+            case 360:
+            case 368:
+            case 376:
+            case 384:
+            case 392:
+            case 400:
+            case 408:
+            case 416:
+            case 424:
+            case 432:
+            case 440:
+            case 448:
+            case 456:
+            case 464:
+            case 472:
+            case 480:
+            case 488:
+            case 496:
+            case 504:
+            case 512:
+            case 520:
+            case 528:
+            case 536:
+            case 544:
+            case 552:
+            case 560:
+            case 568:
+            case 576:
+            case 584:
+            case 592:
+            case 600:
+            case 608:
+            case 616:
+            case 624:
+            case 632:
+            case 640:
+            case 648:
+            case 656:
+            case 664:
+            case 672:
+            case 680:
+            case 688:
+            case 696:
+            case 704:
+            case 712:
+            case 720:
+            case 728:
+            case 736:
+            case 744:
+            case 752:
+            case 760:
+            case 768:
+            case 776:
+            case 784:
+            case 792:
+            case 800:
+            case 808:
+            case 816:
+            case 824:
+            case 832:
+            case 840:
+            case 848:
+            case 856:
+            case 864:
+            case 872:
+            case 880:
+            case 888:
+            case 896:
+            case 904:
+            case 912:
+            case 920:
+            case 928:
+            case 936:
+            case 944:
+            case 952:
+            case 960:
+            case 968:
+            case 976:
+            case 984:
+            case 992:
+            case 1000:
+            case 1008:
+            case 1016:
+            case 1024:
+            case 1032:
+            case 1040:
+            case 1048:
+            case 1056:
+            case 1064:
+            case 1072:
+            case 1080:
+            case 1088:
+            case 1096:
+            case 1104:
+            case 1112:
+            case 1120:
+            case 1128:
+            case 1136:
+            case 1144:
+            case 1152:
+            case 1160:
+            case 1168:
+            case 1176:
+            case 1184:
+            case 1192:
+            case 1200:
+            case 1208:
+            case 1216:
+            case 1224:
+            case 1232:
+            case 1240:
+            case 1248:
+            case 1256:
+            case 1264:
+            case 1272:
+            case 1280:
+            case 1288:
+            case 1296:
+            case 1304:
+            case 1312:
+            case 1320:
+            case 1328:
+            case 1336:
+            case 1344:
+            case 1352:
+            case 1360:
+            case 1368:
+            case 1376:
+            case 1384:
+            case 1392:
+            case 1400:
+            case 1408:
+            case 1416:
+            case 1424:
+            case 1432:
+            case 1440:
+            case 1448:
+            case 1456:
+            case 1464:
+            case 1472:
+            case 1480:
+            case 1488:
+            case 1496:
+            case 1504:
+            case 1512:
+            case 1520:
+            case 1528:
+            case 1536:
+            case 1544:
+            case 1552:
+            case 1560:
+            case 1568:
+            case 1576:
+            case 1584:
+            case 1592:
+            case 1600:
+            case 1608:
+            case 1616:
+            case 1624:
+            case 1632:
+            case 1640:
+            case 1648:
+            case 1656:
+            case 1664:
+            case 1672:
+            case 1680:
+            case 1688:
+            case 1696:
+            case 1704:
+            case 1712:
+            case 1720:
+            case 1728:
+            case 1736:
+            case 1744:
+            case 1752:
+            case 1760:
+            case 1768:
+            case 1776:
+            case 1784:
+            case 1792:
+            case 1800:
+            case 1808:
+            case 1816:
+            case 1824:
+            case 1832:
+            case 1840:
+            case 1848:
+            case 1856:
+            case 1864:
+            case 1872:
+            case 1880:
+            case 1888:
+            case 1896:
+            case 1904:
+            case 1912:
+            case 1920:
+            case 1928:
+            case 1936:
+            case 1944:
+            case 1952:
+            case 1960:
+            case 1968:
+            case 1976:
+            case 1984:
+            case 1992:
+            case 2000:
+            case 2008:
+            case 2016:
+            case 2024:
+            case 2032:
+            case 2040:
+            case 2048:
+            case 2056:
+            case 2064:
+            case 2072:
+            case 2080:
+            case 2088:
+            case 2096:
+            case 2104:
+            case 2112:
+            case 2120:
+            case 2128:
+            case 2136:
+            case 2144:
+            case 2152:
+            case 2160:
+            case 2168:
+            case 2176:
+            case 2184:
+            case 2192:
+            case 2200:
+            case 2208:
+            case 2216:
+            case 2224:
+            case 2232:
+            case 2240:
+            case 2248:
+            case 2256:
+            case 2264:
+            case 2272:
+            case 2280:
+            case 2288:
+            case 2296:
+            case 2304:
+            case 2312:
+            case 2320:
+            case 2328:
+            case 2336:
+            case 2344:
+            case 2352:
+            case 2360:
+            case 2368:
+            case 2376:
+            case 2384:
+            case 2392:
+            case 2400:
+            case 2408:
+            case 2416:
+            case 2424:
+            case 2432:
+            case 2440:
+            case 2448:
+            case 2456:
+            case 2464:
+            case 2472:
+            case 2480:
+            case 2488:
+            case 2496:
+            case 2504:
+            case 2512:
+            case 2520:
+            case 2528:
+            case 2536:
+            case 2544:
+            case 2552:
+            case 2560:
+            case 2568:
+            case 2576:
+            case 2584:
+            case 2592:
+            case 2600:
+            case 2608:
+            case 2616:
+            case 2624:
+            case 2632:
+            case 2640:
+            case 2648:
+            case 2656:
+            case 2664:
+            case 2672:
+            case 2680:
+            case 2688:
+            case 2696:
+            case 2704:
+            case 2712:
+            case 2720:
+            case 2728:
+            case 2736:
+            case 2744:
+            case 2752:
+            case 2760:
+            case 2768:
+            case 2776:
+            case 2784:
+            case 2792:
+            case 2800:
+            case 2808:
+            case 2816:
+            case 2824:
+            case 2832:
+            case 2840:
+            case 2848:
+            case 2856:
+            case 2864:
+            case 2872:
+            case 2880:
+            case 2888:
+            case 2896:
+            case 2904:
+            case 2912:
+            case 2920:
+            case 2928:
+            case 2936:
+            case 2944:
+            case 2952:
+            case 2960:
+            case 2968:
+            case 2976:
+            case 2984:
+            case 2992:
+            case 3000:
+            case 3008:
+            case 3016:
+            case 3024:
+            case 3032:
+            case 3040:
+            case 3048:
+            case 3056:
+            case 3064:
+            case 3072:
+            case 3080:
+            case 3088:
+            case 3096:
+            case 3104:
+            case 3112:
+            case 3120:
+            case 3128:
+            case 3136:
+            case 3144:
+            case 3152:
+            case 3160:
+            case 3168:
+            case 3176:
+            case 3184:
+            case 3192:
+            case 3200:
+            case 3208:
+            case 3216:
+            case 3224:
+            case 3232:
+            case 3240:
+            case 3248:
+            case 3256:
+            case 3264:
+            case 3272:
+            case 3280:
+            case 3288:
+            case 3296:
+            case 3304:
+            case 3312:
+            case 3320:
+            case 3328:
+            case 3336:
+            case 3344:
+            case 3352:
+            case 3360:
+            case 3368:
+            case 3376:
+            case 3384:
+            case 3392:
+            case 3400:
+            case 3408:
+            case 3416:
+            case 3424:
+            case 3432:
+            case 3440:
+            case 3448:
+            case 3456:
+            case 3464:
+            case 3472:
+            case 3480:
+            case 3488:
+            case 3496:
+            case 3504:
+            case 3512:
+            case 3520:
+            case 3528:
+            case 3536:
+            case 3544:
+            case 3552:
+            case 3560:
+            case 3568:
+            case 3576:
+            case 3584:
+            case 3592:
+            case 3600:
+            case 3608:
+            case 3616:
+            case 3624:
+            case 3632:
+            case 3640:
+            case 3648:
+            case 3656:
+            case 3664:
+            case 3672:
+            case 3680:
+            case 3688:
+            case 3696:
+            case 3704:
+            case 3712:
+            case 3720:
+            case 3728:
+            case 3736:
+            case 3744:
+            case 3752:
+            case 3760:
+            case 3768:
+            case 3776:
+            case 3784:
+            case 3792:
+            case 3800:
+            case 3808:
+            case 3816:
+            case 3824:
+            case 3832:
+            case 3840:
+            case 3848:
+            case 3856:
+            case 3864:
+            case 3872:
+            case 3880:
+            case 3888:
+            case 3896:
+            case 3904:
+            case 3912:
+            case 3920:
+            case 3928:
+            case 3936:
+            case 3944:
+            case 3952:
+            case 3960:
+            case 3968:
+            case 3976:
+            case 3984:
+            case 3992:
+            case 4000:
+            {
+              int value = input.readInt32();
+              instance.safeOneofCase_ = tag >>> 3;
+              instance.safeOneof_ = value;
+              break;
+            }
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<LargeButSafeOneof> parser() {
     return PARSER;

@@ -355,7 +355,7 @@ public final class UnittestSelfreferentialOptions extends com.google.protobuf.Ge
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -385,14 +385,26 @@ public final class UnittestSelfreferentialOptions extends com.google.protobuf.Ge
                 protobuf_unittest_selfreferential_options.UnittestSelfreferentialOptions.FooOptions.class, protobuf_unittest_selfreferential_options.UnittestSelfreferentialOptions.FooOptions.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_unittest_selfreferential_options.UnittestSelfreferentialOptions.FooOptions.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(protobuf_unittest_selfreferential_options.UnittestSelfreferentialOptions.FooOptions other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -444,6 +456,13 @@ public final class UnittestSelfreferentialOptions extends com.google.protobuf.Ge
           to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(protobuf_unittest_selfreferential_options.UnittestSelfreferentialOptions.FooOptions other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000003);
+        intOpt_ = other.getIntOpt();
+        foo_ = other.getFoo();
+        bitField0_ |= to_bitField0_;
       }
 
       public <Type> Builder setExtension(
@@ -542,7 +561,7 @@ public final class UnittestSelfreferentialOptions extends com.google.protobuf.Ge
       }
       private int bitField0_;
 
-      private int intOpt_ ;
+      private int intOpt_;
       /**
        * <pre>
        * Custom field option used in definition of the extension message.
@@ -598,7 +617,7 @@ public final class UnittestSelfreferentialOptions extends com.google.protobuf.Ge
         return this;
       }
 
-      private int foo_ ;
+      private int foo_;
       /**
        * <pre>
        * Custom field option used in definition of the custom option's message.
@@ -668,21 +687,60 @@ public final class UnittestSelfreferentialOptions extends com.google.protobuf.Ge
     }
 
     private static final com.google.protobuf.Parser<FooOptions>
-        PARSER = new com.google.protobuf.AbstractParser<FooOptions>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<FooOptions> {
+      MessageParser() {}
+
       @java.lang.Override
       public FooOptions parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        FooOptions instance = new FooOptions((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.intOpt_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                instance.foo_ = input.readInt32();
+                to_bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                pendingTag = tag;
+                break parseLoop;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        if (pendingTag != 0) {
+          return mergeFrom(instance.toBuilder(), input, extensionRegistry, pendingTag, null);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<FooOptions> parser() {
       return PARSER;

@@ -702,7 +702,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -732,14 +732,32 @@ private static final long serialVersionUID = 0L;
               edition_unittest.Int64ParseTester.class, edition_unittest.Int64ParseTester.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.Int64ParseTester.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      repeatedInt64Lowfield_ = emptyLongList();
+      repeatedInt64Midfield_ = emptyLongList();
+      repeatedInt64Hifield_ = emptyLongList();
+      packedInt64Lowfield_ = emptyLongList();
+      packedInt64Midfield_ = emptyLongList();
+      packedInt64Hifield_ = emptyLongList();
+
+    }
+    private Builder(edition_unittest.Int64ParseTester other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -831,6 +849,39 @@ private static final long serialVersionUID = 0L;
         result.packedInt64Hifield_ = packedInt64Hifield_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.Int64ParseTester other) {
+      int to_bitField0_ = (other.bitField0_ & 0x0000000f);
+      optionalInt64Lowfield_ = other.getOptionalInt64Lowfield();
+      optionalInt64Midfield_ = other.getOptionalInt64Midfield();
+      optionalInt64Hifield_ = other.getOptionalInt64Hifield();
+      otherField_ = other.getOtherField();
+      repeatedInt64Lowfield_ = other.repeatedInt64Lowfield_;
+      if (!repeatedInt64Lowfield_.isEmpty()) {
+        to_bitField0_ |= 0x00000010;
+      }
+      repeatedInt64Midfield_ = other.repeatedInt64Midfield_;
+      if (!repeatedInt64Midfield_.isEmpty()) {
+        to_bitField0_ |= 0x00000020;
+      }
+      repeatedInt64Hifield_ = other.repeatedInt64Hifield_;
+      if (!repeatedInt64Hifield_.isEmpty()) {
+        to_bitField0_ |= 0x00000040;
+      }
+      packedInt64Lowfield_ = other.packedInt64Lowfield_;
+      if (!packedInt64Lowfield_.isEmpty()) {
+        to_bitField0_ |= 0x00000080;
+      }
+      packedInt64Midfield_ = other.packedInt64Midfield_;
+      if (!packedInt64Midfield_.isEmpty()) {
+        to_bitField0_ |= 0x00000100;
+      }
+      packedInt64Hifield_ = other.packedInt64Hifield_;
+      if (!packedInt64Hifield_.isEmpty()) {
+        to_bitField0_ |= 0x00000200;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     public <Type> Builder setExtension(
@@ -1113,7 +1164,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private long optionalInt64Lowfield_ ;
+    private long optionalInt64Lowfield_;
     /**
      * <code>int64 optional_int64_lowfield = 1;</code>
      * @return Whether the optionalInt64Lowfield field is set.
@@ -1153,7 +1204,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long optionalInt64Midfield_ ;
+    private long optionalInt64Midfield_;
     /**
      * <code>int64 optional_int64_midfield = 1001;</code>
      * @return Whether the optionalInt64Midfield field is set.
@@ -1193,7 +1244,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long optionalInt64Hifield_ ;
+    private long optionalInt64Hifield_;
     /**
      * <code>int64 optional_int64_hifield = 1000001;</code>
      * @return Whether the optionalInt64Hifield field is set.
@@ -1233,7 +1284,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList repeatedInt64Lowfield_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList repeatedInt64Lowfield_;
     private void ensureRepeatedInt64LowfieldIsMutable(int capacity) {
       if (!repeatedInt64Lowfield_.isModifiable()) {
         repeatedInt64Lowfield_ = makeMutableCopy(repeatedInt64Lowfield_, capacity);
@@ -1317,7 +1368,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList repeatedInt64Midfield_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList repeatedInt64Midfield_;
     private void ensureRepeatedInt64MidfieldIsMutable(int capacity) {
       if (!repeatedInt64Midfield_.isModifiable()) {
         repeatedInt64Midfield_ = makeMutableCopy(repeatedInt64Midfield_, capacity);
@@ -1401,7 +1452,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList repeatedInt64Hifield_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList repeatedInt64Hifield_;
     private void ensureRepeatedInt64HifieldIsMutable(int capacity) {
       if (!repeatedInt64Hifield_.isModifiable()) {
         repeatedInt64Hifield_ = makeMutableCopy(repeatedInt64Hifield_, capacity);
@@ -1485,7 +1536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList packedInt64Lowfield_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList packedInt64Lowfield_;
     private void ensurePackedInt64LowfieldIsMutable(int capacity) {
       if (!packedInt64Lowfield_.isModifiable()) {
         packedInt64Lowfield_ = makeMutableCopy(packedInt64Lowfield_, capacity);
@@ -1569,7 +1620,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList packedInt64Midfield_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList packedInt64Midfield_;
     private void ensurePackedInt64MidfieldIsMutable(int capacity) {
       if (!packedInt64Midfield_.isModifiable()) {
         packedInt64Midfield_ = makeMutableCopy(packedInt64Midfield_, capacity);
@@ -1653,7 +1704,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList packedInt64Hifield_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList packedInt64Hifield_;
     private void ensurePackedInt64HifieldIsMutable(int capacity) {
       if (!packedInt64Hifield_.isModifiable()) {
         packedInt64Hifield_ = makeMutableCopy(packedInt64Hifield_, capacity);
@@ -1737,7 +1788,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int otherField_ ;
+    private int otherField_;
     /**
      * <pre>
      * An arbitrary field we can append to to break the runs of repeated fields.
@@ -1807,21 +1858,211 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<Int64ParseTester>
-      PARSER = new com.google.protobuf.AbstractParser<Int64ParseTester>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<Int64ParseTester> {
+    MessageParser() {}
+
     @java.lang.Override
     public Int64ParseTester parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Int64ParseTester instance = new Int64ParseTester((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.optionalInt64Lowfield_ = input.readInt64();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              long v = input.readInt64();
+              ensureRepeatedInt64LowfieldIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedInt64Lowfield_.addLong(v);
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedInt64LowfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedInt64Lowfield_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            case 24: {
+              long v = input.readInt64();
+              ensurePackedInt64LowfieldIsMutable(instance, /* capacity= */ -1);
+              instance.packedInt64Lowfield_.addLong(v);
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedInt64LowfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.packedInt64Lowfield_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 26
+            case 792: {
+              instance.otherField_ = input.readInt32();
+              to_bitField0_ |= 0x00000008;
+              break;
+            } // case 792
+            case 8008: {
+              instance.optionalInt64Midfield_ = input.readInt64();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 8008
+            case 8016: {
+              long v = input.readInt64();
+              ensureRepeatedInt64MidfieldIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedInt64Midfield_.addLong(v);
+              break;
+            } // case 8016
+            case 8018: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedInt64MidfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedInt64Midfield_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8018
+            case 8024: {
+              long v = input.readInt64();
+              ensurePackedInt64MidfieldIsMutable(instance, /* capacity= */ -1);
+              instance.packedInt64Midfield_.addLong(v);
+              break;
+            } // case 8024
+            case 8026: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedInt64MidfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.packedInt64Midfield_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8026
+            case 8000008: {
+              instance.optionalInt64Hifield_ = input.readInt64();
+              to_bitField0_ |= 0x00000004;
+              break;
+            } // case 8000008
+            case 8000016: {
+              long v = input.readInt64();
+              ensureRepeatedInt64HifieldIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedInt64Hifield_.addLong(v);
+              break;
+            } // case 8000016
+            case 8000018: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedInt64HifieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedInt64Hifield_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8000018
+            case 8000024: {
+              long v = input.readInt64();
+              ensurePackedInt64HifieldIsMutable(instance, /* capacity= */ -1);
+              instance.packedInt64Hifield_.addLong(v);
+              break;
+            } // case 8000024
+            case 8000026: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedInt64HifieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.packedInt64Hifield_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8000026
+            default: {
+              pendingTag = tag;
+              break parseLoop;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      if (pendingTag != 0) {
+        return mergeFrom(instance.toBuilder(), input, extensionRegistry, pendingTag, null);
+      }
+      return instance;
     }
-  };
+    private static void ensureRepeatedInt64LowfieldIsMutable(edition_unittest.Int64ParseTester instance, int minCapacity) {
+      if (!instance.repeatedInt64Lowfield_.isModifiable()) {
+        instance.repeatedInt64Lowfield_ = makeMutableCopy(instance.repeatedInt64Lowfield_, minCapacity);
+      }
+    }
+    private static void ensureRepeatedInt64MidfieldIsMutable(edition_unittest.Int64ParseTester instance, int minCapacity) {
+      if (!instance.repeatedInt64Midfield_.isModifiable()) {
+        instance.repeatedInt64Midfield_ = makeMutableCopy(instance.repeatedInt64Midfield_, minCapacity);
+      }
+    }
+    private static void ensureRepeatedInt64HifieldIsMutable(edition_unittest.Int64ParseTester instance, int minCapacity) {
+      if (!instance.repeatedInt64Hifield_.isModifiable()) {
+        instance.repeatedInt64Hifield_ = makeMutableCopy(instance.repeatedInt64Hifield_, minCapacity);
+      }
+    }
+    private static void ensurePackedInt64LowfieldIsMutable(edition_unittest.Int64ParseTester instance, int minCapacity) {
+      if (!instance.packedInt64Lowfield_.isModifiable()) {
+        instance.packedInt64Lowfield_ = makeMutableCopy(instance.packedInt64Lowfield_, minCapacity);
+      }
+    }
+    private static void ensurePackedInt64MidfieldIsMutable(edition_unittest.Int64ParseTester instance, int minCapacity) {
+      if (!instance.packedInt64Midfield_.isModifiable()) {
+        instance.packedInt64Midfield_ = makeMutableCopy(instance.packedInt64Midfield_, minCapacity);
+      }
+    }
+    private static void ensurePackedInt64HifieldIsMutable(edition_unittest.Int64ParseTester instance, int minCapacity) {
+      if (!instance.packedInt64Hifield_.isModifiable()) {
+        instance.packedInt64Hifield_ = makeMutableCopy(instance.packedInt64Hifield_, minCapacity);
+      }
+    }
+    private static void finishCollections0(Int64ParseTester instance) {
+      instance.repeatedInt64Lowfield_.makeImmutable();
+      instance.repeatedInt64Midfield_.makeImmutable();
+      instance.repeatedInt64Hifield_.makeImmutable();
+      instance.packedInt64Lowfield_.makeImmutable();
+      instance.packedInt64Midfield_.makeImmutable();
+      instance.packedInt64Hifield_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<Int64ParseTester> parser() {
     return PARSER;

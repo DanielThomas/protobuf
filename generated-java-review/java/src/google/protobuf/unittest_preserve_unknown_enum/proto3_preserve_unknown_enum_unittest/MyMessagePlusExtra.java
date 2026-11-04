@@ -621,7 +621,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -650,14 +650,30 @@ private static final long serialVersionUID = 0L;
               proto3_preserve_unknown_enum_unittest.MyMessagePlusExtra.class, proto3_preserve_unknown_enum_unittest.MyMessagePlusExtra.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using proto3_preserve_unknown_enum_unittest.MyMessagePlusExtra.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      e_ = 0;
+      repeatedE_ = emptyIntList();
+      repeatedPackedE_ = emptyIntList();
+      repeatedPackedUnexpectedE_ = emptyIntList();
+
+    }
+    private Builder(proto3_preserve_unknown_enum_unittest.MyMessagePlusExtra other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -707,7 +723,6 @@ private static final long serialVersionUID = 0L;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.e_ = e_;
-        ;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
         repeatedE_.makeImmutable();
@@ -727,6 +742,33 @@ private static final long serialVersionUID = 0L;
         result.o_ = o_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(proto3_preserve_unknown_enum_unittest.MyMessagePlusExtra other) {
+      int to_bitField0_ = 0;
+      e_ = other.getEValue();
+      to_bitField0_ |= 0x00000001;
+      repeatedE_ = other.repeatedE_;
+      if (!repeatedE_.isEmpty()) {
+        to_bitField0_ |= 0x00000002;
+      }
+      repeatedPackedE_ = other.repeatedPackedE_;
+      if (!repeatedPackedE_.isEmpty()) {
+        to_bitField0_ |= 0x00000004;
+      }
+      repeatedPackedUnexpectedE_ = other.repeatedPackedUnexpectedE_;
+      if (!repeatedPackedUnexpectedE_.isEmpty()) {
+        to_bitField0_ |= 0x00000008;
+      }
+      if (other.oCase_ == 5) {
+        to_bitField0_ |= 0x00000010;
+      }
+      if (other.oCase_ == 6) {
+        to_bitField0_ |= 0x00000020;
+      }
+      oCase_ = other.oCase_;
+      o_ = other.o_;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -893,7 +935,7 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int oCase_ = 0;
+    private int oCase_;
     private java.lang.Object o_;
     public OCase
         getOCase() {
@@ -916,7 +958,7 @@ private static final long serialVersionUID = 0L;
 
     private int bitField0_;
 
-    private int e_ = 0;
+    private int e_;
     /**
      * <code>.proto3_preserve_unknown_enum_unittest.MyEnumPlusExtra e = 1;</code>
      * @return The enum numeric value on the wire for e.
@@ -968,7 +1010,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedE_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedE_;
     private void ensureRepeatedEIsMutable(int capacity) {
       if (!repeatedE_.isModifiable()) {
         repeatedE_ = makeMutableCopy(repeatedE_, capacity);
@@ -1106,7 +1148,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedPackedE_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedPackedE_;
     private void ensureRepeatedPackedEIsMutable(int capacity) {
       if (!repeatedPackedE_.isModifiable()) {
         repeatedPackedE_ = makeMutableCopy(repeatedPackedE_, capacity);
@@ -1244,7 +1286,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedPackedUnexpectedE_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedPackedUnexpectedE_;
     private void ensureRepeatedPackedUnexpectedEIsMutable(int capacity) {
       if (!repeatedPackedUnexpectedE_.isModifiable()) {
         repeatedPackedUnexpectedE_ = makeMutableCopy(repeatedPackedUnexpectedE_, capacity);
@@ -1598,21 +1640,148 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<MyMessagePlusExtra>
-      PARSER = new com.google.protobuf.AbstractParser<MyMessagePlusExtra>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<MyMessagePlusExtra> {
+    MessageParser() {}
+
     @java.lang.Override
     public MyMessagePlusExtra parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MyMessagePlusExtra instance = new MyMessagePlusExtra((Builder) null);
+      java.lang.Object unknown = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.e_ = input.readEnum();
+
+              break;
+            } // case 8
+            case 16: {
+              int tmpRaw = input.readEnum();
+              ensureRepeatedEIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedE_.addInt(tmpRaw);
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedEIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedE_.addInt(input.readEnum());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            case 24: {
+              int tmpRaw = input.readEnum();
+              ensureRepeatedPackedEIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedPackedE_.addInt(tmpRaw);
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedPackedEIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedPackedE_.addInt(input.readEnum());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 26
+            case 32: {
+              int tmpRaw = input.readEnum();
+              ensureRepeatedPackedUnexpectedEIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedPackedUnexpectedE_.addInt(tmpRaw);
+              break;
+            } // case 32
+            case 34: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedPackedUnexpectedEIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedPackedUnexpectedE_.addInt(input.readEnum());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 34
+            case 40: {
+              unknown = parseOneofE1Field(instance, input, extensionRegistry, unknown);
+              break;
+            } // case 40
+            case 48: {
+              unknown = parseOneofE2Field(instance, input, extensionRegistry, unknown);
+              break;
+            } // case 48
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensureRepeatedEIsMutable(proto3_preserve_unknown_enum_unittest.MyMessagePlusExtra instance, int minCapacity) {
+      if (!instance.repeatedE_.isModifiable()) {
+        instance.repeatedE_ = makeMutableCopy(instance.repeatedE_, minCapacity);
+      }
+    }
+    private static void ensureRepeatedPackedEIsMutable(proto3_preserve_unknown_enum_unittest.MyMessagePlusExtra instance, int minCapacity) {
+      if (!instance.repeatedPackedE_.isModifiable()) {
+        instance.repeatedPackedE_ = makeMutableCopy(instance.repeatedPackedE_, minCapacity);
+      }
+    }
+    private static void ensureRepeatedPackedUnexpectedEIsMutable(proto3_preserve_unknown_enum_unittest.MyMessagePlusExtra instance, int minCapacity) {
+      if (!instance.repeatedPackedUnexpectedE_.isModifiable()) {
+        instance.repeatedPackedUnexpectedE_ = makeMutableCopy(instance.repeatedPackedUnexpectedE_, minCapacity);
+      }
+    }
+    private static java.lang.Object parseOneofE1Field(
+        proto3_preserve_unknown_enum_unittest.MyMessagePlusExtra instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, java.lang.Object unknown)
+        throws java.io.IOException {
+      int rawValue = input.readEnum();
+      instance.oCase_ = 5;
+      instance.o_ = rawValue;
+      return unknown;
+    }
+    private static java.lang.Object parseOneofE2Field(
+        proto3_preserve_unknown_enum_unittest.MyMessagePlusExtra instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, java.lang.Object unknown)
+        throws java.io.IOException {
+      int rawValue = input.readEnum();
+      instance.oCase_ = 6;
+      instance.o_ = rawValue;
+      return unknown;
+    }
+    private static void finishCollections0(MyMessagePlusExtra instance) {
+      instance.repeatedE_.makeImmutable();
+      instance.repeatedPackedE_.makeImmutable();
+      instance.repeatedPackedUnexpectedE_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<MyMessagePlusExtra> parser() {
     return PARSER;

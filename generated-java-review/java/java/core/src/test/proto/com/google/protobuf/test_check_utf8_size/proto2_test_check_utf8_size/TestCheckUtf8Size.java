@@ -350,7 +350,7 @@ public final class TestCheckUtf8Size extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -379,14 +379,30 @@ public final class TestCheckUtf8Size extends com.google.protobuf.GeneratedFile {
                 proto2_test_check_utf8_size.TestCheckUtf8Size.StringWrapperSize.class, proto2_test_check_utf8_size.TestCheckUtf8Size.StringWrapperSize.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_test_check_utf8_size.TestCheckUtf8Size.StringWrapperSize.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        req_ = "";
+        opt_ = "";
+        rep_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+
+      }
+      private Builder(proto2_test_check_utf8_size.TestCheckUtf8Size.StringWrapperSize other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -446,9 +462,20 @@ public final class TestCheckUtf8Size extends com.google.protobuf.GeneratedFile {
         result.bitField0_ |= to_bitField0_;
       }
 
+      private void copyFrom_autosplit_0(proto2_test_check_utf8_size.TestCheckUtf8Size.StringWrapperSize other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000003);
+        req_ = other.req_;
+        opt_ = other.opt_;
+        rep_ = other.rep_;
+        if (!rep_.isEmpty()) {
+          to_bitField0_ |= 0x00000004;
+        }
+        bitField0_ |= to_bitField0_;
+      }
+
       private int bitField0_;
 
-      private java.lang.Object req_ = "";
+      private java.lang.Object req_;
       /**
        * <code>string req = 1 [features = { ... }</code>
        * @return Whether the req field is set.
@@ -527,7 +554,7 @@ public final class TestCheckUtf8Size extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private java.lang.Object opt_ = "";
+      private java.lang.Object opt_;
       /**
        * <code>string opt = 2;</code>
        * @return Whether the opt field is set.
@@ -606,8 +633,7 @@ public final class TestCheckUtf8Size extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList rep_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList rep_;
       private void ensureRepIsMutable() {
         if (!rep_.isModifiable()) {
           rep_ = new com.google.protobuf.LazyStringArrayList(rep_);
@@ -1002,7 +1028,7 @@ public final class TestCheckUtf8Size extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -1031,14 +1057,29 @@ public final class TestCheckUtf8Size extends com.google.protobuf.GeneratedFile {
                 proto2_test_check_utf8_size.TestCheckUtf8Size.BytesWrapperSize.class, proto2_test_check_utf8_size.TestCheckUtf8Size.BytesWrapperSize.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_test_check_utf8_size.TestCheckUtf8Size.BytesWrapperSize.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        req_ = com.google.protobuf.ByteString.EMPTY;
+        opt_ = com.google.protobuf.ByteString.EMPTY;
+        rep_ = emptyList(com.google.protobuf.ByteString.class);
+
+      }
+      private Builder(proto2_test_check_utf8_size.TestCheckUtf8Size.BytesWrapperSize other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -1097,9 +1138,20 @@ public final class TestCheckUtf8Size extends com.google.protobuf.GeneratedFile {
         result.bitField0_ |= to_bitField0_;
       }
 
+      private void copyFrom_autosplit_0(proto2_test_check_utf8_size.TestCheckUtf8Size.BytesWrapperSize other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000003);
+        req_ = other.getReq();
+        opt_ = other.getOpt();
+        rep_ = other.rep_;
+        if (!rep_.isEmpty()) {
+          to_bitField0_ |= 0x00000004;
+        }
+        bitField0_ |= to_bitField0_;
+      }
+
       private int bitField0_;
 
-      private com.google.protobuf.ByteString req_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString req_;
       /**
        * <code>bytes req = 1 [features = { ... }</code>
        * @return Whether the req field is set.
@@ -1139,7 +1191,7 @@ public final class TestCheckUtf8Size extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.ByteString opt_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString opt_;
       /**
        * <code>bytes opt = 2;</code>
        * @return Whether the opt field is set.
@@ -1179,7 +1231,7 @@ public final class TestCheckUtf8Size extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> rep_ = emptyList(com.google.protobuf.ByteString.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> rep_;
       private void ensureRepIsMutable(int capacity) {
         if (!rep_.isModifiable()) {
           rep_ = makeMutableCopy(rep_, capacity);

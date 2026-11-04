@@ -238,7 +238,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -267,14 +267,26 @@ private static final long serialVersionUID = 0L;
               pb.CSharpFeatures.class, pb.CSharpFeatures.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using pb.CSharpFeatures.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+
+    }
+    private Builder(pb.CSharpFeatures other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -321,6 +333,12 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(pb.CSharpFeatures other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000001);
+      nullableReferenceTypes_ = other.getNullableReferenceTypes();
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -384,7 +402,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private boolean nullableReferenceTypes_ ;
+    private boolean nullableReferenceTypes_;
     /**
      * <pre>
      * Whether the generated files should have nullable reference type annotations.
@@ -462,21 +480,54 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<CSharpFeatures>
-      PARSER = new com.google.protobuf.AbstractParser<CSharpFeatures>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<CSharpFeatures> {
+    MessageParser() {}
+
     @java.lang.Override
     public CSharpFeatures parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      CSharpFeatures instance = new CSharpFeatures((Builder) null);
+      java.lang.Object unknown = null;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.nullableReferenceTypes_ = input.readBool();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<CSharpFeatures> parser() {
     return PARSER;

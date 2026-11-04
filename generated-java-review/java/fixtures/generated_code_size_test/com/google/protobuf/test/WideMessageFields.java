@@ -3452,7 +3452,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -3481,14 +3481,28 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.test.WideMessageFields.class, com.google.protobuf.test.WideMessageFields.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.test.WideMessageFields.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      maybeForceBuilderInitialization();
+    }
+    private Builder(com.google.protobuf.test.WideMessageFields other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
+      copyFrom_autosplit_1(other);
+      copyFrom_autosplit_2(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -4123,6 +4137,43 @@ private static final long serialVersionUID = 0L;
       result.bitField0_ |= to_bitField0_;
     }
 
+    private void copyFrom_autosplit_0(com.google.protobuf.test.WideMessageFields other) {
+      int to_bitField0_ = other.bitField0_;
+      value1_ = other.value1_;
+      value2_ = other.value2_;
+      value3_ = other.value3_;
+      value4_ = other.value4_;
+      value5_ = other.value5_;
+      value6_ = other.value6_;
+      value7_ = other.value7_;
+      value8_ = other.value8_;
+      value9_ = other.value9_;
+      value10_ = other.value10_;
+      value11_ = other.value11_;
+      value12_ = other.value12_;
+      value13_ = other.value13_;
+      value14_ = other.value14_;
+      value15_ = other.value15_;
+      value16_ = other.value16_;
+      value17_ = other.value17_;
+      value18_ = other.value18_;
+      value19_ = other.value19_;
+      value20_ = other.value20_;
+      value21_ = other.value21_;
+      value22_ = other.value22_;
+      value23_ = other.value23_;
+      value24_ = other.value24_;
+      value25_ = other.value25_;
+      value26_ = other.value26_;
+      value27_ = other.value27_;
+      value28_ = other.value28_;
+      value29_ = other.value29_;
+      value30_ = other.value30_;
+      value31_ = other.value31_;
+      value32_ = other.value32_;
+      bitField0_ |= to_bitField0_;
+    }
+
     private void buildPartial_autosplit_1(com.google.protobuf.test.WideMessageFields result) {
       int from_bitField1_ = bitField1_;
       int to_bitField1_ = 0;
@@ -4321,6 +4372,43 @@ private static final long serialVersionUID = 0L;
       result.bitField1_ |= to_bitField1_;
     }
 
+    private void copyFrom_autosplit_1(com.google.protobuf.test.WideMessageFields other) {
+      int to_bitField1_ = other.bitField1_;
+      value33_ = other.value33_;
+      value34_ = other.value34_;
+      value35_ = other.value35_;
+      value36_ = other.value36_;
+      value37_ = other.value37_;
+      value38_ = other.value38_;
+      value39_ = other.value39_;
+      value40_ = other.value40_;
+      value41_ = other.value41_;
+      value42_ = other.value42_;
+      value43_ = other.value43_;
+      value44_ = other.value44_;
+      value45_ = other.value45_;
+      value46_ = other.value46_;
+      value47_ = other.value47_;
+      value48_ = other.value48_;
+      value49_ = other.value49_;
+      value50_ = other.value50_;
+      value51_ = other.value51_;
+      value52_ = other.value52_;
+      value53_ = other.value53_;
+      value54_ = other.value54_;
+      value55_ = other.value55_;
+      value56_ = other.value56_;
+      value57_ = other.value57_;
+      value58_ = other.value58_;
+      value59_ = other.value59_;
+      value60_ = other.value60_;
+      value61_ = other.value61_;
+      value62_ = other.value62_;
+      value63_ = other.value63_;
+      value64_ = other.value64_;
+      bitField1_ |= to_bitField1_;
+    }
+
     private void buildPartial_autosplit_2(com.google.protobuf.test.WideMessageFields result) {
       int from_bitField2_ = bitField2_;
       int to_bitField2_ = 0;
@@ -4331,6 +4419,12 @@ private static final long serialVersionUID = 0L;
         to_bitField2_ |= 0x00000001;
       }
       result.bitField2_ |= to_bitField2_;
+    }
+
+    private void copyFrom_autosplit_2(com.google.protobuf.test.WideMessageFields other) {
+      int to_bitField2_ = (other.bitField2_ & 0x00000001);
+      value65_ = other.value65_;
+      bitField2_ |= to_bitField2_;
     }
 
     @java.lang.Override
@@ -13189,21 +13283,3066 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<WideMessageFields>
-      PARSER = new com.google.protobuf.AbstractParser<WideMessageFields>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<WideMessageFields> {
+    MessageParser() {}
+
     @java.lang.Override
     public WideMessageFields parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      WideMessageFields instance = new WideMessageFields((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              pendingTag = parseValue1Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 10
+            case 18: {
+              pendingTag = parseValue2Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 18
+            case 26: {
+              pendingTag = parseValue3Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 26
+            case 34: {
+              pendingTag = parseValue4Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 34
+            case 42: {
+              pendingTag = parseValue5Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 42
+            case 50: {
+              pendingTag = parseValue6Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 50
+            case 58: {
+              pendingTag = parseValue7Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 58
+            case 66: {
+              pendingTag = parseValue8Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 66
+            case 74: {
+              pendingTag = parseValue9Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 74
+            case 82: {
+              pendingTag = parseValue10Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 82
+            case 90: {
+              pendingTag = parseValue11Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 90
+            case 98: {
+              pendingTag = parseValue12Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 98
+            case 106: {
+              pendingTag = parseValue13Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 106
+            case 114: {
+              pendingTag = parseValue14Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 114
+            case 122: {
+              pendingTag = parseValue15Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 122
+            case 130: {
+              pendingTag = parseValue16Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 130
+            case 138: {
+              pendingTag = parseValue17Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 138
+            case 146: {
+              pendingTag = parseValue18Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 146
+            case 154: {
+              pendingTag = parseValue19Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 154
+            case 162: {
+              pendingTag = parseValue20Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 162
+            case 170: {
+              pendingTag = parseValue21Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 170
+            case 178: {
+              pendingTag = parseValue22Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 178
+            case 186: {
+              pendingTag = parseValue23Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 186
+            case 194: {
+              pendingTag = parseValue24Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 194
+            case 202: {
+              pendingTag = parseValue25Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 202
+            case 210: {
+              pendingTag = parseValue26Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 210
+            case 218: {
+              pendingTag = parseValue27Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 218
+            case 226: {
+              pendingTag = parseValue28Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 226
+            case 234: {
+              pendingTag = parseValue29Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 234
+            case 242: {
+              pendingTag = parseValue30Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 242
+            case 250: {
+              pendingTag = parseValue31Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 250
+            case 258: {
+              pendingTag = parseValue32Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 258
+            case 266: {
+              pendingTag = parseValue33Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 266
+            case 274: {
+              pendingTag = parseValue34Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 274
+            case 282: {
+              pendingTag = parseValue35Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 282
+            case 290: {
+              pendingTag = parseValue36Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 290
+            case 298: {
+              pendingTag = parseValue37Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 298
+            case 306: {
+              pendingTag = parseValue38Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 306
+            case 314: {
+              pendingTag = parseValue39Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 314
+            case 322: {
+              pendingTag = parseValue40Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 322
+            case 330: {
+              pendingTag = parseValue41Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 330
+            case 338: {
+              pendingTag = parseValue42Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 338
+            case 346: {
+              pendingTag = parseValue43Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 346
+            case 354: {
+              pendingTag = parseValue44Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 354
+            case 362: {
+              pendingTag = parseValue45Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 362
+            case 370: {
+              pendingTag = parseValue46Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 370
+            case 378: {
+              pendingTag = parseValue47Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 378
+            case 386: {
+              pendingTag = parseValue48Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 386
+            case 394: {
+              pendingTag = parseValue49Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 394
+            case 402: {
+              pendingTag = parseValue50Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 402
+            case 410: {
+              pendingTag = parseValue51Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 410
+            case 418: {
+              pendingTag = parseValue52Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 418
+            case 426: {
+              pendingTag = parseValue53Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 426
+            case 434: {
+              pendingTag = parseValue54Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 434
+            case 442: {
+              pendingTag = parseValue55Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 442
+            case 450: {
+              pendingTag = parseValue56Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 450
+            case 458: {
+              pendingTag = parseValue57Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 458
+            case 466: {
+              pendingTag = parseValue58Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 466
+            case 474: {
+              pendingTag = parseValue59Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 474
+            case 482: {
+              pendingTag = parseValue60Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 482
+            case 490: {
+              pendingTag = parseValue61Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 490
+            case 498: {
+              pendingTag = parseValue62Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 498
+            case 506: {
+              pendingTag = parseValue63Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 506
+            case 514: {
+              pendingTag = parseValue64Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 514
+            case 522: {
+              pendingTag = parseValue65Field(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 522
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (fieldBuilders != null) finishChildren1(instance, fieldBuilders);
+      if (fieldBuilders != null) finishChildren2(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue1Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value1_ != null) {
+        return 10;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value1_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue1(),
+                      null,
+                      false);
+              instance.value1_ = null;
+            }
+            instance.bitField0_ |= 0x00000001;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value1_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value1_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue2Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value2_ != null) {
+        return 18;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value2_ != null || fieldBuilders[1] != null) {
+            if (fieldBuilders[1] == null) {
+              fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue2(),
+                      null,
+                      false);
+              instance.value2_ = null;
+            }
+            instance.bitField0_ |= 0x00000002;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[1]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value2_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000002;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value2_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue3Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value3_ != null) {
+        return 26;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value3_ != null || fieldBuilders[2] != null) {
+            if (fieldBuilders[2] == null) {
+              fieldBuilders[2] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue3(),
+                      null,
+                      false);
+              instance.value3_ = null;
+            }
+            instance.bitField0_ |= 0x00000004;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[2]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value3_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000004;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value3_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue4Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value4_ != null) {
+        return 34;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value4_ != null || fieldBuilders[3] != null) {
+            if (fieldBuilders[3] == null) {
+              fieldBuilders[3] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue4(),
+                      null,
+                      false);
+              instance.value4_ = null;
+            }
+            instance.bitField0_ |= 0x00000008;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[3]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value4_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000008;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value4_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000008;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue5Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value5_ != null) {
+        return 42;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value5_ != null || fieldBuilders[4] != null) {
+            if (fieldBuilders[4] == null) {
+              fieldBuilders[4] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue5(),
+                      null,
+                      false);
+              instance.value5_ = null;
+            }
+            instance.bitField0_ |= 0x00000010;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[4]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value5_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000010;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value5_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000010;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue6Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value6_ != null) {
+        return 50;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value6_ != null || fieldBuilders[5] != null) {
+            if (fieldBuilders[5] == null) {
+              fieldBuilders[5] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue6(),
+                      null,
+                      false);
+              instance.value6_ = null;
+            }
+            instance.bitField0_ |= 0x00000020;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[5]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value6_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000020;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value6_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000020;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue7Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value7_ != null) {
+        return 58;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value7_ != null || fieldBuilders[6] != null) {
+            if (fieldBuilders[6] == null) {
+              fieldBuilders[6] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue7(),
+                      null,
+                      false);
+              instance.value7_ = null;
+            }
+            instance.bitField0_ |= 0x00000040;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[6]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value7_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000040;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value7_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000040;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue8Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value8_ != null) {
+        return 66;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value8_ != null || fieldBuilders[7] != null) {
+            if (fieldBuilders[7] == null) {
+              fieldBuilders[7] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue8(),
+                      null,
+                      false);
+              instance.value8_ = null;
+            }
+            instance.bitField0_ |= 0x00000080;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[7]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value8_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000080;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value8_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000080;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue9Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value9_ != null) {
+        return 74;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value9_ != null || fieldBuilders[8] != null) {
+            if (fieldBuilders[8] == null) {
+              fieldBuilders[8] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue9(),
+                      null,
+                      false);
+              instance.value9_ = null;
+            }
+            instance.bitField0_ |= 0x00000100;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[8]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value9_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000100;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value9_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000100;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue10Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value10_ != null) {
+        return 82;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value10_ != null || fieldBuilders[9] != null) {
+            if (fieldBuilders[9] == null) {
+              fieldBuilders[9] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue10(),
+                      null,
+                      false);
+              instance.value10_ = null;
+            }
+            instance.bitField0_ |= 0x00000200;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[9]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value10_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000200;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value10_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000200;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue11Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value11_ != null) {
+        return 90;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value11_ != null || fieldBuilders[10] != null) {
+            if (fieldBuilders[10] == null) {
+              fieldBuilders[10] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue11(),
+                      null,
+                      false);
+              instance.value11_ = null;
+            }
+            instance.bitField0_ |= 0x00000400;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[10]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value11_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000400;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value11_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000400;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue12Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value12_ != null) {
+        return 98;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value12_ != null || fieldBuilders[11] != null) {
+            if (fieldBuilders[11] == null) {
+              fieldBuilders[11] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue12(),
+                      null,
+                      false);
+              instance.value12_ = null;
+            }
+            instance.bitField0_ |= 0x00000800;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[11]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value12_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000800;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value12_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000800;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue13Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value13_ != null) {
+        return 106;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value13_ != null || fieldBuilders[12] != null) {
+            if (fieldBuilders[12] == null) {
+              fieldBuilders[12] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue13(),
+                      null,
+                      false);
+              instance.value13_ = null;
+            }
+            instance.bitField0_ |= 0x00001000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[12]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value13_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00001000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value13_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00001000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue14Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value14_ != null) {
+        return 114;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value14_ != null || fieldBuilders[13] != null) {
+            if (fieldBuilders[13] == null) {
+              fieldBuilders[13] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue14(),
+                      null,
+                      false);
+              instance.value14_ = null;
+            }
+            instance.bitField0_ |= 0x00002000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[13]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value14_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00002000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value14_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00002000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue15Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value15_ != null) {
+        return 122;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value15_ != null || fieldBuilders[14] != null) {
+            if (fieldBuilders[14] == null) {
+              fieldBuilders[14] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue15(),
+                      null,
+                      false);
+              instance.value15_ = null;
+            }
+            instance.bitField0_ |= 0x00004000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[14]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value15_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00004000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value15_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00004000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue16Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value16_ != null) {
+        return 130;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value16_ != null || fieldBuilders[15] != null) {
+            if (fieldBuilders[15] == null) {
+              fieldBuilders[15] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue16(),
+                      null,
+                      false);
+              instance.value16_ = null;
+            }
+            instance.bitField0_ |= 0x00008000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[15]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value16_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00008000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value16_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00008000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue17Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value17_ != null) {
+        return 138;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value17_ != null || fieldBuilders[16] != null) {
+            if (fieldBuilders[16] == null) {
+              fieldBuilders[16] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue17(),
+                      null,
+                      false);
+              instance.value17_ = null;
+            }
+            instance.bitField0_ |= 0x00010000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[16]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value17_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00010000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value17_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00010000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue18Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value18_ != null) {
+        return 146;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value18_ != null || fieldBuilders[17] != null) {
+            if (fieldBuilders[17] == null) {
+              fieldBuilders[17] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue18(),
+                      null,
+                      false);
+              instance.value18_ = null;
+            }
+            instance.bitField0_ |= 0x00020000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[17]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value18_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00020000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value18_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00020000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue19Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value19_ != null) {
+        return 154;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value19_ != null || fieldBuilders[18] != null) {
+            if (fieldBuilders[18] == null) {
+              fieldBuilders[18] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue19(),
+                      null,
+                      false);
+              instance.value19_ = null;
+            }
+            instance.bitField0_ |= 0x00040000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[18]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value19_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00040000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value19_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00040000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue20Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value20_ != null) {
+        return 162;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value20_ != null || fieldBuilders[19] != null) {
+            if (fieldBuilders[19] == null) {
+              fieldBuilders[19] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue20(),
+                      null,
+                      false);
+              instance.value20_ = null;
+            }
+            instance.bitField0_ |= 0x00080000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[19]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value20_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00080000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value20_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00080000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue21Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value21_ != null) {
+        return 170;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value21_ != null || fieldBuilders[20] != null) {
+            if (fieldBuilders[20] == null) {
+              fieldBuilders[20] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue21(),
+                      null,
+                      false);
+              instance.value21_ = null;
+            }
+            instance.bitField0_ |= 0x00100000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[20]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value21_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00100000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value21_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00100000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue22Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value22_ != null) {
+        return 178;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value22_ != null || fieldBuilders[21] != null) {
+            if (fieldBuilders[21] == null) {
+              fieldBuilders[21] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue22(),
+                      null,
+                      false);
+              instance.value22_ = null;
+            }
+            instance.bitField0_ |= 0x00200000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[21]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value22_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00200000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value22_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00200000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue23Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value23_ != null) {
+        return 186;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value23_ != null || fieldBuilders[22] != null) {
+            if (fieldBuilders[22] == null) {
+              fieldBuilders[22] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue23(),
+                      null,
+                      false);
+              instance.value23_ = null;
+            }
+            instance.bitField0_ |= 0x00400000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[22]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value23_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00400000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value23_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00400000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue24Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value24_ != null) {
+        return 194;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value24_ != null || fieldBuilders[23] != null) {
+            if (fieldBuilders[23] == null) {
+              fieldBuilders[23] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue24(),
+                      null,
+                      false);
+              instance.value24_ = null;
+            }
+            instance.bitField0_ |= 0x00800000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[23]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value24_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00800000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value24_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00800000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue25Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value25_ != null) {
+        return 202;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value25_ != null || fieldBuilders[24] != null) {
+            if (fieldBuilders[24] == null) {
+              fieldBuilders[24] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue25(),
+                      null,
+                      false);
+              instance.value25_ = null;
+            }
+            instance.bitField0_ |= 0x01000000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[24]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value25_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x01000000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value25_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x01000000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue26Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value26_ != null) {
+        return 210;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value26_ != null || fieldBuilders[25] != null) {
+            if (fieldBuilders[25] == null) {
+              fieldBuilders[25] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue26(),
+                      null,
+                      false);
+              instance.value26_ = null;
+            }
+            instance.bitField0_ |= 0x02000000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[25]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value26_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x02000000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value26_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x02000000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue27Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value27_ != null) {
+        return 218;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value27_ != null || fieldBuilders[26] != null) {
+            if (fieldBuilders[26] == null) {
+              fieldBuilders[26] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue27(),
+                      null,
+                      false);
+              instance.value27_ = null;
+            }
+            instance.bitField0_ |= 0x04000000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[26]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value27_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x04000000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value27_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x04000000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue28Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value28_ != null) {
+        return 226;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value28_ != null || fieldBuilders[27] != null) {
+            if (fieldBuilders[27] == null) {
+              fieldBuilders[27] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue28(),
+                      null,
+                      false);
+              instance.value28_ = null;
+            }
+            instance.bitField0_ |= 0x08000000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[27]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value28_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x08000000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value28_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x08000000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue29Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value29_ != null) {
+        return 234;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value29_ != null || fieldBuilders[28] != null) {
+            if (fieldBuilders[28] == null) {
+              fieldBuilders[28] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue29(),
+                      null,
+                      false);
+              instance.value29_ = null;
+            }
+            instance.bitField0_ |= 0x10000000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[28]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value29_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x10000000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value29_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x10000000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue30Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value30_ != null) {
+        return 242;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value30_ != null || fieldBuilders[29] != null) {
+            if (fieldBuilders[29] == null) {
+              fieldBuilders[29] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue30(),
+                      null,
+                      false);
+              instance.value30_ = null;
+            }
+            instance.bitField0_ |= 0x20000000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[29]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value30_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x20000000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value30_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x20000000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue31Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value31_ != null) {
+        return 250;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value31_ != null || fieldBuilders[30] != null) {
+            if (fieldBuilders[30] == null) {
+              fieldBuilders[30] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue31(),
+                      null,
+                      false);
+              instance.value31_ = null;
+            }
+            instance.bitField0_ |= 0x40000000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[30]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value31_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x40000000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value31_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x40000000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue32Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value32_ != null) {
+        return 258;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value32_ != null || fieldBuilders[31] != null) {
+            if (fieldBuilders[31] == null) {
+              fieldBuilders[31] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue32(),
+                      null,
+                      false);
+              instance.value32_ = null;
+            }
+            instance.bitField0_ |= 0x80000000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[31]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value32_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x80000000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value32_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x80000000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue33Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value33_ != null) {
+        return 266;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value33_ != null || fieldBuilders[32] != null) {
+            if (fieldBuilders[32] == null) {
+              fieldBuilders[32] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue33(),
+                      null,
+                      false);
+              instance.value33_ = null;
+            }
+            instance.bitField1_ |= 0x00000001;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[32]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value33_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00000001;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value33_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00000001;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue34Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value34_ != null) {
+        return 274;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value34_ != null || fieldBuilders[33] != null) {
+            if (fieldBuilders[33] == null) {
+              fieldBuilders[33] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue34(),
+                      null,
+                      false);
+              instance.value34_ = null;
+            }
+            instance.bitField1_ |= 0x00000002;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[33]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value34_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00000002;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value34_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00000002;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue35Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value35_ != null) {
+        return 282;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value35_ != null || fieldBuilders[34] != null) {
+            if (fieldBuilders[34] == null) {
+              fieldBuilders[34] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue35(),
+                      null,
+                      false);
+              instance.value35_ = null;
+            }
+            instance.bitField1_ |= 0x00000004;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[34]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value35_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00000004;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value35_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00000004;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue36Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value36_ != null) {
+        return 290;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value36_ != null || fieldBuilders[35] != null) {
+            if (fieldBuilders[35] == null) {
+              fieldBuilders[35] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue36(),
+                      null,
+                      false);
+              instance.value36_ = null;
+            }
+            instance.bitField1_ |= 0x00000008;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[35]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value36_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00000008;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value36_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00000008;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue37Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value37_ != null) {
+        return 298;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value37_ != null || fieldBuilders[36] != null) {
+            if (fieldBuilders[36] == null) {
+              fieldBuilders[36] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue37(),
+                      null,
+                      false);
+              instance.value37_ = null;
+            }
+            instance.bitField1_ |= 0x00000010;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[36]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value37_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00000010;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value37_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00000010;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue38Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value38_ != null) {
+        return 306;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value38_ != null || fieldBuilders[37] != null) {
+            if (fieldBuilders[37] == null) {
+              fieldBuilders[37] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue38(),
+                      null,
+                      false);
+              instance.value38_ = null;
+            }
+            instance.bitField1_ |= 0x00000020;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[37]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value38_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00000020;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value38_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00000020;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue39Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value39_ != null) {
+        return 314;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value39_ != null || fieldBuilders[38] != null) {
+            if (fieldBuilders[38] == null) {
+              fieldBuilders[38] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue39(),
+                      null,
+                      false);
+              instance.value39_ = null;
+            }
+            instance.bitField1_ |= 0x00000040;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[38]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value39_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00000040;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value39_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00000040;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue40Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value40_ != null) {
+        return 322;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value40_ != null || fieldBuilders[39] != null) {
+            if (fieldBuilders[39] == null) {
+              fieldBuilders[39] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue40(),
+                      null,
+                      false);
+              instance.value40_ = null;
+            }
+            instance.bitField1_ |= 0x00000080;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[39]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value40_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00000080;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value40_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00000080;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue41Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value41_ != null) {
+        return 330;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value41_ != null || fieldBuilders[40] != null) {
+            if (fieldBuilders[40] == null) {
+              fieldBuilders[40] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue41(),
+                      null,
+                      false);
+              instance.value41_ = null;
+            }
+            instance.bitField1_ |= 0x00000100;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[40]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value41_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00000100;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value41_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00000100;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue42Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value42_ != null) {
+        return 338;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value42_ != null || fieldBuilders[41] != null) {
+            if (fieldBuilders[41] == null) {
+              fieldBuilders[41] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue42(),
+                      null,
+                      false);
+              instance.value42_ = null;
+            }
+            instance.bitField1_ |= 0x00000200;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[41]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value42_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00000200;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value42_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00000200;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue43Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value43_ != null) {
+        return 346;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value43_ != null || fieldBuilders[42] != null) {
+            if (fieldBuilders[42] == null) {
+              fieldBuilders[42] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue43(),
+                      null,
+                      false);
+              instance.value43_ = null;
+            }
+            instance.bitField1_ |= 0x00000400;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[42]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value43_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00000400;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value43_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00000400;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue44Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value44_ != null) {
+        return 354;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value44_ != null || fieldBuilders[43] != null) {
+            if (fieldBuilders[43] == null) {
+              fieldBuilders[43] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue44(),
+                      null,
+                      false);
+              instance.value44_ = null;
+            }
+            instance.bitField1_ |= 0x00000800;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[43]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value44_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00000800;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value44_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00000800;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue45Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value45_ != null) {
+        return 362;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value45_ != null || fieldBuilders[44] != null) {
+            if (fieldBuilders[44] == null) {
+              fieldBuilders[44] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue45(),
+                      null,
+                      false);
+              instance.value45_ = null;
+            }
+            instance.bitField1_ |= 0x00001000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[44]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value45_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00001000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value45_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00001000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue46Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value46_ != null) {
+        return 370;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value46_ != null || fieldBuilders[45] != null) {
+            if (fieldBuilders[45] == null) {
+              fieldBuilders[45] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue46(),
+                      null,
+                      false);
+              instance.value46_ = null;
+            }
+            instance.bitField1_ |= 0x00002000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[45]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value46_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00002000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value46_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00002000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue47Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value47_ != null) {
+        return 378;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value47_ != null || fieldBuilders[46] != null) {
+            if (fieldBuilders[46] == null) {
+              fieldBuilders[46] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue47(),
+                      null,
+                      false);
+              instance.value47_ = null;
+            }
+            instance.bitField1_ |= 0x00004000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[46]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value47_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00004000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value47_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00004000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue48Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value48_ != null) {
+        return 386;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value48_ != null || fieldBuilders[47] != null) {
+            if (fieldBuilders[47] == null) {
+              fieldBuilders[47] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue48(),
+                      null,
+                      false);
+              instance.value48_ = null;
+            }
+            instance.bitField1_ |= 0x00008000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[47]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value48_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00008000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value48_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00008000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue49Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value49_ != null) {
+        return 394;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value49_ != null || fieldBuilders[48] != null) {
+            if (fieldBuilders[48] == null) {
+              fieldBuilders[48] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue49(),
+                      null,
+                      false);
+              instance.value49_ = null;
+            }
+            instance.bitField1_ |= 0x00010000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[48]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value49_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00010000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value49_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00010000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue50Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value50_ != null) {
+        return 402;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value50_ != null || fieldBuilders[49] != null) {
+            if (fieldBuilders[49] == null) {
+              fieldBuilders[49] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue50(),
+                      null,
+                      false);
+              instance.value50_ = null;
+            }
+            instance.bitField1_ |= 0x00020000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[49]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value50_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00020000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value50_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00020000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue51Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value51_ != null) {
+        return 410;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value51_ != null || fieldBuilders[50] != null) {
+            if (fieldBuilders[50] == null) {
+              fieldBuilders[50] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue51(),
+                      null,
+                      false);
+              instance.value51_ = null;
+            }
+            instance.bitField1_ |= 0x00040000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[50]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value51_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00040000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value51_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00040000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue52Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value52_ != null) {
+        return 418;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value52_ != null || fieldBuilders[51] != null) {
+            if (fieldBuilders[51] == null) {
+              fieldBuilders[51] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue52(),
+                      null,
+                      false);
+              instance.value52_ = null;
+            }
+            instance.bitField1_ |= 0x00080000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[51]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value52_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00080000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value52_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00080000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue53Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value53_ != null) {
+        return 426;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value53_ != null || fieldBuilders[52] != null) {
+            if (fieldBuilders[52] == null) {
+              fieldBuilders[52] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue53(),
+                      null,
+                      false);
+              instance.value53_ = null;
+            }
+            instance.bitField1_ |= 0x00100000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[52]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value53_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00100000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value53_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00100000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue54Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value54_ != null) {
+        return 434;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value54_ != null || fieldBuilders[53] != null) {
+            if (fieldBuilders[53] == null) {
+              fieldBuilders[53] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue54(),
+                      null,
+                      false);
+              instance.value54_ = null;
+            }
+            instance.bitField1_ |= 0x00200000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[53]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value54_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00200000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value54_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00200000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue55Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value55_ != null) {
+        return 442;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value55_ != null || fieldBuilders[54] != null) {
+            if (fieldBuilders[54] == null) {
+              fieldBuilders[54] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue55(),
+                      null,
+                      false);
+              instance.value55_ = null;
+            }
+            instance.bitField1_ |= 0x00400000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[54]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value55_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00400000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value55_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00400000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue56Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value56_ != null) {
+        return 450;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value56_ != null || fieldBuilders[55] != null) {
+            if (fieldBuilders[55] == null) {
+              fieldBuilders[55] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue56(),
+                      null,
+                      false);
+              instance.value56_ = null;
+            }
+            instance.bitField1_ |= 0x00800000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[55]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value56_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x00800000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value56_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x00800000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue57Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value57_ != null) {
+        return 458;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value57_ != null || fieldBuilders[56] != null) {
+            if (fieldBuilders[56] == null) {
+              fieldBuilders[56] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue57(),
+                      null,
+                      false);
+              instance.value57_ = null;
+            }
+            instance.bitField1_ |= 0x01000000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[56]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value57_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x01000000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value57_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x01000000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue58Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value58_ != null) {
+        return 466;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value58_ != null || fieldBuilders[57] != null) {
+            if (fieldBuilders[57] == null) {
+              fieldBuilders[57] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue58(),
+                      null,
+                      false);
+              instance.value58_ = null;
+            }
+            instance.bitField1_ |= 0x02000000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[57]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value58_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x02000000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value58_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x02000000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue59Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value59_ != null) {
+        return 474;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value59_ != null || fieldBuilders[58] != null) {
+            if (fieldBuilders[58] == null) {
+              fieldBuilders[58] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue59(),
+                      null,
+                      false);
+              instance.value59_ = null;
+            }
+            instance.bitField1_ |= 0x04000000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[58]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value59_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x04000000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value59_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x04000000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue60Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value60_ != null) {
+        return 482;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value60_ != null || fieldBuilders[59] != null) {
+            if (fieldBuilders[59] == null) {
+              fieldBuilders[59] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue60(),
+                      null,
+                      false);
+              instance.value60_ = null;
+            }
+            instance.bitField1_ |= 0x08000000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[59]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value60_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x08000000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value60_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x08000000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue61Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value61_ != null) {
+        return 490;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value61_ != null || fieldBuilders[60] != null) {
+            if (fieldBuilders[60] == null) {
+              fieldBuilders[60] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue61(),
+                      null,
+                      false);
+              instance.value61_ = null;
+            }
+            instance.bitField1_ |= 0x10000000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[60]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value61_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x10000000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value61_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x10000000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue62Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value62_ != null) {
+        return 498;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value62_ != null || fieldBuilders[61] != null) {
+            if (fieldBuilders[61] == null) {
+              fieldBuilders[61] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue62(),
+                      null,
+                      false);
+              instance.value62_ = null;
+            }
+            instance.bitField1_ |= 0x20000000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[61]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value62_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x20000000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value62_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x20000000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue63Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value63_ != null) {
+        return 506;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value63_ != null || fieldBuilders[62] != null) {
+            if (fieldBuilders[62] == null) {
+              fieldBuilders[62] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue63(),
+                      null,
+                      false);
+              instance.value63_ = null;
+            }
+            instance.bitField1_ |= 0x40000000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[62]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value63_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x40000000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value63_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x40000000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue64Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value64_ != null) {
+        return 514;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value64_ != null || fieldBuilders[63] != null) {
+            if (fieldBuilders[63] == null) {
+              fieldBuilders[63] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue64(),
+                      null,
+                      false);
+              instance.value64_ = null;
+            }
+            instance.bitField1_ |= 0x80000000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[63]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value64_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField1_ |= 0x80000000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value64_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField1_ |= 0x80000000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValue65Field(
+        com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.value65_ != null) {
+        return 522;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.value65_ != null || fieldBuilders[64] != null) {
+            if (fieldBuilders[64] == null) {
+              fieldBuilders[64] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+                      instance.getValue65(),
+                      null,
+                      false);
+              instance.value65_ = null;
+            }
+            instance.bitField2_ |= 0x00000001;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[64]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.value65_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField2_ |= 0x00000001;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.value65_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField2_ |= 0x00000001;
+      return 0;
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        WideMessageFields instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[65];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        WideMessageFields instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasValue1()) instance.value1_ = null;
+      if (instance.hasValue1()) {
+        instance.value1_ = fieldBuilders[0] == null
+            ? instance.value1_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[0]).build();
+
+      }
+      if (!instance.hasValue2()) instance.value2_ = null;
+      if (instance.hasValue2()) {
+        instance.value2_ = fieldBuilders[1] == null
+            ? instance.value2_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[1]).build();
+
+      }
+      if (!instance.hasValue3()) instance.value3_ = null;
+      if (instance.hasValue3()) {
+        instance.value3_ = fieldBuilders[2] == null
+            ? instance.value3_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[2]).build();
+
+      }
+      if (!instance.hasValue4()) instance.value4_ = null;
+      if (instance.hasValue4()) {
+        instance.value4_ = fieldBuilders[3] == null
+            ? instance.value4_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[3]).build();
+
+      }
+      if (!instance.hasValue5()) instance.value5_ = null;
+      if (instance.hasValue5()) {
+        instance.value5_ = fieldBuilders[4] == null
+            ? instance.value5_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[4]).build();
+
+      }
+      if (!instance.hasValue6()) instance.value6_ = null;
+      if (instance.hasValue6()) {
+        instance.value6_ = fieldBuilders[5] == null
+            ? instance.value6_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[5]).build();
+
+      }
+      if (!instance.hasValue7()) instance.value7_ = null;
+      if (instance.hasValue7()) {
+        instance.value7_ = fieldBuilders[6] == null
+            ? instance.value7_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[6]).build();
+
+      }
+      if (!instance.hasValue8()) instance.value8_ = null;
+      if (instance.hasValue8()) {
+        instance.value8_ = fieldBuilders[7] == null
+            ? instance.value8_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[7]).build();
+
+      }
+      if (!instance.hasValue9()) instance.value9_ = null;
+      if (instance.hasValue9()) {
+        instance.value9_ = fieldBuilders[8] == null
+            ? instance.value9_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[8]).build();
+
+      }
+      if (!instance.hasValue10()) instance.value10_ = null;
+      if (instance.hasValue10()) {
+        instance.value10_ = fieldBuilders[9] == null
+            ? instance.value10_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[9]).build();
+
+      }
+      if (!instance.hasValue11()) instance.value11_ = null;
+      if (instance.hasValue11()) {
+        instance.value11_ = fieldBuilders[10] == null
+            ? instance.value11_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[10]).build();
+
+      }
+      if (!instance.hasValue12()) instance.value12_ = null;
+      if (instance.hasValue12()) {
+        instance.value12_ = fieldBuilders[11] == null
+            ? instance.value12_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[11]).build();
+
+      }
+      if (!instance.hasValue13()) instance.value13_ = null;
+      if (instance.hasValue13()) {
+        instance.value13_ = fieldBuilders[12] == null
+            ? instance.value13_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[12]).build();
+
+      }
+      if (!instance.hasValue14()) instance.value14_ = null;
+      if (instance.hasValue14()) {
+        instance.value14_ = fieldBuilders[13] == null
+            ? instance.value14_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[13]).build();
+
+      }
+      if (!instance.hasValue15()) instance.value15_ = null;
+      if (instance.hasValue15()) {
+        instance.value15_ = fieldBuilders[14] == null
+            ? instance.value15_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[14]).build();
+
+      }
+      if (!instance.hasValue16()) instance.value16_ = null;
+      if (instance.hasValue16()) {
+        instance.value16_ = fieldBuilders[15] == null
+            ? instance.value16_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[15]).build();
+
+      }
+      if (!instance.hasValue17()) instance.value17_ = null;
+      if (instance.hasValue17()) {
+        instance.value17_ = fieldBuilders[16] == null
+            ? instance.value17_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[16]).build();
+
+      }
+      if (!instance.hasValue18()) instance.value18_ = null;
+      if (instance.hasValue18()) {
+        instance.value18_ = fieldBuilders[17] == null
+            ? instance.value18_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[17]).build();
+
+      }
+      if (!instance.hasValue19()) instance.value19_ = null;
+      if (instance.hasValue19()) {
+        instance.value19_ = fieldBuilders[18] == null
+            ? instance.value19_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[18]).build();
+
+      }
+      if (!instance.hasValue20()) instance.value20_ = null;
+      if (instance.hasValue20()) {
+        instance.value20_ = fieldBuilders[19] == null
+            ? instance.value20_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[19]).build();
+
+      }
+      if (!instance.hasValue21()) instance.value21_ = null;
+      if (instance.hasValue21()) {
+        instance.value21_ = fieldBuilders[20] == null
+            ? instance.value21_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[20]).build();
+
+      }
+      if (!instance.hasValue22()) instance.value22_ = null;
+      if (instance.hasValue22()) {
+        instance.value22_ = fieldBuilders[21] == null
+            ? instance.value22_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[21]).build();
+
+      }
+      if (!instance.hasValue23()) instance.value23_ = null;
+      if (instance.hasValue23()) {
+        instance.value23_ = fieldBuilders[22] == null
+            ? instance.value23_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[22]).build();
+
+      }
+      if (!instance.hasValue24()) instance.value24_ = null;
+      if (instance.hasValue24()) {
+        instance.value24_ = fieldBuilders[23] == null
+            ? instance.value24_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[23]).build();
+
+      }
+      if (!instance.hasValue25()) instance.value25_ = null;
+      if (instance.hasValue25()) {
+        instance.value25_ = fieldBuilders[24] == null
+            ? instance.value25_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[24]).build();
+
+      }
+      if (!instance.hasValue26()) instance.value26_ = null;
+      if (instance.hasValue26()) {
+        instance.value26_ = fieldBuilders[25] == null
+            ? instance.value26_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[25]).build();
+
+      }
+      if (!instance.hasValue27()) instance.value27_ = null;
+      if (instance.hasValue27()) {
+        instance.value27_ = fieldBuilders[26] == null
+            ? instance.value27_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[26]).build();
+
+      }
+      if (!instance.hasValue28()) instance.value28_ = null;
+      if (instance.hasValue28()) {
+        instance.value28_ = fieldBuilders[27] == null
+            ? instance.value28_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[27]).build();
+
+      }
+      if (!instance.hasValue29()) instance.value29_ = null;
+      if (instance.hasValue29()) {
+        instance.value29_ = fieldBuilders[28] == null
+            ? instance.value29_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[28]).build();
+
+      }
+      if (!instance.hasValue30()) instance.value30_ = null;
+      if (instance.hasValue30()) {
+        instance.value30_ = fieldBuilders[29] == null
+            ? instance.value30_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[29]).build();
+
+      }
+      if (!instance.hasValue31()) instance.value31_ = null;
+      if (instance.hasValue31()) {
+        instance.value31_ = fieldBuilders[30] == null
+            ? instance.value31_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[30]).build();
+
+      }
+      if (!instance.hasValue32()) instance.value32_ = null;
+      if (instance.hasValue32()) {
+        instance.value32_ = fieldBuilders[31] == null
+            ? instance.value32_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[31]).build();
+
+      }
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren1(
+        WideMessageFields instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasValue33()) instance.value33_ = null;
+      if (instance.hasValue33()) {
+        instance.value33_ = fieldBuilders[32] == null
+            ? instance.value33_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[32]).build();
+
+      }
+      if (!instance.hasValue34()) instance.value34_ = null;
+      if (instance.hasValue34()) {
+        instance.value34_ = fieldBuilders[33] == null
+            ? instance.value34_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[33]).build();
+
+      }
+      if (!instance.hasValue35()) instance.value35_ = null;
+      if (instance.hasValue35()) {
+        instance.value35_ = fieldBuilders[34] == null
+            ? instance.value35_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[34]).build();
+
+      }
+      if (!instance.hasValue36()) instance.value36_ = null;
+      if (instance.hasValue36()) {
+        instance.value36_ = fieldBuilders[35] == null
+            ? instance.value36_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[35]).build();
+
+      }
+      if (!instance.hasValue37()) instance.value37_ = null;
+      if (instance.hasValue37()) {
+        instance.value37_ = fieldBuilders[36] == null
+            ? instance.value37_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[36]).build();
+
+      }
+      if (!instance.hasValue38()) instance.value38_ = null;
+      if (instance.hasValue38()) {
+        instance.value38_ = fieldBuilders[37] == null
+            ? instance.value38_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[37]).build();
+
+      }
+      if (!instance.hasValue39()) instance.value39_ = null;
+      if (instance.hasValue39()) {
+        instance.value39_ = fieldBuilders[38] == null
+            ? instance.value39_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[38]).build();
+
+      }
+      if (!instance.hasValue40()) instance.value40_ = null;
+      if (instance.hasValue40()) {
+        instance.value40_ = fieldBuilders[39] == null
+            ? instance.value40_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[39]).build();
+
+      }
+      if (!instance.hasValue41()) instance.value41_ = null;
+      if (instance.hasValue41()) {
+        instance.value41_ = fieldBuilders[40] == null
+            ? instance.value41_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[40]).build();
+
+      }
+      if (!instance.hasValue42()) instance.value42_ = null;
+      if (instance.hasValue42()) {
+        instance.value42_ = fieldBuilders[41] == null
+            ? instance.value42_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[41]).build();
+
+      }
+      if (!instance.hasValue43()) instance.value43_ = null;
+      if (instance.hasValue43()) {
+        instance.value43_ = fieldBuilders[42] == null
+            ? instance.value43_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[42]).build();
+
+      }
+      if (!instance.hasValue44()) instance.value44_ = null;
+      if (instance.hasValue44()) {
+        instance.value44_ = fieldBuilders[43] == null
+            ? instance.value44_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[43]).build();
+
+      }
+      if (!instance.hasValue45()) instance.value45_ = null;
+      if (instance.hasValue45()) {
+        instance.value45_ = fieldBuilders[44] == null
+            ? instance.value45_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[44]).build();
+
+      }
+      if (!instance.hasValue46()) instance.value46_ = null;
+      if (instance.hasValue46()) {
+        instance.value46_ = fieldBuilders[45] == null
+            ? instance.value46_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[45]).build();
+
+      }
+      if (!instance.hasValue47()) instance.value47_ = null;
+      if (instance.hasValue47()) {
+        instance.value47_ = fieldBuilders[46] == null
+            ? instance.value47_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[46]).build();
+
+      }
+      if (!instance.hasValue48()) instance.value48_ = null;
+      if (instance.hasValue48()) {
+        instance.value48_ = fieldBuilders[47] == null
+            ? instance.value48_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[47]).build();
+
+      }
+      if (!instance.hasValue49()) instance.value49_ = null;
+      if (instance.hasValue49()) {
+        instance.value49_ = fieldBuilders[48] == null
+            ? instance.value49_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[48]).build();
+
+      }
+      if (!instance.hasValue50()) instance.value50_ = null;
+      if (instance.hasValue50()) {
+        instance.value50_ = fieldBuilders[49] == null
+            ? instance.value50_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[49]).build();
+
+      }
+      if (!instance.hasValue51()) instance.value51_ = null;
+      if (instance.hasValue51()) {
+        instance.value51_ = fieldBuilders[50] == null
+            ? instance.value51_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[50]).build();
+
+      }
+      if (!instance.hasValue52()) instance.value52_ = null;
+      if (instance.hasValue52()) {
+        instance.value52_ = fieldBuilders[51] == null
+            ? instance.value52_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[51]).build();
+
+      }
+      if (!instance.hasValue53()) instance.value53_ = null;
+      if (instance.hasValue53()) {
+        instance.value53_ = fieldBuilders[52] == null
+            ? instance.value53_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[52]).build();
+
+      }
+      if (!instance.hasValue54()) instance.value54_ = null;
+      if (instance.hasValue54()) {
+        instance.value54_ = fieldBuilders[53] == null
+            ? instance.value54_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[53]).build();
+
+      }
+      if (!instance.hasValue55()) instance.value55_ = null;
+      if (instance.hasValue55()) {
+        instance.value55_ = fieldBuilders[54] == null
+            ? instance.value55_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[54]).build();
+
+      }
+      if (!instance.hasValue56()) instance.value56_ = null;
+      if (instance.hasValue56()) {
+        instance.value56_ = fieldBuilders[55] == null
+            ? instance.value56_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[55]).build();
+
+      }
+      if (!instance.hasValue57()) instance.value57_ = null;
+      if (instance.hasValue57()) {
+        instance.value57_ = fieldBuilders[56] == null
+            ? instance.value57_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[56]).build();
+
+      }
+      if (!instance.hasValue58()) instance.value58_ = null;
+      if (instance.hasValue58()) {
+        instance.value58_ = fieldBuilders[57] == null
+            ? instance.value58_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[57]).build();
+
+      }
+      if (!instance.hasValue59()) instance.value59_ = null;
+      if (instance.hasValue59()) {
+        instance.value59_ = fieldBuilders[58] == null
+            ? instance.value59_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[58]).build();
+
+      }
+      if (!instance.hasValue60()) instance.value60_ = null;
+      if (instance.hasValue60()) {
+        instance.value60_ = fieldBuilders[59] == null
+            ? instance.value60_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[59]).build();
+
+      }
+      if (!instance.hasValue61()) instance.value61_ = null;
+      if (instance.hasValue61()) {
+        instance.value61_ = fieldBuilders[60] == null
+            ? instance.value61_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[60]).build();
+
+      }
+      if (!instance.hasValue62()) instance.value62_ = null;
+      if (instance.hasValue62()) {
+        instance.value62_ = fieldBuilders[61] == null
+            ? instance.value62_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[61]).build();
+
+      }
+      if (!instance.hasValue63()) instance.value63_ = null;
+      if (instance.hasValue63()) {
+        instance.value63_ = fieldBuilders[62] == null
+            ? instance.value63_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[62]).build();
+
+      }
+      if (!instance.hasValue64()) instance.value64_ = null;
+      if (instance.hasValue64()) {
+        instance.value64_ = fieldBuilders[63] == null
+            ? instance.value64_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[63]).build();
+
+      }
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren2(
+        WideMessageFields instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasValue65()) instance.value65_ = null;
+      if (instance.hasValue65()) {
+        instance.value65_ = fieldBuilders[64] == null
+            ? instance.value65_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) fieldBuilders[64]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<WideMessageFields> parser() {
     return PARSER;

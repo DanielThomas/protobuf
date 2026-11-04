@@ -462,7 +462,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -691,14 +691,28 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.FieldMask.class, com.google.protobuf.FieldMask.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.FieldMask.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      paths_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+
+    }
+    private Builder(com.google.protobuf.FieldMask other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -746,6 +760,15 @@ private static final long serialVersionUID = 0L;
         result.paths_ = paths_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.google.protobuf.FieldMask other) {
+      int to_bitField0_ = 0;
+      paths_ = other.paths_;
+      if (!paths_.isEmpty()) {
+        to_bitField0_ |= 0x00000001;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -816,8 +839,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.LazyStringArrayList paths_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList paths_;
     private void ensurePathsIsMutable() {
       if (!paths_.isModifiable()) {
         paths_ = new com.google.protobuf.LazyStringArrayList(paths_);
@@ -977,21 +999,59 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<FieldMask>
-      PARSER = new com.google.protobuf.AbstractParser<FieldMask>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<FieldMask> {
+    MessageParser() {}
+
     @java.lang.Override
     public FieldMask parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      FieldMask instance = new FieldMask((Builder) null);
+      java.lang.Object unknown = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              ensurePathsIsMutable(instance);
+              instance.paths_.add(input.readStringRequireUtf8());
+              break;
+            } // case 10
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensurePathsIsMutable(com.google.protobuf.FieldMask instance) {
+      if (!instance.paths_.isModifiable()) {
+        instance.paths_ = new com.google.protobuf.LazyStringArrayList(instance.paths_);
+      }
+    }
+    private static void finishCollections0(FieldMask instance) {
+      instance.paths_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<FieldMask> parser() {
     return PARSER;

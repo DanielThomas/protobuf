@@ -1046,7 +1046,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -1075,14 +1075,46 @@ private static final long serialVersionUID = 0L;
               custom_features.TestCustomFeatures.class, custom_features.TestCustomFeatures.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using custom_features.TestCustomFeatures.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      fileFeature_ = 0;
+      extensionRangeFeature_ = 0;
+      messageFeature_ = 0;
+      fieldFeature_ = 0;
+      oneofFeature_ = 0;
+      enumFeature_ = 0;
+      enumEntryFeature_ = 0;
+      serviceFeature_ = 0;
+      methodFeature_ = 0;
+      multipleFeature_ = 0;
+      sourceFeature_ = 0;
+      sourceFeature2_ = 0;
+      removedFeature_ = 0;
+      sameEditionRemovedFeature_ = 0;
+      futureFeature_ = 0;
+      legacyFeature_ = 0;
+      valueLifetimeFeature_ = 0;
+      newUnstableFeature_ = 0;
+      unstableExistingFeature_ = 0;
+      removedUnstableFeature_ = 0;
+
+    }
+    private Builder(custom_features.TestCustomFeatures other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -1229,6 +1261,32 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00100000;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(custom_features.TestCustomFeatures other) {
+      int to_bitField0_ = (other.bitField0_ & 0x001fffff);
+      fileFeature_ = other.getFileFeatureValue();
+      extensionRangeFeature_ = other.getExtensionRangeFeatureValue();
+      messageFeature_ = other.getMessageFeatureValue();
+      fieldFeature_ = other.getFieldFeatureValue();
+      oneofFeature_ = other.getOneofFeatureValue();
+      enumFeature_ = other.getEnumFeatureValue();
+      enumEntryFeature_ = other.getEnumEntryFeatureValue();
+      serviceFeature_ = other.getServiceFeatureValue();
+      methodFeature_ = other.getMethodFeatureValue();
+      multipleFeature_ = other.getMultipleFeatureValue();
+      boolFieldFeature_ = other.getBoolFieldFeature();
+      sourceFeature_ = other.getSourceFeatureValue();
+      sourceFeature2_ = other.getSourceFeature2Value();
+      removedFeature_ = other.getRemovedFeatureValue();
+      sameEditionRemovedFeature_ = other.getSameEditionRemovedFeatureValue();
+      futureFeature_ = other.getFutureFeatureValue();
+      legacyFeature_ = other.getLegacyFeatureValue();
+      valueLifetimeFeature_ = other.getValueLifetimeFeatureValue();
+      newUnstableFeature_ = other.getNewUnstableFeatureValue();
+      unstableExistingFeature_ = other.getUnstableExistingFeatureValue();
+      removedUnstableFeature_ = other.getRemovedUnstableFeatureValue();
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1452,7 +1510,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int fileFeature_ = 0;
+    private int fileFeature_;
     /**
      * <code>.custom_features.EnumFeature file_feature = 1 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_FILE, edition_defaults = { ... }</code>
      * @return Whether the fileFeature field is set.
@@ -1511,7 +1569,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int extensionRangeFeature_ = 0;
+    private int extensionRangeFeature_;
     /**
      * <code>.custom_features.EnumFeature extension_range_feature = 2 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_EXTENSION_RANGE, edition_defaults = { ... }</code>
      * @return Whether the extensionRangeFeature field is set.
@@ -1570,7 +1628,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int messageFeature_ = 0;
+    private int messageFeature_;
     /**
      * <code>.custom_features.EnumFeature message_feature = 3 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_MESSAGE, edition_defaults = { ... }</code>
      * @return Whether the messageFeature field is set.
@@ -1629,7 +1687,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int fieldFeature_ = 0;
+    private int fieldFeature_;
     /**
      * <code>.custom_features.EnumFeature field_feature = 4 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_FIELD, edition_defaults = { ... }</code>
      * @return Whether the fieldFeature field is set.
@@ -1688,7 +1746,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int oneofFeature_ = 0;
+    private int oneofFeature_;
     /**
      * <code>.custom_features.EnumFeature oneof_feature = 5 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_ONEOF, edition_defaults = { ... }</code>
      * @return Whether the oneofFeature field is set.
@@ -1747,7 +1805,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int enumFeature_ = 0;
+    private int enumFeature_;
     /**
      * <code>.custom_features.EnumFeature enum_feature = 6 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_ENUM, edition_defaults = { ... }</code>
      * @return Whether the enumFeature field is set.
@@ -1806,7 +1864,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int enumEntryFeature_ = 0;
+    private int enumEntryFeature_;
     /**
      * <code>.custom_features.EnumFeature enum_entry_feature = 7 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_ENUM_ENTRY, edition_defaults = { ... }</code>
      * @return Whether the enumEntryFeature field is set.
@@ -1865,7 +1923,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int serviceFeature_ = 0;
+    private int serviceFeature_;
     /**
      * <code>.custom_features.EnumFeature service_feature = 8 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_SERVICE, edition_defaults = { ... }</code>
      * @return Whether the serviceFeature field is set.
@@ -1924,7 +1982,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int methodFeature_ = 0;
+    private int methodFeature_;
     /**
      * <code>.custom_features.EnumFeature method_feature = 9 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_METHOD, edition_defaults = { ... }</code>
      * @return Whether the methodFeature field is set.
@@ -1983,7 +2041,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int multipleFeature_ = 0;
+    private int multipleFeature_;
     /**
      * <code>.custom_features.EnumFeature multiple_feature = 10 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_FILE, targets = TARGET_TYPE_FIELD, targets = TARGET_TYPE_MESSAGE, targets = TARGET_TYPE_ENUM, targets = TARGET_TYPE_ENUM_ENTRY, targets = TARGET_TYPE_SERVICE, targets = TARGET_TYPE_METHOD, targets = TARGET_TYPE_ONEOF, targets = TARGET_TYPE_EXTENSION_RANGE, edition_defaults = { ... }</code>
      * @return Whether the multipleFeature field is set.
@@ -2042,7 +2100,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean boolFieldFeature_ ;
+    private boolean boolFieldFeature_;
     /**
      * <code>bool bool_field_feature = 11 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_FIELD, edition_defaults = { ... }</code>
      * @return Whether the boolFieldFeature field is set.
@@ -2082,7 +2140,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int sourceFeature_ = 0;
+    private int sourceFeature_;
     /**
      * <code>.custom_features.EnumFeature source_feature = 15 [retention = RETENTION_SOURCE, targets = TARGET_TYPE_FILE, targets = TARGET_TYPE_FIELD, targets = TARGET_TYPE_MESSAGE, targets = TARGET_TYPE_ENUM, targets = TARGET_TYPE_ENUM_ENTRY, targets = TARGET_TYPE_SERVICE, targets = TARGET_TYPE_METHOD, targets = TARGET_TYPE_ONEOF, targets = TARGET_TYPE_EXTENSION_RANGE, edition_defaults = { ... }</code>
      * @return Whether the sourceFeature field is set.
@@ -2141,7 +2199,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int sourceFeature2_ = 0;
+    private int sourceFeature2_;
     /**
      * <code>.custom_features.EnumFeature source_feature2 = 16 [retention = RETENTION_SOURCE, targets = TARGET_TYPE_FILE, targets = TARGET_TYPE_FIELD, targets = TARGET_TYPE_MESSAGE, targets = TARGET_TYPE_ENUM, targets = TARGET_TYPE_ENUM_ENTRY, targets = TARGET_TYPE_SERVICE, targets = TARGET_TYPE_METHOD, targets = TARGET_TYPE_ONEOF, targets = TARGET_TYPE_EXTENSION_RANGE, edition_defaults = { ... }</code>
      * @return Whether the sourceFeature2 field is set.
@@ -2200,7 +2258,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int removedFeature_ = 0;
+    private int removedFeature_;
     /**
      * <code>.custom_features.EnumFeature removed_feature = 17 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_FILE, targets = TARGET_TYPE_FIELD, edition_defaults = { ... }</code>
      * @return Whether the removedFeature field is set.
@@ -2259,7 +2317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int sameEditionRemovedFeature_ = 0;
+    private int sameEditionRemovedFeature_;
     /**
      * <code>.custom_features.EnumFeature same_edition_removed_feature = 21 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_FILE, targets = TARGET_TYPE_FIELD, edition_defaults = { ... }</code>
      * @return Whether the sameEditionRemovedFeature field is set.
@@ -2318,7 +2376,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int futureFeature_ = 0;
+    private int futureFeature_;
     /**
      * <code>.custom_features.EnumFeature future_feature = 18 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_FILE, targets = TARGET_TYPE_FIELD, edition_defaults = { ... }</code>
      * @return Whether the futureFeature field is set.
@@ -2377,7 +2435,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int legacyFeature_ = 0;
+    private int legacyFeature_;
     /**
      * <code>.custom_features.EnumFeature legacy_feature = 19 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_FILE, targets = TARGET_TYPE_FIELD, edition_defaults = { ... }</code>
      * @return Whether the legacyFeature field is set.
@@ -2436,7 +2494,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int valueLifetimeFeature_ = 0;
+    private int valueLifetimeFeature_;
     /**
      * <code>.custom_features.ValueLifetimeFeature value_lifetime_feature = 20 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_FILE, edition_defaults = { ... }</code>
      * @return Whether the valueLifetimeFeature field is set.
@@ -2495,7 +2553,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int newUnstableFeature_ = 0;
+    private int newUnstableFeature_;
     /**
      * <code>.custom_features.UnstableEnumFeature new_unstable_feature = 22 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_FILE, targets = TARGET_TYPE_FIELD, edition_defaults = { ... }</code>
      * @return Whether the newUnstableFeature field is set.
@@ -2554,7 +2612,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int unstableExistingFeature_ = 0;
+    private int unstableExistingFeature_;
     /**
      * <code>.custom_features.UnstableEnumFeature unstable_existing_feature = 23 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_ENUM, edition_defaults = { ... }</code>
      * @return Whether the unstableExistingFeature field is set.
@@ -2613,7 +2671,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int removedUnstableFeature_ = 0;
+    private int removedUnstableFeature_;
     /**
      * <code>.custom_features.UnstableEnumFeature removed_unstable_feature = 24 [retention = RETENTION_RUNTIME, targets = TARGET_TYPE_METHOD, edition_defaults = { ... }</code>
      * @return Whether the removedUnstableFeature field is set.
@@ -2686,21 +2744,154 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestCustomFeatures>
-      PARSER = new com.google.protobuf.AbstractParser<TestCustomFeatures>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestCustomFeatures> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestCustomFeatures parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestCustomFeatures instance = new TestCustomFeatures((Builder) null);
+      java.lang.Object unknown = null;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.fileFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.extensionRangeFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              instance.messageFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              instance.fieldFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              instance.oneofFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              instance.enumFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              instance.enumEntryFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              instance.serviceFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 72: {
+              instance.methodFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 80: {
+              instance.multipleFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 88: {
+              instance.boolFieldFeature_ = input.readBool();
+              to_bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 120: {
+              instance.sourceFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00000800;
+              break;
+            } // case 120
+            case 128: {
+              instance.sourceFeature2_ = input.readEnum();
+              to_bitField0_ |= 0x00001000;
+              break;
+            } // case 128
+            case 136: {
+              instance.removedFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00002000;
+              break;
+            } // case 136
+            case 144: {
+              instance.futureFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00008000;
+              break;
+            } // case 144
+            case 152: {
+              instance.legacyFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00010000;
+              break;
+            } // case 152
+            case 160: {
+              instance.valueLifetimeFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00020000;
+              break;
+            } // case 160
+            case 168: {
+              instance.sameEditionRemovedFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00004000;
+              break;
+            } // case 168
+            case 176: {
+              instance.newUnstableFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00040000;
+              break;
+            } // case 176
+            case 184: {
+              instance.unstableExistingFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00080000;
+              break;
+            } // case 184
+            case 192: {
+              instance.removedUnstableFeature_ = input.readEnum();
+              to_bitField0_ |= 0x00100000;
+              break;
+            } // case 192
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<TestCustomFeatures> parser() {
     return PARSER;

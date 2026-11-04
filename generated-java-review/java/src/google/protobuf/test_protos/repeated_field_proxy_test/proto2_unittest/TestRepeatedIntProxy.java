@@ -301,7 +301,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -330,14 +330,28 @@ private static final long serialVersionUID = 0L;
               proto2_unittest.TestRepeatedIntProxy.class, proto2_unittest.TestRepeatedIntProxy.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using proto2_unittest.TestRepeatedIntProxy.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      ints_ = emptyIntList();
+      intsProxy_ = emptyIntList();
+
+    }
+    private Builder(proto2_unittest.TestRepeatedIntProxy other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -389,6 +403,19 @@ private static final long serialVersionUID = 0L;
         result.intsProxy_ = intsProxy_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(proto2_unittest.TestRepeatedIntProxy other) {
+      int to_bitField0_ = 0;
+      ints_ = other.ints_;
+      if (!ints_.isEmpty()) {
+        to_bitField0_ |= 0x00000001;
+      }
+      intsProxy_ = other.intsProxy_;
+      if (!intsProxy_.isEmpty()) {
+        to_bitField0_ |= 0x00000002;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -500,7 +527,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.Internal.IntList ints_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList ints_;
     private void ensureIntsIsMutable(int capacity) {
       if (!ints_.isModifiable()) {
         ints_ = makeMutableCopy(ints_, capacity);
@@ -584,7 +611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList intsProxy_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList intsProxy_;
     private void ensureIntsProxyIsMutable(int capacity) {
       if (!intsProxy_.isModifiable()) {
         intsProxy_ = makeMutableCopy(intsProxy_, capacity);
@@ -682,21 +709,94 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestRepeatedIntProxy>
-      PARSER = new com.google.protobuf.AbstractParser<TestRepeatedIntProxy>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestRepeatedIntProxy> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestRepeatedIntProxy parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestRepeatedIntProxy instance = new TestRepeatedIntProxy((Builder) null);
+      java.lang.Object unknown = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 13: {
+              int v = input.readSFixed32();
+              ensureIntsIsMutable(instance, /* capacity= */ -1);
+              instance.ints_.addInt(v);
+              break;
+            } // case 13
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int alloc = length > 4096 ? 4096 : length;
+              ensureIntsIsMutable(instance, alloc / 4);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.ints_.addInt(input.readSFixed32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 10
+            case 21: {
+              int v = input.readSFixed32();
+              ensureIntsProxyIsMutable(instance, /* capacity= */ -1);
+              instance.intsProxy_.addInt(v);
+              break;
+            } // case 21
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int alloc = length > 4096 ? 4096 : length;
+              ensureIntsProxyIsMutable(instance, alloc / 4);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.intsProxy_.addInt(input.readSFixed32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensureIntsIsMutable(proto2_unittest.TestRepeatedIntProxy instance, int minCapacity) {
+      if (!instance.ints_.isModifiable()) {
+        instance.ints_ = makeMutableCopy(instance.ints_, minCapacity);
+      }
+    }
+    private static void ensureIntsProxyIsMutable(proto2_unittest.TestRepeatedIntProxy instance, int minCapacity) {
+      if (!instance.intsProxy_.isModifiable()) {
+        instance.intsProxy_ = makeMutableCopy(instance.intsProxy_, minCapacity);
+      }
+    }
+    private static void finishCollections0(TestRepeatedIntProxy instance) {
+      instance.ints_.makeImmutable();
+      instance.intsProxy_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<TestRepeatedIntProxy> parser() {
     return PARSER;

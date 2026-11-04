@@ -406,7 +406,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -439,14 +439,27 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestRequiredEnumNoMask.class, edition_unittest.TestRequiredEnumNoMask.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestRequiredEnumNoMask.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      requiredEnum_ = 0;
+
+    }
+    private Builder(edition_unittest.TestRequiredEnumNoMask other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -498,6 +511,13 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000002;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestRequiredEnumNoMask other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000003);
+      requiredEnum_ = other.requiredEnum_;
+      a_ = other.getA();
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -579,7 +599,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int requiredEnum_ = 0;
+    private int requiredEnum_;
     /**
      * <code>.edition_unittest.TestRequiredEnumNoMask.NestedEnum required_enum = 1 [features = { ... }</code>
      * @return Whether the requiredEnum field is set.
@@ -619,7 +639,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int a_ ;
+    private int a_;
     /**
      * <pre>
      * A dummy optional field.
@@ -689,21 +709,64 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestRequiredEnumNoMask>
-      PARSER = new com.google.protobuf.AbstractParser<TestRequiredEnumNoMask>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestRequiredEnumNoMask> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestRequiredEnumNoMask parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestRequiredEnumNoMask instance = new TestRequiredEnumNoMask((Builder) null);
+      java.lang.Object unknown = null;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              int tmpRaw = input.readEnum();
+              if (edition_unittest.TestRequiredEnumNoMask.NestedEnum.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 1, tmpRaw);
+              } else {
+                instance.requiredEnum_ = tmpRaw;
+                to_bitField0_ |= 0x00000001;
+              }
+              break;
+            } // case 8
+            case 16: {
+              instance.a_ = input.readInt32();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<TestRequiredEnumNoMask> parser() {
     return PARSER;

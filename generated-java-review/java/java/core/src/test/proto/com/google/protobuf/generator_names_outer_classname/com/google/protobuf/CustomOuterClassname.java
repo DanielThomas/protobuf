@@ -208,7 +208,7 @@ public final class CustomOuterClassname extends com.google.protobuf.GeneratedFil
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -237,14 +237,25 @@ public final class CustomOuterClassname extends com.google.protobuf.GeneratedFil
                 com.google.protobuf.CustomOuterClassname.OuterClassnameMessage.class, com.google.protobuf.CustomOuterClassname.OuterClassnameMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.CustomOuterClassname.OuterClassnameMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(com.google.protobuf.CustomOuterClassname.OuterClassnameMessage other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -346,21 +357,45 @@ public final class CustomOuterClassname extends com.google.protobuf.GeneratedFil
     }
 
     private static final com.google.protobuf.Parser<OuterClassnameMessage>
-        PARSER = new com.google.protobuf.AbstractParser<OuterClassnameMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<OuterClassnameMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public OuterClassnameMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        OuterClassnameMessage instance = new OuterClassnameMessage((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<OuterClassnameMessage> parser() {
       return PARSER;

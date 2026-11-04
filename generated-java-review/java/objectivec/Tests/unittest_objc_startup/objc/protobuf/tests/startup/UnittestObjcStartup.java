@@ -224,7 +224,7 @@ public final class UnittestObjcStartup extends com.google.protobuf.GeneratedFile
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -254,14 +254,25 @@ public final class UnittestObjcStartup extends com.google.protobuf.GeneratedFile
                 objc.protobuf.tests.startup.UnittestObjcStartup.Message.class, objc.protobuf.tests.startup.UnittestObjcStartup.Message.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.startup.UnittestObjcStartup.Message.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(objc.protobuf.tests.startup.UnittestObjcStartup.Message other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -390,21 +401,46 @@ public final class UnittestObjcStartup extends com.google.protobuf.GeneratedFile
     }
 
     private static final com.google.protobuf.Parser<Message>
-        PARSER = new com.google.protobuf.AbstractParser<Message>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Message> {
+      MessageParser() {}
+
       @java.lang.Override
       public Message parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Message instance = new Message((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                pendingTag = tag;
+                break parseLoop;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        if (pendingTag != 0) {
+          return mergeFrom(instance.toBuilder(), input, extensionRegistry, pendingTag, null);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<Message> parser() {
       return PARSER;
@@ -604,7 +640,7 @@ public final class UnittestObjcStartup extends com.google.protobuf.GeneratedFile
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -633,14 +669,25 @@ public final class UnittestObjcStartup extends com.google.protobuf.GeneratedFile
                 objc.protobuf.tests.startup.UnittestObjcStartup.Nested.class, objc.protobuf.tests.startup.UnittestObjcStartup.Nested.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.startup.UnittestObjcStartup.Nested.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(objc.protobuf.tests.startup.UnittestObjcStartup.Nested other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -742,21 +789,45 @@ public final class UnittestObjcStartup extends com.google.protobuf.GeneratedFile
     }
 
     private static final com.google.protobuf.Parser<Nested>
-        PARSER = new com.google.protobuf.AbstractParser<Nested>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Nested> {
+      MessageParser() {}
+
       @java.lang.Override
       public Nested parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Nested instance = new Nested((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<Nested> parser() {
       return PARSER;

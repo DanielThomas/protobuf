@@ -316,7 +316,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -345,14 +345,28 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestNestedMessageRedaction.class, edition_unittest.TestNestedMessageRedaction.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestNestedMessageRedaction.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      optionalUnredactedNestedString_ = "";
+      optionalRedactedNestedString_ = "";
+
+    }
+    private Builder(edition_unittest.TestNestedMessageRedaction other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -404,6 +418,13 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000002;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestNestedMessageRedaction other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000003);
+      optionalUnredactedNestedString_ = other.optionalUnredactedNestedString_;
+      optionalRedactedNestedString_ = other.optionalRedactedNestedString_;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -479,7 +500,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object optionalUnredactedNestedString_ = "";
+    private java.lang.Object optionalUnredactedNestedString_;
     /**
      * <code>string optional_unredacted_nested_string = 1;</code>
      * @return Whether the optionalUnredactedNestedString field is set.
@@ -558,7 +579,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object optionalRedactedNestedString_ = "";
+    private java.lang.Object optionalRedactedNestedString_;
     /**
      * <code>string optional_redacted_nested_string = 2 [debug_redact = true];</code>
      * @return Whether the optionalRedactedNestedString field is set.
@@ -651,21 +672,63 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestNestedMessageRedaction>
-      PARSER = new com.google.protobuf.AbstractParser<TestNestedMessageRedaction>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestNestedMessageRedaction> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestNestedMessageRedaction parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestNestedMessageRedaction instance = new TestNestedMessageRedaction((Builder) null);
+      java.lang.Object unknown = null;
+      int to_bitField0_ = 0;
+      java.lang.Object parsed_optionalUnredactedNestedString = null;
+      java.lang.Object parsed_optionalRedactedNestedString = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              parsed_optionalUnredactedNestedString = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              parsed_optionalRedactedNestedString = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parsed_optionalUnredactedNestedString != null) instance.optionalUnredactedNestedString_ = parsed_optionalUnredactedNestedString;
+      if (parsed_optionalRedactedNestedString != null) instance.optionalRedactedNestedString_ = parsed_optionalRedactedNestedString;
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<TestNestedMessageRedaction> parser() {
     return PARSER;

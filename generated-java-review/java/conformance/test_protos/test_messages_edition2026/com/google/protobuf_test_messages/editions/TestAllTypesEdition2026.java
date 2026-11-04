@@ -637,7 +637,7 @@ com.google.protobuf_test_messages.editions.ForeignEnumEdition2026 defaultValue) 
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -692,14 +692,28 @@ com.google.protobuf_test_messages.editions.ForeignEnumEdition2026 defaultValue) 
               com.google.protobuf_test_messages.editions.TestAllTypesEdition2026.class, com.google.protobuf_test_messages.editions.TestAllTypesEdition2026.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf_test_messages.editions.TestAllTypesEdition2026.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      optionalForeignEnum_ = 0;
+      repeatedForeignEnum_ = emptyIntList();
+
+    }
+    private Builder(com.google.protobuf_test_messages.editions.TestAllTypesEdition2026 other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -766,6 +780,25 @@ com.google.protobuf_test_messages.editions.ForeignEnumEdition2026 defaultValue) 
         result.mapInt32Int32_.makeImmutable();
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.google.protobuf_test_messages.editions.TestAllTypesEdition2026 other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000003);
+      optionalInt32_ = other.getOptionalInt32();
+      optionalForeignEnum_ = other.getOptionalForeignEnumValue();
+      repeatedForeignEnum_ = other.repeatedForeignEnum_;
+      if (!repeatedForeignEnum_.isEmpty()) {
+        to_bitField0_ |= 0x00000004;
+      }
+      mapStringForeignEnum_ = other.mapStringForeignEnum_;
+      if (mapStringForeignEnum_ != null) {
+        to_bitField0_ |= 0x00000008;
+      }
+      mapInt32Int32_ = other.mapInt32Int32_;
+      if (mapInt32Int32_ != null) {
+        to_bitField0_ |= 0x00000010;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -893,7 +926,7 @@ com.google.protobuf_test_messages.editions.ForeignEnumEdition2026 defaultValue) 
     }
     private int bitField0_;
 
-    private int optionalInt32_ ;
+    private int optionalInt32_;
     /**
      * <code>int32 optional_int32 = 1;</code>
      * @return Whether the optionalInt32 field is set.
@@ -933,7 +966,7 @@ com.google.protobuf_test_messages.editions.ForeignEnumEdition2026 defaultValue) 
       return this;
     }
 
-    private int optionalForeignEnum_ = 0;
+    private int optionalForeignEnum_;
     /**
      * <code>.protobuf_test_messages.editions.ForeignEnumEdition2026 optional_foreign_enum = 2;</code>
      * @return Whether the optionalForeignEnum field is set.
@@ -992,7 +1025,7 @@ com.google.protobuf_test_messages.editions.ForeignEnumEdition2026 defaultValue) 
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedForeignEnum_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedForeignEnum_;
     private void ensureRepeatedForeignEnumIsMutable(int capacity) {
       if (!repeatedForeignEnum_.isModifiable()) {
         repeatedForeignEnum_ = makeMutableCopy(repeatedForeignEnum_, capacity);
@@ -1479,21 +1512,127 @@ com.google.protobuf_test_messages.editions.ForeignEnumEdition2026 defaultValue) 
   }
 
   private static final com.google.protobuf.Parser<TestAllTypesEdition2026>
-      PARSER = new com.google.protobuf.AbstractParser<TestAllTypesEdition2026>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestAllTypesEdition2026> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestAllTypesEdition2026 parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestAllTypesEdition2026 instance = new TestAllTypesEdition2026((Builder) null);
+      java.lang.Object unknown = null;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.optionalInt32_ = input.readInt32();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.optionalForeignEnum_ = input.readEnum();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              int tmpRaw = input.readEnum();
+              ensureRepeatedForeignEnumIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedForeignEnum_.addInt(tmpRaw);
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedForeignEnumIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedForeignEnum_.addInt(input.readEnum());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              mapStringForeignEnum__ = input.readMessage(
+                  MapStringForeignEnumDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapStringForeignEnum(instance).getMutableMap().put(
+                  mapStringForeignEnum__.getKey(), mapStringForeignEnum__.getValue());
+
+              break;
+            } // case 34
+            case 42: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              mapInt32Int32__ = input.readMessage(
+                  MapInt32Int32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableMapInt32Int32(instance).getMutableMap().put(
+                  mapInt32Int32__.getKey(), mapInt32Int32__.getValue());
+
+              break;
+            } // case 42
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensureRepeatedForeignEnumIsMutable(com.google.protobuf_test_messages.editions.TestAllTypesEdition2026 instance, int minCapacity) {
+      if (!instance.repeatedForeignEnum_.isModifiable()) {
+        instance.repeatedForeignEnum_ = makeMutableCopy(instance.repeatedForeignEnum_, minCapacity);
+      }
+    }
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+        internalGetMutableMapStringForeignEnum(com.google.protobuf_test_messages.editions.TestAllTypesEdition2026 instance) {
+      if (instance.mapStringForeignEnum_ == null) {
+        instance.mapStringForeignEnum_ = com.google.protobuf.MapField.newMapField(
+            MapStringForeignEnumDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapStringForeignEnum_.isMutable()) {
+        instance.mapStringForeignEnum_ = instance.mapStringForeignEnum_.copy();
+      }
+      return instance.mapStringForeignEnum_;
+    }
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableMapInt32Int32(com.google.protobuf_test_messages.editions.TestAllTypesEdition2026 instance) {
+      if (instance.mapInt32Int32_ == null) {
+        instance.mapInt32Int32_ = com.google.protobuf.MapField.newMapField(
+            MapInt32Int32DefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.mapInt32Int32_.isMutable()) {
+        instance.mapInt32Int32_ = instance.mapInt32Int32_.copy();
+      }
+      return instance.mapInt32Int32_;
+    }
+    private static void finishCollections0(TestAllTypesEdition2026 instance) {
+      instance.repeatedForeignEnum_.makeImmutable();
+      if (instance.mapStringForeignEnum_ != null) instance.mapStringForeignEnum_.makeImmutable();
+      if (instance.mapInt32Int32_ != null) instance.mapInt32Int32_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<TestAllTypesEdition2026> parser() {
     return PARSER;

@@ -898,7 +898,7 @@ enums.Enums.TestMapWithNestedEnum.InnerNested.NestedEnum         defaultValue);
       @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
+            ? new Builder() : new Builder(this);
       }
 
       @java.lang.Override
@@ -927,14 +927,25 @@ enums.Enums.TestMapWithNestedEnum.InnerNested.NestedEnum         defaultValue);
                   enums.Enums.TestMapWithNestedEnum.InnerNested.class, enums.Enums.TestMapWithNestedEnum.InnerNested.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using enums.Enums.TestMapWithNestedEnum.InnerNested.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+
+        }
+        private Builder(enums.Enums.TestMapWithNestedEnum.InnerNested other) {
+          super(other, null);
 
         }
         @java.lang.Override
@@ -1036,21 +1047,45 @@ enums.Enums.TestMapWithNestedEnum.InnerNested.NestedEnum         defaultValue);
       }
 
       private static final com.google.protobuf.Parser<InnerNested>
-          PARSER = new com.google.protobuf.AbstractParser<InnerNested>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<InnerNested> {
+        MessageParser() {}
+
         @java.lang.Override
         public InnerNested parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
+          java.util.Objects.requireNonNull(extensionRegistry);
+          InnerNested instance = new InnerNested((Builder) null);
+          java.lang.Object unknown = null;
+          java.io.IOException parseFailure = null;
           try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
+            parseLoop: while (true) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0: break parseLoop;
+                default: {
+                  unknown = prepareUnknownFields(unknown, input);
+                  if (!parseUnknownField(input, unknown, tag)) {
+                    break parseLoop;
+                  }
+                  break;
+                }
+              }
+            }
+          } catch (java.io.IOException e) {
+            parseFailure = e;
           }
-          return builder.buildPartial();
+          finishUnknownFields(instance, unknown);
+          if (parseFailure != null) {
+            throwParseException(parseFailure, instance);
+          }
+          return instance;
         }
-      };
+      }
 
       public static com.google.protobuf.Parser<InnerNested> parser() {
         return PARSER;
@@ -1376,7 +1411,7 @@ enums.Enums.TestMapWithNestedEnum.InnerNested.NestedEnum defaultValue) {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -1431,14 +1466,26 @@ enums.Enums.TestMapWithNestedEnum.InnerNested.NestedEnum defaultValue) {
                 enums.Enums.TestMapWithNestedEnum.class, enums.Enums.TestMapWithNestedEnum.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using enums.Enums.TestMapWithNestedEnum.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(enums.Enums.TestMapWithNestedEnum other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -1485,6 +1532,15 @@ enums.Enums.TestMapWithNestedEnum.InnerNested.NestedEnum defaultValue) {
           result.stringMap_.makeImmutable();
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(enums.Enums.TestMapWithNestedEnum other) {
+        int to_bitField0_ = 0;
+        stringMap_ = other.stringMap_;
+        if (stringMap_ != null) {
+          to_bitField0_ |= 0x00000001;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1777,21 +1833,69 @@ enums.Enums.TestMapWithNestedEnum.InnerNested.NestedEnum defaultValue) {
     }
 
     private static final com.google.protobuf.Parser<TestMapWithNestedEnum>
-        PARSER = new com.google.protobuf.AbstractParser<TestMapWithNestedEnum>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestMapWithNestedEnum> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestMapWithNestedEnum parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestMapWithNestedEnum instance = new TestMapWithNestedEnum((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+                stringMap__ = input.readMessage(
+                    StringMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableStringMap(instance).getMutableMap().put(
+                    stringMap__.getKey(), stringMap__.getValue());
+
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        finishCollections0(instance);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+          internalGetMutableStringMap(enums.Enums.TestMapWithNestedEnum instance) {
+        if (instance.stringMap_ == null) {
+          instance.stringMap_ = com.google.protobuf.MapField.newMapField(
+              StringMapDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.stringMap_.isMutable()) {
+          instance.stringMap_ = instance.stringMap_.copy();
+        }
+        return instance.stringMap_;
+      }
+      private static void finishCollections0(TestMapWithNestedEnum instance) {
+        if (instance.stringMap_ != null) instance.stringMap_.makeImmutable();
+      }
+    }
 
     public static com.google.protobuf.Parser<TestMapWithNestedEnum> parser() {
       return PARSER;

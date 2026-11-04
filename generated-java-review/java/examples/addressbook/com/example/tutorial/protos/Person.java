@@ -471,7 +471,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -500,14 +500,28 @@ private static final long serialVersionUID = 0L;
                 com.example.tutorial.protos.Person.PhoneNumber.class, com.example.tutorial.protos.Person.PhoneNumber.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.example.tutorial.protos.Person.PhoneNumber.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        number_ = "";
+        type_ = 0;
+
+      }
+      private Builder(com.example.tutorial.protos.Person.PhoneNumber other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -552,13 +566,20 @@ private static final long serialVersionUID = 0L;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.number_ = number_;
-          ;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.type_ = type_;
-          ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.example.tutorial.protos.Person.PhoneNumber other) {
+        int to_bitField0_ = 0;
+        number_ = other.number_;
+        to_bitField0_ |= 0x00000001;
+        type_ = other.getTypeValue();
+        to_bitField0_ |= 0x00000002;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -632,7 +653,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private java.lang.Object number_ = "";
+      private java.lang.Object number_;
       /**
        * <code>string number = 1;</code>
        * @return The number.
@@ -704,7 +725,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
-      private int type_ = 0;
+      private int type_;
       /**
        * <code>.tutorial.Person.PhoneType type = 2;</code>
        * @return The enum numeric value on the wire for type.
@@ -770,21 +791,57 @@ private static final long serialVersionUID = 0L;
     }
 
     private static final com.google.protobuf.Parser<PhoneNumber>
-        PARSER = new com.google.protobuf.AbstractParser<PhoneNumber>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<PhoneNumber> {
+      MessageParser() {}
+
       @java.lang.Override
       public PhoneNumber parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        PhoneNumber instance = new PhoneNumber((Builder) null);
+        java.lang.Object unknown = null;
+        java.lang.Object parsed_number = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                parsed_number = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              case 16: {
+                instance.type_ = input.readEnum();
+
+                break;
+              } // case 16
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parsed_number != null) instance.number_ = parsed_number;
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<PhoneNumber> parser() {
       return PARSER;
@@ -1185,7 +1242,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -1218,14 +1275,29 @@ private static final long serialVersionUID = 0L;
               com.example.tutorial.protos.Person.class, com.example.tutorial.protos.Person.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.example.tutorial.protos.Person.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      name_ = "";
+      email_ = "";
+      phones_ = emptyList(com.example.tutorial.protos.Person.PhoneNumber.class);
+      maybeForceBuilderInitialization();
+    }
+    private Builder(com.example.tutorial.protos.Person other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -1296,15 +1368,12 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.name_ = name_;
-        ;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.id_ = id_;
-        
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
         result.email_ = email_;
-        ;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
       if (phonesBuilder_ == null) {
@@ -1315,6 +1384,22 @@ private static final long serialVersionUID = 0L;
       }
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.example.tutorial.protos.Person other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000001);
+      lastUpdated_ = other.lastUpdated_;
+      name_ = other.name_;
+      to_bitField0_ |= 0x00000002;
+      id_ = other.getId();
+      to_bitField0_ |= 0x00000004;
+      email_ = other.email_;
+      to_bitField0_ |= 0x00000008;
+      phones_ = other.phones_;
+      if (!phones_.isEmpty()) {
+        to_bitField0_ |= 0x00000010;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1447,7 +1532,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object name_ = "";
+    private java.lang.Object name_;
     /**
      * <code>string name = 1;</code>
      * @return The name.
@@ -1519,7 +1604,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int id_ ;
+    private int id_;
     /**
      * <pre>
      * Unique ID number for this person.
@@ -1563,7 +1648,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object email_ = "";
+    private java.lang.Object email_;
     /**
      * <code>string email = 3;</code>
      * @return The email.
@@ -1635,8 +1720,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.example.tutorial.protos.Person.PhoneNumber> phones_ =
-        emptyList(com.example.tutorial.protos.Person.PhoneNumber.class);
+    private com.google.protobuf.Internal.ProtobufList<com.example.tutorial.protos.Person.PhoneNumber> phones_;
     private void ensurePhonesIsMutable() {
       if (!phones_.isModifiable()) {
         phones_ = makeMutableCopy(phones_);
@@ -2011,21 +2095,143 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<Person>
-      PARSER = new com.google.protobuf.AbstractParser<Person>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<Person> {
+    MessageParser() {}
+
     @java.lang.Override
     public Person parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Person instance = new Person((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      java.lang.Object parsed_name = null;
+      java.lang.Object parsed_email = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              parsed_name = input.readStringRequireUtf8();
+
+              break;
+            } // case 10
+            case 16: {
+              instance.id_ = input.readInt32();
+
+              break;
+            } // case 16
+            case 26: {
+              parsed_email = input.readStringRequireUtf8();
+
+              break;
+            } // case 26
+            case 34: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.example.tutorial.protos.Person.PhoneNumber m = com.example.tutorial.protos.Person.PhoneNumber.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.phones_.isModifiable()) {
+  instance.phones_ = makeMutableCopy(instance.phones_);
+}
+              instance.phones_.add(m);
+              break;
+            } // case 34
+            case 42: {
+              pendingTag = parseLastUpdatedField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 42
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (parsed_name != null) instance.name_ = parsed_name;
+      if (parsed_email != null) instance.email_ = parsed_email;
+      finishCollections0(instance);
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseLastUpdatedField(
+        com.example.tutorial.protos.Person instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.lastUpdated_ != null) {
+        return 42;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.lastUpdated_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                      instance.getLastUpdated(),
+                      null,
+                      false);
+              instance.lastUpdated_ = null;
+            }
+            instance.bitField0_ |= 0x00000001;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.lastUpdated_ = com.google.protobuf.Timestamp.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.lastUpdated_ = com.google.protobuf.Timestamp.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+      return 0;
+    }
+    private static void finishCollections0(Person instance) {
+      instance.phones_.makeImmutable();
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        Person instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        Person instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasLastUpdated()) instance.lastUpdated_ = null;
+      if (instance.hasLastUpdated()) {
+        instance.lastUpdated_ = fieldBuilders[0] == null
+            ? instance.lastUpdated_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>) fieldBuilders[0]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<Person> parser() {
     return PARSER;

@@ -487,7 +487,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -516,14 +516,32 @@ private static final long serialVersionUID = 0L;
               proto2_unittest.RepeatedStringTrim.class, proto2_unittest.RepeatedStringTrim.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using proto2_unittest.RepeatedStringTrim.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      fastString_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      fastBytes_ = emptyList(com.google.protobuf.ByteString.class);
+      miniString_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      miniBytes_ = emptyList(com.google.protobuf.ByteString.class);
+      maybeForceBuilderInitialization();
+    }
+    private Builder(proto2_unittest.RepeatedStringTrim other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -609,6 +627,29 @@ private static final long serialVersionUID = 0L;
         result.miniBytes_ = miniBytes_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(proto2_unittest.RepeatedStringTrim other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000003);
+      i32_ = other.getI32();
+      msg_ = other.msg_;
+      fastString_ = other.fastString_;
+      if (!fastString_.isEmpty()) {
+        to_bitField0_ |= 0x00000004;
+      }
+      fastBytes_ = other.fastBytes_;
+      if (!fastBytes_.isEmpty()) {
+        to_bitField0_ |= 0x00000008;
+      }
+      miniString_ = other.miniString_;
+      if (!miniString_.isEmpty()) {
+        to_bitField0_ |= 0x00000010;
+      }
+      miniBytes_ = other.miniBytes_;
+      if (!miniBytes_.isEmpty()) {
+        to_bitField0_ |= 0x00000020;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -743,8 +784,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.LazyStringArrayList fastString_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList fastString_;
     private void ensureFastStringIsMutable() {
       if (!fastString_.isModifiable()) {
         fastString_ = new com.google.protobuf.LazyStringArrayList(fastString_);
@@ -854,7 +894,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> fastBytes_ = emptyList(com.google.protobuf.ByteString.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> fastBytes_;
     private void ensureFastBytesIsMutable(int capacity) {
       if (!fastBytes_.isModifiable()) {
         fastBytes_ = makeMutableCopy(fastBytes_, capacity);
@@ -938,8 +978,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList miniString_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList miniString_;
     private void ensureMiniStringIsMutable() {
       if (!miniString_.isModifiable()) {
         miniString_ = new com.google.protobuf.LazyStringArrayList(miniString_);
@@ -1049,7 +1088,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> miniBytes_ = emptyList(com.google.protobuf.ByteString.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> miniBytes_;
     private void ensureMiniBytesIsMutable(int capacity) {
       if (!miniBytes_.isModifiable()) {
         miniBytes_ = makeMutableCopy(miniBytes_, capacity);
@@ -1133,7 +1172,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int i32_ ;
+    private int i32_;
     /**
      * <code>int32 i32 = 10;</code>
      * @return Whether the i32 field is set.
@@ -1315,21 +1354,168 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<RepeatedStringTrim>
-      PARSER = new com.google.protobuf.AbstractParser<RepeatedStringTrim>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<RepeatedStringTrim> {
+    MessageParser() {}
+
     @java.lang.Override
     public RepeatedStringTrim parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      RepeatedStringTrim instance = new RepeatedStringTrim((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              ensureFastStringIsMutable(instance);
+              instance.fastString_.add(input.readStringRequireUtf8());
+              break;
+            } // case 10
+            case 18: {
+              com.google.protobuf.ByteString v = input.readBytes();
+              ensureFastBytesIsMutable(instance, /* capacity= */ -1);
+              instance.fastBytes_.add(v);
+              break;
+            } // case 18
+            case 80: {
+              instance.i32_ = input.readInt32();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 80
+            case 90: {
+              pendingTag = parseMsgField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 90
+            case 32770: {
+              ensureMiniStringIsMutable(instance);
+              instance.miniString_.add(input.readStringRequireUtf8());
+              break;
+            } // case 32770
+            case 32778: {
+              com.google.protobuf.ByteString v = input.readBytes();
+              ensureMiniBytesIsMutable(instance, /* capacity= */ -1);
+              instance.miniBytes_.add(v);
+              break;
+            } // case 32778
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      finishCollections0(instance);
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensureFastStringIsMutable(proto2_unittest.RepeatedStringTrim instance) {
+      if (!instance.fastString_.isModifiable()) {
+        instance.fastString_ = new com.google.protobuf.LazyStringArrayList(instance.fastString_);
+      }
+    }
+    private static void ensureFastBytesIsMutable(proto2_unittest.RepeatedStringTrim instance, int minCapacity) {
+      if (!instance.fastBytes_.isModifiable()) {
+        instance.fastBytes_ = makeMutableCopy(instance.fastBytes_, minCapacity);
+      }
+    }
+    private static void ensureMiniStringIsMutable(proto2_unittest.RepeatedStringTrim instance) {
+      if (!instance.miniString_.isModifiable()) {
+        instance.miniString_ = new com.google.protobuf.LazyStringArrayList(instance.miniString_);
+      }
+    }
+    private static void ensureMiniBytesIsMutable(proto2_unittest.RepeatedStringTrim instance, int minCapacity) {
+      if (!instance.miniBytes_.isModifiable()) {
+        instance.miniBytes_ = makeMutableCopy(instance.miniBytes_, minCapacity);
+      }
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseMsgField(
+        proto2_unittest.RepeatedStringTrim instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.msg_ != null) {
+        return 90;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.msg_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  proto2_unittest.RepeatedStringTrim, proto2_unittest.RepeatedStringTrim.Builder, proto2_unittest.RepeatedStringTrimOrBuilder>(
+                      instance.getMsg(),
+                      null,
+                      false);
+              instance.msg_ = null;
+            }
+            instance.bitField0_ |= 0x00000002;
+          ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.RepeatedStringTrim, proto2_unittest.RepeatedStringTrim.Builder, proto2_unittest.RepeatedStringTrimOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.msg_ = proto2_unittest.RepeatedStringTrim.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000002;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.msg_ = proto2_unittest.RepeatedStringTrim.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+      return 0;
+    }
+    private static void finishCollections0(RepeatedStringTrim instance) {
+      instance.fastString_.makeImmutable();
+      instance.fastBytes_.makeImmutable();
+      instance.miniString_.makeImmutable();
+      instance.miniBytes_.makeImmutable();
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        RepeatedStringTrim instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        RepeatedStringTrim instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasMsg()) instance.msg_ = null;
+      if (instance.hasMsg()) {
+        instance.msg_ = fieldBuilders[0] == null
+            ? instance.msg_
+            : ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.RepeatedStringTrim, proto2_unittest.RepeatedStringTrim.Builder, proto2_unittest.RepeatedStringTrimOrBuilder>) fieldBuilders[0]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<RepeatedStringTrim> parser() {
     return PARSER;

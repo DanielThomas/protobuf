@@ -304,7 +304,7 @@ public final class Debug extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -333,14 +333,27 @@ public final class Debug extends com.google.protobuf.GeneratedFile {
                 debug.Debug.DebugMsg.class, debug.Debug.DebugMsg.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using debug.Debug.DebugMsg.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        secretUserData_ = "";
+
+      }
+      private Builder(debug.Debug.DebugMsg other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -385,13 +398,20 @@ public final class Debug extends com.google.protobuf.GeneratedFile {
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.id_ = id_;
-          
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.secretUserData_ = secretUserData_;
-          ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(debug.Debug.DebugMsg other) {
+        int to_bitField0_ = 0;
+        id_ = other.getId();
+        to_bitField0_ |= 0x00000001;
+        secretUserData_ = other.secretUserData_;
+        to_bitField0_ |= 0x00000002;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -465,7 +485,7 @@ public final class Debug extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int id_ ;
+      private int id_;
       /**
        * <code>int32 id = 1;</code>
        * @return The id.
@@ -497,7 +517,7 @@ public final class Debug extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private java.lang.Object secretUserData_ = "";
+      private java.lang.Object secretUserData_;
       /**
        * <code>string secret_user_data = 2 [debug_redact = true];</code>
        * @return The secretUserData.
@@ -583,21 +603,57 @@ public final class Debug extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<DebugMsg>
-        PARSER = new com.google.protobuf.AbstractParser<DebugMsg>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<DebugMsg> {
+      MessageParser() {}
+
       @java.lang.Override
       public DebugMsg parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        DebugMsg instance = new DebugMsg((Builder) null);
+        java.lang.Object unknown = null;
+        java.lang.Object parsed_secretUserData = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.id_ = input.readInt32();
+
+                break;
+              } // case 8
+              case 18: {
+                parsed_secretUserData = input.readStringRequireUtf8();
+
+                break;
+              } // case 18
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parsed_secretUserData != null) instance.secretUserData_ = parsed_secretUserData;
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<DebugMsg> parser() {
       return PARSER;

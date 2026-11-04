@@ -260,7 +260,7 @@ public final class SetAlias extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -289,14 +289,26 @@ public final class SetAlias extends com.google.protobuf.GeneratedFile {
                 hpb_unittest.SetAlias.Child.class, hpb_unittest.SetAlias.Child.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using hpb_unittest.SetAlias.Child.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(hpb_unittest.SetAlias.Child other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -343,6 +355,12 @@ public final class SetAlias extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(hpb_unittest.SetAlias.Child other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        peeps_ = other.getPeeps();
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -406,7 +424,7 @@ public final class SetAlias extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int peeps_ ;
+      private int peeps_;
       /**
        * <code>int32 peeps = 1;</code>
        * @return Whether the peeps field is set.
@@ -460,21 +478,54 @@ public final class SetAlias extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<Child>
-        PARSER = new com.google.protobuf.AbstractParser<Child>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Child> {
+      MessageParser() {}
+
       @java.lang.Override
       public Child parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Child instance = new Child((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.peeps_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<Child> parser() {
       return PARSER;
@@ -854,7 +905,7 @@ public final class SetAlias extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -883,14 +934,26 @@ public final class SetAlias extends com.google.protobuf.GeneratedFile {
                 hpb_unittest.SetAlias.Parent.class, hpb_unittest.SetAlias.Parent.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using hpb_unittest.SetAlias.Parent.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private Builder(hpb_unittest.SetAlias.Parent other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -959,6 +1022,14 @@ public final class SetAlias extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(hpb_unittest.SetAlias.Parent other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000007);
+        x_ = other.getX();
+        child_ = other.child_;
+        outOfOrder_ = other.getOutOfOrder();
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1037,7 +1108,7 @@ public final class SetAlias extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int x_ ;
+      private int x_;
       /**
        * <code>int32 x = 2;</code>
        * @return Whether the x field is set.
@@ -1205,7 +1276,7 @@ public final class SetAlias extends com.google.protobuf.GeneratedFile {
         bitField0_ |= 0x00000002;
       }
 
-      private long outOfOrder_ ;
+      private long outOfOrder_;
       /**
        * <pre>
        * set_alias must work regardless of order
@@ -1275,21 +1346,124 @@ public final class SetAlias extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<Parent>
-        PARSER = new com.google.protobuf.AbstractParser<Parent>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Parent> {
+      MessageParser() {}
+
       @java.lang.Override
       public Parent parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Parent instance = new Parent((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.outOfOrder_ = input.readInt64();
+                to_bitField0_ |= 0x00000004;
+                break;
+              } // case 8
+              case 16: {
+                instance.x_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 16
+              case 26: {
+                pendingTag = parseChildField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 26
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseChildField(
+          hpb_unittest.SetAlias.Parent instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.child_ != null) {
+          return 26;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.child_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    hpb_unittest.SetAlias.Child, hpb_unittest.SetAlias.Child.Builder, hpb_unittest.SetAlias.ChildOrBuilder>(
+                        instance.getChild(),
+                        null,
+                        false);
+                instance.child_ = null;
+              }
+              instance.bitField0_ |= 0x00000002;
+            ((com.google.protobuf.SingleFieldBuilder<hpb_unittest.SetAlias.Child, hpb_unittest.SetAlias.Child.Builder, hpb_unittest.SetAlias.ChildOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.child_ = hpb_unittest.SetAlias.Child.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000002;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.child_ = hpb_unittest.SetAlias.Child.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000002;
+        return 0;
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          Parent instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          Parent instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasChild()) instance.child_ = null;
+        if (instance.hasChild()) {
+          instance.child_ = fieldBuilders[0] == null
+              ? instance.child_
+              : ((com.google.protobuf.SingleFieldBuilder<hpb_unittest.SetAlias.Child, hpb_unittest.SetAlias.Child.Builder, hpb_unittest.SetAlias.ChildOrBuilder>) fieldBuilders[0]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<Parent> parser() {
       return PARSER;
@@ -1587,7 +1761,7 @@ public final class SetAlias extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -1616,14 +1790,27 @@ public final class SetAlias extends com.google.protobuf.GeneratedFile {
                 hpb_unittest.SetAlias.ParentWithRepeated.class, hpb_unittest.SetAlias.ParentWithRepeated.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using hpb_unittest.SetAlias.ParentWithRepeated.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        children_ = emptyList(hpb_unittest.SetAlias.Child.class);
+
+      }
+      private Builder(hpb_unittest.SetAlias.ParentWithRepeated other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -1680,6 +1867,15 @@ public final class SetAlias extends com.google.protobuf.GeneratedFile {
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(hpb_unittest.SetAlias.ParentWithRepeated other) {
+        int to_bitField0_ = 0;
+        children_ = other.children_;
+        if (!children_.isEmpty()) {
+          to_bitField0_ |= 0x00000001;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1777,8 +1973,7 @@ public final class SetAlias extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.ProtobufList<hpb_unittest.SetAlias.Child> children_ =
-          emptyList(hpb_unittest.SetAlias.Child.class);
+      private com.google.protobuf.Internal.ProtobufList<hpb_unittest.SetAlias.Child> children_;
       private void ensureChildrenIsMutable() {
         if (!children_.isModifiable()) {
           children_ = makeMutableCopy(children_);
@@ -2025,21 +2220,59 @@ public final class SetAlias extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<ParentWithRepeated>
-        PARSER = new com.google.protobuf.AbstractParser<ParentWithRepeated>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ParentWithRepeated> {
+      MessageParser() {}
+
       @java.lang.Override
       public ParentWithRepeated parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        ParentWithRepeated instance = new ParentWithRepeated((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                final int oldLimit = input.pushLimitBeforeMessage();
+                hpb_unittest.SetAlias.Child m = hpb_unittest.SetAlias.Child.parser().parsePartialFrom(input, extensionRegistry);
+                input.popLimitAfterMessage(oldLimit);
+                if (!instance.children_.isModifiable()) {
+  instance.children_ = makeMutableCopy(instance.children_);
+}
+                instance.children_.add(m);
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        finishCollections0(instance);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static void finishCollections0(ParentWithRepeated instance) {
+        instance.children_.makeImmutable();
+      }
+    }
 
     public static com.google.protobuf.Parser<ParentWithRepeated> parser() {
       return PARSER;
@@ -2397,7 +2630,7 @@ hpb_unittest.SetAlias.Child defaultValue) {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -2448,14 +2681,26 @@ hpb_unittest.SetAlias.Child defaultValue) {
                 hpb_unittest.SetAlias.ParentWithMap.class, hpb_unittest.SetAlias.ParentWithMap.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using hpb_unittest.SetAlias.ParentWithMap.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(hpb_unittest.SetAlias.ParentWithMap other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -2501,6 +2746,16 @@ hpb_unittest.SetAlias.Child defaultValue) {
           result.childMap_ = internalGetChildMap().build(ChildMapDefaultEntryHolder.defaultEntry);
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(hpb_unittest.SetAlias.ParentWithMap other) {
+        int to_bitField0_ = 0;
+        if (other.getChildMapCount() > 0) {
+          internalGetMutableChildMap().mergeFrom(
+              other.internalGetChildMap());
+          bitField0_ |= 0x00000001;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -2739,21 +2994,69 @@ hpb_unittest.SetAlias.Child defaultValue) {
     }
 
     private static final com.google.protobuf.Parser<ParentWithMap>
-        PARSER = new com.google.protobuf.AbstractParser<ParentWithMap>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ParentWithMap> {
+      MessageParser() {}
+
       @java.lang.Override
       public ParentWithMap parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        ParentWithMap instance = new ParentWithMap((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.Integer, hpb_unittest.SetAlias.Child>
+                childMap__ = input.readMessage(
+                    ChildMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableChildMap(instance).getMutableMap().put(
+                    childMap__.getKey(), childMap__.getValue());
+
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        finishCollections0(instance);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static com.google.protobuf.MapField<java.lang.Integer, hpb_unittest.SetAlias.Child>
+          internalGetMutableChildMap(hpb_unittest.SetAlias.ParentWithMap instance) {
+        if (instance.childMap_ == null) {
+          instance.childMap_ = com.google.protobuf.MapField.newMapField(
+              ChildMapDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.childMap_.isMutable()) {
+          instance.childMap_ = instance.childMap_.copy();
+        }
+        return instance.childMap_;
+      }
+      private static void finishCollections0(ParentWithMap instance) {
+        if (instance.childMap_ != null) instance.childMap_.makeImmutable();
+      }
+    }
 
     public static com.google.protobuf.Parser<ParentWithMap> parser() {
       return PARSER;

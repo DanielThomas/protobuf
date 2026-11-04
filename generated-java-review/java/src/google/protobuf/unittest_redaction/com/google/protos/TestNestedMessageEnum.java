@@ -383,7 +383,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -412,14 +412,28 @@ private static final long serialVersionUID = 0L;
               com.google.protos.TestNestedMessageEnum.class, com.google.protos.TestNestedMessageEnum.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protos.TestNestedMessageEnum.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      directEnum_ = emptyIntList();
+      redactedString_ = "";
+      maybeForceBuilderInitialization();
+    }
+    private Builder(com.google.protos.TestNestedMessageEnum other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -488,6 +502,17 @@ private static final long serialVersionUID = 0L;
         result.directEnum_ = directEnum_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.google.protos.TestNestedMessageEnum other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000003);
+      nestedEnum_ = other.nestedEnum_;
+      redactedString_ = other.redactedString_;
+      directEnum_ = other.directEnum_;
+      if (!directEnum_.isEmpty()) {
+        to_bitField0_ |= 0x00000004;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -588,7 +613,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.Internal.IntList directEnum_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList directEnum_;
     private void ensureDirectEnumIsMutable(int capacity) {
       if (!directEnum_.isModifiable()) {
         directEnum_ = makeMutableCopy(directEnum_, capacity);
@@ -854,7 +879,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000001;
     }
 
-    private java.lang.Object redactedString_ = "";
+    private java.lang.Object redactedString_;
     /**
      * <code>string redacted_string = 3 [debug_redact = true];</code>
      * @return Whether the redactedString field is set.
@@ -948,21 +973,147 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestNestedMessageEnum>
-      PARSER = new com.google.protobuf.AbstractParser<TestNestedMessageEnum>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestNestedMessageEnum> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestNestedMessageEnum parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestNestedMessageEnum instance = new TestNestedMessageEnum((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.lang.Object parsed_redactedString = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              int tmpRaw = input.readEnum();
+              ensureDirectEnumIsMutable(instance, /* capacity= */ -1);
+              instance.directEnum_.addInt(tmpRaw);
+              break;
+            } // case 8
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureDirectEnumIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.directEnum_.addInt(input.readEnum());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 10
+            case 18: {
+              pendingTag = parseNestedEnumField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 18
+            case 26: {
+              parsed_redactedString = input.readBytes();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parsed_redactedString != null) instance.redactedString_ = parsed_redactedString;
+      finishCollections0(instance);
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensureDirectEnumIsMutable(com.google.protos.TestNestedMessageEnum instance, int minCapacity) {
+      if (!instance.directEnum_.isModifiable()) {
+        instance.directEnum_ = makeMutableCopy(instance.directEnum_, minCapacity);
+      }
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseNestedEnumField(
+        com.google.protos.TestNestedMessageEnum instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.nestedEnum_ != null) {
+        return 18;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.nestedEnum_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protos.TestMessageEnum, com.google.protos.TestMessageEnum.Builder, com.google.protos.TestMessageEnumOrBuilder>(
+                      instance.getNestedEnum(),
+                      null,
+                      false);
+              instance.nestedEnum_ = null;
+            }
+            instance.bitField0_ |= 0x00000001;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protos.TestMessageEnum, com.google.protos.TestMessageEnum.Builder, com.google.protos.TestMessageEnumOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.nestedEnum_ = com.google.protos.TestMessageEnum.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.nestedEnum_ = com.google.protos.TestMessageEnum.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+      return 0;
+    }
+    private static void finishCollections0(TestNestedMessageEnum instance) {
+      instance.directEnum_.makeImmutable();
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        TestNestedMessageEnum instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        TestNestedMessageEnum instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasNestedEnum()) instance.nestedEnum_ = null;
+      if (instance.hasNestedEnum()) {
+        instance.nestedEnum_ = fieldBuilders[0] == null
+            ? instance.nestedEnum_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protos.TestMessageEnum, com.google.protos.TestMessageEnum.Builder, com.google.protos.TestMessageEnumOrBuilder>) fieldBuilders[0]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<TestNestedMessageEnum> parser() {
     return PARSER;

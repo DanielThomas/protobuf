@@ -246,7 +246,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -275,14 +275,28 @@ private static final long serialVersionUID = 0L;
               upb.test.convert.MessageWithKnownRepeatedString.class, upb.test.convert.MessageWithKnownRepeatedString.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using upb.test.convert.MessageWithKnownRepeatedString.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      knownRepeatedString_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+
+    }
+    private Builder(upb.test.convert.MessageWithKnownRepeatedString other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -330,6 +344,15 @@ private static final long serialVersionUID = 0L;
         result.knownRepeatedString_ = knownRepeatedString_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(upb.test.convert.MessageWithKnownRepeatedString other) {
+      int to_bitField0_ = 0;
+      knownRepeatedString_ = other.knownRepeatedString_;
+      if (!knownRepeatedString_.isEmpty()) {
+        to_bitField0_ |= 0x00000001;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -401,8 +424,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.LazyStringArrayList knownRepeatedString_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList knownRepeatedString_;
     private void ensureKnownRepeatedStringIsMutable() {
       if (!knownRepeatedString_.isModifiable()) {
         knownRepeatedString_ = new com.google.protobuf.LazyStringArrayList(knownRepeatedString_);
@@ -525,21 +547,60 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<MessageWithKnownRepeatedString>
-      PARSER = new com.google.protobuf.AbstractParser<MessageWithKnownRepeatedString>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<MessageWithKnownRepeatedString> {
+    MessageParser() {}
+
     @java.lang.Override
     public MessageWithKnownRepeatedString parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MessageWithKnownRepeatedString instance = new MessageWithKnownRepeatedString((Builder) null);
+      java.lang.Object unknown = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8042: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureKnownRepeatedStringIsMutable(instance);
+              instance.knownRepeatedString_.add(bs);
+              break;
+            } // case 8042
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensureKnownRepeatedStringIsMutable(upb.test.convert.MessageWithKnownRepeatedString instance) {
+      if (!instance.knownRepeatedString_.isModifiable()) {
+        instance.knownRepeatedString_ = new com.google.protobuf.LazyStringArrayList(instance.knownRepeatedString_);
+      }
+    }
+    private static void finishCollections0(MessageWithKnownRepeatedString instance) {
+      instance.knownRepeatedString_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<MessageWithKnownRepeatedString> parser() {
     return PARSER;

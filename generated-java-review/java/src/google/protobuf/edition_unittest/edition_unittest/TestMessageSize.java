@@ -437,7 +437,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -471,14 +471,27 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestMessageSize.class, edition_unittest.TestMessageSize.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestMessageSize.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      m4_ = "";
+
+    }
+    private Builder(edition_unittest.TestMessageSize other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -550,6 +563,17 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000020;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestMessageSize other) {
+      int to_bitField0_ = (other.bitField0_ & 0x0000003f);
+      m1_ = other.getM1();
+      m2_ = other.getM2();
+      m3_ = other.getM3();
+      m4_ = other.m4_;
+      m5_ = other.getM5();
+      m6_ = other.getM6();
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -655,7 +679,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private boolean m1_ ;
+    private boolean m1_;
     /**
      * <code>bool m1 = 1;</code>
      * @return Whether the m1 field is set.
@@ -695,7 +719,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long m2_ ;
+    private long m2_;
     /**
      * <code>int64 m2 = 2;</code>
      * @return Whether the m2 field is set.
@@ -735,7 +759,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean m3_ ;
+    private boolean m3_;
     /**
      * <code>bool m3 = 3;</code>
      * @return Whether the m3 field is set.
@@ -775,7 +799,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object m4_ = "";
+    private java.lang.Object m4_;
     /**
      * <code>string m4 = 4;</code>
      * @return Whether the m4 field is set.
@@ -854,7 +878,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int m5_ ;
+    private int m5_;
     /**
      * <code>int32 m5 = 5;</code>
      * @return Whether the m5 field is set.
@@ -894,7 +918,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long m6_ ;
+    private long m6_;
     /**
      * <code>int64 m6 = 6;</code>
      * @return Whether the m6 field is set.
@@ -948,21 +972,81 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestMessageSize>
-      PARSER = new com.google.protobuf.AbstractParser<TestMessageSize>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestMessageSize> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestMessageSize parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestMessageSize instance = new TestMessageSize((Builder) null);
+      java.lang.Object unknown = null;
+      int to_bitField0_ = 0;
+      java.lang.Object parsed_m4 = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.m1_ = input.readBool();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.m2_ = input.readInt64();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              instance.m3_ = input.readBool();
+              to_bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 34: {
+              parsed_m4 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 40: {
+              instance.m5_ = input.readInt32();
+              to_bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              instance.m6_ = input.readInt64();
+              to_bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parsed_m4 != null) instance.m4_ = parsed_m4;
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<TestMessageSize> parser() {
     return PARSER;

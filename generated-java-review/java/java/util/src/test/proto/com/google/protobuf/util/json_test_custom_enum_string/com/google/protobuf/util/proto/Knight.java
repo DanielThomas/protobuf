@@ -359,7 +359,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -388,14 +388,29 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.util.proto.Knight.class, com.google.protobuf.util.proto.Knight.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.util.proto.Knight.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      armor_ = 0;
+      helmet_ = 0;
+      armors_ = emptyIntList();
+
+    }
+    private Builder(com.google.protobuf.util.proto.Knight other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -452,6 +467,17 @@ private static final long serialVersionUID = 0L;
         result.armors_ = armors_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.google.protobuf.util.proto.Knight other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000003);
+      armor_ = other.getArmorValue();
+      helmet_ = other.getHelmetValue();
+      armors_ = other.armors_;
+      if (!armors_.isEmpty()) {
+        to_bitField0_ |= 0x00000004;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -551,7 +577,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int armor_ = 0;
+    private int armor_;
     /**
      * <code>.com.google.protobuf.util.json_test_custom_enum_string.Armor armor = 1;</code>
      * @return Whether the armor field is set.
@@ -610,7 +636,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int helmet_ = 0;
+    private int helmet_;
     /**
      * <code>.com.google.protobuf.util.json_test_custom_enum_string.Helmet helmet = 2;</code>
      * @return Whether the helmet field is set.
@@ -669,7 +695,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList armors_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList armors_;
     private void ensureArmorsIsMutable(int capacity) {
       if (!armors_.isModifiable()) {
         armors_ = makeMutableCopy(armors_, capacity);
@@ -821,21 +847,85 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<Knight>
-      PARSER = new com.google.protobuf.AbstractParser<Knight>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<Knight> {
+    MessageParser() {}
+
     @java.lang.Override
     public Knight parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Knight instance = new Knight((Builder) null);
+      java.lang.Object unknown = null;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.armor_ = input.readEnum();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.helmet_ = input.readEnum();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              int tmpRaw = input.readEnum();
+              ensureArmorsIsMutable(instance, /* capacity= */ -1);
+              instance.armors_.addInt(tmpRaw);
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureArmorsIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.armors_.addInt(input.readEnum());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 26
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensureArmorsIsMutable(com.google.protobuf.util.proto.Knight instance, int minCapacity) {
+      if (!instance.armors_.isModifiable()) {
+        instance.armors_ = makeMutableCopy(instance.armors_, minCapacity);
+      }
+    }
+    private static void finishCollections0(Knight instance) {
+      instance.armors_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<Knight> parser() {
     return PARSER;

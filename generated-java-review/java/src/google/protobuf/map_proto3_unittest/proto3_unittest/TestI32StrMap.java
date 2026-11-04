@@ -308,7 +308,7 @@ java.lang.String defaultValue) {
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -359,14 +359,26 @@ java.lang.String defaultValue) {
               proto3_unittest.TestI32StrMap.class, proto3_unittest.TestI32StrMap.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using proto3_unittest.TestI32StrMap.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+
+    }
+    private Builder(proto3_unittest.TestI32StrMap other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -413,6 +425,15 @@ java.lang.String defaultValue) {
         result.m32Str_.makeImmutable();
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(proto3_unittest.TestI32StrMap other) {
+      int to_bitField0_ = 0;
+      m32Str_ = other.m32Str_;
+      if (m32Str_ != null) {
+        to_bitField0_ |= 0x00000001;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -624,21 +645,69 @@ java.lang.String defaultValue) {
   }
 
   private static final com.google.protobuf.Parser<TestI32StrMap>
-      PARSER = new com.google.protobuf.AbstractParser<TestI32StrMap>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestI32StrMap> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestI32StrMap parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestI32StrMap instance = new TestI32StrMap((Builder) null);
+      java.lang.Object unknown = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.String>
+              m32Str__ = input.readMessage(
+                  M32StrDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableM32Str(instance).getMutableMap().put(
+                  m32Str__.getKey(), m32Str__.getValue());
+
+              break;
+            } // case 10
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.String>
+        internalGetMutableM32Str(proto3_unittest.TestI32StrMap instance) {
+      if (instance.m32Str_ == null) {
+        instance.m32Str_ = com.google.protobuf.MapField.newMapField(
+            M32StrDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.m32Str_.isMutable()) {
+        instance.m32Str_ = instance.m32Str_.copy();
+      }
+      return instance.m32Str_;
+    }
+    private static void finishCollections0(TestI32StrMap instance) {
+      if (instance.m32Str_ != null) instance.m32Str_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<TestI32StrMap> parser() {
     return PARSER;

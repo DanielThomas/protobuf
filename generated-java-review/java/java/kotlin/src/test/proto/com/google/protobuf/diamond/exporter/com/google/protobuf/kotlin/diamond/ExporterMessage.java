@@ -253,7 +253,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -282,14 +282,27 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.kotlin.diamond.ExporterMessage.class, com.google.protobuf.kotlin.diamond.ExporterMessage.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.kotlin.diamond.ExporterMessage.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      value_ = "";
+
+    }
+    private Builder(com.google.protobuf.kotlin.diamond.ExporterMessage other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -336,6 +349,12 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.google.protobuf.kotlin.diamond.ExporterMessage other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000001);
+      value_ = other.value_;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -401,7 +420,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object value_ = "";
+    private java.lang.Object value_;
     /**
      * <code>string value = 1;</code>
      * @return Whether the value field is set.
@@ -494,21 +513,56 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<ExporterMessage>
-      PARSER = new com.google.protobuf.AbstractParser<ExporterMessage>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<ExporterMessage> {
+    MessageParser() {}
+
     @java.lang.Override
     public ExporterMessage parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ExporterMessage instance = new ExporterMessage((Builder) null);
+      java.lang.Object unknown = null;
+      int to_bitField0_ = 0;
+      java.lang.Object parsed_value = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              parsed_value = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parsed_value != null) instance.value_ = parsed_value;
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<ExporterMessage> parser() {
     return PARSER;

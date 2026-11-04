@@ -460,7 +460,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -522,14 +522,28 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.Any.class, com.google.protobuf.Any.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.Any.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      typeUrl_ = "";
+      value_ = com.google.protobuf.ByteString.EMPTY;
+
+    }
+    private Builder(com.google.protobuf.Any other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -574,13 +588,20 @@ private static final long serialVersionUID = 0L;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.typeUrl_ = typeUrl_;
-        ;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.value_ = value_;
-        
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.google.protobuf.Any other) {
+      int to_bitField0_ = 0;
+      typeUrl_ = other.typeUrl_;
+      to_bitField0_ |= 0x00000001;
+      value_ = other.getValue();
+      to_bitField0_ |= 0x00000002;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -654,7 +675,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object typeUrl_ = "";
+    private java.lang.Object typeUrl_;
     /**
      * <pre>
      * Identifies the type of the serialized Protobuf message with a URI reference
@@ -886,7 +907,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString value_;
     /**
      * <pre>
      * Holds a Protobuf serialization of the type described by type_url.
@@ -944,21 +965,57 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<Any>
-      PARSER = new com.google.protobuf.AbstractParser<Any>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<Any> {
+    MessageParser() {}
+
     @java.lang.Override
     public Any parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Any instance = new Any((Builder) null);
+      java.lang.Object unknown = null;
+      java.lang.Object parsed_typeUrl = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              parsed_typeUrl = input.readStringRequireUtf8();
+
+              break;
+            } // case 10
+            case 18: {
+              instance.value_ = input.readBytes();
+
+              break;
+            } // case 18
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (parsed_typeUrl != null) instance.typeUrl_ = parsed_typeUrl;
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<Any> parser() {
     return PARSER;

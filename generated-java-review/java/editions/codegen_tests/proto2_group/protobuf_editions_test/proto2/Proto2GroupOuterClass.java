@@ -324,7 +324,7 @@ public final class Proto2GroupOuterClass extends com.google.protobuf.GeneratedFi
       @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
+            ? new Builder() : new Builder(this);
       }
 
       @java.lang.Override
@@ -353,14 +353,26 @@ public final class Proto2GroupOuterClass extends com.google.protobuf.GeneratedFi
                   protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupField.class, protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupField.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupField.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+
+        }
+        private Builder(protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupField other) {
+          super(other, null);
+          copyFrom_autosplit_0(other);
 
         }
         @java.lang.Override
@@ -407,6 +419,12 @@ public final class Proto2GroupOuterClass extends com.google.protobuf.GeneratedFi
             to_bitField0_ |= 0x00000001;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupField other) {
+          int to_bitField0_ = (other.bitField0_ & 0x00000001);
+          int32Field_ = other.getInt32Field();
+          bitField0_ |= to_bitField0_;
         }
 
         @java.lang.Override
@@ -470,7 +488,7 @@ public final class Proto2GroupOuterClass extends com.google.protobuf.GeneratedFi
         }
         private int bitField0_;
 
-        private int int32Field_ ;
+        private int int32Field_;
         /**
          * <code>optional int32 int32_field = 1;</code>
          * @return Whether the int32Field field is set.
@@ -524,21 +542,54 @@ public final class Proto2GroupOuterClass extends com.google.protobuf.GeneratedFi
       }
 
       private static final com.google.protobuf.Parser<GroupField>
-          PARSER = new com.google.protobuf.AbstractParser<GroupField>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<GroupField> {
+        MessageParser() {}
+
         @java.lang.Override
         public GroupField parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
+          java.util.Objects.requireNonNull(extensionRegistry);
+          GroupField instance = new GroupField((Builder) null);
+          java.lang.Object unknown = null;
+          int to_bitField0_ = 0;
+          java.io.IOException parseFailure = null;
           try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
+            parseLoop: while (true) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0: break parseLoop;
+                case 8: {
+                  instance.int32Field_ = input.readInt32();
+                  to_bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+                default: {
+                  unknown = prepareUnknownFields(unknown, input);
+                  if (!parseUnknownField(input, unknown, tag)) {
+                    break parseLoop;
+                  }
+                  break;
+                }
+              }
+            }
+          } catch (java.io.IOException e) {
+            parseFailure = e;
           }
-          return builder.buildPartial();
+          finishUnknownFields(instance, unknown);
+          if (to_bitField0_ != 0) {
+            instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+          }
+          if (parseFailure != null) {
+            throwParseException(parseFailure, instance);
+          }
+          return instance;
         }
-      };
+      }
 
       public static com.google.protobuf.Parser<GroupField> parser() {
         return PARSER;
@@ -756,7 +807,7 @@ public final class Proto2GroupOuterClass extends com.google.protobuf.GeneratedFi
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -786,14 +837,26 @@ public final class Proto2GroupOuterClass extends com.google.protobuf.GeneratedFi
                 protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.class, protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private Builder(protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -852,6 +915,12 @@ public final class Proto2GroupOuterClass extends com.google.protobuf.GeneratedFi
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        groupField_ = other.groupField_;
+        bitField0_ |= to_bitField0_;
       }
 
       public <Type> Builder setExtension(
@@ -1068,6 +1137,14 @@ public final class Proto2GroupOuterClass extends com.google.protobuf.GeneratedFi
         }
         bitField0_ |= 0x00000001;
       }
+      @java.lang.SuppressWarnings("unchecked")
+      private void transferChildren0(
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (fieldBuilders[0] != null) {
+          if (groupFieldBuilder_ != null) groupFieldBuilder_.dispose();
+          groupFieldBuilder_ = ((com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupField, protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupField.Builder, protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupFieldOrBuilder>) fieldBuilders[0]);
+        }
+      }
 
       // @@protoc_insertion_point(builder_scope:protobuf_editions_test.proto2.Proto2Group)
     }
@@ -1083,21 +1160,120 @@ public final class Proto2GroupOuterClass extends com.google.protobuf.GeneratedFi
     }
 
     private static final com.google.protobuf.Parser<Proto2Group>
-        PARSER = new com.google.protobuf.AbstractParser<Proto2Group>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Proto2Group> {
+      MessageParser() {}
+
       @java.lang.Override
       public Proto2Group parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Proto2Group instance = new Proto2Group((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 19: {
+                pendingTag = parseGroupFieldField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 19
+              default: {
+                pendingTag = tag;
+                break parseLoop;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (pendingTag != 0 && parseFailure == null) {
+          return mergeWithBuilder(instance, input, extensionRegistry, pendingTag, fieldBuilders);
+        }
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseGroupFieldField(
+          protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.groupField_ != null) {
+          return 19;
+        }
+        if (fieldBuilders != null) {
+          if (instance.groupField_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupField, protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupField.Builder, protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupFieldOrBuilder>(
+                        instance.getGroupField(),
+                        null,
+                        false);
+                instance.groupField_ = null;
+              }
+              instance.bitField0_ |= 0x00000001;
+            input.readGroup(2,
+                ((com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupField, protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupField.Builder, protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupFieldOrBuilder>) fieldBuilders[0]).getBuilder(),
+                extensionRegistry);
+          } else {
+            instance.groupField_ = input.readGroup(2, protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupField.parser(),
+                extensionRegistry);
+          }
+          instance.bitField0_ |= 0x00000001;
+          return 0;
+        }
+        instance.groupField_ = input.readGroup(2, protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupField.parser(), extensionRegistry);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          Proto2Group instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          Proto2Group instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasGroupField()) instance.groupField_ = null;
+        if (instance.hasGroupField()) {
+          instance.groupField_ = fieldBuilders[0] == null
+              ? instance.groupField_
+              : ((com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupField, protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupField.Builder, protobuf_editions_test.proto2.Proto2GroupOuterClass.Proto2Group.GroupFieldOrBuilder>) fieldBuilders[0]).build();
+
+        }
+      }
+      private static Proto2Group mergeWithBuilder(
+          Proto2Group instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite registry, int tag,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = new Builder(instance);
+        if (fieldBuilders == null) {
+        } else {
+          builder.transferChildren0(fieldBuilders);
+        }
+        return mergeFrom(builder, input, registry, tag, null);
+      }
+    }
 
     public static com.google.protobuf.Parser<Proto2Group> parser() {
       return PARSER;
@@ -1349,7 +1525,7 @@ public final class Proto2GroupOuterClass extends com.google.protobuf.GeneratedFi
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -1378,14 +1554,26 @@ public final class Proto2GroupOuterClass extends com.google.protobuf.GeneratedFi
                 protobuf_editions_test.proto2.Proto2GroupOuterClass.GroupExtension.class, protobuf_editions_test.proto2.Proto2GroupOuterClass.GroupExtension.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.proto2.Proto2GroupOuterClass.GroupExtension.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(protobuf_editions_test.proto2.Proto2GroupOuterClass.GroupExtension other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -1432,6 +1620,12 @@ public final class Proto2GroupOuterClass extends com.google.protobuf.GeneratedFi
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(protobuf_editions_test.proto2.Proto2GroupOuterClass.GroupExtension other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        int32Field_ = other.getInt32Field();
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1495,7 +1689,7 @@ public final class Proto2GroupOuterClass extends com.google.protobuf.GeneratedFi
       }
       private int bitField0_;
 
-      private int int32Field_ ;
+      private int int32Field_;
       /**
        * <code>optional int32 int32_field = 1;</code>
        * @return Whether the int32Field field is set.
@@ -1549,21 +1743,54 @@ public final class Proto2GroupOuterClass extends com.google.protobuf.GeneratedFi
     }
 
     private static final com.google.protobuf.Parser<GroupExtension>
-        PARSER = new com.google.protobuf.AbstractParser<GroupExtension>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<GroupExtension> {
+      MessageParser() {}
+
       @java.lang.Override
       public GroupExtension parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        GroupExtension instance = new GroupExtension((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.int32Field_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<GroupExtension> parser() {
       return PARSER;

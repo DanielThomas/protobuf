@@ -318,7 +318,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -347,14 +347,28 @@ private static final long serialVersionUID = 0L;
               pb.CustomOptionLifetimesMessage.class, pb.CustomOptionLifetimesMessage.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using pb.CustomOptionLifetimesMessage.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      customEnum_ = 0;
+      repeatedCustomEnum_ = emptyIntList();
+
+    }
+    private Builder(pb.CustomOptionLifetimesMessage other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -406,6 +420,16 @@ private static final long serialVersionUID = 0L;
         result.repeatedCustomEnum_ = repeatedCustomEnum_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(pb.CustomOptionLifetimesMessage other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000001);
+      customEnum_ = other.getCustomEnumValue();
+      repeatedCustomEnum_ = other.repeatedCustomEnum_;
+      if (!repeatedCustomEnum_.isEmpty()) {
+        to_bitField0_ |= 0x00000002;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -497,7 +521,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int customEnum_ = 0;
+    private int customEnum_;
     /**
      * <code>.pb.CustomOptionLifetimesEnum custom_enum = 1;</code>
      * @return Whether the customEnum field is set.
@@ -556,7 +580,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedCustomEnum_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedCustomEnum_;
     private void ensureRepeatedCustomEnumIsMutable(int capacity) {
       if (!repeatedCustomEnum_.isModifiable()) {
         repeatedCustomEnum_ = makeMutableCopy(repeatedCustomEnum_, capacity);
@@ -708,21 +732,80 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<CustomOptionLifetimesMessage>
-      PARSER = new com.google.protobuf.AbstractParser<CustomOptionLifetimesMessage>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<CustomOptionLifetimesMessage> {
+    MessageParser() {}
+
     @java.lang.Override
     public CustomOptionLifetimesMessage parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      CustomOptionLifetimesMessage instance = new CustomOptionLifetimesMessage((Builder) null);
+      java.lang.Object unknown = null;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.customEnum_ = input.readEnum();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              int tmpRaw = input.readEnum();
+              ensureRepeatedCustomEnumIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedCustomEnum_.addInt(tmpRaw);
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedCustomEnumIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.repeatedCustomEnum_.addInt(input.readEnum());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensureRepeatedCustomEnumIsMutable(pb.CustomOptionLifetimesMessage instance, int minCapacity) {
+      if (!instance.repeatedCustomEnum_.isModifiable()) {
+        instance.repeatedCustomEnum_ = makeMutableCopy(instance.repeatedCustomEnum_, minCapacity);
+      }
+    }
+    private static void finishCollections0(CustomOptionLifetimesMessage instance) {
+      instance.repeatedCustomEnum_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<CustomOptionLifetimesMessage> parser() {
     return PARSER;
