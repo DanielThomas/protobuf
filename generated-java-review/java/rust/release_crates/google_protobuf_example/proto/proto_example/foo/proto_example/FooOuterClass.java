@@ -546,7 +546,7 @@ public final class FooOuterClass extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -575,14 +575,28 @@ public final class FooOuterClass extends com.google.protobuf.GeneratedFile {
                 proto_example.FooOuterClass.Foo.class, proto_example.FooOuterClass.Foo.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto_example.FooOuterClass.Foo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        numbers_ = emptyIntList();
+        name_ = "";
+        maybeForceBuilderInitialization();
+      }
+      private Builder(proto_example.FooOuterClass.Foo other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -668,6 +682,19 @@ public final class FooOuterClass extends com.google.protobuf.GeneratedFile {
           result.numbers_ = numbers_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto_example.FooOuterClass.Foo other) {
+        int to_bitField0_ = (other.bitField0_ & 0x0000000f);
+        int_ = other.getInt();
+        name_ = other.name_;
+        bar_ = other.bar_;
+        timestamp_ = other.timestamp_;
+        numbers_ = other.numbers_;
+        if (!numbers_.isEmpty()) {
+          to_bitField0_ |= 0x00000010;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -783,7 +810,7 @@ public final class FooOuterClass extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int int_ ;
+      private int int_;
       /**
        * <code>int32 int = 1;</code>
        * @return Whether the int field is set.
@@ -823,7 +850,7 @@ public final class FooOuterClass extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList numbers_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList numbers_;
       private void ensureNumbersIsMutable(int capacity) {
         if (!numbers_.isModifiable()) {
           numbers_ = makeMutableCopy(numbers_, capacity);
@@ -907,7 +934,7 @@ public final class FooOuterClass extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private java.lang.Object name_ = "";
+      private java.lang.Object name_;
       /**
        * <code>string name = 3;</code>
        * @return Whether the name field is set.
@@ -1256,21 +1283,198 @@ public final class FooOuterClass extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<Foo>
-        PARSER = new com.google.protobuf.AbstractParser<Foo>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Foo> {
+      MessageParser() {}
+
       @java.lang.Override
       public Foo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Foo instance = new Foo((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.lang.Object parsed_name = null;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.int_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                int v = input.readInt32();
+                ensureNumbersIsMutable(instance, /* capacity= */ -1);
+                instance.numbers_.addInt(v);
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureNumbersIsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.numbers_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 18
+              case 26: {
+                parsed_name = input.readStringRequireUtf8();
+                to_bitField0_ |= 0x00000002;
+                break;
+              } // case 26
+              case 34: {
+                pendingTag = parseBarField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 34
+              case 42: {
+                pendingTag = parseTimestampField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 42
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parsed_name != null) instance.name_ = parsed_name;
+        finishCollections0(instance);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static void ensureNumbersIsMutable(proto_example.FooOuterClass.Foo instance, int minCapacity) {
+        if (!instance.numbers_.isModifiable()) {
+          instance.numbers_ = makeMutableCopy(instance.numbers_, minCapacity);
+        }
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseBarField(
+          proto_example.FooOuterClass.Foo instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.bar_ != null) {
+          return 34;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.bar_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    proto_example.BarOuterClass.Bar, proto_example.BarOuterClass.Bar.Builder, proto_example.BarOuterClass.BarOrBuilder>(
+                        instance.getBar(),
+                        null,
+                        false);
+                instance.bar_ = null;
+              }
+              instance.bitField0_ |= 0x00000004;
+            ((com.google.protobuf.SingleFieldBuilder<proto_example.BarOuterClass.Bar, proto_example.BarOuterClass.Bar.Builder, proto_example.BarOuterClass.BarOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.bar_ = proto_example.BarOuterClass.Bar.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000004;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.bar_ = proto_example.BarOuterClass.Bar.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000004;
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseTimestampField(
+          proto_example.FooOuterClass.Foo instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.timestamp_ != null) {
+          return 42;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.timestamp_ != null || fieldBuilders[1] != null) {
+              if (fieldBuilders[1] == null) {
+                fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+                    com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                        instance.getTimestamp(),
+                        null,
+                        false);
+                instance.timestamp_ = null;
+              }
+              instance.bitField0_ |= 0x00000008;
+            ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>) fieldBuilders[1]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.timestamp_ = com.google.protobuf.Timestamp.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000008;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.timestamp_ = com.google.protobuf.Timestamp.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000008;
+        return 0;
+      }
+      private static void finishCollections0(Foo instance) {
+        instance.numbers_.makeImmutable();
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          Foo instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[2];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          Foo instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasBar()) instance.bar_ = null;
+        if (instance.hasBar()) {
+          instance.bar_ = fieldBuilders[0] == null
+              ? instance.bar_
+              : ((com.google.protobuf.SingleFieldBuilder<proto_example.BarOuterClass.Bar, proto_example.BarOuterClass.Bar.Builder, proto_example.BarOuterClass.BarOrBuilder>) fieldBuilders[0]).build();
+
+        }
+        if (!instance.hasTimestamp()) instance.timestamp_ = null;
+        if (instance.hasTimestamp()) {
+          instance.timestamp_ = fieldBuilders[1] == null
+              ? instance.timestamp_
+              : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>) fieldBuilders[1]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<Foo> parser() {
       return PARSER;

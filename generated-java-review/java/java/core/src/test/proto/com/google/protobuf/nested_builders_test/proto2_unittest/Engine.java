@@ -310,7 +310,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -339,14 +339,26 @@ private static final long serialVersionUID = 0L;
               proto2_unittest.Engine.class, proto2_unittest.Engine.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using proto2_unittest.Engine.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      maybeForceBuilderInitialization();
+    }
+    private Builder(proto2_unittest.Engine other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -415,6 +427,14 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000004;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(proto2_unittest.Engine other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000007);
+      cylinder_ = other.getCylinder();
+      liters_ = other.getLiters();
+      timingBelt_ = other.timingBelt_;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -493,7 +513,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int cylinder_ ;
+    private int cylinder_;
     /**
      * <code>int32 cylinder = 1;</code>
      * @return Whether the cylinder field is set.
@@ -533,7 +553,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int liters_ ;
+    private int liters_;
     /**
      * <code>int32 liters = 2;</code>
      * @return Whether the liters field is set.
@@ -715,21 +735,124 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<Engine>
-      PARSER = new com.google.protobuf.AbstractParser<Engine>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<Engine> {
+    MessageParser() {}
+
     @java.lang.Override
     public Engine parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Engine instance = new Engine((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.cylinder_ = input.readInt32();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.liters_ = input.readInt32();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 26: {
+              pendingTag = parseTimingBeltField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 26
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseTimingBeltField(
+        proto2_unittest.Engine instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.timingBelt_ != null) {
+        return 26;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.timingBelt_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  proto2_unittest.TimingBelt, proto2_unittest.TimingBelt.Builder, proto2_unittest.TimingBeltOrBuilder>(
+                      instance.getTimingBelt(),
+                      null,
+                      false);
+              instance.timingBelt_ = null;
+            }
+            instance.bitField0_ |= 0x00000004;
+          ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.TimingBelt, proto2_unittest.TimingBelt.Builder, proto2_unittest.TimingBeltOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.timingBelt_ = proto2_unittest.TimingBelt.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000004;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.timingBelt_ = proto2_unittest.TimingBelt.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+      return 0;
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        Engine instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        Engine instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasTimingBelt()) instance.timingBelt_ = null;
+      if (instance.hasTimingBelt()) {
+        instance.timingBelt_ = fieldBuilders[0] == null
+            ? instance.timingBelt_
+            : ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.TimingBelt, proto2_unittest.TimingBelt.Builder, proto2_unittest.TimingBeltOrBuilder>) fieldBuilders[0]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<Engine> parser() {
     return PARSER;

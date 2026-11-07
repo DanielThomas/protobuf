@@ -372,7 +372,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -401,14 +401,28 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestChildExtension.class, edition_unittest.TestChildExtension.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestChildExtension.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      a_ = "";
+      b_ = "";
+      maybeForceBuilderInitialization();
+    }
+    private Builder(edition_unittest.TestChildExtension other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -477,6 +491,14 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000004;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestChildExtension other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000007);
+      a_ = other.a_;
+      b_ = other.b_;
+      optionalExtension_ = other.optionalExtension_;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -564,7 +586,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object a_ = "";
+    private java.lang.Object a_;
     /**
      * <code>string a = 1;</code>
      * @return Whether the a field is set.
@@ -643,7 +665,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object b_ = "";
+    private java.lang.Object b_;
     /**
      * <code>string b = 2;</code>
      * @return Whether the b field is set.
@@ -864,21 +886,128 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestChildExtension>
-      PARSER = new com.google.protobuf.AbstractParser<TestChildExtension>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestChildExtension> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestChildExtension parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestChildExtension instance = new TestChildExtension((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.lang.Object parsed_a = null;
+      java.lang.Object parsed_b = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              parsed_a = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              parsed_b = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              pendingTag = parseOptionalExtensionField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 26
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parsed_a != null) instance.a_ = parsed_a;
+      if (parsed_b != null) instance.b_ = parsed_b;
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseOptionalExtensionField(
+        edition_unittest.TestChildExtension instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.optionalExtension_ != null) {
+        return 26;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.optionalExtension_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  edition_unittest.TestAllExtensions, edition_unittest.TestAllExtensions.Builder, edition_unittest.TestAllExtensionsOrBuilder>(
+                      instance.getOptionalExtension(),
+                      null,
+                      false);
+              instance.optionalExtension_ = null;
+            }
+            instance.bitField0_ |= 0x00000004;
+          ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllExtensions, edition_unittest.TestAllExtensions.Builder, edition_unittest.TestAllExtensionsOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.optionalExtension_ = edition_unittest.TestAllExtensions.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000004;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.optionalExtension_ = edition_unittest.TestAllExtensions.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+      return 0;
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        TestChildExtension instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        TestChildExtension instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasOptionalExtension()) instance.optionalExtension_ = null;
+      if (instance.hasOptionalExtension()) {
+        instance.optionalExtension_ = fieldBuilders[0] == null
+            ? instance.optionalExtension_
+            : ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllExtensions, edition_unittest.TestAllExtensions.Builder, edition_unittest.TestAllExtensionsOrBuilder>) fieldBuilders[0]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<TestChildExtension> parser() {
     return PARSER;

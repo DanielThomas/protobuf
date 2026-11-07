@@ -308,7 +308,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -337,14 +337,27 @@ private static final long serialVersionUID = 0L;
               proto2_unittest.Vehicle.class, proto2_unittest.Vehicle.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using proto2_unittest.Vehicle.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      wheel_ = emptyList(proto2_unittest.Wheel.class);
+      maybeForceBuilderInitialization();
+    }
+    private Builder(proto2_unittest.Vehicle other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -419,6 +432,16 @@ private static final long serialVersionUID = 0L;
       }
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(proto2_unittest.Vehicle other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000001);
+      engine_ = other.engine_;
+      wheel_ = other.wheel_;
+      if (!wheel_.isEmpty()) {
+        to_bitField0_ |= 0x00000002;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -651,8 +674,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000001;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<proto2_unittest.Wheel> wheel_ =
-        emptyList(proto2_unittest.Wheel.class);
+    private com.google.protobuf.Internal.ProtobufList<proto2_unittest.Wheel> wheel_;
     private void ensureWheelIsMutable() {
       if (!wheel_.isModifiable()) {
         wheel_ = makeMutableCopy(wheel_);
@@ -899,21 +921,124 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<Vehicle>
-      PARSER = new com.google.protobuf.AbstractParser<Vehicle>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<Vehicle> {
+    MessageParser() {}
+
     @java.lang.Override
     public Vehicle parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Vehicle instance = new Vehicle((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              pendingTag = parseEngineField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 10
+            case 18: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              proto2_unittest.Wheel m = proto2_unittest.Wheel.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.wheel_.isModifiable()) {
+  instance.wheel_ = makeMutableCopy(instance.wheel_);
+}
+              instance.wheel_.add(m);
+              break;
+            } // case 18
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      finishCollections0(instance);
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseEngineField(
+        proto2_unittest.Vehicle instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.engine_ != null) {
+        return 10;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.engine_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  proto2_unittest.Engine, proto2_unittest.Engine.Builder, proto2_unittest.EngineOrBuilder>(
+                      instance.getEngine(),
+                      null,
+                      false);
+              instance.engine_ = null;
+            }
+            instance.bitField0_ |= 0x00000001;
+          ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.Engine, proto2_unittest.Engine.Builder, proto2_unittest.EngineOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.engine_ = proto2_unittest.Engine.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.engine_ = proto2_unittest.Engine.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+      return 0;
+    }
+    private static void finishCollections0(Vehicle instance) {
+      instance.wheel_.makeImmutable();
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        Vehicle instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        Vehicle instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasEngine()) instance.engine_ = null;
+      if (instance.hasEngine()) {
+        instance.engine_ = fieldBuilders[0] == null
+            ? instance.engine_
+            : ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.Engine, proto2_unittest.Engine.Builder, proto2_unittest.EngineOrBuilder>) fieldBuilders[0]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<Vehicle> parser() {
     return PARSER;

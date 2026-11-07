@@ -225,7 +225,7 @@ public final class UnittestMsetWireFormat extends com.google.protobuf.GeneratedF
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -259,14 +259,25 @@ public final class UnittestMsetWireFormat extends com.google.protobuf.GeneratedF
                 proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet.class, proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -395,21 +406,46 @@ public final class UnittestMsetWireFormat extends com.google.protobuf.GeneratedF
     }
 
     private static final com.google.protobuf.Parser<TestMessageSet>
-        PARSER = new com.google.protobuf.AbstractParser<TestMessageSet>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestMessageSet> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestMessageSet parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestMessageSet instance = new TestMessageSet((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                pendingTag = tag;
+                break parseLoop;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        if (pendingTag != 0) {
+          return mergeFrom(instance.toBuilder(), input, extensionRegistry, pendingTag, null);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<TestMessageSet> parser() {
       return PARSER;
@@ -686,7 +722,7 @@ public final class UnittestMsetWireFormat extends com.google.protobuf.GeneratedF
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -715,14 +751,26 @@ public final class UnittestMsetWireFormat extends com.google.protobuf.GeneratedF
                 proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSetWireFormatContainer.class, proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSetWireFormatContainer.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSetWireFormatContainer.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private Builder(proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSetWireFormatContainer other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -781,6 +829,12 @@ public final class UnittestMsetWireFormat extends com.google.protobuf.GeneratedF
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSetWireFormatContainer other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        messageSet_ = other.messageSet_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -990,21 +1044,110 @@ public final class UnittestMsetWireFormat extends com.google.protobuf.GeneratedF
     }
 
     private static final com.google.protobuf.Parser<TestMessageSetWireFormatContainer>
-        PARSER = new com.google.protobuf.AbstractParser<TestMessageSetWireFormatContainer>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestMessageSetWireFormatContainer> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestMessageSetWireFormatContainer parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestMessageSetWireFormatContainer instance = new TestMessageSetWireFormatContainer((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                pendingTag = parseMessageSetField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseMessageSetField(
+          proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSetWireFormatContainer instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.messageSet_ != null) {
+          return 10;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.messageSet_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet, proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet.Builder, proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSetOrBuilder>(
+                        instance.getMessageSet(),
+                        null,
+                        false);
+                instance.messageSet_ = null;
+              }
+              instance.bitField0_ |= 0x00000001;
+            ((com.google.protobuf.SingleFieldBuilder<proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet, proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet.Builder, proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSetOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.messageSet_ = proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000001;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.messageSet_ = proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          TestMessageSetWireFormatContainer instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          TestMessageSetWireFormatContainer instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasMessageSet()) instance.messageSet_ = null;
+        if (instance.hasMessageSet()) {
+          instance.messageSet_ = fieldBuilders[0] == null
+              ? instance.messageSet_
+              : ((com.google.protobuf.SingleFieldBuilder<proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet, proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSet.Builder, proto2_wireformat_unittest.UnittestMsetWireFormat.TestMessageSetOrBuilder>) fieldBuilders[0]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<TestMessageSetWireFormatContainer> parser() {
       return PARSER;

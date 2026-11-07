@@ -31067,7 +31067,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -31100,14 +31100,954 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.test.WideClosedEnum.class, com.google.protobuf.test.WideClosedEnum.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.test.WideClosedEnum.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      state1_ = 0;
+      state2_ = 0;
+      state3_ = 0;
+      state4_ = 0;
+      state5_ = 0;
+      state6_ = 0;
+      state7_ = 0;
+      state8_ = 0;
+      state9_ = 0;
+      state10_ = 0;
+      state11_ = 0;
+      state12_ = 0;
+      state13_ = 0;
+      state14_ = 0;
+      state15_ = 0;
+      state16_ = 0;
+      state17_ = 0;
+      state18_ = 0;
+      state19_ = 0;
+      state20_ = 0;
+      state21_ = 0;
+      state22_ = 0;
+      state23_ = 0;
+      state24_ = 0;
+      state25_ = 0;
+      state26_ = 0;
+      state27_ = 0;
+      state28_ = 0;
+      state29_ = 0;
+      state30_ = 0;
+      state31_ = 0;
+      state32_ = 0;
+      state33_ = 0;
+      state34_ = 0;
+      state35_ = 0;
+      state36_ = 0;
+      state37_ = 0;
+      state38_ = 0;
+      state39_ = 0;
+      state40_ = 0;
+      state41_ = 0;
+      state42_ = 0;
+      state43_ = 0;
+      state44_ = 0;
+      state45_ = 0;
+      state46_ = 0;
+      state47_ = 0;
+      state48_ = 0;
+      state49_ = 0;
+      state50_ = 0;
+      state51_ = 0;
+      state52_ = 0;
+      state53_ = 0;
+      state54_ = 0;
+      state55_ = 0;
+      state56_ = 0;
+      state57_ = 0;
+      state58_ = 0;
+      state59_ = 0;
+      state60_ = 0;
+      state61_ = 0;
+      state62_ = 0;
+      state63_ = 0;
+      state64_ = 0;
+      state65_ = 0;
+      state66_ = 0;
+      state67_ = 0;
+      state68_ = 0;
+      state69_ = 0;
+      state70_ = 0;
+      state71_ = 0;
+      state72_ = 0;
+      state73_ = 0;
+      state74_ = 0;
+      state75_ = 0;
+      state76_ = 0;
+      state77_ = 0;
+      state78_ = 0;
+      state79_ = 0;
+      state80_ = 0;
+      state81_ = 0;
+      state82_ = 0;
+      state83_ = 0;
+      state84_ = 0;
+      state85_ = 0;
+      state86_ = 0;
+      state87_ = 0;
+      state88_ = 0;
+      state89_ = 0;
+      state90_ = 0;
+      state91_ = 0;
+      state92_ = 0;
+      state93_ = 0;
+      state94_ = 0;
+      state95_ = 0;
+      state96_ = 0;
+      state97_ = 0;
+      state98_ = 0;
+      state99_ = 0;
+      state100_ = 0;
+      state101_ = 0;
+      state102_ = 0;
+      state103_ = 0;
+      state104_ = 0;
+      state105_ = 0;
+      state106_ = 0;
+      state107_ = 0;
+      state108_ = 0;
+      state109_ = 0;
+      state110_ = 0;
+      state111_ = 0;
+      state112_ = 0;
+      state113_ = 0;
+      state114_ = 0;
+      state115_ = 0;
+      state116_ = 0;
+      state117_ = 0;
+      state118_ = 0;
+      state119_ = 0;
+      state120_ = 0;
+      state121_ = 0;
+      state122_ = 0;
+      state123_ = 0;
+      state124_ = 0;
+      state125_ = 0;
+      state126_ = 0;
+      state127_ = 0;
+      state128_ = 0;
+      state129_ = 0;
+      state130_ = 0;
+      state131_ = 0;
+      state132_ = 0;
+      state133_ = 0;
+      state134_ = 0;
+      state135_ = 0;
+      state136_ = 0;
+      state137_ = 0;
+      state138_ = 0;
+      state139_ = 0;
+      state140_ = 0;
+      state141_ = 0;
+      state142_ = 0;
+      state143_ = 0;
+      state144_ = 0;
+      state145_ = 0;
+      state146_ = 0;
+      state147_ = 0;
+      state148_ = 0;
+      state149_ = 0;
+      state150_ = 0;
+      state151_ = 0;
+      state152_ = 0;
+      state153_ = 0;
+      state154_ = 0;
+      state155_ = 0;
+      state156_ = 0;
+      state157_ = 0;
+      state158_ = 0;
+      state159_ = 0;
+      state160_ = 0;
+      state161_ = 0;
+      state162_ = 0;
+      state163_ = 0;
+      state164_ = 0;
+      state165_ = 0;
+      state166_ = 0;
+      state167_ = 0;
+      state168_ = 0;
+      state169_ = 0;
+      state170_ = 0;
+      state171_ = 0;
+      state172_ = 0;
+      state173_ = 0;
+      state174_ = 0;
+      state175_ = 0;
+      state176_ = 0;
+      state177_ = 0;
+      state178_ = 0;
+      state179_ = 0;
+      state180_ = 0;
+      state181_ = 0;
+      state182_ = 0;
+      state183_ = 0;
+      state184_ = 0;
+      state185_ = 0;
+      state186_ = 0;
+      state187_ = 0;
+      state188_ = 0;
+      state189_ = 0;
+      state190_ = 0;
+      state191_ = 0;
+      state192_ = 0;
+      state193_ = 0;
+      state194_ = 0;
+      state195_ = 0;
+      state196_ = 0;
+      state197_ = 0;
+      state198_ = 0;
+      state199_ = 0;
+      state200_ = 0;
+      state201_ = 0;
+      state202_ = 0;
+      state203_ = 0;
+      state204_ = 0;
+      state205_ = 0;
+      state206_ = 0;
+      state207_ = 0;
+      state208_ = 0;
+      state209_ = 0;
+      state210_ = 0;
+      state211_ = 0;
+      state212_ = 0;
+      state213_ = 0;
+      state214_ = 0;
+      state215_ = 0;
+      state216_ = 0;
+      state217_ = 0;
+      state218_ = 0;
+      state219_ = 0;
+      state220_ = 0;
+      state221_ = 0;
+      state222_ = 0;
+      state223_ = 0;
+      state224_ = 0;
+      state225_ = 0;
+      state226_ = 0;
+      state227_ = 0;
+      state228_ = 0;
+      state229_ = 0;
+      state230_ = 0;
+      state231_ = 0;
+      state232_ = 0;
+      state233_ = 0;
+      state234_ = 0;
+      state235_ = 0;
+      state236_ = 0;
+      state237_ = 0;
+      state238_ = 0;
+      state239_ = 0;
+      state240_ = 0;
+      state241_ = 0;
+      state242_ = 0;
+      state243_ = 0;
+      state244_ = 0;
+      state245_ = 0;
+      state246_ = 0;
+      state247_ = 0;
+      state248_ = 0;
+      state249_ = 0;
+      state250_ = 0;
+      state251_ = 0;
+      state252_ = 0;
+      state253_ = 0;
+      state254_ = 0;
+      state255_ = 0;
+      state256_ = 0;
+      state257_ = 0;
+      state258_ = 0;
+      state259_ = 0;
+      state260_ = 0;
+      state261_ = 0;
+      state262_ = 0;
+      state263_ = 0;
+      state264_ = 0;
+      state265_ = 0;
+      state266_ = 0;
+      state267_ = 0;
+      state268_ = 0;
+      state269_ = 0;
+      state270_ = 0;
+      state271_ = 0;
+      state272_ = 0;
+      state273_ = 0;
+      state274_ = 0;
+      state275_ = 0;
+      state276_ = 0;
+      state277_ = 0;
+      state278_ = 0;
+      state279_ = 0;
+      state280_ = 0;
+      state281_ = 0;
+      state282_ = 0;
+      state283_ = 0;
+      state284_ = 0;
+      state285_ = 0;
+      state286_ = 0;
+      state287_ = 0;
+      state288_ = 0;
+      state289_ = 0;
+      state290_ = 0;
+      state291_ = 0;
+      state292_ = 0;
+      state293_ = 0;
+      state294_ = 0;
+      state295_ = 0;
+      state296_ = 0;
+      state297_ = 0;
+      state298_ = 0;
+      state299_ = 0;
+      state300_ = 0;
+      state301_ = 0;
+      state302_ = 0;
+      state303_ = 0;
+      state304_ = 0;
+      state305_ = 0;
+      state306_ = 0;
+      state307_ = 0;
+      state308_ = 0;
+      state309_ = 0;
+      state310_ = 0;
+      state311_ = 0;
+      state312_ = 0;
+      state313_ = 0;
+      state314_ = 0;
+      state315_ = 0;
+      state316_ = 0;
+      state317_ = 0;
+      state318_ = 0;
+      state319_ = 0;
+      state320_ = 0;
+      state321_ = 0;
+      state322_ = 0;
+      state323_ = 0;
+      state324_ = 0;
+      state325_ = 0;
+      state326_ = 0;
+      state327_ = 0;
+      state328_ = 0;
+      state329_ = 0;
+      state330_ = 0;
+      state331_ = 0;
+      state332_ = 0;
+      state333_ = 0;
+      state334_ = 0;
+      state335_ = 0;
+      state336_ = 0;
+      state337_ = 0;
+      state338_ = 0;
+      state339_ = 0;
+      state340_ = 0;
+      state341_ = 0;
+      state342_ = 0;
+      state343_ = 0;
+      state344_ = 0;
+      state345_ = 0;
+      state346_ = 0;
+      state347_ = 0;
+      state348_ = 0;
+      state349_ = 0;
+      state350_ = 0;
+      state351_ = 0;
+      state352_ = 0;
+      state353_ = 0;
+      state354_ = 0;
+      state355_ = 0;
+      state356_ = 0;
+      state357_ = 0;
+      state358_ = 0;
+      state359_ = 0;
+      state360_ = 0;
+      state361_ = 0;
+      state362_ = 0;
+      state363_ = 0;
+      state364_ = 0;
+      state365_ = 0;
+      state366_ = 0;
+      state367_ = 0;
+      state368_ = 0;
+      state369_ = 0;
+      state370_ = 0;
+      state371_ = 0;
+      state372_ = 0;
+      state373_ = 0;
+      state374_ = 0;
+      state375_ = 0;
+      state376_ = 0;
+      state377_ = 0;
+      state378_ = 0;
+      state379_ = 0;
+      state380_ = 0;
+      state381_ = 0;
+      state382_ = 0;
+      state383_ = 0;
+      state384_ = 0;
+      state385_ = 0;
+      state386_ = 0;
+      state387_ = 0;
+      state388_ = 0;
+      state389_ = 0;
+      state390_ = 0;
+      state391_ = 0;
+      state392_ = 0;
+      state393_ = 0;
+      state394_ = 0;
+      state395_ = 0;
+      state396_ = 0;
+      state397_ = 0;
+      state398_ = 0;
+      state399_ = 0;
+      state400_ = 0;
+      state401_ = 0;
+      state402_ = 0;
+      state403_ = 0;
+      state404_ = 0;
+      state405_ = 0;
+      state406_ = 0;
+      state407_ = 0;
+      state408_ = 0;
+      state409_ = 0;
+      state410_ = 0;
+      state411_ = 0;
+      state412_ = 0;
+      state413_ = 0;
+      state414_ = 0;
+      state415_ = 0;
+      state416_ = 0;
+      state417_ = 0;
+      state418_ = 0;
+      state419_ = 0;
+      state420_ = 0;
+      state421_ = 0;
+      state422_ = 0;
+      state423_ = 0;
+      state424_ = 0;
+      state425_ = 0;
+      state426_ = 0;
+      state427_ = 0;
+      state428_ = 0;
+      state429_ = 0;
+      state430_ = 0;
+      state431_ = 0;
+      state432_ = 0;
+      state433_ = 0;
+      state434_ = 0;
+      state435_ = 0;
+      state436_ = 0;
+      state437_ = 0;
+      state438_ = 0;
+      state439_ = 0;
+      state440_ = 0;
+      state441_ = 0;
+      state442_ = 0;
+      state443_ = 0;
+      state444_ = 0;
+      state445_ = 0;
+      state446_ = 0;
+      state447_ = 0;
+      state448_ = 0;
+      state449_ = 0;
+      state450_ = 0;
+      state451_ = 0;
+      state452_ = 0;
+      state453_ = 0;
+      state454_ = 0;
+      state455_ = 0;
+      state456_ = 0;
+      state457_ = 0;
+      state458_ = 0;
+      state459_ = 0;
+      state460_ = 0;
+      state461_ = 0;
+      state462_ = 0;
+      state463_ = 0;
+      state464_ = 0;
+      state465_ = 0;
+      state466_ = 0;
+      state467_ = 0;
+      state468_ = 0;
+      state469_ = 0;
+      state470_ = 0;
+      state471_ = 0;
+      state472_ = 0;
+      state473_ = 0;
+      state474_ = 0;
+      state475_ = 0;
+      state476_ = 0;
+      state477_ = 0;
+      state478_ = 0;
+      state479_ = 0;
+      state480_ = 0;
+      state481_ = 0;
+      state482_ = 0;
+      state483_ = 0;
+      state484_ = 0;
+      state485_ = 0;
+      state486_ = 0;
+      state487_ = 0;
+      state488_ = 0;
+      state489_ = 0;
+      state490_ = 0;
+      state491_ = 0;
+      state492_ = 0;
+      state493_ = 0;
+      state494_ = 0;
+      state495_ = 0;
+      state496_ = 0;
+      state497_ = 0;
+      state498_ = 0;
+      state499_ = 0;
+      state500_ = 0;
+      state501_ = 0;
+      state502_ = 0;
+      state503_ = 0;
+      state504_ = 0;
+      state505_ = 0;
+      state506_ = 0;
+      state507_ = 0;
+      state508_ = 0;
+      state509_ = 0;
+      state510_ = 0;
+      state511_ = 0;
+      state512_ = 0;
+      state513_ = 0;
+      state514_ = 0;
+      state515_ = 0;
+      state516_ = 0;
+      state517_ = 0;
+      state518_ = 0;
+      state519_ = 0;
+      state520_ = 0;
+      state521_ = 0;
+      state522_ = 0;
+      state523_ = 0;
+      state524_ = 0;
+      state525_ = 0;
+      state526_ = 0;
+      state527_ = 0;
+      state528_ = 0;
+      state529_ = 0;
+      state530_ = 0;
+      state531_ = 0;
+      state532_ = 0;
+      state533_ = 0;
+      state534_ = 0;
+      state535_ = 0;
+      state536_ = 0;
+      state537_ = 0;
+      state538_ = 0;
+      state539_ = 0;
+      state540_ = 0;
+      state541_ = 0;
+      state542_ = 0;
+      state543_ = 0;
+      state544_ = 0;
+      state545_ = 0;
+      state546_ = 0;
+      state547_ = 0;
+      state548_ = 0;
+      state549_ = 0;
+      state550_ = 0;
+      state551_ = 0;
+      state552_ = 0;
+      state553_ = 0;
+      state554_ = 0;
+      state555_ = 0;
+      state556_ = 0;
+      state557_ = 0;
+      state558_ = 0;
+      state559_ = 0;
+      state560_ = 0;
+      state561_ = 0;
+      state562_ = 0;
+      state563_ = 0;
+      state564_ = 0;
+      state565_ = 0;
+      state566_ = 0;
+      state567_ = 0;
+      state568_ = 0;
+      state569_ = 0;
+      state570_ = 0;
+      state571_ = 0;
+      state572_ = 0;
+      state573_ = 0;
+      state574_ = 0;
+      state575_ = 0;
+      state576_ = 0;
+      state577_ = 0;
+      state578_ = 0;
+      state579_ = 0;
+      state580_ = 0;
+      state581_ = 0;
+      state582_ = 0;
+      state583_ = 0;
+      state584_ = 0;
+      state585_ = 0;
+      state586_ = 0;
+      state587_ = 0;
+      state588_ = 0;
+      state589_ = 0;
+      state590_ = 0;
+      state591_ = 0;
+      state592_ = 0;
+      state593_ = 0;
+      state594_ = 0;
+      state595_ = 0;
+      state596_ = 0;
+      state597_ = 0;
+      state598_ = 0;
+      state599_ = 0;
+      state600_ = 0;
+      state601_ = 0;
+      state602_ = 0;
+      state603_ = 0;
+      state604_ = 0;
+      state605_ = 0;
+      state606_ = 0;
+      state607_ = 0;
+      state608_ = 0;
+      state609_ = 0;
+      state610_ = 0;
+      state611_ = 0;
+      state612_ = 0;
+      state613_ = 0;
+      state614_ = 0;
+      state615_ = 0;
+      state616_ = 0;
+      state617_ = 0;
+      state618_ = 0;
+      state619_ = 0;
+      state620_ = 0;
+      state621_ = 0;
+      state622_ = 0;
+      state623_ = 0;
+      state624_ = 0;
+      state625_ = 0;
+      state626_ = 0;
+      state627_ = 0;
+      state628_ = 0;
+      state629_ = 0;
+      state630_ = 0;
+      state631_ = 0;
+      state632_ = 0;
+      state633_ = 0;
+      state634_ = 0;
+      state635_ = 0;
+      state636_ = 0;
+      state637_ = 0;
+      state638_ = 0;
+      state639_ = 0;
+      state640_ = 0;
+      state641_ = 0;
+      state642_ = 0;
+      state643_ = 0;
+      state644_ = 0;
+      state645_ = 0;
+      state646_ = 0;
+      state647_ = 0;
+      state648_ = 0;
+      state649_ = 0;
+      state650_ = 0;
+      state651_ = 0;
+      state652_ = 0;
+      state653_ = 0;
+      state654_ = 0;
+      state655_ = 0;
+      state656_ = 0;
+      state657_ = 0;
+      state658_ = 0;
+      state659_ = 0;
+      state660_ = 0;
+      state661_ = 0;
+      state662_ = 0;
+      state663_ = 0;
+      state664_ = 0;
+      state665_ = 0;
+      state666_ = 0;
+      state667_ = 0;
+      state668_ = 0;
+      state669_ = 0;
+      state670_ = 0;
+      state671_ = 0;
+      state672_ = 0;
+      state673_ = 0;
+      state674_ = 0;
+      state675_ = 0;
+      state676_ = 0;
+      state677_ = 0;
+      state678_ = 0;
+      state679_ = 0;
+      state680_ = 0;
+      state681_ = 0;
+      state682_ = 0;
+      state683_ = 0;
+      state684_ = 0;
+      state685_ = 0;
+      state686_ = 0;
+      state687_ = 0;
+      state688_ = 0;
+      state689_ = 0;
+      state690_ = 0;
+      state691_ = 0;
+      state692_ = 0;
+      state693_ = 0;
+      state694_ = 0;
+      state695_ = 0;
+      state696_ = 0;
+      state697_ = 0;
+      state698_ = 0;
+      state699_ = 0;
+      state700_ = 0;
+      state701_ = 0;
+      state702_ = 0;
+      state703_ = 0;
+      state704_ = 0;
+      state705_ = 0;
+      state706_ = 0;
+      state707_ = 0;
+      state708_ = 0;
+      state709_ = 0;
+      state710_ = 0;
+      state711_ = 0;
+      state712_ = 0;
+      state713_ = 0;
+      state714_ = 0;
+      state715_ = 0;
+      state716_ = 0;
+      state717_ = 0;
+      state718_ = 0;
+      state719_ = 0;
+      state720_ = 0;
+      state721_ = 0;
+      state722_ = 0;
+      state723_ = 0;
+      state724_ = 0;
+      state725_ = 0;
+      state726_ = 0;
+      state727_ = 0;
+      state728_ = 0;
+      state729_ = 0;
+      state730_ = 0;
+      state731_ = 0;
+      state732_ = 0;
+      state733_ = 0;
+      state734_ = 0;
+      state735_ = 0;
+      state736_ = 0;
+      state737_ = 0;
+      state738_ = 0;
+      state739_ = 0;
+      state740_ = 0;
+      state741_ = 0;
+      state742_ = 0;
+      state743_ = 0;
+      state744_ = 0;
+      state745_ = 0;
+      state746_ = 0;
+      state747_ = 0;
+      state748_ = 0;
+      state749_ = 0;
+      state750_ = 0;
+      state751_ = 0;
+      state752_ = 0;
+      state753_ = 0;
+      state754_ = 0;
+      state755_ = 0;
+      state756_ = 0;
+      state757_ = 0;
+      state758_ = 0;
+      state759_ = 0;
+      state760_ = 0;
+      state761_ = 0;
+      state762_ = 0;
+      state763_ = 0;
+      state764_ = 0;
+      state765_ = 0;
+      state766_ = 0;
+      state767_ = 0;
+      state768_ = 0;
+      state769_ = 0;
+      state770_ = 0;
+      state771_ = 0;
+      state772_ = 0;
+      state773_ = 0;
+      state774_ = 0;
+      state775_ = 0;
+      state776_ = 0;
+      state777_ = 0;
+      state778_ = 0;
+      state779_ = 0;
+      state780_ = 0;
+      state781_ = 0;
+      state782_ = 0;
+      state783_ = 0;
+      state784_ = 0;
+      state785_ = 0;
+      state786_ = 0;
+      state787_ = 0;
+      state788_ = 0;
+      state789_ = 0;
+      state790_ = 0;
+      state791_ = 0;
+      state792_ = 0;
+      state793_ = 0;
+      state794_ = 0;
+      state795_ = 0;
+      state796_ = 0;
+      state797_ = 0;
+      state798_ = 0;
+      state799_ = 0;
+      state800_ = 0;
+      state801_ = 0;
+      state802_ = 0;
+      state803_ = 0;
+      state804_ = 0;
+      state805_ = 0;
+      state806_ = 0;
+      state807_ = 0;
+      state808_ = 0;
+      state809_ = 0;
+      state810_ = 0;
+      state811_ = 0;
+      state812_ = 0;
+      state813_ = 0;
+      state814_ = 0;
+      state815_ = 0;
+      state816_ = 0;
+      state817_ = 0;
+      state818_ = 0;
+      state819_ = 0;
+      state820_ = 0;
+      state821_ = 0;
+      state822_ = 0;
+      state823_ = 0;
+      state824_ = 0;
+      state825_ = 0;
+      state826_ = 0;
+      state827_ = 0;
+      state828_ = 0;
+      state829_ = 0;
+      state830_ = 0;
+      state831_ = 0;
+      state832_ = 0;
+      state833_ = 0;
+      state834_ = 0;
+      state835_ = 0;
+      state836_ = 0;
+      state837_ = 0;
+      state838_ = 0;
+      state839_ = 0;
+      state840_ = 0;
+      state841_ = 0;
+      state842_ = 0;
+      state843_ = 0;
+      state844_ = 0;
+      state845_ = 0;
+      state846_ = 0;
+      state847_ = 0;
+      state848_ = 0;
+      state849_ = 0;
+      state850_ = 0;
+      state851_ = 0;
+      state852_ = 0;
+      state853_ = 0;
+      state854_ = 0;
+      state855_ = 0;
+      state856_ = 0;
+      state857_ = 0;
+      state858_ = 0;
+      state859_ = 0;
+      state860_ = 0;
+      state861_ = 0;
+      state862_ = 0;
+      state863_ = 0;
+      state864_ = 0;
+      state865_ = 0;
+      state866_ = 0;
+      state867_ = 0;
+      state868_ = 0;
+      state869_ = 0;
+      state870_ = 0;
+      state871_ = 0;
+      state872_ = 0;
+      state873_ = 0;
+      state874_ = 0;
+      state875_ = 0;
+      state876_ = 0;
+      state877_ = 0;
+      state878_ = 0;
+      state879_ = 0;
+      state880_ = 0;
+      state881_ = 0;
+      state882_ = 0;
+      state883_ = 0;
+      state884_ = 0;
+      state885_ = 0;
+      state886_ = 0;
+      state887_ = 0;
+      state888_ = 0;
+      state889_ = 0;
+      state890_ = 0;
+      state891_ = 0;
+      state892_ = 0;
+      state893_ = 0;
+      state894_ = 0;
+      state895_ = 0;
+      state896_ = 0;
+      state897_ = 0;
+      state898_ = 0;
+      state899_ = 0;
+      state900_ = 0;
+
+    }
+    private Builder(com.google.protobuf.test.WideClosedEnum other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
+      copyFrom_autosplit_1(other);
+      copyFrom_autosplit_2(other);
+      copyFrom_autosplit_3(other);
+      copyFrom_autosplit_4(other);
+      copyFrom_autosplit_5(other);
+      copyFrom_autosplit_6(other);
+      copyFrom_autosplit_7(other);
+      copyFrom_autosplit_8(other);
+      copyFrom_autosplit_9(other);
+      copyFrom_autosplit_10(other);
+      copyFrom_autosplit_11(other);
+      copyFrom_autosplit_12(other);
+      copyFrom_autosplit_13(other);
+      copyFrom_autosplit_14(other);
+      copyFrom_autosplit_15(other);
+      copyFrom_autosplit_16(other);
+      copyFrom_autosplit_17(other);
+      copyFrom_autosplit_18(other);
+      copyFrom_autosplit_19(other);
+      copyFrom_autosplit_20(other);
+      copyFrom_autosplit_21(other);
+      copyFrom_autosplit_22(other);
+      copyFrom_autosplit_23(other);
+      copyFrom_autosplit_24(other);
+      copyFrom_autosplit_25(other);
+      copyFrom_autosplit_26(other);
+      copyFrom_autosplit_27(other);
+      copyFrom_autosplit_28(other);
 
     }
     @java.lang.Override
@@ -32235,6 +33175,43 @@ private static final long serialVersionUID = 0L;
       result.bitField0_ |= to_bitField0_;
     }
 
+    private void copyFrom_autosplit_0(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField0_ = other.bitField0_;
+      state1_ = other.state1_;
+      state2_ = other.state2_;
+      state3_ = other.state3_;
+      state4_ = other.state4_;
+      state5_ = other.state5_;
+      state6_ = other.state6_;
+      state7_ = other.state7_;
+      state8_ = other.state8_;
+      state9_ = other.state9_;
+      state10_ = other.state10_;
+      state11_ = other.state11_;
+      state12_ = other.state12_;
+      state13_ = other.state13_;
+      state14_ = other.state14_;
+      state15_ = other.state15_;
+      state16_ = other.state16_;
+      state17_ = other.state17_;
+      state18_ = other.state18_;
+      state19_ = other.state19_;
+      state20_ = other.state20_;
+      state21_ = other.state21_;
+      state22_ = other.state22_;
+      state23_ = other.state23_;
+      state24_ = other.state24_;
+      state25_ = other.state25_;
+      state26_ = other.state26_;
+      state27_ = other.state27_;
+      state28_ = other.state28_;
+      state29_ = other.state29_;
+      state30_ = other.state30_;
+      state31_ = other.state31_;
+      state32_ = other.state32_;
+      bitField0_ |= to_bitField0_;
+    }
+
     private void buildPartial_autosplit_1(com.google.protobuf.test.WideClosedEnum result) {
       int from_bitField1_ = bitField1_;
       int to_bitField1_ = 0;
@@ -32367,6 +33344,43 @@ private static final long serialVersionUID = 0L;
         to_bitField1_ |= 0x80000000;
       }
       result.bitField1_ |= to_bitField1_;
+    }
+
+    private void copyFrom_autosplit_1(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField1_ = other.bitField1_;
+      state33_ = other.state33_;
+      state34_ = other.state34_;
+      state35_ = other.state35_;
+      state36_ = other.state36_;
+      state37_ = other.state37_;
+      state38_ = other.state38_;
+      state39_ = other.state39_;
+      state40_ = other.state40_;
+      state41_ = other.state41_;
+      state42_ = other.state42_;
+      state43_ = other.state43_;
+      state44_ = other.state44_;
+      state45_ = other.state45_;
+      state46_ = other.state46_;
+      state47_ = other.state47_;
+      state48_ = other.state48_;
+      state49_ = other.state49_;
+      state50_ = other.state50_;
+      state51_ = other.state51_;
+      state52_ = other.state52_;
+      state53_ = other.state53_;
+      state54_ = other.state54_;
+      state55_ = other.state55_;
+      state56_ = other.state56_;
+      state57_ = other.state57_;
+      state58_ = other.state58_;
+      state59_ = other.state59_;
+      state60_ = other.state60_;
+      state61_ = other.state61_;
+      state62_ = other.state62_;
+      state63_ = other.state63_;
+      state64_ = other.state64_;
+      bitField1_ |= to_bitField1_;
     }
 
     private void buildPartial_autosplit_2(com.google.protobuf.test.WideClosedEnum result) {
@@ -32503,6 +33517,43 @@ private static final long serialVersionUID = 0L;
       result.bitField2_ |= to_bitField2_;
     }
 
+    private void copyFrom_autosplit_2(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField2_ = other.bitField2_;
+      state65_ = other.state65_;
+      state66_ = other.state66_;
+      state67_ = other.state67_;
+      state68_ = other.state68_;
+      state69_ = other.state69_;
+      state70_ = other.state70_;
+      state71_ = other.state71_;
+      state72_ = other.state72_;
+      state73_ = other.state73_;
+      state74_ = other.state74_;
+      state75_ = other.state75_;
+      state76_ = other.state76_;
+      state77_ = other.state77_;
+      state78_ = other.state78_;
+      state79_ = other.state79_;
+      state80_ = other.state80_;
+      state81_ = other.state81_;
+      state82_ = other.state82_;
+      state83_ = other.state83_;
+      state84_ = other.state84_;
+      state85_ = other.state85_;
+      state86_ = other.state86_;
+      state87_ = other.state87_;
+      state88_ = other.state88_;
+      state89_ = other.state89_;
+      state90_ = other.state90_;
+      state91_ = other.state91_;
+      state92_ = other.state92_;
+      state93_ = other.state93_;
+      state94_ = other.state94_;
+      state95_ = other.state95_;
+      state96_ = other.state96_;
+      bitField2_ |= to_bitField2_;
+    }
+
     private void buildPartial_autosplit_3(com.google.protobuf.test.WideClosedEnum result) {
       int from_bitField3_ = bitField3_;
       int to_bitField3_ = 0;
@@ -32635,6 +33686,43 @@ private static final long serialVersionUID = 0L;
         to_bitField3_ |= 0x80000000;
       }
       result.bitField3_ |= to_bitField3_;
+    }
+
+    private void copyFrom_autosplit_3(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField3_ = other.bitField3_;
+      state97_ = other.state97_;
+      state98_ = other.state98_;
+      state99_ = other.state99_;
+      state100_ = other.state100_;
+      state101_ = other.state101_;
+      state102_ = other.state102_;
+      state103_ = other.state103_;
+      state104_ = other.state104_;
+      state105_ = other.state105_;
+      state106_ = other.state106_;
+      state107_ = other.state107_;
+      state108_ = other.state108_;
+      state109_ = other.state109_;
+      state110_ = other.state110_;
+      state111_ = other.state111_;
+      state112_ = other.state112_;
+      state113_ = other.state113_;
+      state114_ = other.state114_;
+      state115_ = other.state115_;
+      state116_ = other.state116_;
+      state117_ = other.state117_;
+      state118_ = other.state118_;
+      state119_ = other.state119_;
+      state120_ = other.state120_;
+      state121_ = other.state121_;
+      state122_ = other.state122_;
+      state123_ = other.state123_;
+      state124_ = other.state124_;
+      state125_ = other.state125_;
+      state126_ = other.state126_;
+      state127_ = other.state127_;
+      state128_ = other.state128_;
+      bitField3_ |= to_bitField3_;
     }
 
     private void buildPartial_autosplit_4(com.google.protobuf.test.WideClosedEnum result) {
@@ -32771,6 +33859,43 @@ private static final long serialVersionUID = 0L;
       result.bitField4_ |= to_bitField4_;
     }
 
+    private void copyFrom_autosplit_4(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField4_ = other.bitField4_;
+      state129_ = other.state129_;
+      state130_ = other.state130_;
+      state131_ = other.state131_;
+      state132_ = other.state132_;
+      state133_ = other.state133_;
+      state134_ = other.state134_;
+      state135_ = other.state135_;
+      state136_ = other.state136_;
+      state137_ = other.state137_;
+      state138_ = other.state138_;
+      state139_ = other.state139_;
+      state140_ = other.state140_;
+      state141_ = other.state141_;
+      state142_ = other.state142_;
+      state143_ = other.state143_;
+      state144_ = other.state144_;
+      state145_ = other.state145_;
+      state146_ = other.state146_;
+      state147_ = other.state147_;
+      state148_ = other.state148_;
+      state149_ = other.state149_;
+      state150_ = other.state150_;
+      state151_ = other.state151_;
+      state152_ = other.state152_;
+      state153_ = other.state153_;
+      state154_ = other.state154_;
+      state155_ = other.state155_;
+      state156_ = other.state156_;
+      state157_ = other.state157_;
+      state158_ = other.state158_;
+      state159_ = other.state159_;
+      state160_ = other.state160_;
+      bitField4_ |= to_bitField4_;
+    }
+
     private void buildPartial_autosplit_5(com.google.protobuf.test.WideClosedEnum result) {
       int from_bitField5_ = bitField5_;
       int to_bitField5_ = 0;
@@ -32903,6 +34028,43 @@ private static final long serialVersionUID = 0L;
         to_bitField5_ |= 0x80000000;
       }
       result.bitField5_ |= to_bitField5_;
+    }
+
+    private void copyFrom_autosplit_5(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField5_ = other.bitField5_;
+      state161_ = other.state161_;
+      state162_ = other.state162_;
+      state163_ = other.state163_;
+      state164_ = other.state164_;
+      state165_ = other.state165_;
+      state166_ = other.state166_;
+      state167_ = other.state167_;
+      state168_ = other.state168_;
+      state169_ = other.state169_;
+      state170_ = other.state170_;
+      state171_ = other.state171_;
+      state172_ = other.state172_;
+      state173_ = other.state173_;
+      state174_ = other.state174_;
+      state175_ = other.state175_;
+      state176_ = other.state176_;
+      state177_ = other.state177_;
+      state178_ = other.state178_;
+      state179_ = other.state179_;
+      state180_ = other.state180_;
+      state181_ = other.state181_;
+      state182_ = other.state182_;
+      state183_ = other.state183_;
+      state184_ = other.state184_;
+      state185_ = other.state185_;
+      state186_ = other.state186_;
+      state187_ = other.state187_;
+      state188_ = other.state188_;
+      state189_ = other.state189_;
+      state190_ = other.state190_;
+      state191_ = other.state191_;
+      state192_ = other.state192_;
+      bitField5_ |= to_bitField5_;
     }
 
     private void buildPartial_autosplit_6(com.google.protobuf.test.WideClosedEnum result) {
@@ -33039,6 +34201,43 @@ private static final long serialVersionUID = 0L;
       result.bitField6_ |= to_bitField6_;
     }
 
+    private void copyFrom_autosplit_6(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField6_ = other.bitField6_;
+      state193_ = other.state193_;
+      state194_ = other.state194_;
+      state195_ = other.state195_;
+      state196_ = other.state196_;
+      state197_ = other.state197_;
+      state198_ = other.state198_;
+      state199_ = other.state199_;
+      state200_ = other.state200_;
+      state201_ = other.state201_;
+      state202_ = other.state202_;
+      state203_ = other.state203_;
+      state204_ = other.state204_;
+      state205_ = other.state205_;
+      state206_ = other.state206_;
+      state207_ = other.state207_;
+      state208_ = other.state208_;
+      state209_ = other.state209_;
+      state210_ = other.state210_;
+      state211_ = other.state211_;
+      state212_ = other.state212_;
+      state213_ = other.state213_;
+      state214_ = other.state214_;
+      state215_ = other.state215_;
+      state216_ = other.state216_;
+      state217_ = other.state217_;
+      state218_ = other.state218_;
+      state219_ = other.state219_;
+      state220_ = other.state220_;
+      state221_ = other.state221_;
+      state222_ = other.state222_;
+      state223_ = other.state223_;
+      state224_ = other.state224_;
+      bitField6_ |= to_bitField6_;
+    }
+
     private void buildPartial_autosplit_7(com.google.protobuf.test.WideClosedEnum result) {
       int from_bitField7_ = bitField7_;
       int to_bitField7_ = 0;
@@ -33171,6 +34370,43 @@ private static final long serialVersionUID = 0L;
         to_bitField7_ |= 0x80000000;
       }
       result.bitField7_ |= to_bitField7_;
+    }
+
+    private void copyFrom_autosplit_7(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField7_ = other.bitField7_;
+      state225_ = other.state225_;
+      state226_ = other.state226_;
+      state227_ = other.state227_;
+      state228_ = other.state228_;
+      state229_ = other.state229_;
+      state230_ = other.state230_;
+      state231_ = other.state231_;
+      state232_ = other.state232_;
+      state233_ = other.state233_;
+      state234_ = other.state234_;
+      state235_ = other.state235_;
+      state236_ = other.state236_;
+      state237_ = other.state237_;
+      state238_ = other.state238_;
+      state239_ = other.state239_;
+      state240_ = other.state240_;
+      state241_ = other.state241_;
+      state242_ = other.state242_;
+      state243_ = other.state243_;
+      state244_ = other.state244_;
+      state245_ = other.state245_;
+      state246_ = other.state246_;
+      state247_ = other.state247_;
+      state248_ = other.state248_;
+      state249_ = other.state249_;
+      state250_ = other.state250_;
+      state251_ = other.state251_;
+      state252_ = other.state252_;
+      state253_ = other.state253_;
+      state254_ = other.state254_;
+      state255_ = other.state255_;
+      state256_ = other.state256_;
+      bitField7_ |= to_bitField7_;
     }
 
     private void buildPartial_autosplit_8(com.google.protobuf.test.WideClosedEnum result) {
@@ -33307,6 +34543,43 @@ private static final long serialVersionUID = 0L;
       result.bitField8_ |= to_bitField8_;
     }
 
+    private void copyFrom_autosplit_8(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField8_ = other.bitField8_;
+      state257_ = other.state257_;
+      state258_ = other.state258_;
+      state259_ = other.state259_;
+      state260_ = other.state260_;
+      state261_ = other.state261_;
+      state262_ = other.state262_;
+      state263_ = other.state263_;
+      state264_ = other.state264_;
+      state265_ = other.state265_;
+      state266_ = other.state266_;
+      state267_ = other.state267_;
+      state268_ = other.state268_;
+      state269_ = other.state269_;
+      state270_ = other.state270_;
+      state271_ = other.state271_;
+      state272_ = other.state272_;
+      state273_ = other.state273_;
+      state274_ = other.state274_;
+      state275_ = other.state275_;
+      state276_ = other.state276_;
+      state277_ = other.state277_;
+      state278_ = other.state278_;
+      state279_ = other.state279_;
+      state280_ = other.state280_;
+      state281_ = other.state281_;
+      state282_ = other.state282_;
+      state283_ = other.state283_;
+      state284_ = other.state284_;
+      state285_ = other.state285_;
+      state286_ = other.state286_;
+      state287_ = other.state287_;
+      state288_ = other.state288_;
+      bitField8_ |= to_bitField8_;
+    }
+
     private void buildPartial_autosplit_9(com.google.protobuf.test.WideClosedEnum result) {
       int from_bitField9_ = bitField9_;
       int to_bitField9_ = 0;
@@ -33439,6 +34712,43 @@ private static final long serialVersionUID = 0L;
         to_bitField9_ |= 0x80000000;
       }
       result.bitField9_ |= to_bitField9_;
+    }
+
+    private void copyFrom_autosplit_9(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField9_ = other.bitField9_;
+      state289_ = other.state289_;
+      state290_ = other.state290_;
+      state291_ = other.state291_;
+      state292_ = other.state292_;
+      state293_ = other.state293_;
+      state294_ = other.state294_;
+      state295_ = other.state295_;
+      state296_ = other.state296_;
+      state297_ = other.state297_;
+      state298_ = other.state298_;
+      state299_ = other.state299_;
+      state300_ = other.state300_;
+      state301_ = other.state301_;
+      state302_ = other.state302_;
+      state303_ = other.state303_;
+      state304_ = other.state304_;
+      state305_ = other.state305_;
+      state306_ = other.state306_;
+      state307_ = other.state307_;
+      state308_ = other.state308_;
+      state309_ = other.state309_;
+      state310_ = other.state310_;
+      state311_ = other.state311_;
+      state312_ = other.state312_;
+      state313_ = other.state313_;
+      state314_ = other.state314_;
+      state315_ = other.state315_;
+      state316_ = other.state316_;
+      state317_ = other.state317_;
+      state318_ = other.state318_;
+      state319_ = other.state319_;
+      state320_ = other.state320_;
+      bitField9_ |= to_bitField9_;
     }
 
     private void buildPartial_autosplit_10(com.google.protobuf.test.WideClosedEnum result) {
@@ -33575,6 +34885,43 @@ private static final long serialVersionUID = 0L;
       result.bitField10_ |= to_bitField10_;
     }
 
+    private void copyFrom_autosplit_10(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField10_ = other.bitField10_;
+      state321_ = other.state321_;
+      state322_ = other.state322_;
+      state323_ = other.state323_;
+      state324_ = other.state324_;
+      state325_ = other.state325_;
+      state326_ = other.state326_;
+      state327_ = other.state327_;
+      state328_ = other.state328_;
+      state329_ = other.state329_;
+      state330_ = other.state330_;
+      state331_ = other.state331_;
+      state332_ = other.state332_;
+      state333_ = other.state333_;
+      state334_ = other.state334_;
+      state335_ = other.state335_;
+      state336_ = other.state336_;
+      state337_ = other.state337_;
+      state338_ = other.state338_;
+      state339_ = other.state339_;
+      state340_ = other.state340_;
+      state341_ = other.state341_;
+      state342_ = other.state342_;
+      state343_ = other.state343_;
+      state344_ = other.state344_;
+      state345_ = other.state345_;
+      state346_ = other.state346_;
+      state347_ = other.state347_;
+      state348_ = other.state348_;
+      state349_ = other.state349_;
+      state350_ = other.state350_;
+      state351_ = other.state351_;
+      state352_ = other.state352_;
+      bitField10_ |= to_bitField10_;
+    }
+
     private void buildPartial_autosplit_11(com.google.protobuf.test.WideClosedEnum result) {
       int from_bitField11_ = bitField11_;
       int to_bitField11_ = 0;
@@ -33707,6 +35054,43 @@ private static final long serialVersionUID = 0L;
         to_bitField11_ |= 0x80000000;
       }
       result.bitField11_ |= to_bitField11_;
+    }
+
+    private void copyFrom_autosplit_11(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField11_ = other.bitField11_;
+      state353_ = other.state353_;
+      state354_ = other.state354_;
+      state355_ = other.state355_;
+      state356_ = other.state356_;
+      state357_ = other.state357_;
+      state358_ = other.state358_;
+      state359_ = other.state359_;
+      state360_ = other.state360_;
+      state361_ = other.state361_;
+      state362_ = other.state362_;
+      state363_ = other.state363_;
+      state364_ = other.state364_;
+      state365_ = other.state365_;
+      state366_ = other.state366_;
+      state367_ = other.state367_;
+      state368_ = other.state368_;
+      state369_ = other.state369_;
+      state370_ = other.state370_;
+      state371_ = other.state371_;
+      state372_ = other.state372_;
+      state373_ = other.state373_;
+      state374_ = other.state374_;
+      state375_ = other.state375_;
+      state376_ = other.state376_;
+      state377_ = other.state377_;
+      state378_ = other.state378_;
+      state379_ = other.state379_;
+      state380_ = other.state380_;
+      state381_ = other.state381_;
+      state382_ = other.state382_;
+      state383_ = other.state383_;
+      state384_ = other.state384_;
+      bitField11_ |= to_bitField11_;
     }
 
     private void buildPartial_autosplit_12(com.google.protobuf.test.WideClosedEnum result) {
@@ -33843,6 +35227,43 @@ private static final long serialVersionUID = 0L;
       result.bitField12_ |= to_bitField12_;
     }
 
+    private void copyFrom_autosplit_12(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField12_ = other.bitField12_;
+      state385_ = other.state385_;
+      state386_ = other.state386_;
+      state387_ = other.state387_;
+      state388_ = other.state388_;
+      state389_ = other.state389_;
+      state390_ = other.state390_;
+      state391_ = other.state391_;
+      state392_ = other.state392_;
+      state393_ = other.state393_;
+      state394_ = other.state394_;
+      state395_ = other.state395_;
+      state396_ = other.state396_;
+      state397_ = other.state397_;
+      state398_ = other.state398_;
+      state399_ = other.state399_;
+      state400_ = other.state400_;
+      state401_ = other.state401_;
+      state402_ = other.state402_;
+      state403_ = other.state403_;
+      state404_ = other.state404_;
+      state405_ = other.state405_;
+      state406_ = other.state406_;
+      state407_ = other.state407_;
+      state408_ = other.state408_;
+      state409_ = other.state409_;
+      state410_ = other.state410_;
+      state411_ = other.state411_;
+      state412_ = other.state412_;
+      state413_ = other.state413_;
+      state414_ = other.state414_;
+      state415_ = other.state415_;
+      state416_ = other.state416_;
+      bitField12_ |= to_bitField12_;
+    }
+
     private void buildPartial_autosplit_13(com.google.protobuf.test.WideClosedEnum result) {
       int from_bitField13_ = bitField13_;
       int to_bitField13_ = 0;
@@ -33975,6 +35396,43 @@ private static final long serialVersionUID = 0L;
         to_bitField13_ |= 0x80000000;
       }
       result.bitField13_ |= to_bitField13_;
+    }
+
+    private void copyFrom_autosplit_13(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField13_ = other.bitField13_;
+      state417_ = other.state417_;
+      state418_ = other.state418_;
+      state419_ = other.state419_;
+      state420_ = other.state420_;
+      state421_ = other.state421_;
+      state422_ = other.state422_;
+      state423_ = other.state423_;
+      state424_ = other.state424_;
+      state425_ = other.state425_;
+      state426_ = other.state426_;
+      state427_ = other.state427_;
+      state428_ = other.state428_;
+      state429_ = other.state429_;
+      state430_ = other.state430_;
+      state431_ = other.state431_;
+      state432_ = other.state432_;
+      state433_ = other.state433_;
+      state434_ = other.state434_;
+      state435_ = other.state435_;
+      state436_ = other.state436_;
+      state437_ = other.state437_;
+      state438_ = other.state438_;
+      state439_ = other.state439_;
+      state440_ = other.state440_;
+      state441_ = other.state441_;
+      state442_ = other.state442_;
+      state443_ = other.state443_;
+      state444_ = other.state444_;
+      state445_ = other.state445_;
+      state446_ = other.state446_;
+      state447_ = other.state447_;
+      state448_ = other.state448_;
+      bitField13_ |= to_bitField13_;
     }
 
     private void buildPartial_autosplit_14(com.google.protobuf.test.WideClosedEnum result) {
@@ -34111,6 +35569,43 @@ private static final long serialVersionUID = 0L;
       result.bitField14_ |= to_bitField14_;
     }
 
+    private void copyFrom_autosplit_14(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField14_ = other.bitField14_;
+      state449_ = other.state449_;
+      state450_ = other.state450_;
+      state451_ = other.state451_;
+      state452_ = other.state452_;
+      state453_ = other.state453_;
+      state454_ = other.state454_;
+      state455_ = other.state455_;
+      state456_ = other.state456_;
+      state457_ = other.state457_;
+      state458_ = other.state458_;
+      state459_ = other.state459_;
+      state460_ = other.state460_;
+      state461_ = other.state461_;
+      state462_ = other.state462_;
+      state463_ = other.state463_;
+      state464_ = other.state464_;
+      state465_ = other.state465_;
+      state466_ = other.state466_;
+      state467_ = other.state467_;
+      state468_ = other.state468_;
+      state469_ = other.state469_;
+      state470_ = other.state470_;
+      state471_ = other.state471_;
+      state472_ = other.state472_;
+      state473_ = other.state473_;
+      state474_ = other.state474_;
+      state475_ = other.state475_;
+      state476_ = other.state476_;
+      state477_ = other.state477_;
+      state478_ = other.state478_;
+      state479_ = other.state479_;
+      state480_ = other.state480_;
+      bitField14_ |= to_bitField14_;
+    }
+
     private void buildPartial_autosplit_15(com.google.protobuf.test.WideClosedEnum result) {
       int from_bitField15_ = bitField15_;
       int to_bitField15_ = 0;
@@ -34243,6 +35738,43 @@ private static final long serialVersionUID = 0L;
         to_bitField15_ |= 0x80000000;
       }
       result.bitField15_ |= to_bitField15_;
+    }
+
+    private void copyFrom_autosplit_15(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField15_ = other.bitField15_;
+      state481_ = other.state481_;
+      state482_ = other.state482_;
+      state483_ = other.state483_;
+      state484_ = other.state484_;
+      state485_ = other.state485_;
+      state486_ = other.state486_;
+      state487_ = other.state487_;
+      state488_ = other.state488_;
+      state489_ = other.state489_;
+      state490_ = other.state490_;
+      state491_ = other.state491_;
+      state492_ = other.state492_;
+      state493_ = other.state493_;
+      state494_ = other.state494_;
+      state495_ = other.state495_;
+      state496_ = other.state496_;
+      state497_ = other.state497_;
+      state498_ = other.state498_;
+      state499_ = other.state499_;
+      state500_ = other.state500_;
+      state501_ = other.state501_;
+      state502_ = other.state502_;
+      state503_ = other.state503_;
+      state504_ = other.state504_;
+      state505_ = other.state505_;
+      state506_ = other.state506_;
+      state507_ = other.state507_;
+      state508_ = other.state508_;
+      state509_ = other.state509_;
+      state510_ = other.state510_;
+      state511_ = other.state511_;
+      state512_ = other.state512_;
+      bitField15_ |= to_bitField15_;
     }
 
     private void buildPartial_autosplit_16(com.google.protobuf.test.WideClosedEnum result) {
@@ -34379,6 +35911,43 @@ private static final long serialVersionUID = 0L;
       result.bitField16_ |= to_bitField16_;
     }
 
+    private void copyFrom_autosplit_16(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField16_ = other.bitField16_;
+      state513_ = other.state513_;
+      state514_ = other.state514_;
+      state515_ = other.state515_;
+      state516_ = other.state516_;
+      state517_ = other.state517_;
+      state518_ = other.state518_;
+      state519_ = other.state519_;
+      state520_ = other.state520_;
+      state521_ = other.state521_;
+      state522_ = other.state522_;
+      state523_ = other.state523_;
+      state524_ = other.state524_;
+      state525_ = other.state525_;
+      state526_ = other.state526_;
+      state527_ = other.state527_;
+      state528_ = other.state528_;
+      state529_ = other.state529_;
+      state530_ = other.state530_;
+      state531_ = other.state531_;
+      state532_ = other.state532_;
+      state533_ = other.state533_;
+      state534_ = other.state534_;
+      state535_ = other.state535_;
+      state536_ = other.state536_;
+      state537_ = other.state537_;
+      state538_ = other.state538_;
+      state539_ = other.state539_;
+      state540_ = other.state540_;
+      state541_ = other.state541_;
+      state542_ = other.state542_;
+      state543_ = other.state543_;
+      state544_ = other.state544_;
+      bitField16_ |= to_bitField16_;
+    }
+
     private void buildPartial_autosplit_17(com.google.protobuf.test.WideClosedEnum result) {
       int from_bitField17_ = bitField17_;
       int to_bitField17_ = 0;
@@ -34511,6 +36080,43 @@ private static final long serialVersionUID = 0L;
         to_bitField17_ |= 0x80000000;
       }
       result.bitField17_ |= to_bitField17_;
+    }
+
+    private void copyFrom_autosplit_17(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField17_ = other.bitField17_;
+      state545_ = other.state545_;
+      state546_ = other.state546_;
+      state547_ = other.state547_;
+      state548_ = other.state548_;
+      state549_ = other.state549_;
+      state550_ = other.state550_;
+      state551_ = other.state551_;
+      state552_ = other.state552_;
+      state553_ = other.state553_;
+      state554_ = other.state554_;
+      state555_ = other.state555_;
+      state556_ = other.state556_;
+      state557_ = other.state557_;
+      state558_ = other.state558_;
+      state559_ = other.state559_;
+      state560_ = other.state560_;
+      state561_ = other.state561_;
+      state562_ = other.state562_;
+      state563_ = other.state563_;
+      state564_ = other.state564_;
+      state565_ = other.state565_;
+      state566_ = other.state566_;
+      state567_ = other.state567_;
+      state568_ = other.state568_;
+      state569_ = other.state569_;
+      state570_ = other.state570_;
+      state571_ = other.state571_;
+      state572_ = other.state572_;
+      state573_ = other.state573_;
+      state574_ = other.state574_;
+      state575_ = other.state575_;
+      state576_ = other.state576_;
+      bitField17_ |= to_bitField17_;
     }
 
     private void buildPartial_autosplit_18(com.google.protobuf.test.WideClosedEnum result) {
@@ -34647,6 +36253,43 @@ private static final long serialVersionUID = 0L;
       result.bitField18_ |= to_bitField18_;
     }
 
+    private void copyFrom_autosplit_18(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField18_ = other.bitField18_;
+      state577_ = other.state577_;
+      state578_ = other.state578_;
+      state579_ = other.state579_;
+      state580_ = other.state580_;
+      state581_ = other.state581_;
+      state582_ = other.state582_;
+      state583_ = other.state583_;
+      state584_ = other.state584_;
+      state585_ = other.state585_;
+      state586_ = other.state586_;
+      state587_ = other.state587_;
+      state588_ = other.state588_;
+      state589_ = other.state589_;
+      state590_ = other.state590_;
+      state591_ = other.state591_;
+      state592_ = other.state592_;
+      state593_ = other.state593_;
+      state594_ = other.state594_;
+      state595_ = other.state595_;
+      state596_ = other.state596_;
+      state597_ = other.state597_;
+      state598_ = other.state598_;
+      state599_ = other.state599_;
+      state600_ = other.state600_;
+      state601_ = other.state601_;
+      state602_ = other.state602_;
+      state603_ = other.state603_;
+      state604_ = other.state604_;
+      state605_ = other.state605_;
+      state606_ = other.state606_;
+      state607_ = other.state607_;
+      state608_ = other.state608_;
+      bitField18_ |= to_bitField18_;
+    }
+
     private void buildPartial_autosplit_19(com.google.protobuf.test.WideClosedEnum result) {
       int from_bitField19_ = bitField19_;
       int to_bitField19_ = 0;
@@ -34779,6 +36422,43 @@ private static final long serialVersionUID = 0L;
         to_bitField19_ |= 0x80000000;
       }
       result.bitField19_ |= to_bitField19_;
+    }
+
+    private void copyFrom_autosplit_19(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField19_ = other.bitField19_;
+      state609_ = other.state609_;
+      state610_ = other.state610_;
+      state611_ = other.state611_;
+      state612_ = other.state612_;
+      state613_ = other.state613_;
+      state614_ = other.state614_;
+      state615_ = other.state615_;
+      state616_ = other.state616_;
+      state617_ = other.state617_;
+      state618_ = other.state618_;
+      state619_ = other.state619_;
+      state620_ = other.state620_;
+      state621_ = other.state621_;
+      state622_ = other.state622_;
+      state623_ = other.state623_;
+      state624_ = other.state624_;
+      state625_ = other.state625_;
+      state626_ = other.state626_;
+      state627_ = other.state627_;
+      state628_ = other.state628_;
+      state629_ = other.state629_;
+      state630_ = other.state630_;
+      state631_ = other.state631_;
+      state632_ = other.state632_;
+      state633_ = other.state633_;
+      state634_ = other.state634_;
+      state635_ = other.state635_;
+      state636_ = other.state636_;
+      state637_ = other.state637_;
+      state638_ = other.state638_;
+      state639_ = other.state639_;
+      state640_ = other.state640_;
+      bitField19_ |= to_bitField19_;
     }
 
     private void buildPartial_autosplit_20(com.google.protobuf.test.WideClosedEnum result) {
@@ -34915,6 +36595,43 @@ private static final long serialVersionUID = 0L;
       result.bitField20_ |= to_bitField20_;
     }
 
+    private void copyFrom_autosplit_20(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField20_ = other.bitField20_;
+      state641_ = other.state641_;
+      state642_ = other.state642_;
+      state643_ = other.state643_;
+      state644_ = other.state644_;
+      state645_ = other.state645_;
+      state646_ = other.state646_;
+      state647_ = other.state647_;
+      state648_ = other.state648_;
+      state649_ = other.state649_;
+      state650_ = other.state650_;
+      state651_ = other.state651_;
+      state652_ = other.state652_;
+      state653_ = other.state653_;
+      state654_ = other.state654_;
+      state655_ = other.state655_;
+      state656_ = other.state656_;
+      state657_ = other.state657_;
+      state658_ = other.state658_;
+      state659_ = other.state659_;
+      state660_ = other.state660_;
+      state661_ = other.state661_;
+      state662_ = other.state662_;
+      state663_ = other.state663_;
+      state664_ = other.state664_;
+      state665_ = other.state665_;
+      state666_ = other.state666_;
+      state667_ = other.state667_;
+      state668_ = other.state668_;
+      state669_ = other.state669_;
+      state670_ = other.state670_;
+      state671_ = other.state671_;
+      state672_ = other.state672_;
+      bitField20_ |= to_bitField20_;
+    }
+
     private void buildPartial_autosplit_21(com.google.protobuf.test.WideClosedEnum result) {
       int from_bitField21_ = bitField21_;
       int to_bitField21_ = 0;
@@ -35047,6 +36764,43 @@ private static final long serialVersionUID = 0L;
         to_bitField21_ |= 0x80000000;
       }
       result.bitField21_ |= to_bitField21_;
+    }
+
+    private void copyFrom_autosplit_21(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField21_ = other.bitField21_;
+      state673_ = other.state673_;
+      state674_ = other.state674_;
+      state675_ = other.state675_;
+      state676_ = other.state676_;
+      state677_ = other.state677_;
+      state678_ = other.state678_;
+      state679_ = other.state679_;
+      state680_ = other.state680_;
+      state681_ = other.state681_;
+      state682_ = other.state682_;
+      state683_ = other.state683_;
+      state684_ = other.state684_;
+      state685_ = other.state685_;
+      state686_ = other.state686_;
+      state687_ = other.state687_;
+      state688_ = other.state688_;
+      state689_ = other.state689_;
+      state690_ = other.state690_;
+      state691_ = other.state691_;
+      state692_ = other.state692_;
+      state693_ = other.state693_;
+      state694_ = other.state694_;
+      state695_ = other.state695_;
+      state696_ = other.state696_;
+      state697_ = other.state697_;
+      state698_ = other.state698_;
+      state699_ = other.state699_;
+      state700_ = other.state700_;
+      state701_ = other.state701_;
+      state702_ = other.state702_;
+      state703_ = other.state703_;
+      state704_ = other.state704_;
+      bitField21_ |= to_bitField21_;
     }
 
     private void buildPartial_autosplit_22(com.google.protobuf.test.WideClosedEnum result) {
@@ -35183,6 +36937,43 @@ private static final long serialVersionUID = 0L;
       result.bitField22_ |= to_bitField22_;
     }
 
+    private void copyFrom_autosplit_22(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField22_ = other.bitField22_;
+      state705_ = other.state705_;
+      state706_ = other.state706_;
+      state707_ = other.state707_;
+      state708_ = other.state708_;
+      state709_ = other.state709_;
+      state710_ = other.state710_;
+      state711_ = other.state711_;
+      state712_ = other.state712_;
+      state713_ = other.state713_;
+      state714_ = other.state714_;
+      state715_ = other.state715_;
+      state716_ = other.state716_;
+      state717_ = other.state717_;
+      state718_ = other.state718_;
+      state719_ = other.state719_;
+      state720_ = other.state720_;
+      state721_ = other.state721_;
+      state722_ = other.state722_;
+      state723_ = other.state723_;
+      state724_ = other.state724_;
+      state725_ = other.state725_;
+      state726_ = other.state726_;
+      state727_ = other.state727_;
+      state728_ = other.state728_;
+      state729_ = other.state729_;
+      state730_ = other.state730_;
+      state731_ = other.state731_;
+      state732_ = other.state732_;
+      state733_ = other.state733_;
+      state734_ = other.state734_;
+      state735_ = other.state735_;
+      state736_ = other.state736_;
+      bitField22_ |= to_bitField22_;
+    }
+
     private void buildPartial_autosplit_23(com.google.protobuf.test.WideClosedEnum result) {
       int from_bitField23_ = bitField23_;
       int to_bitField23_ = 0;
@@ -35315,6 +37106,43 @@ private static final long serialVersionUID = 0L;
         to_bitField23_ |= 0x80000000;
       }
       result.bitField23_ |= to_bitField23_;
+    }
+
+    private void copyFrom_autosplit_23(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField23_ = other.bitField23_;
+      state737_ = other.state737_;
+      state738_ = other.state738_;
+      state739_ = other.state739_;
+      state740_ = other.state740_;
+      state741_ = other.state741_;
+      state742_ = other.state742_;
+      state743_ = other.state743_;
+      state744_ = other.state744_;
+      state745_ = other.state745_;
+      state746_ = other.state746_;
+      state747_ = other.state747_;
+      state748_ = other.state748_;
+      state749_ = other.state749_;
+      state750_ = other.state750_;
+      state751_ = other.state751_;
+      state752_ = other.state752_;
+      state753_ = other.state753_;
+      state754_ = other.state754_;
+      state755_ = other.state755_;
+      state756_ = other.state756_;
+      state757_ = other.state757_;
+      state758_ = other.state758_;
+      state759_ = other.state759_;
+      state760_ = other.state760_;
+      state761_ = other.state761_;
+      state762_ = other.state762_;
+      state763_ = other.state763_;
+      state764_ = other.state764_;
+      state765_ = other.state765_;
+      state766_ = other.state766_;
+      state767_ = other.state767_;
+      state768_ = other.state768_;
+      bitField23_ |= to_bitField23_;
     }
 
     private void buildPartial_autosplit_24(com.google.protobuf.test.WideClosedEnum result) {
@@ -35451,6 +37279,43 @@ private static final long serialVersionUID = 0L;
       result.bitField24_ |= to_bitField24_;
     }
 
+    private void copyFrom_autosplit_24(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField24_ = other.bitField24_;
+      state769_ = other.state769_;
+      state770_ = other.state770_;
+      state771_ = other.state771_;
+      state772_ = other.state772_;
+      state773_ = other.state773_;
+      state774_ = other.state774_;
+      state775_ = other.state775_;
+      state776_ = other.state776_;
+      state777_ = other.state777_;
+      state778_ = other.state778_;
+      state779_ = other.state779_;
+      state780_ = other.state780_;
+      state781_ = other.state781_;
+      state782_ = other.state782_;
+      state783_ = other.state783_;
+      state784_ = other.state784_;
+      state785_ = other.state785_;
+      state786_ = other.state786_;
+      state787_ = other.state787_;
+      state788_ = other.state788_;
+      state789_ = other.state789_;
+      state790_ = other.state790_;
+      state791_ = other.state791_;
+      state792_ = other.state792_;
+      state793_ = other.state793_;
+      state794_ = other.state794_;
+      state795_ = other.state795_;
+      state796_ = other.state796_;
+      state797_ = other.state797_;
+      state798_ = other.state798_;
+      state799_ = other.state799_;
+      state800_ = other.state800_;
+      bitField24_ |= to_bitField24_;
+    }
+
     private void buildPartial_autosplit_25(com.google.protobuf.test.WideClosedEnum result) {
       int from_bitField25_ = bitField25_;
       int to_bitField25_ = 0;
@@ -35583,6 +37448,43 @@ private static final long serialVersionUID = 0L;
         to_bitField25_ |= 0x80000000;
       }
       result.bitField25_ |= to_bitField25_;
+    }
+
+    private void copyFrom_autosplit_25(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField25_ = other.bitField25_;
+      state801_ = other.state801_;
+      state802_ = other.state802_;
+      state803_ = other.state803_;
+      state804_ = other.state804_;
+      state805_ = other.state805_;
+      state806_ = other.state806_;
+      state807_ = other.state807_;
+      state808_ = other.state808_;
+      state809_ = other.state809_;
+      state810_ = other.state810_;
+      state811_ = other.state811_;
+      state812_ = other.state812_;
+      state813_ = other.state813_;
+      state814_ = other.state814_;
+      state815_ = other.state815_;
+      state816_ = other.state816_;
+      state817_ = other.state817_;
+      state818_ = other.state818_;
+      state819_ = other.state819_;
+      state820_ = other.state820_;
+      state821_ = other.state821_;
+      state822_ = other.state822_;
+      state823_ = other.state823_;
+      state824_ = other.state824_;
+      state825_ = other.state825_;
+      state826_ = other.state826_;
+      state827_ = other.state827_;
+      state828_ = other.state828_;
+      state829_ = other.state829_;
+      state830_ = other.state830_;
+      state831_ = other.state831_;
+      state832_ = other.state832_;
+      bitField25_ |= to_bitField25_;
     }
 
     private void buildPartial_autosplit_26(com.google.protobuf.test.WideClosedEnum result) {
@@ -35719,6 +37621,43 @@ private static final long serialVersionUID = 0L;
       result.bitField26_ |= to_bitField26_;
     }
 
+    private void copyFrom_autosplit_26(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField26_ = other.bitField26_;
+      state833_ = other.state833_;
+      state834_ = other.state834_;
+      state835_ = other.state835_;
+      state836_ = other.state836_;
+      state837_ = other.state837_;
+      state838_ = other.state838_;
+      state839_ = other.state839_;
+      state840_ = other.state840_;
+      state841_ = other.state841_;
+      state842_ = other.state842_;
+      state843_ = other.state843_;
+      state844_ = other.state844_;
+      state845_ = other.state845_;
+      state846_ = other.state846_;
+      state847_ = other.state847_;
+      state848_ = other.state848_;
+      state849_ = other.state849_;
+      state850_ = other.state850_;
+      state851_ = other.state851_;
+      state852_ = other.state852_;
+      state853_ = other.state853_;
+      state854_ = other.state854_;
+      state855_ = other.state855_;
+      state856_ = other.state856_;
+      state857_ = other.state857_;
+      state858_ = other.state858_;
+      state859_ = other.state859_;
+      state860_ = other.state860_;
+      state861_ = other.state861_;
+      state862_ = other.state862_;
+      state863_ = other.state863_;
+      state864_ = other.state864_;
+      bitField26_ |= to_bitField26_;
+    }
+
     private void buildPartial_autosplit_27(com.google.protobuf.test.WideClosedEnum result) {
       int from_bitField27_ = bitField27_;
       int to_bitField27_ = 0;
@@ -35853,6 +37792,43 @@ private static final long serialVersionUID = 0L;
       result.bitField27_ |= to_bitField27_;
     }
 
+    private void copyFrom_autosplit_27(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField27_ = other.bitField27_;
+      state865_ = other.state865_;
+      state866_ = other.state866_;
+      state867_ = other.state867_;
+      state868_ = other.state868_;
+      state869_ = other.state869_;
+      state870_ = other.state870_;
+      state871_ = other.state871_;
+      state872_ = other.state872_;
+      state873_ = other.state873_;
+      state874_ = other.state874_;
+      state875_ = other.state875_;
+      state876_ = other.state876_;
+      state877_ = other.state877_;
+      state878_ = other.state878_;
+      state879_ = other.state879_;
+      state880_ = other.state880_;
+      state881_ = other.state881_;
+      state882_ = other.state882_;
+      state883_ = other.state883_;
+      state884_ = other.state884_;
+      state885_ = other.state885_;
+      state886_ = other.state886_;
+      state887_ = other.state887_;
+      state888_ = other.state888_;
+      state889_ = other.state889_;
+      state890_ = other.state890_;
+      state891_ = other.state891_;
+      state892_ = other.state892_;
+      state893_ = other.state893_;
+      state894_ = other.state894_;
+      state895_ = other.state895_;
+      state896_ = other.state896_;
+      bitField27_ |= to_bitField27_;
+    }
+
     private void buildPartial_autosplit_28(com.google.protobuf.test.WideClosedEnum result) {
       int from_bitField28_ = bitField28_;
       int to_bitField28_ = 0;
@@ -35873,6 +37849,15 @@ private static final long serialVersionUID = 0L;
         to_bitField28_ |= 0x00000008;
       }
       result.bitField28_ |= to_bitField28_;
+    }
+
+    private void copyFrom_autosplit_28(com.google.protobuf.test.WideClosedEnum other) {
+      int to_bitField28_ = (other.bitField28_ & 0x0000000f);
+      state897_ = other.state897_;
+      state898_ = other.state898_;
+      state899_ = other.state899_;
+      state900_ = other.state900_;
+      bitField28_ |= to_bitField28_;
     }
 
     @java.lang.Override
@@ -49572,7 +51557,7 @@ private static final long serialVersionUID = 0L;
     private int bitField27_;
     private int bitField28_;
 
-    private int state1_ = 0;
+    private int state1_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_1 = 1;</code>
      * @return Whether the state1 field is set.
@@ -49612,7 +51597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state2_ = 0;
+    private int state2_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_2 = 2;</code>
      * @return Whether the state2 field is set.
@@ -49652,7 +51637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state3_ = 0;
+    private int state3_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_3 = 3;</code>
      * @return Whether the state3 field is set.
@@ -49692,7 +51677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state4_ = 0;
+    private int state4_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_4 = 4;</code>
      * @return Whether the state4 field is set.
@@ -49732,7 +51717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state5_ = 0;
+    private int state5_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_5 = 5;</code>
      * @return Whether the state5 field is set.
@@ -49772,7 +51757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state6_ = 0;
+    private int state6_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_6 = 6;</code>
      * @return Whether the state6 field is set.
@@ -49812,7 +51797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state7_ = 0;
+    private int state7_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_7 = 7;</code>
      * @return Whether the state7 field is set.
@@ -49852,7 +51837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state8_ = 0;
+    private int state8_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_8 = 8;</code>
      * @return Whether the state8 field is set.
@@ -49892,7 +51877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state9_ = 0;
+    private int state9_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_9 = 9;</code>
      * @return Whether the state9 field is set.
@@ -49932,7 +51917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state10_ = 0;
+    private int state10_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_10 = 10;</code>
      * @return Whether the state10 field is set.
@@ -49972,7 +51957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state11_ = 0;
+    private int state11_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_11 = 11;</code>
      * @return Whether the state11 field is set.
@@ -50012,7 +51997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state12_ = 0;
+    private int state12_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_12 = 12;</code>
      * @return Whether the state12 field is set.
@@ -50052,7 +52037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state13_ = 0;
+    private int state13_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_13 = 13;</code>
      * @return Whether the state13 field is set.
@@ -50092,7 +52077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state14_ = 0;
+    private int state14_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_14 = 14;</code>
      * @return Whether the state14 field is set.
@@ -50132,7 +52117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state15_ = 0;
+    private int state15_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_15 = 15;</code>
      * @return Whether the state15 field is set.
@@ -50172,7 +52157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state16_ = 0;
+    private int state16_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_16 = 16;</code>
      * @return Whether the state16 field is set.
@@ -50212,7 +52197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state17_ = 0;
+    private int state17_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_17 = 17;</code>
      * @return Whether the state17 field is set.
@@ -50252,7 +52237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state18_ = 0;
+    private int state18_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_18 = 18;</code>
      * @return Whether the state18 field is set.
@@ -50292,7 +52277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state19_ = 0;
+    private int state19_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_19 = 19;</code>
      * @return Whether the state19 field is set.
@@ -50332,7 +52317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state20_ = 0;
+    private int state20_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_20 = 20;</code>
      * @return Whether the state20 field is set.
@@ -50372,7 +52357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state21_ = 0;
+    private int state21_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_21 = 21;</code>
      * @return Whether the state21 field is set.
@@ -50412,7 +52397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state22_ = 0;
+    private int state22_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_22 = 22;</code>
      * @return Whether the state22 field is set.
@@ -50452,7 +52437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state23_ = 0;
+    private int state23_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_23 = 23;</code>
      * @return Whether the state23 field is set.
@@ -50492,7 +52477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state24_ = 0;
+    private int state24_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_24 = 24;</code>
      * @return Whether the state24 field is set.
@@ -50532,7 +52517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state25_ = 0;
+    private int state25_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_25 = 25;</code>
      * @return Whether the state25 field is set.
@@ -50572,7 +52557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state26_ = 0;
+    private int state26_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_26 = 26;</code>
      * @return Whether the state26 field is set.
@@ -50612,7 +52597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state27_ = 0;
+    private int state27_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_27 = 27;</code>
      * @return Whether the state27 field is set.
@@ -50652,7 +52637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state28_ = 0;
+    private int state28_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_28 = 28;</code>
      * @return Whether the state28 field is set.
@@ -50692,7 +52677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state29_ = 0;
+    private int state29_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_29 = 29;</code>
      * @return Whether the state29 field is set.
@@ -50732,7 +52717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state30_ = 0;
+    private int state30_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_30 = 30;</code>
      * @return Whether the state30 field is set.
@@ -50772,7 +52757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state31_ = 0;
+    private int state31_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_31 = 31;</code>
      * @return Whether the state31 field is set.
@@ -50812,7 +52797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state32_ = 0;
+    private int state32_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_32 = 32;</code>
      * @return Whether the state32 field is set.
@@ -50852,7 +52837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state33_ = 0;
+    private int state33_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_33 = 33;</code>
      * @return Whether the state33 field is set.
@@ -50892,7 +52877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state34_ = 0;
+    private int state34_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_34 = 34;</code>
      * @return Whether the state34 field is set.
@@ -50932,7 +52917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state35_ = 0;
+    private int state35_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_35 = 35;</code>
      * @return Whether the state35 field is set.
@@ -50972,7 +52957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state36_ = 0;
+    private int state36_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_36 = 36;</code>
      * @return Whether the state36 field is set.
@@ -51012,7 +52997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state37_ = 0;
+    private int state37_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_37 = 37;</code>
      * @return Whether the state37 field is set.
@@ -51052,7 +53037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state38_ = 0;
+    private int state38_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_38 = 38;</code>
      * @return Whether the state38 field is set.
@@ -51092,7 +53077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state39_ = 0;
+    private int state39_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_39 = 39;</code>
      * @return Whether the state39 field is set.
@@ -51132,7 +53117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state40_ = 0;
+    private int state40_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_40 = 40;</code>
      * @return Whether the state40 field is set.
@@ -51172,7 +53157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state41_ = 0;
+    private int state41_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_41 = 41;</code>
      * @return Whether the state41 field is set.
@@ -51212,7 +53197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state42_ = 0;
+    private int state42_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_42 = 42;</code>
      * @return Whether the state42 field is set.
@@ -51252,7 +53237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state43_ = 0;
+    private int state43_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_43 = 43;</code>
      * @return Whether the state43 field is set.
@@ -51292,7 +53277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state44_ = 0;
+    private int state44_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_44 = 44;</code>
      * @return Whether the state44 field is set.
@@ -51332,7 +53317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state45_ = 0;
+    private int state45_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_45 = 45;</code>
      * @return Whether the state45 field is set.
@@ -51372,7 +53357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state46_ = 0;
+    private int state46_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_46 = 46;</code>
      * @return Whether the state46 field is set.
@@ -51412,7 +53397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state47_ = 0;
+    private int state47_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_47 = 47;</code>
      * @return Whether the state47 field is set.
@@ -51452,7 +53437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state48_ = 0;
+    private int state48_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_48 = 48;</code>
      * @return Whether the state48 field is set.
@@ -51492,7 +53477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state49_ = 0;
+    private int state49_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_49 = 49;</code>
      * @return Whether the state49 field is set.
@@ -51532,7 +53517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state50_ = 0;
+    private int state50_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_50 = 50;</code>
      * @return Whether the state50 field is set.
@@ -51572,7 +53557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state51_ = 0;
+    private int state51_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_51 = 51;</code>
      * @return Whether the state51 field is set.
@@ -51612,7 +53597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state52_ = 0;
+    private int state52_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_52 = 52;</code>
      * @return Whether the state52 field is set.
@@ -51652,7 +53637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state53_ = 0;
+    private int state53_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_53 = 53;</code>
      * @return Whether the state53 field is set.
@@ -51692,7 +53677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state54_ = 0;
+    private int state54_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_54 = 54;</code>
      * @return Whether the state54 field is set.
@@ -51732,7 +53717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state55_ = 0;
+    private int state55_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_55 = 55;</code>
      * @return Whether the state55 field is set.
@@ -51772,7 +53757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state56_ = 0;
+    private int state56_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_56 = 56;</code>
      * @return Whether the state56 field is set.
@@ -51812,7 +53797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state57_ = 0;
+    private int state57_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_57 = 57;</code>
      * @return Whether the state57 field is set.
@@ -51852,7 +53837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state58_ = 0;
+    private int state58_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_58 = 58;</code>
      * @return Whether the state58 field is set.
@@ -51892,7 +53877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state59_ = 0;
+    private int state59_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_59 = 59;</code>
      * @return Whether the state59 field is set.
@@ -51932,7 +53917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state60_ = 0;
+    private int state60_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_60 = 60;</code>
      * @return Whether the state60 field is set.
@@ -51972,7 +53957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state61_ = 0;
+    private int state61_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_61 = 61;</code>
      * @return Whether the state61 field is set.
@@ -52012,7 +53997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state62_ = 0;
+    private int state62_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_62 = 62;</code>
      * @return Whether the state62 field is set.
@@ -52052,7 +54037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state63_ = 0;
+    private int state63_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_63 = 63;</code>
      * @return Whether the state63 field is set.
@@ -52092,7 +54077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state64_ = 0;
+    private int state64_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_64 = 64;</code>
      * @return Whether the state64 field is set.
@@ -52132,7 +54117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state65_ = 0;
+    private int state65_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_65 = 65;</code>
      * @return Whether the state65 field is set.
@@ -52172,7 +54157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state66_ = 0;
+    private int state66_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_66 = 66;</code>
      * @return Whether the state66 field is set.
@@ -52212,7 +54197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state67_ = 0;
+    private int state67_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_67 = 67;</code>
      * @return Whether the state67 field is set.
@@ -52252,7 +54237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state68_ = 0;
+    private int state68_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_68 = 68;</code>
      * @return Whether the state68 field is set.
@@ -52292,7 +54277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state69_ = 0;
+    private int state69_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_69 = 69;</code>
      * @return Whether the state69 field is set.
@@ -52332,7 +54317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state70_ = 0;
+    private int state70_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_70 = 70;</code>
      * @return Whether the state70 field is set.
@@ -52372,7 +54357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state71_ = 0;
+    private int state71_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_71 = 71;</code>
      * @return Whether the state71 field is set.
@@ -52412,7 +54397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state72_ = 0;
+    private int state72_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_72 = 72;</code>
      * @return Whether the state72 field is set.
@@ -52452,7 +54437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state73_ = 0;
+    private int state73_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_73 = 73;</code>
      * @return Whether the state73 field is set.
@@ -52492,7 +54477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state74_ = 0;
+    private int state74_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_74 = 74;</code>
      * @return Whether the state74 field is set.
@@ -52532,7 +54517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state75_ = 0;
+    private int state75_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_75 = 75;</code>
      * @return Whether the state75 field is set.
@@ -52572,7 +54557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state76_ = 0;
+    private int state76_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_76 = 76;</code>
      * @return Whether the state76 field is set.
@@ -52612,7 +54597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state77_ = 0;
+    private int state77_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_77 = 77;</code>
      * @return Whether the state77 field is set.
@@ -52652,7 +54637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state78_ = 0;
+    private int state78_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_78 = 78;</code>
      * @return Whether the state78 field is set.
@@ -52692,7 +54677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state79_ = 0;
+    private int state79_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_79 = 79;</code>
      * @return Whether the state79 field is set.
@@ -52732,7 +54717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state80_ = 0;
+    private int state80_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_80 = 80;</code>
      * @return Whether the state80 field is set.
@@ -52772,7 +54757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state81_ = 0;
+    private int state81_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_81 = 81;</code>
      * @return Whether the state81 field is set.
@@ -52812,7 +54797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state82_ = 0;
+    private int state82_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_82 = 82;</code>
      * @return Whether the state82 field is set.
@@ -52852,7 +54837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state83_ = 0;
+    private int state83_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_83 = 83;</code>
      * @return Whether the state83 field is set.
@@ -52892,7 +54877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state84_ = 0;
+    private int state84_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_84 = 84;</code>
      * @return Whether the state84 field is set.
@@ -52932,7 +54917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state85_ = 0;
+    private int state85_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_85 = 85;</code>
      * @return Whether the state85 field is set.
@@ -52972,7 +54957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state86_ = 0;
+    private int state86_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_86 = 86;</code>
      * @return Whether the state86 field is set.
@@ -53012,7 +54997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state87_ = 0;
+    private int state87_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_87 = 87;</code>
      * @return Whether the state87 field is set.
@@ -53052,7 +55037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state88_ = 0;
+    private int state88_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_88 = 88;</code>
      * @return Whether the state88 field is set.
@@ -53092,7 +55077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state89_ = 0;
+    private int state89_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_89 = 89;</code>
      * @return Whether the state89 field is set.
@@ -53132,7 +55117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state90_ = 0;
+    private int state90_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_90 = 90;</code>
      * @return Whether the state90 field is set.
@@ -53172,7 +55157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state91_ = 0;
+    private int state91_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_91 = 91;</code>
      * @return Whether the state91 field is set.
@@ -53212,7 +55197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state92_ = 0;
+    private int state92_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_92 = 92;</code>
      * @return Whether the state92 field is set.
@@ -53252,7 +55237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state93_ = 0;
+    private int state93_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_93 = 93;</code>
      * @return Whether the state93 field is set.
@@ -53292,7 +55277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state94_ = 0;
+    private int state94_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_94 = 94;</code>
      * @return Whether the state94 field is set.
@@ -53332,7 +55317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state95_ = 0;
+    private int state95_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_95 = 95;</code>
      * @return Whether the state95 field is set.
@@ -53372,7 +55357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state96_ = 0;
+    private int state96_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_96 = 96;</code>
      * @return Whether the state96 field is set.
@@ -53412,7 +55397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state97_ = 0;
+    private int state97_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_97 = 97;</code>
      * @return Whether the state97 field is set.
@@ -53452,7 +55437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state98_ = 0;
+    private int state98_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_98 = 98;</code>
      * @return Whether the state98 field is set.
@@ -53492,7 +55477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state99_ = 0;
+    private int state99_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_99 = 99;</code>
      * @return Whether the state99 field is set.
@@ -53532,7 +55517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state100_ = 0;
+    private int state100_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_100 = 100;</code>
      * @return Whether the state100 field is set.
@@ -53572,7 +55557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state101_ = 0;
+    private int state101_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_101 = 101;</code>
      * @return Whether the state101 field is set.
@@ -53612,7 +55597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state102_ = 0;
+    private int state102_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_102 = 102;</code>
      * @return Whether the state102 field is set.
@@ -53652,7 +55637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state103_ = 0;
+    private int state103_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_103 = 103;</code>
      * @return Whether the state103 field is set.
@@ -53692,7 +55677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state104_ = 0;
+    private int state104_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_104 = 104;</code>
      * @return Whether the state104 field is set.
@@ -53732,7 +55717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state105_ = 0;
+    private int state105_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_105 = 105;</code>
      * @return Whether the state105 field is set.
@@ -53772,7 +55757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state106_ = 0;
+    private int state106_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_106 = 106;</code>
      * @return Whether the state106 field is set.
@@ -53812,7 +55797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state107_ = 0;
+    private int state107_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_107 = 107;</code>
      * @return Whether the state107 field is set.
@@ -53852,7 +55837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state108_ = 0;
+    private int state108_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_108 = 108;</code>
      * @return Whether the state108 field is set.
@@ -53892,7 +55877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state109_ = 0;
+    private int state109_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_109 = 109;</code>
      * @return Whether the state109 field is set.
@@ -53932,7 +55917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state110_ = 0;
+    private int state110_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_110 = 110;</code>
      * @return Whether the state110 field is set.
@@ -53972,7 +55957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state111_ = 0;
+    private int state111_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_111 = 111;</code>
      * @return Whether the state111 field is set.
@@ -54012,7 +55997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state112_ = 0;
+    private int state112_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_112 = 112;</code>
      * @return Whether the state112 field is set.
@@ -54052,7 +56037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state113_ = 0;
+    private int state113_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_113 = 113;</code>
      * @return Whether the state113 field is set.
@@ -54092,7 +56077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state114_ = 0;
+    private int state114_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_114 = 114;</code>
      * @return Whether the state114 field is set.
@@ -54132,7 +56117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state115_ = 0;
+    private int state115_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_115 = 115;</code>
      * @return Whether the state115 field is set.
@@ -54172,7 +56157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state116_ = 0;
+    private int state116_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_116 = 116;</code>
      * @return Whether the state116 field is set.
@@ -54212,7 +56197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state117_ = 0;
+    private int state117_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_117 = 117;</code>
      * @return Whether the state117 field is set.
@@ -54252,7 +56237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state118_ = 0;
+    private int state118_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_118 = 118;</code>
      * @return Whether the state118 field is set.
@@ -54292,7 +56277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state119_ = 0;
+    private int state119_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_119 = 119;</code>
      * @return Whether the state119 field is set.
@@ -54332,7 +56317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state120_ = 0;
+    private int state120_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_120 = 120;</code>
      * @return Whether the state120 field is set.
@@ -54372,7 +56357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state121_ = 0;
+    private int state121_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_121 = 121;</code>
      * @return Whether the state121 field is set.
@@ -54412,7 +56397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state122_ = 0;
+    private int state122_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_122 = 122;</code>
      * @return Whether the state122 field is set.
@@ -54452,7 +56437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state123_ = 0;
+    private int state123_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_123 = 123;</code>
      * @return Whether the state123 field is set.
@@ -54492,7 +56477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state124_ = 0;
+    private int state124_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_124 = 124;</code>
      * @return Whether the state124 field is set.
@@ -54532,7 +56517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state125_ = 0;
+    private int state125_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_125 = 125;</code>
      * @return Whether the state125 field is set.
@@ -54572,7 +56557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state126_ = 0;
+    private int state126_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_126 = 126;</code>
      * @return Whether the state126 field is set.
@@ -54612,7 +56597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state127_ = 0;
+    private int state127_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_127 = 127;</code>
      * @return Whether the state127 field is set.
@@ -54652,7 +56637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state128_ = 0;
+    private int state128_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_128 = 128;</code>
      * @return Whether the state128 field is set.
@@ -54692,7 +56677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state129_ = 0;
+    private int state129_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_129 = 129;</code>
      * @return Whether the state129 field is set.
@@ -54732,7 +56717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state130_ = 0;
+    private int state130_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_130 = 130;</code>
      * @return Whether the state130 field is set.
@@ -54772,7 +56757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state131_ = 0;
+    private int state131_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_131 = 131;</code>
      * @return Whether the state131 field is set.
@@ -54812,7 +56797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state132_ = 0;
+    private int state132_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_132 = 132;</code>
      * @return Whether the state132 field is set.
@@ -54852,7 +56837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state133_ = 0;
+    private int state133_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_133 = 133;</code>
      * @return Whether the state133 field is set.
@@ -54892,7 +56877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state134_ = 0;
+    private int state134_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_134 = 134;</code>
      * @return Whether the state134 field is set.
@@ -54932,7 +56917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state135_ = 0;
+    private int state135_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_135 = 135;</code>
      * @return Whether the state135 field is set.
@@ -54972,7 +56957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state136_ = 0;
+    private int state136_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_136 = 136;</code>
      * @return Whether the state136 field is set.
@@ -55012,7 +56997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state137_ = 0;
+    private int state137_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_137 = 137;</code>
      * @return Whether the state137 field is set.
@@ -55052,7 +57037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state138_ = 0;
+    private int state138_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_138 = 138;</code>
      * @return Whether the state138 field is set.
@@ -55092,7 +57077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state139_ = 0;
+    private int state139_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_139 = 139;</code>
      * @return Whether the state139 field is set.
@@ -55132,7 +57117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state140_ = 0;
+    private int state140_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_140 = 140;</code>
      * @return Whether the state140 field is set.
@@ -55172,7 +57157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state141_ = 0;
+    private int state141_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_141 = 141;</code>
      * @return Whether the state141 field is set.
@@ -55212,7 +57197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state142_ = 0;
+    private int state142_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_142 = 142;</code>
      * @return Whether the state142 field is set.
@@ -55252,7 +57237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state143_ = 0;
+    private int state143_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_143 = 143;</code>
      * @return Whether the state143 field is set.
@@ -55292,7 +57277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state144_ = 0;
+    private int state144_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_144 = 144;</code>
      * @return Whether the state144 field is set.
@@ -55332,7 +57317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state145_ = 0;
+    private int state145_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_145 = 145;</code>
      * @return Whether the state145 field is set.
@@ -55372,7 +57357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state146_ = 0;
+    private int state146_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_146 = 146;</code>
      * @return Whether the state146 field is set.
@@ -55412,7 +57397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state147_ = 0;
+    private int state147_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_147 = 147;</code>
      * @return Whether the state147 field is set.
@@ -55452,7 +57437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state148_ = 0;
+    private int state148_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_148 = 148;</code>
      * @return Whether the state148 field is set.
@@ -55492,7 +57477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state149_ = 0;
+    private int state149_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_149 = 149;</code>
      * @return Whether the state149 field is set.
@@ -55532,7 +57517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state150_ = 0;
+    private int state150_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_150 = 150;</code>
      * @return Whether the state150 field is set.
@@ -55572,7 +57557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state151_ = 0;
+    private int state151_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_151 = 151;</code>
      * @return Whether the state151 field is set.
@@ -55612,7 +57597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state152_ = 0;
+    private int state152_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_152 = 152;</code>
      * @return Whether the state152 field is set.
@@ -55652,7 +57637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state153_ = 0;
+    private int state153_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_153 = 153;</code>
      * @return Whether the state153 field is set.
@@ -55692,7 +57677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state154_ = 0;
+    private int state154_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_154 = 154;</code>
      * @return Whether the state154 field is set.
@@ -55732,7 +57717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state155_ = 0;
+    private int state155_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_155 = 155;</code>
      * @return Whether the state155 field is set.
@@ -55772,7 +57757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state156_ = 0;
+    private int state156_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_156 = 156;</code>
      * @return Whether the state156 field is set.
@@ -55812,7 +57797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state157_ = 0;
+    private int state157_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_157 = 157;</code>
      * @return Whether the state157 field is set.
@@ -55852,7 +57837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state158_ = 0;
+    private int state158_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_158 = 158;</code>
      * @return Whether the state158 field is set.
@@ -55892,7 +57877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state159_ = 0;
+    private int state159_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_159 = 159;</code>
      * @return Whether the state159 field is set.
@@ -55932,7 +57917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state160_ = 0;
+    private int state160_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_160 = 160;</code>
      * @return Whether the state160 field is set.
@@ -55972,7 +57957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state161_ = 0;
+    private int state161_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_161 = 161;</code>
      * @return Whether the state161 field is set.
@@ -56012,7 +57997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state162_ = 0;
+    private int state162_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_162 = 162;</code>
      * @return Whether the state162 field is set.
@@ -56052,7 +58037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state163_ = 0;
+    private int state163_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_163 = 163;</code>
      * @return Whether the state163 field is set.
@@ -56092,7 +58077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state164_ = 0;
+    private int state164_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_164 = 164;</code>
      * @return Whether the state164 field is set.
@@ -56132,7 +58117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state165_ = 0;
+    private int state165_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_165 = 165;</code>
      * @return Whether the state165 field is set.
@@ -56172,7 +58157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state166_ = 0;
+    private int state166_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_166 = 166;</code>
      * @return Whether the state166 field is set.
@@ -56212,7 +58197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state167_ = 0;
+    private int state167_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_167 = 167;</code>
      * @return Whether the state167 field is set.
@@ -56252,7 +58237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state168_ = 0;
+    private int state168_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_168 = 168;</code>
      * @return Whether the state168 field is set.
@@ -56292,7 +58277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state169_ = 0;
+    private int state169_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_169 = 169;</code>
      * @return Whether the state169 field is set.
@@ -56332,7 +58317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state170_ = 0;
+    private int state170_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_170 = 170;</code>
      * @return Whether the state170 field is set.
@@ -56372,7 +58357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state171_ = 0;
+    private int state171_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_171 = 171;</code>
      * @return Whether the state171 field is set.
@@ -56412,7 +58397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state172_ = 0;
+    private int state172_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_172 = 172;</code>
      * @return Whether the state172 field is set.
@@ -56452,7 +58437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state173_ = 0;
+    private int state173_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_173 = 173;</code>
      * @return Whether the state173 field is set.
@@ -56492,7 +58477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state174_ = 0;
+    private int state174_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_174 = 174;</code>
      * @return Whether the state174 field is set.
@@ -56532,7 +58517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state175_ = 0;
+    private int state175_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_175 = 175;</code>
      * @return Whether the state175 field is set.
@@ -56572,7 +58557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state176_ = 0;
+    private int state176_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_176 = 176;</code>
      * @return Whether the state176 field is set.
@@ -56612,7 +58597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state177_ = 0;
+    private int state177_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_177 = 177;</code>
      * @return Whether the state177 field is set.
@@ -56652,7 +58637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state178_ = 0;
+    private int state178_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_178 = 178;</code>
      * @return Whether the state178 field is set.
@@ -56692,7 +58677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state179_ = 0;
+    private int state179_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_179 = 179;</code>
      * @return Whether the state179 field is set.
@@ -56732,7 +58717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state180_ = 0;
+    private int state180_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_180 = 180;</code>
      * @return Whether the state180 field is set.
@@ -56772,7 +58757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state181_ = 0;
+    private int state181_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_181 = 181;</code>
      * @return Whether the state181 field is set.
@@ -56812,7 +58797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state182_ = 0;
+    private int state182_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_182 = 182;</code>
      * @return Whether the state182 field is set.
@@ -56852,7 +58837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state183_ = 0;
+    private int state183_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_183 = 183;</code>
      * @return Whether the state183 field is set.
@@ -56892,7 +58877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state184_ = 0;
+    private int state184_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_184 = 184;</code>
      * @return Whether the state184 field is set.
@@ -56932,7 +58917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state185_ = 0;
+    private int state185_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_185 = 185;</code>
      * @return Whether the state185 field is set.
@@ -56972,7 +58957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state186_ = 0;
+    private int state186_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_186 = 186;</code>
      * @return Whether the state186 field is set.
@@ -57012,7 +58997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state187_ = 0;
+    private int state187_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_187 = 187;</code>
      * @return Whether the state187 field is set.
@@ -57052,7 +59037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state188_ = 0;
+    private int state188_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_188 = 188;</code>
      * @return Whether the state188 field is set.
@@ -57092,7 +59077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state189_ = 0;
+    private int state189_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_189 = 189;</code>
      * @return Whether the state189 field is set.
@@ -57132,7 +59117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state190_ = 0;
+    private int state190_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_190 = 190;</code>
      * @return Whether the state190 field is set.
@@ -57172,7 +59157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state191_ = 0;
+    private int state191_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_191 = 191;</code>
      * @return Whether the state191 field is set.
@@ -57212,7 +59197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state192_ = 0;
+    private int state192_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_192 = 192;</code>
      * @return Whether the state192 field is set.
@@ -57252,7 +59237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state193_ = 0;
+    private int state193_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_193 = 193;</code>
      * @return Whether the state193 field is set.
@@ -57292,7 +59277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state194_ = 0;
+    private int state194_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_194 = 194;</code>
      * @return Whether the state194 field is set.
@@ -57332,7 +59317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state195_ = 0;
+    private int state195_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_195 = 195;</code>
      * @return Whether the state195 field is set.
@@ -57372,7 +59357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state196_ = 0;
+    private int state196_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_196 = 196;</code>
      * @return Whether the state196 field is set.
@@ -57412,7 +59397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state197_ = 0;
+    private int state197_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_197 = 197;</code>
      * @return Whether the state197 field is set.
@@ -57452,7 +59437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state198_ = 0;
+    private int state198_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_198 = 198;</code>
      * @return Whether the state198 field is set.
@@ -57492,7 +59477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state199_ = 0;
+    private int state199_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_199 = 199;</code>
      * @return Whether the state199 field is set.
@@ -57532,7 +59517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state200_ = 0;
+    private int state200_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_200 = 200;</code>
      * @return Whether the state200 field is set.
@@ -57572,7 +59557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state201_ = 0;
+    private int state201_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_201 = 201;</code>
      * @return Whether the state201 field is set.
@@ -57612,7 +59597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state202_ = 0;
+    private int state202_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_202 = 202;</code>
      * @return Whether the state202 field is set.
@@ -57652,7 +59637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state203_ = 0;
+    private int state203_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_203 = 203;</code>
      * @return Whether the state203 field is set.
@@ -57692,7 +59677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state204_ = 0;
+    private int state204_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_204 = 204;</code>
      * @return Whether the state204 field is set.
@@ -57732,7 +59717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state205_ = 0;
+    private int state205_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_205 = 205;</code>
      * @return Whether the state205 field is set.
@@ -57772,7 +59757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state206_ = 0;
+    private int state206_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_206 = 206;</code>
      * @return Whether the state206 field is set.
@@ -57812,7 +59797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state207_ = 0;
+    private int state207_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_207 = 207;</code>
      * @return Whether the state207 field is set.
@@ -57852,7 +59837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state208_ = 0;
+    private int state208_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_208 = 208;</code>
      * @return Whether the state208 field is set.
@@ -57892,7 +59877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state209_ = 0;
+    private int state209_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_209 = 209;</code>
      * @return Whether the state209 field is set.
@@ -57932,7 +59917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state210_ = 0;
+    private int state210_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_210 = 210;</code>
      * @return Whether the state210 field is set.
@@ -57972,7 +59957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state211_ = 0;
+    private int state211_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_211 = 211;</code>
      * @return Whether the state211 field is set.
@@ -58012,7 +59997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state212_ = 0;
+    private int state212_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_212 = 212;</code>
      * @return Whether the state212 field is set.
@@ -58052,7 +60037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state213_ = 0;
+    private int state213_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_213 = 213;</code>
      * @return Whether the state213 field is set.
@@ -58092,7 +60077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state214_ = 0;
+    private int state214_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_214 = 214;</code>
      * @return Whether the state214 field is set.
@@ -58132,7 +60117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state215_ = 0;
+    private int state215_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_215 = 215;</code>
      * @return Whether the state215 field is set.
@@ -58172,7 +60157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state216_ = 0;
+    private int state216_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_216 = 216;</code>
      * @return Whether the state216 field is set.
@@ -58212,7 +60197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state217_ = 0;
+    private int state217_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_217 = 217;</code>
      * @return Whether the state217 field is set.
@@ -58252,7 +60237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state218_ = 0;
+    private int state218_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_218 = 218;</code>
      * @return Whether the state218 field is set.
@@ -58292,7 +60277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state219_ = 0;
+    private int state219_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_219 = 219;</code>
      * @return Whether the state219 field is set.
@@ -58332,7 +60317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state220_ = 0;
+    private int state220_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_220 = 220;</code>
      * @return Whether the state220 field is set.
@@ -58372,7 +60357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state221_ = 0;
+    private int state221_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_221 = 221;</code>
      * @return Whether the state221 field is set.
@@ -58412,7 +60397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state222_ = 0;
+    private int state222_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_222 = 222;</code>
      * @return Whether the state222 field is set.
@@ -58452,7 +60437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state223_ = 0;
+    private int state223_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_223 = 223;</code>
      * @return Whether the state223 field is set.
@@ -58492,7 +60477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state224_ = 0;
+    private int state224_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_224 = 224;</code>
      * @return Whether the state224 field is set.
@@ -58532,7 +60517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state225_ = 0;
+    private int state225_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_225 = 225;</code>
      * @return Whether the state225 field is set.
@@ -58572,7 +60557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state226_ = 0;
+    private int state226_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_226 = 226;</code>
      * @return Whether the state226 field is set.
@@ -58612,7 +60597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state227_ = 0;
+    private int state227_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_227 = 227;</code>
      * @return Whether the state227 field is set.
@@ -58652,7 +60637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state228_ = 0;
+    private int state228_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_228 = 228;</code>
      * @return Whether the state228 field is set.
@@ -58692,7 +60677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state229_ = 0;
+    private int state229_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_229 = 229;</code>
      * @return Whether the state229 field is set.
@@ -58732,7 +60717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state230_ = 0;
+    private int state230_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_230 = 230;</code>
      * @return Whether the state230 field is set.
@@ -58772,7 +60757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state231_ = 0;
+    private int state231_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_231 = 231;</code>
      * @return Whether the state231 field is set.
@@ -58812,7 +60797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state232_ = 0;
+    private int state232_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_232 = 232;</code>
      * @return Whether the state232 field is set.
@@ -58852,7 +60837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state233_ = 0;
+    private int state233_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_233 = 233;</code>
      * @return Whether the state233 field is set.
@@ -58892,7 +60877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state234_ = 0;
+    private int state234_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_234 = 234;</code>
      * @return Whether the state234 field is set.
@@ -58932,7 +60917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state235_ = 0;
+    private int state235_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_235 = 235;</code>
      * @return Whether the state235 field is set.
@@ -58972,7 +60957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state236_ = 0;
+    private int state236_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_236 = 236;</code>
      * @return Whether the state236 field is set.
@@ -59012,7 +60997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state237_ = 0;
+    private int state237_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_237 = 237;</code>
      * @return Whether the state237 field is set.
@@ -59052,7 +61037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state238_ = 0;
+    private int state238_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_238 = 238;</code>
      * @return Whether the state238 field is set.
@@ -59092,7 +61077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state239_ = 0;
+    private int state239_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_239 = 239;</code>
      * @return Whether the state239 field is set.
@@ -59132,7 +61117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state240_ = 0;
+    private int state240_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_240 = 240;</code>
      * @return Whether the state240 field is set.
@@ -59172,7 +61157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state241_ = 0;
+    private int state241_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_241 = 241;</code>
      * @return Whether the state241 field is set.
@@ -59212,7 +61197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state242_ = 0;
+    private int state242_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_242 = 242;</code>
      * @return Whether the state242 field is set.
@@ -59252,7 +61237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state243_ = 0;
+    private int state243_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_243 = 243;</code>
      * @return Whether the state243 field is set.
@@ -59292,7 +61277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state244_ = 0;
+    private int state244_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_244 = 244;</code>
      * @return Whether the state244 field is set.
@@ -59332,7 +61317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state245_ = 0;
+    private int state245_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_245 = 245;</code>
      * @return Whether the state245 field is set.
@@ -59372,7 +61357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state246_ = 0;
+    private int state246_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_246 = 246;</code>
      * @return Whether the state246 field is set.
@@ -59412,7 +61397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state247_ = 0;
+    private int state247_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_247 = 247;</code>
      * @return Whether the state247 field is set.
@@ -59452,7 +61437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state248_ = 0;
+    private int state248_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_248 = 248;</code>
      * @return Whether the state248 field is set.
@@ -59492,7 +61477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state249_ = 0;
+    private int state249_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_249 = 249;</code>
      * @return Whether the state249 field is set.
@@ -59532,7 +61517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state250_ = 0;
+    private int state250_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_250 = 250;</code>
      * @return Whether the state250 field is set.
@@ -59572,7 +61557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state251_ = 0;
+    private int state251_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_251 = 251;</code>
      * @return Whether the state251 field is set.
@@ -59612,7 +61597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state252_ = 0;
+    private int state252_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_252 = 252;</code>
      * @return Whether the state252 field is set.
@@ -59652,7 +61637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state253_ = 0;
+    private int state253_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_253 = 253;</code>
      * @return Whether the state253 field is set.
@@ -59692,7 +61677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state254_ = 0;
+    private int state254_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_254 = 254;</code>
      * @return Whether the state254 field is set.
@@ -59732,7 +61717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state255_ = 0;
+    private int state255_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_255 = 255;</code>
      * @return Whether the state255 field is set.
@@ -59772,7 +61757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state256_ = 0;
+    private int state256_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_256 = 256;</code>
      * @return Whether the state256 field is set.
@@ -59812,7 +61797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state257_ = 0;
+    private int state257_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_257 = 257;</code>
      * @return Whether the state257 field is set.
@@ -59852,7 +61837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state258_ = 0;
+    private int state258_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_258 = 258;</code>
      * @return Whether the state258 field is set.
@@ -59892,7 +61877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state259_ = 0;
+    private int state259_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_259 = 259;</code>
      * @return Whether the state259 field is set.
@@ -59932,7 +61917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state260_ = 0;
+    private int state260_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_260 = 260;</code>
      * @return Whether the state260 field is set.
@@ -59972,7 +61957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state261_ = 0;
+    private int state261_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_261 = 261;</code>
      * @return Whether the state261 field is set.
@@ -60012,7 +61997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state262_ = 0;
+    private int state262_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_262 = 262;</code>
      * @return Whether the state262 field is set.
@@ -60052,7 +62037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state263_ = 0;
+    private int state263_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_263 = 263;</code>
      * @return Whether the state263 field is set.
@@ -60092,7 +62077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state264_ = 0;
+    private int state264_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_264 = 264;</code>
      * @return Whether the state264 field is set.
@@ -60132,7 +62117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state265_ = 0;
+    private int state265_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_265 = 265;</code>
      * @return Whether the state265 field is set.
@@ -60172,7 +62157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state266_ = 0;
+    private int state266_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_266 = 266;</code>
      * @return Whether the state266 field is set.
@@ -60212,7 +62197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state267_ = 0;
+    private int state267_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_267 = 267;</code>
      * @return Whether the state267 field is set.
@@ -60252,7 +62237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state268_ = 0;
+    private int state268_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_268 = 268;</code>
      * @return Whether the state268 field is set.
@@ -60292,7 +62277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state269_ = 0;
+    private int state269_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_269 = 269;</code>
      * @return Whether the state269 field is set.
@@ -60332,7 +62317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state270_ = 0;
+    private int state270_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_270 = 270;</code>
      * @return Whether the state270 field is set.
@@ -60372,7 +62357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state271_ = 0;
+    private int state271_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_271 = 271;</code>
      * @return Whether the state271 field is set.
@@ -60412,7 +62397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state272_ = 0;
+    private int state272_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_272 = 272;</code>
      * @return Whether the state272 field is set.
@@ -60452,7 +62437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state273_ = 0;
+    private int state273_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_273 = 273;</code>
      * @return Whether the state273 field is set.
@@ -60492,7 +62477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state274_ = 0;
+    private int state274_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_274 = 274;</code>
      * @return Whether the state274 field is set.
@@ -60532,7 +62517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state275_ = 0;
+    private int state275_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_275 = 275;</code>
      * @return Whether the state275 field is set.
@@ -60572,7 +62557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state276_ = 0;
+    private int state276_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_276 = 276;</code>
      * @return Whether the state276 field is set.
@@ -60612,7 +62597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state277_ = 0;
+    private int state277_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_277 = 277;</code>
      * @return Whether the state277 field is set.
@@ -60652,7 +62637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state278_ = 0;
+    private int state278_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_278 = 278;</code>
      * @return Whether the state278 field is set.
@@ -60692,7 +62677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state279_ = 0;
+    private int state279_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_279 = 279;</code>
      * @return Whether the state279 field is set.
@@ -60732,7 +62717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state280_ = 0;
+    private int state280_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_280 = 280;</code>
      * @return Whether the state280 field is set.
@@ -60772,7 +62757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state281_ = 0;
+    private int state281_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_281 = 281;</code>
      * @return Whether the state281 field is set.
@@ -60812,7 +62797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state282_ = 0;
+    private int state282_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_282 = 282;</code>
      * @return Whether the state282 field is set.
@@ -60852,7 +62837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state283_ = 0;
+    private int state283_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_283 = 283;</code>
      * @return Whether the state283 field is set.
@@ -60892,7 +62877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state284_ = 0;
+    private int state284_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_284 = 284;</code>
      * @return Whether the state284 field is set.
@@ -60932,7 +62917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state285_ = 0;
+    private int state285_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_285 = 285;</code>
      * @return Whether the state285 field is set.
@@ -60972,7 +62957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state286_ = 0;
+    private int state286_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_286 = 286;</code>
      * @return Whether the state286 field is set.
@@ -61012,7 +62997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state287_ = 0;
+    private int state287_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_287 = 287;</code>
      * @return Whether the state287 field is set.
@@ -61052,7 +63037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state288_ = 0;
+    private int state288_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_288 = 288;</code>
      * @return Whether the state288 field is set.
@@ -61092,7 +63077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state289_ = 0;
+    private int state289_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_289 = 289;</code>
      * @return Whether the state289 field is set.
@@ -61132,7 +63117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state290_ = 0;
+    private int state290_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_290 = 290;</code>
      * @return Whether the state290 field is set.
@@ -61172,7 +63157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state291_ = 0;
+    private int state291_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_291 = 291;</code>
      * @return Whether the state291 field is set.
@@ -61212,7 +63197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state292_ = 0;
+    private int state292_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_292 = 292;</code>
      * @return Whether the state292 field is set.
@@ -61252,7 +63237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state293_ = 0;
+    private int state293_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_293 = 293;</code>
      * @return Whether the state293 field is set.
@@ -61292,7 +63277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state294_ = 0;
+    private int state294_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_294 = 294;</code>
      * @return Whether the state294 field is set.
@@ -61332,7 +63317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state295_ = 0;
+    private int state295_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_295 = 295;</code>
      * @return Whether the state295 field is set.
@@ -61372,7 +63357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state296_ = 0;
+    private int state296_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_296 = 296;</code>
      * @return Whether the state296 field is set.
@@ -61412,7 +63397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state297_ = 0;
+    private int state297_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_297 = 297;</code>
      * @return Whether the state297 field is set.
@@ -61452,7 +63437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state298_ = 0;
+    private int state298_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_298 = 298;</code>
      * @return Whether the state298 field is set.
@@ -61492,7 +63477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state299_ = 0;
+    private int state299_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_299 = 299;</code>
      * @return Whether the state299 field is set.
@@ -61532,7 +63517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state300_ = 0;
+    private int state300_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_300 = 300;</code>
      * @return Whether the state300 field is set.
@@ -61572,7 +63557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state301_ = 0;
+    private int state301_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_301 = 301;</code>
      * @return Whether the state301 field is set.
@@ -61612,7 +63597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state302_ = 0;
+    private int state302_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_302 = 302;</code>
      * @return Whether the state302 field is set.
@@ -61652,7 +63637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state303_ = 0;
+    private int state303_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_303 = 303;</code>
      * @return Whether the state303 field is set.
@@ -61692,7 +63677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state304_ = 0;
+    private int state304_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_304 = 304;</code>
      * @return Whether the state304 field is set.
@@ -61732,7 +63717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state305_ = 0;
+    private int state305_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_305 = 305;</code>
      * @return Whether the state305 field is set.
@@ -61772,7 +63757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state306_ = 0;
+    private int state306_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_306 = 306;</code>
      * @return Whether the state306 field is set.
@@ -61812,7 +63797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state307_ = 0;
+    private int state307_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_307 = 307;</code>
      * @return Whether the state307 field is set.
@@ -61852,7 +63837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state308_ = 0;
+    private int state308_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_308 = 308;</code>
      * @return Whether the state308 field is set.
@@ -61892,7 +63877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state309_ = 0;
+    private int state309_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_309 = 309;</code>
      * @return Whether the state309 field is set.
@@ -61932,7 +63917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state310_ = 0;
+    private int state310_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_310 = 310;</code>
      * @return Whether the state310 field is set.
@@ -61972,7 +63957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state311_ = 0;
+    private int state311_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_311 = 311;</code>
      * @return Whether the state311 field is set.
@@ -62012,7 +63997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state312_ = 0;
+    private int state312_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_312 = 312;</code>
      * @return Whether the state312 field is set.
@@ -62052,7 +64037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state313_ = 0;
+    private int state313_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_313 = 313;</code>
      * @return Whether the state313 field is set.
@@ -62092,7 +64077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state314_ = 0;
+    private int state314_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_314 = 314;</code>
      * @return Whether the state314 field is set.
@@ -62132,7 +64117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state315_ = 0;
+    private int state315_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_315 = 315;</code>
      * @return Whether the state315 field is set.
@@ -62172,7 +64157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state316_ = 0;
+    private int state316_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_316 = 316;</code>
      * @return Whether the state316 field is set.
@@ -62212,7 +64197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state317_ = 0;
+    private int state317_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_317 = 317;</code>
      * @return Whether the state317 field is set.
@@ -62252,7 +64237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state318_ = 0;
+    private int state318_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_318 = 318;</code>
      * @return Whether the state318 field is set.
@@ -62292,7 +64277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state319_ = 0;
+    private int state319_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_319 = 319;</code>
      * @return Whether the state319 field is set.
@@ -62332,7 +64317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state320_ = 0;
+    private int state320_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_320 = 320;</code>
      * @return Whether the state320 field is set.
@@ -62372,7 +64357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state321_ = 0;
+    private int state321_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_321 = 321;</code>
      * @return Whether the state321 field is set.
@@ -62412,7 +64397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state322_ = 0;
+    private int state322_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_322 = 322;</code>
      * @return Whether the state322 field is set.
@@ -62452,7 +64437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state323_ = 0;
+    private int state323_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_323 = 323;</code>
      * @return Whether the state323 field is set.
@@ -62492,7 +64477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state324_ = 0;
+    private int state324_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_324 = 324;</code>
      * @return Whether the state324 field is set.
@@ -62532,7 +64517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state325_ = 0;
+    private int state325_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_325 = 325;</code>
      * @return Whether the state325 field is set.
@@ -62572,7 +64557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state326_ = 0;
+    private int state326_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_326 = 326;</code>
      * @return Whether the state326 field is set.
@@ -62612,7 +64597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state327_ = 0;
+    private int state327_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_327 = 327;</code>
      * @return Whether the state327 field is set.
@@ -62652,7 +64637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state328_ = 0;
+    private int state328_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_328 = 328;</code>
      * @return Whether the state328 field is set.
@@ -62692,7 +64677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state329_ = 0;
+    private int state329_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_329 = 329;</code>
      * @return Whether the state329 field is set.
@@ -62732,7 +64717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state330_ = 0;
+    private int state330_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_330 = 330;</code>
      * @return Whether the state330 field is set.
@@ -62772,7 +64757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state331_ = 0;
+    private int state331_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_331 = 331;</code>
      * @return Whether the state331 field is set.
@@ -62812,7 +64797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state332_ = 0;
+    private int state332_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_332 = 332;</code>
      * @return Whether the state332 field is set.
@@ -62852,7 +64837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state333_ = 0;
+    private int state333_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_333 = 333;</code>
      * @return Whether the state333 field is set.
@@ -62892,7 +64877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state334_ = 0;
+    private int state334_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_334 = 334;</code>
      * @return Whether the state334 field is set.
@@ -62932,7 +64917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state335_ = 0;
+    private int state335_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_335 = 335;</code>
      * @return Whether the state335 field is set.
@@ -62972,7 +64957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state336_ = 0;
+    private int state336_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_336 = 336;</code>
      * @return Whether the state336 field is set.
@@ -63012,7 +64997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state337_ = 0;
+    private int state337_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_337 = 337;</code>
      * @return Whether the state337 field is set.
@@ -63052,7 +65037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state338_ = 0;
+    private int state338_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_338 = 338;</code>
      * @return Whether the state338 field is set.
@@ -63092,7 +65077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state339_ = 0;
+    private int state339_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_339 = 339;</code>
      * @return Whether the state339 field is set.
@@ -63132,7 +65117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state340_ = 0;
+    private int state340_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_340 = 340;</code>
      * @return Whether the state340 field is set.
@@ -63172,7 +65157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state341_ = 0;
+    private int state341_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_341 = 341;</code>
      * @return Whether the state341 field is set.
@@ -63212,7 +65197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state342_ = 0;
+    private int state342_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_342 = 342;</code>
      * @return Whether the state342 field is set.
@@ -63252,7 +65237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state343_ = 0;
+    private int state343_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_343 = 343;</code>
      * @return Whether the state343 field is set.
@@ -63292,7 +65277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state344_ = 0;
+    private int state344_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_344 = 344;</code>
      * @return Whether the state344 field is set.
@@ -63332,7 +65317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state345_ = 0;
+    private int state345_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_345 = 345;</code>
      * @return Whether the state345 field is set.
@@ -63372,7 +65357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state346_ = 0;
+    private int state346_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_346 = 346;</code>
      * @return Whether the state346 field is set.
@@ -63412,7 +65397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state347_ = 0;
+    private int state347_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_347 = 347;</code>
      * @return Whether the state347 field is set.
@@ -63452,7 +65437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state348_ = 0;
+    private int state348_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_348 = 348;</code>
      * @return Whether the state348 field is set.
@@ -63492,7 +65477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state349_ = 0;
+    private int state349_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_349 = 349;</code>
      * @return Whether the state349 field is set.
@@ -63532,7 +65517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state350_ = 0;
+    private int state350_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_350 = 350;</code>
      * @return Whether the state350 field is set.
@@ -63572,7 +65557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state351_ = 0;
+    private int state351_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_351 = 351;</code>
      * @return Whether the state351 field is set.
@@ -63612,7 +65597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state352_ = 0;
+    private int state352_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_352 = 352;</code>
      * @return Whether the state352 field is set.
@@ -63652,7 +65637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state353_ = 0;
+    private int state353_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_353 = 353;</code>
      * @return Whether the state353 field is set.
@@ -63692,7 +65677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state354_ = 0;
+    private int state354_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_354 = 354;</code>
      * @return Whether the state354 field is set.
@@ -63732,7 +65717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state355_ = 0;
+    private int state355_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_355 = 355;</code>
      * @return Whether the state355 field is set.
@@ -63772,7 +65757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state356_ = 0;
+    private int state356_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_356 = 356;</code>
      * @return Whether the state356 field is set.
@@ -63812,7 +65797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state357_ = 0;
+    private int state357_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_357 = 357;</code>
      * @return Whether the state357 field is set.
@@ -63852,7 +65837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state358_ = 0;
+    private int state358_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_358 = 358;</code>
      * @return Whether the state358 field is set.
@@ -63892,7 +65877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state359_ = 0;
+    private int state359_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_359 = 359;</code>
      * @return Whether the state359 field is set.
@@ -63932,7 +65917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state360_ = 0;
+    private int state360_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_360 = 360;</code>
      * @return Whether the state360 field is set.
@@ -63972,7 +65957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state361_ = 0;
+    private int state361_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_361 = 361;</code>
      * @return Whether the state361 field is set.
@@ -64012,7 +65997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state362_ = 0;
+    private int state362_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_362 = 362;</code>
      * @return Whether the state362 field is set.
@@ -64052,7 +66037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state363_ = 0;
+    private int state363_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_363 = 363;</code>
      * @return Whether the state363 field is set.
@@ -64092,7 +66077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state364_ = 0;
+    private int state364_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_364 = 364;</code>
      * @return Whether the state364 field is set.
@@ -64132,7 +66117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state365_ = 0;
+    private int state365_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_365 = 365;</code>
      * @return Whether the state365 field is set.
@@ -64172,7 +66157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state366_ = 0;
+    private int state366_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_366 = 366;</code>
      * @return Whether the state366 field is set.
@@ -64212,7 +66197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state367_ = 0;
+    private int state367_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_367 = 367;</code>
      * @return Whether the state367 field is set.
@@ -64252,7 +66237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state368_ = 0;
+    private int state368_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_368 = 368;</code>
      * @return Whether the state368 field is set.
@@ -64292,7 +66277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state369_ = 0;
+    private int state369_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_369 = 369;</code>
      * @return Whether the state369 field is set.
@@ -64332,7 +66317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state370_ = 0;
+    private int state370_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_370 = 370;</code>
      * @return Whether the state370 field is set.
@@ -64372,7 +66357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state371_ = 0;
+    private int state371_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_371 = 371;</code>
      * @return Whether the state371 field is set.
@@ -64412,7 +66397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state372_ = 0;
+    private int state372_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_372 = 372;</code>
      * @return Whether the state372 field is set.
@@ -64452,7 +66437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state373_ = 0;
+    private int state373_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_373 = 373;</code>
      * @return Whether the state373 field is set.
@@ -64492,7 +66477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state374_ = 0;
+    private int state374_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_374 = 374;</code>
      * @return Whether the state374 field is set.
@@ -64532,7 +66517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state375_ = 0;
+    private int state375_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_375 = 375;</code>
      * @return Whether the state375 field is set.
@@ -64572,7 +66557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state376_ = 0;
+    private int state376_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_376 = 376;</code>
      * @return Whether the state376 field is set.
@@ -64612,7 +66597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state377_ = 0;
+    private int state377_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_377 = 377;</code>
      * @return Whether the state377 field is set.
@@ -64652,7 +66637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state378_ = 0;
+    private int state378_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_378 = 378;</code>
      * @return Whether the state378 field is set.
@@ -64692,7 +66677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state379_ = 0;
+    private int state379_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_379 = 379;</code>
      * @return Whether the state379 field is set.
@@ -64732,7 +66717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state380_ = 0;
+    private int state380_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_380 = 380;</code>
      * @return Whether the state380 field is set.
@@ -64772,7 +66757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state381_ = 0;
+    private int state381_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_381 = 381;</code>
      * @return Whether the state381 field is set.
@@ -64812,7 +66797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state382_ = 0;
+    private int state382_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_382 = 382;</code>
      * @return Whether the state382 field is set.
@@ -64852,7 +66837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state383_ = 0;
+    private int state383_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_383 = 383;</code>
      * @return Whether the state383 field is set.
@@ -64892,7 +66877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state384_ = 0;
+    private int state384_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_384 = 384;</code>
      * @return Whether the state384 field is set.
@@ -64932,7 +66917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state385_ = 0;
+    private int state385_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_385 = 385;</code>
      * @return Whether the state385 field is set.
@@ -64972,7 +66957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state386_ = 0;
+    private int state386_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_386 = 386;</code>
      * @return Whether the state386 field is set.
@@ -65012,7 +66997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state387_ = 0;
+    private int state387_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_387 = 387;</code>
      * @return Whether the state387 field is set.
@@ -65052,7 +67037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state388_ = 0;
+    private int state388_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_388 = 388;</code>
      * @return Whether the state388 field is set.
@@ -65092,7 +67077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state389_ = 0;
+    private int state389_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_389 = 389;</code>
      * @return Whether the state389 field is set.
@@ -65132,7 +67117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state390_ = 0;
+    private int state390_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_390 = 390;</code>
      * @return Whether the state390 field is set.
@@ -65172,7 +67157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state391_ = 0;
+    private int state391_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_391 = 391;</code>
      * @return Whether the state391 field is set.
@@ -65212,7 +67197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state392_ = 0;
+    private int state392_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_392 = 392;</code>
      * @return Whether the state392 field is set.
@@ -65252,7 +67237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state393_ = 0;
+    private int state393_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_393 = 393;</code>
      * @return Whether the state393 field is set.
@@ -65292,7 +67277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state394_ = 0;
+    private int state394_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_394 = 394;</code>
      * @return Whether the state394 field is set.
@@ -65332,7 +67317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state395_ = 0;
+    private int state395_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_395 = 395;</code>
      * @return Whether the state395 field is set.
@@ -65372,7 +67357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state396_ = 0;
+    private int state396_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_396 = 396;</code>
      * @return Whether the state396 field is set.
@@ -65412,7 +67397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state397_ = 0;
+    private int state397_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_397 = 397;</code>
      * @return Whether the state397 field is set.
@@ -65452,7 +67437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state398_ = 0;
+    private int state398_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_398 = 398;</code>
      * @return Whether the state398 field is set.
@@ -65492,7 +67477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state399_ = 0;
+    private int state399_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_399 = 399;</code>
      * @return Whether the state399 field is set.
@@ -65532,7 +67517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state400_ = 0;
+    private int state400_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_400 = 400;</code>
      * @return Whether the state400 field is set.
@@ -65572,7 +67557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state401_ = 0;
+    private int state401_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_401 = 401;</code>
      * @return Whether the state401 field is set.
@@ -65612,7 +67597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state402_ = 0;
+    private int state402_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_402 = 402;</code>
      * @return Whether the state402 field is set.
@@ -65652,7 +67637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state403_ = 0;
+    private int state403_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_403 = 403;</code>
      * @return Whether the state403 field is set.
@@ -65692,7 +67677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state404_ = 0;
+    private int state404_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_404 = 404;</code>
      * @return Whether the state404 field is set.
@@ -65732,7 +67717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state405_ = 0;
+    private int state405_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_405 = 405;</code>
      * @return Whether the state405 field is set.
@@ -65772,7 +67757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state406_ = 0;
+    private int state406_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_406 = 406;</code>
      * @return Whether the state406 field is set.
@@ -65812,7 +67797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state407_ = 0;
+    private int state407_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_407 = 407;</code>
      * @return Whether the state407 field is set.
@@ -65852,7 +67837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state408_ = 0;
+    private int state408_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_408 = 408;</code>
      * @return Whether the state408 field is set.
@@ -65892,7 +67877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state409_ = 0;
+    private int state409_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_409 = 409;</code>
      * @return Whether the state409 field is set.
@@ -65932,7 +67917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state410_ = 0;
+    private int state410_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_410 = 410;</code>
      * @return Whether the state410 field is set.
@@ -65972,7 +67957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state411_ = 0;
+    private int state411_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_411 = 411;</code>
      * @return Whether the state411 field is set.
@@ -66012,7 +67997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state412_ = 0;
+    private int state412_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_412 = 412;</code>
      * @return Whether the state412 field is set.
@@ -66052,7 +68037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state413_ = 0;
+    private int state413_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_413 = 413;</code>
      * @return Whether the state413 field is set.
@@ -66092,7 +68077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state414_ = 0;
+    private int state414_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_414 = 414;</code>
      * @return Whether the state414 field is set.
@@ -66132,7 +68117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state415_ = 0;
+    private int state415_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_415 = 415;</code>
      * @return Whether the state415 field is set.
@@ -66172,7 +68157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state416_ = 0;
+    private int state416_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_416 = 416;</code>
      * @return Whether the state416 field is set.
@@ -66212,7 +68197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state417_ = 0;
+    private int state417_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_417 = 417;</code>
      * @return Whether the state417 field is set.
@@ -66252,7 +68237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state418_ = 0;
+    private int state418_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_418 = 418;</code>
      * @return Whether the state418 field is set.
@@ -66292,7 +68277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state419_ = 0;
+    private int state419_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_419 = 419;</code>
      * @return Whether the state419 field is set.
@@ -66332,7 +68317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state420_ = 0;
+    private int state420_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_420 = 420;</code>
      * @return Whether the state420 field is set.
@@ -66372,7 +68357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state421_ = 0;
+    private int state421_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_421 = 421;</code>
      * @return Whether the state421 field is set.
@@ -66412,7 +68397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state422_ = 0;
+    private int state422_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_422 = 422;</code>
      * @return Whether the state422 field is set.
@@ -66452,7 +68437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state423_ = 0;
+    private int state423_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_423 = 423;</code>
      * @return Whether the state423 field is set.
@@ -66492,7 +68477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state424_ = 0;
+    private int state424_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_424 = 424;</code>
      * @return Whether the state424 field is set.
@@ -66532,7 +68517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state425_ = 0;
+    private int state425_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_425 = 425;</code>
      * @return Whether the state425 field is set.
@@ -66572,7 +68557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state426_ = 0;
+    private int state426_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_426 = 426;</code>
      * @return Whether the state426 field is set.
@@ -66612,7 +68597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state427_ = 0;
+    private int state427_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_427 = 427;</code>
      * @return Whether the state427 field is set.
@@ -66652,7 +68637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state428_ = 0;
+    private int state428_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_428 = 428;</code>
      * @return Whether the state428 field is set.
@@ -66692,7 +68677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state429_ = 0;
+    private int state429_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_429 = 429;</code>
      * @return Whether the state429 field is set.
@@ -66732,7 +68717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state430_ = 0;
+    private int state430_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_430 = 430;</code>
      * @return Whether the state430 field is set.
@@ -66772,7 +68757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state431_ = 0;
+    private int state431_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_431 = 431;</code>
      * @return Whether the state431 field is set.
@@ -66812,7 +68797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state432_ = 0;
+    private int state432_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_432 = 432;</code>
      * @return Whether the state432 field is set.
@@ -66852,7 +68837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state433_ = 0;
+    private int state433_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_433 = 433;</code>
      * @return Whether the state433 field is set.
@@ -66892,7 +68877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state434_ = 0;
+    private int state434_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_434 = 434;</code>
      * @return Whether the state434 field is set.
@@ -66932,7 +68917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state435_ = 0;
+    private int state435_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_435 = 435;</code>
      * @return Whether the state435 field is set.
@@ -66972,7 +68957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state436_ = 0;
+    private int state436_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_436 = 436;</code>
      * @return Whether the state436 field is set.
@@ -67012,7 +68997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state437_ = 0;
+    private int state437_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_437 = 437;</code>
      * @return Whether the state437 field is set.
@@ -67052,7 +69037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state438_ = 0;
+    private int state438_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_438 = 438;</code>
      * @return Whether the state438 field is set.
@@ -67092,7 +69077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state439_ = 0;
+    private int state439_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_439 = 439;</code>
      * @return Whether the state439 field is set.
@@ -67132,7 +69117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state440_ = 0;
+    private int state440_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_440 = 440;</code>
      * @return Whether the state440 field is set.
@@ -67172,7 +69157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state441_ = 0;
+    private int state441_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_441 = 441;</code>
      * @return Whether the state441 field is set.
@@ -67212,7 +69197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state442_ = 0;
+    private int state442_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_442 = 442;</code>
      * @return Whether the state442 field is set.
@@ -67252,7 +69237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state443_ = 0;
+    private int state443_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_443 = 443;</code>
      * @return Whether the state443 field is set.
@@ -67292,7 +69277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state444_ = 0;
+    private int state444_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_444 = 444;</code>
      * @return Whether the state444 field is set.
@@ -67332,7 +69317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state445_ = 0;
+    private int state445_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_445 = 445;</code>
      * @return Whether the state445 field is set.
@@ -67372,7 +69357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state446_ = 0;
+    private int state446_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_446 = 446;</code>
      * @return Whether the state446 field is set.
@@ -67412,7 +69397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state447_ = 0;
+    private int state447_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_447 = 447;</code>
      * @return Whether the state447 field is set.
@@ -67452,7 +69437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state448_ = 0;
+    private int state448_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_448 = 448;</code>
      * @return Whether the state448 field is set.
@@ -67492,7 +69477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state449_ = 0;
+    private int state449_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_449 = 449;</code>
      * @return Whether the state449 field is set.
@@ -67532,7 +69517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state450_ = 0;
+    private int state450_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_450 = 450;</code>
      * @return Whether the state450 field is set.
@@ -67572,7 +69557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state451_ = 0;
+    private int state451_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_451 = 451;</code>
      * @return Whether the state451 field is set.
@@ -67612,7 +69597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state452_ = 0;
+    private int state452_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_452 = 452;</code>
      * @return Whether the state452 field is set.
@@ -67652,7 +69637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state453_ = 0;
+    private int state453_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_453 = 453;</code>
      * @return Whether the state453 field is set.
@@ -67692,7 +69677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state454_ = 0;
+    private int state454_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_454 = 454;</code>
      * @return Whether the state454 field is set.
@@ -67732,7 +69717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state455_ = 0;
+    private int state455_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_455 = 455;</code>
      * @return Whether the state455 field is set.
@@ -67772,7 +69757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state456_ = 0;
+    private int state456_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_456 = 456;</code>
      * @return Whether the state456 field is set.
@@ -67812,7 +69797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state457_ = 0;
+    private int state457_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_457 = 457;</code>
      * @return Whether the state457 field is set.
@@ -67852,7 +69837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state458_ = 0;
+    private int state458_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_458 = 458;</code>
      * @return Whether the state458 field is set.
@@ -67892,7 +69877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state459_ = 0;
+    private int state459_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_459 = 459;</code>
      * @return Whether the state459 field is set.
@@ -67932,7 +69917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state460_ = 0;
+    private int state460_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_460 = 460;</code>
      * @return Whether the state460 field is set.
@@ -67972,7 +69957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state461_ = 0;
+    private int state461_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_461 = 461;</code>
      * @return Whether the state461 field is set.
@@ -68012,7 +69997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state462_ = 0;
+    private int state462_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_462 = 462;</code>
      * @return Whether the state462 field is set.
@@ -68052,7 +70037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state463_ = 0;
+    private int state463_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_463 = 463;</code>
      * @return Whether the state463 field is set.
@@ -68092,7 +70077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state464_ = 0;
+    private int state464_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_464 = 464;</code>
      * @return Whether the state464 field is set.
@@ -68132,7 +70117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state465_ = 0;
+    private int state465_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_465 = 465;</code>
      * @return Whether the state465 field is set.
@@ -68172,7 +70157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state466_ = 0;
+    private int state466_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_466 = 466;</code>
      * @return Whether the state466 field is set.
@@ -68212,7 +70197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state467_ = 0;
+    private int state467_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_467 = 467;</code>
      * @return Whether the state467 field is set.
@@ -68252,7 +70237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state468_ = 0;
+    private int state468_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_468 = 468;</code>
      * @return Whether the state468 field is set.
@@ -68292,7 +70277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state469_ = 0;
+    private int state469_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_469 = 469;</code>
      * @return Whether the state469 field is set.
@@ -68332,7 +70317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state470_ = 0;
+    private int state470_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_470 = 470;</code>
      * @return Whether the state470 field is set.
@@ -68372,7 +70357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state471_ = 0;
+    private int state471_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_471 = 471;</code>
      * @return Whether the state471 field is set.
@@ -68412,7 +70397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state472_ = 0;
+    private int state472_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_472 = 472;</code>
      * @return Whether the state472 field is set.
@@ -68452,7 +70437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state473_ = 0;
+    private int state473_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_473 = 473;</code>
      * @return Whether the state473 field is set.
@@ -68492,7 +70477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state474_ = 0;
+    private int state474_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_474 = 474;</code>
      * @return Whether the state474 field is set.
@@ -68532,7 +70517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state475_ = 0;
+    private int state475_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_475 = 475;</code>
      * @return Whether the state475 field is set.
@@ -68572,7 +70557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state476_ = 0;
+    private int state476_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_476 = 476;</code>
      * @return Whether the state476 field is set.
@@ -68612,7 +70597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state477_ = 0;
+    private int state477_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_477 = 477;</code>
      * @return Whether the state477 field is set.
@@ -68652,7 +70637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state478_ = 0;
+    private int state478_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_478 = 478;</code>
      * @return Whether the state478 field is set.
@@ -68692,7 +70677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state479_ = 0;
+    private int state479_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_479 = 479;</code>
      * @return Whether the state479 field is set.
@@ -68732,7 +70717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state480_ = 0;
+    private int state480_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_480 = 480;</code>
      * @return Whether the state480 field is set.
@@ -68772,7 +70757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state481_ = 0;
+    private int state481_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_481 = 481;</code>
      * @return Whether the state481 field is set.
@@ -68812,7 +70797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state482_ = 0;
+    private int state482_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_482 = 482;</code>
      * @return Whether the state482 field is set.
@@ -68852,7 +70837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state483_ = 0;
+    private int state483_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_483 = 483;</code>
      * @return Whether the state483 field is set.
@@ -68892,7 +70877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state484_ = 0;
+    private int state484_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_484 = 484;</code>
      * @return Whether the state484 field is set.
@@ -68932,7 +70917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state485_ = 0;
+    private int state485_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_485 = 485;</code>
      * @return Whether the state485 field is set.
@@ -68972,7 +70957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state486_ = 0;
+    private int state486_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_486 = 486;</code>
      * @return Whether the state486 field is set.
@@ -69012,7 +70997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state487_ = 0;
+    private int state487_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_487 = 487;</code>
      * @return Whether the state487 field is set.
@@ -69052,7 +71037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state488_ = 0;
+    private int state488_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_488 = 488;</code>
      * @return Whether the state488 field is set.
@@ -69092,7 +71077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state489_ = 0;
+    private int state489_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_489 = 489;</code>
      * @return Whether the state489 field is set.
@@ -69132,7 +71117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state490_ = 0;
+    private int state490_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_490 = 490;</code>
      * @return Whether the state490 field is set.
@@ -69172,7 +71157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state491_ = 0;
+    private int state491_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_491 = 491;</code>
      * @return Whether the state491 field is set.
@@ -69212,7 +71197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state492_ = 0;
+    private int state492_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_492 = 492;</code>
      * @return Whether the state492 field is set.
@@ -69252,7 +71237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state493_ = 0;
+    private int state493_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_493 = 493;</code>
      * @return Whether the state493 field is set.
@@ -69292,7 +71277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state494_ = 0;
+    private int state494_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_494 = 494;</code>
      * @return Whether the state494 field is set.
@@ -69332,7 +71317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state495_ = 0;
+    private int state495_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_495 = 495;</code>
      * @return Whether the state495 field is set.
@@ -69372,7 +71357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state496_ = 0;
+    private int state496_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_496 = 496;</code>
      * @return Whether the state496 field is set.
@@ -69412,7 +71397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state497_ = 0;
+    private int state497_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_497 = 497;</code>
      * @return Whether the state497 field is set.
@@ -69452,7 +71437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state498_ = 0;
+    private int state498_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_498 = 498;</code>
      * @return Whether the state498 field is set.
@@ -69492,7 +71477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state499_ = 0;
+    private int state499_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_499 = 499;</code>
      * @return Whether the state499 field is set.
@@ -69532,7 +71517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state500_ = 0;
+    private int state500_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_500 = 500;</code>
      * @return Whether the state500 field is set.
@@ -69572,7 +71557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state501_ = 0;
+    private int state501_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_501 = 501;</code>
      * @return Whether the state501 field is set.
@@ -69612,7 +71597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state502_ = 0;
+    private int state502_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_502 = 502;</code>
      * @return Whether the state502 field is set.
@@ -69652,7 +71637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state503_ = 0;
+    private int state503_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_503 = 503;</code>
      * @return Whether the state503 field is set.
@@ -69692,7 +71677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state504_ = 0;
+    private int state504_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_504 = 504;</code>
      * @return Whether the state504 field is set.
@@ -69732,7 +71717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state505_ = 0;
+    private int state505_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_505 = 505;</code>
      * @return Whether the state505 field is set.
@@ -69772,7 +71757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state506_ = 0;
+    private int state506_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_506 = 506;</code>
      * @return Whether the state506 field is set.
@@ -69812,7 +71797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state507_ = 0;
+    private int state507_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_507 = 507;</code>
      * @return Whether the state507 field is set.
@@ -69852,7 +71837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state508_ = 0;
+    private int state508_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_508 = 508;</code>
      * @return Whether the state508 field is set.
@@ -69892,7 +71877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state509_ = 0;
+    private int state509_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_509 = 509;</code>
      * @return Whether the state509 field is set.
@@ -69932,7 +71917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state510_ = 0;
+    private int state510_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_510 = 510;</code>
      * @return Whether the state510 field is set.
@@ -69972,7 +71957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state511_ = 0;
+    private int state511_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_511 = 511;</code>
      * @return Whether the state511 field is set.
@@ -70012,7 +71997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state512_ = 0;
+    private int state512_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_512 = 512;</code>
      * @return Whether the state512 field is set.
@@ -70052,7 +72037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state513_ = 0;
+    private int state513_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_513 = 513;</code>
      * @return Whether the state513 field is set.
@@ -70092,7 +72077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state514_ = 0;
+    private int state514_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_514 = 514;</code>
      * @return Whether the state514 field is set.
@@ -70132,7 +72117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state515_ = 0;
+    private int state515_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_515 = 515;</code>
      * @return Whether the state515 field is set.
@@ -70172,7 +72157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state516_ = 0;
+    private int state516_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_516 = 516;</code>
      * @return Whether the state516 field is set.
@@ -70212,7 +72197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state517_ = 0;
+    private int state517_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_517 = 517;</code>
      * @return Whether the state517 field is set.
@@ -70252,7 +72237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state518_ = 0;
+    private int state518_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_518 = 518;</code>
      * @return Whether the state518 field is set.
@@ -70292,7 +72277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state519_ = 0;
+    private int state519_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_519 = 519;</code>
      * @return Whether the state519 field is set.
@@ -70332,7 +72317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state520_ = 0;
+    private int state520_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_520 = 520;</code>
      * @return Whether the state520 field is set.
@@ -70372,7 +72357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state521_ = 0;
+    private int state521_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_521 = 521;</code>
      * @return Whether the state521 field is set.
@@ -70412,7 +72397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state522_ = 0;
+    private int state522_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_522 = 522;</code>
      * @return Whether the state522 field is set.
@@ -70452,7 +72437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state523_ = 0;
+    private int state523_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_523 = 523;</code>
      * @return Whether the state523 field is set.
@@ -70492,7 +72477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state524_ = 0;
+    private int state524_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_524 = 524;</code>
      * @return Whether the state524 field is set.
@@ -70532,7 +72517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state525_ = 0;
+    private int state525_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_525 = 525;</code>
      * @return Whether the state525 field is set.
@@ -70572,7 +72557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state526_ = 0;
+    private int state526_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_526 = 526;</code>
      * @return Whether the state526 field is set.
@@ -70612,7 +72597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state527_ = 0;
+    private int state527_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_527 = 527;</code>
      * @return Whether the state527 field is set.
@@ -70652,7 +72637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state528_ = 0;
+    private int state528_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_528 = 528;</code>
      * @return Whether the state528 field is set.
@@ -70692,7 +72677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state529_ = 0;
+    private int state529_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_529 = 529;</code>
      * @return Whether the state529 field is set.
@@ -70732,7 +72717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state530_ = 0;
+    private int state530_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_530 = 530;</code>
      * @return Whether the state530 field is set.
@@ -70772,7 +72757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state531_ = 0;
+    private int state531_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_531 = 531;</code>
      * @return Whether the state531 field is set.
@@ -70812,7 +72797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state532_ = 0;
+    private int state532_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_532 = 532;</code>
      * @return Whether the state532 field is set.
@@ -70852,7 +72837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state533_ = 0;
+    private int state533_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_533 = 533;</code>
      * @return Whether the state533 field is set.
@@ -70892,7 +72877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state534_ = 0;
+    private int state534_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_534 = 534;</code>
      * @return Whether the state534 field is set.
@@ -70932,7 +72917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state535_ = 0;
+    private int state535_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_535 = 535;</code>
      * @return Whether the state535 field is set.
@@ -70972,7 +72957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state536_ = 0;
+    private int state536_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_536 = 536;</code>
      * @return Whether the state536 field is set.
@@ -71012,7 +72997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state537_ = 0;
+    private int state537_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_537 = 537;</code>
      * @return Whether the state537 field is set.
@@ -71052,7 +73037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state538_ = 0;
+    private int state538_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_538 = 538;</code>
      * @return Whether the state538 field is set.
@@ -71092,7 +73077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state539_ = 0;
+    private int state539_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_539 = 539;</code>
      * @return Whether the state539 field is set.
@@ -71132,7 +73117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state540_ = 0;
+    private int state540_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_540 = 540;</code>
      * @return Whether the state540 field is set.
@@ -71172,7 +73157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state541_ = 0;
+    private int state541_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_541 = 541;</code>
      * @return Whether the state541 field is set.
@@ -71212,7 +73197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state542_ = 0;
+    private int state542_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_542 = 542;</code>
      * @return Whether the state542 field is set.
@@ -71252,7 +73237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state543_ = 0;
+    private int state543_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_543 = 543;</code>
      * @return Whether the state543 field is set.
@@ -71292,7 +73277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state544_ = 0;
+    private int state544_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_544 = 544;</code>
      * @return Whether the state544 field is set.
@@ -71332,7 +73317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state545_ = 0;
+    private int state545_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_545 = 545;</code>
      * @return Whether the state545 field is set.
@@ -71372,7 +73357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state546_ = 0;
+    private int state546_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_546 = 546;</code>
      * @return Whether the state546 field is set.
@@ -71412,7 +73397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state547_ = 0;
+    private int state547_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_547 = 547;</code>
      * @return Whether the state547 field is set.
@@ -71452,7 +73437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state548_ = 0;
+    private int state548_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_548 = 548;</code>
      * @return Whether the state548 field is set.
@@ -71492,7 +73477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state549_ = 0;
+    private int state549_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_549 = 549;</code>
      * @return Whether the state549 field is set.
@@ -71532,7 +73517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state550_ = 0;
+    private int state550_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_550 = 550;</code>
      * @return Whether the state550 field is set.
@@ -71572,7 +73557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state551_ = 0;
+    private int state551_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_551 = 551;</code>
      * @return Whether the state551 field is set.
@@ -71612,7 +73597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state552_ = 0;
+    private int state552_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_552 = 552;</code>
      * @return Whether the state552 field is set.
@@ -71652,7 +73637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state553_ = 0;
+    private int state553_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_553 = 553;</code>
      * @return Whether the state553 field is set.
@@ -71692,7 +73677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state554_ = 0;
+    private int state554_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_554 = 554;</code>
      * @return Whether the state554 field is set.
@@ -71732,7 +73717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state555_ = 0;
+    private int state555_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_555 = 555;</code>
      * @return Whether the state555 field is set.
@@ -71772,7 +73757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state556_ = 0;
+    private int state556_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_556 = 556;</code>
      * @return Whether the state556 field is set.
@@ -71812,7 +73797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state557_ = 0;
+    private int state557_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_557 = 557;</code>
      * @return Whether the state557 field is set.
@@ -71852,7 +73837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state558_ = 0;
+    private int state558_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_558 = 558;</code>
      * @return Whether the state558 field is set.
@@ -71892,7 +73877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state559_ = 0;
+    private int state559_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_559 = 559;</code>
      * @return Whether the state559 field is set.
@@ -71932,7 +73917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state560_ = 0;
+    private int state560_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_560 = 560;</code>
      * @return Whether the state560 field is set.
@@ -71972,7 +73957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state561_ = 0;
+    private int state561_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_561 = 561;</code>
      * @return Whether the state561 field is set.
@@ -72012,7 +73997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state562_ = 0;
+    private int state562_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_562 = 562;</code>
      * @return Whether the state562 field is set.
@@ -72052,7 +74037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state563_ = 0;
+    private int state563_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_563 = 563;</code>
      * @return Whether the state563 field is set.
@@ -72092,7 +74077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state564_ = 0;
+    private int state564_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_564 = 564;</code>
      * @return Whether the state564 field is set.
@@ -72132,7 +74117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state565_ = 0;
+    private int state565_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_565 = 565;</code>
      * @return Whether the state565 field is set.
@@ -72172,7 +74157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state566_ = 0;
+    private int state566_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_566 = 566;</code>
      * @return Whether the state566 field is set.
@@ -72212,7 +74197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state567_ = 0;
+    private int state567_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_567 = 567;</code>
      * @return Whether the state567 field is set.
@@ -72252,7 +74237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state568_ = 0;
+    private int state568_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_568 = 568;</code>
      * @return Whether the state568 field is set.
@@ -72292,7 +74277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state569_ = 0;
+    private int state569_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_569 = 569;</code>
      * @return Whether the state569 field is set.
@@ -72332,7 +74317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state570_ = 0;
+    private int state570_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_570 = 570;</code>
      * @return Whether the state570 field is set.
@@ -72372,7 +74357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state571_ = 0;
+    private int state571_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_571 = 571;</code>
      * @return Whether the state571 field is set.
@@ -72412,7 +74397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state572_ = 0;
+    private int state572_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_572 = 572;</code>
      * @return Whether the state572 field is set.
@@ -72452,7 +74437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state573_ = 0;
+    private int state573_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_573 = 573;</code>
      * @return Whether the state573 field is set.
@@ -72492,7 +74477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state574_ = 0;
+    private int state574_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_574 = 574;</code>
      * @return Whether the state574 field is set.
@@ -72532,7 +74517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state575_ = 0;
+    private int state575_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_575 = 575;</code>
      * @return Whether the state575 field is set.
@@ -72572,7 +74557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state576_ = 0;
+    private int state576_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_576 = 576;</code>
      * @return Whether the state576 field is set.
@@ -72612,7 +74597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state577_ = 0;
+    private int state577_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_577 = 577;</code>
      * @return Whether the state577 field is set.
@@ -72652,7 +74637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state578_ = 0;
+    private int state578_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_578 = 578;</code>
      * @return Whether the state578 field is set.
@@ -72692,7 +74677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state579_ = 0;
+    private int state579_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_579 = 579;</code>
      * @return Whether the state579 field is set.
@@ -72732,7 +74717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state580_ = 0;
+    private int state580_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_580 = 580;</code>
      * @return Whether the state580 field is set.
@@ -72772,7 +74757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state581_ = 0;
+    private int state581_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_581 = 581;</code>
      * @return Whether the state581 field is set.
@@ -72812,7 +74797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state582_ = 0;
+    private int state582_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_582 = 582;</code>
      * @return Whether the state582 field is set.
@@ -72852,7 +74837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state583_ = 0;
+    private int state583_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_583 = 583;</code>
      * @return Whether the state583 field is set.
@@ -72892,7 +74877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state584_ = 0;
+    private int state584_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_584 = 584;</code>
      * @return Whether the state584 field is set.
@@ -72932,7 +74917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state585_ = 0;
+    private int state585_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_585 = 585;</code>
      * @return Whether the state585 field is set.
@@ -72972,7 +74957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state586_ = 0;
+    private int state586_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_586 = 586;</code>
      * @return Whether the state586 field is set.
@@ -73012,7 +74997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state587_ = 0;
+    private int state587_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_587 = 587;</code>
      * @return Whether the state587 field is set.
@@ -73052,7 +75037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state588_ = 0;
+    private int state588_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_588 = 588;</code>
      * @return Whether the state588 field is set.
@@ -73092,7 +75077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state589_ = 0;
+    private int state589_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_589 = 589;</code>
      * @return Whether the state589 field is set.
@@ -73132,7 +75117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state590_ = 0;
+    private int state590_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_590 = 590;</code>
      * @return Whether the state590 field is set.
@@ -73172,7 +75157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state591_ = 0;
+    private int state591_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_591 = 591;</code>
      * @return Whether the state591 field is set.
@@ -73212,7 +75197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state592_ = 0;
+    private int state592_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_592 = 592;</code>
      * @return Whether the state592 field is set.
@@ -73252,7 +75237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state593_ = 0;
+    private int state593_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_593 = 593;</code>
      * @return Whether the state593 field is set.
@@ -73292,7 +75277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state594_ = 0;
+    private int state594_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_594 = 594;</code>
      * @return Whether the state594 field is set.
@@ -73332,7 +75317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state595_ = 0;
+    private int state595_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_595 = 595;</code>
      * @return Whether the state595 field is set.
@@ -73372,7 +75357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state596_ = 0;
+    private int state596_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_596 = 596;</code>
      * @return Whether the state596 field is set.
@@ -73412,7 +75397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state597_ = 0;
+    private int state597_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_597 = 597;</code>
      * @return Whether the state597 field is set.
@@ -73452,7 +75437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state598_ = 0;
+    private int state598_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_598 = 598;</code>
      * @return Whether the state598 field is set.
@@ -73492,7 +75477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state599_ = 0;
+    private int state599_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_599 = 599;</code>
      * @return Whether the state599 field is set.
@@ -73532,7 +75517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state600_ = 0;
+    private int state600_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_600 = 600;</code>
      * @return Whether the state600 field is set.
@@ -73572,7 +75557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state601_ = 0;
+    private int state601_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_601 = 601;</code>
      * @return Whether the state601 field is set.
@@ -73612,7 +75597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state602_ = 0;
+    private int state602_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_602 = 602;</code>
      * @return Whether the state602 field is set.
@@ -73652,7 +75637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state603_ = 0;
+    private int state603_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_603 = 603;</code>
      * @return Whether the state603 field is set.
@@ -73692,7 +75677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state604_ = 0;
+    private int state604_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_604 = 604;</code>
      * @return Whether the state604 field is set.
@@ -73732,7 +75717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state605_ = 0;
+    private int state605_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_605 = 605;</code>
      * @return Whether the state605 field is set.
@@ -73772,7 +75757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state606_ = 0;
+    private int state606_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_606 = 606;</code>
      * @return Whether the state606 field is set.
@@ -73812,7 +75797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state607_ = 0;
+    private int state607_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_607 = 607;</code>
      * @return Whether the state607 field is set.
@@ -73852,7 +75837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state608_ = 0;
+    private int state608_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_608 = 608;</code>
      * @return Whether the state608 field is set.
@@ -73892,7 +75877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state609_ = 0;
+    private int state609_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_609 = 609;</code>
      * @return Whether the state609 field is set.
@@ -73932,7 +75917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state610_ = 0;
+    private int state610_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_610 = 610;</code>
      * @return Whether the state610 field is set.
@@ -73972,7 +75957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state611_ = 0;
+    private int state611_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_611 = 611;</code>
      * @return Whether the state611 field is set.
@@ -74012,7 +75997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state612_ = 0;
+    private int state612_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_612 = 612;</code>
      * @return Whether the state612 field is set.
@@ -74052,7 +76037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state613_ = 0;
+    private int state613_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_613 = 613;</code>
      * @return Whether the state613 field is set.
@@ -74092,7 +76077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state614_ = 0;
+    private int state614_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_614 = 614;</code>
      * @return Whether the state614 field is set.
@@ -74132,7 +76117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state615_ = 0;
+    private int state615_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_615 = 615;</code>
      * @return Whether the state615 field is set.
@@ -74172,7 +76157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state616_ = 0;
+    private int state616_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_616 = 616;</code>
      * @return Whether the state616 field is set.
@@ -74212,7 +76197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state617_ = 0;
+    private int state617_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_617 = 617;</code>
      * @return Whether the state617 field is set.
@@ -74252,7 +76237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state618_ = 0;
+    private int state618_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_618 = 618;</code>
      * @return Whether the state618 field is set.
@@ -74292,7 +76277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state619_ = 0;
+    private int state619_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_619 = 619;</code>
      * @return Whether the state619 field is set.
@@ -74332,7 +76317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state620_ = 0;
+    private int state620_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_620 = 620;</code>
      * @return Whether the state620 field is set.
@@ -74372,7 +76357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state621_ = 0;
+    private int state621_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_621 = 621;</code>
      * @return Whether the state621 field is set.
@@ -74412,7 +76397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state622_ = 0;
+    private int state622_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_622 = 622;</code>
      * @return Whether the state622 field is set.
@@ -74452,7 +76437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state623_ = 0;
+    private int state623_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_623 = 623;</code>
      * @return Whether the state623 field is set.
@@ -74492,7 +76477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state624_ = 0;
+    private int state624_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_624 = 624;</code>
      * @return Whether the state624 field is set.
@@ -74532,7 +76517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state625_ = 0;
+    private int state625_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_625 = 625;</code>
      * @return Whether the state625 field is set.
@@ -74572,7 +76557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state626_ = 0;
+    private int state626_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_626 = 626;</code>
      * @return Whether the state626 field is set.
@@ -74612,7 +76597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state627_ = 0;
+    private int state627_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_627 = 627;</code>
      * @return Whether the state627 field is set.
@@ -74652,7 +76637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state628_ = 0;
+    private int state628_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_628 = 628;</code>
      * @return Whether the state628 field is set.
@@ -74692,7 +76677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state629_ = 0;
+    private int state629_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_629 = 629;</code>
      * @return Whether the state629 field is set.
@@ -74732,7 +76717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state630_ = 0;
+    private int state630_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_630 = 630;</code>
      * @return Whether the state630 field is set.
@@ -74772,7 +76757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state631_ = 0;
+    private int state631_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_631 = 631;</code>
      * @return Whether the state631 field is set.
@@ -74812,7 +76797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state632_ = 0;
+    private int state632_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_632 = 632;</code>
      * @return Whether the state632 field is set.
@@ -74852,7 +76837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state633_ = 0;
+    private int state633_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_633 = 633;</code>
      * @return Whether the state633 field is set.
@@ -74892,7 +76877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state634_ = 0;
+    private int state634_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_634 = 634;</code>
      * @return Whether the state634 field is set.
@@ -74932,7 +76917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state635_ = 0;
+    private int state635_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_635 = 635;</code>
      * @return Whether the state635 field is set.
@@ -74972,7 +76957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state636_ = 0;
+    private int state636_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_636 = 636;</code>
      * @return Whether the state636 field is set.
@@ -75012,7 +76997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state637_ = 0;
+    private int state637_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_637 = 637;</code>
      * @return Whether the state637 field is set.
@@ -75052,7 +77037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state638_ = 0;
+    private int state638_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_638 = 638;</code>
      * @return Whether the state638 field is set.
@@ -75092,7 +77077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state639_ = 0;
+    private int state639_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_639 = 639;</code>
      * @return Whether the state639 field is set.
@@ -75132,7 +77117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state640_ = 0;
+    private int state640_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_640 = 640;</code>
      * @return Whether the state640 field is set.
@@ -75172,7 +77157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state641_ = 0;
+    private int state641_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_641 = 641;</code>
      * @return Whether the state641 field is set.
@@ -75212,7 +77197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state642_ = 0;
+    private int state642_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_642 = 642;</code>
      * @return Whether the state642 field is set.
@@ -75252,7 +77237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state643_ = 0;
+    private int state643_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_643 = 643;</code>
      * @return Whether the state643 field is set.
@@ -75292,7 +77277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state644_ = 0;
+    private int state644_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_644 = 644;</code>
      * @return Whether the state644 field is set.
@@ -75332,7 +77317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state645_ = 0;
+    private int state645_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_645 = 645;</code>
      * @return Whether the state645 field is set.
@@ -75372,7 +77357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state646_ = 0;
+    private int state646_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_646 = 646;</code>
      * @return Whether the state646 field is set.
@@ -75412,7 +77397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state647_ = 0;
+    private int state647_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_647 = 647;</code>
      * @return Whether the state647 field is set.
@@ -75452,7 +77437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state648_ = 0;
+    private int state648_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_648 = 648;</code>
      * @return Whether the state648 field is set.
@@ -75492,7 +77477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state649_ = 0;
+    private int state649_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_649 = 649;</code>
      * @return Whether the state649 field is set.
@@ -75532,7 +77517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state650_ = 0;
+    private int state650_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_650 = 650;</code>
      * @return Whether the state650 field is set.
@@ -75572,7 +77557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state651_ = 0;
+    private int state651_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_651 = 651;</code>
      * @return Whether the state651 field is set.
@@ -75612,7 +77597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state652_ = 0;
+    private int state652_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_652 = 652;</code>
      * @return Whether the state652 field is set.
@@ -75652,7 +77637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state653_ = 0;
+    private int state653_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_653 = 653;</code>
      * @return Whether the state653 field is set.
@@ -75692,7 +77677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state654_ = 0;
+    private int state654_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_654 = 654;</code>
      * @return Whether the state654 field is set.
@@ -75732,7 +77717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state655_ = 0;
+    private int state655_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_655 = 655;</code>
      * @return Whether the state655 field is set.
@@ -75772,7 +77757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state656_ = 0;
+    private int state656_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_656 = 656;</code>
      * @return Whether the state656 field is set.
@@ -75812,7 +77797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state657_ = 0;
+    private int state657_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_657 = 657;</code>
      * @return Whether the state657 field is set.
@@ -75852,7 +77837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state658_ = 0;
+    private int state658_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_658 = 658;</code>
      * @return Whether the state658 field is set.
@@ -75892,7 +77877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state659_ = 0;
+    private int state659_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_659 = 659;</code>
      * @return Whether the state659 field is set.
@@ -75932,7 +77917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state660_ = 0;
+    private int state660_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_660 = 660;</code>
      * @return Whether the state660 field is set.
@@ -75972,7 +77957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state661_ = 0;
+    private int state661_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_661 = 661;</code>
      * @return Whether the state661 field is set.
@@ -76012,7 +77997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state662_ = 0;
+    private int state662_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_662 = 662;</code>
      * @return Whether the state662 field is set.
@@ -76052,7 +78037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state663_ = 0;
+    private int state663_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_663 = 663;</code>
      * @return Whether the state663 field is set.
@@ -76092,7 +78077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state664_ = 0;
+    private int state664_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_664 = 664;</code>
      * @return Whether the state664 field is set.
@@ -76132,7 +78117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state665_ = 0;
+    private int state665_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_665 = 665;</code>
      * @return Whether the state665 field is set.
@@ -76172,7 +78157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state666_ = 0;
+    private int state666_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_666 = 666;</code>
      * @return Whether the state666 field is set.
@@ -76212,7 +78197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state667_ = 0;
+    private int state667_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_667 = 667;</code>
      * @return Whether the state667 field is set.
@@ -76252,7 +78237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state668_ = 0;
+    private int state668_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_668 = 668;</code>
      * @return Whether the state668 field is set.
@@ -76292,7 +78277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state669_ = 0;
+    private int state669_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_669 = 669;</code>
      * @return Whether the state669 field is set.
@@ -76332,7 +78317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state670_ = 0;
+    private int state670_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_670 = 670;</code>
      * @return Whether the state670 field is set.
@@ -76372,7 +78357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state671_ = 0;
+    private int state671_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_671 = 671;</code>
      * @return Whether the state671 field is set.
@@ -76412,7 +78397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state672_ = 0;
+    private int state672_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_672 = 672;</code>
      * @return Whether the state672 field is set.
@@ -76452,7 +78437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state673_ = 0;
+    private int state673_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_673 = 673;</code>
      * @return Whether the state673 field is set.
@@ -76492,7 +78477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state674_ = 0;
+    private int state674_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_674 = 674;</code>
      * @return Whether the state674 field is set.
@@ -76532,7 +78517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state675_ = 0;
+    private int state675_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_675 = 675;</code>
      * @return Whether the state675 field is set.
@@ -76572,7 +78557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state676_ = 0;
+    private int state676_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_676 = 676;</code>
      * @return Whether the state676 field is set.
@@ -76612,7 +78597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state677_ = 0;
+    private int state677_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_677 = 677;</code>
      * @return Whether the state677 field is set.
@@ -76652,7 +78637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state678_ = 0;
+    private int state678_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_678 = 678;</code>
      * @return Whether the state678 field is set.
@@ -76692,7 +78677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state679_ = 0;
+    private int state679_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_679 = 679;</code>
      * @return Whether the state679 field is set.
@@ -76732,7 +78717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state680_ = 0;
+    private int state680_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_680 = 680;</code>
      * @return Whether the state680 field is set.
@@ -76772,7 +78757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state681_ = 0;
+    private int state681_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_681 = 681;</code>
      * @return Whether the state681 field is set.
@@ -76812,7 +78797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state682_ = 0;
+    private int state682_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_682 = 682;</code>
      * @return Whether the state682 field is set.
@@ -76852,7 +78837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state683_ = 0;
+    private int state683_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_683 = 683;</code>
      * @return Whether the state683 field is set.
@@ -76892,7 +78877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state684_ = 0;
+    private int state684_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_684 = 684;</code>
      * @return Whether the state684 field is set.
@@ -76932,7 +78917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state685_ = 0;
+    private int state685_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_685 = 685;</code>
      * @return Whether the state685 field is set.
@@ -76972,7 +78957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state686_ = 0;
+    private int state686_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_686 = 686;</code>
      * @return Whether the state686 field is set.
@@ -77012,7 +78997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state687_ = 0;
+    private int state687_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_687 = 687;</code>
      * @return Whether the state687 field is set.
@@ -77052,7 +79037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state688_ = 0;
+    private int state688_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_688 = 688;</code>
      * @return Whether the state688 field is set.
@@ -77092,7 +79077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state689_ = 0;
+    private int state689_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_689 = 689;</code>
      * @return Whether the state689 field is set.
@@ -77132,7 +79117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state690_ = 0;
+    private int state690_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_690 = 690;</code>
      * @return Whether the state690 field is set.
@@ -77172,7 +79157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state691_ = 0;
+    private int state691_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_691 = 691;</code>
      * @return Whether the state691 field is set.
@@ -77212,7 +79197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state692_ = 0;
+    private int state692_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_692 = 692;</code>
      * @return Whether the state692 field is set.
@@ -77252,7 +79237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state693_ = 0;
+    private int state693_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_693 = 693;</code>
      * @return Whether the state693 field is set.
@@ -77292,7 +79277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state694_ = 0;
+    private int state694_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_694 = 694;</code>
      * @return Whether the state694 field is set.
@@ -77332,7 +79317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state695_ = 0;
+    private int state695_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_695 = 695;</code>
      * @return Whether the state695 field is set.
@@ -77372,7 +79357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state696_ = 0;
+    private int state696_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_696 = 696;</code>
      * @return Whether the state696 field is set.
@@ -77412,7 +79397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state697_ = 0;
+    private int state697_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_697 = 697;</code>
      * @return Whether the state697 field is set.
@@ -77452,7 +79437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state698_ = 0;
+    private int state698_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_698 = 698;</code>
      * @return Whether the state698 field is set.
@@ -77492,7 +79477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state699_ = 0;
+    private int state699_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_699 = 699;</code>
      * @return Whether the state699 field is set.
@@ -77532,7 +79517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state700_ = 0;
+    private int state700_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_700 = 700;</code>
      * @return Whether the state700 field is set.
@@ -77572,7 +79557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state701_ = 0;
+    private int state701_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_701 = 701;</code>
      * @return Whether the state701 field is set.
@@ -77612,7 +79597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state702_ = 0;
+    private int state702_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_702 = 702;</code>
      * @return Whether the state702 field is set.
@@ -77652,7 +79637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state703_ = 0;
+    private int state703_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_703 = 703;</code>
      * @return Whether the state703 field is set.
@@ -77692,7 +79677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state704_ = 0;
+    private int state704_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_704 = 704;</code>
      * @return Whether the state704 field is set.
@@ -77732,7 +79717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state705_ = 0;
+    private int state705_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_705 = 705;</code>
      * @return Whether the state705 field is set.
@@ -77772,7 +79757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state706_ = 0;
+    private int state706_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_706 = 706;</code>
      * @return Whether the state706 field is set.
@@ -77812,7 +79797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state707_ = 0;
+    private int state707_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_707 = 707;</code>
      * @return Whether the state707 field is set.
@@ -77852,7 +79837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state708_ = 0;
+    private int state708_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_708 = 708;</code>
      * @return Whether the state708 field is set.
@@ -77892,7 +79877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state709_ = 0;
+    private int state709_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_709 = 709;</code>
      * @return Whether the state709 field is set.
@@ -77932,7 +79917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state710_ = 0;
+    private int state710_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_710 = 710;</code>
      * @return Whether the state710 field is set.
@@ -77972,7 +79957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state711_ = 0;
+    private int state711_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_711 = 711;</code>
      * @return Whether the state711 field is set.
@@ -78012,7 +79997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state712_ = 0;
+    private int state712_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_712 = 712;</code>
      * @return Whether the state712 field is set.
@@ -78052,7 +80037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state713_ = 0;
+    private int state713_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_713 = 713;</code>
      * @return Whether the state713 field is set.
@@ -78092,7 +80077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state714_ = 0;
+    private int state714_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_714 = 714;</code>
      * @return Whether the state714 field is set.
@@ -78132,7 +80117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state715_ = 0;
+    private int state715_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_715 = 715;</code>
      * @return Whether the state715 field is set.
@@ -78172,7 +80157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state716_ = 0;
+    private int state716_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_716 = 716;</code>
      * @return Whether the state716 field is set.
@@ -78212,7 +80197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state717_ = 0;
+    private int state717_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_717 = 717;</code>
      * @return Whether the state717 field is set.
@@ -78252,7 +80237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state718_ = 0;
+    private int state718_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_718 = 718;</code>
      * @return Whether the state718 field is set.
@@ -78292,7 +80277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state719_ = 0;
+    private int state719_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_719 = 719;</code>
      * @return Whether the state719 field is set.
@@ -78332,7 +80317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state720_ = 0;
+    private int state720_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_720 = 720;</code>
      * @return Whether the state720 field is set.
@@ -78372,7 +80357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state721_ = 0;
+    private int state721_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_721 = 721;</code>
      * @return Whether the state721 field is set.
@@ -78412,7 +80397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state722_ = 0;
+    private int state722_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_722 = 722;</code>
      * @return Whether the state722 field is set.
@@ -78452,7 +80437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state723_ = 0;
+    private int state723_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_723 = 723;</code>
      * @return Whether the state723 field is set.
@@ -78492,7 +80477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state724_ = 0;
+    private int state724_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_724 = 724;</code>
      * @return Whether the state724 field is set.
@@ -78532,7 +80517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state725_ = 0;
+    private int state725_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_725 = 725;</code>
      * @return Whether the state725 field is set.
@@ -78572,7 +80557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state726_ = 0;
+    private int state726_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_726 = 726;</code>
      * @return Whether the state726 field is set.
@@ -78612,7 +80597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state727_ = 0;
+    private int state727_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_727 = 727;</code>
      * @return Whether the state727 field is set.
@@ -78652,7 +80637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state728_ = 0;
+    private int state728_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_728 = 728;</code>
      * @return Whether the state728 field is set.
@@ -78692,7 +80677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state729_ = 0;
+    private int state729_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_729 = 729;</code>
      * @return Whether the state729 field is set.
@@ -78732,7 +80717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state730_ = 0;
+    private int state730_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_730 = 730;</code>
      * @return Whether the state730 field is set.
@@ -78772,7 +80757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state731_ = 0;
+    private int state731_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_731 = 731;</code>
      * @return Whether the state731 field is set.
@@ -78812,7 +80797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state732_ = 0;
+    private int state732_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_732 = 732;</code>
      * @return Whether the state732 field is set.
@@ -78852,7 +80837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state733_ = 0;
+    private int state733_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_733 = 733;</code>
      * @return Whether the state733 field is set.
@@ -78892,7 +80877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state734_ = 0;
+    private int state734_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_734 = 734;</code>
      * @return Whether the state734 field is set.
@@ -78932,7 +80917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state735_ = 0;
+    private int state735_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_735 = 735;</code>
      * @return Whether the state735 field is set.
@@ -78972,7 +80957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state736_ = 0;
+    private int state736_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_736 = 736;</code>
      * @return Whether the state736 field is set.
@@ -79012,7 +80997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state737_ = 0;
+    private int state737_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_737 = 737;</code>
      * @return Whether the state737 field is set.
@@ -79052,7 +81037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state738_ = 0;
+    private int state738_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_738 = 738;</code>
      * @return Whether the state738 field is set.
@@ -79092,7 +81077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state739_ = 0;
+    private int state739_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_739 = 739;</code>
      * @return Whether the state739 field is set.
@@ -79132,7 +81117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state740_ = 0;
+    private int state740_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_740 = 740;</code>
      * @return Whether the state740 field is set.
@@ -79172,7 +81157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state741_ = 0;
+    private int state741_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_741 = 741;</code>
      * @return Whether the state741 field is set.
@@ -79212,7 +81197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state742_ = 0;
+    private int state742_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_742 = 742;</code>
      * @return Whether the state742 field is set.
@@ -79252,7 +81237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state743_ = 0;
+    private int state743_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_743 = 743;</code>
      * @return Whether the state743 field is set.
@@ -79292,7 +81277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state744_ = 0;
+    private int state744_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_744 = 744;</code>
      * @return Whether the state744 field is set.
@@ -79332,7 +81317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state745_ = 0;
+    private int state745_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_745 = 745;</code>
      * @return Whether the state745 field is set.
@@ -79372,7 +81357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state746_ = 0;
+    private int state746_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_746 = 746;</code>
      * @return Whether the state746 field is set.
@@ -79412,7 +81397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state747_ = 0;
+    private int state747_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_747 = 747;</code>
      * @return Whether the state747 field is set.
@@ -79452,7 +81437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state748_ = 0;
+    private int state748_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_748 = 748;</code>
      * @return Whether the state748 field is set.
@@ -79492,7 +81477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state749_ = 0;
+    private int state749_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_749 = 749;</code>
      * @return Whether the state749 field is set.
@@ -79532,7 +81517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state750_ = 0;
+    private int state750_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_750 = 750;</code>
      * @return Whether the state750 field is set.
@@ -79572,7 +81557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state751_ = 0;
+    private int state751_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_751 = 751;</code>
      * @return Whether the state751 field is set.
@@ -79612,7 +81597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state752_ = 0;
+    private int state752_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_752 = 752;</code>
      * @return Whether the state752 field is set.
@@ -79652,7 +81637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state753_ = 0;
+    private int state753_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_753 = 753;</code>
      * @return Whether the state753 field is set.
@@ -79692,7 +81677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state754_ = 0;
+    private int state754_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_754 = 754;</code>
      * @return Whether the state754 field is set.
@@ -79732,7 +81717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state755_ = 0;
+    private int state755_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_755 = 755;</code>
      * @return Whether the state755 field is set.
@@ -79772,7 +81757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state756_ = 0;
+    private int state756_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_756 = 756;</code>
      * @return Whether the state756 field is set.
@@ -79812,7 +81797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state757_ = 0;
+    private int state757_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_757 = 757;</code>
      * @return Whether the state757 field is set.
@@ -79852,7 +81837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state758_ = 0;
+    private int state758_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_758 = 758;</code>
      * @return Whether the state758 field is set.
@@ -79892,7 +81877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state759_ = 0;
+    private int state759_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_759 = 759;</code>
      * @return Whether the state759 field is set.
@@ -79932,7 +81917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state760_ = 0;
+    private int state760_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_760 = 760;</code>
      * @return Whether the state760 field is set.
@@ -79972,7 +81957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state761_ = 0;
+    private int state761_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_761 = 761;</code>
      * @return Whether the state761 field is set.
@@ -80012,7 +81997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state762_ = 0;
+    private int state762_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_762 = 762;</code>
      * @return Whether the state762 field is set.
@@ -80052,7 +82037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state763_ = 0;
+    private int state763_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_763 = 763;</code>
      * @return Whether the state763 field is set.
@@ -80092,7 +82077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state764_ = 0;
+    private int state764_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_764 = 764;</code>
      * @return Whether the state764 field is set.
@@ -80132,7 +82117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state765_ = 0;
+    private int state765_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_765 = 765;</code>
      * @return Whether the state765 field is set.
@@ -80172,7 +82157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state766_ = 0;
+    private int state766_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_766 = 766;</code>
      * @return Whether the state766 field is set.
@@ -80212,7 +82197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state767_ = 0;
+    private int state767_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_767 = 767;</code>
      * @return Whether the state767 field is set.
@@ -80252,7 +82237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state768_ = 0;
+    private int state768_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_768 = 768;</code>
      * @return Whether the state768 field is set.
@@ -80292,7 +82277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state769_ = 0;
+    private int state769_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_769 = 769;</code>
      * @return Whether the state769 field is set.
@@ -80332,7 +82317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state770_ = 0;
+    private int state770_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_770 = 770;</code>
      * @return Whether the state770 field is set.
@@ -80372,7 +82357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state771_ = 0;
+    private int state771_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_771 = 771;</code>
      * @return Whether the state771 field is set.
@@ -80412,7 +82397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state772_ = 0;
+    private int state772_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_772 = 772;</code>
      * @return Whether the state772 field is set.
@@ -80452,7 +82437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state773_ = 0;
+    private int state773_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_773 = 773;</code>
      * @return Whether the state773 field is set.
@@ -80492,7 +82477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state774_ = 0;
+    private int state774_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_774 = 774;</code>
      * @return Whether the state774 field is set.
@@ -80532,7 +82517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state775_ = 0;
+    private int state775_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_775 = 775;</code>
      * @return Whether the state775 field is set.
@@ -80572,7 +82557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state776_ = 0;
+    private int state776_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_776 = 776;</code>
      * @return Whether the state776 field is set.
@@ -80612,7 +82597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state777_ = 0;
+    private int state777_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_777 = 777;</code>
      * @return Whether the state777 field is set.
@@ -80652,7 +82637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state778_ = 0;
+    private int state778_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_778 = 778;</code>
      * @return Whether the state778 field is set.
@@ -80692,7 +82677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state779_ = 0;
+    private int state779_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_779 = 779;</code>
      * @return Whether the state779 field is set.
@@ -80732,7 +82717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state780_ = 0;
+    private int state780_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_780 = 780;</code>
      * @return Whether the state780 field is set.
@@ -80772,7 +82757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state781_ = 0;
+    private int state781_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_781 = 781;</code>
      * @return Whether the state781 field is set.
@@ -80812,7 +82797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state782_ = 0;
+    private int state782_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_782 = 782;</code>
      * @return Whether the state782 field is set.
@@ -80852,7 +82837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state783_ = 0;
+    private int state783_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_783 = 783;</code>
      * @return Whether the state783 field is set.
@@ -80892,7 +82877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state784_ = 0;
+    private int state784_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_784 = 784;</code>
      * @return Whether the state784 field is set.
@@ -80932,7 +82917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state785_ = 0;
+    private int state785_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_785 = 785;</code>
      * @return Whether the state785 field is set.
@@ -80972,7 +82957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state786_ = 0;
+    private int state786_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_786 = 786;</code>
      * @return Whether the state786 field is set.
@@ -81012,7 +82997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state787_ = 0;
+    private int state787_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_787 = 787;</code>
      * @return Whether the state787 field is set.
@@ -81052,7 +83037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state788_ = 0;
+    private int state788_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_788 = 788;</code>
      * @return Whether the state788 field is set.
@@ -81092,7 +83077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state789_ = 0;
+    private int state789_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_789 = 789;</code>
      * @return Whether the state789 field is set.
@@ -81132,7 +83117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state790_ = 0;
+    private int state790_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_790 = 790;</code>
      * @return Whether the state790 field is set.
@@ -81172,7 +83157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state791_ = 0;
+    private int state791_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_791 = 791;</code>
      * @return Whether the state791 field is set.
@@ -81212,7 +83197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state792_ = 0;
+    private int state792_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_792 = 792;</code>
      * @return Whether the state792 field is set.
@@ -81252,7 +83237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state793_ = 0;
+    private int state793_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_793 = 793;</code>
      * @return Whether the state793 field is set.
@@ -81292,7 +83277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state794_ = 0;
+    private int state794_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_794 = 794;</code>
      * @return Whether the state794 field is set.
@@ -81332,7 +83317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state795_ = 0;
+    private int state795_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_795 = 795;</code>
      * @return Whether the state795 field is set.
@@ -81372,7 +83357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state796_ = 0;
+    private int state796_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_796 = 796;</code>
      * @return Whether the state796 field is set.
@@ -81412,7 +83397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state797_ = 0;
+    private int state797_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_797 = 797;</code>
      * @return Whether the state797 field is set.
@@ -81452,7 +83437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state798_ = 0;
+    private int state798_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_798 = 798;</code>
      * @return Whether the state798 field is set.
@@ -81492,7 +83477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state799_ = 0;
+    private int state799_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_799 = 799;</code>
      * @return Whether the state799 field is set.
@@ -81532,7 +83517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state800_ = 0;
+    private int state800_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_800 = 800;</code>
      * @return Whether the state800 field is set.
@@ -81572,7 +83557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state801_ = 0;
+    private int state801_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_801 = 801;</code>
      * @return Whether the state801 field is set.
@@ -81612,7 +83597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state802_ = 0;
+    private int state802_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_802 = 802;</code>
      * @return Whether the state802 field is set.
@@ -81652,7 +83637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state803_ = 0;
+    private int state803_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_803 = 803;</code>
      * @return Whether the state803 field is set.
@@ -81692,7 +83677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state804_ = 0;
+    private int state804_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_804 = 804;</code>
      * @return Whether the state804 field is set.
@@ -81732,7 +83717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state805_ = 0;
+    private int state805_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_805 = 805;</code>
      * @return Whether the state805 field is set.
@@ -81772,7 +83757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state806_ = 0;
+    private int state806_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_806 = 806;</code>
      * @return Whether the state806 field is set.
@@ -81812,7 +83797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state807_ = 0;
+    private int state807_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_807 = 807;</code>
      * @return Whether the state807 field is set.
@@ -81852,7 +83837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state808_ = 0;
+    private int state808_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_808 = 808;</code>
      * @return Whether the state808 field is set.
@@ -81892,7 +83877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state809_ = 0;
+    private int state809_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_809 = 809;</code>
      * @return Whether the state809 field is set.
@@ -81932,7 +83917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state810_ = 0;
+    private int state810_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_810 = 810;</code>
      * @return Whether the state810 field is set.
@@ -81972,7 +83957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state811_ = 0;
+    private int state811_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_811 = 811;</code>
      * @return Whether the state811 field is set.
@@ -82012,7 +83997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state812_ = 0;
+    private int state812_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_812 = 812;</code>
      * @return Whether the state812 field is set.
@@ -82052,7 +84037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state813_ = 0;
+    private int state813_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_813 = 813;</code>
      * @return Whether the state813 field is set.
@@ -82092,7 +84077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state814_ = 0;
+    private int state814_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_814 = 814;</code>
      * @return Whether the state814 field is set.
@@ -82132,7 +84117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state815_ = 0;
+    private int state815_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_815 = 815;</code>
      * @return Whether the state815 field is set.
@@ -82172,7 +84157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state816_ = 0;
+    private int state816_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_816 = 816;</code>
      * @return Whether the state816 field is set.
@@ -82212,7 +84197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state817_ = 0;
+    private int state817_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_817 = 817;</code>
      * @return Whether the state817 field is set.
@@ -82252,7 +84237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state818_ = 0;
+    private int state818_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_818 = 818;</code>
      * @return Whether the state818 field is set.
@@ -82292,7 +84277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state819_ = 0;
+    private int state819_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_819 = 819;</code>
      * @return Whether the state819 field is set.
@@ -82332,7 +84317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state820_ = 0;
+    private int state820_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_820 = 820;</code>
      * @return Whether the state820 field is set.
@@ -82372,7 +84357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state821_ = 0;
+    private int state821_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_821 = 821;</code>
      * @return Whether the state821 field is set.
@@ -82412,7 +84397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state822_ = 0;
+    private int state822_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_822 = 822;</code>
      * @return Whether the state822 field is set.
@@ -82452,7 +84437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state823_ = 0;
+    private int state823_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_823 = 823;</code>
      * @return Whether the state823 field is set.
@@ -82492,7 +84477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state824_ = 0;
+    private int state824_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_824 = 824;</code>
      * @return Whether the state824 field is set.
@@ -82532,7 +84517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state825_ = 0;
+    private int state825_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_825 = 825;</code>
      * @return Whether the state825 field is set.
@@ -82572,7 +84557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state826_ = 0;
+    private int state826_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_826 = 826;</code>
      * @return Whether the state826 field is set.
@@ -82612,7 +84597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state827_ = 0;
+    private int state827_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_827 = 827;</code>
      * @return Whether the state827 field is set.
@@ -82652,7 +84637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state828_ = 0;
+    private int state828_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_828 = 828;</code>
      * @return Whether the state828 field is set.
@@ -82692,7 +84677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state829_ = 0;
+    private int state829_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_829 = 829;</code>
      * @return Whether the state829 field is set.
@@ -82732,7 +84717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state830_ = 0;
+    private int state830_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_830 = 830;</code>
      * @return Whether the state830 field is set.
@@ -82772,7 +84757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state831_ = 0;
+    private int state831_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_831 = 831;</code>
      * @return Whether the state831 field is set.
@@ -82812,7 +84797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state832_ = 0;
+    private int state832_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_832 = 832;</code>
      * @return Whether the state832 field is set.
@@ -82852,7 +84837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state833_ = 0;
+    private int state833_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_833 = 833;</code>
      * @return Whether the state833 field is set.
@@ -82892,7 +84877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state834_ = 0;
+    private int state834_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_834 = 834;</code>
      * @return Whether the state834 field is set.
@@ -82932,7 +84917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state835_ = 0;
+    private int state835_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_835 = 835;</code>
      * @return Whether the state835 field is set.
@@ -82972,7 +84957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state836_ = 0;
+    private int state836_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_836 = 836;</code>
      * @return Whether the state836 field is set.
@@ -83012,7 +84997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state837_ = 0;
+    private int state837_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_837 = 837;</code>
      * @return Whether the state837 field is set.
@@ -83052,7 +85037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state838_ = 0;
+    private int state838_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_838 = 838;</code>
      * @return Whether the state838 field is set.
@@ -83092,7 +85077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state839_ = 0;
+    private int state839_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_839 = 839;</code>
      * @return Whether the state839 field is set.
@@ -83132,7 +85117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state840_ = 0;
+    private int state840_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_840 = 840;</code>
      * @return Whether the state840 field is set.
@@ -83172,7 +85157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state841_ = 0;
+    private int state841_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_841 = 841;</code>
      * @return Whether the state841 field is set.
@@ -83212,7 +85197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state842_ = 0;
+    private int state842_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_842 = 842;</code>
      * @return Whether the state842 field is set.
@@ -83252,7 +85237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state843_ = 0;
+    private int state843_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_843 = 843;</code>
      * @return Whether the state843 field is set.
@@ -83292,7 +85277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state844_ = 0;
+    private int state844_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_844 = 844;</code>
      * @return Whether the state844 field is set.
@@ -83332,7 +85317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state845_ = 0;
+    private int state845_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_845 = 845;</code>
      * @return Whether the state845 field is set.
@@ -83372,7 +85357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state846_ = 0;
+    private int state846_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_846 = 846;</code>
      * @return Whether the state846 field is set.
@@ -83412,7 +85397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state847_ = 0;
+    private int state847_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_847 = 847;</code>
      * @return Whether the state847 field is set.
@@ -83452,7 +85437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state848_ = 0;
+    private int state848_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_848 = 848;</code>
      * @return Whether the state848 field is set.
@@ -83492,7 +85477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state849_ = 0;
+    private int state849_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_849 = 849;</code>
      * @return Whether the state849 field is set.
@@ -83532,7 +85517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state850_ = 0;
+    private int state850_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_850 = 850;</code>
      * @return Whether the state850 field is set.
@@ -83572,7 +85557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state851_ = 0;
+    private int state851_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_851 = 851;</code>
      * @return Whether the state851 field is set.
@@ -83612,7 +85597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state852_ = 0;
+    private int state852_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_852 = 852;</code>
      * @return Whether the state852 field is set.
@@ -83652,7 +85637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state853_ = 0;
+    private int state853_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_853 = 853;</code>
      * @return Whether the state853 field is set.
@@ -83692,7 +85677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state854_ = 0;
+    private int state854_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_854 = 854;</code>
      * @return Whether the state854 field is set.
@@ -83732,7 +85717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state855_ = 0;
+    private int state855_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_855 = 855;</code>
      * @return Whether the state855 field is set.
@@ -83772,7 +85757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state856_ = 0;
+    private int state856_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_856 = 856;</code>
      * @return Whether the state856 field is set.
@@ -83812,7 +85797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state857_ = 0;
+    private int state857_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_857 = 857;</code>
      * @return Whether the state857 field is set.
@@ -83852,7 +85837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state858_ = 0;
+    private int state858_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_858 = 858;</code>
      * @return Whether the state858 field is set.
@@ -83892,7 +85877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state859_ = 0;
+    private int state859_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_859 = 859;</code>
      * @return Whether the state859 field is set.
@@ -83932,7 +85917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state860_ = 0;
+    private int state860_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_860 = 860;</code>
      * @return Whether the state860 field is set.
@@ -83972,7 +85957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state861_ = 0;
+    private int state861_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_861 = 861;</code>
      * @return Whether the state861 field is set.
@@ -84012,7 +85997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state862_ = 0;
+    private int state862_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_862 = 862;</code>
      * @return Whether the state862 field is set.
@@ -84052,7 +86037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state863_ = 0;
+    private int state863_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_863 = 863;</code>
      * @return Whether the state863 field is set.
@@ -84092,7 +86077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state864_ = 0;
+    private int state864_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_864 = 864;</code>
      * @return Whether the state864 field is set.
@@ -84132,7 +86117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state865_ = 0;
+    private int state865_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_865 = 865;</code>
      * @return Whether the state865 field is set.
@@ -84172,7 +86157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state866_ = 0;
+    private int state866_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_866 = 866;</code>
      * @return Whether the state866 field is set.
@@ -84212,7 +86197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state867_ = 0;
+    private int state867_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_867 = 867;</code>
      * @return Whether the state867 field is set.
@@ -84252,7 +86237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state868_ = 0;
+    private int state868_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_868 = 868;</code>
      * @return Whether the state868 field is set.
@@ -84292,7 +86277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state869_ = 0;
+    private int state869_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_869 = 869;</code>
      * @return Whether the state869 field is set.
@@ -84332,7 +86317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state870_ = 0;
+    private int state870_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_870 = 870;</code>
      * @return Whether the state870 field is set.
@@ -84372,7 +86357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state871_ = 0;
+    private int state871_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_871 = 871;</code>
      * @return Whether the state871 field is set.
@@ -84412,7 +86397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state872_ = 0;
+    private int state872_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_872 = 872;</code>
      * @return Whether the state872 field is set.
@@ -84452,7 +86437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state873_ = 0;
+    private int state873_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_873 = 873;</code>
      * @return Whether the state873 field is set.
@@ -84492,7 +86477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state874_ = 0;
+    private int state874_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_874 = 874;</code>
      * @return Whether the state874 field is set.
@@ -84532,7 +86517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state875_ = 0;
+    private int state875_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_875 = 875;</code>
      * @return Whether the state875 field is set.
@@ -84572,7 +86557,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state876_ = 0;
+    private int state876_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_876 = 876;</code>
      * @return Whether the state876 field is set.
@@ -84612,7 +86597,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state877_ = 0;
+    private int state877_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_877 = 877;</code>
      * @return Whether the state877 field is set.
@@ -84652,7 +86637,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state878_ = 0;
+    private int state878_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_878 = 878;</code>
      * @return Whether the state878 field is set.
@@ -84692,7 +86677,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state879_ = 0;
+    private int state879_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_879 = 879;</code>
      * @return Whether the state879 field is set.
@@ -84732,7 +86717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state880_ = 0;
+    private int state880_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_880 = 880;</code>
      * @return Whether the state880 field is set.
@@ -84772,7 +86757,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state881_ = 0;
+    private int state881_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_881 = 881;</code>
      * @return Whether the state881 field is set.
@@ -84812,7 +86797,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state882_ = 0;
+    private int state882_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_882 = 882;</code>
      * @return Whether the state882 field is set.
@@ -84852,7 +86837,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state883_ = 0;
+    private int state883_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_883 = 883;</code>
      * @return Whether the state883 field is set.
@@ -84892,7 +86877,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state884_ = 0;
+    private int state884_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_884 = 884;</code>
      * @return Whether the state884 field is set.
@@ -84932,7 +86917,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state885_ = 0;
+    private int state885_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_885 = 885;</code>
      * @return Whether the state885 field is set.
@@ -84972,7 +86957,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state886_ = 0;
+    private int state886_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_886 = 886;</code>
      * @return Whether the state886 field is set.
@@ -85012,7 +86997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state887_ = 0;
+    private int state887_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_887 = 887;</code>
      * @return Whether the state887 field is set.
@@ -85052,7 +87037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state888_ = 0;
+    private int state888_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_888 = 888;</code>
      * @return Whether the state888 field is set.
@@ -85092,7 +87077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state889_ = 0;
+    private int state889_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_889 = 889;</code>
      * @return Whether the state889 field is set.
@@ -85132,7 +87117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state890_ = 0;
+    private int state890_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_890 = 890;</code>
      * @return Whether the state890 field is set.
@@ -85172,7 +87157,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state891_ = 0;
+    private int state891_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_891 = 891;</code>
      * @return Whether the state891 field is set.
@@ -85212,7 +87197,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state892_ = 0;
+    private int state892_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_892 = 892;</code>
      * @return Whether the state892 field is set.
@@ -85252,7 +87237,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state893_ = 0;
+    private int state893_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_893 = 893;</code>
      * @return Whether the state893 field is set.
@@ -85292,7 +87277,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state894_ = 0;
+    private int state894_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_894 = 894;</code>
      * @return Whether the state894 field is set.
@@ -85332,7 +87317,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state895_ = 0;
+    private int state895_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_895 = 895;</code>
      * @return Whether the state895 field is set.
@@ -85372,7 +87357,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state896_ = 0;
+    private int state896_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_896 = 896;</code>
      * @return Whether the state896 field is set.
@@ -85412,7 +87397,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state897_ = 0;
+    private int state897_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_897 = 897;</code>
      * @return Whether the state897 field is set.
@@ -85452,7 +87437,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state898_ = 0;
+    private int state898_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_898 = 898;</code>
      * @return Whether the state898 field is set.
@@ -85492,7 +87477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state899_ = 0;
+    private int state899_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_899 = 899;</code>
      * @return Whether the state899 field is set.
@@ -85532,7 +87517,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int state900_ = 0;
+    private int state900_;
     /**
      * <code>optional .generated_code_size_test.WideClosedEnum.Status state_900 = 900;</code>
      * @return Whether the state900 field is set.
@@ -85586,21 +87571,9161 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<WideClosedEnum>
-      PARSER = new com.google.protobuf.AbstractParser<WideClosedEnum>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<WideClosedEnum> {
+    MessageParser() {}
+
     @java.lang.Override
     public WideClosedEnum parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      WideClosedEnum instance = new WideClosedEnum((Builder) null);
+      java.lang.Object unknown = null;
+      int to_bitField0_ = 0;
+      int to_bitField1_ = 0;
+      int to_bitField2_ = 0;
+      int to_bitField3_ = 0;
+      int to_bitField4_ = 0;
+      int to_bitField5_ = 0;
+      int to_bitField6_ = 0;
+      int to_bitField7_ = 0;
+      int to_bitField8_ = 0;
+      int to_bitField9_ = 0;
+      int to_bitField10_ = 0;
+      int to_bitField11_ = 0;
+      int to_bitField12_ = 0;
+      int to_bitField13_ = 0;
+      int to_bitField14_ = 0;
+      int to_bitField15_ = 0;
+      int to_bitField16_ = 0;
+      int to_bitField17_ = 0;
+      int to_bitField18_ = 0;
+      int to_bitField19_ = 0;
+      int to_bitField20_ = 0;
+      int to_bitField21_ = 0;
+      int to_bitField22_ = 0;
+      int to_bitField23_ = 0;
+      int to_bitField24_ = 0;
+      int to_bitField25_ = 0;
+      int to_bitField26_ = 0;
+      int to_bitField27_ = 0;
+      int to_bitField28_ = 0;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 1, tmpRaw);
+              } else {
+                instance.state1_ = tmpRaw;
+                to_bitField0_ |= 0x00000001;
+              }
+              break;
+            } // case 8
+            case 16: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 2, tmpRaw);
+              } else {
+                instance.state2_ = tmpRaw;
+                to_bitField0_ |= 0x00000002;
+              }
+              break;
+            } // case 16
+            case 24: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 3, tmpRaw);
+              } else {
+                instance.state3_ = tmpRaw;
+                to_bitField0_ |= 0x00000004;
+              }
+              break;
+            } // case 24
+            case 32: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 4, tmpRaw);
+              } else {
+                instance.state4_ = tmpRaw;
+                to_bitField0_ |= 0x00000008;
+              }
+              break;
+            } // case 32
+            case 40: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 5, tmpRaw);
+              } else {
+                instance.state5_ = tmpRaw;
+                to_bitField0_ |= 0x00000010;
+              }
+              break;
+            } // case 40
+            case 48: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 6, tmpRaw);
+              } else {
+                instance.state6_ = tmpRaw;
+                to_bitField0_ |= 0x00000020;
+              }
+              break;
+            } // case 48
+            case 56: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 7, tmpRaw);
+              } else {
+                instance.state7_ = tmpRaw;
+                to_bitField0_ |= 0x00000040;
+              }
+              break;
+            } // case 56
+            case 64: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 8, tmpRaw);
+              } else {
+                instance.state8_ = tmpRaw;
+                to_bitField0_ |= 0x00000080;
+              }
+              break;
+            } // case 64
+            case 72: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 9, tmpRaw);
+              } else {
+                instance.state9_ = tmpRaw;
+                to_bitField0_ |= 0x00000100;
+              }
+              break;
+            } // case 72
+            case 80: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 10, tmpRaw);
+              } else {
+                instance.state10_ = tmpRaw;
+                to_bitField0_ |= 0x00000200;
+              }
+              break;
+            } // case 80
+            case 88: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 11, tmpRaw);
+              } else {
+                instance.state11_ = tmpRaw;
+                to_bitField0_ |= 0x00000400;
+              }
+              break;
+            } // case 88
+            case 96: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 12, tmpRaw);
+              } else {
+                instance.state12_ = tmpRaw;
+                to_bitField0_ |= 0x00000800;
+              }
+              break;
+            } // case 96
+            case 104: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 13, tmpRaw);
+              } else {
+                instance.state13_ = tmpRaw;
+                to_bitField0_ |= 0x00001000;
+              }
+              break;
+            } // case 104
+            case 112: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 14, tmpRaw);
+              } else {
+                instance.state14_ = tmpRaw;
+                to_bitField0_ |= 0x00002000;
+              }
+              break;
+            } // case 112
+            case 120: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 15, tmpRaw);
+              } else {
+                instance.state15_ = tmpRaw;
+                to_bitField0_ |= 0x00004000;
+              }
+              break;
+            } // case 120
+            case 128: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 16, tmpRaw);
+              } else {
+                instance.state16_ = tmpRaw;
+                to_bitField0_ |= 0x00008000;
+              }
+              break;
+            } // case 128
+            case 136: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 17, tmpRaw);
+              } else {
+                instance.state17_ = tmpRaw;
+                to_bitField0_ |= 0x00010000;
+              }
+              break;
+            } // case 136
+            case 144: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 18, tmpRaw);
+              } else {
+                instance.state18_ = tmpRaw;
+                to_bitField0_ |= 0x00020000;
+              }
+              break;
+            } // case 144
+            case 152: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 19, tmpRaw);
+              } else {
+                instance.state19_ = tmpRaw;
+                to_bitField0_ |= 0x00040000;
+              }
+              break;
+            } // case 152
+            case 160: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 20, tmpRaw);
+              } else {
+                instance.state20_ = tmpRaw;
+                to_bitField0_ |= 0x00080000;
+              }
+              break;
+            } // case 160
+            case 168: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 21, tmpRaw);
+              } else {
+                instance.state21_ = tmpRaw;
+                to_bitField0_ |= 0x00100000;
+              }
+              break;
+            } // case 168
+            case 176: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 22, tmpRaw);
+              } else {
+                instance.state22_ = tmpRaw;
+                to_bitField0_ |= 0x00200000;
+              }
+              break;
+            } // case 176
+            case 184: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 23, tmpRaw);
+              } else {
+                instance.state23_ = tmpRaw;
+                to_bitField0_ |= 0x00400000;
+              }
+              break;
+            } // case 184
+            case 192: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 24, tmpRaw);
+              } else {
+                instance.state24_ = tmpRaw;
+                to_bitField0_ |= 0x00800000;
+              }
+              break;
+            } // case 192
+            case 200: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 25, tmpRaw);
+              } else {
+                instance.state25_ = tmpRaw;
+                to_bitField0_ |= 0x01000000;
+              }
+              break;
+            } // case 200
+            case 208: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 26, tmpRaw);
+              } else {
+                instance.state26_ = tmpRaw;
+                to_bitField0_ |= 0x02000000;
+              }
+              break;
+            } // case 208
+            case 216: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 27, tmpRaw);
+              } else {
+                instance.state27_ = tmpRaw;
+                to_bitField0_ |= 0x04000000;
+              }
+              break;
+            } // case 216
+            case 224: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 28, tmpRaw);
+              } else {
+                instance.state28_ = tmpRaw;
+                to_bitField0_ |= 0x08000000;
+              }
+              break;
+            } // case 224
+            case 232: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 29, tmpRaw);
+              } else {
+                instance.state29_ = tmpRaw;
+                to_bitField0_ |= 0x10000000;
+              }
+              break;
+            } // case 232
+            case 240: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 30, tmpRaw);
+              } else {
+                instance.state30_ = tmpRaw;
+                to_bitField0_ |= 0x20000000;
+              }
+              break;
+            } // case 240
+            case 248: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 31, tmpRaw);
+              } else {
+                instance.state31_ = tmpRaw;
+                to_bitField0_ |= 0x40000000;
+              }
+              break;
+            } // case 248
+            case 256: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 32, tmpRaw);
+              } else {
+                instance.state32_ = tmpRaw;
+                to_bitField0_ |= 0x80000000;
+              }
+              break;
+            } // case 256
+            case 264: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 33, tmpRaw);
+              } else {
+                instance.state33_ = tmpRaw;
+                to_bitField1_ |= 0x00000001;
+              }
+              break;
+            } // case 264
+            case 272: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 34, tmpRaw);
+              } else {
+                instance.state34_ = tmpRaw;
+                to_bitField1_ |= 0x00000002;
+              }
+              break;
+            } // case 272
+            case 280: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 35, tmpRaw);
+              } else {
+                instance.state35_ = tmpRaw;
+                to_bitField1_ |= 0x00000004;
+              }
+              break;
+            } // case 280
+            case 288: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 36, tmpRaw);
+              } else {
+                instance.state36_ = tmpRaw;
+                to_bitField1_ |= 0x00000008;
+              }
+              break;
+            } // case 288
+            case 296: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 37, tmpRaw);
+              } else {
+                instance.state37_ = tmpRaw;
+                to_bitField1_ |= 0x00000010;
+              }
+              break;
+            } // case 296
+            case 304: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 38, tmpRaw);
+              } else {
+                instance.state38_ = tmpRaw;
+                to_bitField1_ |= 0x00000020;
+              }
+              break;
+            } // case 304
+            case 312: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 39, tmpRaw);
+              } else {
+                instance.state39_ = tmpRaw;
+                to_bitField1_ |= 0x00000040;
+              }
+              break;
+            } // case 312
+            case 320: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 40, tmpRaw);
+              } else {
+                instance.state40_ = tmpRaw;
+                to_bitField1_ |= 0x00000080;
+              }
+              break;
+            } // case 320
+            case 328: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 41, tmpRaw);
+              } else {
+                instance.state41_ = tmpRaw;
+                to_bitField1_ |= 0x00000100;
+              }
+              break;
+            } // case 328
+            case 336: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 42, tmpRaw);
+              } else {
+                instance.state42_ = tmpRaw;
+                to_bitField1_ |= 0x00000200;
+              }
+              break;
+            } // case 336
+            case 344: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 43, tmpRaw);
+              } else {
+                instance.state43_ = tmpRaw;
+                to_bitField1_ |= 0x00000400;
+              }
+              break;
+            } // case 344
+            case 352: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 44, tmpRaw);
+              } else {
+                instance.state44_ = tmpRaw;
+                to_bitField1_ |= 0x00000800;
+              }
+              break;
+            } // case 352
+            case 360: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 45, tmpRaw);
+              } else {
+                instance.state45_ = tmpRaw;
+                to_bitField1_ |= 0x00001000;
+              }
+              break;
+            } // case 360
+            case 368: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 46, tmpRaw);
+              } else {
+                instance.state46_ = tmpRaw;
+                to_bitField1_ |= 0x00002000;
+              }
+              break;
+            } // case 368
+            case 376: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 47, tmpRaw);
+              } else {
+                instance.state47_ = tmpRaw;
+                to_bitField1_ |= 0x00004000;
+              }
+              break;
+            } // case 376
+            case 384: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 48, tmpRaw);
+              } else {
+                instance.state48_ = tmpRaw;
+                to_bitField1_ |= 0x00008000;
+              }
+              break;
+            } // case 384
+            case 392: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 49, tmpRaw);
+              } else {
+                instance.state49_ = tmpRaw;
+                to_bitField1_ |= 0x00010000;
+              }
+              break;
+            } // case 392
+            case 400: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 50, tmpRaw);
+              } else {
+                instance.state50_ = tmpRaw;
+                to_bitField1_ |= 0x00020000;
+              }
+              break;
+            } // case 400
+            case 408: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 51, tmpRaw);
+              } else {
+                instance.state51_ = tmpRaw;
+                to_bitField1_ |= 0x00040000;
+              }
+              break;
+            } // case 408
+            case 416: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 52, tmpRaw);
+              } else {
+                instance.state52_ = tmpRaw;
+                to_bitField1_ |= 0x00080000;
+              }
+              break;
+            } // case 416
+            case 424: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 53, tmpRaw);
+              } else {
+                instance.state53_ = tmpRaw;
+                to_bitField1_ |= 0x00100000;
+              }
+              break;
+            } // case 424
+            case 432: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 54, tmpRaw);
+              } else {
+                instance.state54_ = tmpRaw;
+                to_bitField1_ |= 0x00200000;
+              }
+              break;
+            } // case 432
+            case 440: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 55, tmpRaw);
+              } else {
+                instance.state55_ = tmpRaw;
+                to_bitField1_ |= 0x00400000;
+              }
+              break;
+            } // case 440
+            case 448: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 56, tmpRaw);
+              } else {
+                instance.state56_ = tmpRaw;
+                to_bitField1_ |= 0x00800000;
+              }
+              break;
+            } // case 448
+            case 456: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 57, tmpRaw);
+              } else {
+                instance.state57_ = tmpRaw;
+                to_bitField1_ |= 0x01000000;
+              }
+              break;
+            } // case 456
+            case 464: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 58, tmpRaw);
+              } else {
+                instance.state58_ = tmpRaw;
+                to_bitField1_ |= 0x02000000;
+              }
+              break;
+            } // case 464
+            case 472: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 59, tmpRaw);
+              } else {
+                instance.state59_ = tmpRaw;
+                to_bitField1_ |= 0x04000000;
+              }
+              break;
+            } // case 472
+            case 480: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 60, tmpRaw);
+              } else {
+                instance.state60_ = tmpRaw;
+                to_bitField1_ |= 0x08000000;
+              }
+              break;
+            } // case 480
+            case 488: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 61, tmpRaw);
+              } else {
+                instance.state61_ = tmpRaw;
+                to_bitField1_ |= 0x10000000;
+              }
+              break;
+            } // case 488
+            case 496: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 62, tmpRaw);
+              } else {
+                instance.state62_ = tmpRaw;
+                to_bitField1_ |= 0x20000000;
+              }
+              break;
+            } // case 496
+            case 504: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 63, tmpRaw);
+              } else {
+                instance.state63_ = tmpRaw;
+                to_bitField1_ |= 0x40000000;
+              }
+              break;
+            } // case 504
+            case 512: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 64, tmpRaw);
+              } else {
+                instance.state64_ = tmpRaw;
+                to_bitField1_ |= 0x80000000;
+              }
+              break;
+            } // case 512
+            case 520: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 65, tmpRaw);
+              } else {
+                instance.state65_ = tmpRaw;
+                to_bitField2_ |= 0x00000001;
+              }
+              break;
+            } // case 520
+            case 528: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 66, tmpRaw);
+              } else {
+                instance.state66_ = tmpRaw;
+                to_bitField2_ |= 0x00000002;
+              }
+              break;
+            } // case 528
+            case 536: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 67, tmpRaw);
+              } else {
+                instance.state67_ = tmpRaw;
+                to_bitField2_ |= 0x00000004;
+              }
+              break;
+            } // case 536
+            case 544: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 68, tmpRaw);
+              } else {
+                instance.state68_ = tmpRaw;
+                to_bitField2_ |= 0x00000008;
+              }
+              break;
+            } // case 544
+            case 552: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 69, tmpRaw);
+              } else {
+                instance.state69_ = tmpRaw;
+                to_bitField2_ |= 0x00000010;
+              }
+              break;
+            } // case 552
+            case 560: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 70, tmpRaw);
+              } else {
+                instance.state70_ = tmpRaw;
+                to_bitField2_ |= 0x00000020;
+              }
+              break;
+            } // case 560
+            case 568: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 71, tmpRaw);
+              } else {
+                instance.state71_ = tmpRaw;
+                to_bitField2_ |= 0x00000040;
+              }
+              break;
+            } // case 568
+            case 576: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 72, tmpRaw);
+              } else {
+                instance.state72_ = tmpRaw;
+                to_bitField2_ |= 0x00000080;
+              }
+              break;
+            } // case 576
+            case 584: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 73, tmpRaw);
+              } else {
+                instance.state73_ = tmpRaw;
+                to_bitField2_ |= 0x00000100;
+              }
+              break;
+            } // case 584
+            case 592: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 74, tmpRaw);
+              } else {
+                instance.state74_ = tmpRaw;
+                to_bitField2_ |= 0x00000200;
+              }
+              break;
+            } // case 592
+            case 600: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 75, tmpRaw);
+              } else {
+                instance.state75_ = tmpRaw;
+                to_bitField2_ |= 0x00000400;
+              }
+              break;
+            } // case 600
+            case 608: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 76, tmpRaw);
+              } else {
+                instance.state76_ = tmpRaw;
+                to_bitField2_ |= 0x00000800;
+              }
+              break;
+            } // case 608
+            case 616: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 77, tmpRaw);
+              } else {
+                instance.state77_ = tmpRaw;
+                to_bitField2_ |= 0x00001000;
+              }
+              break;
+            } // case 616
+            case 624: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 78, tmpRaw);
+              } else {
+                instance.state78_ = tmpRaw;
+                to_bitField2_ |= 0x00002000;
+              }
+              break;
+            } // case 624
+            case 632: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 79, tmpRaw);
+              } else {
+                instance.state79_ = tmpRaw;
+                to_bitField2_ |= 0x00004000;
+              }
+              break;
+            } // case 632
+            case 640: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 80, tmpRaw);
+              } else {
+                instance.state80_ = tmpRaw;
+                to_bitField2_ |= 0x00008000;
+              }
+              break;
+            } // case 640
+            case 648: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 81, tmpRaw);
+              } else {
+                instance.state81_ = tmpRaw;
+                to_bitField2_ |= 0x00010000;
+              }
+              break;
+            } // case 648
+            case 656: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 82, tmpRaw);
+              } else {
+                instance.state82_ = tmpRaw;
+                to_bitField2_ |= 0x00020000;
+              }
+              break;
+            } // case 656
+            case 664: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 83, tmpRaw);
+              } else {
+                instance.state83_ = tmpRaw;
+                to_bitField2_ |= 0x00040000;
+              }
+              break;
+            } // case 664
+            case 672: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 84, tmpRaw);
+              } else {
+                instance.state84_ = tmpRaw;
+                to_bitField2_ |= 0x00080000;
+              }
+              break;
+            } // case 672
+            case 680: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 85, tmpRaw);
+              } else {
+                instance.state85_ = tmpRaw;
+                to_bitField2_ |= 0x00100000;
+              }
+              break;
+            } // case 680
+            case 688: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 86, tmpRaw);
+              } else {
+                instance.state86_ = tmpRaw;
+                to_bitField2_ |= 0x00200000;
+              }
+              break;
+            } // case 688
+            case 696: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 87, tmpRaw);
+              } else {
+                instance.state87_ = tmpRaw;
+                to_bitField2_ |= 0x00400000;
+              }
+              break;
+            } // case 696
+            case 704: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 88, tmpRaw);
+              } else {
+                instance.state88_ = tmpRaw;
+                to_bitField2_ |= 0x00800000;
+              }
+              break;
+            } // case 704
+            case 712: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 89, tmpRaw);
+              } else {
+                instance.state89_ = tmpRaw;
+                to_bitField2_ |= 0x01000000;
+              }
+              break;
+            } // case 712
+            case 720: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 90, tmpRaw);
+              } else {
+                instance.state90_ = tmpRaw;
+                to_bitField2_ |= 0x02000000;
+              }
+              break;
+            } // case 720
+            case 728: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 91, tmpRaw);
+              } else {
+                instance.state91_ = tmpRaw;
+                to_bitField2_ |= 0x04000000;
+              }
+              break;
+            } // case 728
+            case 736: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 92, tmpRaw);
+              } else {
+                instance.state92_ = tmpRaw;
+                to_bitField2_ |= 0x08000000;
+              }
+              break;
+            } // case 736
+            case 744: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 93, tmpRaw);
+              } else {
+                instance.state93_ = tmpRaw;
+                to_bitField2_ |= 0x10000000;
+              }
+              break;
+            } // case 744
+            case 752: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 94, tmpRaw);
+              } else {
+                instance.state94_ = tmpRaw;
+                to_bitField2_ |= 0x20000000;
+              }
+              break;
+            } // case 752
+            case 760: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 95, tmpRaw);
+              } else {
+                instance.state95_ = tmpRaw;
+                to_bitField2_ |= 0x40000000;
+              }
+              break;
+            } // case 760
+            case 768: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 96, tmpRaw);
+              } else {
+                instance.state96_ = tmpRaw;
+                to_bitField2_ |= 0x80000000;
+              }
+              break;
+            } // case 768
+            case 776: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 97, tmpRaw);
+              } else {
+                instance.state97_ = tmpRaw;
+                to_bitField3_ |= 0x00000001;
+              }
+              break;
+            } // case 776
+            case 784: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 98, tmpRaw);
+              } else {
+                instance.state98_ = tmpRaw;
+                to_bitField3_ |= 0x00000002;
+              }
+              break;
+            } // case 784
+            case 792: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 99, tmpRaw);
+              } else {
+                instance.state99_ = tmpRaw;
+                to_bitField3_ |= 0x00000004;
+              }
+              break;
+            } // case 792
+            case 800: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 100, tmpRaw);
+              } else {
+                instance.state100_ = tmpRaw;
+                to_bitField3_ |= 0x00000008;
+              }
+              break;
+            } // case 800
+            case 808: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 101, tmpRaw);
+              } else {
+                instance.state101_ = tmpRaw;
+                to_bitField3_ |= 0x00000010;
+              }
+              break;
+            } // case 808
+            case 816: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 102, tmpRaw);
+              } else {
+                instance.state102_ = tmpRaw;
+                to_bitField3_ |= 0x00000020;
+              }
+              break;
+            } // case 816
+            case 824: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 103, tmpRaw);
+              } else {
+                instance.state103_ = tmpRaw;
+                to_bitField3_ |= 0x00000040;
+              }
+              break;
+            } // case 824
+            case 832: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 104, tmpRaw);
+              } else {
+                instance.state104_ = tmpRaw;
+                to_bitField3_ |= 0x00000080;
+              }
+              break;
+            } // case 832
+            case 840: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 105, tmpRaw);
+              } else {
+                instance.state105_ = tmpRaw;
+                to_bitField3_ |= 0x00000100;
+              }
+              break;
+            } // case 840
+            case 848: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 106, tmpRaw);
+              } else {
+                instance.state106_ = tmpRaw;
+                to_bitField3_ |= 0x00000200;
+              }
+              break;
+            } // case 848
+            case 856: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 107, tmpRaw);
+              } else {
+                instance.state107_ = tmpRaw;
+                to_bitField3_ |= 0x00000400;
+              }
+              break;
+            } // case 856
+            case 864: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 108, tmpRaw);
+              } else {
+                instance.state108_ = tmpRaw;
+                to_bitField3_ |= 0x00000800;
+              }
+              break;
+            } // case 864
+            case 872: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 109, tmpRaw);
+              } else {
+                instance.state109_ = tmpRaw;
+                to_bitField3_ |= 0x00001000;
+              }
+              break;
+            } // case 872
+            case 880: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 110, tmpRaw);
+              } else {
+                instance.state110_ = tmpRaw;
+                to_bitField3_ |= 0x00002000;
+              }
+              break;
+            } // case 880
+            case 888: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 111, tmpRaw);
+              } else {
+                instance.state111_ = tmpRaw;
+                to_bitField3_ |= 0x00004000;
+              }
+              break;
+            } // case 888
+            case 896: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 112, tmpRaw);
+              } else {
+                instance.state112_ = tmpRaw;
+                to_bitField3_ |= 0x00008000;
+              }
+              break;
+            } // case 896
+            case 904: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 113, tmpRaw);
+              } else {
+                instance.state113_ = tmpRaw;
+                to_bitField3_ |= 0x00010000;
+              }
+              break;
+            } // case 904
+            case 912: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 114, tmpRaw);
+              } else {
+                instance.state114_ = tmpRaw;
+                to_bitField3_ |= 0x00020000;
+              }
+              break;
+            } // case 912
+            case 920: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 115, tmpRaw);
+              } else {
+                instance.state115_ = tmpRaw;
+                to_bitField3_ |= 0x00040000;
+              }
+              break;
+            } // case 920
+            case 928: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 116, tmpRaw);
+              } else {
+                instance.state116_ = tmpRaw;
+                to_bitField3_ |= 0x00080000;
+              }
+              break;
+            } // case 928
+            case 936: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 117, tmpRaw);
+              } else {
+                instance.state117_ = tmpRaw;
+                to_bitField3_ |= 0x00100000;
+              }
+              break;
+            } // case 936
+            case 944: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 118, tmpRaw);
+              } else {
+                instance.state118_ = tmpRaw;
+                to_bitField3_ |= 0x00200000;
+              }
+              break;
+            } // case 944
+            case 952: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 119, tmpRaw);
+              } else {
+                instance.state119_ = tmpRaw;
+                to_bitField3_ |= 0x00400000;
+              }
+              break;
+            } // case 952
+            case 960: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 120, tmpRaw);
+              } else {
+                instance.state120_ = tmpRaw;
+                to_bitField3_ |= 0x00800000;
+              }
+              break;
+            } // case 960
+            case 968: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 121, tmpRaw);
+              } else {
+                instance.state121_ = tmpRaw;
+                to_bitField3_ |= 0x01000000;
+              }
+              break;
+            } // case 968
+            case 976: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 122, tmpRaw);
+              } else {
+                instance.state122_ = tmpRaw;
+                to_bitField3_ |= 0x02000000;
+              }
+              break;
+            } // case 976
+            case 984: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 123, tmpRaw);
+              } else {
+                instance.state123_ = tmpRaw;
+                to_bitField3_ |= 0x04000000;
+              }
+              break;
+            } // case 984
+            case 992: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 124, tmpRaw);
+              } else {
+                instance.state124_ = tmpRaw;
+                to_bitField3_ |= 0x08000000;
+              }
+              break;
+            } // case 992
+            case 1000: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 125, tmpRaw);
+              } else {
+                instance.state125_ = tmpRaw;
+                to_bitField3_ |= 0x10000000;
+              }
+              break;
+            } // case 1000
+            case 1008: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 126, tmpRaw);
+              } else {
+                instance.state126_ = tmpRaw;
+                to_bitField3_ |= 0x20000000;
+              }
+              break;
+            } // case 1008
+            case 1016: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 127, tmpRaw);
+              } else {
+                instance.state127_ = tmpRaw;
+                to_bitField3_ |= 0x40000000;
+              }
+              break;
+            } // case 1016
+            case 1024: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 128, tmpRaw);
+              } else {
+                instance.state128_ = tmpRaw;
+                to_bitField3_ |= 0x80000000;
+              }
+              break;
+            } // case 1024
+            case 1032: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 129, tmpRaw);
+              } else {
+                instance.state129_ = tmpRaw;
+                to_bitField4_ |= 0x00000001;
+              }
+              break;
+            } // case 1032
+            case 1040: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 130, tmpRaw);
+              } else {
+                instance.state130_ = tmpRaw;
+                to_bitField4_ |= 0x00000002;
+              }
+              break;
+            } // case 1040
+            case 1048: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 131, tmpRaw);
+              } else {
+                instance.state131_ = tmpRaw;
+                to_bitField4_ |= 0x00000004;
+              }
+              break;
+            } // case 1048
+            case 1056: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 132, tmpRaw);
+              } else {
+                instance.state132_ = tmpRaw;
+                to_bitField4_ |= 0x00000008;
+              }
+              break;
+            } // case 1056
+            case 1064: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 133, tmpRaw);
+              } else {
+                instance.state133_ = tmpRaw;
+                to_bitField4_ |= 0x00000010;
+              }
+              break;
+            } // case 1064
+            case 1072: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 134, tmpRaw);
+              } else {
+                instance.state134_ = tmpRaw;
+                to_bitField4_ |= 0x00000020;
+              }
+              break;
+            } // case 1072
+            case 1080: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 135, tmpRaw);
+              } else {
+                instance.state135_ = tmpRaw;
+                to_bitField4_ |= 0x00000040;
+              }
+              break;
+            } // case 1080
+            case 1088: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 136, tmpRaw);
+              } else {
+                instance.state136_ = tmpRaw;
+                to_bitField4_ |= 0x00000080;
+              }
+              break;
+            } // case 1088
+            case 1096: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 137, tmpRaw);
+              } else {
+                instance.state137_ = tmpRaw;
+                to_bitField4_ |= 0x00000100;
+              }
+              break;
+            } // case 1096
+            case 1104: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 138, tmpRaw);
+              } else {
+                instance.state138_ = tmpRaw;
+                to_bitField4_ |= 0x00000200;
+              }
+              break;
+            } // case 1104
+            case 1112: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 139, tmpRaw);
+              } else {
+                instance.state139_ = tmpRaw;
+                to_bitField4_ |= 0x00000400;
+              }
+              break;
+            } // case 1112
+            case 1120: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 140, tmpRaw);
+              } else {
+                instance.state140_ = tmpRaw;
+                to_bitField4_ |= 0x00000800;
+              }
+              break;
+            } // case 1120
+            case 1128: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 141, tmpRaw);
+              } else {
+                instance.state141_ = tmpRaw;
+                to_bitField4_ |= 0x00001000;
+              }
+              break;
+            } // case 1128
+            case 1136: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 142, tmpRaw);
+              } else {
+                instance.state142_ = tmpRaw;
+                to_bitField4_ |= 0x00002000;
+              }
+              break;
+            } // case 1136
+            case 1144: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 143, tmpRaw);
+              } else {
+                instance.state143_ = tmpRaw;
+                to_bitField4_ |= 0x00004000;
+              }
+              break;
+            } // case 1144
+            case 1152: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 144, tmpRaw);
+              } else {
+                instance.state144_ = tmpRaw;
+                to_bitField4_ |= 0x00008000;
+              }
+              break;
+            } // case 1152
+            case 1160: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 145, tmpRaw);
+              } else {
+                instance.state145_ = tmpRaw;
+                to_bitField4_ |= 0x00010000;
+              }
+              break;
+            } // case 1160
+            case 1168: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 146, tmpRaw);
+              } else {
+                instance.state146_ = tmpRaw;
+                to_bitField4_ |= 0x00020000;
+              }
+              break;
+            } // case 1168
+            case 1176: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 147, tmpRaw);
+              } else {
+                instance.state147_ = tmpRaw;
+                to_bitField4_ |= 0x00040000;
+              }
+              break;
+            } // case 1176
+            case 1184: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 148, tmpRaw);
+              } else {
+                instance.state148_ = tmpRaw;
+                to_bitField4_ |= 0x00080000;
+              }
+              break;
+            } // case 1184
+            case 1192: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 149, tmpRaw);
+              } else {
+                instance.state149_ = tmpRaw;
+                to_bitField4_ |= 0x00100000;
+              }
+              break;
+            } // case 1192
+            case 1200: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 150, tmpRaw);
+              } else {
+                instance.state150_ = tmpRaw;
+                to_bitField4_ |= 0x00200000;
+              }
+              break;
+            } // case 1200
+            case 1208: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 151, tmpRaw);
+              } else {
+                instance.state151_ = tmpRaw;
+                to_bitField4_ |= 0x00400000;
+              }
+              break;
+            } // case 1208
+            case 1216: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 152, tmpRaw);
+              } else {
+                instance.state152_ = tmpRaw;
+                to_bitField4_ |= 0x00800000;
+              }
+              break;
+            } // case 1216
+            case 1224: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 153, tmpRaw);
+              } else {
+                instance.state153_ = tmpRaw;
+                to_bitField4_ |= 0x01000000;
+              }
+              break;
+            } // case 1224
+            case 1232: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 154, tmpRaw);
+              } else {
+                instance.state154_ = tmpRaw;
+                to_bitField4_ |= 0x02000000;
+              }
+              break;
+            } // case 1232
+            case 1240: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 155, tmpRaw);
+              } else {
+                instance.state155_ = tmpRaw;
+                to_bitField4_ |= 0x04000000;
+              }
+              break;
+            } // case 1240
+            case 1248: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 156, tmpRaw);
+              } else {
+                instance.state156_ = tmpRaw;
+                to_bitField4_ |= 0x08000000;
+              }
+              break;
+            } // case 1248
+            case 1256: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 157, tmpRaw);
+              } else {
+                instance.state157_ = tmpRaw;
+                to_bitField4_ |= 0x10000000;
+              }
+              break;
+            } // case 1256
+            case 1264: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 158, tmpRaw);
+              } else {
+                instance.state158_ = tmpRaw;
+                to_bitField4_ |= 0x20000000;
+              }
+              break;
+            } // case 1264
+            case 1272: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 159, tmpRaw);
+              } else {
+                instance.state159_ = tmpRaw;
+                to_bitField4_ |= 0x40000000;
+              }
+              break;
+            } // case 1272
+            case 1280: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 160, tmpRaw);
+              } else {
+                instance.state160_ = tmpRaw;
+                to_bitField4_ |= 0x80000000;
+              }
+              break;
+            } // case 1280
+            case 1288: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 161, tmpRaw);
+              } else {
+                instance.state161_ = tmpRaw;
+                to_bitField5_ |= 0x00000001;
+              }
+              break;
+            } // case 1288
+            case 1296: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 162, tmpRaw);
+              } else {
+                instance.state162_ = tmpRaw;
+                to_bitField5_ |= 0x00000002;
+              }
+              break;
+            } // case 1296
+            case 1304: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 163, tmpRaw);
+              } else {
+                instance.state163_ = tmpRaw;
+                to_bitField5_ |= 0x00000004;
+              }
+              break;
+            } // case 1304
+            case 1312: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 164, tmpRaw);
+              } else {
+                instance.state164_ = tmpRaw;
+                to_bitField5_ |= 0x00000008;
+              }
+              break;
+            } // case 1312
+            case 1320: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 165, tmpRaw);
+              } else {
+                instance.state165_ = tmpRaw;
+                to_bitField5_ |= 0x00000010;
+              }
+              break;
+            } // case 1320
+            case 1328: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 166, tmpRaw);
+              } else {
+                instance.state166_ = tmpRaw;
+                to_bitField5_ |= 0x00000020;
+              }
+              break;
+            } // case 1328
+            case 1336: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 167, tmpRaw);
+              } else {
+                instance.state167_ = tmpRaw;
+                to_bitField5_ |= 0x00000040;
+              }
+              break;
+            } // case 1336
+            case 1344: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 168, tmpRaw);
+              } else {
+                instance.state168_ = tmpRaw;
+                to_bitField5_ |= 0x00000080;
+              }
+              break;
+            } // case 1344
+            case 1352: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 169, tmpRaw);
+              } else {
+                instance.state169_ = tmpRaw;
+                to_bitField5_ |= 0x00000100;
+              }
+              break;
+            } // case 1352
+            case 1360: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 170, tmpRaw);
+              } else {
+                instance.state170_ = tmpRaw;
+                to_bitField5_ |= 0x00000200;
+              }
+              break;
+            } // case 1360
+            case 1368: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 171, tmpRaw);
+              } else {
+                instance.state171_ = tmpRaw;
+                to_bitField5_ |= 0x00000400;
+              }
+              break;
+            } // case 1368
+            case 1376: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 172, tmpRaw);
+              } else {
+                instance.state172_ = tmpRaw;
+                to_bitField5_ |= 0x00000800;
+              }
+              break;
+            } // case 1376
+            case 1384: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 173, tmpRaw);
+              } else {
+                instance.state173_ = tmpRaw;
+                to_bitField5_ |= 0x00001000;
+              }
+              break;
+            } // case 1384
+            case 1392: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 174, tmpRaw);
+              } else {
+                instance.state174_ = tmpRaw;
+                to_bitField5_ |= 0x00002000;
+              }
+              break;
+            } // case 1392
+            case 1400: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 175, tmpRaw);
+              } else {
+                instance.state175_ = tmpRaw;
+                to_bitField5_ |= 0x00004000;
+              }
+              break;
+            } // case 1400
+            case 1408: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 176, tmpRaw);
+              } else {
+                instance.state176_ = tmpRaw;
+                to_bitField5_ |= 0x00008000;
+              }
+              break;
+            } // case 1408
+            case 1416: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 177, tmpRaw);
+              } else {
+                instance.state177_ = tmpRaw;
+                to_bitField5_ |= 0x00010000;
+              }
+              break;
+            } // case 1416
+            case 1424: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 178, tmpRaw);
+              } else {
+                instance.state178_ = tmpRaw;
+                to_bitField5_ |= 0x00020000;
+              }
+              break;
+            } // case 1424
+            case 1432: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 179, tmpRaw);
+              } else {
+                instance.state179_ = tmpRaw;
+                to_bitField5_ |= 0x00040000;
+              }
+              break;
+            } // case 1432
+            case 1440: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 180, tmpRaw);
+              } else {
+                instance.state180_ = tmpRaw;
+                to_bitField5_ |= 0x00080000;
+              }
+              break;
+            } // case 1440
+            case 1448: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 181, tmpRaw);
+              } else {
+                instance.state181_ = tmpRaw;
+                to_bitField5_ |= 0x00100000;
+              }
+              break;
+            } // case 1448
+            case 1456: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 182, tmpRaw);
+              } else {
+                instance.state182_ = tmpRaw;
+                to_bitField5_ |= 0x00200000;
+              }
+              break;
+            } // case 1456
+            case 1464: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 183, tmpRaw);
+              } else {
+                instance.state183_ = tmpRaw;
+                to_bitField5_ |= 0x00400000;
+              }
+              break;
+            } // case 1464
+            case 1472: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 184, tmpRaw);
+              } else {
+                instance.state184_ = tmpRaw;
+                to_bitField5_ |= 0x00800000;
+              }
+              break;
+            } // case 1472
+            case 1480: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 185, tmpRaw);
+              } else {
+                instance.state185_ = tmpRaw;
+                to_bitField5_ |= 0x01000000;
+              }
+              break;
+            } // case 1480
+            case 1488: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 186, tmpRaw);
+              } else {
+                instance.state186_ = tmpRaw;
+                to_bitField5_ |= 0x02000000;
+              }
+              break;
+            } // case 1488
+            case 1496: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 187, tmpRaw);
+              } else {
+                instance.state187_ = tmpRaw;
+                to_bitField5_ |= 0x04000000;
+              }
+              break;
+            } // case 1496
+            case 1504: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 188, tmpRaw);
+              } else {
+                instance.state188_ = tmpRaw;
+                to_bitField5_ |= 0x08000000;
+              }
+              break;
+            } // case 1504
+            case 1512: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 189, tmpRaw);
+              } else {
+                instance.state189_ = tmpRaw;
+                to_bitField5_ |= 0x10000000;
+              }
+              break;
+            } // case 1512
+            case 1520: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 190, tmpRaw);
+              } else {
+                instance.state190_ = tmpRaw;
+                to_bitField5_ |= 0x20000000;
+              }
+              break;
+            } // case 1520
+            case 1528: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 191, tmpRaw);
+              } else {
+                instance.state191_ = tmpRaw;
+                to_bitField5_ |= 0x40000000;
+              }
+              break;
+            } // case 1528
+            case 1536: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 192, tmpRaw);
+              } else {
+                instance.state192_ = tmpRaw;
+                to_bitField5_ |= 0x80000000;
+              }
+              break;
+            } // case 1536
+            case 1544: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 193, tmpRaw);
+              } else {
+                instance.state193_ = tmpRaw;
+                to_bitField6_ |= 0x00000001;
+              }
+              break;
+            } // case 1544
+            case 1552: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 194, tmpRaw);
+              } else {
+                instance.state194_ = tmpRaw;
+                to_bitField6_ |= 0x00000002;
+              }
+              break;
+            } // case 1552
+            case 1560: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 195, tmpRaw);
+              } else {
+                instance.state195_ = tmpRaw;
+                to_bitField6_ |= 0x00000004;
+              }
+              break;
+            } // case 1560
+            case 1568: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 196, tmpRaw);
+              } else {
+                instance.state196_ = tmpRaw;
+                to_bitField6_ |= 0x00000008;
+              }
+              break;
+            } // case 1568
+            case 1576: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 197, tmpRaw);
+              } else {
+                instance.state197_ = tmpRaw;
+                to_bitField6_ |= 0x00000010;
+              }
+              break;
+            } // case 1576
+            case 1584: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 198, tmpRaw);
+              } else {
+                instance.state198_ = tmpRaw;
+                to_bitField6_ |= 0x00000020;
+              }
+              break;
+            } // case 1584
+            case 1592: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 199, tmpRaw);
+              } else {
+                instance.state199_ = tmpRaw;
+                to_bitField6_ |= 0x00000040;
+              }
+              break;
+            } // case 1592
+            case 1600: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 200, tmpRaw);
+              } else {
+                instance.state200_ = tmpRaw;
+                to_bitField6_ |= 0x00000080;
+              }
+              break;
+            } // case 1600
+            case 1608: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 201, tmpRaw);
+              } else {
+                instance.state201_ = tmpRaw;
+                to_bitField6_ |= 0x00000100;
+              }
+              break;
+            } // case 1608
+            case 1616: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 202, tmpRaw);
+              } else {
+                instance.state202_ = tmpRaw;
+                to_bitField6_ |= 0x00000200;
+              }
+              break;
+            } // case 1616
+            case 1624: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 203, tmpRaw);
+              } else {
+                instance.state203_ = tmpRaw;
+                to_bitField6_ |= 0x00000400;
+              }
+              break;
+            } // case 1624
+            case 1632: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 204, tmpRaw);
+              } else {
+                instance.state204_ = tmpRaw;
+                to_bitField6_ |= 0x00000800;
+              }
+              break;
+            } // case 1632
+            case 1640: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 205, tmpRaw);
+              } else {
+                instance.state205_ = tmpRaw;
+                to_bitField6_ |= 0x00001000;
+              }
+              break;
+            } // case 1640
+            case 1648: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 206, tmpRaw);
+              } else {
+                instance.state206_ = tmpRaw;
+                to_bitField6_ |= 0x00002000;
+              }
+              break;
+            } // case 1648
+            case 1656: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 207, tmpRaw);
+              } else {
+                instance.state207_ = tmpRaw;
+                to_bitField6_ |= 0x00004000;
+              }
+              break;
+            } // case 1656
+            case 1664: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 208, tmpRaw);
+              } else {
+                instance.state208_ = tmpRaw;
+                to_bitField6_ |= 0x00008000;
+              }
+              break;
+            } // case 1664
+            case 1672: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 209, tmpRaw);
+              } else {
+                instance.state209_ = tmpRaw;
+                to_bitField6_ |= 0x00010000;
+              }
+              break;
+            } // case 1672
+            case 1680: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 210, tmpRaw);
+              } else {
+                instance.state210_ = tmpRaw;
+                to_bitField6_ |= 0x00020000;
+              }
+              break;
+            } // case 1680
+            case 1688: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 211, tmpRaw);
+              } else {
+                instance.state211_ = tmpRaw;
+                to_bitField6_ |= 0x00040000;
+              }
+              break;
+            } // case 1688
+            case 1696: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 212, tmpRaw);
+              } else {
+                instance.state212_ = tmpRaw;
+                to_bitField6_ |= 0x00080000;
+              }
+              break;
+            } // case 1696
+            case 1704: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 213, tmpRaw);
+              } else {
+                instance.state213_ = tmpRaw;
+                to_bitField6_ |= 0x00100000;
+              }
+              break;
+            } // case 1704
+            case 1712: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 214, tmpRaw);
+              } else {
+                instance.state214_ = tmpRaw;
+                to_bitField6_ |= 0x00200000;
+              }
+              break;
+            } // case 1712
+            case 1720: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 215, tmpRaw);
+              } else {
+                instance.state215_ = tmpRaw;
+                to_bitField6_ |= 0x00400000;
+              }
+              break;
+            } // case 1720
+            case 1728: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 216, tmpRaw);
+              } else {
+                instance.state216_ = tmpRaw;
+                to_bitField6_ |= 0x00800000;
+              }
+              break;
+            } // case 1728
+            case 1736: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 217, tmpRaw);
+              } else {
+                instance.state217_ = tmpRaw;
+                to_bitField6_ |= 0x01000000;
+              }
+              break;
+            } // case 1736
+            case 1744: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 218, tmpRaw);
+              } else {
+                instance.state218_ = tmpRaw;
+                to_bitField6_ |= 0x02000000;
+              }
+              break;
+            } // case 1744
+            case 1752: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 219, tmpRaw);
+              } else {
+                instance.state219_ = tmpRaw;
+                to_bitField6_ |= 0x04000000;
+              }
+              break;
+            } // case 1752
+            case 1760: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 220, tmpRaw);
+              } else {
+                instance.state220_ = tmpRaw;
+                to_bitField6_ |= 0x08000000;
+              }
+              break;
+            } // case 1760
+            case 1768: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 221, tmpRaw);
+              } else {
+                instance.state221_ = tmpRaw;
+                to_bitField6_ |= 0x10000000;
+              }
+              break;
+            } // case 1768
+            case 1776: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 222, tmpRaw);
+              } else {
+                instance.state222_ = tmpRaw;
+                to_bitField6_ |= 0x20000000;
+              }
+              break;
+            } // case 1776
+            case 1784: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 223, tmpRaw);
+              } else {
+                instance.state223_ = tmpRaw;
+                to_bitField6_ |= 0x40000000;
+              }
+              break;
+            } // case 1784
+            case 1792: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 224, tmpRaw);
+              } else {
+                instance.state224_ = tmpRaw;
+                to_bitField6_ |= 0x80000000;
+              }
+              break;
+            } // case 1792
+            case 1800: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 225, tmpRaw);
+              } else {
+                instance.state225_ = tmpRaw;
+                to_bitField7_ |= 0x00000001;
+              }
+              break;
+            } // case 1800
+            case 1808: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 226, tmpRaw);
+              } else {
+                instance.state226_ = tmpRaw;
+                to_bitField7_ |= 0x00000002;
+              }
+              break;
+            } // case 1808
+            case 1816: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 227, tmpRaw);
+              } else {
+                instance.state227_ = tmpRaw;
+                to_bitField7_ |= 0x00000004;
+              }
+              break;
+            } // case 1816
+            case 1824: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 228, tmpRaw);
+              } else {
+                instance.state228_ = tmpRaw;
+                to_bitField7_ |= 0x00000008;
+              }
+              break;
+            } // case 1824
+            case 1832: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 229, tmpRaw);
+              } else {
+                instance.state229_ = tmpRaw;
+                to_bitField7_ |= 0x00000010;
+              }
+              break;
+            } // case 1832
+            case 1840: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 230, tmpRaw);
+              } else {
+                instance.state230_ = tmpRaw;
+                to_bitField7_ |= 0x00000020;
+              }
+              break;
+            } // case 1840
+            case 1848: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 231, tmpRaw);
+              } else {
+                instance.state231_ = tmpRaw;
+                to_bitField7_ |= 0x00000040;
+              }
+              break;
+            } // case 1848
+            case 1856: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 232, tmpRaw);
+              } else {
+                instance.state232_ = tmpRaw;
+                to_bitField7_ |= 0x00000080;
+              }
+              break;
+            } // case 1856
+            case 1864: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 233, tmpRaw);
+              } else {
+                instance.state233_ = tmpRaw;
+                to_bitField7_ |= 0x00000100;
+              }
+              break;
+            } // case 1864
+            case 1872: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 234, tmpRaw);
+              } else {
+                instance.state234_ = tmpRaw;
+                to_bitField7_ |= 0x00000200;
+              }
+              break;
+            } // case 1872
+            case 1880: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 235, tmpRaw);
+              } else {
+                instance.state235_ = tmpRaw;
+                to_bitField7_ |= 0x00000400;
+              }
+              break;
+            } // case 1880
+            case 1888: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 236, tmpRaw);
+              } else {
+                instance.state236_ = tmpRaw;
+                to_bitField7_ |= 0x00000800;
+              }
+              break;
+            } // case 1888
+            case 1896: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 237, tmpRaw);
+              } else {
+                instance.state237_ = tmpRaw;
+                to_bitField7_ |= 0x00001000;
+              }
+              break;
+            } // case 1896
+            case 1904: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 238, tmpRaw);
+              } else {
+                instance.state238_ = tmpRaw;
+                to_bitField7_ |= 0x00002000;
+              }
+              break;
+            } // case 1904
+            case 1912: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 239, tmpRaw);
+              } else {
+                instance.state239_ = tmpRaw;
+                to_bitField7_ |= 0x00004000;
+              }
+              break;
+            } // case 1912
+            case 1920: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 240, tmpRaw);
+              } else {
+                instance.state240_ = tmpRaw;
+                to_bitField7_ |= 0x00008000;
+              }
+              break;
+            } // case 1920
+            case 1928: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 241, tmpRaw);
+              } else {
+                instance.state241_ = tmpRaw;
+                to_bitField7_ |= 0x00010000;
+              }
+              break;
+            } // case 1928
+            case 1936: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 242, tmpRaw);
+              } else {
+                instance.state242_ = tmpRaw;
+                to_bitField7_ |= 0x00020000;
+              }
+              break;
+            } // case 1936
+            case 1944: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 243, tmpRaw);
+              } else {
+                instance.state243_ = tmpRaw;
+                to_bitField7_ |= 0x00040000;
+              }
+              break;
+            } // case 1944
+            case 1952: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 244, tmpRaw);
+              } else {
+                instance.state244_ = tmpRaw;
+                to_bitField7_ |= 0x00080000;
+              }
+              break;
+            } // case 1952
+            case 1960: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 245, tmpRaw);
+              } else {
+                instance.state245_ = tmpRaw;
+                to_bitField7_ |= 0x00100000;
+              }
+              break;
+            } // case 1960
+            case 1968: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 246, tmpRaw);
+              } else {
+                instance.state246_ = tmpRaw;
+                to_bitField7_ |= 0x00200000;
+              }
+              break;
+            } // case 1968
+            case 1976: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 247, tmpRaw);
+              } else {
+                instance.state247_ = tmpRaw;
+                to_bitField7_ |= 0x00400000;
+              }
+              break;
+            } // case 1976
+            case 1984: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 248, tmpRaw);
+              } else {
+                instance.state248_ = tmpRaw;
+                to_bitField7_ |= 0x00800000;
+              }
+              break;
+            } // case 1984
+            case 1992: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 249, tmpRaw);
+              } else {
+                instance.state249_ = tmpRaw;
+                to_bitField7_ |= 0x01000000;
+              }
+              break;
+            } // case 1992
+            case 2000: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 250, tmpRaw);
+              } else {
+                instance.state250_ = tmpRaw;
+                to_bitField7_ |= 0x02000000;
+              }
+              break;
+            } // case 2000
+            case 2008: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 251, tmpRaw);
+              } else {
+                instance.state251_ = tmpRaw;
+                to_bitField7_ |= 0x04000000;
+              }
+              break;
+            } // case 2008
+            case 2016: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 252, tmpRaw);
+              } else {
+                instance.state252_ = tmpRaw;
+                to_bitField7_ |= 0x08000000;
+              }
+              break;
+            } // case 2016
+            case 2024: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 253, tmpRaw);
+              } else {
+                instance.state253_ = tmpRaw;
+                to_bitField7_ |= 0x10000000;
+              }
+              break;
+            } // case 2024
+            case 2032: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 254, tmpRaw);
+              } else {
+                instance.state254_ = tmpRaw;
+                to_bitField7_ |= 0x20000000;
+              }
+              break;
+            } // case 2032
+            case 2040: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 255, tmpRaw);
+              } else {
+                instance.state255_ = tmpRaw;
+                to_bitField7_ |= 0x40000000;
+              }
+              break;
+            } // case 2040
+            case 2048: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 256, tmpRaw);
+              } else {
+                instance.state256_ = tmpRaw;
+                to_bitField7_ |= 0x80000000;
+              }
+              break;
+            } // case 2048
+            case 2056: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 257, tmpRaw);
+              } else {
+                instance.state257_ = tmpRaw;
+                to_bitField8_ |= 0x00000001;
+              }
+              break;
+            } // case 2056
+            case 2064: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 258, tmpRaw);
+              } else {
+                instance.state258_ = tmpRaw;
+                to_bitField8_ |= 0x00000002;
+              }
+              break;
+            } // case 2064
+            case 2072: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 259, tmpRaw);
+              } else {
+                instance.state259_ = tmpRaw;
+                to_bitField8_ |= 0x00000004;
+              }
+              break;
+            } // case 2072
+            case 2080: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 260, tmpRaw);
+              } else {
+                instance.state260_ = tmpRaw;
+                to_bitField8_ |= 0x00000008;
+              }
+              break;
+            } // case 2080
+            case 2088: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 261, tmpRaw);
+              } else {
+                instance.state261_ = tmpRaw;
+                to_bitField8_ |= 0x00000010;
+              }
+              break;
+            } // case 2088
+            case 2096: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 262, tmpRaw);
+              } else {
+                instance.state262_ = tmpRaw;
+                to_bitField8_ |= 0x00000020;
+              }
+              break;
+            } // case 2096
+            case 2104: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 263, tmpRaw);
+              } else {
+                instance.state263_ = tmpRaw;
+                to_bitField8_ |= 0x00000040;
+              }
+              break;
+            } // case 2104
+            case 2112: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 264, tmpRaw);
+              } else {
+                instance.state264_ = tmpRaw;
+                to_bitField8_ |= 0x00000080;
+              }
+              break;
+            } // case 2112
+            case 2120: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 265, tmpRaw);
+              } else {
+                instance.state265_ = tmpRaw;
+                to_bitField8_ |= 0x00000100;
+              }
+              break;
+            } // case 2120
+            case 2128: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 266, tmpRaw);
+              } else {
+                instance.state266_ = tmpRaw;
+                to_bitField8_ |= 0x00000200;
+              }
+              break;
+            } // case 2128
+            case 2136: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 267, tmpRaw);
+              } else {
+                instance.state267_ = tmpRaw;
+                to_bitField8_ |= 0x00000400;
+              }
+              break;
+            } // case 2136
+            case 2144: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 268, tmpRaw);
+              } else {
+                instance.state268_ = tmpRaw;
+                to_bitField8_ |= 0x00000800;
+              }
+              break;
+            } // case 2144
+            case 2152: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 269, tmpRaw);
+              } else {
+                instance.state269_ = tmpRaw;
+                to_bitField8_ |= 0x00001000;
+              }
+              break;
+            } // case 2152
+            case 2160: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 270, tmpRaw);
+              } else {
+                instance.state270_ = tmpRaw;
+                to_bitField8_ |= 0x00002000;
+              }
+              break;
+            } // case 2160
+            case 2168: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 271, tmpRaw);
+              } else {
+                instance.state271_ = tmpRaw;
+                to_bitField8_ |= 0x00004000;
+              }
+              break;
+            } // case 2168
+            case 2176: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 272, tmpRaw);
+              } else {
+                instance.state272_ = tmpRaw;
+                to_bitField8_ |= 0x00008000;
+              }
+              break;
+            } // case 2176
+            case 2184: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 273, tmpRaw);
+              } else {
+                instance.state273_ = tmpRaw;
+                to_bitField8_ |= 0x00010000;
+              }
+              break;
+            } // case 2184
+            case 2192: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 274, tmpRaw);
+              } else {
+                instance.state274_ = tmpRaw;
+                to_bitField8_ |= 0x00020000;
+              }
+              break;
+            } // case 2192
+            case 2200: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 275, tmpRaw);
+              } else {
+                instance.state275_ = tmpRaw;
+                to_bitField8_ |= 0x00040000;
+              }
+              break;
+            } // case 2200
+            case 2208: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 276, tmpRaw);
+              } else {
+                instance.state276_ = tmpRaw;
+                to_bitField8_ |= 0x00080000;
+              }
+              break;
+            } // case 2208
+            case 2216: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 277, tmpRaw);
+              } else {
+                instance.state277_ = tmpRaw;
+                to_bitField8_ |= 0x00100000;
+              }
+              break;
+            } // case 2216
+            case 2224: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 278, tmpRaw);
+              } else {
+                instance.state278_ = tmpRaw;
+                to_bitField8_ |= 0x00200000;
+              }
+              break;
+            } // case 2224
+            case 2232: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 279, tmpRaw);
+              } else {
+                instance.state279_ = tmpRaw;
+                to_bitField8_ |= 0x00400000;
+              }
+              break;
+            } // case 2232
+            case 2240: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 280, tmpRaw);
+              } else {
+                instance.state280_ = tmpRaw;
+                to_bitField8_ |= 0x00800000;
+              }
+              break;
+            } // case 2240
+            case 2248: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 281, tmpRaw);
+              } else {
+                instance.state281_ = tmpRaw;
+                to_bitField8_ |= 0x01000000;
+              }
+              break;
+            } // case 2248
+            case 2256: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 282, tmpRaw);
+              } else {
+                instance.state282_ = tmpRaw;
+                to_bitField8_ |= 0x02000000;
+              }
+              break;
+            } // case 2256
+            case 2264: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 283, tmpRaw);
+              } else {
+                instance.state283_ = tmpRaw;
+                to_bitField8_ |= 0x04000000;
+              }
+              break;
+            } // case 2264
+            case 2272: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 284, tmpRaw);
+              } else {
+                instance.state284_ = tmpRaw;
+                to_bitField8_ |= 0x08000000;
+              }
+              break;
+            } // case 2272
+            case 2280: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 285, tmpRaw);
+              } else {
+                instance.state285_ = tmpRaw;
+                to_bitField8_ |= 0x10000000;
+              }
+              break;
+            } // case 2280
+            case 2288: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 286, tmpRaw);
+              } else {
+                instance.state286_ = tmpRaw;
+                to_bitField8_ |= 0x20000000;
+              }
+              break;
+            } // case 2288
+            case 2296: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 287, tmpRaw);
+              } else {
+                instance.state287_ = tmpRaw;
+                to_bitField8_ |= 0x40000000;
+              }
+              break;
+            } // case 2296
+            case 2304: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 288, tmpRaw);
+              } else {
+                instance.state288_ = tmpRaw;
+                to_bitField8_ |= 0x80000000;
+              }
+              break;
+            } // case 2304
+            case 2312: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 289, tmpRaw);
+              } else {
+                instance.state289_ = tmpRaw;
+                to_bitField9_ |= 0x00000001;
+              }
+              break;
+            } // case 2312
+            case 2320: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 290, tmpRaw);
+              } else {
+                instance.state290_ = tmpRaw;
+                to_bitField9_ |= 0x00000002;
+              }
+              break;
+            } // case 2320
+            case 2328: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 291, tmpRaw);
+              } else {
+                instance.state291_ = tmpRaw;
+                to_bitField9_ |= 0x00000004;
+              }
+              break;
+            } // case 2328
+            case 2336: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 292, tmpRaw);
+              } else {
+                instance.state292_ = tmpRaw;
+                to_bitField9_ |= 0x00000008;
+              }
+              break;
+            } // case 2336
+            case 2344: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 293, tmpRaw);
+              } else {
+                instance.state293_ = tmpRaw;
+                to_bitField9_ |= 0x00000010;
+              }
+              break;
+            } // case 2344
+            case 2352: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 294, tmpRaw);
+              } else {
+                instance.state294_ = tmpRaw;
+                to_bitField9_ |= 0x00000020;
+              }
+              break;
+            } // case 2352
+            case 2360: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 295, tmpRaw);
+              } else {
+                instance.state295_ = tmpRaw;
+                to_bitField9_ |= 0x00000040;
+              }
+              break;
+            } // case 2360
+            case 2368: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 296, tmpRaw);
+              } else {
+                instance.state296_ = tmpRaw;
+                to_bitField9_ |= 0x00000080;
+              }
+              break;
+            } // case 2368
+            case 2376: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 297, tmpRaw);
+              } else {
+                instance.state297_ = tmpRaw;
+                to_bitField9_ |= 0x00000100;
+              }
+              break;
+            } // case 2376
+            case 2384: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 298, tmpRaw);
+              } else {
+                instance.state298_ = tmpRaw;
+                to_bitField9_ |= 0x00000200;
+              }
+              break;
+            } // case 2384
+            case 2392: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 299, tmpRaw);
+              } else {
+                instance.state299_ = tmpRaw;
+                to_bitField9_ |= 0x00000400;
+              }
+              break;
+            } // case 2392
+            case 2400: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 300, tmpRaw);
+              } else {
+                instance.state300_ = tmpRaw;
+                to_bitField9_ |= 0x00000800;
+              }
+              break;
+            } // case 2400
+            case 2408: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 301, tmpRaw);
+              } else {
+                instance.state301_ = tmpRaw;
+                to_bitField9_ |= 0x00001000;
+              }
+              break;
+            } // case 2408
+            case 2416: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 302, tmpRaw);
+              } else {
+                instance.state302_ = tmpRaw;
+                to_bitField9_ |= 0x00002000;
+              }
+              break;
+            } // case 2416
+            case 2424: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 303, tmpRaw);
+              } else {
+                instance.state303_ = tmpRaw;
+                to_bitField9_ |= 0x00004000;
+              }
+              break;
+            } // case 2424
+            case 2432: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 304, tmpRaw);
+              } else {
+                instance.state304_ = tmpRaw;
+                to_bitField9_ |= 0x00008000;
+              }
+              break;
+            } // case 2432
+            case 2440: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 305, tmpRaw);
+              } else {
+                instance.state305_ = tmpRaw;
+                to_bitField9_ |= 0x00010000;
+              }
+              break;
+            } // case 2440
+            case 2448: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 306, tmpRaw);
+              } else {
+                instance.state306_ = tmpRaw;
+                to_bitField9_ |= 0x00020000;
+              }
+              break;
+            } // case 2448
+            case 2456: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 307, tmpRaw);
+              } else {
+                instance.state307_ = tmpRaw;
+                to_bitField9_ |= 0x00040000;
+              }
+              break;
+            } // case 2456
+            case 2464: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 308, tmpRaw);
+              } else {
+                instance.state308_ = tmpRaw;
+                to_bitField9_ |= 0x00080000;
+              }
+              break;
+            } // case 2464
+            case 2472: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 309, tmpRaw);
+              } else {
+                instance.state309_ = tmpRaw;
+                to_bitField9_ |= 0x00100000;
+              }
+              break;
+            } // case 2472
+            case 2480: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 310, tmpRaw);
+              } else {
+                instance.state310_ = tmpRaw;
+                to_bitField9_ |= 0x00200000;
+              }
+              break;
+            } // case 2480
+            case 2488: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 311, tmpRaw);
+              } else {
+                instance.state311_ = tmpRaw;
+                to_bitField9_ |= 0x00400000;
+              }
+              break;
+            } // case 2488
+            case 2496: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 312, tmpRaw);
+              } else {
+                instance.state312_ = tmpRaw;
+                to_bitField9_ |= 0x00800000;
+              }
+              break;
+            } // case 2496
+            case 2504: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 313, tmpRaw);
+              } else {
+                instance.state313_ = tmpRaw;
+                to_bitField9_ |= 0x01000000;
+              }
+              break;
+            } // case 2504
+            case 2512: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 314, tmpRaw);
+              } else {
+                instance.state314_ = tmpRaw;
+                to_bitField9_ |= 0x02000000;
+              }
+              break;
+            } // case 2512
+            case 2520: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 315, tmpRaw);
+              } else {
+                instance.state315_ = tmpRaw;
+                to_bitField9_ |= 0x04000000;
+              }
+              break;
+            } // case 2520
+            case 2528: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 316, tmpRaw);
+              } else {
+                instance.state316_ = tmpRaw;
+                to_bitField9_ |= 0x08000000;
+              }
+              break;
+            } // case 2528
+            case 2536: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 317, tmpRaw);
+              } else {
+                instance.state317_ = tmpRaw;
+                to_bitField9_ |= 0x10000000;
+              }
+              break;
+            } // case 2536
+            case 2544: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 318, tmpRaw);
+              } else {
+                instance.state318_ = tmpRaw;
+                to_bitField9_ |= 0x20000000;
+              }
+              break;
+            } // case 2544
+            case 2552: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 319, tmpRaw);
+              } else {
+                instance.state319_ = tmpRaw;
+                to_bitField9_ |= 0x40000000;
+              }
+              break;
+            } // case 2552
+            case 2560: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 320, tmpRaw);
+              } else {
+                instance.state320_ = tmpRaw;
+                to_bitField9_ |= 0x80000000;
+              }
+              break;
+            } // case 2560
+            case 2568: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 321, tmpRaw);
+              } else {
+                instance.state321_ = tmpRaw;
+                to_bitField10_ |= 0x00000001;
+              }
+              break;
+            } // case 2568
+            case 2576: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 322, tmpRaw);
+              } else {
+                instance.state322_ = tmpRaw;
+                to_bitField10_ |= 0x00000002;
+              }
+              break;
+            } // case 2576
+            case 2584: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 323, tmpRaw);
+              } else {
+                instance.state323_ = tmpRaw;
+                to_bitField10_ |= 0x00000004;
+              }
+              break;
+            } // case 2584
+            case 2592: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 324, tmpRaw);
+              } else {
+                instance.state324_ = tmpRaw;
+                to_bitField10_ |= 0x00000008;
+              }
+              break;
+            } // case 2592
+            case 2600: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 325, tmpRaw);
+              } else {
+                instance.state325_ = tmpRaw;
+                to_bitField10_ |= 0x00000010;
+              }
+              break;
+            } // case 2600
+            case 2608: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 326, tmpRaw);
+              } else {
+                instance.state326_ = tmpRaw;
+                to_bitField10_ |= 0x00000020;
+              }
+              break;
+            } // case 2608
+            case 2616: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 327, tmpRaw);
+              } else {
+                instance.state327_ = tmpRaw;
+                to_bitField10_ |= 0x00000040;
+              }
+              break;
+            } // case 2616
+            case 2624: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 328, tmpRaw);
+              } else {
+                instance.state328_ = tmpRaw;
+                to_bitField10_ |= 0x00000080;
+              }
+              break;
+            } // case 2624
+            case 2632: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 329, tmpRaw);
+              } else {
+                instance.state329_ = tmpRaw;
+                to_bitField10_ |= 0x00000100;
+              }
+              break;
+            } // case 2632
+            case 2640: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 330, tmpRaw);
+              } else {
+                instance.state330_ = tmpRaw;
+                to_bitField10_ |= 0x00000200;
+              }
+              break;
+            } // case 2640
+            case 2648: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 331, tmpRaw);
+              } else {
+                instance.state331_ = tmpRaw;
+                to_bitField10_ |= 0x00000400;
+              }
+              break;
+            } // case 2648
+            case 2656: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 332, tmpRaw);
+              } else {
+                instance.state332_ = tmpRaw;
+                to_bitField10_ |= 0x00000800;
+              }
+              break;
+            } // case 2656
+            case 2664: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 333, tmpRaw);
+              } else {
+                instance.state333_ = tmpRaw;
+                to_bitField10_ |= 0x00001000;
+              }
+              break;
+            } // case 2664
+            case 2672: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 334, tmpRaw);
+              } else {
+                instance.state334_ = tmpRaw;
+                to_bitField10_ |= 0x00002000;
+              }
+              break;
+            } // case 2672
+            case 2680: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 335, tmpRaw);
+              } else {
+                instance.state335_ = tmpRaw;
+                to_bitField10_ |= 0x00004000;
+              }
+              break;
+            } // case 2680
+            case 2688: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 336, tmpRaw);
+              } else {
+                instance.state336_ = tmpRaw;
+                to_bitField10_ |= 0x00008000;
+              }
+              break;
+            } // case 2688
+            case 2696: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 337, tmpRaw);
+              } else {
+                instance.state337_ = tmpRaw;
+                to_bitField10_ |= 0x00010000;
+              }
+              break;
+            } // case 2696
+            case 2704: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 338, tmpRaw);
+              } else {
+                instance.state338_ = tmpRaw;
+                to_bitField10_ |= 0x00020000;
+              }
+              break;
+            } // case 2704
+            case 2712: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 339, tmpRaw);
+              } else {
+                instance.state339_ = tmpRaw;
+                to_bitField10_ |= 0x00040000;
+              }
+              break;
+            } // case 2712
+            case 2720: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 340, tmpRaw);
+              } else {
+                instance.state340_ = tmpRaw;
+                to_bitField10_ |= 0x00080000;
+              }
+              break;
+            } // case 2720
+            case 2728: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 341, tmpRaw);
+              } else {
+                instance.state341_ = tmpRaw;
+                to_bitField10_ |= 0x00100000;
+              }
+              break;
+            } // case 2728
+            case 2736: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 342, tmpRaw);
+              } else {
+                instance.state342_ = tmpRaw;
+                to_bitField10_ |= 0x00200000;
+              }
+              break;
+            } // case 2736
+            case 2744: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 343, tmpRaw);
+              } else {
+                instance.state343_ = tmpRaw;
+                to_bitField10_ |= 0x00400000;
+              }
+              break;
+            } // case 2744
+            case 2752: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 344, tmpRaw);
+              } else {
+                instance.state344_ = tmpRaw;
+                to_bitField10_ |= 0x00800000;
+              }
+              break;
+            } // case 2752
+            case 2760: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 345, tmpRaw);
+              } else {
+                instance.state345_ = tmpRaw;
+                to_bitField10_ |= 0x01000000;
+              }
+              break;
+            } // case 2760
+            case 2768: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 346, tmpRaw);
+              } else {
+                instance.state346_ = tmpRaw;
+                to_bitField10_ |= 0x02000000;
+              }
+              break;
+            } // case 2768
+            case 2776: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 347, tmpRaw);
+              } else {
+                instance.state347_ = tmpRaw;
+                to_bitField10_ |= 0x04000000;
+              }
+              break;
+            } // case 2776
+            case 2784: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 348, tmpRaw);
+              } else {
+                instance.state348_ = tmpRaw;
+                to_bitField10_ |= 0x08000000;
+              }
+              break;
+            } // case 2784
+            case 2792: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 349, tmpRaw);
+              } else {
+                instance.state349_ = tmpRaw;
+                to_bitField10_ |= 0x10000000;
+              }
+              break;
+            } // case 2792
+            case 2800: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 350, tmpRaw);
+              } else {
+                instance.state350_ = tmpRaw;
+                to_bitField10_ |= 0x20000000;
+              }
+              break;
+            } // case 2800
+            case 2808: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 351, tmpRaw);
+              } else {
+                instance.state351_ = tmpRaw;
+                to_bitField10_ |= 0x40000000;
+              }
+              break;
+            } // case 2808
+            case 2816: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 352, tmpRaw);
+              } else {
+                instance.state352_ = tmpRaw;
+                to_bitField10_ |= 0x80000000;
+              }
+              break;
+            } // case 2816
+            case 2824: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 353, tmpRaw);
+              } else {
+                instance.state353_ = tmpRaw;
+                to_bitField11_ |= 0x00000001;
+              }
+              break;
+            } // case 2824
+            case 2832: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 354, tmpRaw);
+              } else {
+                instance.state354_ = tmpRaw;
+                to_bitField11_ |= 0x00000002;
+              }
+              break;
+            } // case 2832
+            case 2840: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 355, tmpRaw);
+              } else {
+                instance.state355_ = tmpRaw;
+                to_bitField11_ |= 0x00000004;
+              }
+              break;
+            } // case 2840
+            case 2848: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 356, tmpRaw);
+              } else {
+                instance.state356_ = tmpRaw;
+                to_bitField11_ |= 0x00000008;
+              }
+              break;
+            } // case 2848
+            case 2856: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 357, tmpRaw);
+              } else {
+                instance.state357_ = tmpRaw;
+                to_bitField11_ |= 0x00000010;
+              }
+              break;
+            } // case 2856
+            case 2864: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 358, tmpRaw);
+              } else {
+                instance.state358_ = tmpRaw;
+                to_bitField11_ |= 0x00000020;
+              }
+              break;
+            } // case 2864
+            case 2872: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 359, tmpRaw);
+              } else {
+                instance.state359_ = tmpRaw;
+                to_bitField11_ |= 0x00000040;
+              }
+              break;
+            } // case 2872
+            case 2880: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 360, tmpRaw);
+              } else {
+                instance.state360_ = tmpRaw;
+                to_bitField11_ |= 0x00000080;
+              }
+              break;
+            } // case 2880
+            case 2888: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 361, tmpRaw);
+              } else {
+                instance.state361_ = tmpRaw;
+                to_bitField11_ |= 0x00000100;
+              }
+              break;
+            } // case 2888
+            case 2896: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 362, tmpRaw);
+              } else {
+                instance.state362_ = tmpRaw;
+                to_bitField11_ |= 0x00000200;
+              }
+              break;
+            } // case 2896
+            case 2904: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 363, tmpRaw);
+              } else {
+                instance.state363_ = tmpRaw;
+                to_bitField11_ |= 0x00000400;
+              }
+              break;
+            } // case 2904
+            case 2912: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 364, tmpRaw);
+              } else {
+                instance.state364_ = tmpRaw;
+                to_bitField11_ |= 0x00000800;
+              }
+              break;
+            } // case 2912
+            case 2920: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 365, tmpRaw);
+              } else {
+                instance.state365_ = tmpRaw;
+                to_bitField11_ |= 0x00001000;
+              }
+              break;
+            } // case 2920
+            case 2928: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 366, tmpRaw);
+              } else {
+                instance.state366_ = tmpRaw;
+                to_bitField11_ |= 0x00002000;
+              }
+              break;
+            } // case 2928
+            case 2936: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 367, tmpRaw);
+              } else {
+                instance.state367_ = tmpRaw;
+                to_bitField11_ |= 0x00004000;
+              }
+              break;
+            } // case 2936
+            case 2944: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 368, tmpRaw);
+              } else {
+                instance.state368_ = tmpRaw;
+                to_bitField11_ |= 0x00008000;
+              }
+              break;
+            } // case 2944
+            case 2952: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 369, tmpRaw);
+              } else {
+                instance.state369_ = tmpRaw;
+                to_bitField11_ |= 0x00010000;
+              }
+              break;
+            } // case 2952
+            case 2960: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 370, tmpRaw);
+              } else {
+                instance.state370_ = tmpRaw;
+                to_bitField11_ |= 0x00020000;
+              }
+              break;
+            } // case 2960
+            case 2968: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 371, tmpRaw);
+              } else {
+                instance.state371_ = tmpRaw;
+                to_bitField11_ |= 0x00040000;
+              }
+              break;
+            } // case 2968
+            case 2976: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 372, tmpRaw);
+              } else {
+                instance.state372_ = tmpRaw;
+                to_bitField11_ |= 0x00080000;
+              }
+              break;
+            } // case 2976
+            case 2984: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 373, tmpRaw);
+              } else {
+                instance.state373_ = tmpRaw;
+                to_bitField11_ |= 0x00100000;
+              }
+              break;
+            } // case 2984
+            case 2992: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 374, tmpRaw);
+              } else {
+                instance.state374_ = tmpRaw;
+                to_bitField11_ |= 0x00200000;
+              }
+              break;
+            } // case 2992
+            case 3000: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 375, tmpRaw);
+              } else {
+                instance.state375_ = tmpRaw;
+                to_bitField11_ |= 0x00400000;
+              }
+              break;
+            } // case 3000
+            case 3008: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 376, tmpRaw);
+              } else {
+                instance.state376_ = tmpRaw;
+                to_bitField11_ |= 0x00800000;
+              }
+              break;
+            } // case 3008
+            case 3016: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 377, tmpRaw);
+              } else {
+                instance.state377_ = tmpRaw;
+                to_bitField11_ |= 0x01000000;
+              }
+              break;
+            } // case 3016
+            case 3024: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 378, tmpRaw);
+              } else {
+                instance.state378_ = tmpRaw;
+                to_bitField11_ |= 0x02000000;
+              }
+              break;
+            } // case 3024
+            case 3032: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 379, tmpRaw);
+              } else {
+                instance.state379_ = tmpRaw;
+                to_bitField11_ |= 0x04000000;
+              }
+              break;
+            } // case 3032
+            case 3040: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 380, tmpRaw);
+              } else {
+                instance.state380_ = tmpRaw;
+                to_bitField11_ |= 0x08000000;
+              }
+              break;
+            } // case 3040
+            case 3048: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 381, tmpRaw);
+              } else {
+                instance.state381_ = tmpRaw;
+                to_bitField11_ |= 0x10000000;
+              }
+              break;
+            } // case 3048
+            case 3056: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 382, tmpRaw);
+              } else {
+                instance.state382_ = tmpRaw;
+                to_bitField11_ |= 0x20000000;
+              }
+              break;
+            } // case 3056
+            case 3064: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 383, tmpRaw);
+              } else {
+                instance.state383_ = tmpRaw;
+                to_bitField11_ |= 0x40000000;
+              }
+              break;
+            } // case 3064
+            case 3072: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 384, tmpRaw);
+              } else {
+                instance.state384_ = tmpRaw;
+                to_bitField11_ |= 0x80000000;
+              }
+              break;
+            } // case 3072
+            case 3080: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 385, tmpRaw);
+              } else {
+                instance.state385_ = tmpRaw;
+                to_bitField12_ |= 0x00000001;
+              }
+              break;
+            } // case 3080
+            case 3088: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 386, tmpRaw);
+              } else {
+                instance.state386_ = tmpRaw;
+                to_bitField12_ |= 0x00000002;
+              }
+              break;
+            } // case 3088
+            case 3096: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 387, tmpRaw);
+              } else {
+                instance.state387_ = tmpRaw;
+                to_bitField12_ |= 0x00000004;
+              }
+              break;
+            } // case 3096
+            case 3104: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 388, tmpRaw);
+              } else {
+                instance.state388_ = tmpRaw;
+                to_bitField12_ |= 0x00000008;
+              }
+              break;
+            } // case 3104
+            case 3112: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 389, tmpRaw);
+              } else {
+                instance.state389_ = tmpRaw;
+                to_bitField12_ |= 0x00000010;
+              }
+              break;
+            } // case 3112
+            case 3120: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 390, tmpRaw);
+              } else {
+                instance.state390_ = tmpRaw;
+                to_bitField12_ |= 0x00000020;
+              }
+              break;
+            } // case 3120
+            case 3128: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 391, tmpRaw);
+              } else {
+                instance.state391_ = tmpRaw;
+                to_bitField12_ |= 0x00000040;
+              }
+              break;
+            } // case 3128
+            case 3136: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 392, tmpRaw);
+              } else {
+                instance.state392_ = tmpRaw;
+                to_bitField12_ |= 0x00000080;
+              }
+              break;
+            } // case 3136
+            case 3144: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 393, tmpRaw);
+              } else {
+                instance.state393_ = tmpRaw;
+                to_bitField12_ |= 0x00000100;
+              }
+              break;
+            } // case 3144
+            case 3152: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 394, tmpRaw);
+              } else {
+                instance.state394_ = tmpRaw;
+                to_bitField12_ |= 0x00000200;
+              }
+              break;
+            } // case 3152
+            case 3160: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 395, tmpRaw);
+              } else {
+                instance.state395_ = tmpRaw;
+                to_bitField12_ |= 0x00000400;
+              }
+              break;
+            } // case 3160
+            case 3168: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 396, tmpRaw);
+              } else {
+                instance.state396_ = tmpRaw;
+                to_bitField12_ |= 0x00000800;
+              }
+              break;
+            } // case 3168
+            case 3176: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 397, tmpRaw);
+              } else {
+                instance.state397_ = tmpRaw;
+                to_bitField12_ |= 0x00001000;
+              }
+              break;
+            } // case 3176
+            case 3184: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 398, tmpRaw);
+              } else {
+                instance.state398_ = tmpRaw;
+                to_bitField12_ |= 0x00002000;
+              }
+              break;
+            } // case 3184
+            case 3192: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 399, tmpRaw);
+              } else {
+                instance.state399_ = tmpRaw;
+                to_bitField12_ |= 0x00004000;
+              }
+              break;
+            } // case 3192
+            case 3200: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 400, tmpRaw);
+              } else {
+                instance.state400_ = tmpRaw;
+                to_bitField12_ |= 0x00008000;
+              }
+              break;
+            } // case 3200
+            case 3208: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 401, tmpRaw);
+              } else {
+                instance.state401_ = tmpRaw;
+                to_bitField12_ |= 0x00010000;
+              }
+              break;
+            } // case 3208
+            case 3216: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 402, tmpRaw);
+              } else {
+                instance.state402_ = tmpRaw;
+                to_bitField12_ |= 0x00020000;
+              }
+              break;
+            } // case 3216
+            case 3224: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 403, tmpRaw);
+              } else {
+                instance.state403_ = tmpRaw;
+                to_bitField12_ |= 0x00040000;
+              }
+              break;
+            } // case 3224
+            case 3232: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 404, tmpRaw);
+              } else {
+                instance.state404_ = tmpRaw;
+                to_bitField12_ |= 0x00080000;
+              }
+              break;
+            } // case 3232
+            case 3240: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 405, tmpRaw);
+              } else {
+                instance.state405_ = tmpRaw;
+                to_bitField12_ |= 0x00100000;
+              }
+              break;
+            } // case 3240
+            case 3248: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 406, tmpRaw);
+              } else {
+                instance.state406_ = tmpRaw;
+                to_bitField12_ |= 0x00200000;
+              }
+              break;
+            } // case 3248
+            case 3256: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 407, tmpRaw);
+              } else {
+                instance.state407_ = tmpRaw;
+                to_bitField12_ |= 0x00400000;
+              }
+              break;
+            } // case 3256
+            case 3264: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 408, tmpRaw);
+              } else {
+                instance.state408_ = tmpRaw;
+                to_bitField12_ |= 0x00800000;
+              }
+              break;
+            } // case 3264
+            case 3272: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 409, tmpRaw);
+              } else {
+                instance.state409_ = tmpRaw;
+                to_bitField12_ |= 0x01000000;
+              }
+              break;
+            } // case 3272
+            case 3280: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 410, tmpRaw);
+              } else {
+                instance.state410_ = tmpRaw;
+                to_bitField12_ |= 0x02000000;
+              }
+              break;
+            } // case 3280
+            case 3288: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 411, tmpRaw);
+              } else {
+                instance.state411_ = tmpRaw;
+                to_bitField12_ |= 0x04000000;
+              }
+              break;
+            } // case 3288
+            case 3296: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 412, tmpRaw);
+              } else {
+                instance.state412_ = tmpRaw;
+                to_bitField12_ |= 0x08000000;
+              }
+              break;
+            } // case 3296
+            case 3304: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 413, tmpRaw);
+              } else {
+                instance.state413_ = tmpRaw;
+                to_bitField12_ |= 0x10000000;
+              }
+              break;
+            } // case 3304
+            case 3312: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 414, tmpRaw);
+              } else {
+                instance.state414_ = tmpRaw;
+                to_bitField12_ |= 0x20000000;
+              }
+              break;
+            } // case 3312
+            case 3320: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 415, tmpRaw);
+              } else {
+                instance.state415_ = tmpRaw;
+                to_bitField12_ |= 0x40000000;
+              }
+              break;
+            } // case 3320
+            case 3328: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 416, tmpRaw);
+              } else {
+                instance.state416_ = tmpRaw;
+                to_bitField12_ |= 0x80000000;
+              }
+              break;
+            } // case 3328
+            case 3336: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 417, tmpRaw);
+              } else {
+                instance.state417_ = tmpRaw;
+                to_bitField13_ |= 0x00000001;
+              }
+              break;
+            } // case 3336
+            case 3344: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 418, tmpRaw);
+              } else {
+                instance.state418_ = tmpRaw;
+                to_bitField13_ |= 0x00000002;
+              }
+              break;
+            } // case 3344
+            case 3352: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 419, tmpRaw);
+              } else {
+                instance.state419_ = tmpRaw;
+                to_bitField13_ |= 0x00000004;
+              }
+              break;
+            } // case 3352
+            case 3360: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 420, tmpRaw);
+              } else {
+                instance.state420_ = tmpRaw;
+                to_bitField13_ |= 0x00000008;
+              }
+              break;
+            } // case 3360
+            case 3368: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 421, tmpRaw);
+              } else {
+                instance.state421_ = tmpRaw;
+                to_bitField13_ |= 0x00000010;
+              }
+              break;
+            } // case 3368
+            case 3376: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 422, tmpRaw);
+              } else {
+                instance.state422_ = tmpRaw;
+                to_bitField13_ |= 0x00000020;
+              }
+              break;
+            } // case 3376
+            case 3384: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 423, tmpRaw);
+              } else {
+                instance.state423_ = tmpRaw;
+                to_bitField13_ |= 0x00000040;
+              }
+              break;
+            } // case 3384
+            case 3392: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 424, tmpRaw);
+              } else {
+                instance.state424_ = tmpRaw;
+                to_bitField13_ |= 0x00000080;
+              }
+              break;
+            } // case 3392
+            case 3400: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 425, tmpRaw);
+              } else {
+                instance.state425_ = tmpRaw;
+                to_bitField13_ |= 0x00000100;
+              }
+              break;
+            } // case 3400
+            case 3408: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 426, tmpRaw);
+              } else {
+                instance.state426_ = tmpRaw;
+                to_bitField13_ |= 0x00000200;
+              }
+              break;
+            } // case 3408
+            case 3416: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 427, tmpRaw);
+              } else {
+                instance.state427_ = tmpRaw;
+                to_bitField13_ |= 0x00000400;
+              }
+              break;
+            } // case 3416
+            case 3424: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 428, tmpRaw);
+              } else {
+                instance.state428_ = tmpRaw;
+                to_bitField13_ |= 0x00000800;
+              }
+              break;
+            } // case 3424
+            case 3432: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 429, tmpRaw);
+              } else {
+                instance.state429_ = tmpRaw;
+                to_bitField13_ |= 0x00001000;
+              }
+              break;
+            } // case 3432
+            case 3440: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 430, tmpRaw);
+              } else {
+                instance.state430_ = tmpRaw;
+                to_bitField13_ |= 0x00002000;
+              }
+              break;
+            } // case 3440
+            case 3448: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 431, tmpRaw);
+              } else {
+                instance.state431_ = tmpRaw;
+                to_bitField13_ |= 0x00004000;
+              }
+              break;
+            } // case 3448
+            case 3456: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 432, tmpRaw);
+              } else {
+                instance.state432_ = tmpRaw;
+                to_bitField13_ |= 0x00008000;
+              }
+              break;
+            } // case 3456
+            case 3464: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 433, tmpRaw);
+              } else {
+                instance.state433_ = tmpRaw;
+                to_bitField13_ |= 0x00010000;
+              }
+              break;
+            } // case 3464
+            case 3472: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 434, tmpRaw);
+              } else {
+                instance.state434_ = tmpRaw;
+                to_bitField13_ |= 0x00020000;
+              }
+              break;
+            } // case 3472
+            case 3480: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 435, tmpRaw);
+              } else {
+                instance.state435_ = tmpRaw;
+                to_bitField13_ |= 0x00040000;
+              }
+              break;
+            } // case 3480
+            case 3488: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 436, tmpRaw);
+              } else {
+                instance.state436_ = tmpRaw;
+                to_bitField13_ |= 0x00080000;
+              }
+              break;
+            } // case 3488
+            case 3496: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 437, tmpRaw);
+              } else {
+                instance.state437_ = tmpRaw;
+                to_bitField13_ |= 0x00100000;
+              }
+              break;
+            } // case 3496
+            case 3504: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 438, tmpRaw);
+              } else {
+                instance.state438_ = tmpRaw;
+                to_bitField13_ |= 0x00200000;
+              }
+              break;
+            } // case 3504
+            case 3512: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 439, tmpRaw);
+              } else {
+                instance.state439_ = tmpRaw;
+                to_bitField13_ |= 0x00400000;
+              }
+              break;
+            } // case 3512
+            case 3520: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 440, tmpRaw);
+              } else {
+                instance.state440_ = tmpRaw;
+                to_bitField13_ |= 0x00800000;
+              }
+              break;
+            } // case 3520
+            case 3528: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 441, tmpRaw);
+              } else {
+                instance.state441_ = tmpRaw;
+                to_bitField13_ |= 0x01000000;
+              }
+              break;
+            } // case 3528
+            case 3536: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 442, tmpRaw);
+              } else {
+                instance.state442_ = tmpRaw;
+                to_bitField13_ |= 0x02000000;
+              }
+              break;
+            } // case 3536
+            case 3544: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 443, tmpRaw);
+              } else {
+                instance.state443_ = tmpRaw;
+                to_bitField13_ |= 0x04000000;
+              }
+              break;
+            } // case 3544
+            case 3552: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 444, tmpRaw);
+              } else {
+                instance.state444_ = tmpRaw;
+                to_bitField13_ |= 0x08000000;
+              }
+              break;
+            } // case 3552
+            case 3560: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 445, tmpRaw);
+              } else {
+                instance.state445_ = tmpRaw;
+                to_bitField13_ |= 0x10000000;
+              }
+              break;
+            } // case 3560
+            case 3568: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 446, tmpRaw);
+              } else {
+                instance.state446_ = tmpRaw;
+                to_bitField13_ |= 0x20000000;
+              }
+              break;
+            } // case 3568
+            case 3576: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 447, tmpRaw);
+              } else {
+                instance.state447_ = tmpRaw;
+                to_bitField13_ |= 0x40000000;
+              }
+              break;
+            } // case 3576
+            case 3584: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 448, tmpRaw);
+              } else {
+                instance.state448_ = tmpRaw;
+                to_bitField13_ |= 0x80000000;
+              }
+              break;
+            } // case 3584
+            case 3592: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 449, tmpRaw);
+              } else {
+                instance.state449_ = tmpRaw;
+                to_bitField14_ |= 0x00000001;
+              }
+              break;
+            } // case 3592
+            case 3600: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 450, tmpRaw);
+              } else {
+                instance.state450_ = tmpRaw;
+                to_bitField14_ |= 0x00000002;
+              }
+              break;
+            } // case 3600
+            case 3608: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 451, tmpRaw);
+              } else {
+                instance.state451_ = tmpRaw;
+                to_bitField14_ |= 0x00000004;
+              }
+              break;
+            } // case 3608
+            case 3616: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 452, tmpRaw);
+              } else {
+                instance.state452_ = tmpRaw;
+                to_bitField14_ |= 0x00000008;
+              }
+              break;
+            } // case 3616
+            case 3624: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 453, tmpRaw);
+              } else {
+                instance.state453_ = tmpRaw;
+                to_bitField14_ |= 0x00000010;
+              }
+              break;
+            } // case 3624
+            case 3632: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 454, tmpRaw);
+              } else {
+                instance.state454_ = tmpRaw;
+                to_bitField14_ |= 0x00000020;
+              }
+              break;
+            } // case 3632
+            case 3640: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 455, tmpRaw);
+              } else {
+                instance.state455_ = tmpRaw;
+                to_bitField14_ |= 0x00000040;
+              }
+              break;
+            } // case 3640
+            case 3648: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 456, tmpRaw);
+              } else {
+                instance.state456_ = tmpRaw;
+                to_bitField14_ |= 0x00000080;
+              }
+              break;
+            } // case 3648
+            case 3656: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 457, tmpRaw);
+              } else {
+                instance.state457_ = tmpRaw;
+                to_bitField14_ |= 0x00000100;
+              }
+              break;
+            } // case 3656
+            case 3664: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 458, tmpRaw);
+              } else {
+                instance.state458_ = tmpRaw;
+                to_bitField14_ |= 0x00000200;
+              }
+              break;
+            } // case 3664
+            case 3672: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 459, tmpRaw);
+              } else {
+                instance.state459_ = tmpRaw;
+                to_bitField14_ |= 0x00000400;
+              }
+              break;
+            } // case 3672
+            case 3680: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 460, tmpRaw);
+              } else {
+                instance.state460_ = tmpRaw;
+                to_bitField14_ |= 0x00000800;
+              }
+              break;
+            } // case 3680
+            case 3688: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 461, tmpRaw);
+              } else {
+                instance.state461_ = tmpRaw;
+                to_bitField14_ |= 0x00001000;
+              }
+              break;
+            } // case 3688
+            case 3696: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 462, tmpRaw);
+              } else {
+                instance.state462_ = tmpRaw;
+                to_bitField14_ |= 0x00002000;
+              }
+              break;
+            } // case 3696
+            case 3704: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 463, tmpRaw);
+              } else {
+                instance.state463_ = tmpRaw;
+                to_bitField14_ |= 0x00004000;
+              }
+              break;
+            } // case 3704
+            case 3712: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 464, tmpRaw);
+              } else {
+                instance.state464_ = tmpRaw;
+                to_bitField14_ |= 0x00008000;
+              }
+              break;
+            } // case 3712
+            case 3720: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 465, tmpRaw);
+              } else {
+                instance.state465_ = tmpRaw;
+                to_bitField14_ |= 0x00010000;
+              }
+              break;
+            } // case 3720
+            case 3728: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 466, tmpRaw);
+              } else {
+                instance.state466_ = tmpRaw;
+                to_bitField14_ |= 0x00020000;
+              }
+              break;
+            } // case 3728
+            case 3736: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 467, tmpRaw);
+              } else {
+                instance.state467_ = tmpRaw;
+                to_bitField14_ |= 0x00040000;
+              }
+              break;
+            } // case 3736
+            case 3744: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 468, tmpRaw);
+              } else {
+                instance.state468_ = tmpRaw;
+                to_bitField14_ |= 0x00080000;
+              }
+              break;
+            } // case 3744
+            case 3752: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 469, tmpRaw);
+              } else {
+                instance.state469_ = tmpRaw;
+                to_bitField14_ |= 0x00100000;
+              }
+              break;
+            } // case 3752
+            case 3760: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 470, tmpRaw);
+              } else {
+                instance.state470_ = tmpRaw;
+                to_bitField14_ |= 0x00200000;
+              }
+              break;
+            } // case 3760
+            case 3768: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 471, tmpRaw);
+              } else {
+                instance.state471_ = tmpRaw;
+                to_bitField14_ |= 0x00400000;
+              }
+              break;
+            } // case 3768
+            case 3776: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 472, tmpRaw);
+              } else {
+                instance.state472_ = tmpRaw;
+                to_bitField14_ |= 0x00800000;
+              }
+              break;
+            } // case 3776
+            case 3784: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 473, tmpRaw);
+              } else {
+                instance.state473_ = tmpRaw;
+                to_bitField14_ |= 0x01000000;
+              }
+              break;
+            } // case 3784
+            case 3792: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 474, tmpRaw);
+              } else {
+                instance.state474_ = tmpRaw;
+                to_bitField14_ |= 0x02000000;
+              }
+              break;
+            } // case 3792
+            case 3800: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 475, tmpRaw);
+              } else {
+                instance.state475_ = tmpRaw;
+                to_bitField14_ |= 0x04000000;
+              }
+              break;
+            } // case 3800
+            case 3808: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 476, tmpRaw);
+              } else {
+                instance.state476_ = tmpRaw;
+                to_bitField14_ |= 0x08000000;
+              }
+              break;
+            } // case 3808
+            case 3816: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 477, tmpRaw);
+              } else {
+                instance.state477_ = tmpRaw;
+                to_bitField14_ |= 0x10000000;
+              }
+              break;
+            } // case 3816
+            case 3824: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 478, tmpRaw);
+              } else {
+                instance.state478_ = tmpRaw;
+                to_bitField14_ |= 0x20000000;
+              }
+              break;
+            } // case 3824
+            case 3832: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 479, tmpRaw);
+              } else {
+                instance.state479_ = tmpRaw;
+                to_bitField14_ |= 0x40000000;
+              }
+              break;
+            } // case 3832
+            case 3840: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 480, tmpRaw);
+              } else {
+                instance.state480_ = tmpRaw;
+                to_bitField14_ |= 0x80000000;
+              }
+              break;
+            } // case 3840
+            case 3848: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 481, tmpRaw);
+              } else {
+                instance.state481_ = tmpRaw;
+                to_bitField15_ |= 0x00000001;
+              }
+              break;
+            } // case 3848
+            case 3856: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 482, tmpRaw);
+              } else {
+                instance.state482_ = tmpRaw;
+                to_bitField15_ |= 0x00000002;
+              }
+              break;
+            } // case 3856
+            case 3864: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 483, tmpRaw);
+              } else {
+                instance.state483_ = tmpRaw;
+                to_bitField15_ |= 0x00000004;
+              }
+              break;
+            } // case 3864
+            case 3872: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 484, tmpRaw);
+              } else {
+                instance.state484_ = tmpRaw;
+                to_bitField15_ |= 0x00000008;
+              }
+              break;
+            } // case 3872
+            case 3880: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 485, tmpRaw);
+              } else {
+                instance.state485_ = tmpRaw;
+                to_bitField15_ |= 0x00000010;
+              }
+              break;
+            } // case 3880
+            case 3888: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 486, tmpRaw);
+              } else {
+                instance.state486_ = tmpRaw;
+                to_bitField15_ |= 0x00000020;
+              }
+              break;
+            } // case 3888
+            case 3896: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 487, tmpRaw);
+              } else {
+                instance.state487_ = tmpRaw;
+                to_bitField15_ |= 0x00000040;
+              }
+              break;
+            } // case 3896
+            case 3904: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 488, tmpRaw);
+              } else {
+                instance.state488_ = tmpRaw;
+                to_bitField15_ |= 0x00000080;
+              }
+              break;
+            } // case 3904
+            case 3912: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 489, tmpRaw);
+              } else {
+                instance.state489_ = tmpRaw;
+                to_bitField15_ |= 0x00000100;
+              }
+              break;
+            } // case 3912
+            case 3920: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 490, tmpRaw);
+              } else {
+                instance.state490_ = tmpRaw;
+                to_bitField15_ |= 0x00000200;
+              }
+              break;
+            } // case 3920
+            case 3928: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 491, tmpRaw);
+              } else {
+                instance.state491_ = tmpRaw;
+                to_bitField15_ |= 0x00000400;
+              }
+              break;
+            } // case 3928
+            case 3936: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 492, tmpRaw);
+              } else {
+                instance.state492_ = tmpRaw;
+                to_bitField15_ |= 0x00000800;
+              }
+              break;
+            } // case 3936
+            case 3944: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 493, tmpRaw);
+              } else {
+                instance.state493_ = tmpRaw;
+                to_bitField15_ |= 0x00001000;
+              }
+              break;
+            } // case 3944
+            case 3952: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 494, tmpRaw);
+              } else {
+                instance.state494_ = tmpRaw;
+                to_bitField15_ |= 0x00002000;
+              }
+              break;
+            } // case 3952
+            case 3960: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 495, tmpRaw);
+              } else {
+                instance.state495_ = tmpRaw;
+                to_bitField15_ |= 0x00004000;
+              }
+              break;
+            } // case 3960
+            case 3968: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 496, tmpRaw);
+              } else {
+                instance.state496_ = tmpRaw;
+                to_bitField15_ |= 0x00008000;
+              }
+              break;
+            } // case 3968
+            case 3976: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 497, tmpRaw);
+              } else {
+                instance.state497_ = tmpRaw;
+                to_bitField15_ |= 0x00010000;
+              }
+              break;
+            } // case 3976
+            case 3984: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 498, tmpRaw);
+              } else {
+                instance.state498_ = tmpRaw;
+                to_bitField15_ |= 0x00020000;
+              }
+              break;
+            } // case 3984
+            case 3992: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 499, tmpRaw);
+              } else {
+                instance.state499_ = tmpRaw;
+                to_bitField15_ |= 0x00040000;
+              }
+              break;
+            } // case 3992
+            case 4000: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 500, tmpRaw);
+              } else {
+                instance.state500_ = tmpRaw;
+                to_bitField15_ |= 0x00080000;
+              }
+              break;
+            } // case 4000
+            case 4008: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 501, tmpRaw);
+              } else {
+                instance.state501_ = tmpRaw;
+                to_bitField15_ |= 0x00100000;
+              }
+              break;
+            } // case 4008
+            case 4016: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 502, tmpRaw);
+              } else {
+                instance.state502_ = tmpRaw;
+                to_bitField15_ |= 0x00200000;
+              }
+              break;
+            } // case 4016
+            case 4024: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 503, tmpRaw);
+              } else {
+                instance.state503_ = tmpRaw;
+                to_bitField15_ |= 0x00400000;
+              }
+              break;
+            } // case 4024
+            case 4032: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 504, tmpRaw);
+              } else {
+                instance.state504_ = tmpRaw;
+                to_bitField15_ |= 0x00800000;
+              }
+              break;
+            } // case 4032
+            case 4040: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 505, tmpRaw);
+              } else {
+                instance.state505_ = tmpRaw;
+                to_bitField15_ |= 0x01000000;
+              }
+              break;
+            } // case 4040
+            case 4048: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 506, tmpRaw);
+              } else {
+                instance.state506_ = tmpRaw;
+                to_bitField15_ |= 0x02000000;
+              }
+              break;
+            } // case 4048
+            case 4056: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 507, tmpRaw);
+              } else {
+                instance.state507_ = tmpRaw;
+                to_bitField15_ |= 0x04000000;
+              }
+              break;
+            } // case 4056
+            case 4064: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 508, tmpRaw);
+              } else {
+                instance.state508_ = tmpRaw;
+                to_bitField15_ |= 0x08000000;
+              }
+              break;
+            } // case 4064
+            case 4072: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 509, tmpRaw);
+              } else {
+                instance.state509_ = tmpRaw;
+                to_bitField15_ |= 0x10000000;
+              }
+              break;
+            } // case 4072
+            case 4080: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 510, tmpRaw);
+              } else {
+                instance.state510_ = tmpRaw;
+                to_bitField15_ |= 0x20000000;
+              }
+              break;
+            } // case 4080
+            case 4088: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 511, tmpRaw);
+              } else {
+                instance.state511_ = tmpRaw;
+                to_bitField15_ |= 0x40000000;
+              }
+              break;
+            } // case 4088
+            case 4096: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 512, tmpRaw);
+              } else {
+                instance.state512_ = tmpRaw;
+                to_bitField15_ |= 0x80000000;
+              }
+              break;
+            } // case 4096
+            case 4104: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 513, tmpRaw);
+              } else {
+                instance.state513_ = tmpRaw;
+                to_bitField16_ |= 0x00000001;
+              }
+              break;
+            } // case 4104
+            case 4112: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 514, tmpRaw);
+              } else {
+                instance.state514_ = tmpRaw;
+                to_bitField16_ |= 0x00000002;
+              }
+              break;
+            } // case 4112
+            case 4120: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 515, tmpRaw);
+              } else {
+                instance.state515_ = tmpRaw;
+                to_bitField16_ |= 0x00000004;
+              }
+              break;
+            } // case 4120
+            case 4128: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 516, tmpRaw);
+              } else {
+                instance.state516_ = tmpRaw;
+                to_bitField16_ |= 0x00000008;
+              }
+              break;
+            } // case 4128
+            case 4136: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 517, tmpRaw);
+              } else {
+                instance.state517_ = tmpRaw;
+                to_bitField16_ |= 0x00000010;
+              }
+              break;
+            } // case 4136
+            case 4144: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 518, tmpRaw);
+              } else {
+                instance.state518_ = tmpRaw;
+                to_bitField16_ |= 0x00000020;
+              }
+              break;
+            } // case 4144
+            case 4152: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 519, tmpRaw);
+              } else {
+                instance.state519_ = tmpRaw;
+                to_bitField16_ |= 0x00000040;
+              }
+              break;
+            } // case 4152
+            case 4160: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 520, tmpRaw);
+              } else {
+                instance.state520_ = tmpRaw;
+                to_bitField16_ |= 0x00000080;
+              }
+              break;
+            } // case 4160
+            case 4168: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 521, tmpRaw);
+              } else {
+                instance.state521_ = tmpRaw;
+                to_bitField16_ |= 0x00000100;
+              }
+              break;
+            } // case 4168
+            case 4176: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 522, tmpRaw);
+              } else {
+                instance.state522_ = tmpRaw;
+                to_bitField16_ |= 0x00000200;
+              }
+              break;
+            } // case 4176
+            case 4184: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 523, tmpRaw);
+              } else {
+                instance.state523_ = tmpRaw;
+                to_bitField16_ |= 0x00000400;
+              }
+              break;
+            } // case 4184
+            case 4192: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 524, tmpRaw);
+              } else {
+                instance.state524_ = tmpRaw;
+                to_bitField16_ |= 0x00000800;
+              }
+              break;
+            } // case 4192
+            case 4200: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 525, tmpRaw);
+              } else {
+                instance.state525_ = tmpRaw;
+                to_bitField16_ |= 0x00001000;
+              }
+              break;
+            } // case 4200
+            case 4208: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 526, tmpRaw);
+              } else {
+                instance.state526_ = tmpRaw;
+                to_bitField16_ |= 0x00002000;
+              }
+              break;
+            } // case 4208
+            case 4216: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 527, tmpRaw);
+              } else {
+                instance.state527_ = tmpRaw;
+                to_bitField16_ |= 0x00004000;
+              }
+              break;
+            } // case 4216
+            case 4224: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 528, tmpRaw);
+              } else {
+                instance.state528_ = tmpRaw;
+                to_bitField16_ |= 0x00008000;
+              }
+              break;
+            } // case 4224
+            case 4232: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 529, tmpRaw);
+              } else {
+                instance.state529_ = tmpRaw;
+                to_bitField16_ |= 0x00010000;
+              }
+              break;
+            } // case 4232
+            case 4240: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 530, tmpRaw);
+              } else {
+                instance.state530_ = tmpRaw;
+                to_bitField16_ |= 0x00020000;
+              }
+              break;
+            } // case 4240
+            case 4248: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 531, tmpRaw);
+              } else {
+                instance.state531_ = tmpRaw;
+                to_bitField16_ |= 0x00040000;
+              }
+              break;
+            } // case 4248
+            case 4256: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 532, tmpRaw);
+              } else {
+                instance.state532_ = tmpRaw;
+                to_bitField16_ |= 0x00080000;
+              }
+              break;
+            } // case 4256
+            case 4264: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 533, tmpRaw);
+              } else {
+                instance.state533_ = tmpRaw;
+                to_bitField16_ |= 0x00100000;
+              }
+              break;
+            } // case 4264
+            case 4272: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 534, tmpRaw);
+              } else {
+                instance.state534_ = tmpRaw;
+                to_bitField16_ |= 0x00200000;
+              }
+              break;
+            } // case 4272
+            case 4280: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 535, tmpRaw);
+              } else {
+                instance.state535_ = tmpRaw;
+                to_bitField16_ |= 0x00400000;
+              }
+              break;
+            } // case 4280
+            case 4288: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 536, tmpRaw);
+              } else {
+                instance.state536_ = tmpRaw;
+                to_bitField16_ |= 0x00800000;
+              }
+              break;
+            } // case 4288
+            case 4296: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 537, tmpRaw);
+              } else {
+                instance.state537_ = tmpRaw;
+                to_bitField16_ |= 0x01000000;
+              }
+              break;
+            } // case 4296
+            case 4304: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 538, tmpRaw);
+              } else {
+                instance.state538_ = tmpRaw;
+                to_bitField16_ |= 0x02000000;
+              }
+              break;
+            } // case 4304
+            case 4312: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 539, tmpRaw);
+              } else {
+                instance.state539_ = tmpRaw;
+                to_bitField16_ |= 0x04000000;
+              }
+              break;
+            } // case 4312
+            case 4320: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 540, tmpRaw);
+              } else {
+                instance.state540_ = tmpRaw;
+                to_bitField16_ |= 0x08000000;
+              }
+              break;
+            } // case 4320
+            case 4328: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 541, tmpRaw);
+              } else {
+                instance.state541_ = tmpRaw;
+                to_bitField16_ |= 0x10000000;
+              }
+              break;
+            } // case 4328
+            case 4336: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 542, tmpRaw);
+              } else {
+                instance.state542_ = tmpRaw;
+                to_bitField16_ |= 0x20000000;
+              }
+              break;
+            } // case 4336
+            case 4344: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 543, tmpRaw);
+              } else {
+                instance.state543_ = tmpRaw;
+                to_bitField16_ |= 0x40000000;
+              }
+              break;
+            } // case 4344
+            case 4352: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 544, tmpRaw);
+              } else {
+                instance.state544_ = tmpRaw;
+                to_bitField16_ |= 0x80000000;
+              }
+              break;
+            } // case 4352
+            case 4360: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 545, tmpRaw);
+              } else {
+                instance.state545_ = tmpRaw;
+                to_bitField17_ |= 0x00000001;
+              }
+              break;
+            } // case 4360
+            case 4368: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 546, tmpRaw);
+              } else {
+                instance.state546_ = tmpRaw;
+                to_bitField17_ |= 0x00000002;
+              }
+              break;
+            } // case 4368
+            case 4376: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 547, tmpRaw);
+              } else {
+                instance.state547_ = tmpRaw;
+                to_bitField17_ |= 0x00000004;
+              }
+              break;
+            } // case 4376
+            case 4384: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 548, tmpRaw);
+              } else {
+                instance.state548_ = tmpRaw;
+                to_bitField17_ |= 0x00000008;
+              }
+              break;
+            } // case 4384
+            case 4392: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 549, tmpRaw);
+              } else {
+                instance.state549_ = tmpRaw;
+                to_bitField17_ |= 0x00000010;
+              }
+              break;
+            } // case 4392
+            case 4400: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 550, tmpRaw);
+              } else {
+                instance.state550_ = tmpRaw;
+                to_bitField17_ |= 0x00000020;
+              }
+              break;
+            } // case 4400
+            case 4408: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 551, tmpRaw);
+              } else {
+                instance.state551_ = tmpRaw;
+                to_bitField17_ |= 0x00000040;
+              }
+              break;
+            } // case 4408
+            case 4416: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 552, tmpRaw);
+              } else {
+                instance.state552_ = tmpRaw;
+                to_bitField17_ |= 0x00000080;
+              }
+              break;
+            } // case 4416
+            case 4424: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 553, tmpRaw);
+              } else {
+                instance.state553_ = tmpRaw;
+                to_bitField17_ |= 0x00000100;
+              }
+              break;
+            } // case 4424
+            case 4432: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 554, tmpRaw);
+              } else {
+                instance.state554_ = tmpRaw;
+                to_bitField17_ |= 0x00000200;
+              }
+              break;
+            } // case 4432
+            case 4440: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 555, tmpRaw);
+              } else {
+                instance.state555_ = tmpRaw;
+                to_bitField17_ |= 0x00000400;
+              }
+              break;
+            } // case 4440
+            case 4448: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 556, tmpRaw);
+              } else {
+                instance.state556_ = tmpRaw;
+                to_bitField17_ |= 0x00000800;
+              }
+              break;
+            } // case 4448
+            case 4456: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 557, tmpRaw);
+              } else {
+                instance.state557_ = tmpRaw;
+                to_bitField17_ |= 0x00001000;
+              }
+              break;
+            } // case 4456
+            case 4464: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 558, tmpRaw);
+              } else {
+                instance.state558_ = tmpRaw;
+                to_bitField17_ |= 0x00002000;
+              }
+              break;
+            } // case 4464
+            case 4472: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 559, tmpRaw);
+              } else {
+                instance.state559_ = tmpRaw;
+                to_bitField17_ |= 0x00004000;
+              }
+              break;
+            } // case 4472
+            case 4480: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 560, tmpRaw);
+              } else {
+                instance.state560_ = tmpRaw;
+                to_bitField17_ |= 0x00008000;
+              }
+              break;
+            } // case 4480
+            case 4488: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 561, tmpRaw);
+              } else {
+                instance.state561_ = tmpRaw;
+                to_bitField17_ |= 0x00010000;
+              }
+              break;
+            } // case 4488
+            case 4496: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 562, tmpRaw);
+              } else {
+                instance.state562_ = tmpRaw;
+                to_bitField17_ |= 0x00020000;
+              }
+              break;
+            } // case 4496
+            case 4504: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 563, tmpRaw);
+              } else {
+                instance.state563_ = tmpRaw;
+                to_bitField17_ |= 0x00040000;
+              }
+              break;
+            } // case 4504
+            case 4512: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 564, tmpRaw);
+              } else {
+                instance.state564_ = tmpRaw;
+                to_bitField17_ |= 0x00080000;
+              }
+              break;
+            } // case 4512
+            case 4520: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 565, tmpRaw);
+              } else {
+                instance.state565_ = tmpRaw;
+                to_bitField17_ |= 0x00100000;
+              }
+              break;
+            } // case 4520
+            case 4528: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 566, tmpRaw);
+              } else {
+                instance.state566_ = tmpRaw;
+                to_bitField17_ |= 0x00200000;
+              }
+              break;
+            } // case 4528
+            case 4536: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 567, tmpRaw);
+              } else {
+                instance.state567_ = tmpRaw;
+                to_bitField17_ |= 0x00400000;
+              }
+              break;
+            } // case 4536
+            case 4544: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 568, tmpRaw);
+              } else {
+                instance.state568_ = tmpRaw;
+                to_bitField17_ |= 0x00800000;
+              }
+              break;
+            } // case 4544
+            case 4552: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 569, tmpRaw);
+              } else {
+                instance.state569_ = tmpRaw;
+                to_bitField17_ |= 0x01000000;
+              }
+              break;
+            } // case 4552
+            case 4560: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 570, tmpRaw);
+              } else {
+                instance.state570_ = tmpRaw;
+                to_bitField17_ |= 0x02000000;
+              }
+              break;
+            } // case 4560
+            case 4568: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 571, tmpRaw);
+              } else {
+                instance.state571_ = tmpRaw;
+                to_bitField17_ |= 0x04000000;
+              }
+              break;
+            } // case 4568
+            case 4576: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 572, tmpRaw);
+              } else {
+                instance.state572_ = tmpRaw;
+                to_bitField17_ |= 0x08000000;
+              }
+              break;
+            } // case 4576
+            case 4584: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 573, tmpRaw);
+              } else {
+                instance.state573_ = tmpRaw;
+                to_bitField17_ |= 0x10000000;
+              }
+              break;
+            } // case 4584
+            case 4592: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 574, tmpRaw);
+              } else {
+                instance.state574_ = tmpRaw;
+                to_bitField17_ |= 0x20000000;
+              }
+              break;
+            } // case 4592
+            case 4600: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 575, tmpRaw);
+              } else {
+                instance.state575_ = tmpRaw;
+                to_bitField17_ |= 0x40000000;
+              }
+              break;
+            } // case 4600
+            case 4608: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 576, tmpRaw);
+              } else {
+                instance.state576_ = tmpRaw;
+                to_bitField17_ |= 0x80000000;
+              }
+              break;
+            } // case 4608
+            case 4616: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 577, tmpRaw);
+              } else {
+                instance.state577_ = tmpRaw;
+                to_bitField18_ |= 0x00000001;
+              }
+              break;
+            } // case 4616
+            case 4624: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 578, tmpRaw);
+              } else {
+                instance.state578_ = tmpRaw;
+                to_bitField18_ |= 0x00000002;
+              }
+              break;
+            } // case 4624
+            case 4632: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 579, tmpRaw);
+              } else {
+                instance.state579_ = tmpRaw;
+                to_bitField18_ |= 0x00000004;
+              }
+              break;
+            } // case 4632
+            case 4640: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 580, tmpRaw);
+              } else {
+                instance.state580_ = tmpRaw;
+                to_bitField18_ |= 0x00000008;
+              }
+              break;
+            } // case 4640
+            case 4648: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 581, tmpRaw);
+              } else {
+                instance.state581_ = tmpRaw;
+                to_bitField18_ |= 0x00000010;
+              }
+              break;
+            } // case 4648
+            case 4656: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 582, tmpRaw);
+              } else {
+                instance.state582_ = tmpRaw;
+                to_bitField18_ |= 0x00000020;
+              }
+              break;
+            } // case 4656
+            case 4664: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 583, tmpRaw);
+              } else {
+                instance.state583_ = tmpRaw;
+                to_bitField18_ |= 0x00000040;
+              }
+              break;
+            } // case 4664
+            case 4672: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 584, tmpRaw);
+              } else {
+                instance.state584_ = tmpRaw;
+                to_bitField18_ |= 0x00000080;
+              }
+              break;
+            } // case 4672
+            case 4680: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 585, tmpRaw);
+              } else {
+                instance.state585_ = tmpRaw;
+                to_bitField18_ |= 0x00000100;
+              }
+              break;
+            } // case 4680
+            case 4688: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 586, tmpRaw);
+              } else {
+                instance.state586_ = tmpRaw;
+                to_bitField18_ |= 0x00000200;
+              }
+              break;
+            } // case 4688
+            case 4696: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 587, tmpRaw);
+              } else {
+                instance.state587_ = tmpRaw;
+                to_bitField18_ |= 0x00000400;
+              }
+              break;
+            } // case 4696
+            case 4704: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 588, tmpRaw);
+              } else {
+                instance.state588_ = tmpRaw;
+                to_bitField18_ |= 0x00000800;
+              }
+              break;
+            } // case 4704
+            case 4712: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 589, tmpRaw);
+              } else {
+                instance.state589_ = tmpRaw;
+                to_bitField18_ |= 0x00001000;
+              }
+              break;
+            } // case 4712
+            case 4720: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 590, tmpRaw);
+              } else {
+                instance.state590_ = tmpRaw;
+                to_bitField18_ |= 0x00002000;
+              }
+              break;
+            } // case 4720
+            case 4728: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 591, tmpRaw);
+              } else {
+                instance.state591_ = tmpRaw;
+                to_bitField18_ |= 0x00004000;
+              }
+              break;
+            } // case 4728
+            case 4736: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 592, tmpRaw);
+              } else {
+                instance.state592_ = tmpRaw;
+                to_bitField18_ |= 0x00008000;
+              }
+              break;
+            } // case 4736
+            case 4744: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 593, tmpRaw);
+              } else {
+                instance.state593_ = tmpRaw;
+                to_bitField18_ |= 0x00010000;
+              }
+              break;
+            } // case 4744
+            case 4752: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 594, tmpRaw);
+              } else {
+                instance.state594_ = tmpRaw;
+                to_bitField18_ |= 0x00020000;
+              }
+              break;
+            } // case 4752
+            case 4760: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 595, tmpRaw);
+              } else {
+                instance.state595_ = tmpRaw;
+                to_bitField18_ |= 0x00040000;
+              }
+              break;
+            } // case 4760
+            case 4768: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 596, tmpRaw);
+              } else {
+                instance.state596_ = tmpRaw;
+                to_bitField18_ |= 0x00080000;
+              }
+              break;
+            } // case 4768
+            case 4776: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 597, tmpRaw);
+              } else {
+                instance.state597_ = tmpRaw;
+                to_bitField18_ |= 0x00100000;
+              }
+              break;
+            } // case 4776
+            case 4784: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 598, tmpRaw);
+              } else {
+                instance.state598_ = tmpRaw;
+                to_bitField18_ |= 0x00200000;
+              }
+              break;
+            } // case 4784
+            case 4792: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 599, tmpRaw);
+              } else {
+                instance.state599_ = tmpRaw;
+                to_bitField18_ |= 0x00400000;
+              }
+              break;
+            } // case 4792
+            case 4800: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 600, tmpRaw);
+              } else {
+                instance.state600_ = tmpRaw;
+                to_bitField18_ |= 0x00800000;
+              }
+              break;
+            } // case 4800
+            case 4808: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 601, tmpRaw);
+              } else {
+                instance.state601_ = tmpRaw;
+                to_bitField18_ |= 0x01000000;
+              }
+              break;
+            } // case 4808
+            case 4816: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 602, tmpRaw);
+              } else {
+                instance.state602_ = tmpRaw;
+                to_bitField18_ |= 0x02000000;
+              }
+              break;
+            } // case 4816
+            case 4824: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 603, tmpRaw);
+              } else {
+                instance.state603_ = tmpRaw;
+                to_bitField18_ |= 0x04000000;
+              }
+              break;
+            } // case 4824
+            case 4832: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 604, tmpRaw);
+              } else {
+                instance.state604_ = tmpRaw;
+                to_bitField18_ |= 0x08000000;
+              }
+              break;
+            } // case 4832
+            case 4840: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 605, tmpRaw);
+              } else {
+                instance.state605_ = tmpRaw;
+                to_bitField18_ |= 0x10000000;
+              }
+              break;
+            } // case 4840
+            case 4848: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 606, tmpRaw);
+              } else {
+                instance.state606_ = tmpRaw;
+                to_bitField18_ |= 0x20000000;
+              }
+              break;
+            } // case 4848
+            case 4856: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 607, tmpRaw);
+              } else {
+                instance.state607_ = tmpRaw;
+                to_bitField18_ |= 0x40000000;
+              }
+              break;
+            } // case 4856
+            case 4864: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 608, tmpRaw);
+              } else {
+                instance.state608_ = tmpRaw;
+                to_bitField18_ |= 0x80000000;
+              }
+              break;
+            } // case 4864
+            case 4872: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 609, tmpRaw);
+              } else {
+                instance.state609_ = tmpRaw;
+                to_bitField19_ |= 0x00000001;
+              }
+              break;
+            } // case 4872
+            case 4880: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 610, tmpRaw);
+              } else {
+                instance.state610_ = tmpRaw;
+                to_bitField19_ |= 0x00000002;
+              }
+              break;
+            } // case 4880
+            case 4888: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 611, tmpRaw);
+              } else {
+                instance.state611_ = tmpRaw;
+                to_bitField19_ |= 0x00000004;
+              }
+              break;
+            } // case 4888
+            case 4896: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 612, tmpRaw);
+              } else {
+                instance.state612_ = tmpRaw;
+                to_bitField19_ |= 0x00000008;
+              }
+              break;
+            } // case 4896
+            case 4904: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 613, tmpRaw);
+              } else {
+                instance.state613_ = tmpRaw;
+                to_bitField19_ |= 0x00000010;
+              }
+              break;
+            } // case 4904
+            case 4912: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 614, tmpRaw);
+              } else {
+                instance.state614_ = tmpRaw;
+                to_bitField19_ |= 0x00000020;
+              }
+              break;
+            } // case 4912
+            case 4920: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 615, tmpRaw);
+              } else {
+                instance.state615_ = tmpRaw;
+                to_bitField19_ |= 0x00000040;
+              }
+              break;
+            } // case 4920
+            case 4928: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 616, tmpRaw);
+              } else {
+                instance.state616_ = tmpRaw;
+                to_bitField19_ |= 0x00000080;
+              }
+              break;
+            } // case 4928
+            case 4936: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 617, tmpRaw);
+              } else {
+                instance.state617_ = tmpRaw;
+                to_bitField19_ |= 0x00000100;
+              }
+              break;
+            } // case 4936
+            case 4944: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 618, tmpRaw);
+              } else {
+                instance.state618_ = tmpRaw;
+                to_bitField19_ |= 0x00000200;
+              }
+              break;
+            } // case 4944
+            case 4952: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 619, tmpRaw);
+              } else {
+                instance.state619_ = tmpRaw;
+                to_bitField19_ |= 0x00000400;
+              }
+              break;
+            } // case 4952
+            case 4960: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 620, tmpRaw);
+              } else {
+                instance.state620_ = tmpRaw;
+                to_bitField19_ |= 0x00000800;
+              }
+              break;
+            } // case 4960
+            case 4968: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 621, tmpRaw);
+              } else {
+                instance.state621_ = tmpRaw;
+                to_bitField19_ |= 0x00001000;
+              }
+              break;
+            } // case 4968
+            case 4976: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 622, tmpRaw);
+              } else {
+                instance.state622_ = tmpRaw;
+                to_bitField19_ |= 0x00002000;
+              }
+              break;
+            } // case 4976
+            case 4984: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 623, tmpRaw);
+              } else {
+                instance.state623_ = tmpRaw;
+                to_bitField19_ |= 0x00004000;
+              }
+              break;
+            } // case 4984
+            case 4992: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 624, tmpRaw);
+              } else {
+                instance.state624_ = tmpRaw;
+                to_bitField19_ |= 0x00008000;
+              }
+              break;
+            } // case 4992
+            case 5000: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 625, tmpRaw);
+              } else {
+                instance.state625_ = tmpRaw;
+                to_bitField19_ |= 0x00010000;
+              }
+              break;
+            } // case 5000
+            case 5008: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 626, tmpRaw);
+              } else {
+                instance.state626_ = tmpRaw;
+                to_bitField19_ |= 0x00020000;
+              }
+              break;
+            } // case 5008
+            case 5016: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 627, tmpRaw);
+              } else {
+                instance.state627_ = tmpRaw;
+                to_bitField19_ |= 0x00040000;
+              }
+              break;
+            } // case 5016
+            case 5024: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 628, tmpRaw);
+              } else {
+                instance.state628_ = tmpRaw;
+                to_bitField19_ |= 0x00080000;
+              }
+              break;
+            } // case 5024
+            case 5032: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 629, tmpRaw);
+              } else {
+                instance.state629_ = tmpRaw;
+                to_bitField19_ |= 0x00100000;
+              }
+              break;
+            } // case 5032
+            case 5040: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 630, tmpRaw);
+              } else {
+                instance.state630_ = tmpRaw;
+                to_bitField19_ |= 0x00200000;
+              }
+              break;
+            } // case 5040
+            case 5048: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 631, tmpRaw);
+              } else {
+                instance.state631_ = tmpRaw;
+                to_bitField19_ |= 0x00400000;
+              }
+              break;
+            } // case 5048
+            case 5056: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 632, tmpRaw);
+              } else {
+                instance.state632_ = tmpRaw;
+                to_bitField19_ |= 0x00800000;
+              }
+              break;
+            } // case 5056
+            case 5064: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 633, tmpRaw);
+              } else {
+                instance.state633_ = tmpRaw;
+                to_bitField19_ |= 0x01000000;
+              }
+              break;
+            } // case 5064
+            case 5072: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 634, tmpRaw);
+              } else {
+                instance.state634_ = tmpRaw;
+                to_bitField19_ |= 0x02000000;
+              }
+              break;
+            } // case 5072
+            case 5080: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 635, tmpRaw);
+              } else {
+                instance.state635_ = tmpRaw;
+                to_bitField19_ |= 0x04000000;
+              }
+              break;
+            } // case 5080
+            case 5088: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 636, tmpRaw);
+              } else {
+                instance.state636_ = tmpRaw;
+                to_bitField19_ |= 0x08000000;
+              }
+              break;
+            } // case 5088
+            case 5096: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 637, tmpRaw);
+              } else {
+                instance.state637_ = tmpRaw;
+                to_bitField19_ |= 0x10000000;
+              }
+              break;
+            } // case 5096
+            case 5104: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 638, tmpRaw);
+              } else {
+                instance.state638_ = tmpRaw;
+                to_bitField19_ |= 0x20000000;
+              }
+              break;
+            } // case 5104
+            case 5112: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 639, tmpRaw);
+              } else {
+                instance.state639_ = tmpRaw;
+                to_bitField19_ |= 0x40000000;
+              }
+              break;
+            } // case 5112
+            case 5120: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 640, tmpRaw);
+              } else {
+                instance.state640_ = tmpRaw;
+                to_bitField19_ |= 0x80000000;
+              }
+              break;
+            } // case 5120
+            case 5128: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 641, tmpRaw);
+              } else {
+                instance.state641_ = tmpRaw;
+                to_bitField20_ |= 0x00000001;
+              }
+              break;
+            } // case 5128
+            case 5136: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 642, tmpRaw);
+              } else {
+                instance.state642_ = tmpRaw;
+                to_bitField20_ |= 0x00000002;
+              }
+              break;
+            } // case 5136
+            case 5144: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 643, tmpRaw);
+              } else {
+                instance.state643_ = tmpRaw;
+                to_bitField20_ |= 0x00000004;
+              }
+              break;
+            } // case 5144
+            case 5152: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 644, tmpRaw);
+              } else {
+                instance.state644_ = tmpRaw;
+                to_bitField20_ |= 0x00000008;
+              }
+              break;
+            } // case 5152
+            case 5160: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 645, tmpRaw);
+              } else {
+                instance.state645_ = tmpRaw;
+                to_bitField20_ |= 0x00000010;
+              }
+              break;
+            } // case 5160
+            case 5168: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 646, tmpRaw);
+              } else {
+                instance.state646_ = tmpRaw;
+                to_bitField20_ |= 0x00000020;
+              }
+              break;
+            } // case 5168
+            case 5176: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 647, tmpRaw);
+              } else {
+                instance.state647_ = tmpRaw;
+                to_bitField20_ |= 0x00000040;
+              }
+              break;
+            } // case 5176
+            case 5184: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 648, tmpRaw);
+              } else {
+                instance.state648_ = tmpRaw;
+                to_bitField20_ |= 0x00000080;
+              }
+              break;
+            } // case 5184
+            case 5192: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 649, tmpRaw);
+              } else {
+                instance.state649_ = tmpRaw;
+                to_bitField20_ |= 0x00000100;
+              }
+              break;
+            } // case 5192
+            case 5200: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 650, tmpRaw);
+              } else {
+                instance.state650_ = tmpRaw;
+                to_bitField20_ |= 0x00000200;
+              }
+              break;
+            } // case 5200
+            case 5208: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 651, tmpRaw);
+              } else {
+                instance.state651_ = tmpRaw;
+                to_bitField20_ |= 0x00000400;
+              }
+              break;
+            } // case 5208
+            case 5216: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 652, tmpRaw);
+              } else {
+                instance.state652_ = tmpRaw;
+                to_bitField20_ |= 0x00000800;
+              }
+              break;
+            } // case 5216
+            case 5224: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 653, tmpRaw);
+              } else {
+                instance.state653_ = tmpRaw;
+                to_bitField20_ |= 0x00001000;
+              }
+              break;
+            } // case 5224
+            case 5232: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 654, tmpRaw);
+              } else {
+                instance.state654_ = tmpRaw;
+                to_bitField20_ |= 0x00002000;
+              }
+              break;
+            } // case 5232
+            case 5240: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 655, tmpRaw);
+              } else {
+                instance.state655_ = tmpRaw;
+                to_bitField20_ |= 0x00004000;
+              }
+              break;
+            } // case 5240
+            case 5248: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 656, tmpRaw);
+              } else {
+                instance.state656_ = tmpRaw;
+                to_bitField20_ |= 0x00008000;
+              }
+              break;
+            } // case 5248
+            case 5256: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 657, tmpRaw);
+              } else {
+                instance.state657_ = tmpRaw;
+                to_bitField20_ |= 0x00010000;
+              }
+              break;
+            } // case 5256
+            case 5264: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 658, tmpRaw);
+              } else {
+                instance.state658_ = tmpRaw;
+                to_bitField20_ |= 0x00020000;
+              }
+              break;
+            } // case 5264
+            case 5272: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 659, tmpRaw);
+              } else {
+                instance.state659_ = tmpRaw;
+                to_bitField20_ |= 0x00040000;
+              }
+              break;
+            } // case 5272
+            case 5280: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 660, tmpRaw);
+              } else {
+                instance.state660_ = tmpRaw;
+                to_bitField20_ |= 0x00080000;
+              }
+              break;
+            } // case 5280
+            case 5288: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 661, tmpRaw);
+              } else {
+                instance.state661_ = tmpRaw;
+                to_bitField20_ |= 0x00100000;
+              }
+              break;
+            } // case 5288
+            case 5296: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 662, tmpRaw);
+              } else {
+                instance.state662_ = tmpRaw;
+                to_bitField20_ |= 0x00200000;
+              }
+              break;
+            } // case 5296
+            case 5304: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 663, tmpRaw);
+              } else {
+                instance.state663_ = tmpRaw;
+                to_bitField20_ |= 0x00400000;
+              }
+              break;
+            } // case 5304
+            case 5312: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 664, tmpRaw);
+              } else {
+                instance.state664_ = tmpRaw;
+                to_bitField20_ |= 0x00800000;
+              }
+              break;
+            } // case 5312
+            case 5320: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 665, tmpRaw);
+              } else {
+                instance.state665_ = tmpRaw;
+                to_bitField20_ |= 0x01000000;
+              }
+              break;
+            } // case 5320
+            case 5328: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 666, tmpRaw);
+              } else {
+                instance.state666_ = tmpRaw;
+                to_bitField20_ |= 0x02000000;
+              }
+              break;
+            } // case 5328
+            case 5336: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 667, tmpRaw);
+              } else {
+                instance.state667_ = tmpRaw;
+                to_bitField20_ |= 0x04000000;
+              }
+              break;
+            } // case 5336
+            case 5344: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 668, tmpRaw);
+              } else {
+                instance.state668_ = tmpRaw;
+                to_bitField20_ |= 0x08000000;
+              }
+              break;
+            } // case 5344
+            case 5352: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 669, tmpRaw);
+              } else {
+                instance.state669_ = tmpRaw;
+                to_bitField20_ |= 0x10000000;
+              }
+              break;
+            } // case 5352
+            case 5360: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 670, tmpRaw);
+              } else {
+                instance.state670_ = tmpRaw;
+                to_bitField20_ |= 0x20000000;
+              }
+              break;
+            } // case 5360
+            case 5368: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 671, tmpRaw);
+              } else {
+                instance.state671_ = tmpRaw;
+                to_bitField20_ |= 0x40000000;
+              }
+              break;
+            } // case 5368
+            case 5376: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 672, tmpRaw);
+              } else {
+                instance.state672_ = tmpRaw;
+                to_bitField20_ |= 0x80000000;
+              }
+              break;
+            } // case 5376
+            case 5384: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 673, tmpRaw);
+              } else {
+                instance.state673_ = tmpRaw;
+                to_bitField21_ |= 0x00000001;
+              }
+              break;
+            } // case 5384
+            case 5392: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 674, tmpRaw);
+              } else {
+                instance.state674_ = tmpRaw;
+                to_bitField21_ |= 0x00000002;
+              }
+              break;
+            } // case 5392
+            case 5400: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 675, tmpRaw);
+              } else {
+                instance.state675_ = tmpRaw;
+                to_bitField21_ |= 0x00000004;
+              }
+              break;
+            } // case 5400
+            case 5408: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 676, tmpRaw);
+              } else {
+                instance.state676_ = tmpRaw;
+                to_bitField21_ |= 0x00000008;
+              }
+              break;
+            } // case 5408
+            case 5416: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 677, tmpRaw);
+              } else {
+                instance.state677_ = tmpRaw;
+                to_bitField21_ |= 0x00000010;
+              }
+              break;
+            } // case 5416
+            case 5424: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 678, tmpRaw);
+              } else {
+                instance.state678_ = tmpRaw;
+                to_bitField21_ |= 0x00000020;
+              }
+              break;
+            } // case 5424
+            case 5432: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 679, tmpRaw);
+              } else {
+                instance.state679_ = tmpRaw;
+                to_bitField21_ |= 0x00000040;
+              }
+              break;
+            } // case 5432
+            case 5440: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 680, tmpRaw);
+              } else {
+                instance.state680_ = tmpRaw;
+                to_bitField21_ |= 0x00000080;
+              }
+              break;
+            } // case 5440
+            case 5448: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 681, tmpRaw);
+              } else {
+                instance.state681_ = tmpRaw;
+                to_bitField21_ |= 0x00000100;
+              }
+              break;
+            } // case 5448
+            case 5456: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 682, tmpRaw);
+              } else {
+                instance.state682_ = tmpRaw;
+                to_bitField21_ |= 0x00000200;
+              }
+              break;
+            } // case 5456
+            case 5464: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 683, tmpRaw);
+              } else {
+                instance.state683_ = tmpRaw;
+                to_bitField21_ |= 0x00000400;
+              }
+              break;
+            } // case 5464
+            case 5472: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 684, tmpRaw);
+              } else {
+                instance.state684_ = tmpRaw;
+                to_bitField21_ |= 0x00000800;
+              }
+              break;
+            } // case 5472
+            case 5480: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 685, tmpRaw);
+              } else {
+                instance.state685_ = tmpRaw;
+                to_bitField21_ |= 0x00001000;
+              }
+              break;
+            } // case 5480
+            case 5488: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 686, tmpRaw);
+              } else {
+                instance.state686_ = tmpRaw;
+                to_bitField21_ |= 0x00002000;
+              }
+              break;
+            } // case 5488
+            case 5496: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 687, tmpRaw);
+              } else {
+                instance.state687_ = tmpRaw;
+                to_bitField21_ |= 0x00004000;
+              }
+              break;
+            } // case 5496
+            case 5504: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 688, tmpRaw);
+              } else {
+                instance.state688_ = tmpRaw;
+                to_bitField21_ |= 0x00008000;
+              }
+              break;
+            } // case 5504
+            case 5512: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 689, tmpRaw);
+              } else {
+                instance.state689_ = tmpRaw;
+                to_bitField21_ |= 0x00010000;
+              }
+              break;
+            } // case 5512
+            case 5520: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 690, tmpRaw);
+              } else {
+                instance.state690_ = tmpRaw;
+                to_bitField21_ |= 0x00020000;
+              }
+              break;
+            } // case 5520
+            case 5528: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 691, tmpRaw);
+              } else {
+                instance.state691_ = tmpRaw;
+                to_bitField21_ |= 0x00040000;
+              }
+              break;
+            } // case 5528
+            case 5536: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 692, tmpRaw);
+              } else {
+                instance.state692_ = tmpRaw;
+                to_bitField21_ |= 0x00080000;
+              }
+              break;
+            } // case 5536
+            case 5544: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 693, tmpRaw);
+              } else {
+                instance.state693_ = tmpRaw;
+                to_bitField21_ |= 0x00100000;
+              }
+              break;
+            } // case 5544
+            case 5552: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 694, tmpRaw);
+              } else {
+                instance.state694_ = tmpRaw;
+                to_bitField21_ |= 0x00200000;
+              }
+              break;
+            } // case 5552
+            case 5560: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 695, tmpRaw);
+              } else {
+                instance.state695_ = tmpRaw;
+                to_bitField21_ |= 0x00400000;
+              }
+              break;
+            } // case 5560
+            case 5568: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 696, tmpRaw);
+              } else {
+                instance.state696_ = tmpRaw;
+                to_bitField21_ |= 0x00800000;
+              }
+              break;
+            } // case 5568
+            case 5576: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 697, tmpRaw);
+              } else {
+                instance.state697_ = tmpRaw;
+                to_bitField21_ |= 0x01000000;
+              }
+              break;
+            } // case 5576
+            case 5584: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 698, tmpRaw);
+              } else {
+                instance.state698_ = tmpRaw;
+                to_bitField21_ |= 0x02000000;
+              }
+              break;
+            } // case 5584
+            case 5592: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 699, tmpRaw);
+              } else {
+                instance.state699_ = tmpRaw;
+                to_bitField21_ |= 0x04000000;
+              }
+              break;
+            } // case 5592
+            case 5600: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 700, tmpRaw);
+              } else {
+                instance.state700_ = tmpRaw;
+                to_bitField21_ |= 0x08000000;
+              }
+              break;
+            } // case 5600
+            case 5608: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 701, tmpRaw);
+              } else {
+                instance.state701_ = tmpRaw;
+                to_bitField21_ |= 0x10000000;
+              }
+              break;
+            } // case 5608
+            case 5616: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 702, tmpRaw);
+              } else {
+                instance.state702_ = tmpRaw;
+                to_bitField21_ |= 0x20000000;
+              }
+              break;
+            } // case 5616
+            case 5624: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 703, tmpRaw);
+              } else {
+                instance.state703_ = tmpRaw;
+                to_bitField21_ |= 0x40000000;
+              }
+              break;
+            } // case 5624
+            case 5632: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 704, tmpRaw);
+              } else {
+                instance.state704_ = tmpRaw;
+                to_bitField21_ |= 0x80000000;
+              }
+              break;
+            } // case 5632
+            case 5640: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 705, tmpRaw);
+              } else {
+                instance.state705_ = tmpRaw;
+                to_bitField22_ |= 0x00000001;
+              }
+              break;
+            } // case 5640
+            case 5648: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 706, tmpRaw);
+              } else {
+                instance.state706_ = tmpRaw;
+                to_bitField22_ |= 0x00000002;
+              }
+              break;
+            } // case 5648
+            case 5656: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 707, tmpRaw);
+              } else {
+                instance.state707_ = tmpRaw;
+                to_bitField22_ |= 0x00000004;
+              }
+              break;
+            } // case 5656
+            case 5664: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 708, tmpRaw);
+              } else {
+                instance.state708_ = tmpRaw;
+                to_bitField22_ |= 0x00000008;
+              }
+              break;
+            } // case 5664
+            case 5672: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 709, tmpRaw);
+              } else {
+                instance.state709_ = tmpRaw;
+                to_bitField22_ |= 0x00000010;
+              }
+              break;
+            } // case 5672
+            case 5680: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 710, tmpRaw);
+              } else {
+                instance.state710_ = tmpRaw;
+                to_bitField22_ |= 0x00000020;
+              }
+              break;
+            } // case 5680
+            case 5688: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 711, tmpRaw);
+              } else {
+                instance.state711_ = tmpRaw;
+                to_bitField22_ |= 0x00000040;
+              }
+              break;
+            } // case 5688
+            case 5696: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 712, tmpRaw);
+              } else {
+                instance.state712_ = tmpRaw;
+                to_bitField22_ |= 0x00000080;
+              }
+              break;
+            } // case 5696
+            case 5704: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 713, tmpRaw);
+              } else {
+                instance.state713_ = tmpRaw;
+                to_bitField22_ |= 0x00000100;
+              }
+              break;
+            } // case 5704
+            case 5712: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 714, tmpRaw);
+              } else {
+                instance.state714_ = tmpRaw;
+                to_bitField22_ |= 0x00000200;
+              }
+              break;
+            } // case 5712
+            case 5720: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 715, tmpRaw);
+              } else {
+                instance.state715_ = tmpRaw;
+                to_bitField22_ |= 0x00000400;
+              }
+              break;
+            } // case 5720
+            case 5728: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 716, tmpRaw);
+              } else {
+                instance.state716_ = tmpRaw;
+                to_bitField22_ |= 0x00000800;
+              }
+              break;
+            } // case 5728
+            case 5736: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 717, tmpRaw);
+              } else {
+                instance.state717_ = tmpRaw;
+                to_bitField22_ |= 0x00001000;
+              }
+              break;
+            } // case 5736
+            case 5744: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 718, tmpRaw);
+              } else {
+                instance.state718_ = tmpRaw;
+                to_bitField22_ |= 0x00002000;
+              }
+              break;
+            } // case 5744
+            case 5752: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 719, tmpRaw);
+              } else {
+                instance.state719_ = tmpRaw;
+                to_bitField22_ |= 0x00004000;
+              }
+              break;
+            } // case 5752
+            case 5760: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 720, tmpRaw);
+              } else {
+                instance.state720_ = tmpRaw;
+                to_bitField22_ |= 0x00008000;
+              }
+              break;
+            } // case 5760
+            case 5768: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 721, tmpRaw);
+              } else {
+                instance.state721_ = tmpRaw;
+                to_bitField22_ |= 0x00010000;
+              }
+              break;
+            } // case 5768
+            case 5776: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 722, tmpRaw);
+              } else {
+                instance.state722_ = tmpRaw;
+                to_bitField22_ |= 0x00020000;
+              }
+              break;
+            } // case 5776
+            case 5784: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 723, tmpRaw);
+              } else {
+                instance.state723_ = tmpRaw;
+                to_bitField22_ |= 0x00040000;
+              }
+              break;
+            } // case 5784
+            case 5792: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 724, tmpRaw);
+              } else {
+                instance.state724_ = tmpRaw;
+                to_bitField22_ |= 0x00080000;
+              }
+              break;
+            } // case 5792
+            case 5800: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 725, tmpRaw);
+              } else {
+                instance.state725_ = tmpRaw;
+                to_bitField22_ |= 0x00100000;
+              }
+              break;
+            } // case 5800
+            case 5808: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 726, tmpRaw);
+              } else {
+                instance.state726_ = tmpRaw;
+                to_bitField22_ |= 0x00200000;
+              }
+              break;
+            } // case 5808
+            case 5816: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 727, tmpRaw);
+              } else {
+                instance.state727_ = tmpRaw;
+                to_bitField22_ |= 0x00400000;
+              }
+              break;
+            } // case 5816
+            case 5824: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 728, tmpRaw);
+              } else {
+                instance.state728_ = tmpRaw;
+                to_bitField22_ |= 0x00800000;
+              }
+              break;
+            } // case 5824
+            case 5832: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 729, tmpRaw);
+              } else {
+                instance.state729_ = tmpRaw;
+                to_bitField22_ |= 0x01000000;
+              }
+              break;
+            } // case 5832
+            case 5840: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 730, tmpRaw);
+              } else {
+                instance.state730_ = tmpRaw;
+                to_bitField22_ |= 0x02000000;
+              }
+              break;
+            } // case 5840
+            case 5848: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 731, tmpRaw);
+              } else {
+                instance.state731_ = tmpRaw;
+                to_bitField22_ |= 0x04000000;
+              }
+              break;
+            } // case 5848
+            case 5856: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 732, tmpRaw);
+              } else {
+                instance.state732_ = tmpRaw;
+                to_bitField22_ |= 0x08000000;
+              }
+              break;
+            } // case 5856
+            case 5864: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 733, tmpRaw);
+              } else {
+                instance.state733_ = tmpRaw;
+                to_bitField22_ |= 0x10000000;
+              }
+              break;
+            } // case 5864
+            case 5872: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 734, tmpRaw);
+              } else {
+                instance.state734_ = tmpRaw;
+                to_bitField22_ |= 0x20000000;
+              }
+              break;
+            } // case 5872
+            case 5880: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 735, tmpRaw);
+              } else {
+                instance.state735_ = tmpRaw;
+                to_bitField22_ |= 0x40000000;
+              }
+              break;
+            } // case 5880
+            case 5888: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 736, tmpRaw);
+              } else {
+                instance.state736_ = tmpRaw;
+                to_bitField22_ |= 0x80000000;
+              }
+              break;
+            } // case 5888
+            case 5896: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 737, tmpRaw);
+              } else {
+                instance.state737_ = tmpRaw;
+                to_bitField23_ |= 0x00000001;
+              }
+              break;
+            } // case 5896
+            case 5904: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 738, tmpRaw);
+              } else {
+                instance.state738_ = tmpRaw;
+                to_bitField23_ |= 0x00000002;
+              }
+              break;
+            } // case 5904
+            case 5912: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 739, tmpRaw);
+              } else {
+                instance.state739_ = tmpRaw;
+                to_bitField23_ |= 0x00000004;
+              }
+              break;
+            } // case 5912
+            case 5920: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 740, tmpRaw);
+              } else {
+                instance.state740_ = tmpRaw;
+                to_bitField23_ |= 0x00000008;
+              }
+              break;
+            } // case 5920
+            case 5928: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 741, tmpRaw);
+              } else {
+                instance.state741_ = tmpRaw;
+                to_bitField23_ |= 0x00000010;
+              }
+              break;
+            } // case 5928
+            case 5936: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 742, tmpRaw);
+              } else {
+                instance.state742_ = tmpRaw;
+                to_bitField23_ |= 0x00000020;
+              }
+              break;
+            } // case 5936
+            case 5944: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 743, tmpRaw);
+              } else {
+                instance.state743_ = tmpRaw;
+                to_bitField23_ |= 0x00000040;
+              }
+              break;
+            } // case 5944
+            case 5952: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 744, tmpRaw);
+              } else {
+                instance.state744_ = tmpRaw;
+                to_bitField23_ |= 0x00000080;
+              }
+              break;
+            } // case 5952
+            case 5960: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 745, tmpRaw);
+              } else {
+                instance.state745_ = tmpRaw;
+                to_bitField23_ |= 0x00000100;
+              }
+              break;
+            } // case 5960
+            case 5968: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 746, tmpRaw);
+              } else {
+                instance.state746_ = tmpRaw;
+                to_bitField23_ |= 0x00000200;
+              }
+              break;
+            } // case 5968
+            case 5976: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 747, tmpRaw);
+              } else {
+                instance.state747_ = tmpRaw;
+                to_bitField23_ |= 0x00000400;
+              }
+              break;
+            } // case 5976
+            case 5984: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 748, tmpRaw);
+              } else {
+                instance.state748_ = tmpRaw;
+                to_bitField23_ |= 0x00000800;
+              }
+              break;
+            } // case 5984
+            case 5992: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 749, tmpRaw);
+              } else {
+                instance.state749_ = tmpRaw;
+                to_bitField23_ |= 0x00001000;
+              }
+              break;
+            } // case 5992
+            case 6000: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 750, tmpRaw);
+              } else {
+                instance.state750_ = tmpRaw;
+                to_bitField23_ |= 0x00002000;
+              }
+              break;
+            } // case 6000
+            case 6008: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 751, tmpRaw);
+              } else {
+                instance.state751_ = tmpRaw;
+                to_bitField23_ |= 0x00004000;
+              }
+              break;
+            } // case 6008
+            case 6016: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 752, tmpRaw);
+              } else {
+                instance.state752_ = tmpRaw;
+                to_bitField23_ |= 0x00008000;
+              }
+              break;
+            } // case 6016
+            case 6024: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 753, tmpRaw);
+              } else {
+                instance.state753_ = tmpRaw;
+                to_bitField23_ |= 0x00010000;
+              }
+              break;
+            } // case 6024
+            case 6032: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 754, tmpRaw);
+              } else {
+                instance.state754_ = tmpRaw;
+                to_bitField23_ |= 0x00020000;
+              }
+              break;
+            } // case 6032
+            case 6040: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 755, tmpRaw);
+              } else {
+                instance.state755_ = tmpRaw;
+                to_bitField23_ |= 0x00040000;
+              }
+              break;
+            } // case 6040
+            case 6048: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 756, tmpRaw);
+              } else {
+                instance.state756_ = tmpRaw;
+                to_bitField23_ |= 0x00080000;
+              }
+              break;
+            } // case 6048
+            case 6056: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 757, tmpRaw);
+              } else {
+                instance.state757_ = tmpRaw;
+                to_bitField23_ |= 0x00100000;
+              }
+              break;
+            } // case 6056
+            case 6064: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 758, tmpRaw);
+              } else {
+                instance.state758_ = tmpRaw;
+                to_bitField23_ |= 0x00200000;
+              }
+              break;
+            } // case 6064
+            case 6072: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 759, tmpRaw);
+              } else {
+                instance.state759_ = tmpRaw;
+                to_bitField23_ |= 0x00400000;
+              }
+              break;
+            } // case 6072
+            case 6080: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 760, tmpRaw);
+              } else {
+                instance.state760_ = tmpRaw;
+                to_bitField23_ |= 0x00800000;
+              }
+              break;
+            } // case 6080
+            case 6088: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 761, tmpRaw);
+              } else {
+                instance.state761_ = tmpRaw;
+                to_bitField23_ |= 0x01000000;
+              }
+              break;
+            } // case 6088
+            case 6096: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 762, tmpRaw);
+              } else {
+                instance.state762_ = tmpRaw;
+                to_bitField23_ |= 0x02000000;
+              }
+              break;
+            } // case 6096
+            case 6104: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 763, tmpRaw);
+              } else {
+                instance.state763_ = tmpRaw;
+                to_bitField23_ |= 0x04000000;
+              }
+              break;
+            } // case 6104
+            case 6112: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 764, tmpRaw);
+              } else {
+                instance.state764_ = tmpRaw;
+                to_bitField23_ |= 0x08000000;
+              }
+              break;
+            } // case 6112
+            case 6120: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 765, tmpRaw);
+              } else {
+                instance.state765_ = tmpRaw;
+                to_bitField23_ |= 0x10000000;
+              }
+              break;
+            } // case 6120
+            case 6128: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 766, tmpRaw);
+              } else {
+                instance.state766_ = tmpRaw;
+                to_bitField23_ |= 0x20000000;
+              }
+              break;
+            } // case 6128
+            case 6136: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 767, tmpRaw);
+              } else {
+                instance.state767_ = tmpRaw;
+                to_bitField23_ |= 0x40000000;
+              }
+              break;
+            } // case 6136
+            case 6144: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 768, tmpRaw);
+              } else {
+                instance.state768_ = tmpRaw;
+                to_bitField23_ |= 0x80000000;
+              }
+              break;
+            } // case 6144
+            case 6152: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 769, tmpRaw);
+              } else {
+                instance.state769_ = tmpRaw;
+                to_bitField24_ |= 0x00000001;
+              }
+              break;
+            } // case 6152
+            case 6160: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 770, tmpRaw);
+              } else {
+                instance.state770_ = tmpRaw;
+                to_bitField24_ |= 0x00000002;
+              }
+              break;
+            } // case 6160
+            case 6168: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 771, tmpRaw);
+              } else {
+                instance.state771_ = tmpRaw;
+                to_bitField24_ |= 0x00000004;
+              }
+              break;
+            } // case 6168
+            case 6176: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 772, tmpRaw);
+              } else {
+                instance.state772_ = tmpRaw;
+                to_bitField24_ |= 0x00000008;
+              }
+              break;
+            } // case 6176
+            case 6184: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 773, tmpRaw);
+              } else {
+                instance.state773_ = tmpRaw;
+                to_bitField24_ |= 0x00000010;
+              }
+              break;
+            } // case 6184
+            case 6192: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 774, tmpRaw);
+              } else {
+                instance.state774_ = tmpRaw;
+                to_bitField24_ |= 0x00000020;
+              }
+              break;
+            } // case 6192
+            case 6200: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 775, tmpRaw);
+              } else {
+                instance.state775_ = tmpRaw;
+                to_bitField24_ |= 0x00000040;
+              }
+              break;
+            } // case 6200
+            case 6208: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 776, tmpRaw);
+              } else {
+                instance.state776_ = tmpRaw;
+                to_bitField24_ |= 0x00000080;
+              }
+              break;
+            } // case 6208
+            case 6216: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 777, tmpRaw);
+              } else {
+                instance.state777_ = tmpRaw;
+                to_bitField24_ |= 0x00000100;
+              }
+              break;
+            } // case 6216
+            case 6224: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 778, tmpRaw);
+              } else {
+                instance.state778_ = tmpRaw;
+                to_bitField24_ |= 0x00000200;
+              }
+              break;
+            } // case 6224
+            case 6232: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 779, tmpRaw);
+              } else {
+                instance.state779_ = tmpRaw;
+                to_bitField24_ |= 0x00000400;
+              }
+              break;
+            } // case 6232
+            case 6240: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 780, tmpRaw);
+              } else {
+                instance.state780_ = tmpRaw;
+                to_bitField24_ |= 0x00000800;
+              }
+              break;
+            } // case 6240
+            case 6248: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 781, tmpRaw);
+              } else {
+                instance.state781_ = tmpRaw;
+                to_bitField24_ |= 0x00001000;
+              }
+              break;
+            } // case 6248
+            case 6256: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 782, tmpRaw);
+              } else {
+                instance.state782_ = tmpRaw;
+                to_bitField24_ |= 0x00002000;
+              }
+              break;
+            } // case 6256
+            case 6264: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 783, tmpRaw);
+              } else {
+                instance.state783_ = tmpRaw;
+                to_bitField24_ |= 0x00004000;
+              }
+              break;
+            } // case 6264
+            case 6272: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 784, tmpRaw);
+              } else {
+                instance.state784_ = tmpRaw;
+                to_bitField24_ |= 0x00008000;
+              }
+              break;
+            } // case 6272
+            case 6280: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 785, tmpRaw);
+              } else {
+                instance.state785_ = tmpRaw;
+                to_bitField24_ |= 0x00010000;
+              }
+              break;
+            } // case 6280
+            case 6288: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 786, tmpRaw);
+              } else {
+                instance.state786_ = tmpRaw;
+                to_bitField24_ |= 0x00020000;
+              }
+              break;
+            } // case 6288
+            case 6296: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 787, tmpRaw);
+              } else {
+                instance.state787_ = tmpRaw;
+                to_bitField24_ |= 0x00040000;
+              }
+              break;
+            } // case 6296
+            case 6304: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 788, tmpRaw);
+              } else {
+                instance.state788_ = tmpRaw;
+                to_bitField24_ |= 0x00080000;
+              }
+              break;
+            } // case 6304
+            case 6312: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 789, tmpRaw);
+              } else {
+                instance.state789_ = tmpRaw;
+                to_bitField24_ |= 0x00100000;
+              }
+              break;
+            } // case 6312
+            case 6320: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 790, tmpRaw);
+              } else {
+                instance.state790_ = tmpRaw;
+                to_bitField24_ |= 0x00200000;
+              }
+              break;
+            } // case 6320
+            case 6328: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 791, tmpRaw);
+              } else {
+                instance.state791_ = tmpRaw;
+                to_bitField24_ |= 0x00400000;
+              }
+              break;
+            } // case 6328
+            case 6336: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 792, tmpRaw);
+              } else {
+                instance.state792_ = tmpRaw;
+                to_bitField24_ |= 0x00800000;
+              }
+              break;
+            } // case 6336
+            case 6344: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 793, tmpRaw);
+              } else {
+                instance.state793_ = tmpRaw;
+                to_bitField24_ |= 0x01000000;
+              }
+              break;
+            } // case 6344
+            case 6352: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 794, tmpRaw);
+              } else {
+                instance.state794_ = tmpRaw;
+                to_bitField24_ |= 0x02000000;
+              }
+              break;
+            } // case 6352
+            case 6360: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 795, tmpRaw);
+              } else {
+                instance.state795_ = tmpRaw;
+                to_bitField24_ |= 0x04000000;
+              }
+              break;
+            } // case 6360
+            case 6368: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 796, tmpRaw);
+              } else {
+                instance.state796_ = tmpRaw;
+                to_bitField24_ |= 0x08000000;
+              }
+              break;
+            } // case 6368
+            case 6376: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 797, tmpRaw);
+              } else {
+                instance.state797_ = tmpRaw;
+                to_bitField24_ |= 0x10000000;
+              }
+              break;
+            } // case 6376
+            case 6384: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 798, tmpRaw);
+              } else {
+                instance.state798_ = tmpRaw;
+                to_bitField24_ |= 0x20000000;
+              }
+              break;
+            } // case 6384
+            case 6392: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 799, tmpRaw);
+              } else {
+                instance.state799_ = tmpRaw;
+                to_bitField24_ |= 0x40000000;
+              }
+              break;
+            } // case 6392
+            case 6400: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 800, tmpRaw);
+              } else {
+                instance.state800_ = tmpRaw;
+                to_bitField24_ |= 0x80000000;
+              }
+              break;
+            } // case 6400
+            case 6408: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 801, tmpRaw);
+              } else {
+                instance.state801_ = tmpRaw;
+                to_bitField25_ |= 0x00000001;
+              }
+              break;
+            } // case 6408
+            case 6416: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 802, tmpRaw);
+              } else {
+                instance.state802_ = tmpRaw;
+                to_bitField25_ |= 0x00000002;
+              }
+              break;
+            } // case 6416
+            case 6424: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 803, tmpRaw);
+              } else {
+                instance.state803_ = tmpRaw;
+                to_bitField25_ |= 0x00000004;
+              }
+              break;
+            } // case 6424
+            case 6432: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 804, tmpRaw);
+              } else {
+                instance.state804_ = tmpRaw;
+                to_bitField25_ |= 0x00000008;
+              }
+              break;
+            } // case 6432
+            case 6440: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 805, tmpRaw);
+              } else {
+                instance.state805_ = tmpRaw;
+                to_bitField25_ |= 0x00000010;
+              }
+              break;
+            } // case 6440
+            case 6448: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 806, tmpRaw);
+              } else {
+                instance.state806_ = tmpRaw;
+                to_bitField25_ |= 0x00000020;
+              }
+              break;
+            } // case 6448
+            case 6456: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 807, tmpRaw);
+              } else {
+                instance.state807_ = tmpRaw;
+                to_bitField25_ |= 0x00000040;
+              }
+              break;
+            } // case 6456
+            case 6464: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 808, tmpRaw);
+              } else {
+                instance.state808_ = tmpRaw;
+                to_bitField25_ |= 0x00000080;
+              }
+              break;
+            } // case 6464
+            case 6472: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 809, tmpRaw);
+              } else {
+                instance.state809_ = tmpRaw;
+                to_bitField25_ |= 0x00000100;
+              }
+              break;
+            } // case 6472
+            case 6480: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 810, tmpRaw);
+              } else {
+                instance.state810_ = tmpRaw;
+                to_bitField25_ |= 0x00000200;
+              }
+              break;
+            } // case 6480
+            case 6488: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 811, tmpRaw);
+              } else {
+                instance.state811_ = tmpRaw;
+                to_bitField25_ |= 0x00000400;
+              }
+              break;
+            } // case 6488
+            case 6496: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 812, tmpRaw);
+              } else {
+                instance.state812_ = tmpRaw;
+                to_bitField25_ |= 0x00000800;
+              }
+              break;
+            } // case 6496
+            case 6504: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 813, tmpRaw);
+              } else {
+                instance.state813_ = tmpRaw;
+                to_bitField25_ |= 0x00001000;
+              }
+              break;
+            } // case 6504
+            case 6512: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 814, tmpRaw);
+              } else {
+                instance.state814_ = tmpRaw;
+                to_bitField25_ |= 0x00002000;
+              }
+              break;
+            } // case 6512
+            case 6520: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 815, tmpRaw);
+              } else {
+                instance.state815_ = tmpRaw;
+                to_bitField25_ |= 0x00004000;
+              }
+              break;
+            } // case 6520
+            case 6528: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 816, tmpRaw);
+              } else {
+                instance.state816_ = tmpRaw;
+                to_bitField25_ |= 0x00008000;
+              }
+              break;
+            } // case 6528
+            case 6536: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 817, tmpRaw);
+              } else {
+                instance.state817_ = tmpRaw;
+                to_bitField25_ |= 0x00010000;
+              }
+              break;
+            } // case 6536
+            case 6544: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 818, tmpRaw);
+              } else {
+                instance.state818_ = tmpRaw;
+                to_bitField25_ |= 0x00020000;
+              }
+              break;
+            } // case 6544
+            case 6552: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 819, tmpRaw);
+              } else {
+                instance.state819_ = tmpRaw;
+                to_bitField25_ |= 0x00040000;
+              }
+              break;
+            } // case 6552
+            case 6560: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 820, tmpRaw);
+              } else {
+                instance.state820_ = tmpRaw;
+                to_bitField25_ |= 0x00080000;
+              }
+              break;
+            } // case 6560
+            case 6568: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 821, tmpRaw);
+              } else {
+                instance.state821_ = tmpRaw;
+                to_bitField25_ |= 0x00100000;
+              }
+              break;
+            } // case 6568
+            case 6576: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 822, tmpRaw);
+              } else {
+                instance.state822_ = tmpRaw;
+                to_bitField25_ |= 0x00200000;
+              }
+              break;
+            } // case 6576
+            case 6584: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 823, tmpRaw);
+              } else {
+                instance.state823_ = tmpRaw;
+                to_bitField25_ |= 0x00400000;
+              }
+              break;
+            } // case 6584
+            case 6592: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 824, tmpRaw);
+              } else {
+                instance.state824_ = tmpRaw;
+                to_bitField25_ |= 0x00800000;
+              }
+              break;
+            } // case 6592
+            case 6600: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 825, tmpRaw);
+              } else {
+                instance.state825_ = tmpRaw;
+                to_bitField25_ |= 0x01000000;
+              }
+              break;
+            } // case 6600
+            case 6608: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 826, tmpRaw);
+              } else {
+                instance.state826_ = tmpRaw;
+                to_bitField25_ |= 0x02000000;
+              }
+              break;
+            } // case 6608
+            case 6616: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 827, tmpRaw);
+              } else {
+                instance.state827_ = tmpRaw;
+                to_bitField25_ |= 0x04000000;
+              }
+              break;
+            } // case 6616
+            case 6624: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 828, tmpRaw);
+              } else {
+                instance.state828_ = tmpRaw;
+                to_bitField25_ |= 0x08000000;
+              }
+              break;
+            } // case 6624
+            case 6632: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 829, tmpRaw);
+              } else {
+                instance.state829_ = tmpRaw;
+                to_bitField25_ |= 0x10000000;
+              }
+              break;
+            } // case 6632
+            case 6640: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 830, tmpRaw);
+              } else {
+                instance.state830_ = tmpRaw;
+                to_bitField25_ |= 0x20000000;
+              }
+              break;
+            } // case 6640
+            case 6648: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 831, tmpRaw);
+              } else {
+                instance.state831_ = tmpRaw;
+                to_bitField25_ |= 0x40000000;
+              }
+              break;
+            } // case 6648
+            case 6656: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 832, tmpRaw);
+              } else {
+                instance.state832_ = tmpRaw;
+                to_bitField25_ |= 0x80000000;
+              }
+              break;
+            } // case 6656
+            case 6664: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 833, tmpRaw);
+              } else {
+                instance.state833_ = tmpRaw;
+                to_bitField26_ |= 0x00000001;
+              }
+              break;
+            } // case 6664
+            case 6672: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 834, tmpRaw);
+              } else {
+                instance.state834_ = tmpRaw;
+                to_bitField26_ |= 0x00000002;
+              }
+              break;
+            } // case 6672
+            case 6680: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 835, tmpRaw);
+              } else {
+                instance.state835_ = tmpRaw;
+                to_bitField26_ |= 0x00000004;
+              }
+              break;
+            } // case 6680
+            case 6688: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 836, tmpRaw);
+              } else {
+                instance.state836_ = tmpRaw;
+                to_bitField26_ |= 0x00000008;
+              }
+              break;
+            } // case 6688
+            case 6696: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 837, tmpRaw);
+              } else {
+                instance.state837_ = tmpRaw;
+                to_bitField26_ |= 0x00000010;
+              }
+              break;
+            } // case 6696
+            case 6704: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 838, tmpRaw);
+              } else {
+                instance.state838_ = tmpRaw;
+                to_bitField26_ |= 0x00000020;
+              }
+              break;
+            } // case 6704
+            case 6712: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 839, tmpRaw);
+              } else {
+                instance.state839_ = tmpRaw;
+                to_bitField26_ |= 0x00000040;
+              }
+              break;
+            } // case 6712
+            case 6720: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 840, tmpRaw);
+              } else {
+                instance.state840_ = tmpRaw;
+                to_bitField26_ |= 0x00000080;
+              }
+              break;
+            } // case 6720
+            case 6728: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 841, tmpRaw);
+              } else {
+                instance.state841_ = tmpRaw;
+                to_bitField26_ |= 0x00000100;
+              }
+              break;
+            } // case 6728
+            case 6736: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 842, tmpRaw);
+              } else {
+                instance.state842_ = tmpRaw;
+                to_bitField26_ |= 0x00000200;
+              }
+              break;
+            } // case 6736
+            case 6744: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 843, tmpRaw);
+              } else {
+                instance.state843_ = tmpRaw;
+                to_bitField26_ |= 0x00000400;
+              }
+              break;
+            } // case 6744
+            case 6752: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 844, tmpRaw);
+              } else {
+                instance.state844_ = tmpRaw;
+                to_bitField26_ |= 0x00000800;
+              }
+              break;
+            } // case 6752
+            case 6760: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 845, tmpRaw);
+              } else {
+                instance.state845_ = tmpRaw;
+                to_bitField26_ |= 0x00001000;
+              }
+              break;
+            } // case 6760
+            case 6768: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 846, tmpRaw);
+              } else {
+                instance.state846_ = tmpRaw;
+                to_bitField26_ |= 0x00002000;
+              }
+              break;
+            } // case 6768
+            case 6776: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 847, tmpRaw);
+              } else {
+                instance.state847_ = tmpRaw;
+                to_bitField26_ |= 0x00004000;
+              }
+              break;
+            } // case 6776
+            case 6784: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 848, tmpRaw);
+              } else {
+                instance.state848_ = tmpRaw;
+                to_bitField26_ |= 0x00008000;
+              }
+              break;
+            } // case 6784
+            case 6792: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 849, tmpRaw);
+              } else {
+                instance.state849_ = tmpRaw;
+                to_bitField26_ |= 0x00010000;
+              }
+              break;
+            } // case 6792
+            case 6800: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 850, tmpRaw);
+              } else {
+                instance.state850_ = tmpRaw;
+                to_bitField26_ |= 0x00020000;
+              }
+              break;
+            } // case 6800
+            case 6808: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 851, tmpRaw);
+              } else {
+                instance.state851_ = tmpRaw;
+                to_bitField26_ |= 0x00040000;
+              }
+              break;
+            } // case 6808
+            case 6816: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 852, tmpRaw);
+              } else {
+                instance.state852_ = tmpRaw;
+                to_bitField26_ |= 0x00080000;
+              }
+              break;
+            } // case 6816
+            case 6824: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 853, tmpRaw);
+              } else {
+                instance.state853_ = tmpRaw;
+                to_bitField26_ |= 0x00100000;
+              }
+              break;
+            } // case 6824
+            case 6832: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 854, tmpRaw);
+              } else {
+                instance.state854_ = tmpRaw;
+                to_bitField26_ |= 0x00200000;
+              }
+              break;
+            } // case 6832
+            case 6840: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 855, tmpRaw);
+              } else {
+                instance.state855_ = tmpRaw;
+                to_bitField26_ |= 0x00400000;
+              }
+              break;
+            } // case 6840
+            case 6848: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 856, tmpRaw);
+              } else {
+                instance.state856_ = tmpRaw;
+                to_bitField26_ |= 0x00800000;
+              }
+              break;
+            } // case 6848
+            case 6856: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 857, tmpRaw);
+              } else {
+                instance.state857_ = tmpRaw;
+                to_bitField26_ |= 0x01000000;
+              }
+              break;
+            } // case 6856
+            case 6864: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 858, tmpRaw);
+              } else {
+                instance.state858_ = tmpRaw;
+                to_bitField26_ |= 0x02000000;
+              }
+              break;
+            } // case 6864
+            case 6872: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 859, tmpRaw);
+              } else {
+                instance.state859_ = tmpRaw;
+                to_bitField26_ |= 0x04000000;
+              }
+              break;
+            } // case 6872
+            case 6880: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 860, tmpRaw);
+              } else {
+                instance.state860_ = tmpRaw;
+                to_bitField26_ |= 0x08000000;
+              }
+              break;
+            } // case 6880
+            case 6888: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 861, tmpRaw);
+              } else {
+                instance.state861_ = tmpRaw;
+                to_bitField26_ |= 0x10000000;
+              }
+              break;
+            } // case 6888
+            case 6896: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 862, tmpRaw);
+              } else {
+                instance.state862_ = tmpRaw;
+                to_bitField26_ |= 0x20000000;
+              }
+              break;
+            } // case 6896
+            case 6904: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 863, tmpRaw);
+              } else {
+                instance.state863_ = tmpRaw;
+                to_bitField26_ |= 0x40000000;
+              }
+              break;
+            } // case 6904
+            case 6912: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 864, tmpRaw);
+              } else {
+                instance.state864_ = tmpRaw;
+                to_bitField26_ |= 0x80000000;
+              }
+              break;
+            } // case 6912
+            case 6920: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 865, tmpRaw);
+              } else {
+                instance.state865_ = tmpRaw;
+                to_bitField27_ |= 0x00000001;
+              }
+              break;
+            } // case 6920
+            case 6928: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 866, tmpRaw);
+              } else {
+                instance.state866_ = tmpRaw;
+                to_bitField27_ |= 0x00000002;
+              }
+              break;
+            } // case 6928
+            case 6936: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 867, tmpRaw);
+              } else {
+                instance.state867_ = tmpRaw;
+                to_bitField27_ |= 0x00000004;
+              }
+              break;
+            } // case 6936
+            case 6944: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 868, tmpRaw);
+              } else {
+                instance.state868_ = tmpRaw;
+                to_bitField27_ |= 0x00000008;
+              }
+              break;
+            } // case 6944
+            case 6952: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 869, tmpRaw);
+              } else {
+                instance.state869_ = tmpRaw;
+                to_bitField27_ |= 0x00000010;
+              }
+              break;
+            } // case 6952
+            case 6960: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 870, tmpRaw);
+              } else {
+                instance.state870_ = tmpRaw;
+                to_bitField27_ |= 0x00000020;
+              }
+              break;
+            } // case 6960
+            case 6968: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 871, tmpRaw);
+              } else {
+                instance.state871_ = tmpRaw;
+                to_bitField27_ |= 0x00000040;
+              }
+              break;
+            } // case 6968
+            case 6976: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 872, tmpRaw);
+              } else {
+                instance.state872_ = tmpRaw;
+                to_bitField27_ |= 0x00000080;
+              }
+              break;
+            } // case 6976
+            case 6984: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 873, tmpRaw);
+              } else {
+                instance.state873_ = tmpRaw;
+                to_bitField27_ |= 0x00000100;
+              }
+              break;
+            } // case 6984
+            case 6992: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 874, tmpRaw);
+              } else {
+                instance.state874_ = tmpRaw;
+                to_bitField27_ |= 0x00000200;
+              }
+              break;
+            } // case 6992
+            case 7000: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 875, tmpRaw);
+              } else {
+                instance.state875_ = tmpRaw;
+                to_bitField27_ |= 0x00000400;
+              }
+              break;
+            } // case 7000
+            case 7008: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 876, tmpRaw);
+              } else {
+                instance.state876_ = tmpRaw;
+                to_bitField27_ |= 0x00000800;
+              }
+              break;
+            } // case 7008
+            case 7016: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 877, tmpRaw);
+              } else {
+                instance.state877_ = tmpRaw;
+                to_bitField27_ |= 0x00001000;
+              }
+              break;
+            } // case 7016
+            case 7024: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 878, tmpRaw);
+              } else {
+                instance.state878_ = tmpRaw;
+                to_bitField27_ |= 0x00002000;
+              }
+              break;
+            } // case 7024
+            case 7032: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 879, tmpRaw);
+              } else {
+                instance.state879_ = tmpRaw;
+                to_bitField27_ |= 0x00004000;
+              }
+              break;
+            } // case 7032
+            case 7040: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 880, tmpRaw);
+              } else {
+                instance.state880_ = tmpRaw;
+                to_bitField27_ |= 0x00008000;
+              }
+              break;
+            } // case 7040
+            case 7048: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 881, tmpRaw);
+              } else {
+                instance.state881_ = tmpRaw;
+                to_bitField27_ |= 0x00010000;
+              }
+              break;
+            } // case 7048
+            case 7056: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 882, tmpRaw);
+              } else {
+                instance.state882_ = tmpRaw;
+                to_bitField27_ |= 0x00020000;
+              }
+              break;
+            } // case 7056
+            case 7064: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 883, tmpRaw);
+              } else {
+                instance.state883_ = tmpRaw;
+                to_bitField27_ |= 0x00040000;
+              }
+              break;
+            } // case 7064
+            case 7072: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 884, tmpRaw);
+              } else {
+                instance.state884_ = tmpRaw;
+                to_bitField27_ |= 0x00080000;
+              }
+              break;
+            } // case 7072
+            case 7080: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 885, tmpRaw);
+              } else {
+                instance.state885_ = tmpRaw;
+                to_bitField27_ |= 0x00100000;
+              }
+              break;
+            } // case 7080
+            case 7088: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 886, tmpRaw);
+              } else {
+                instance.state886_ = tmpRaw;
+                to_bitField27_ |= 0x00200000;
+              }
+              break;
+            } // case 7088
+            case 7096: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 887, tmpRaw);
+              } else {
+                instance.state887_ = tmpRaw;
+                to_bitField27_ |= 0x00400000;
+              }
+              break;
+            } // case 7096
+            case 7104: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 888, tmpRaw);
+              } else {
+                instance.state888_ = tmpRaw;
+                to_bitField27_ |= 0x00800000;
+              }
+              break;
+            } // case 7104
+            case 7112: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 889, tmpRaw);
+              } else {
+                instance.state889_ = tmpRaw;
+                to_bitField27_ |= 0x01000000;
+              }
+              break;
+            } // case 7112
+            case 7120: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 890, tmpRaw);
+              } else {
+                instance.state890_ = tmpRaw;
+                to_bitField27_ |= 0x02000000;
+              }
+              break;
+            } // case 7120
+            case 7128: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 891, tmpRaw);
+              } else {
+                instance.state891_ = tmpRaw;
+                to_bitField27_ |= 0x04000000;
+              }
+              break;
+            } // case 7128
+            case 7136: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 892, tmpRaw);
+              } else {
+                instance.state892_ = tmpRaw;
+                to_bitField27_ |= 0x08000000;
+              }
+              break;
+            } // case 7136
+            case 7144: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 893, tmpRaw);
+              } else {
+                instance.state893_ = tmpRaw;
+                to_bitField27_ |= 0x10000000;
+              }
+              break;
+            } // case 7144
+            case 7152: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 894, tmpRaw);
+              } else {
+                instance.state894_ = tmpRaw;
+                to_bitField27_ |= 0x20000000;
+              }
+              break;
+            } // case 7152
+            case 7160: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 895, tmpRaw);
+              } else {
+                instance.state895_ = tmpRaw;
+                to_bitField27_ |= 0x40000000;
+              }
+              break;
+            } // case 7160
+            case 7168: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 896, tmpRaw);
+              } else {
+                instance.state896_ = tmpRaw;
+                to_bitField27_ |= 0x80000000;
+              }
+              break;
+            } // case 7168
+            case 7176: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 897, tmpRaw);
+              } else {
+                instance.state897_ = tmpRaw;
+                to_bitField28_ |= 0x00000001;
+              }
+              break;
+            } // case 7176
+            case 7184: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 898, tmpRaw);
+              } else {
+                instance.state898_ = tmpRaw;
+                to_bitField28_ |= 0x00000002;
+              }
+              break;
+            } // case 7184
+            case 7192: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 899, tmpRaw);
+              } else {
+                instance.state899_ = tmpRaw;
+                to_bitField28_ |= 0x00000004;
+              }
+              break;
+            } // case 7192
+            case 7200: {
+              int tmpRaw = input.readEnum();
+              if (com.google.protobuf.test.WideClosedEnum.Status.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 900, tmpRaw);
+              } else {
+                instance.state900_ = tmpRaw;
+                to_bitField28_ |= 0x00000008;
+              }
+              break;
+            } // case 7200
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (to_bitField1_ != 0) {
+        instance.bitField1_ = instance.bitField1_ | to_bitField1_;
+      }
+      if (to_bitField2_ != 0) {
+        instance.bitField2_ = instance.bitField2_ | to_bitField2_;
+      }
+      if (to_bitField3_ != 0) {
+        instance.bitField3_ = instance.bitField3_ | to_bitField3_;
+      }
+      if (to_bitField4_ != 0) {
+        instance.bitField4_ = instance.bitField4_ | to_bitField4_;
+      }
+      if (to_bitField5_ != 0) {
+        instance.bitField5_ = instance.bitField5_ | to_bitField5_;
+      }
+      if (to_bitField6_ != 0) {
+        instance.bitField6_ = instance.bitField6_ | to_bitField6_;
+      }
+      if (to_bitField7_ != 0) {
+        instance.bitField7_ = instance.bitField7_ | to_bitField7_;
+      }
+      if (to_bitField8_ != 0) {
+        instance.bitField8_ = instance.bitField8_ | to_bitField8_;
+      }
+      if (to_bitField9_ != 0) {
+        instance.bitField9_ = instance.bitField9_ | to_bitField9_;
+      }
+      if (to_bitField10_ != 0) {
+        instance.bitField10_ = instance.bitField10_ | to_bitField10_;
+      }
+      if (to_bitField11_ != 0) {
+        instance.bitField11_ = instance.bitField11_ | to_bitField11_;
+      }
+      if (to_bitField12_ != 0) {
+        instance.bitField12_ = instance.bitField12_ | to_bitField12_;
+      }
+      if (to_bitField13_ != 0) {
+        instance.bitField13_ = instance.bitField13_ | to_bitField13_;
+      }
+      if (to_bitField14_ != 0) {
+        instance.bitField14_ = instance.bitField14_ | to_bitField14_;
+      }
+      if (to_bitField15_ != 0) {
+        instance.bitField15_ = instance.bitField15_ | to_bitField15_;
+      }
+      if (to_bitField16_ != 0) {
+        instance.bitField16_ = instance.bitField16_ | to_bitField16_;
+      }
+      if (to_bitField17_ != 0) {
+        instance.bitField17_ = instance.bitField17_ | to_bitField17_;
+      }
+      if (to_bitField18_ != 0) {
+        instance.bitField18_ = instance.bitField18_ | to_bitField18_;
+      }
+      if (to_bitField19_ != 0) {
+        instance.bitField19_ = instance.bitField19_ | to_bitField19_;
+      }
+      if (to_bitField20_ != 0) {
+        instance.bitField20_ = instance.bitField20_ | to_bitField20_;
+      }
+      if (to_bitField21_ != 0) {
+        instance.bitField21_ = instance.bitField21_ | to_bitField21_;
+      }
+      if (to_bitField22_ != 0) {
+        instance.bitField22_ = instance.bitField22_ | to_bitField22_;
+      }
+      if (to_bitField23_ != 0) {
+        instance.bitField23_ = instance.bitField23_ | to_bitField23_;
+      }
+      if (to_bitField24_ != 0) {
+        instance.bitField24_ = instance.bitField24_ | to_bitField24_;
+      }
+      if (to_bitField25_ != 0) {
+        instance.bitField25_ = instance.bitField25_ | to_bitField25_;
+      }
+      if (to_bitField26_ != 0) {
+        instance.bitField26_ = instance.bitField26_ | to_bitField26_;
+      }
+      if (to_bitField27_ != 0) {
+        instance.bitField27_ = instance.bitField27_ | to_bitField27_;
+      }
+      if (to_bitField28_ != 0) {
+        instance.bitField28_ = instance.bitField28_ | to_bitField28_;
+      }
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<WideClosedEnum> parser() {
     return PARSER;

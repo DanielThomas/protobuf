@@ -276,7 +276,7 @@ public final class RubyGeneratedPkgExplicitLegacy extends com.google.protobuf.Ge
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -305,14 +305,27 @@ public final class RubyGeneratedPkgExplicitLegacy extends com.google.protobuf.Ge
                 one.two.a_three.and.RubyGeneratedPkgExplicitLegacy.Four.class, one.two.a_three.and.RubyGeneratedPkgExplicitLegacy.Four.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using one.two.a_three.and.RubyGeneratedPkgExplicitLegacy.Four.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        anotherString_ = "";
+
+      }
+      private Builder(one.two.a_three.and.RubyGeneratedPkgExplicitLegacy.Four other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -356,9 +369,15 @@ public final class RubyGeneratedPkgExplicitLegacy extends com.google.protobuf.Ge
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.anotherString_ = anotherString_;
-          ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(one.two.a_three.and.RubyGeneratedPkgExplicitLegacy.Four other) {
+        int to_bitField0_ = 0;
+        anotherString_ = other.anotherString_;
+        to_bitField0_ |= 0x00000001;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -424,7 +443,7 @@ public final class RubyGeneratedPkgExplicitLegacy extends com.google.protobuf.Ge
       }
       private int bitField0_;
 
-      private java.lang.Object anotherString_ = "";
+      private java.lang.Object anotherString_;
       /**
        * <code>string another_string = 1;</code>
        * @return The anotherString.
@@ -510,21 +529,52 @@ public final class RubyGeneratedPkgExplicitLegacy extends com.google.protobuf.Ge
     }
 
     private static final com.google.protobuf.Parser<Four>
-        PARSER = new com.google.protobuf.AbstractParser<Four>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Four> {
+      MessageParser() {}
+
       @java.lang.Override
       public Four parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Four instance = new Four((Builder) null);
+        java.lang.Object unknown = null;
+        java.lang.Object parsed_anotherString = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                parsed_anotherString = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parsed_anotherString != null) instance.anotherString_ = parsed_anotherString;
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<Four> parser() {
       return PARSER;

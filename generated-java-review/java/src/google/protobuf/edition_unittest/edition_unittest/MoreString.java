@@ -246,7 +246,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -275,14 +275,28 @@ private static final long serialVersionUID = 0L;
               edition_unittest.MoreString.class, edition_unittest.MoreString.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.MoreString.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      data_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+
+    }
+    private Builder(edition_unittest.MoreString other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -330,6 +344,15 @@ private static final long serialVersionUID = 0L;
         result.data_ = data_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.MoreString other) {
+      int to_bitField0_ = 0;
+      data_ = other.data_;
+      if (!data_.isEmpty()) {
+        to_bitField0_ |= 0x00000001;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -400,8 +423,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.LazyStringArrayList data_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList data_;
     private void ensureDataIsMutable() {
       if (!data_.isModifiable()) {
         data_ = new com.google.protobuf.LazyStringArrayList(data_);
@@ -525,21 +547,59 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<MoreString>
-      PARSER = new com.google.protobuf.AbstractParser<MoreString>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<MoreString> {
+    MessageParser() {}
+
     @java.lang.Override
     public MoreString parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MoreString instance = new MoreString((Builder) null);
+      java.lang.Object unknown = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              ensureDataIsMutable(instance);
+              instance.data_.add(input.readStringRequireUtf8());
+              break;
+            } // case 10
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensureDataIsMutable(edition_unittest.MoreString instance) {
+      if (!instance.data_.isModifiable()) {
+        instance.data_ = new com.google.protobuf.LazyStringArrayList(instance.data_);
+      }
+    }
+    private static void finishCollections0(MoreString instance) {
+      instance.data_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<MoreString> parser() {
     return PARSER;

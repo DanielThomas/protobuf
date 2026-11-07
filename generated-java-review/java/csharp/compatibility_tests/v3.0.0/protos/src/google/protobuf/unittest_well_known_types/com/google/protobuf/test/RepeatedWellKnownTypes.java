@@ -1438,7 +1438,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -1471,14 +1471,44 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.test.RepeatedWellKnownTypes.class, com.google.protobuf.test.RepeatedWellKnownTypes.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.test.RepeatedWellKnownTypes.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      anyField_ = emptyList(com.google.protobuf.Any.class);
+      apiField_ = emptyList(com.google.protobuf.Api.class);
+      durationField_ = emptyList(com.google.protobuf.Duration.class);
+      emptyField_ = emptyList(com.google.protobuf.Empty.class);
+      fieldMaskField_ = emptyList(com.google.protobuf.FieldMask.class);
+      sourceContextField_ = emptyList(com.google.protobuf.SourceContext.class);
+      structField_ = emptyList(com.google.protobuf.Struct.class);
+      timestampField_ = emptyList(com.google.protobuf.Timestamp.class);
+      typeField_ = emptyList(com.google.protobuf.Type.class);
+      doubleField_ = emptyList(com.google.protobuf.DoubleValue.class);
+      floatField_ = emptyList(com.google.protobuf.FloatValue.class);
+      int64Field_ = emptyList(com.google.protobuf.Int64Value.class);
+      uint64Field_ = emptyList(com.google.protobuf.UInt64Value.class);
+      int32Field_ = emptyList(com.google.protobuf.Int32Value.class);
+      uint32Field_ = emptyList(com.google.protobuf.UInt32Value.class);
+      boolField_ = emptyList(com.google.protobuf.BoolValue.class);
+      stringField_ = emptyList(com.google.protobuf.StringValue.class);
+      bytesField_ = emptyList(com.google.protobuf.BytesValue.class);
+
+    }
+    private Builder(com.google.protobuf.test.RepeatedWellKnownTypes other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -1790,6 +1820,83 @@ private static final long serialVersionUID = 0L;
       }
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.google.protobuf.test.RepeatedWellKnownTypes other) {
+      int to_bitField0_ = 0;
+      anyField_ = other.anyField_;
+      if (!anyField_.isEmpty()) {
+        to_bitField0_ |= 0x00000001;
+      }
+      apiField_ = other.apiField_;
+      if (!apiField_.isEmpty()) {
+        to_bitField0_ |= 0x00000002;
+      }
+      durationField_ = other.durationField_;
+      if (!durationField_.isEmpty()) {
+        to_bitField0_ |= 0x00000004;
+      }
+      emptyField_ = other.emptyField_;
+      if (!emptyField_.isEmpty()) {
+        to_bitField0_ |= 0x00000008;
+      }
+      fieldMaskField_ = other.fieldMaskField_;
+      if (!fieldMaskField_.isEmpty()) {
+        to_bitField0_ |= 0x00000010;
+      }
+      sourceContextField_ = other.sourceContextField_;
+      if (!sourceContextField_.isEmpty()) {
+        to_bitField0_ |= 0x00000020;
+      }
+      structField_ = other.structField_;
+      if (!structField_.isEmpty()) {
+        to_bitField0_ |= 0x00000040;
+      }
+      timestampField_ = other.timestampField_;
+      if (!timestampField_.isEmpty()) {
+        to_bitField0_ |= 0x00000080;
+      }
+      typeField_ = other.typeField_;
+      if (!typeField_.isEmpty()) {
+        to_bitField0_ |= 0x00000100;
+      }
+      doubleField_ = other.doubleField_;
+      if (!doubleField_.isEmpty()) {
+        to_bitField0_ |= 0x00000200;
+      }
+      floatField_ = other.floatField_;
+      if (!floatField_.isEmpty()) {
+        to_bitField0_ |= 0x00000400;
+      }
+      int64Field_ = other.int64Field_;
+      if (!int64Field_.isEmpty()) {
+        to_bitField0_ |= 0x00000800;
+      }
+      uint64Field_ = other.uint64Field_;
+      if (!uint64Field_.isEmpty()) {
+        to_bitField0_ |= 0x00001000;
+      }
+      int32Field_ = other.int32Field_;
+      if (!int32Field_.isEmpty()) {
+        to_bitField0_ |= 0x00002000;
+      }
+      uint32Field_ = other.uint32Field_;
+      if (!uint32Field_.isEmpty()) {
+        to_bitField0_ |= 0x00004000;
+      }
+      boolField_ = other.boolField_;
+      if (!boolField_.isEmpty()) {
+        to_bitField0_ |= 0x00008000;
+      }
+      stringField_ = other.stringField_;
+      if (!stringField_.isEmpty()) {
+        to_bitField0_ |= 0x00010000;
+      }
+      bytesField_ = other.bytesField_;
+      if (!bytesField_.isEmpty()) {
+        to_bitField0_ |= 0x00020000;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -2601,8 +2708,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Any> anyField_ =
-        emptyList(com.google.protobuf.Any.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Any> anyField_;
     private void ensureAnyFieldIsMutable() {
       if (!anyField_.isModifiable()) {
         anyField_ = makeMutableCopy(anyField_);
@@ -2835,8 +2941,7 @@ private static final long serialVersionUID = 0L;
       return anyFieldBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Api> apiField_ =
-        emptyList(com.google.protobuf.Api.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Api> apiField_;
     private void ensureApiFieldIsMutable() {
       if (!apiField_.isModifiable()) {
         apiField_ = makeMutableCopy(apiField_);
@@ -3069,8 +3174,7 @@ private static final long serialVersionUID = 0L;
       return apiFieldBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Duration> durationField_ =
-        emptyList(com.google.protobuf.Duration.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Duration> durationField_;
     private void ensureDurationFieldIsMutable() {
       if (!durationField_.isModifiable()) {
         durationField_ = makeMutableCopy(durationField_);
@@ -3303,8 +3407,7 @@ private static final long serialVersionUID = 0L;
       return durationFieldBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Empty> emptyField_ =
-        emptyList(com.google.protobuf.Empty.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Empty> emptyField_;
     private void ensureEmptyFieldIsMutable() {
       if (!emptyField_.isModifiable()) {
         emptyField_ = makeMutableCopy(emptyField_);
@@ -3537,8 +3640,7 @@ private static final long serialVersionUID = 0L;
       return emptyFieldBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.FieldMask> fieldMaskField_ =
-        emptyList(com.google.protobuf.FieldMask.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.FieldMask> fieldMaskField_;
     private void ensureFieldMaskFieldIsMutable() {
       if (!fieldMaskField_.isModifiable()) {
         fieldMaskField_ = makeMutableCopy(fieldMaskField_);
@@ -3771,8 +3873,7 @@ private static final long serialVersionUID = 0L;
       return fieldMaskFieldBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.SourceContext> sourceContextField_ =
-        emptyList(com.google.protobuf.SourceContext.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.SourceContext> sourceContextField_;
     private void ensureSourceContextFieldIsMutable() {
       if (!sourceContextField_.isModifiable()) {
         sourceContextField_ = makeMutableCopy(sourceContextField_);
@@ -4005,8 +4106,7 @@ private static final long serialVersionUID = 0L;
       return sourceContextFieldBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Struct> structField_ =
-        emptyList(com.google.protobuf.Struct.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Struct> structField_;
     private void ensureStructFieldIsMutable() {
       if (!structField_.isModifiable()) {
         structField_ = makeMutableCopy(structField_);
@@ -4239,8 +4339,7 @@ private static final long serialVersionUID = 0L;
       return structFieldBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Timestamp> timestampField_ =
-        emptyList(com.google.protobuf.Timestamp.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Timestamp> timestampField_;
     private void ensureTimestampFieldIsMutable() {
       if (!timestampField_.isModifiable()) {
         timestampField_ = makeMutableCopy(timestampField_);
@@ -4473,8 +4572,7 @@ private static final long serialVersionUID = 0L;
       return timestampFieldBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Type> typeField_ =
-        emptyList(com.google.protobuf.Type.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Type> typeField_;
     private void ensureTypeFieldIsMutable() {
       if (!typeField_.isModifiable()) {
         typeField_ = makeMutableCopy(typeField_);
@@ -4707,8 +4805,7 @@ private static final long serialVersionUID = 0L;
       return typeFieldBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.DoubleValue> doubleField_ =
-        emptyList(com.google.protobuf.DoubleValue.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.DoubleValue> doubleField_;
     private void ensureDoubleFieldIsMutable() {
       if (!doubleField_.isModifiable()) {
         doubleField_ = makeMutableCopy(doubleField_);
@@ -5013,8 +5110,7 @@ private static final long serialVersionUID = 0L;
       return doubleFieldBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.FloatValue> floatField_ =
-        emptyList(com.google.protobuf.FloatValue.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.FloatValue> floatField_;
     private void ensureFloatFieldIsMutable() {
       if (!floatField_.isModifiable()) {
         floatField_ = makeMutableCopy(floatField_);
@@ -5247,8 +5343,7 @@ private static final long serialVersionUID = 0L;
       return floatFieldBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Int64Value> int64Field_ =
-        emptyList(com.google.protobuf.Int64Value.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Int64Value> int64Field_;
     private void ensureInt64FieldIsMutable() {
       if (!int64Field_.isModifiable()) {
         int64Field_ = makeMutableCopy(int64Field_);
@@ -5481,8 +5576,7 @@ private static final long serialVersionUID = 0L;
       return int64FieldBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.UInt64Value> uint64Field_ =
-        emptyList(com.google.protobuf.UInt64Value.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.UInt64Value> uint64Field_;
     private void ensureUint64FieldIsMutable() {
       if (!uint64Field_.isModifiable()) {
         uint64Field_ = makeMutableCopy(uint64Field_);
@@ -5715,8 +5809,7 @@ private static final long serialVersionUID = 0L;
       return uint64FieldBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Int32Value> int32Field_ =
-        emptyList(com.google.protobuf.Int32Value.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Int32Value> int32Field_;
     private void ensureInt32FieldIsMutable() {
       if (!int32Field_.isModifiable()) {
         int32Field_ = makeMutableCopy(int32Field_);
@@ -5949,8 +6042,7 @@ private static final long serialVersionUID = 0L;
       return int32FieldBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.UInt32Value> uint32Field_ =
-        emptyList(com.google.protobuf.UInt32Value.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.UInt32Value> uint32Field_;
     private void ensureUint32FieldIsMutable() {
       if (!uint32Field_.isModifiable()) {
         uint32Field_ = makeMutableCopy(uint32Field_);
@@ -6183,8 +6275,7 @@ private static final long serialVersionUID = 0L;
       return uint32FieldBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.BoolValue> boolField_ =
-        emptyList(com.google.protobuf.BoolValue.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.BoolValue> boolField_;
     private void ensureBoolFieldIsMutable() {
       if (!boolField_.isModifiable()) {
         boolField_ = makeMutableCopy(boolField_);
@@ -6417,8 +6508,7 @@ private static final long serialVersionUID = 0L;
       return boolFieldBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.StringValue> stringField_ =
-        emptyList(com.google.protobuf.StringValue.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.StringValue> stringField_;
     private void ensureStringFieldIsMutable() {
       if (!stringField_.isModifiable()) {
         stringField_ = makeMutableCopy(stringField_);
@@ -6651,8 +6741,7 @@ private static final long serialVersionUID = 0L;
       return stringFieldBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.BytesValue> bytesField_ =
-        emptyList(com.google.protobuf.BytesValue.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.BytesValue> bytesField_;
     private void ensureBytesFieldIsMutable() {
       if (!bytesField_.isModifiable()) {
         bytesField_ = makeMutableCopy(bytesField_);
@@ -6899,21 +6988,246 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<RepeatedWellKnownTypes>
-      PARSER = new com.google.protobuf.AbstractParser<RepeatedWellKnownTypes>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<RepeatedWellKnownTypes> {
+    MessageParser() {}
+
     @java.lang.Override
     public RepeatedWellKnownTypes parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      RepeatedWellKnownTypes instance = new RepeatedWellKnownTypes((Builder) null);
+      java.lang.Object unknown = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Any m = com.google.protobuf.Any.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.anyField_.isModifiable()) {
+  instance.anyField_ = makeMutableCopy(instance.anyField_);
+}
+              instance.anyField_.add(m);
+              break;
+            } // case 10
+            case 18: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Api m = com.google.protobuf.Api.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.apiField_.isModifiable()) {
+  instance.apiField_ = makeMutableCopy(instance.apiField_);
+}
+              instance.apiField_.add(m);
+              break;
+            } // case 18
+            case 26: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Duration m = com.google.protobuf.Duration.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.durationField_.isModifiable()) {
+  instance.durationField_ = makeMutableCopy(instance.durationField_);
+}
+              instance.durationField_.add(m);
+              break;
+            } // case 26
+            case 34: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Empty m = com.google.protobuf.Empty.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.emptyField_.isModifiable()) {
+  instance.emptyField_ = makeMutableCopy(instance.emptyField_);
+}
+              instance.emptyField_.add(m);
+              break;
+            } // case 34
+            case 42: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.FieldMask m = com.google.protobuf.FieldMask.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.fieldMaskField_.isModifiable()) {
+  instance.fieldMaskField_ = makeMutableCopy(instance.fieldMaskField_);
+}
+              instance.fieldMaskField_.add(m);
+              break;
+            } // case 42
+            case 50: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.SourceContext m = com.google.protobuf.SourceContext.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.sourceContextField_.isModifiable()) {
+  instance.sourceContextField_ = makeMutableCopy(instance.sourceContextField_);
+}
+              instance.sourceContextField_.add(m);
+              break;
+            } // case 50
+            case 58: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Struct m = com.google.protobuf.Struct.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.structField_.isModifiable()) {
+  instance.structField_ = makeMutableCopy(instance.structField_);
+}
+              instance.structField_.add(m);
+              break;
+            } // case 58
+            case 66: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Timestamp m = com.google.protobuf.Timestamp.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.timestampField_.isModifiable()) {
+  instance.timestampField_ = makeMutableCopy(instance.timestampField_);
+}
+              instance.timestampField_.add(m);
+              break;
+            } // case 66
+            case 74: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Type m = com.google.protobuf.Type.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.typeField_.isModifiable()) {
+  instance.typeField_ = makeMutableCopy(instance.typeField_);
+}
+              instance.typeField_.add(m);
+              break;
+            } // case 74
+            case 82: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.DoubleValue m = com.google.protobuf.DoubleValue.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.doubleField_.isModifiable()) {
+  instance.doubleField_ = makeMutableCopy(instance.doubleField_);
+}
+              instance.doubleField_.add(m);
+              break;
+            } // case 82
+            case 90: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.FloatValue m = com.google.protobuf.FloatValue.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.floatField_.isModifiable()) {
+  instance.floatField_ = makeMutableCopy(instance.floatField_);
+}
+              instance.floatField_.add(m);
+              break;
+            } // case 90
+            case 98: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Int64Value m = com.google.protobuf.Int64Value.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.int64Field_.isModifiable()) {
+  instance.int64Field_ = makeMutableCopy(instance.int64Field_);
+}
+              instance.int64Field_.add(m);
+              break;
+            } // case 98
+            case 106: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.UInt64Value m = com.google.protobuf.UInt64Value.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.uint64Field_.isModifiable()) {
+  instance.uint64Field_ = makeMutableCopy(instance.uint64Field_);
+}
+              instance.uint64Field_.add(m);
+              break;
+            } // case 106
+            case 114: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Int32Value m = com.google.protobuf.Int32Value.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.int32Field_.isModifiable()) {
+  instance.int32Field_ = makeMutableCopy(instance.int32Field_);
+}
+              instance.int32Field_.add(m);
+              break;
+            } // case 114
+            case 122: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.UInt32Value m = com.google.protobuf.UInt32Value.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.uint32Field_.isModifiable()) {
+  instance.uint32Field_ = makeMutableCopy(instance.uint32Field_);
+}
+              instance.uint32Field_.add(m);
+              break;
+            } // case 122
+            case 130: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.BoolValue m = com.google.protobuf.BoolValue.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.boolField_.isModifiable()) {
+  instance.boolField_ = makeMutableCopy(instance.boolField_);
+}
+              instance.boolField_.add(m);
+              break;
+            } // case 130
+            case 138: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.StringValue m = com.google.protobuf.StringValue.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.stringField_.isModifiable()) {
+  instance.stringField_ = makeMutableCopy(instance.stringField_);
+}
+              instance.stringField_.add(m);
+              break;
+            } // case 138
+            case 146: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.BytesValue m = com.google.protobuf.BytesValue.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.bytesField_.isModifiable()) {
+  instance.bytesField_ = makeMutableCopy(instance.bytesField_);
+}
+              instance.bytesField_.add(m);
+              break;
+            } // case 146
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void finishCollections0(RepeatedWellKnownTypes instance) {
+      instance.anyField_.makeImmutable();
+      instance.apiField_.makeImmutable();
+      instance.durationField_.makeImmutable();
+      instance.emptyField_.makeImmutable();
+      instance.fieldMaskField_.makeImmutable();
+      instance.sourceContextField_.makeImmutable();
+      instance.structField_.makeImmutable();
+      instance.timestampField_.makeImmutable();
+      instance.typeField_.makeImmutable();
+      instance.doubleField_.makeImmutable();
+      instance.floatField_.makeImmutable();
+      instance.int64Field_.makeImmutable();
+      instance.uint64Field_.makeImmutable();
+      instance.int32Field_.makeImmutable();
+      instance.uint32Field_.makeImmutable();
+      instance.boolField_.makeImmutable();
+      instance.stringField_.makeImmutable();
+      instance.bytesField_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<RepeatedWellKnownTypes> parser() {
     return PARSER;

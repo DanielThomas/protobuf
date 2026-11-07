@@ -7,7 +7,7 @@ Compare [`java-generated-baseline...java-generated-parser`](https://github.com/D
 | Branch | Compiler revision |
 | --- | --- |
 | `java-generated-baseline` | `c0acd3a8f5aedaa6705530b9704c2af527f51575` |
-| `java-generated-parser` | `8a7de748f2b4d848a497b3974071a96732141428` |
+| `java-generated-parser` | `d43da02858ec898079832d5dd94d1d54c40cd59d` |
 
 The input set is frozen at `4e295241ef232d7b6627493b9ab27f9b1d757ad7` and contains its 482 tracked proto files, plus the wide regression schema captured from `//java/core:generated_code_size_test_proto_src` at `daa7707fb130a6db29322cd5c7caf377008bc231`. The target has since been removed. Its captured input remains in `inputs/generated_code_size_test.proto`.
 

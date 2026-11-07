@@ -344,7 +344,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -374,14 +374,26 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestExtensionRangeSerialize.class, edition_unittest.TestExtensionRangeSerialize.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestExtensionRangeSerialize.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+
+    }
+    private Builder(edition_unittest.TestExtensionRangeSerialize other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -443,6 +455,15 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000008;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestExtensionRangeSerialize other) {
+      int to_bitField0_ = (other.bitField0_ & 0x0000000f);
+      fooOne_ = other.getFooOne();
+      fooTwo_ = other.getFooTwo();
+      fooThree_ = other.getFooThree();
+      fooFour_ = other.getFooFour();
+      bitField0_ |= to_bitField0_;
     }
 
     public <Type> Builder setExtension(
@@ -557,7 +578,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int fooOne_ ;
+    private int fooOne_;
     /**
      * <code>int32 foo_one = 1;</code>
      * @return Whether the fooOne field is set.
@@ -597,7 +618,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int fooTwo_ ;
+    private int fooTwo_;
     /**
      * <code>int32 foo_two = 6;</code>
      * @return Whether the fooTwo field is set.
@@ -637,7 +658,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int fooThree_ ;
+    private int fooThree_;
     /**
      * <code>int32 foo_three = 7;</code>
      * @return Whether the fooThree field is set.
@@ -677,7 +698,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int fooFour_ ;
+    private int fooFour_;
     /**
      * <code>int32 foo_four = 13;</code>
      * @return Whether the fooFour field is set.
@@ -731,21 +752,70 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestExtensionRangeSerialize>
-      PARSER = new com.google.protobuf.AbstractParser<TestExtensionRangeSerialize>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestExtensionRangeSerialize> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestExtensionRangeSerialize parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestExtensionRangeSerialize instance = new TestExtensionRangeSerialize((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.fooOne_ = input.readInt32();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 48: {
+              instance.fooTwo_ = input.readInt32();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 48
+            case 56: {
+              instance.fooThree_ = input.readInt32();
+              to_bitField0_ |= 0x00000004;
+              break;
+            } // case 56
+            case 104: {
+              instance.fooFour_ = input.readInt32();
+              to_bitField0_ |= 0x00000008;
+              break;
+            } // case 104
+            default: {
+              pendingTag = tag;
+              break parseLoop;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      if (pendingTag != 0) {
+        return mergeFrom(instance.toBuilder(), input, extensionRegistry, pendingTag, null);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<TestExtensionRangeSerialize> parser() {
     return PARSER;

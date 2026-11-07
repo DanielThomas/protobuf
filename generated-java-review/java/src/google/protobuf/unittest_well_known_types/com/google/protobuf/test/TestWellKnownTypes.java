@@ -1158,7 +1158,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -1193,14 +1193,26 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.test.TestWellKnownTypes.class, com.google.protobuf.test.TestWellKnownTypes.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.test.TestWellKnownTypes.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      maybeForceBuilderInitialization();
+    }
+    private Builder(com.google.protobuf.test.TestWellKnownTypes other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -1475,6 +1487,30 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00040000;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.google.protobuf.test.TestWellKnownTypes other) {
+      int to_bitField0_ = (other.bitField0_ & 0x0007ffff);
+      anyField_ = other.anyField_;
+      apiField_ = other.apiField_;
+      durationField_ = other.durationField_;
+      emptyField_ = other.emptyField_;
+      fieldMaskField_ = other.fieldMaskField_;
+      sourceContextField_ = other.sourceContextField_;
+      structField_ = other.structField_;
+      timestampField_ = other.timestampField_;
+      typeField_ = other.typeField_;
+      doubleField_ = other.doubleField_;
+      floatField_ = other.floatField_;
+      int64Field_ = other.int64Field_;
+      uint64Field_ = other.uint64Field_;
+      int32Field_ = other.int32Field_;
+      uint32Field_ = other.uint32Field_;
+      boolField_ = other.boolField_;
+      stringField_ = other.stringField_;
+      bytesField_ = other.bytesField_;
+      valueField_ = other.valueField_;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -4145,21 +4181,938 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestWellKnownTypes>
-      PARSER = new com.google.protobuf.AbstractParser<TestWellKnownTypes>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestWellKnownTypes> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestWellKnownTypes parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestWellKnownTypes instance = new TestWellKnownTypes((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              pendingTag = parseAnyFieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 10
+            case 18: {
+              pendingTag = parseApiFieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 18
+            case 26: {
+              pendingTag = parseDurationFieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 26
+            case 34: {
+              pendingTag = parseEmptyFieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 34
+            case 42: {
+              pendingTag = parseFieldMaskFieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 42
+            case 50: {
+              pendingTag = parseSourceContextFieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 50
+            case 58: {
+              pendingTag = parseStructFieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 58
+            case 66: {
+              pendingTag = parseTimestampFieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 66
+            case 74: {
+              pendingTag = parseTypeFieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 74
+            case 82: {
+              pendingTag = parseDoubleFieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 82
+            case 90: {
+              pendingTag = parseFloatFieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 90
+            case 98: {
+              pendingTag = parseInt64FieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 98
+            case 106: {
+              pendingTag = parseUint64FieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 106
+            case 114: {
+              pendingTag = parseInt32FieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 114
+            case 122: {
+              pendingTag = parseUint32FieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 122
+            case 130: {
+              pendingTag = parseBoolFieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 130
+            case 138: {
+              pendingTag = parseStringFieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 138
+            case 146: {
+              pendingTag = parseBytesFieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 146
+            case 154: {
+              pendingTag = parseValueFieldField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 154
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseAnyFieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.anyField_ != null) {
+        return 10;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.anyField_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
+                      instance.getAnyField(),
+                      null,
+                      false);
+              instance.anyField_ = null;
+            }
+            instance.bitField0_ |= 0x00000001;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.anyField_ = com.google.protobuf.Any.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.anyField_ = com.google.protobuf.Any.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseApiFieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.apiField_ != null) {
+        return 18;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.apiField_ != null || fieldBuilders[1] != null) {
+            if (fieldBuilders[1] == null) {
+              fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.Api, com.google.protobuf.Api.Builder, com.google.protobuf.ApiOrBuilder>(
+                      instance.getApiField(),
+                      null,
+                      false);
+              instance.apiField_ = null;
+            }
+            instance.bitField0_ |= 0x00000002;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Api, com.google.protobuf.Api.Builder, com.google.protobuf.ApiOrBuilder>) fieldBuilders[1]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.apiField_ = com.google.protobuf.Api.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000002;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.apiField_ = com.google.protobuf.Api.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseDurationFieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.durationField_ != null) {
+        return 26;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.durationField_ != null || fieldBuilders[2] != null) {
+            if (fieldBuilders[2] == null) {
+              fieldBuilders[2] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>(
+                      instance.getDurationField(),
+                      null,
+                      false);
+              instance.durationField_ = null;
+            }
+            instance.bitField0_ |= 0x00000004;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>) fieldBuilders[2]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.durationField_ = com.google.protobuf.Duration.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000004;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.durationField_ = com.google.protobuf.Duration.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseEmptyFieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.emptyField_ != null) {
+        return 34;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.emptyField_ != null || fieldBuilders[3] != null) {
+            if (fieldBuilders[3] == null) {
+              fieldBuilders[3] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.Empty, com.google.protobuf.Empty.Builder, com.google.protobuf.EmptyOrBuilder>(
+                      instance.getEmptyField(),
+                      null,
+                      false);
+              instance.emptyField_ = null;
+            }
+            instance.bitField0_ |= 0x00000008;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Empty, com.google.protobuf.Empty.Builder, com.google.protobuf.EmptyOrBuilder>) fieldBuilders[3]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.emptyField_ = com.google.protobuf.Empty.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000008;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.emptyField_ = com.google.protobuf.Empty.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000008;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseFieldMaskFieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.fieldMaskField_ != null) {
+        return 42;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.fieldMaskField_ != null || fieldBuilders[4] != null) {
+            if (fieldBuilders[4] == null) {
+              fieldBuilders[4] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder>(
+                      instance.getFieldMaskField(),
+                      null,
+                      false);
+              instance.fieldMaskField_ = null;
+            }
+            instance.bitField0_ |= 0x00000010;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder>) fieldBuilders[4]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.fieldMaskField_ = com.google.protobuf.FieldMask.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000010;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.fieldMaskField_ = com.google.protobuf.FieldMask.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000010;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseSourceContextFieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.sourceContextField_ != null) {
+        return 50;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.sourceContextField_ != null || fieldBuilders[5] != null) {
+            if (fieldBuilders[5] == null) {
+              fieldBuilders[5] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder, com.google.protobuf.SourceContextOrBuilder>(
+                      instance.getSourceContextField(),
+                      null,
+                      false);
+              instance.sourceContextField_ = null;
+            }
+            instance.bitField0_ |= 0x00000020;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder, com.google.protobuf.SourceContextOrBuilder>) fieldBuilders[5]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.sourceContextField_ = com.google.protobuf.SourceContext.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000020;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.sourceContextField_ = com.google.protobuf.SourceContext.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000020;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseStructFieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.structField_ != null) {
+        return 58;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.structField_ != null || fieldBuilders[6] != null) {
+            if (fieldBuilders[6] == null) {
+              fieldBuilders[6] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+                      instance.getStructField(),
+                      null,
+                      false);
+              instance.structField_ = null;
+            }
+            instance.bitField0_ |= 0x00000040;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>) fieldBuilders[6]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.structField_ = com.google.protobuf.Struct.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000040;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.structField_ = com.google.protobuf.Struct.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000040;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseTimestampFieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.timestampField_ != null) {
+        return 66;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.timestampField_ != null || fieldBuilders[7] != null) {
+            if (fieldBuilders[7] == null) {
+              fieldBuilders[7] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                      instance.getTimestampField(),
+                      null,
+                      false);
+              instance.timestampField_ = null;
+            }
+            instance.bitField0_ |= 0x00000080;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>) fieldBuilders[7]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.timestampField_ = com.google.protobuf.Timestamp.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000080;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.timestampField_ = com.google.protobuf.Timestamp.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000080;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseTypeFieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.typeField_ != null) {
+        return 74;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.typeField_ != null || fieldBuilders[8] != null) {
+            if (fieldBuilders[8] == null) {
+              fieldBuilders[8] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.Type, com.google.protobuf.Type.Builder, com.google.protobuf.TypeOrBuilder>(
+                      instance.getTypeField(),
+                      null,
+                      false);
+              instance.typeField_ = null;
+            }
+            instance.bitField0_ |= 0x00000100;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Type, com.google.protobuf.Type.Builder, com.google.protobuf.TypeOrBuilder>) fieldBuilders[8]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.typeField_ = com.google.protobuf.Type.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000100;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.typeField_ = com.google.protobuf.Type.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000100;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseDoubleFieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.doubleField_ != null) {
+        return 82;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.doubleField_ != null || fieldBuilders[9] != null) {
+            if (fieldBuilders[9] == null) {
+              fieldBuilders[9] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder>(
+                      instance.getDoubleField(),
+                      null,
+                      false);
+              instance.doubleField_ = null;
+            }
+            instance.bitField0_ |= 0x00000200;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder>) fieldBuilders[9]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.doubleField_ = com.google.protobuf.DoubleValue.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000200;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.doubleField_ = com.google.protobuf.DoubleValue.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000200;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseFloatFieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.floatField_ != null) {
+        return 90;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.floatField_ != null || fieldBuilders[10] != null) {
+            if (fieldBuilders[10] == null) {
+              fieldBuilders[10] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder>(
+                      instance.getFloatField(),
+                      null,
+                      false);
+              instance.floatField_ = null;
+            }
+            instance.bitField0_ |= 0x00000400;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder>) fieldBuilders[10]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.floatField_ = com.google.protobuf.FloatValue.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000400;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.floatField_ = com.google.protobuf.FloatValue.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000400;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseInt64FieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.int64Field_ != null) {
+        return 98;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.int64Field_ != null || fieldBuilders[11] != null) {
+            if (fieldBuilders[11] == null) {
+              fieldBuilders[11] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder>(
+                      instance.getInt64Field(),
+                      null,
+                      false);
+              instance.int64Field_ = null;
+            }
+            instance.bitField0_ |= 0x00000800;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder>) fieldBuilders[11]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.int64Field_ = com.google.protobuf.Int64Value.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000800;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.int64Field_ = com.google.protobuf.Int64Value.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000800;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseUint64FieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.uint64Field_ != null) {
+        return 106;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.uint64Field_ != null || fieldBuilders[12] != null) {
+            if (fieldBuilders[12] == null) {
+              fieldBuilders[12] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder>(
+                      instance.getUint64Field(),
+                      null,
+                      false);
+              instance.uint64Field_ = null;
+            }
+            instance.bitField0_ |= 0x00001000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder>) fieldBuilders[12]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.uint64Field_ = com.google.protobuf.UInt64Value.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00001000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.uint64Field_ = com.google.protobuf.UInt64Value.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00001000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseInt32FieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.int32Field_ != null) {
+        return 114;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.int32Field_ != null || fieldBuilders[13] != null) {
+            if (fieldBuilders[13] == null) {
+              fieldBuilders[13] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>(
+                      instance.getInt32Field(),
+                      null,
+                      false);
+              instance.int32Field_ = null;
+            }
+            instance.bitField0_ |= 0x00002000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>) fieldBuilders[13]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.int32Field_ = com.google.protobuf.Int32Value.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00002000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.int32Field_ = com.google.protobuf.Int32Value.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00002000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseUint32FieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.uint32Field_ != null) {
+        return 122;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.uint32Field_ != null || fieldBuilders[14] != null) {
+            if (fieldBuilders[14] == null) {
+              fieldBuilders[14] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder>(
+                      instance.getUint32Field(),
+                      null,
+                      false);
+              instance.uint32Field_ = null;
+            }
+            instance.bitField0_ |= 0x00004000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder>) fieldBuilders[14]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.uint32Field_ = com.google.protobuf.UInt32Value.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00004000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.uint32Field_ = com.google.protobuf.UInt32Value.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00004000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseBoolFieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.boolField_ != null) {
+        return 130;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.boolField_ != null || fieldBuilders[15] != null) {
+            if (fieldBuilders[15] == null) {
+              fieldBuilders[15] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder>(
+                      instance.getBoolField(),
+                      null,
+                      false);
+              instance.boolField_ = null;
+            }
+            instance.bitField0_ |= 0x00008000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder>) fieldBuilders[15]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.boolField_ = com.google.protobuf.BoolValue.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00008000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.boolField_ = com.google.protobuf.BoolValue.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00008000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseStringFieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.stringField_ != null) {
+        return 138;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.stringField_ != null || fieldBuilders[16] != null) {
+            if (fieldBuilders[16] == null) {
+              fieldBuilders[16] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>(
+                      instance.getStringField(),
+                      null,
+                      false);
+              instance.stringField_ = null;
+            }
+            instance.bitField0_ |= 0x00010000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>) fieldBuilders[16]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.stringField_ = com.google.protobuf.StringValue.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00010000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.stringField_ = com.google.protobuf.StringValue.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00010000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseBytesFieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.bytesField_ != null) {
+        return 146;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.bytesField_ != null || fieldBuilders[17] != null) {
+            if (fieldBuilders[17] == null) {
+              fieldBuilders[17] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder>(
+                      instance.getBytesField(),
+                      null,
+                      false);
+              instance.bytesField_ = null;
+            }
+            instance.bitField0_ |= 0x00020000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder>) fieldBuilders[17]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.bytesField_ = com.google.protobuf.BytesValue.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00020000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.bytesField_ = com.google.protobuf.BytesValue.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00020000;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseValueFieldField(
+        com.google.protobuf.test.TestWellKnownTypes instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.valueField_ != null) {
+        return 154;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.valueField_ != null || fieldBuilders[18] != null) {
+            if (fieldBuilders[18] == null) {
+              fieldBuilders[18] = new com.google.protobuf.SingleFieldBuilder<
+                  com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder>(
+                      instance.getValueField(),
+                      null,
+                      false);
+              instance.valueField_ = null;
+            }
+            instance.bitField0_ |= 0x00040000;
+          ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder>) fieldBuilders[18]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.valueField_ = com.google.protobuf.Value.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00040000;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.valueField_ = com.google.protobuf.Value.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00040000;
+      return 0;
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        TestWellKnownTypes instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[19];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        TestWellKnownTypes instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasAnyField()) instance.anyField_ = null;
+      if (instance.hasAnyField()) {
+        instance.anyField_ = fieldBuilders[0] == null
+            ? instance.anyField_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>) fieldBuilders[0]).build();
+
+      }
+      if (!instance.hasApiField()) instance.apiField_ = null;
+      if (instance.hasApiField()) {
+        instance.apiField_ = fieldBuilders[1] == null
+            ? instance.apiField_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Api, com.google.protobuf.Api.Builder, com.google.protobuf.ApiOrBuilder>) fieldBuilders[1]).build();
+
+      }
+      if (!instance.hasDurationField()) instance.durationField_ = null;
+      if (instance.hasDurationField()) {
+        instance.durationField_ = fieldBuilders[2] == null
+            ? instance.durationField_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Duration, com.google.protobuf.Duration.Builder, com.google.protobuf.DurationOrBuilder>) fieldBuilders[2]).build();
+
+      }
+      if (!instance.hasEmptyField()) instance.emptyField_ = null;
+      if (instance.hasEmptyField()) {
+        instance.emptyField_ = fieldBuilders[3] == null
+            ? instance.emptyField_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Empty, com.google.protobuf.Empty.Builder, com.google.protobuf.EmptyOrBuilder>) fieldBuilders[3]).build();
+
+      }
+      if (!instance.hasFieldMaskField()) instance.fieldMaskField_ = null;
+      if (instance.hasFieldMaskField()) {
+        instance.fieldMaskField_ = fieldBuilders[4] == null
+            ? instance.fieldMaskField_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder, com.google.protobuf.FieldMaskOrBuilder>) fieldBuilders[4]).build();
+
+      }
+      if (!instance.hasSourceContextField()) instance.sourceContextField_ = null;
+      if (instance.hasSourceContextField()) {
+        instance.sourceContextField_ = fieldBuilders[5] == null
+            ? instance.sourceContextField_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder, com.google.protobuf.SourceContextOrBuilder>) fieldBuilders[5]).build();
+
+      }
+      if (!instance.hasStructField()) instance.structField_ = null;
+      if (instance.hasStructField()) {
+        instance.structField_ = fieldBuilders[6] == null
+            ? instance.structField_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>) fieldBuilders[6]).build();
+
+      }
+      if (!instance.hasTimestampField()) instance.timestampField_ = null;
+      if (instance.hasTimestampField()) {
+        instance.timestampField_ = fieldBuilders[7] == null
+            ? instance.timestampField_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>) fieldBuilders[7]).build();
+
+      }
+      if (!instance.hasTypeField()) instance.typeField_ = null;
+      if (instance.hasTypeField()) {
+        instance.typeField_ = fieldBuilders[8] == null
+            ? instance.typeField_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Type, com.google.protobuf.Type.Builder, com.google.protobuf.TypeOrBuilder>) fieldBuilders[8]).build();
+
+      }
+      if (!instance.hasDoubleField()) instance.doubleField_ = null;
+      if (instance.hasDoubleField()) {
+        instance.doubleField_ = fieldBuilders[9] == null
+            ? instance.doubleField_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder, com.google.protobuf.DoubleValueOrBuilder>) fieldBuilders[9]).build();
+
+      }
+      if (!instance.hasFloatField()) instance.floatField_ = null;
+      if (instance.hasFloatField()) {
+        instance.floatField_ = fieldBuilders[10] == null
+            ? instance.floatField_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder, com.google.protobuf.FloatValueOrBuilder>) fieldBuilders[10]).build();
+
+      }
+      if (!instance.hasInt64Field()) instance.int64Field_ = null;
+      if (instance.hasInt64Field()) {
+        instance.int64Field_ = fieldBuilders[11] == null
+            ? instance.int64Field_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder, com.google.protobuf.Int64ValueOrBuilder>) fieldBuilders[11]).build();
+
+      }
+      if (!instance.hasUint64Field()) instance.uint64Field_ = null;
+      if (instance.hasUint64Field()) {
+        instance.uint64Field_ = fieldBuilders[12] == null
+            ? instance.uint64Field_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder, com.google.protobuf.UInt64ValueOrBuilder>) fieldBuilders[12]).build();
+
+      }
+      if (!instance.hasInt32Field()) instance.int32Field_ = null;
+      if (instance.hasInt32Field()) {
+        instance.int32Field_ = fieldBuilders[13] == null
+            ? instance.int32Field_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder, com.google.protobuf.Int32ValueOrBuilder>) fieldBuilders[13]).build();
+
+      }
+      if (!instance.hasUint32Field()) instance.uint32Field_ = null;
+      if (instance.hasUint32Field()) {
+        instance.uint32Field_ = fieldBuilders[14] == null
+            ? instance.uint32Field_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder, com.google.protobuf.UInt32ValueOrBuilder>) fieldBuilders[14]).build();
+
+      }
+      if (!instance.hasBoolField()) instance.boolField_ = null;
+      if (instance.hasBoolField()) {
+        instance.boolField_ = fieldBuilders[15] == null
+            ? instance.boolField_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder, com.google.protobuf.BoolValueOrBuilder>) fieldBuilders[15]).build();
+
+      }
+      if (!instance.hasStringField()) instance.stringField_ = null;
+      if (instance.hasStringField()) {
+        instance.stringField_ = fieldBuilders[16] == null
+            ? instance.stringField_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder, com.google.protobuf.StringValueOrBuilder>) fieldBuilders[16]).build();
+
+      }
+      if (!instance.hasBytesField()) instance.bytesField_ = null;
+      if (instance.hasBytesField()) {
+        instance.bytesField_ = fieldBuilders[17] == null
+            ? instance.bytesField_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder, com.google.protobuf.BytesValueOrBuilder>) fieldBuilders[17]).build();
+
+      }
+      if (!instance.hasValueField()) instance.valueField_ = null;
+      if (instance.hasValueField()) {
+        instance.valueField_ = fieldBuilders[18] == null
+            ? instance.valueField_
+            : ((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Value, com.google.protobuf.Value.Builder, com.google.protobuf.ValueOrBuilder>) fieldBuilders[18]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<TestWellKnownTypes> parser() {
     return PARSER;

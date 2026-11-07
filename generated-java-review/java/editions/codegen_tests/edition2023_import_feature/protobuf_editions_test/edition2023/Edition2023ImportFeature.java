@@ -294,7 +294,7 @@ public final class Edition2023ImportFeature extends com.google.protobuf.Generate
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -323,14 +323,27 @@ public final class Edition2023ImportFeature extends com.google.protobuf.Generate
                 protobuf_editions_test.edition2023.Edition2023ImportFeature.Edition2023ImportFeatureMessage.class, protobuf_editions_test.edition2023.Edition2023ImportFeature.Edition2023ImportFeatureMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.edition2023.Edition2023ImportFeature.Edition2023ImportFeatureMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        view_ = "";
+
+      }
+      private Builder(protobuf_editions_test.edition2023.Edition2023ImportFeature.Edition2023ImportFeatureMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -377,6 +390,12 @@ public final class Edition2023ImportFeature extends com.google.protobuf.Generate
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(protobuf_editions_test.edition2023.Edition2023ImportFeature.Edition2023ImportFeatureMessage other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        view_ = other.view_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -442,7 +461,7 @@ public final class Edition2023ImportFeature extends com.google.protobuf.Generate
       }
       private int bitField0_;
 
-      private java.lang.Object view_ = "";
+      private java.lang.Object view_;
       /**
        * <code>string view = 1 [features = { ... }</code>
        * @return Whether the view field is set.
@@ -535,21 +554,56 @@ public final class Edition2023ImportFeature extends com.google.protobuf.Generate
     }
 
     private static final com.google.protobuf.Parser<Edition2023ImportFeatureMessage>
-        PARSER = new com.google.protobuf.AbstractParser<Edition2023ImportFeatureMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Edition2023ImportFeatureMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public Edition2023ImportFeatureMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Edition2023ImportFeatureMessage instance = new Edition2023ImportFeatureMessage((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.lang.Object parsed_view = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                parsed_view = input.readStringRequireUtf8();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parsed_view != null) instance.view_ = parsed_view;
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<Edition2023ImportFeatureMessage> parser() {
       return PARSER;

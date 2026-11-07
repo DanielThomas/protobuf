@@ -223,7 +223,7 @@ public final class NonNestedExtensionLite extends com.google.protobuf.GeneratedF
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -253,14 +253,25 @@ public final class NonNestedExtensionLite extends com.google.protobuf.GeneratedF
                 proto2_unittest.NonNestedExtensionLite.MessageLiteToBeExtended.class, proto2_unittest.NonNestedExtensionLite.MessageLiteToBeExtended.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.NonNestedExtensionLite.MessageLiteToBeExtended.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(proto2_unittest.NonNestedExtensionLite.MessageLiteToBeExtended other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -389,21 +400,46 @@ public final class NonNestedExtensionLite extends com.google.protobuf.GeneratedF
     }
 
     private static final com.google.protobuf.Parser<MessageLiteToBeExtended>
-        PARSER = new com.google.protobuf.AbstractParser<MessageLiteToBeExtended>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MessageLiteToBeExtended> {
+      MessageParser() {}
+
       @java.lang.Override
       public MessageLiteToBeExtended parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        MessageLiteToBeExtended instance = new MessageLiteToBeExtended((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                pendingTag = tag;
+                break parseLoop;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        if (pendingTag != 0) {
+          return mergeFrom(instance.toBuilder(), input, extensionRegistry, pendingTag, null);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<MessageLiteToBeExtended> parser() {
       return PARSER;
@@ -603,7 +639,7 @@ public final class NonNestedExtensionLite extends com.google.protobuf.GeneratedF
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -632,14 +668,25 @@ public final class NonNestedExtensionLite extends com.google.protobuf.GeneratedF
                 proto2_unittest.NonNestedExtensionLite.MyNonNestedExtensionLite.class, proto2_unittest.NonNestedExtensionLite.MyNonNestedExtensionLite.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.NonNestedExtensionLite.MyNonNestedExtensionLite.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(proto2_unittest.NonNestedExtensionLite.MyNonNestedExtensionLite other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -741,21 +788,45 @@ public final class NonNestedExtensionLite extends com.google.protobuf.GeneratedF
     }
 
     private static final com.google.protobuf.Parser<MyNonNestedExtensionLite>
-        PARSER = new com.google.protobuf.AbstractParser<MyNonNestedExtensionLite>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MyNonNestedExtensionLite> {
+      MessageParser() {}
+
       @java.lang.Override
       public MyNonNestedExtensionLite parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        MyNonNestedExtensionLite instance = new MyNonNestedExtensionLite((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<MyNonNestedExtensionLite> parser() {
       return PARSER;

@@ -565,7 +565,7 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
         @java.lang.Override
         public Builder toBuilder() {
           return this == DEFAULT_INSTANCE
-              ? new Builder() : new Builder().mergeFrom(this);
+              ? new Builder() : new Builder(this);
         }
 
         @java.lang.Override
@@ -594,14 +594,26 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
                     MultiLevelNestingTest.Function.Parameter.Value.class, MultiLevelNestingTest.Function.Parameter.Value.Builder.class);
           }
 
+          // Resolve parameter types so constructor access bridges generated for
+          // targets before Java 11 can inline.
+          static {
+            java.lang.reflect.Constructor<?>[] unused =
+                Builder.class.getDeclaredConstructors();
+          }
+
           // Construct using MultiLevelNestingTest.Function.Parameter.Value.newBuilder()
           private Builder() {
-
+            this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessage.BuilderParent parent) {
             super(parent);
+
+          }
+          private Builder(MultiLevelNestingTest.Function.Parameter.Value other) {
+            super(other, null);
+            copyFrom_autosplit_0(other);
 
           }
           @java.lang.Override
@@ -651,6 +663,19 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
               result.type_ = type_;
             }
             result.bitField0_ |= to_bitField0_;
+          }
+
+          private void copyFrom_autosplit_0(MultiLevelNestingTest.Function.Parameter.Value other) {
+            int to_bitField0_ = 0;
+            if (other.typeCase_ == 1) {
+              to_bitField0_ |= 0x00000001;
+            }
+            if (other.typeCase_ == 2) {
+              to_bitField0_ |= 0x00000002;
+            }
+            typeCase_ = other.typeCase_;
+            type_ = other.type_;
+            bitField0_ |= to_bitField0_;
           }
 
           @java.lang.Override
@@ -735,7 +760,7 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
             } // finally
             return this;
           }
-          private int typeCase_ = 0;
+          private int typeCase_;
           private java.lang.Object type_;
           public TypeCase
               getTypeCase() {
@@ -957,21 +982,69 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
         }
 
         private static final com.google.protobuf.Parser<Value>
-            PARSER = new com.google.protobuf.AbstractParser<Value>() {
+            PARSER = new MessageParser();
+
+        private static final class MessageParser
+            extends com.google.protobuf.GeneratedMessageParser<Value> {
+          MessageParser() {}
+
           @java.lang.Override
           public Value parsePartialFrom(
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            Builder builder = newBuilder();
+            java.util.Objects.requireNonNull(extensionRegistry);
+            Value instance = new Value((Builder) null);
+            java.lang.Object unknown = null;
+            java.io.IOException parseFailure = null;
             try {
-              builder.mergeFrom(input, extensionRegistry);
-            } catch (java.lang.Exception e) {
-              wrapAndThrowParseException(e, builder);
+              parseLoop: while (true) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0: break parseLoop;
+                  case 10: {
+                    parseStringField(instance, input, extensionRegistry);
+                    break;
+                  } // case 10
+                  case 16: {
+                    parseIntegerField(instance, input, extensionRegistry);
+                    break;
+                  } // case 16
+                  default: {
+                    unknown = prepareUnknownFields(unknown, input);
+                    if (!parseUnknownField(input, unknown, tag)) {
+                      break parseLoop;
+                    }
+                    break;
+                  }
+                }
+              }
+            } catch (java.io.IOException e) {
+              parseFailure = e;
             }
-            return builder.buildPartial();
+            finishUnknownFields(instance, unknown);
+            if (parseFailure != null) {
+              throwParseException(parseFailure, instance);
+            }
+            return instance;
           }
-        };
+          private static void parseStringField(
+              MultiLevelNestingTest.Function.Parameter.Value instance, com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            java.lang.String value = input.readStringRequireUtf8();
+            instance.typeCase_ = 1;
+            instance.type_ = value;
+          }
+          private static void parseIntegerField(
+              MultiLevelNestingTest.Function.Parameter.Value instance, com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws java.io.IOException {
+            long value = input.readInt64();
+            instance.typeCase_ = 2;
+            instance.type_ = value;
+          }
+        }
 
         public static com.google.protobuf.Parser<Value> parser() {
           return PARSER;
@@ -1230,7 +1303,7 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
       @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
+            ? new Builder() : new Builder(this);
       }
 
       @java.lang.Override
@@ -1259,14 +1332,27 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
                   MultiLevelNestingTest.Function.Parameter.class, MultiLevelNestingTest.Function.Parameter.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using MultiLevelNestingTest.Function.Parameter.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+          name_ = "";
+          maybeForceBuilderInitialization();
+        }
+        private Builder(MultiLevelNestingTest.Function.Parameter other) {
+          super(other, null);
+          copyFrom_autosplit_0(other);
           maybeForceBuilderInitialization();
         }
         private void maybeForceBuilderInitialization() {
@@ -1327,9 +1413,16 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
           }
           if (((from_bitField0_ & 0x00000002) != 0)) {
             result.name_ = name_;
-            ;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(MultiLevelNestingTest.Function.Parameter other) {
+          int to_bitField0_ = (other.bitField0_ & 0x00000001);
+          value_ = other.value_;
+          name_ = other.name_;
+          to_bitField0_ |= 0x00000002;
+          bitField0_ |= to_bitField0_;
         }
 
         @java.lang.Override
@@ -1402,7 +1495,7 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
         }
         private int bitField0_;
 
-        private java.lang.Object name_ = "";
+        private java.lang.Object name_;
         /**
          * <code>string name = 1;</code>
          * @return The name.
@@ -1616,21 +1709,117 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
       }
 
       private static final com.google.protobuf.Parser<Parameter>
-          PARSER = new com.google.protobuf.AbstractParser<Parameter>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<Parameter> {
+        MessageParser() {}
+
         @java.lang.Override
         public Parameter parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
+          java.util.Objects.requireNonNull(extensionRegistry);
+          Parameter instance = new Parameter((Builder) null);
+          java.lang.Object unknown = null;
+          int pendingTag = 0;
+          java.lang.Object parsed_name = null;
+          java.io.IOException parseFailure = null;
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
           try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
+            parseLoop: while (true) {
+              int tag = input.readTag();
+              retryTag: while (true) {
+              switch (tag) {
+                case 0: break parseLoop;
+                case 10: {
+                  parsed_name = input.readStringRequireUtf8();
+
+                  break;
+                } // case 10
+                case 18: {
+                  pendingTag = parseValueField(instance, input, extensionRegistry, fieldBuilders);
+                  break;
+                } // case 18
+                default: {
+                  unknown = prepareUnknownFields(unknown, input);
+                  if (!parseUnknownField(input, unknown, tag)) {
+                    break parseLoop;
+                  }
+                  break;
+                }
+              }
+              if (pendingTag == 0) break retryTag;
+              fieldBuilders = prepareChildren(instance, pendingTag);
+              pendingTag = 0;
+              }
+            }
+          } catch (java.io.IOException e) {
+            parseFailure = e;
           }
-          return builder.buildPartial();
+          finishUnknownFields(instance, unknown);
+          if (parsed_name != null) instance.name_ = parsed_name;
+          if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+          if (parseFailure != null) {
+            throwParseException(parseFailure, instance);
+          }
+          return instance;
         }
-      };
+        @java.lang.SuppressWarnings("unchecked")
+        private static int parseValueField(
+            MultiLevelNestingTest.Function.Parameter instance, com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+            throws java.io.IOException {
+          if (fieldBuilders == null && instance.value_ != null) {
+            return 18;
+          }
+          if (fieldBuilders != null) {
+            final int oldLimit = input.pushLimitBeforeMessage();
+            if (instance.value_ != null || fieldBuilders[0] != null) {
+                if (fieldBuilders[0] == null) {
+                  fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                      MultiLevelNestingTest.Function.Parameter.Value, MultiLevelNestingTest.Function.Parameter.Value.Builder, MultiLevelNestingTest.Function.Parameter.ValueOrBuilder>(
+                          instance.getValue(),
+                          null,
+                          false);
+                  instance.value_ = null;
+                }
+                instance.bitField0_ |= 0x00000001;
+              ((com.google.protobuf.SingleFieldBuilder<MultiLevelNestingTest.Function.Parameter.Value, MultiLevelNestingTest.Function.Parameter.Value.Builder, MultiLevelNestingTest.Function.Parameter.ValueOrBuilder>) fieldBuilders[0]).getBuilder()
+                  .mergeFrom(input, extensionRegistry);
+            } else {
+              instance.value_ = MultiLevelNestingTest.Function.Parameter.Value.parser().parsePartialFrom(input, extensionRegistry);
+            }
+            input.popLimitAfterMessage(oldLimit);
+            instance.bitField0_ |= 0x00000001;
+            return 0;
+          }
+          final int oldLimit = input.pushLimitBeforeMessage();
+          instance.value_ = MultiLevelNestingTest.Function.Parameter.Value.parser().parsePartialFrom(input, extensionRegistry);
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000001;
+          return 0;
+        }
+        private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+            Parameter instance, int tag) {
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+              new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+          return fieldBuilders;
+        }
+        @java.lang.SuppressWarnings("unchecked")
+        private static void finishChildren0(
+            Parameter instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+          if (!instance.hasValue()) instance.value_ = null;
+          if (instance.hasValue()) {
+            instance.value_ = fieldBuilders[0] == null
+                ? instance.value_
+                : ((com.google.protobuf.SingleFieldBuilder<MultiLevelNestingTest.Function.Parameter.Value, MultiLevelNestingTest.Function.Parameter.Value.Builder, MultiLevelNestingTest.Function.Parameter.ValueOrBuilder>) fieldBuilders[0]).build();
+
+          }
+        }
+      }
 
       public static com.google.protobuf.Parser<Parameter> parser() {
         return PARSER;
@@ -1955,7 +2144,7 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -1984,14 +2173,29 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
                 MultiLevelNestingTest.Function.class, MultiLevelNestingTest.Function.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using MultiLevelNestingTest.Function.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        name_ = "";
+        parameters_ = emptyList(MultiLevelNestingTest.Function.Parameter.class);
+        returnType_ = "";
+
+      }
+      private Builder(MultiLevelNestingTest.Function other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -2043,7 +2247,6 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.name_ = name_;
-          ;
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
         if (parametersBuilder_ == null) {
@@ -2055,9 +2258,21 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
           result.returnType_ = returnType_;
-          ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(MultiLevelNestingTest.Function other) {
+        int to_bitField0_ = 0;
+        name_ = other.name_;
+        to_bitField0_ |= 0x00000001;
+        parameters_ = other.parameters_;
+        if (!parameters_.isEmpty()) {
+          to_bitField0_ |= 0x00000002;
+        }
+        returnType_ = other.returnType_;
+        to_bitField0_ |= 0x00000004;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -2175,7 +2390,7 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
       }
       private int bitField0_;
 
-      private java.lang.Object name_ = "";
+      private java.lang.Object name_;
       /**
        * <code>string name = 1;</code>
        * @return The name.
@@ -2247,8 +2462,7 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<MultiLevelNestingTest.Function.Parameter> parameters_ =
-          emptyList(MultiLevelNestingTest.Function.Parameter.class);
+      private com.google.protobuf.Internal.ProtobufList<MultiLevelNestingTest.Function.Parameter> parameters_;
       private void ensureParametersIsMutable() {
         if (!parameters_.isModifiable()) {
           parameters_ = makeMutableCopy(parameters_);
@@ -2481,7 +2695,7 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
         return parametersBuilder_;
       }
 
-      private java.lang.Object returnType_ = "";
+      private java.lang.Object returnType_;
       /**
        * <code>string return_type = 3;</code>
        * @return The returnType.
@@ -2567,21 +2781,73 @@ public final class MultiLevelNestingTest extends com.google.protobuf.GeneratedFi
     }
 
     private static final com.google.protobuf.Parser<Function>
-        PARSER = new com.google.protobuf.AbstractParser<Function>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Function> {
+      MessageParser() {}
+
       @java.lang.Override
       public Function parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Function instance = new Function((Builder) null);
+        java.lang.Object unknown = null;
+        java.lang.Object parsed_name = null;
+        java.lang.Object parsed_returnType = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                parsed_name = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              case 18: {
+                final int oldLimit = input.pushLimitBeforeMessage();
+                MultiLevelNestingTest.Function.Parameter m = MultiLevelNestingTest.Function.Parameter.parser().parsePartialFrom(input, extensionRegistry);
+                input.popLimitAfterMessage(oldLimit);
+                if (!instance.parameters_.isModifiable()) {
+  instance.parameters_ = makeMutableCopy(instance.parameters_);
+}
+                instance.parameters_.add(m);
+                break;
+              } // case 18
+              case 26: {
+                parsed_returnType = input.readStringRequireUtf8();
+
+                break;
+              } // case 26
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parsed_name != null) instance.name_ = parsed_name;
+        if (parsed_returnType != null) instance.returnType_ = parsed_returnType;
+        finishCollections0(instance);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static void finishCollections0(Function instance) {
+        instance.parameters_.makeImmutable();
+      }
+    }
 
     public static com.google.protobuf.Parser<Function> parser() {
       return PARSER;

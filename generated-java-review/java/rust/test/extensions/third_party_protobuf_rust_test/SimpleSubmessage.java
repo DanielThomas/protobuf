@@ -226,7 +226,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -255,14 +255,27 @@ private static final long serialVersionUID = 0L;
               third_party_protobuf_rust_test.SimpleSubmessage.class, third_party_protobuf_rust_test.SimpleSubmessage.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using third_party_protobuf_rust_test.SimpleSubmessage.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      i32Field_ = 123;
+
+    }
+    private Builder(third_party_protobuf_rust_test.SimpleSubmessage other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -309,6 +322,12 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(third_party_protobuf_rust_test.SimpleSubmessage other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000001);
+      i32Field_ = other.getI32Field();
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -372,7 +391,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int i32Field_ = 123;
+    private int i32Field_;
     /**
      * <code>int32 i32_field = 1 [default = 123];</code>
      * @return Whether the i32Field field is set.
@@ -426,21 +445,54 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<SimpleSubmessage>
-      PARSER = new com.google.protobuf.AbstractParser<SimpleSubmessage>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<SimpleSubmessage> {
+    MessageParser() {}
+
     @java.lang.Override
     public SimpleSubmessage parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      SimpleSubmessage instance = new SimpleSubmessage((Builder) null);
+      java.lang.Object unknown = null;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.i32Field_ = input.readInt32();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<SimpleSubmessage> parser() {
     return PARSER;

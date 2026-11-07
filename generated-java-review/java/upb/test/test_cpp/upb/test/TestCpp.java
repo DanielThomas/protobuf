@@ -648,7 +648,7 @@ public final class TestCpp extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -677,14 +677,32 @@ public final class TestCpp extends com.google.protobuf.GeneratedFile {
                 upb.test.TestCpp.TestMessage.class, upb.test.TestCpp.TestMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using upb.test.TestCpp.TestMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        i32_ = 5;
+        rI32_ = emptyIntList();
+        str_ = "abc";
+        rStr_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        rMsg_ = emptyList(upb.test.TestCpp.TestMessage.class);
+        maybeForceBuilderInitialization();
+      }
+      private Builder(upb.test.TestCpp.TestMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -780,6 +798,26 @@ public final class TestCpp extends com.google.protobuf.GeneratedFile {
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(upb.test.TestCpp.TestMessage other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000007);
+        i32_ = other.getI32();
+        str_ = other.str_;
+        msg_ = other.msg_;
+        rI32_ = other.rI32_;
+        if (!rI32_.isEmpty()) {
+          to_bitField0_ |= 0x00000008;
+        }
+        rStr_ = other.rStr_;
+        if (!rStr_.isEmpty()) {
+          to_bitField0_ |= 0x00000010;
+        }
+        rMsg_ = other.rMsg_;
+        if (!rMsg_.isEmpty()) {
+          to_bitField0_ |= 0x00000020;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -946,7 +984,7 @@ public final class TestCpp extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int i32_ = 5;
+      private int i32_;
       /**
        * <code>optional int32 i32 = 1 [default = 5];</code>
        * @return Whether the i32 field is set.
@@ -986,7 +1024,7 @@ public final class TestCpp extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList rI32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList rI32_;
       private void ensureRI32IsMutable(int capacity) {
         if (!rI32_.isModifiable()) {
           rI32_ = makeMutableCopy(rI32_, capacity);
@@ -1070,7 +1108,7 @@ public final class TestCpp extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private java.lang.Object str_ = "abc";
+      private java.lang.Object str_;
       /**
        * <code>optional string str = 3 [default = "abc"];</code>
        * @return Whether the str field is set.
@@ -1150,8 +1188,7 @@ public final class TestCpp extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList rStr_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList rStr_;
       private void ensureRStrIsMutable() {
         if (!rStr_.isModifiable()) {
           rStr_ = new com.google.protobuf.LazyStringArrayList(rStr_);
@@ -1388,8 +1425,7 @@ public final class TestCpp extends com.google.protobuf.GeneratedFile {
         bitField0_ |= 0x00000004;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<upb.test.TestCpp.TestMessage> rMsg_ =
-          emptyList(upb.test.TestCpp.TestMessage.class);
+      private com.google.protobuf.Internal.ProtobufList<upb.test.TestCpp.TestMessage> rMsg_;
       private void ensureRMsgIsMutable() {
         if (!rMsg_.isModifiable()) {
           rMsg_ = makeMutableCopy(rMsg_);
@@ -1636,21 +1672,175 @@ public final class TestCpp extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<TestMessage>
-        PARSER = new com.google.protobuf.AbstractParser<TestMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestMessage instance = new TestMessage((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.lang.Object parsed_str = null;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.i32_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                int v = input.readInt32();
+                ensureRI32IsMutable(instance, /* capacity= */ -1);
+                instance.rI32_.addInt(v);
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRI32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.rI32_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 18
+              case 26: {
+                parsed_str = input.readBytes();
+                to_bitField0_ |= 0x00000002;
+                break;
+              } // case 26
+              case 34: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                ensureRStrIsMutable(instance);
+                instance.rStr_.add(bs);
+                break;
+              } // case 34
+              case 42: {
+                pendingTag = parseMsgField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 42
+              case 50: {
+                final int oldLimit = input.pushLimitBeforeMessage();
+                upb.test.TestCpp.TestMessage m = upb.test.TestCpp.TestMessage.parser().parsePartialFrom(input, extensionRegistry);
+                input.popLimitAfterMessage(oldLimit);
+                if (!instance.rMsg_.isModifiable()) {
+  instance.rMsg_ = makeMutableCopy(instance.rMsg_);
+}
+                instance.rMsg_.add(m);
+                break;
+              } // case 50
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parsed_str != null) instance.str_ = parsed_str;
+        finishCollections0(instance);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static void ensureRI32IsMutable(upb.test.TestCpp.TestMessage instance, int minCapacity) {
+        if (!instance.rI32_.isModifiable()) {
+          instance.rI32_ = makeMutableCopy(instance.rI32_, minCapacity);
+        }
+      }
+      private static void ensureRStrIsMutable(upb.test.TestCpp.TestMessage instance) {
+        if (!instance.rStr_.isModifiable()) {
+          instance.rStr_ = new com.google.protobuf.LazyStringArrayList(instance.rStr_);
+        }
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseMsgField(
+          upb.test.TestCpp.TestMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.msg_ != null) {
+          return 42;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.msg_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    upb.test.TestCpp.TestMessage, upb.test.TestCpp.TestMessage.Builder, upb.test.TestCpp.TestMessageOrBuilder>(
+                        instance.getMsg(),
+                        null,
+                        false);
+                instance.msg_ = null;
+              }
+              instance.bitField0_ |= 0x00000004;
+            ((com.google.protobuf.SingleFieldBuilder<upb.test.TestCpp.TestMessage, upb.test.TestCpp.TestMessage.Builder, upb.test.TestCpp.TestMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.msg_ = upb.test.TestCpp.TestMessage.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000004;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.msg_ = upb.test.TestCpp.TestMessage.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000004;
+        return 0;
+      }
+      private static void finishCollections0(TestMessage instance) {
+        instance.rI32_.makeImmutable();
+        instance.rStr_.makeImmutable();
+        instance.rMsg_.makeImmutable();
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          TestMessage instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          TestMessage instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasMsg()) instance.msg_ = null;
+        if (instance.hasMsg()) {
+          instance.msg_ = fieldBuilders[0] == null
+              ? instance.msg_
+              : ((com.google.protobuf.SingleFieldBuilder<upb.test.TestCpp.TestMessage, upb.test.TestCpp.TestMessage.Builder, upb.test.TestCpp.TestMessageOrBuilder>) fieldBuilders[0]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<TestMessage> parser() {
       return PARSER;

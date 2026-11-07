@@ -449,7 +449,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -482,14 +482,32 @@ private static final long serialVersionUID = 0L;
               proto2_unittest.TestStringView.class, proto2_unittest.TestStringView.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using proto2_unittest.TestStringView.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      singularString_ = "";
+      singularBytes_ = com.google.protobuf.ByteString.EMPTY;
+      implicitPresence_ = "";
+      repeatedString_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedBytes_ = emptyList(com.google.protobuf.ByteString.class);
+
+    }
+    private Builder(proto2_unittest.TestStringView other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -546,7 +564,6 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.implicitPresence_ = implicitPresence_;
-        ;
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
         repeatedString_.makeImmutable();
@@ -557,6 +574,23 @@ private static final long serialVersionUID = 0L;
         result.repeatedBytes_ = repeatedBytes_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(proto2_unittest.TestStringView other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000003);
+      singularString_ = other.singularString_;
+      singularBytes_ = other.getSingularBytes();
+      implicitPresence_ = other.implicitPresence_;
+      to_bitField0_ |= 0x00000004;
+      repeatedString_ = other.repeatedString_;
+      if (!repeatedString_.isEmpty()) {
+        to_bitField0_ |= 0x00000008;
+      }
+      repeatedBytes_ = other.repeatedBytes_;
+      if (!repeatedBytes_.isEmpty()) {
+        to_bitField0_ |= 0x00000010;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -672,7 +706,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object singularString_ = "";
+    private java.lang.Object singularString_;
     /**
      * <code>string singular_string = 1;</code>
      * @return Whether the singularString field is set.
@@ -751,7 +785,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.ByteString singularBytes_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString singularBytes_;
     /**
      * <code>bytes singular_bytes = 2;</code>
      * @return Whether the singularBytes field is set.
@@ -791,7 +825,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object implicitPresence_ = "";
+    private java.lang.Object implicitPresence_;
     /**
      * <code>string implicit_presence = 5 [features = { ... }</code>
      * @return The implicitPresence.
@@ -863,8 +897,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString_;
     private void ensureRepeatedStringIsMutable() {
       if (!repeatedString_.isModifiable()) {
         repeatedString_ = new com.google.protobuf.LazyStringArrayList(repeatedString_);
@@ -974,7 +1007,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes_ = emptyList(com.google.protobuf.ByteString.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes_;
     private void ensureRepeatedBytesIsMutable(int capacity) {
       if (!repeatedBytes_.isModifiable()) {
         repeatedBytes_ = makeMutableCopy(repeatedBytes_, capacity);
@@ -1072,21 +1105,94 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestStringView>
-      PARSER = new com.google.protobuf.AbstractParser<TestStringView>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestStringView> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestStringView parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestStringView instance = new TestStringView((Builder) null);
+      java.lang.Object unknown = null;
+      int to_bitField0_ = 0;
+      java.lang.Object parsed_singularString = null;
+      java.lang.Object parsed_implicitPresence = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              parsed_singularString = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              instance.singularBytes_ = input.readBytes();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              ensureRepeatedStringIsMutable(instance);
+              instance.repeatedString_.add(input.readStringRequireUtf8());
+              break;
+            } // case 26
+            case 34: {
+              com.google.protobuf.ByteString v = input.readBytes();
+              ensureRepeatedBytesIsMutable(instance, /* capacity= */ -1);
+              instance.repeatedBytes_.add(v);
+              break;
+            } // case 34
+            case 42: {
+              parsed_implicitPresence = input.readStringRequireUtf8();
+
+              break;
+            } // case 42
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parsed_singularString != null) instance.singularString_ = parsed_singularString;
+      if (parsed_implicitPresence != null) instance.implicitPresence_ = parsed_implicitPresence;
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensureRepeatedStringIsMutable(proto2_unittest.TestStringView instance) {
+      if (!instance.repeatedString_.isModifiable()) {
+        instance.repeatedString_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString_);
+      }
+    }
+    private static void ensureRepeatedBytesIsMutable(proto2_unittest.TestStringView instance, int minCapacity) {
+      if (!instance.repeatedBytes_.isModifiable()) {
+        instance.repeatedBytes_ = makeMutableCopy(instance.repeatedBytes_, minCapacity);
+      }
+    }
+    private static void finishCollections0(TestStringView instance) {
+      instance.repeatedString_.makeImmutable();
+      instance.repeatedBytes_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<TestStringView> parser() {
     return PARSER;

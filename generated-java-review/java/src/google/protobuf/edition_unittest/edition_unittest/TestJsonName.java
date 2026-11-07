@@ -435,7 +435,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -464,14 +464,26 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestJsonName.class, edition_unittest.TestJsonName.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestJsonName.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+
+    }
+    private Builder(edition_unittest.TestJsonName other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -548,6 +560,18 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000040;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestJsonName other) {
+      int to_bitField0_ = (other.bitField0_ & 0x0000007f);
+      fieldName1_ = other.getFieldName1();
+      fieldName2_ = other.getFieldName2();
+      fieldName3_ = other.getFieldName3();
+      FieldName4_ = other.getFieldName4();
+      fIELDNAME5_ = other.getFIELDNAME5();
+      fieldName6_ = other.getFieldName6();
+      fieldname7_ = other.getFieldname7();
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -659,7 +683,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int fieldName1_ ;
+    private int fieldName1_;
     /**
      * <code>int32 field_name1 = 1;</code>
      * @return Whether the fieldName1 field is set.
@@ -699,7 +723,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int fieldName2_ ;
+    private int fieldName2_;
     /**
      * <code>int32 fieldName2 = 2 [features = { ... }</code>
      * @return Whether the fieldName2 field is set.
@@ -739,7 +763,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int fieldName3_ ;
+    private int fieldName3_;
     /**
      * <code>int32 FieldName3 = 3 [features = { ... }</code>
      * @return Whether the fieldName3 field is set.
@@ -779,7 +803,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int FieldName4_ ;
+    private int FieldName4_;
     /**
      * <code>int32 _field_name4 = 4 [features = { ... }</code>
      * @return Whether the fieldName4 field is set.
@@ -819,7 +843,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int fIELDNAME5_ ;
+    private int fIELDNAME5_;
     /**
      * <code>int32 FIELD_NAME5 = 5 [features = { ... }</code>
      * @return Whether the fIELDNAME5 field is set.
@@ -859,7 +883,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int fieldName6_ ;
+    private int fieldName6_;
     /**
      * <code>int32 field_name6 = 6 [json_name = "&#64;type"];</code>
      * @return Whether the fieldName6 field is set.
@@ -899,7 +923,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int fieldname7_ ;
+    private int fieldname7_;
     /**
      * <code>int32 fieldname7 = 7;</code>
      * @return Whether the fieldname7 field is set.
@@ -953,21 +977,84 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestJsonName>
-      PARSER = new com.google.protobuf.AbstractParser<TestJsonName>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestJsonName> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestJsonName parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestJsonName instance = new TestJsonName((Builder) null);
+      java.lang.Object unknown = null;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.fieldName1_ = input.readInt32();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.fieldName2_ = input.readInt32();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              instance.fieldName3_ = input.readInt32();
+              to_bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              instance.FieldName4_ = input.readInt32();
+              to_bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              instance.fIELDNAME5_ = input.readInt32();
+              to_bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              instance.fieldName6_ = input.readInt32();
+              to_bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              instance.fieldname7_ = input.readInt32();
+              to_bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<TestJsonName> parser() {
     return PARSER;

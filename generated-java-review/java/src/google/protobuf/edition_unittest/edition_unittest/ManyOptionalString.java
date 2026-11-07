@@ -2206,7 +2206,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -2235,14 +2235,58 @@ private static final long serialVersionUID = 0L;
               edition_unittest.ManyOptionalString.class, edition_unittest.ManyOptionalString.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.ManyOptionalString.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      str1_ = "";
+      str2_ = "";
+      str3_ = "";
+      str4_ = "";
+      str5_ = "";
+      str6_ = "";
+      str7_ = "";
+      str8_ = "";
+      str9_ = "";
+      str10_ = "";
+      str11_ = "";
+      str12_ = "";
+      str13_ = "";
+      str14_ = "";
+      str15_ = "";
+      str16_ = "";
+      str17_ = "";
+      str18_ = "";
+      str19_ = "";
+      str20_ = "";
+      str21_ = "";
+      str22_ = "";
+      str23_ = "";
+      str24_ = "";
+      str25_ = "";
+      str26_ = "";
+      str27_ = "";
+      str28_ = "";
+      str29_ = "";
+      str30_ = "";
+      str31_ = "";
+      str32_ = "";
+
+    }
+    private Builder(edition_unittest.ManyOptionalString other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -2444,6 +2488,43 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x80000000;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.ManyOptionalString other) {
+      int to_bitField0_ = other.bitField0_;
+      str1_ = other.str1_;
+      str2_ = other.str2_;
+      str3_ = other.str3_;
+      str4_ = other.str4_;
+      str5_ = other.str5_;
+      str6_ = other.str6_;
+      str7_ = other.str7_;
+      str8_ = other.str8_;
+      str9_ = other.str9_;
+      str10_ = other.str10_;
+      str11_ = other.str11_;
+      str12_ = other.str12_;
+      str13_ = other.str13_;
+      str14_ = other.str14_;
+      str15_ = other.str15_;
+      str16_ = other.str16_;
+      str17_ = other.str17_;
+      str18_ = other.str18_;
+      str19_ = other.str19_;
+      str20_ = other.str20_;
+      str21_ = other.str21_;
+      str22_ = other.str22_;
+      str23_ = other.str23_;
+      str24_ = other.str24_;
+      str25_ = other.str25_;
+      str26_ = other.str26_;
+      str27_ = other.str27_;
+      str28_ = other.str28_;
+      str29_ = other.str29_;
+      str30_ = other.str30_;
+      str31_ = other.str31_;
+      str32_ = other.str32_;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -2819,7 +2900,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object str1_ = "";
+    private java.lang.Object str1_;
     /**
      * <code>string str1 = 1;</code>
      * @return Whether the str1 field is set.
@@ -2898,7 +2979,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str2_ = "";
+    private java.lang.Object str2_;
     /**
      * <code>string str2 = 2;</code>
      * @return Whether the str2 field is set.
@@ -2977,7 +3058,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str3_ = "";
+    private java.lang.Object str3_;
     /**
      * <code>string str3 = 3;</code>
      * @return Whether the str3 field is set.
@@ -3056,7 +3137,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str4_ = "";
+    private java.lang.Object str4_;
     /**
      * <code>string str4 = 4;</code>
      * @return Whether the str4 field is set.
@@ -3135,7 +3216,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str5_ = "";
+    private java.lang.Object str5_;
     /**
      * <code>string str5 = 5;</code>
      * @return Whether the str5 field is set.
@@ -3214,7 +3295,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str6_ = "";
+    private java.lang.Object str6_;
     /**
      * <code>string str6 = 6;</code>
      * @return Whether the str6 field is set.
@@ -3293,7 +3374,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str7_ = "";
+    private java.lang.Object str7_;
     /**
      * <code>string str7 = 7;</code>
      * @return Whether the str7 field is set.
@@ -3372,7 +3453,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str8_ = "";
+    private java.lang.Object str8_;
     /**
      * <code>string str8 = 8;</code>
      * @return Whether the str8 field is set.
@@ -3451,7 +3532,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str9_ = "";
+    private java.lang.Object str9_;
     /**
      * <code>string str9 = 9;</code>
      * @return Whether the str9 field is set.
@@ -3530,7 +3611,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str10_ = "";
+    private java.lang.Object str10_;
     /**
      * <code>string str10 = 10;</code>
      * @return Whether the str10 field is set.
@@ -3609,7 +3690,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str11_ = "";
+    private java.lang.Object str11_;
     /**
      * <code>string str11 = 11;</code>
      * @return Whether the str11 field is set.
@@ -3688,7 +3769,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str12_ = "";
+    private java.lang.Object str12_;
     /**
      * <code>string str12 = 12;</code>
      * @return Whether the str12 field is set.
@@ -3767,7 +3848,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str13_ = "";
+    private java.lang.Object str13_;
     /**
      * <code>string str13 = 13;</code>
      * @return Whether the str13 field is set.
@@ -3846,7 +3927,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str14_ = "";
+    private java.lang.Object str14_;
     /**
      * <code>string str14 = 14;</code>
      * @return Whether the str14 field is set.
@@ -3925,7 +4006,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str15_ = "";
+    private java.lang.Object str15_;
     /**
      * <code>string str15 = 15;</code>
      * @return Whether the str15 field is set.
@@ -4004,7 +4085,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str16_ = "";
+    private java.lang.Object str16_;
     /**
      * <code>string str16 = 16;</code>
      * @return Whether the str16 field is set.
@@ -4083,7 +4164,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str17_ = "";
+    private java.lang.Object str17_;
     /**
      * <code>string str17 = 17;</code>
      * @return Whether the str17 field is set.
@@ -4162,7 +4243,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str18_ = "";
+    private java.lang.Object str18_;
     /**
      * <code>string str18 = 18;</code>
      * @return Whether the str18 field is set.
@@ -4241,7 +4322,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str19_ = "";
+    private java.lang.Object str19_;
     /**
      * <code>string str19 = 19;</code>
      * @return Whether the str19 field is set.
@@ -4320,7 +4401,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str20_ = "";
+    private java.lang.Object str20_;
     /**
      * <code>string str20 = 20;</code>
      * @return Whether the str20 field is set.
@@ -4399,7 +4480,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str21_ = "";
+    private java.lang.Object str21_;
     /**
      * <code>string str21 = 21;</code>
      * @return Whether the str21 field is set.
@@ -4478,7 +4559,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str22_ = "";
+    private java.lang.Object str22_;
     /**
      * <code>string str22 = 22;</code>
      * @return Whether the str22 field is set.
@@ -4557,7 +4638,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str23_ = "";
+    private java.lang.Object str23_;
     /**
      * <code>string str23 = 23;</code>
      * @return Whether the str23 field is set.
@@ -4636,7 +4717,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str24_ = "";
+    private java.lang.Object str24_;
     /**
      * <code>string str24 = 24;</code>
      * @return Whether the str24 field is set.
@@ -4715,7 +4796,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str25_ = "";
+    private java.lang.Object str25_;
     /**
      * <code>string str25 = 25;</code>
      * @return Whether the str25 field is set.
@@ -4794,7 +4875,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str26_ = "";
+    private java.lang.Object str26_;
     /**
      * <code>string str26 = 26;</code>
      * @return Whether the str26 field is set.
@@ -4873,7 +4954,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str27_ = "";
+    private java.lang.Object str27_;
     /**
      * <code>string str27 = 27;</code>
      * @return Whether the str27 field is set.
@@ -4952,7 +5033,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str28_ = "";
+    private java.lang.Object str28_;
     /**
      * <code>string str28 = 28;</code>
      * @return Whether the str28 field is set.
@@ -5031,7 +5112,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str29_ = "";
+    private java.lang.Object str29_;
     /**
      * <code>string str29 = 29;</code>
      * @return Whether the str29 field is set.
@@ -5110,7 +5191,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str30_ = "";
+    private java.lang.Object str30_;
     /**
      * <code>string str30 = 30;</code>
      * @return Whether the str30 field is set.
@@ -5189,7 +5270,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str31_ = "";
+    private java.lang.Object str31_;
     /**
      * <code>string str31 = 31;</code>
      * @return Whether the str31 field is set.
@@ -5268,7 +5349,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object str32_ = "";
+    private java.lang.Object str32_;
     /**
      * <code>string str32 = 32;</code>
      * @return Whether the str32 field is set.
@@ -5361,21 +5442,273 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<ManyOptionalString>
-      PARSER = new com.google.protobuf.AbstractParser<ManyOptionalString>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<ManyOptionalString> {
+    MessageParser() {}
+
     @java.lang.Override
     public ManyOptionalString parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ManyOptionalString instance = new ManyOptionalString((Builder) null);
+      java.lang.Object unknown = null;
+      int to_bitField0_ = 0;
+      java.lang.Object parsed_str1 = null;
+      java.lang.Object parsed_str2 = null;
+      java.lang.Object parsed_str3 = null;
+      java.lang.Object parsed_str4 = null;
+      java.lang.Object parsed_str5 = null;
+      java.lang.Object parsed_str6 = null;
+      java.lang.Object parsed_str7 = null;
+      java.lang.Object parsed_str8 = null;
+      java.lang.Object parsed_str9 = null;
+      java.lang.Object parsed_str10 = null;
+      java.lang.Object parsed_str11 = null;
+      java.lang.Object parsed_str12 = null;
+      java.lang.Object parsed_str13 = null;
+      java.lang.Object parsed_str14 = null;
+      java.lang.Object parsed_str15 = null;
+      java.lang.Object parsed_str16 = null;
+      java.lang.Object parsed_str17 = null;
+      java.lang.Object parsed_str18 = null;
+      java.lang.Object parsed_str19 = null;
+      java.lang.Object parsed_str20 = null;
+      java.lang.Object parsed_str21 = null;
+      java.lang.Object parsed_str22 = null;
+      java.lang.Object parsed_str23 = null;
+      java.lang.Object parsed_str24 = null;
+      java.lang.Object parsed_str25 = null;
+      java.lang.Object parsed_str26 = null;
+      java.lang.Object parsed_str27 = null;
+      java.lang.Object parsed_str28 = null;
+      java.lang.Object parsed_str29 = null;
+      java.lang.Object parsed_str30 = null;
+      java.lang.Object parsed_str31 = null;
+      java.lang.Object parsed_str32 = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              parsed_str1 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              parsed_str2 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              parsed_str3 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              parsed_str4 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              parsed_str5 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              parsed_str6 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              parsed_str7 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              parsed_str8 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              parsed_str9 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              parsed_str10 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              parsed_str11 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 98: {
+              parsed_str12 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 106: {
+              parsed_str13 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            case 114: {
+              parsed_str14 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00002000;
+              break;
+            } // case 114
+            case 122: {
+              parsed_str15 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00004000;
+              break;
+            } // case 122
+            case 130: {
+              parsed_str16 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00008000;
+              break;
+            } // case 130
+            case 138: {
+              parsed_str17 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00010000;
+              break;
+            } // case 138
+            case 146: {
+              parsed_str18 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00020000;
+              break;
+            } // case 146
+            case 154: {
+              parsed_str19 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00040000;
+              break;
+            } // case 154
+            case 162: {
+              parsed_str20 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00080000;
+              break;
+            } // case 162
+            case 170: {
+              parsed_str21 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00100000;
+              break;
+            } // case 170
+            case 178: {
+              parsed_str22 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00200000;
+              break;
+            } // case 178
+            case 186: {
+              parsed_str23 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00400000;
+              break;
+            } // case 186
+            case 194: {
+              parsed_str24 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00800000;
+              break;
+            } // case 194
+            case 202: {
+              parsed_str25 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x01000000;
+              break;
+            } // case 202
+            case 210: {
+              parsed_str26 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x02000000;
+              break;
+            } // case 210
+            case 218: {
+              parsed_str27 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x04000000;
+              break;
+            } // case 218
+            case 226: {
+              parsed_str28 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x08000000;
+              break;
+            } // case 226
+            case 234: {
+              parsed_str29 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x10000000;
+              break;
+            } // case 234
+            case 242: {
+              parsed_str30 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x20000000;
+              break;
+            } // case 242
+            case 250: {
+              parsed_str31 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x40000000;
+              break;
+            } // case 250
+            case 258: {
+              parsed_str32 = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x80000000;
+              break;
+            } // case 258
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parsed_str1 != null) instance.str1_ = parsed_str1;
+      if (parsed_str2 != null) instance.str2_ = parsed_str2;
+      if (parsed_str3 != null) instance.str3_ = parsed_str3;
+      if (parsed_str4 != null) instance.str4_ = parsed_str4;
+      if (parsed_str5 != null) instance.str5_ = parsed_str5;
+      if (parsed_str6 != null) instance.str6_ = parsed_str6;
+      if (parsed_str7 != null) instance.str7_ = parsed_str7;
+      if (parsed_str8 != null) instance.str8_ = parsed_str8;
+      if (parsed_str9 != null) instance.str9_ = parsed_str9;
+      if (parsed_str10 != null) instance.str10_ = parsed_str10;
+      if (parsed_str11 != null) instance.str11_ = parsed_str11;
+      if (parsed_str12 != null) instance.str12_ = parsed_str12;
+      if (parsed_str13 != null) instance.str13_ = parsed_str13;
+      if (parsed_str14 != null) instance.str14_ = parsed_str14;
+      if (parsed_str15 != null) instance.str15_ = parsed_str15;
+      if (parsed_str16 != null) instance.str16_ = parsed_str16;
+      if (parsed_str17 != null) instance.str17_ = parsed_str17;
+      if (parsed_str18 != null) instance.str18_ = parsed_str18;
+      if (parsed_str19 != null) instance.str19_ = parsed_str19;
+      if (parsed_str20 != null) instance.str20_ = parsed_str20;
+      if (parsed_str21 != null) instance.str21_ = parsed_str21;
+      if (parsed_str22 != null) instance.str22_ = parsed_str22;
+      if (parsed_str23 != null) instance.str23_ = parsed_str23;
+      if (parsed_str24 != null) instance.str24_ = parsed_str24;
+      if (parsed_str25 != null) instance.str25_ = parsed_str25;
+      if (parsed_str26 != null) instance.str26_ = parsed_str26;
+      if (parsed_str27 != null) instance.str27_ = parsed_str27;
+      if (parsed_str28 != null) instance.str28_ = parsed_str28;
+      if (parsed_str29 != null) instance.str29_ = parsed_str29;
+      if (parsed_str30 != null) instance.str30_ = parsed_str30;
+      if (parsed_str31 != null) instance.str31_ = parsed_str31;
+      if (parsed_str32 != null) instance.str32_ = parsed_str32;
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<ManyOptionalString> parser() {
     return PARSER;

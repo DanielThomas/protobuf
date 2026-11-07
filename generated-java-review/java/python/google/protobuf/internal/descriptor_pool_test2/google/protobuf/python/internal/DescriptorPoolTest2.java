@@ -821,7 +821,7 @@ public final class DescriptorPoolTest2 extends com.google.protobuf.GeneratedFile
         @java.lang.Override
         public Builder toBuilder() {
           return this == DEFAULT_INSTANCE
-              ? new Builder() : new Builder().mergeFrom(this);
+              ? new Builder() : new Builder(this);
         }
 
         @java.lang.Override
@@ -850,14 +850,28 @@ public final class DescriptorPoolTest2 extends com.google.protobuf.GeneratedFile
                     google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.DeepNestedMessage.class, google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.DeepNestedMessage.Builder.class);
           }
 
+          // Resolve parameter types so constructor access bridges generated for
+          // targets before Java 11 can inline.
+          static {
+            java.lang.reflect.Constructor<?>[] unused =
+                Builder.class.getDeclaredConstructors();
+          }
+
           // Construct using google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.DeepNestedMessage.newBuilder()
           private Builder() {
-
+            this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
           }
 
           private Builder(
               com.google.protobuf.GeneratedMessage.BuilderParent parent) {
             super(parent);
+            nestedEnum_ = 17;
+            nestedField_ = "sigma";
+
+          }
+          private Builder(google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.DeepNestedMessage other) {
+            super(other, null);
+            copyFrom_autosplit_0(other);
 
           }
           @java.lang.Override
@@ -909,6 +923,13 @@ public final class DescriptorPoolTest2 extends com.google.protobuf.GeneratedFile
               to_bitField0_ |= 0x00000002;
             }
             result.bitField0_ |= to_bitField0_;
+          }
+
+          private void copyFrom_autosplit_0(google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.DeepNestedMessage other) {
+            int to_bitField0_ = (other.bitField0_ & 0x00000003);
+            nestedEnum_ = other.nestedEnum_;
+            nestedField_ = other.nestedField_;
+            bitField0_ |= to_bitField0_;
           }
 
           @java.lang.Override
@@ -989,7 +1010,7 @@ public final class DescriptorPoolTest2 extends com.google.protobuf.GeneratedFile
           }
           private int bitField0_;
 
-          private int nestedEnum_ = 17;
+          private int nestedEnum_;
           /**
            * <code>optional .google.protobuf.python.internal.DescriptorPoolTest3.NestedMessage.DeepNestedMessage.NestedEnum nested_enum = 1 [default = RHO];</code>
            * @return Whether the nestedEnum field is set.
@@ -1029,7 +1050,7 @@ public final class DescriptorPoolTest2 extends com.google.protobuf.GeneratedFile
             return this;
           }
 
-          private java.lang.Object nestedField_ = "sigma";
+          private java.lang.Object nestedField_;
           /**
            * <code>optional string nested_field = 2 [default = "sigma"];</code>
            * @return Whether the nestedField field is set.
@@ -1123,21 +1144,66 @@ public final class DescriptorPoolTest2 extends com.google.protobuf.GeneratedFile
         }
 
         private static final com.google.protobuf.Parser<DeepNestedMessage>
-            PARSER = new com.google.protobuf.AbstractParser<DeepNestedMessage>() {
+            PARSER = new MessageParser();
+
+        private static final class MessageParser
+            extends com.google.protobuf.GeneratedMessageParser<DeepNestedMessage> {
+          MessageParser() {}
+
           @java.lang.Override
           public DeepNestedMessage parsePartialFrom(
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            Builder builder = newBuilder();
+            java.util.Objects.requireNonNull(extensionRegistry);
+            DeepNestedMessage instance = new DeepNestedMessage((Builder) null);
+            java.lang.Object unknown = null;
+            int to_bitField0_ = 0;
+            java.lang.Object parsed_nestedField = null;
+            java.io.IOException parseFailure = null;
             try {
-              builder.mergeFrom(input, extensionRegistry);
-            } catch (java.lang.Exception e) {
-              wrapAndThrowParseException(e, builder);
+              parseLoop: while (true) {
+                int tag = input.readTag();
+                switch (tag) {
+                  case 0: break parseLoop;
+                  case 8: {
+                    int tmpRaw = input.readEnum();
+                    if (google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.DeepNestedMessage.NestedEnum.forNumber(tmpRaw) == null) {
+                      unknown = mergeUnknownVarintField(unknown, 1, tmpRaw);
+                    } else {
+                      instance.nestedEnum_ = tmpRaw;
+                      to_bitField0_ |= 0x00000001;
+                    }
+                    break;
+                  } // case 8
+                  case 18: {
+                    parsed_nestedField = input.readBytes();
+                    to_bitField0_ |= 0x00000002;
+                    break;
+                  } // case 18
+                  default: {
+                    unknown = prepareUnknownFields(unknown, input);
+                    if (!parseUnknownField(input, unknown, tag)) {
+                      break parseLoop;
+                    }
+                    break;
+                  }
+                }
+              }
+            } catch (java.io.IOException e) {
+              parseFailure = e;
             }
-            return builder.buildPartial();
+            finishUnknownFields(instance, unknown);
+            if (to_bitField0_ != 0) {
+              instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+            }
+            if (parsed_nestedField != null) instance.nestedField_ = parsed_nestedField;
+            if (parseFailure != null) {
+              throwParseException(parseFailure, instance);
+            }
+            return instance;
           }
-        };
+        }
 
         public static com.google.protobuf.Parser<DeepNestedMessage> parser() {
           return PARSER;
@@ -1444,7 +1510,7 @@ public final class DescriptorPoolTest2 extends com.google.protobuf.GeneratedFile
       @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
+            ? new Builder() : new Builder(this);
       }
 
       @java.lang.Override
@@ -1473,14 +1539,28 @@ public final class DescriptorPoolTest2 extends com.google.protobuf.GeneratedFile
                   google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.class, google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+          nestedEnum_ = 16;
+          nestedField_ = "nu";
+          maybeForceBuilderInitialization();
+        }
+        private Builder(google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage other) {
+          super(other, null);
+          copyFrom_autosplit_0(other);
           maybeForceBuilderInitialization();
         }
         private void maybeForceBuilderInitialization() {
@@ -1549,6 +1629,14 @@ public final class DescriptorPoolTest2 extends com.google.protobuf.GeneratedFile
             to_bitField0_ |= 0x00000004;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage other) {
+          int to_bitField0_ = (other.bitField0_ & 0x00000007);
+          nestedEnum_ = other.nestedEnum_;
+          nestedField_ = other.nestedField_;
+          deepNestedMessage_ = other.deepNestedMessage_;
+          bitField0_ |= to_bitField0_;
         }
 
         @java.lang.Override
@@ -1636,7 +1724,7 @@ public final class DescriptorPoolTest2 extends com.google.protobuf.GeneratedFile
         }
         private int bitField0_;
 
-        private int nestedEnum_ = 16;
+        private int nestedEnum_;
         /**
          * <code>optional .google.protobuf.python.internal.DescriptorPoolTest3.NestedMessage.NestedEnum nested_enum = 1 [default = PI];</code>
          * @return Whether the nestedEnum field is set.
@@ -1676,7 +1764,7 @@ public final class DescriptorPoolTest2 extends com.google.protobuf.GeneratedFile
           return this;
         }
 
-        private java.lang.Object nestedField_ = "nu";
+        private java.lang.Object nestedField_;
         /**
          * <code>optional string nested_field = 2 [default = "nu"];</code>
          * @return Whether the nestedField field is set.
@@ -1898,21 +1986,131 @@ public final class DescriptorPoolTest2 extends com.google.protobuf.GeneratedFile
       }
 
       private static final com.google.protobuf.Parser<NestedMessage>
-          PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<NestedMessage> {
+        MessageParser() {}
+
         @java.lang.Override
         public NestedMessage parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
+          java.util.Objects.requireNonNull(extensionRegistry);
+          NestedMessage instance = new NestedMessage((Builder) null);
+          java.lang.Object unknown = null;
+          int pendingTag = 0;
+          int to_bitField0_ = 0;
+          java.lang.Object parsed_nestedField = null;
+          java.io.IOException parseFailure = null;
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
           try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
+            parseLoop: while (true) {
+              int tag = input.readTag();
+              retryTag: while (true) {
+              switch (tag) {
+                case 0: break parseLoop;
+                case 8: {
+                  int tmpRaw = input.readEnum();
+                  if (google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.NestedEnum.forNumber(tmpRaw) == null) {
+                    unknown = mergeUnknownVarintField(unknown, 1, tmpRaw);
+                  } else {
+                    instance.nestedEnum_ = tmpRaw;
+                    to_bitField0_ |= 0x00000001;
+                  }
+                  break;
+                } // case 8
+                case 18: {
+                  parsed_nestedField = input.readBytes();
+                  to_bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                case 26: {
+                  pendingTag = parseDeepNestedMessageField(instance, input, extensionRegistry, fieldBuilders);
+                  break;
+                } // case 26
+                default: {
+                  unknown = prepareUnknownFields(unknown, input);
+                  if (!parseUnknownField(input, unknown, tag)) {
+                    break parseLoop;
+                  }
+                  break;
+                }
+              }
+              if (pendingTag == 0) break retryTag;
+              fieldBuilders = prepareChildren(instance, pendingTag);
+              pendingTag = 0;
+              }
+            }
+          } catch (java.io.IOException e) {
+            parseFailure = e;
           }
-          return builder.buildPartial();
+          finishUnknownFields(instance, unknown);
+          if (to_bitField0_ != 0) {
+            instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+          }
+          if (parsed_nestedField != null) instance.nestedField_ = parsed_nestedField;
+          if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+          if (parseFailure != null) {
+            throwParseException(parseFailure, instance);
+          }
+          return instance;
         }
-      };
+        @java.lang.SuppressWarnings("unchecked")
+        private static int parseDeepNestedMessageField(
+            google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage instance, com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+            throws java.io.IOException {
+          if (fieldBuilders == null && instance.deepNestedMessage_ != null) {
+            return 26;
+          }
+          if (fieldBuilders != null) {
+            final int oldLimit = input.pushLimitBeforeMessage();
+            if (instance.deepNestedMessage_ != null || fieldBuilders[0] != null) {
+                if (fieldBuilders[0] == null) {
+                  fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                      google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.DeepNestedMessage, google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.DeepNestedMessage.Builder, google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.DeepNestedMessageOrBuilder>(
+                          instance.getDeepNestedMessage(),
+                          null,
+                          false);
+                  instance.deepNestedMessage_ = null;
+                }
+                instance.bitField0_ |= 0x00000004;
+              ((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.DeepNestedMessage, google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.DeepNestedMessage.Builder, google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.DeepNestedMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+                  .mergeFrom(input, extensionRegistry);
+            } else {
+              instance.deepNestedMessage_ = google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.DeepNestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+            }
+            input.popLimitAfterMessage(oldLimit);
+            instance.bitField0_ |= 0x00000004;
+            return 0;
+          }
+          final int oldLimit = input.pushLimitBeforeMessage();
+          instance.deepNestedMessage_ = google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.DeepNestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000004;
+          return 0;
+        }
+        private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+            NestedMessage instance, int tag) {
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+              new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+          return fieldBuilders;
+        }
+        @java.lang.SuppressWarnings("unchecked")
+        private static void finishChildren0(
+            NestedMessage instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+          if (!instance.hasDeepNestedMessage()) instance.deepNestedMessage_ = null;
+          if (instance.hasDeepNestedMessage()) {
+            instance.deepNestedMessage_ = fieldBuilders[0] == null
+                ? instance.deepNestedMessage_
+                : ((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.DeepNestedMessage, google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.DeepNestedMessage.Builder, google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.DeepNestedMessageOrBuilder>) fieldBuilders[0]).build();
+
+          }
+        }
+      }
 
       public static com.google.protobuf.Parser<NestedMessage> parser() {
         return PARSER;
@@ -2155,7 +2353,7 @@ public final class DescriptorPoolTest2 extends com.google.protobuf.GeneratedFile
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -2184,14 +2382,27 @@ public final class DescriptorPoolTest2 extends com.google.protobuf.GeneratedFile
                 google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.class, google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        nestedEnum_ = 14;
+        maybeForceBuilderInitialization();
+      }
+      private Builder(google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3 other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -2255,6 +2466,13 @@ public final class DescriptorPoolTest2 extends com.google.protobuf.GeneratedFile
           to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3 other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000003);
+        nestedEnum_ = other.nestedEnum_;
+        nestedMessage_ = other.nestedMessage_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -2332,7 +2550,7 @@ public final class DescriptorPoolTest2 extends com.google.protobuf.GeneratedFile
       }
       private int bitField0_;
 
-      private int nestedEnum_ = 14;
+      private int nestedEnum_;
       /**
        * <code>optional .google.protobuf.python.internal.DescriptorPoolTest3.NestedEnum nested_enum = 1 [default = XI];</code>
        * @return Whether the nestedEnum field is set.
@@ -2514,21 +2732,124 @@ public final class DescriptorPoolTest2 extends com.google.protobuf.GeneratedFile
     }
 
     private static final com.google.protobuf.Parser<DescriptorPoolTest3>
-        PARSER = new com.google.protobuf.AbstractParser<DescriptorPoolTest3>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<DescriptorPoolTest3> {
+      MessageParser() {}
+
       @java.lang.Override
       public DescriptorPoolTest3 parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        DescriptorPoolTest3 instance = new DescriptorPoolTest3((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                int tmpRaw = input.readEnum();
+                if (google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedEnum.forNumber(tmpRaw) == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1, tmpRaw);
+                } else {
+                  instance.nestedEnum_ = tmpRaw;
+                  to_bitField0_ |= 0x00000001;
+                }
+                break;
+              } // case 8
+              case 18: {
+                pendingTag = parseNestedMessageField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 18
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseNestedMessageField(
+          google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3 instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.nestedMessage_ != null) {
+          return 18;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.nestedMessage_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage, google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.Builder, google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessageOrBuilder>(
+                        instance.getNestedMessage(),
+                        null,
+                        false);
+                instance.nestedMessage_ = null;
+              }
+              instance.bitField0_ |= 0x00000002;
+            ((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage, google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.Builder, google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.nestedMessage_ = google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000002;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.nestedMessage_ = google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000002;
+        return 0;
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          DescriptorPoolTest3 instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          DescriptorPoolTest3 instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasNestedMessage()) instance.nestedMessage_ = null;
+        if (instance.hasNestedMessage()) {
+          instance.nestedMessage_ = fieldBuilders[0] == null
+              ? instance.nestedMessage_
+              : ((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage, google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessage.Builder, google.protobuf.python.internal.DescriptorPoolTest2.DescriptorPoolTest3.NestedMessageOrBuilder>) fieldBuilders[0]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<DescriptorPoolTest3> parser() {
       return PARSER;

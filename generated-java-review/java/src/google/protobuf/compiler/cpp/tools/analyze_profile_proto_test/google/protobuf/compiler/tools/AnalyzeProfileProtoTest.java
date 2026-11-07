@@ -329,7 +329,7 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -362,14 +362,26 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
                 google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild.class, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private Builder(google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -433,6 +445,13 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
           to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000003);
+        childId_ = other.getChildId();
+        child_ = other.child_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -503,7 +522,7 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
       }
       private int bitField0_;
 
-      private int childId_ ;
+      private int childId_;
       /**
        * <code>optional int32 child_id = 1;</code>
        * @return Whether the childId field is set.
@@ -685,21 +704,119 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
     }
 
     private static final com.google.protobuf.Parser<AnalyzeChild>
-        PARSER = new com.google.protobuf.AbstractParser<AnalyzeChild>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<AnalyzeChild> {
+      MessageParser() {}
+
       @java.lang.Override
       public AnalyzeChild parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        AnalyzeChild instance = new AnalyzeChild((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.childId_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                pendingTag = parseChildField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 18
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseChildField(
+          google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.child_ != null) {
+          return 18;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.child_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild.Builder, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChildOrBuilder>(
+                        instance.getChild(),
+                        null,
+                        false);
+                instance.child_ = null;
+              }
+              instance.bitField0_ |= 0x00000002;
+            ((com.google.protobuf.SingleFieldBuilder<google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild.Builder, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChildOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.child_ = google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000002;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.child_ = google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000002;
+        return 0;
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          AnalyzeChild instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          AnalyzeChild instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasChild()) instance.child_ = null;
+        if (instance.hasChild()) {
+          instance.child_ = fieldBuilders[0] == null
+              ? instance.child_
+              : ((com.google.protobuf.SingleFieldBuilder<google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild.Builder, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChildOrBuilder>) fieldBuilders[0]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<AnalyzeChild> parser() {
       return PARSER;
@@ -1190,7 +1307,7 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
       @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
+            ? new Builder() : new Builder(this);
       }
 
       @java.lang.Override
@@ -1219,14 +1336,27 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
                   google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.Nested.class, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.Nested.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.Nested.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+          optionalString_ = "";
+
+        }
+        private Builder(google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.Nested other) {
+          super(other, null);
+          copyFrom_autosplit_0(other);
 
         }
         @java.lang.Override
@@ -1278,6 +1408,13 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
             to_bitField0_ |= 0x00000002;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.Nested other) {
+          int to_bitField0_ = (other.bitField0_ & 0x00000003);
+          nextedId_ = other.getNextedId();
+          optionalString_ = other.optionalString_;
+          bitField0_ |= to_bitField0_;
         }
 
         @java.lang.Override
@@ -1351,7 +1488,7 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
         }
         private int bitField0_;
 
-        private int nextedId_ ;
+        private int nextedId_;
         /**
          * <code>optional int32 nexted_id = 1;</code>
          * @return Whether the nextedId field is set.
@@ -1391,7 +1528,7 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
           return this;
         }
 
-        private java.lang.Object optionalString_ = "";
+        private java.lang.Object optionalString_;
         /**
          * <code>optional string optional_string = 2;</code>
          * @return Whether the optionalString field is set.
@@ -1485,21 +1622,61 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
       }
 
       private static final com.google.protobuf.Parser<Nested>
-          PARSER = new com.google.protobuf.AbstractParser<Nested>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<Nested> {
+        MessageParser() {}
+
         @java.lang.Override
         public Nested parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
+          java.util.Objects.requireNonNull(extensionRegistry);
+          Nested instance = new Nested((Builder) null);
+          java.lang.Object unknown = null;
+          int to_bitField0_ = 0;
+          java.lang.Object parsed_optionalString = null;
+          java.io.IOException parseFailure = null;
           try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
+            parseLoop: while (true) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0: break parseLoop;
+                case 8: {
+                  instance.nextedId_ = input.readInt32();
+                  to_bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+                case 18: {
+                  parsed_optionalString = input.readBytes();
+                  to_bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                default: {
+                  unknown = prepareUnknownFields(unknown, input);
+                  if (!parseUnknownField(input, unknown, tag)) {
+                    break parseLoop;
+                  }
+                  break;
+                }
+              }
+            }
+          } catch (java.io.IOException e) {
+            parseFailure = e;
           }
-          return builder.buildPartial();
+          finishUnknownFields(instance, unknown);
+          if (to_bitField0_ != 0) {
+            instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+          }
+          if (parsed_optionalString != null) instance.optionalString_ = parsed_optionalString;
+          if (parseFailure != null) {
+            throwParseException(parseFailure, instance);
+          }
+          return instance;
         }
-      };
+      }
 
       public static com.google.protobuf.Parser<Nested> parser() {
         return PARSER;
@@ -1979,7 +2156,7 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -2008,14 +2185,30 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
                 google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.class, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        optionalString_ = "";
+        repeatedString_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        repeatedChild_ = emptyList(google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild.class);
+        maybeForceBuilderInitialization();
+      }
+      private Builder(google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -2118,6 +2311,23 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis other) {
+        int to_bitField0_ = (other.bitField0_ & 0x0000000f);
+        id_ = other.getId();
+        optionalString_ = other.optionalString_;
+        optionalChild_ = other.optionalChild_;
+        nested_ = other.nested_;
+        repeatedString_ = other.repeatedString_;
+        if (!repeatedString_.isEmpty()) {
+          to_bitField0_ |= 0x00000010;
+        }
+        repeatedChild_ = other.repeatedChild_;
+        if (!repeatedChild_.isEmpty()) {
+          to_bitField0_ |= 0x00000020;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -2263,7 +2473,7 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
       }
       private int bitField0_;
 
-      private int id_ ;
+      private int id_;
       /**
        * <code>optional int32 id = 1;</code>
        * @return Whether the id field is set.
@@ -2303,7 +2513,7 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
         return this;
       }
 
-      private java.lang.Object optionalString_ = "";
+      private java.lang.Object optionalString_;
       /**
        * <code>optional string optional_string = 2;</code>
        * @return Whether the optionalString field is set.
@@ -2383,8 +2593,7 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList repeatedString_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList repeatedString_;
       private void ensureRepeatedStringIsMutable() {
         if (!repeatedString_.isModifiable()) {
           repeatedString_ = new com.google.protobuf.LazyStringArrayList(repeatedString_);
@@ -2621,8 +2830,7 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
         bitField0_ |= 0x00000004;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild> repeatedChild_ =
-          emptyList(google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild.class);
+      private com.google.protobuf.Internal.ProtobufList<google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild> repeatedChild_;
       private void ensureRepeatedChildIsMutable() {
         if (!repeatedChild_.isModifiable()) {
           repeatedChild_ = makeMutableCopy(repeatedChild_);
@@ -2997,21 +3205,198 @@ public final class AnalyzeProfileProtoTest extends com.google.protobuf.Generated
     }
 
     private static final com.google.protobuf.Parser<AnalyzeThis>
-        PARSER = new com.google.protobuf.AbstractParser<AnalyzeThis>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<AnalyzeThis> {
+      MessageParser() {}
+
       @java.lang.Override
       public AnalyzeThis parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        AnalyzeThis instance = new AnalyzeThis((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.lang.Object parsed_optionalString = null;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.id_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                parsed_optionalString = input.readBytes();
+                to_bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                ensureRepeatedStringIsMutable(instance);
+                instance.repeatedString_.add(bs);
+                break;
+              } // case 26
+              case 34: {
+                pendingTag = parseOptionalChildField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 34
+              case 42: {
+                final int oldLimit = input.pushLimitBeforeMessage();
+                google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild m = google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild.parser().parsePartialFrom(input, extensionRegistry);
+                input.popLimitAfterMessage(oldLimit);
+                if (!instance.repeatedChild_.isModifiable()) {
+  instance.repeatedChild_ = makeMutableCopy(instance.repeatedChild_);
+}
+                instance.repeatedChild_.add(m);
+                break;
+              } // case 42
+              case 50: {
+                pendingTag = parseNestedField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 50
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parsed_optionalString != null) instance.optionalString_ = parsed_optionalString;
+        finishCollections0(instance);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static void ensureRepeatedStringIsMutable(google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis instance) {
+        if (!instance.repeatedString_.isModifiable()) {
+          instance.repeatedString_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString_);
+        }
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseOptionalChildField(
+          google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.optionalChild_ != null) {
+          return 34;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.optionalChild_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild.Builder, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChildOrBuilder>(
+                        instance.getOptionalChild(),
+                        null,
+                        false);
+                instance.optionalChild_ = null;
+              }
+              instance.bitField0_ |= 0x00000004;
+            ((com.google.protobuf.SingleFieldBuilder<google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild.Builder, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChildOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.optionalChild_ = google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000004;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.optionalChild_ = google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000004;
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseNestedField(
+          google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.nested_ != null) {
+          return 50;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.nested_ != null || fieldBuilders[1] != null) {
+              if (fieldBuilders[1] == null) {
+                fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+                    google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.Nested, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.Nested.Builder, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.NestedOrBuilder>(
+                        instance.getNested(),
+                        null,
+                        false);
+                instance.nested_ = null;
+              }
+              instance.bitField0_ |= 0x00000008;
+            ((com.google.protobuf.SingleFieldBuilder<google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.Nested, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.Nested.Builder, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.NestedOrBuilder>) fieldBuilders[1]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.nested_ = google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.Nested.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000008;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.nested_ = google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.Nested.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000008;
+        return 0;
+      }
+      private static void finishCollections0(AnalyzeThis instance) {
+        instance.repeatedString_.makeImmutable();
+        instance.repeatedChild_.makeImmutable();
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          AnalyzeThis instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[2];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          AnalyzeThis instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasOptionalChild()) instance.optionalChild_ = null;
+        if (instance.hasOptionalChild()) {
+          instance.optionalChild_ = fieldBuilders[0] == null
+              ? instance.optionalChild_
+              : ((com.google.protobuf.SingleFieldBuilder<google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChild.Builder, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeChildOrBuilder>) fieldBuilders[0]).build();
+
+        }
+        if (!instance.hasNested()) instance.nested_ = null;
+        if (instance.hasNested()) {
+          instance.nested_ = fieldBuilders[1] == null
+              ? instance.nested_
+              : ((com.google.protobuf.SingleFieldBuilder<google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.Nested, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.Nested.Builder, google.protobuf.compiler.tools.AnalyzeProfileProtoTest.AnalyzeThis.NestedOrBuilder>) fieldBuilders[1]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<AnalyzeThis> parser() {
       return PARSER;

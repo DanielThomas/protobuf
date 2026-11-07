@@ -242,7 +242,7 @@ public final class Treeshaking extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -271,14 +271,26 @@ public final class Treeshaking extends com.google.protobuf.GeneratedFile {
                 rust_protobuf_test.treeshaking.Treeshaking.UsedMessage.class, rust_protobuf_test.treeshaking.Treeshaking.UsedMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using rust_protobuf_test.treeshaking.Treeshaking.UsedMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(rust_protobuf_test.treeshaking.Treeshaking.UsedMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -322,9 +334,15 @@ public final class Treeshaking extends com.google.protobuf.GeneratedFile {
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.id_ = id_;
-          
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(rust_protobuf_test.treeshaking.Treeshaking.UsedMessage other) {
+        int to_bitField0_ = 0;
+        id_ = other.getId();
+        to_bitField0_ |= 0x00000001;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -388,7 +406,7 @@ public final class Treeshaking extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int id_ ;
+      private int id_;
       /**
        * <code>int32 id = 1;</code>
        * @return The id.
@@ -434,21 +452,50 @@ public final class Treeshaking extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<UsedMessage>
-        PARSER = new com.google.protobuf.AbstractParser<UsedMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<UsedMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public UsedMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        UsedMessage instance = new UsedMessage((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.id_ = input.readInt32();
+
+                break;
+              } // case 8
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<UsedMessage> parser() {
       return PARSER;
@@ -716,7 +763,7 @@ public final class Treeshaking extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -745,14 +792,27 @@ public final class Treeshaking extends com.google.protobuf.GeneratedFile {
                 rust_protobuf_test.treeshaking.Treeshaking.UnusedMessage.class, rust_protobuf_test.treeshaking.Treeshaking.UnusedMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using rust_protobuf_test.treeshaking.Treeshaking.UnusedMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        secretData_ = "";
+
+      }
+      private Builder(rust_protobuf_test.treeshaking.Treeshaking.UnusedMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -796,9 +856,15 @@ public final class Treeshaking extends com.google.protobuf.GeneratedFile {
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.secretData_ = secretData_;
-          ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(rust_protobuf_test.treeshaking.Treeshaking.UnusedMessage other) {
+        int to_bitField0_ = 0;
+        secretData_ = other.secretData_;
+        to_bitField0_ |= 0x00000001;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -864,7 +930,7 @@ public final class Treeshaking extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private java.lang.Object secretData_ = "";
+      private java.lang.Object secretData_;
       /**
        * <code>string secret_data = 1;</code>
        * @return The secretData.
@@ -950,21 +1016,52 @@ public final class Treeshaking extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<UnusedMessage>
-        PARSER = new com.google.protobuf.AbstractParser<UnusedMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<UnusedMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public UnusedMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        UnusedMessage instance = new UnusedMessage((Builder) null);
+        java.lang.Object unknown = null;
+        java.lang.Object parsed_secretData = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                parsed_secretData = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parsed_secretData != null) instance.secretData_ = parsed_secretData;
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<UnusedMessage> parser() {
       return PARSER;
@@ -1232,7 +1329,7 @@ public final class Treeshaking extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -1261,14 +1358,27 @@ public final class Treeshaking extends com.google.protobuf.GeneratedFile {
                 rust_protobuf_test.treeshaking.Treeshaking.UnusedMessage2.class, rust_protobuf_test.treeshaking.Treeshaking.UnusedMessage2.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using rust_protobuf_test.treeshaking.Treeshaking.UnusedMessage2.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        moreSecretData_ = "";
+
+      }
+      private Builder(rust_protobuf_test.treeshaking.Treeshaking.UnusedMessage2 other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -1312,9 +1422,15 @@ public final class Treeshaking extends com.google.protobuf.GeneratedFile {
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.moreSecretData_ = moreSecretData_;
-          ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(rust_protobuf_test.treeshaking.Treeshaking.UnusedMessage2 other) {
+        int to_bitField0_ = 0;
+        moreSecretData_ = other.moreSecretData_;
+        to_bitField0_ |= 0x00000001;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1380,7 +1496,7 @@ public final class Treeshaking extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private java.lang.Object moreSecretData_ = "";
+      private java.lang.Object moreSecretData_;
       /**
        * <code>string more_secret_data = 1;</code>
        * @return The moreSecretData.
@@ -1466,21 +1582,52 @@ public final class Treeshaking extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<UnusedMessage2>
-        PARSER = new com.google.protobuf.AbstractParser<UnusedMessage2>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<UnusedMessage2> {
+      MessageParser() {}
+
       @java.lang.Override
       public UnusedMessage2 parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        UnusedMessage2 instance = new UnusedMessage2((Builder) null);
+        java.lang.Object unknown = null;
+        java.lang.Object parsed_moreSecretData = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                parsed_moreSecretData = input.readStringRequireUtf8();
+
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parsed_moreSecretData != null) instance.moreSecretData_ = parsed_moreSecretData;
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<UnusedMessage2> parser() {
       return PARSER;

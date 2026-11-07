@@ -1272,7 +1272,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -1310,14 +1310,33 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.Field.class, com.google.protobuf.Field.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.Field.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      kind_ = 0;
+      cardinality_ = 0;
+      name_ = "";
+      typeUrl_ = "";
+      options_ = emptyList(com.google.protobuf.Option.class);
+      jsonName_ = "";
+      defaultValue_ = "";
+
+    }
+    private Builder(com.google.protobuf.Field other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -1376,31 +1395,24 @@ private static final long serialVersionUID = 0L;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.kind_ = kind_;
-        ;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.cardinality_ = cardinality_;
-        ;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.number_ = number_;
-        
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
         result.name_ = name_;
-        ;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
         result.typeUrl_ = typeUrl_;
-        ;
       }
       if (((from_bitField0_ & 0x00000020) != 0)) {
         result.oneofIndex_ = oneofIndex_;
-        
       }
       if (((from_bitField0_ & 0x00000040) != 0)) {
         result.packed_ = packed_;
-        
       }
       if (((from_bitField0_ & 0x00000080) != 0)) {
       if (optionsBuilder_ == null) {
@@ -1412,13 +1424,38 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField0_ & 0x00000100) != 0)) {
         result.jsonName_ = jsonName_;
-        ;
       }
       if (((from_bitField0_ & 0x00000200) != 0)) {
         result.defaultValue_ = defaultValue_;
-        ;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.google.protobuf.Field other) {
+      int to_bitField0_ = 0;
+      kind_ = other.getKindValue();
+      to_bitField0_ |= 0x00000001;
+      cardinality_ = other.getCardinalityValue();
+      to_bitField0_ |= 0x00000002;
+      number_ = other.getNumber();
+      to_bitField0_ |= 0x00000004;
+      name_ = other.name_;
+      to_bitField0_ |= 0x00000008;
+      typeUrl_ = other.typeUrl_;
+      to_bitField0_ |= 0x00000010;
+      oneofIndex_ = other.getOneofIndex();
+      to_bitField0_ |= 0x00000020;
+      packed_ = other.getPacked();
+      to_bitField0_ |= 0x00000040;
+      options_ = other.options_;
+      if (!options_.isEmpty()) {
+        to_bitField0_ |= 0x00000080;
+      }
+      jsonName_ = other.jsonName_;
+      to_bitField0_ |= 0x00000100;
+      defaultValue_ = other.defaultValue_;
+      to_bitField0_ |= 0x00000200;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1596,7 +1633,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int kind_ = 0;
+    private int kind_;
     /**
      * <pre>
      * The field type.
@@ -1668,7 +1705,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int cardinality_ = 0;
+    private int cardinality_;
     /**
      * <pre>
      * The field cardinality.
@@ -1740,7 +1777,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int number_ ;
+    private int number_;
     /**
      * <pre>
      * The field number.
@@ -1784,7 +1821,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object name_ = "";
+    private java.lang.Object name_;
     /**
      * <pre>
      * The field name.
@@ -1876,7 +1913,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object typeUrl_ = "";
+    private java.lang.Object typeUrl_;
     /**
      * <pre>
      * The field type URL, without the scheme, for message or enumeration
@@ -1973,7 +2010,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int oneofIndex_ ;
+    private int oneofIndex_;
     /**
      * <pre>
      * The index of the field type in `Type.oneofs`, for message or enumeration
@@ -2020,7 +2057,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean packed_ ;
+    private boolean packed_;
     /**
      * <pre>
      * Whether to use alternative packed wire representation.
@@ -2064,8 +2101,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Option> options_ =
-        emptyList(com.google.protobuf.Option.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Option> options_;
     private void ensureOptionsIsMutable() {
       if (!options_.isModifiable()) {
         options_ = makeMutableCopy(options_);
@@ -2370,7 +2406,7 @@ private static final long serialVersionUID = 0L;
       return optionsBuilder_;
     }
 
-    private java.lang.Object jsonName_ = "";
+    private java.lang.Object jsonName_;
     /**
      * <pre>
      * The field JSON name.
@@ -2462,7 +2498,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object defaultValue_ = "";
+    private java.lang.Object defaultValue_;
     /**
      * <pre>
      * The string value of the default value of this field. Proto2 syntax only.
@@ -2568,21 +2604,112 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<Field>
-      PARSER = new com.google.protobuf.AbstractParser<Field>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<Field> {
+    MessageParser() {}
+
     @java.lang.Override
     public Field parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Field instance = new Field((Builder) null);
+      java.lang.Object unknown = null;
+      java.lang.Object parsed_name = null;
+      java.lang.Object parsed_typeUrl = null;
+      java.lang.Object parsed_jsonName = null;
+      java.lang.Object parsed_defaultValue = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.kind_ = input.readEnum();
+
+              break;
+            } // case 8
+            case 16: {
+              instance.cardinality_ = input.readEnum();
+
+              break;
+            } // case 16
+            case 24: {
+              instance.number_ = input.readInt32();
+
+              break;
+            } // case 24
+            case 34: {
+              parsed_name = input.readStringRequireUtf8();
+
+              break;
+            } // case 34
+            case 50: {
+              parsed_typeUrl = input.readStringRequireUtf8();
+
+              break;
+            } // case 50
+            case 56: {
+              instance.oneofIndex_ = input.readInt32();
+
+              break;
+            } // case 56
+            case 64: {
+              instance.packed_ = input.readBool();
+
+              break;
+            } // case 64
+            case 74: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Option m = com.google.protobuf.Option.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.options_.isModifiable()) {
+  instance.options_ = makeMutableCopy(instance.options_);
+}
+              instance.options_.add(m);
+              break;
+            } // case 74
+            case 82: {
+              parsed_jsonName = input.readStringRequireUtf8();
+
+              break;
+            } // case 82
+            case 90: {
+              parsed_defaultValue = input.readStringRequireUtf8();
+
+              break;
+            } // case 90
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (parsed_name != null) instance.name_ = parsed_name;
+      if (parsed_typeUrl != null) instance.typeUrl_ = parsed_typeUrl;
+      if (parsed_jsonName != null) instance.jsonName_ = parsed_jsonName;
+      if (parsed_defaultValue != null) instance.defaultValue_ = parsed_defaultValue;
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void finishCollections0(Field instance) {
+      instance.options_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<Field> parser() {
     return PARSER;

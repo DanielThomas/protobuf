@@ -255,7 +255,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -289,14 +289,27 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.SourceContext.class, com.google.protobuf.SourceContext.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.SourceContext.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      fileName_ = "";
+
+    }
+    private Builder(com.google.protobuf.SourceContext other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -340,9 +353,15 @@ private static final long serialVersionUID = 0L;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.fileName_ = fileName_;
-        ;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.google.protobuf.SourceContext other) {
+      int to_bitField0_ = 0;
+      fileName_ = other.fileName_;
+      to_bitField0_ |= 0x00000001;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -408,7 +427,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object fileName_ = "";
+    private java.lang.Object fileName_;
     /**
      * <pre>
      * The path-qualified name of the .proto file that contained the associated
@@ -519,21 +538,52 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<SourceContext>
-      PARSER = new com.google.protobuf.AbstractParser<SourceContext>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<SourceContext> {
+    MessageParser() {}
+
     @java.lang.Override
     public SourceContext parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      SourceContext instance = new SourceContext((Builder) null);
+      java.lang.Object unknown = null;
+      java.lang.Object parsed_fileName = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              parsed_fileName = input.readStringRequireUtf8();
+
+              break;
+            } // case 10
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (parsed_fileName != null) instance.fileName_ = parsed_fileName;
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<SourceContext> parser() {
     return PARSER;

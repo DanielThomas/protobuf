@@ -261,7 +261,7 @@ public final class ImportPublicNested extends com.google.protobuf.GeneratedFile 
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -290,14 +290,27 @@ public final class ImportPublicNested extends com.google.protobuf.GeneratedFile 
                 google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage.class, google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        value_ = 58;
+
+      }
+      private Builder(google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -344,6 +357,12 @@ public final class ImportPublicNested extends com.google.protobuf.GeneratedFile 
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        value_ = other.getValue();
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -407,7 +426,7 @@ public final class ImportPublicNested extends com.google.protobuf.GeneratedFile 
       }
       private int bitField0_;
 
-      private int value_ = 58;
+      private int value_;
       /**
        * <code>optional int32 value = 1 [default = 58];</code>
        * @return Whether the value field is set.
@@ -461,21 +480,54 @@ public final class ImportPublicNested extends com.google.protobuf.GeneratedFile 
     }
 
     private static final com.google.protobuf.Parser<ImportPublicNestedMessage>
-        PARSER = new com.google.protobuf.AbstractParser<ImportPublicNestedMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ImportPublicNestedMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public ImportPublicNestedMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        ImportPublicNestedMessage instance = new ImportPublicNestedMessage((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.value_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<ImportPublicNestedMessage> parser() {
       return PARSER;

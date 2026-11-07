@@ -242,7 +242,7 @@ public final class UnittestImportPublicProto3 extends com.google.protobuf.Genera
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -271,14 +271,26 @@ public final class UnittestImportPublicProto3 extends com.google.protobuf.Genera
                 com.google.protobuf.test.UnittestImportPublicProto3.PublicImportMessage.class, com.google.protobuf.test.UnittestImportPublicProto3.PublicImportMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.test.UnittestImportPublicProto3.PublicImportMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(com.google.protobuf.test.UnittestImportPublicProto3.PublicImportMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -322,9 +334,15 @@ public final class UnittestImportPublicProto3 extends com.google.protobuf.Genera
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.e_ = e_;
-          
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.test.UnittestImportPublicProto3.PublicImportMessage other) {
+        int to_bitField0_ = 0;
+        e_ = other.getE();
+        to_bitField0_ |= 0x00000001;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -388,7 +406,7 @@ public final class UnittestImportPublicProto3 extends com.google.protobuf.Genera
       }
       private int bitField0_;
 
-      private int e_ ;
+      private int e_;
       /**
        * <code>int32 e = 1;</code>
        * @return The e.
@@ -434,21 +452,50 @@ public final class UnittestImportPublicProto3 extends com.google.protobuf.Genera
     }
 
     private static final com.google.protobuf.Parser<PublicImportMessage>
-        PARSER = new com.google.protobuf.AbstractParser<PublicImportMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<PublicImportMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public PublicImportMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        PublicImportMessage instance = new PublicImportMessage((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.e_ = input.readInt32();
+
+                break;
+              } // case 8
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<PublicImportMessage> parser() {
       return PARSER;

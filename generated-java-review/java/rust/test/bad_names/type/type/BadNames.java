@@ -711,7 +711,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -740,14 +740,28 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
                 type.type.BadNames.Self.class, type.type.BadNames.Self.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using type.type.BadNames.Self.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        false_ = "";
+        match_ = emptyIntList();
+        maybeForceBuilderInitialization();
+      }
+      private Builder(type.type.BadNames.Self other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -836,6 +850,21 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
           result.match_ = match_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(type.type.BadNames.Self other) {
+        int to_bitField0_ = (other.bitField0_ & 0x0000003f);
+        for_ = other.getFor();
+        self_ = other.self_;
+        true_ = other.getTrue();
+        false_ = other.false_;
+        clear_ = other.getClear();
+        new_ = other.getNew();
+        match_ = other.match_;
+        if (!match_.isEmpty()) {
+          to_bitField0_ |= 0x00000040;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -968,7 +997,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int for_ ;
+      private int for_;
       /**
        * <code>optional int32 for = 1;</code>
        * @return Whether the for field is set.
@@ -1136,7 +1165,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
         bitField0_ |= 0x00000002;
       }
 
-      private boolean true_ ;
+      private boolean true_;
       /**
        * <code>optional bool true = 3;</code>
        * @return Whether the true field is set.
@@ -1176,7 +1205,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private java.lang.Object false_ = "";
+      private java.lang.Object false_;
       /**
        * <code>optional string false = 4;</code>
        * @return Whether the false field is set.
@@ -1256,7 +1285,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList match_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList match_;
       private void ensureMatchIsMutable(int capacity) {
         if (!match_.isModifiable()) {
           match_ = makeMutableCopy(match_, capacity);
@@ -1340,7 +1369,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private boolean clear_ ;
+      private boolean clear_;
       /**
        * <code>optional bool clear = 6;</code>
        * @return Whether the clear field is set.
@@ -1380,7 +1409,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private boolean new_ ;
+      private boolean new_;
       /**
        * <code>optional bool new = 7;</code>
        * @return Whether the new field is set.
@@ -1434,21 +1463,167 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<Self>
-        PARSER = new com.google.protobuf.AbstractParser<Self>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Self> {
+      MessageParser() {}
+
       @java.lang.Override
       public Self parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Self instance = new Self((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.lang.Object parsed_false = null;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.for_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                pendingTag = parseSelfField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 18
+              case 24: {
+                instance.true_ = input.readBool();
+                to_bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 34: {
+                parsed_false = input.readBytes();
+                to_bitField0_ |= 0x00000008;
+                break;
+              } // case 34
+              case 40: {
+                int v = input.readInt32();
+                ensureMatchIsMutable(instance, /* capacity= */ -1);
+                instance.match_.addInt(v);
+                break;
+              } // case 40
+              case 42: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureMatchIsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.match_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 42
+              case 48: {
+                instance.clear_ = input.readBool();
+                to_bitField0_ |= 0x00000010;
+                break;
+              } // case 48
+              case 56: {
+                instance.new_ = input.readBool();
+                to_bitField0_ |= 0x00000020;
+                break;
+              } // case 56
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parsed_false != null) instance.false_ = parsed_false;
+        finishCollections0(instance);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseSelfField(
+          type.type.BadNames.Self instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.self_ != null) {
+          return 18;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.self_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    type.type.BadNames.Self, type.type.BadNames.Self.Builder, type.type.BadNames.SelfOrBuilder>(
+                        instance.getSelf(),
+                        null,
+                        false);
+                instance.self_ = null;
+              }
+              instance.bitField0_ |= 0x00000002;
+            ((com.google.protobuf.SingleFieldBuilder<type.type.BadNames.Self, type.type.BadNames.Self.Builder, type.type.BadNames.SelfOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.self_ = type.type.BadNames.Self.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000002;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.self_ = type.type.BadNames.Self.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000002;
+        return 0;
+      }
+      private static void ensureMatchIsMutable(type.type.BadNames.Self instance, int minCapacity) {
+        if (!instance.match_.isModifiable()) {
+          instance.match_ = makeMutableCopy(instance.match_, minCapacity);
+        }
+      }
+      private static void finishCollections0(Self instance) {
+        instance.match_.makeImmutable();
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          Self instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          Self instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasSelf()) instance.self_ = null;
+        if (instance.hasSelf()) {
+          instance.self_ = fieldBuilders[0] == null
+              ? instance.self_
+              : ((com.google.protobuf.SingleFieldBuilder<type.type.BadNames.Self, type.type.BadNames.Self.Builder, type.type.BadNames.SelfOrBuilder>) fieldBuilders[0]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<Self> parser() {
       return PARSER;
@@ -1744,7 +1919,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -1773,14 +1948,25 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
                 type.type.BadNames.Pub.class, type.type.BadNames.Pub.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using type.type.BadNames.Pub.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(type.type.BadNames.Pub other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -1882,21 +2068,45 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<Pub>
-        PARSER = new com.google.protobuf.AbstractParser<Pub>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Pub> {
+      MessageParser() {}
+
       @java.lang.Override
       public Pub parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Pub instance = new Pub((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<Pub> parser() {
       return PARSER;
@@ -2096,7 +2306,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -2125,14 +2335,25 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
                 type.type.BadNames.enum.class, type.type.BadNames.enum.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using type.type.BadNames.enum.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(type.type.BadNames.enum other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -2234,21 +2455,45 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<enum>
-        PARSER = new com.google.protobuf.AbstractParser<enum>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<enum> {
+      MessageParser() {}
+
       @java.lang.Override
       public enum parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        enum instance = new enum((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<enum> parser() {
       return PARSER;
@@ -2552,7 +2797,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -2581,14 +2826,26 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
                 type.type.BadNames.Ref.class, type.type.BadNames.Ref.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using type.type.BadNames.Ref.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(type.type.BadNames.Ref other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -2638,6 +2895,16 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
           result.self_ = self_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(type.type.BadNames.Ref other) {
+        int to_bitField0_ = 0;
+        if (other.selfCase_ == 3) {
+          to_bitField0_ |= 0x00000001;
+        }
+        selfCase_ = other.selfCase_;
+        self_ = other.self_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -2704,7 +2971,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
         } // finally
         return this;
       }
-      private int selfCase_ = 0;
+      private int selfCase_;
       private java.lang.Object self_;
       public SelfCase
           getSelfCase() {
@@ -2817,21 +3084,64 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<Ref>
-        PARSER = new com.google.protobuf.AbstractParser<Ref>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Ref> {
+      MessageParser() {}
+
       @java.lang.Override
       public Ref parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Ref instance = new Ref((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 24: {
+                unknown = parseConstField(instance, input, extensionRegistry, unknown);
+                break;
+              } // case 24
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static java.lang.Object parseConstField(
+          type.type.BadNames.Ref instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, java.lang.Object unknown)
+          throws java.io.IOException {
+        int rawValue = input.readEnum();
+        type.type.BadNames.Pub.Self value =
+            type.type.BadNames.Pub.Self.forNumber(rawValue);
+        if (value == null) {
+          unknown = mergeUnknownVarintField(unknown, 3, rawValue);
+        } else {
+          instance.selfCase_ = 3;
+          instance.self_ = rawValue;
+        }
+        return unknown;
+      }
+    }
 
     public static com.google.protobuf.Parser<Ref> parser() {
       return PARSER;
@@ -3138,7 +3448,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
       @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
+            ? new Builder() : new Builder(this);
       }
 
       @java.lang.Override
@@ -3167,14 +3477,25 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
                   type.type.BadNames.AccessorsCollide.X.class, type.type.BadNames.AccessorsCollide.X.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using type.type.BadNames.AccessorsCollide.X.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+
+        }
+        private Builder(type.type.BadNames.AccessorsCollide.X other) {
+          super(other, null);
 
         }
         @java.lang.Override
@@ -3276,21 +3597,45 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
       }
 
       private static final com.google.protobuf.Parser<X>
-          PARSER = new com.google.protobuf.AbstractParser<X>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<X> {
+        MessageParser() {}
+
         @java.lang.Override
         public X parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
+          java.util.Objects.requireNonNull(extensionRegistry);
+          X instance = new X((Builder) null);
+          java.lang.Object unknown = null;
+          java.io.IOException parseFailure = null;
           try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
+            parseLoop: while (true) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0: break parseLoop;
+                default: {
+                  unknown = prepareUnknownFields(unknown, input);
+                  if (!parseUnknownField(input, unknown, tag)) {
+                    break parseLoop;
+                  }
+                  break;
+                }
+              }
+            }
+          } catch (java.io.IOException e) {
+            parseFailure = e;
           }
-          return builder.buildPartial();
+          finishUnknownFields(instance, unknown);
+          if (parseFailure != null) {
+            throwParseException(parseFailure, instance);
+          }
+          return instance;
         }
-      };
+      }
 
       public static com.google.protobuf.Parser<X> parser() {
         return PARSER;
@@ -3490,7 +3835,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
       @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
+            ? new Builder() : new Builder(this);
       }
 
       @java.lang.Override
@@ -3519,14 +3864,25 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
                   type.type.BadNames.AccessorsCollide.SetX.class, type.type.BadNames.AccessorsCollide.SetX.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using type.type.BadNames.AccessorsCollide.SetX.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+
+        }
+        private Builder(type.type.BadNames.AccessorsCollide.SetX other) {
+          super(other, null);
 
         }
         @java.lang.Override
@@ -3628,21 +3984,45 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
       }
 
       private static final com.google.protobuf.Parser<SetX>
-          PARSER = new com.google.protobuf.AbstractParser<SetX>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<SetX> {
+        MessageParser() {}
+
         @java.lang.Override
         public SetX parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
+          java.util.Objects.requireNonNull(extensionRegistry);
+          SetX instance = new SetX((Builder) null);
+          java.lang.Object unknown = null;
+          java.io.IOException parseFailure = null;
           try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
+            parseLoop: while (true) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0: break parseLoop;
+                default: {
+                  unknown = prepareUnknownFields(unknown, input);
+                  if (!parseUnknownField(input, unknown, tag)) {
+                    break parseLoop;
+                  }
+                  break;
+                }
+              }
+            }
+          } catch (java.io.IOException e) {
+            parseFailure = e;
           }
-          return builder.buildPartial();
+          finishUnknownFields(instance, unknown);
+          if (parseFailure != null) {
+            throwParseException(parseFailure, instance);
+          }
+          return instance;
         }
-      };
+      }
 
       public static com.google.protobuf.Parser<SetX> parser() {
         return PARSER;
@@ -4025,7 +4405,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -4061,14 +4441,26 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
                 type.type.BadNames.AccessorsCollide.class, type.type.BadNames.AccessorsCollide.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using type.type.BadNames.AccessorsCollide.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private Builder(type.type.BadNames.AccessorsCollide other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -4152,6 +4544,19 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
           result.o_ = o_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(type.type.BadNames.AccessorsCollide other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000007);
+        setX_ = other.setX_;
+        x_ = other.x_;
+        clearX_ = other.getClearX();
+        if (other.oCase_ == 5) {
+          to_bitField0_ |= 0x00000008;
+        }
+        oCase_ = other.oCase_;
+        o_ = other.o_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -4240,7 +4645,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
         } // finally
         return this;
       }
-      private int oCase_ = 0;
+      private int oCase_;
       private java.lang.Object o_;
       public OCase
           getOCase() {
@@ -4584,7 +4989,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
         }
       }
 
-      private int clearX_ ;
+      private int clearX_;
       /**
        * <code>optional int32 clear_x = 7;</code>
        * @return Whether the clearX field is set.
@@ -4638,21 +5043,172 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<AccessorsCollide>
-        PARSER = new com.google.protobuf.AbstractParser<AccessorsCollide>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<AccessorsCollide> {
+      MessageParser() {}
+
       @java.lang.Override
       public AccessorsCollide parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        AccessorsCollide instance = new AccessorsCollide((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 18: {
+                pendingTag = parseSetXField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 18
+              case 26: {
+                pendingTag = parseXField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 26
+              case 40:
+              {
+                boolean value = input.readBool();
+                instance.oCase_ = tag >>> 3;
+                instance.o_ = value;
+                break;
+              }
+              case 56: {
+                instance.clearX_ = input.readInt32();
+                to_bitField0_ |= 0x00000004;
+                break;
+              } // case 56
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseSetXField(
+          type.type.BadNames.AccessorsCollide instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.setX_ != null) {
+          return 18;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.setX_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    type.type.BadNames.AccessorsCollide.SetX, type.type.BadNames.AccessorsCollide.SetX.Builder, type.type.BadNames.AccessorsCollide.SetXOrBuilder>(
+                        instance.getSetX(),
+                        null,
+                        false);
+                instance.setX_ = null;
+              }
+              instance.bitField0_ |= 0x00000001;
+            ((com.google.protobuf.SingleFieldBuilder<type.type.BadNames.AccessorsCollide.SetX, type.type.BadNames.AccessorsCollide.SetX.Builder, type.type.BadNames.AccessorsCollide.SetXOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.setX_ = type.type.BadNames.AccessorsCollide.SetX.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000001;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.setX_ = type.type.BadNames.AccessorsCollide.SetX.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseXField(
+          type.type.BadNames.AccessorsCollide instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.x_ != null) {
+          return 26;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.x_ != null || fieldBuilders[1] != null) {
+              if (fieldBuilders[1] == null) {
+                fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+                    type.type.BadNames.AccessorsCollide.X, type.type.BadNames.AccessorsCollide.X.Builder, type.type.BadNames.AccessorsCollide.XOrBuilder>(
+                        instance.getX(),
+                        null,
+                        false);
+                instance.x_ = null;
+              }
+              instance.bitField0_ |= 0x00000002;
+            ((com.google.protobuf.SingleFieldBuilder<type.type.BadNames.AccessorsCollide.X, type.type.BadNames.AccessorsCollide.X.Builder, type.type.BadNames.AccessorsCollide.XOrBuilder>) fieldBuilders[1]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.x_ = type.type.BadNames.AccessorsCollide.X.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000002;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.x_ = type.type.BadNames.AccessorsCollide.X.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000002;
+        return 0;
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          AccessorsCollide instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[2];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          AccessorsCollide instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasSetX()) instance.setX_ = null;
+        if (instance.hasSetX()) {
+          instance.setX_ = fieldBuilders[0] == null
+              ? instance.setX_
+              : ((com.google.protobuf.SingleFieldBuilder<type.type.BadNames.AccessorsCollide.SetX, type.type.BadNames.AccessorsCollide.SetX.Builder, type.type.BadNames.AccessorsCollide.SetXOrBuilder>) fieldBuilders[0]).build();
+
+        }
+        if (!instance.hasX()) instance.x_ = null;
+        if (instance.hasX()) {
+          instance.x_ = fieldBuilders[1] == null
+              ? instance.x_
+              : ((com.google.protobuf.SingleFieldBuilder<type.type.BadNames.AccessorsCollide.X, type.type.BadNames.AccessorsCollide.X.Builder, type.type.BadNames.AccessorsCollide.XOrBuilder>) fieldBuilders[1]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<AccessorsCollide> parser() {
       return PARSER;
@@ -4852,7 +5408,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -4881,14 +5437,25 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
                 type.type.BadNames.SomeMsg.class, type.type.BadNames.SomeMsg.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using type.type.BadNames.SomeMsg.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(type.type.BadNames.SomeMsg other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -4990,21 +5557,45 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<SomeMsg>
-        PARSER = new com.google.protobuf.AbstractParser<SomeMsg>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<SomeMsg> {
+      MessageParser() {}
+
       @java.lang.Override
       public SomeMsg parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        SomeMsg instance = new SomeMsg((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<SomeMsg> parser() {
       return PARSER;
@@ -5204,7 +5795,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -5233,14 +5824,25 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
                 type.type.BadNames.MangleViewTest.class, type.type.BadNames.MangleViewTest.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using type.type.BadNames.MangleViewTest.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(type.type.BadNames.MangleViewTest other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -5342,21 +5944,45 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<MangleViewTest>
-        PARSER = new com.google.protobuf.AbstractParser<MangleViewTest>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MangleViewTest> {
+      MessageParser() {}
+
       @java.lang.Override
       public MangleViewTest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        MangleViewTest instance = new MangleViewTest((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<MangleViewTest> parser() {
       return PARSER;
@@ -5556,7 +6182,7 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -5585,14 +6211,25 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
                 type.type.BadNames.MangleViewTestView.class, type.type.BadNames.MangleViewTestView.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using type.type.BadNames.MangleViewTestView.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(type.type.BadNames.MangleViewTestView other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -5694,21 +6331,45 @@ public final class BadNames extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<MangleViewTestView>
-        PARSER = new com.google.protobuf.AbstractParser<MangleViewTestView>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MangleViewTestView> {
+      MessageParser() {}
+
       @java.lang.Override
       public MangleViewTestView parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        MangleViewTestView instance = new MangleViewTestView((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<MangleViewTestView> parser() {
       return PARSER;

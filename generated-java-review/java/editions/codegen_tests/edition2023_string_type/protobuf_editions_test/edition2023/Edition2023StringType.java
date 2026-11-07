@@ -612,7 +612,7 @@ public final class Edition2023StringType extends com.google.protobuf.GeneratedFi
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -642,14 +642,32 @@ public final class Edition2023StringType extends com.google.protobuf.GeneratedFi
                 protobuf_editions_test.edition2023.Edition2023StringType.Edition2023StringTypeMessage.class, protobuf_editions_test.edition2023.Edition2023StringType.Edition2023StringTypeMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.edition2023.Edition2023StringType.Edition2023StringTypeMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        str_ = "";
+        view_ = "";
+        cord_ = "";
+        strBytes_ = com.google.protobuf.ByteString.EMPTY;
+        viewBytes_ = com.google.protobuf.ByteString.EMPTY;
+        cordBytes_ = com.google.protobuf.ByteString.EMPTY;
+
+      }
+      private Builder(protobuf_editions_test.edition2023.Edition2023StringType.Edition2023StringTypeMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -721,6 +739,17 @@ public final class Edition2023StringType extends com.google.protobuf.GeneratedFi
           to_bitField0_ |= 0x00000020;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(protobuf_editions_test.edition2023.Edition2023StringType.Edition2023StringTypeMessage other) {
+        int to_bitField0_ = (other.bitField0_ & 0x0000003f);
+        str_ = other.str_;
+        view_ = other.view_;
+        cord_ = other.cord_;
+        strBytes_ = other.getStrBytes();
+        viewBytes_ = other.getViewBytes();
+        cordBytes_ = other.getCordBytes();
+        bitField0_ |= to_bitField0_;
       }
 
       public <Type> Builder setExtension(
@@ -857,7 +886,7 @@ public final class Edition2023StringType extends com.google.protobuf.GeneratedFi
       }
       private int bitField0_;
 
-      private java.lang.Object str_ = "";
+      private java.lang.Object str_;
       /**
        * <code>string str = 1;</code>
        * @return Whether the str field is set.
@@ -936,7 +965,7 @@ public final class Edition2023StringType extends com.google.protobuf.GeneratedFi
         return this;
       }
 
-      private java.lang.Object view_ = "";
+      private java.lang.Object view_;
       /**
        * <code>string view = 2 [features = { ... }</code>
        * @return Whether the view field is set.
@@ -1015,7 +1044,7 @@ public final class Edition2023StringType extends com.google.protobuf.GeneratedFi
         return this;
       }
 
-      private java.lang.Object cord_ = "";
+      private java.lang.Object cord_;
       /**
        * <code>string cord = 3 [features = { ... }</code>
        * @return Whether the cord field is set.
@@ -1094,7 +1123,7 @@ public final class Edition2023StringType extends com.google.protobuf.GeneratedFi
         return this;
       }
 
-      private com.google.protobuf.ByteString strBytes_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString strBytes_;
       /**
        * <code>bytes str_bytes = 5;</code>
        * @return Whether the strBytes field is set.
@@ -1134,7 +1163,7 @@ public final class Edition2023StringType extends com.google.protobuf.GeneratedFi
         return this;
       }
 
-      private com.google.protobuf.ByteString viewBytes_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString viewBytes_;
       /**
        * <code>bytes view_bytes = 6 [features = { ... }</code>
        * @return Whether the viewBytes field is set.
@@ -1174,7 +1203,7 @@ public final class Edition2023StringType extends com.google.protobuf.GeneratedFi
         return this;
       }
 
-      private com.google.protobuf.ByteString cordBytes_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString cordBytes_;
       /**
        * <code>bytes cord_bytes = 7 [features = { ... }</code>
        * @return Whether the cordBytes field is set.
@@ -1228,21 +1257,86 @@ public final class Edition2023StringType extends com.google.protobuf.GeneratedFi
     }
 
     private static final com.google.protobuf.Parser<Edition2023StringTypeMessage>
-        PARSER = new com.google.protobuf.AbstractParser<Edition2023StringTypeMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Edition2023StringTypeMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public Edition2023StringTypeMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Edition2023StringTypeMessage instance = new Edition2023StringTypeMessage((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.lang.Object parsed_str = null;
+        java.lang.Object parsed_view = null;
+        java.lang.Object parsed_cord = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                parsed_str = input.readStringRequireUtf8();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 18: {
+                parsed_view = input.readStringRequireUtf8();
+                to_bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 26: {
+                parsed_cord = input.readStringRequireUtf8();
+                to_bitField0_ |= 0x00000004;
+                break;
+              } // case 26
+              case 42: {
+                instance.strBytes_ = input.readBytes();
+                to_bitField0_ |= 0x00000008;
+                break;
+              } // case 42
+              case 50: {
+                instance.viewBytes_ = input.readBytes();
+                to_bitField0_ |= 0x00000010;
+                break;
+              } // case 50
+              case 58: {
+                instance.cordBytes_ = input.readBytes();
+                to_bitField0_ |= 0x00000020;
+                break;
+              } // case 58
+              default: {
+                pendingTag = tag;
+                break parseLoop;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parsed_str != null) instance.str_ = parsed_str;
+        if (parsed_view != null) instance.view_ = parsed_view;
+        if (parsed_cord != null) instance.cord_ = parsed_cord;
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        if (pendingTag != 0) {
+          return mergeFrom(instance.toBuilder(), input, extensionRegistry, pendingTag, null);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<Edition2023StringTypeMessage> parser() {
       return PARSER;
@@ -1442,7 +1536,7 @@ public final class Edition2023StringType extends com.google.protobuf.GeneratedFi
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -1471,14 +1565,25 @@ public final class Edition2023StringType extends com.google.protobuf.GeneratedFi
                 protobuf_editions_test.edition2023.Edition2023StringType.Edition2023StringTypeMessageExt.class, protobuf_editions_test.edition2023.Edition2023StringType.Edition2023StringTypeMessageExt.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.edition2023.Edition2023StringType.Edition2023StringTypeMessageExt.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(protobuf_editions_test.edition2023.Edition2023StringType.Edition2023StringTypeMessageExt other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -1580,21 +1685,45 @@ public final class Edition2023StringType extends com.google.protobuf.GeneratedFi
     }
 
     private static final com.google.protobuf.Parser<Edition2023StringTypeMessageExt>
-        PARSER = new com.google.protobuf.AbstractParser<Edition2023StringTypeMessageExt>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Edition2023StringTypeMessageExt> {
+      MessageParser() {}
+
       @java.lang.Override
       public Edition2023StringTypeMessageExt parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Edition2023StringTypeMessageExt instance = new Edition2023StringTypeMessageExt((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<Edition2023StringTypeMessageExt> parser() {
       return PARSER;

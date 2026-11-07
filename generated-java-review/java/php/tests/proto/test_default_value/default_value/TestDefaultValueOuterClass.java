@@ -297,6 +297,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
     // Use TestDefaultValue.newBuilder() to construct.
     private TestDefaultValue(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      optionalBytes_ = DEFAULT_INSTANCE.optionalBytes_;
     }
     private TestDefaultValue() {
       optionalInt32_ = 1;
@@ -511,7 +512,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
     }
 
     public static final int OPTIONAL_BYTES_FIELD_NUMBER = 9;
-    private com.google.protobuf.ByteString optionalBytes_ = com.google.protobuf.Internal.bytesDefaultValue("world");
+    private com.google.protobuf.ByteString optionalBytes_;
     /**
      * <code>bytes optional_bytes = 9 [default = "world"];</code>
      * @return Whether the optionalBytes field is set.
@@ -860,7 +861,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -889,14 +890,36 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
                 default_value.TestDefaultValueOuterClass.TestDefaultValue.class, default_value.TestDefaultValueOuterClass.TestDefaultValue.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using default_value.TestDefaultValueOuterClass.TestDefaultValue.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        optionalInt32_ = 1;
+        optionalInt64_ = 2L;
+        optionalUint32_ = 3;
+        optionalUint64_ = 4L;
+        optionalFloat_ = 5.5F;
+        optionalDouble_ = 6.6D;
+        optionalBool_ = true;
+        optionalString_ = "hello";
+        optionalBytes_ = getDefaultInstance().getOptionalBytes();
+        optionalEnum_ = 1;
+
+      }
+      private Builder(default_value.TestDefaultValueOuterClass.TestDefaultValue other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -911,7 +934,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
         optionalDouble_ = 6.6D;
         optionalBool_ = true;
         optionalString_ = "hello";
-        optionalBytes_ = com.google.protobuf.Internal.bytesDefaultValue("world");
+        optionalBytes_ = getDefaultInstance().getOptionalBytes();
         optionalEnum_ = 1;
         return this;
       }
@@ -988,6 +1011,21 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
           to_bitField0_ |= 0x00000200;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(default_value.TestDefaultValueOuterClass.TestDefaultValue other) {
+        int to_bitField0_ = (other.bitField0_ & 0x000003ff);
+        optionalInt32_ = other.getOptionalInt32();
+        optionalInt64_ = other.getOptionalInt64();
+        optionalUint32_ = other.getOptionalUint32();
+        optionalUint64_ = other.getOptionalUint64();
+        optionalFloat_ = other.getOptionalFloat();
+        optionalDouble_ = other.getOptionalDouble();
+        optionalBool_ = other.getOptionalBool();
+        optionalString_ = other.optionalString_;
+        optionalBytes_ = other.getOptionalBytes();
+        optionalEnum_ = other.getOptionalEnumValue();
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1125,7 +1163,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
       }
       private int bitField0_;
 
-      private int optionalInt32_ = 1;
+      private int optionalInt32_;
       /**
        * <code>int32 optional_int32 = 1 [default = 1];</code>
        * @return Whether the optionalInt32 field is set.
@@ -1165,7 +1203,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
         return this;
       }
 
-      private long optionalInt64_ = 2L;
+      private long optionalInt64_;
       /**
        * <code>int64 optional_int64 = 2 [default = 2];</code>
        * @return Whether the optionalInt64 field is set.
@@ -1205,7 +1243,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
         return this;
       }
 
-      private int optionalUint32_ = 3;
+      private int optionalUint32_;
       /**
        * <code>uint32 optional_uint32 = 3 [default = 3];</code>
        * @return Whether the optionalUint32 field is set.
@@ -1245,7 +1283,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
         return this;
       }
 
-      private long optionalUint64_ = 4L;
+      private long optionalUint64_;
       /**
        * <code>uint64 optional_uint64 = 4 [default = 4];</code>
        * @return Whether the optionalUint64 field is set.
@@ -1285,7 +1323,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
         return this;
       }
 
-      private float optionalFloat_ = 5.5F;
+      private float optionalFloat_;
       /**
        * <code>float optional_float = 5 [default = 5.5];</code>
        * @return Whether the optionalFloat field is set.
@@ -1325,7 +1363,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
         return this;
       }
 
-      private double optionalDouble_ = 6.6D;
+      private double optionalDouble_;
       /**
        * <code>double optional_double = 6 [default = 6.6];</code>
        * @return Whether the optionalDouble field is set.
@@ -1365,7 +1403,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
         return this;
       }
 
-      private boolean optionalBool_ = true;
+      private boolean optionalBool_;
       /**
        * <code>bool optional_bool = 7 [default = true];</code>
        * @return Whether the optionalBool field is set.
@@ -1405,7 +1443,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
         return this;
       }
 
-      private java.lang.Object optionalString_ = "hello";
+      private java.lang.Object optionalString_;
       /**
        * <code>string optional_string = 8 [default = "hello"];</code>
        * @return Whether the optionalString field is set.
@@ -1484,7 +1522,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
         return this;
       }
 
-      private com.google.protobuf.ByteString optionalBytes_ = com.google.protobuf.Internal.bytesDefaultValue("world");
+      private com.google.protobuf.ByteString optionalBytes_;
       /**
        * <code>bytes optional_bytes = 9 [default = "world"];</code>
        * @return Whether the optionalBytes field is set.
@@ -1524,7 +1562,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
         return this;
       }
 
-      private int optionalEnum_ = 1;
+      private int optionalEnum_;
       /**
        * <code>.default_value.TestEnum optional_enum = 10 [default = HELLO];</code>
        * @return Whether the optionalEnum field is set.
@@ -1597,21 +1635,101 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
     }
 
     private static final com.google.protobuf.Parser<TestDefaultValue>
-        PARSER = new com.google.protobuf.AbstractParser<TestDefaultValue>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestDefaultValue> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestDefaultValue parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestDefaultValue instance = new TestDefaultValue((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.lang.Object parsed_optionalString = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.optionalInt32_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                instance.optionalInt64_ = input.readInt64();
+                to_bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                instance.optionalUint32_ = input.readUInt32();
+                to_bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                instance.optionalUint64_ = input.readUInt64();
+                to_bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 45: {
+                instance.optionalFloat_ = input.readFloat();
+                to_bitField0_ |= 0x00000010;
+                break;
+              } // case 45
+              case 49: {
+                instance.optionalDouble_ = input.readDouble();
+                to_bitField0_ |= 0x00000020;
+                break;
+              } // case 49
+              case 56: {
+                instance.optionalBool_ = input.readBool();
+                to_bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              case 66: {
+                parsed_optionalString = input.readStringRequireUtf8();
+                to_bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              case 74: {
+                instance.optionalBytes_ = input.readBytes();
+                to_bitField0_ |= 0x00000100;
+                break;
+              } // case 74
+              case 80: {
+                instance.optionalEnum_ = input.readEnum();
+                to_bitField0_ |= 0x00000200;
+                break;
+              } // case 80
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parsed_optionalString != null) instance.optionalString_ = parsed_optionalString;
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<TestDefaultValue> parser() {
       return PARSER;

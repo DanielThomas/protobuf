@@ -237,7 +237,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -267,14 +267,26 @@ private static final long serialVersionUID = 0L;
               upb.MultipleFilesMessage2.class, upb.MultipleFilesMessage2.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using upb.MultipleFilesMessage2.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+
+    }
+    private Builder(upb.MultipleFilesMessage2 other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -321,6 +333,12 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(upb.MultipleFilesMessage2 other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000001);
+      field1_ = other.getField1();
+      bitField0_ |= to_bitField0_;
     }
 
     public <Type> Builder setExtension(
@@ -411,7 +429,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int field1_ ;
+    private int field1_;
     /**
      * <code>int32 field1 = 1;</code>
      * @return Whether the field1 field is set.
@@ -465,21 +483,55 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<MultipleFilesMessage2>
-      PARSER = new com.google.protobuf.AbstractParser<MultipleFilesMessage2>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<MultipleFilesMessage2> {
+    MessageParser() {}
+
     @java.lang.Override
     public MultipleFilesMessage2 parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MultipleFilesMessage2 instance = new MultipleFilesMessage2((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.field1_ = input.readInt32();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              pendingTag = tag;
+              break parseLoop;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      if (pendingTag != 0) {
+        return mergeFrom(instance.toBuilder(), input, extensionRegistry, pendingTag, null);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<MultipleFilesMessage2> parser() {
     return PARSER;

@@ -498,7 +498,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -527,14 +527,28 @@ private static final long serialVersionUID = 0L;
               proto2_unittest.TestRepeatedEnumProxy.class, proto2_unittest.TestRepeatedEnumProxy.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using proto2_unittest.TestRepeatedEnumProxy.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      enums_ = emptyIntList();
+      enumsProxy_ = emptyIntList();
+
+    }
+    private Builder(proto2_unittest.TestRepeatedEnumProxy other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -586,6 +600,19 @@ private static final long serialVersionUID = 0L;
         result.enumsProxy_ = enumsProxy_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(proto2_unittest.TestRepeatedEnumProxy other) {
+      int to_bitField0_ = 0;
+      enums_ = other.enums_;
+      if (!enums_.isEmpty()) {
+        to_bitField0_ |= 0x00000001;
+      }
+      enumsProxy_ = other.enumsProxy_;
+      if (!enumsProxy_.isEmpty()) {
+        to_bitField0_ |= 0x00000002;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -697,7 +724,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.Internal.IntList enums_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList enums_;
     private void ensureEnumsIsMutable(int capacity) {
       if (!enums_.isModifiable()) {
         enums_ = makeMutableCopy(enums_, capacity);
@@ -835,7 +862,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList enumsProxy_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList enumsProxy_;
     private void ensureEnumsProxyIsMutable(int capacity) {
       if (!enumsProxy_.isModifiable()) {
         enumsProxy_ = makeMutableCopy(enumsProxy_, capacity);
@@ -987,21 +1014,94 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestRepeatedEnumProxy>
-      PARSER = new com.google.protobuf.AbstractParser<TestRepeatedEnumProxy>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestRepeatedEnumProxy> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestRepeatedEnumProxy parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestRepeatedEnumProxy instance = new TestRepeatedEnumProxy((Builder) null);
+      java.lang.Object unknown = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              int tmpRaw = input.readEnum();
+              ensureEnumsIsMutable(instance, /* capacity= */ -1);
+              instance.enums_.addInt(tmpRaw);
+              break;
+            } // case 8
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureEnumsIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.enums_.addInt(input.readEnum());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 10
+            case 16: {
+              int tmpRaw = input.readEnum();
+              ensureEnumsProxyIsMutable(instance, /* capacity= */ -1);
+              instance.enumsProxy_.addInt(tmpRaw);
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureEnumsProxyIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.enumsProxy_.addInt(input.readEnum());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensureEnumsIsMutable(proto2_unittest.TestRepeatedEnumProxy instance, int minCapacity) {
+      if (!instance.enums_.isModifiable()) {
+        instance.enums_ = makeMutableCopy(instance.enums_, minCapacity);
+      }
+    }
+    private static void ensureEnumsProxyIsMutable(proto2_unittest.TestRepeatedEnumProxy instance, int minCapacity) {
+      if (!instance.enumsProxy_.isModifiable()) {
+        instance.enumsProxy_ = makeMutableCopy(instance.enumsProxy_, minCapacity);
+      }
+    }
+    private static void finishCollections0(TestRepeatedEnumProxy instance) {
+      instance.enums_.makeImmutable();
+      instance.enumsProxy_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<TestRepeatedEnumProxy> parser() {
     return PARSER;

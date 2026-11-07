@@ -330,7 +330,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -359,14 +359,26 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestVerifyUint32Simple.class, edition_unittest.TestVerifyUint32Simple.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestVerifyUint32Simple.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+
+    }
+    private Builder(edition_unittest.TestVerifyUint32Simple other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -428,6 +440,15 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000008;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestVerifyUint32Simple other) {
+      int to_bitField0_ = (other.bitField0_ & 0x0000000f);
+      optionalUint321_ = other.getOptionalUint321();
+      optionalUint322_ = other.getOptionalUint322();
+      optionalUint3263_ = other.getOptionalUint3263();
+      optionalUint3264_ = other.getOptionalUint3264();
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -515,7 +536,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int optionalUint321_ ;
+    private int optionalUint321_;
     /**
      * <code>uint32 optional_uint32_1 = 1;</code>
      * @return Whether the optionalUint321 field is set.
@@ -555,7 +576,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalUint322_ ;
+    private int optionalUint322_;
     /**
      * <code>uint32 optional_uint32_2 = 2;</code>
      * @return Whether the optionalUint322 field is set.
@@ -595,7 +616,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalUint3263_ ;
+    private int optionalUint3263_;
     /**
      * <code>uint32 optional_uint32_63 = 63;</code>
      * @return Whether the optionalUint3263 field is set.
@@ -635,7 +656,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalUint3264_ ;
+    private int optionalUint3264_;
     /**
      * <code>uint32 optional_uint32_64 = 64;</code>
      * @return Whether the optionalUint3264 field is set.
@@ -689,21 +710,69 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestVerifyUint32Simple>
-      PARSER = new com.google.protobuf.AbstractParser<TestVerifyUint32Simple>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestVerifyUint32Simple> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestVerifyUint32Simple parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestVerifyUint32Simple instance = new TestVerifyUint32Simple((Builder) null);
+      java.lang.Object unknown = null;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.optionalUint321_ = input.readUInt32();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.optionalUint322_ = input.readUInt32();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 504: {
+              instance.optionalUint3263_ = input.readUInt32();
+              to_bitField0_ |= 0x00000004;
+              break;
+            } // case 504
+            case 512: {
+              instance.optionalUint3264_ = input.readUInt32();
+              to_bitField0_ |= 0x00000008;
+              break;
+            } // case 512
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<TestVerifyUint32Simple> parser() {
     return PARSER;

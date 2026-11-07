@@ -425,7 +425,7 @@ public final class Edition2023NamingStyleOneof extends com.google.protobuf.Gener
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -454,14 +454,26 @@ public final class Edition2023NamingStyleOneof extends com.google.protobuf.Gener
                 protobuf_editions_test.edition2023.Edition2023NamingStyleOneof.BadOneofMessage.class, protobuf_editions_test.edition2023.Edition2023NamingStyleOneof.BadOneofMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.edition2023.Edition2023NamingStyleOneof.BadOneofMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(protobuf_editions_test.edition2023.Edition2023NamingStyleOneof.BadOneofMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -511,6 +523,19 @@ public final class Edition2023NamingStyleOneof extends com.google.protobuf.Gener
           result.bADONEOFNAME_ = bADONEOFNAME_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(protobuf_editions_test.edition2023.Edition2023NamingStyleOneof.BadOneofMessage other) {
+        int to_bitField0_ = 0;
+        if (other.bADONEOFNAMECase_ == 1) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (other.bADONEOFNAMECase_ == 2) {
+          to_bitField0_ |= 0x00000002;
+        }
+        bADONEOFNAMECase_ = other.bADONEOFNAMECase_;
+        bADONEOFNAME_ = other.bADONEOFNAME_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -605,7 +630,7 @@ public final class Edition2023NamingStyleOneof extends com.google.protobuf.Gener
         } // finally
         return this;
       }
-      private int bADONEOFNAMECase_ = 0;
+      private int bADONEOFNAMECase_;
       private java.lang.Object bADONEOFNAME_;
       public BADONEOFNAMECase
           getBADONEOFNAMECase() {
@@ -882,21 +907,53 @@ public final class Edition2023NamingStyleOneof extends com.google.protobuf.Gener
     }
 
     private static final com.google.protobuf.Parser<BadOneofMessage>
-        PARSER = new com.google.protobuf.AbstractParser<BadOneofMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<BadOneofMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public BadOneofMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        BadOneofMessage instance = new BadOneofMessage((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10:
+              case 18:
+              {
+                java.lang.String value = input.readStringRequireUtf8();
+                instance.bADONEOFNAMECase_ = tag >>> 3;
+                instance.bADONEOFNAME_ = value;
+                break;
+              }
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<BadOneofMessage> parser() {
       return PARSER;

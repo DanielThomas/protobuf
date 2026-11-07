@@ -800,6 +800,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
     // Use TestMessage.newBuilder() to construct.
     private TestMessage(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      optionalBytes_ = DEFAULT_INSTANCE.optionalBytes_;
     }
     private TestMessage() {
       optionalInt32_ = 1;
@@ -1081,7 +1082,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
       @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
+            ? new Builder() : new Builder(this);
       }
 
       @java.lang.Override
@@ -1110,14 +1111,26 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
                   A.B.C.RubyGeneratedCodeProto2.TestMessage.NestedMessage.class, A.B.C.RubyGeneratedCodeProto2.TestMessage.NestedMessage.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using A.B.C.RubyGeneratedCodeProto2.TestMessage.NestedMessage.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+
+        }
+        private Builder(A.B.C.RubyGeneratedCodeProto2.TestMessage.NestedMessage other) {
+          super(other, null);
+          copyFrom_autosplit_0(other);
 
         }
         @java.lang.Override
@@ -1164,6 +1177,12 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
             to_bitField0_ |= 0x00000001;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(A.B.C.RubyGeneratedCodeProto2.TestMessage.NestedMessage other) {
+          int to_bitField0_ = (other.bitField0_ & 0x00000001);
+          foo_ = other.getFoo();
+          bitField0_ |= to_bitField0_;
         }
 
         @java.lang.Override
@@ -1227,7 +1246,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         }
         private int bitField0_;
 
-        private int foo_ ;
+        private int foo_;
         /**
          * <code>optional int32 foo = 1;</code>
          * @return Whether the foo field is set.
@@ -1281,21 +1300,54 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
       }
 
       private static final com.google.protobuf.Parser<NestedMessage>
-          PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<NestedMessage> {
+        MessageParser() {}
+
         @java.lang.Override
         public NestedMessage parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
+          java.util.Objects.requireNonNull(extensionRegistry);
+          NestedMessage instance = new NestedMessage((Builder) null);
+          java.lang.Object unknown = null;
+          int to_bitField0_ = 0;
+          java.io.IOException parseFailure = null;
           try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
+            parseLoop: while (true) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0: break parseLoop;
+                case 8: {
+                  instance.foo_ = input.readInt32();
+                  to_bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+                default: {
+                  unknown = prepareUnknownFields(unknown, input);
+                  if (!parseUnknownField(input, unknown, tag)) {
+                    break parseLoop;
+                  }
+                  break;
+                }
+              }
+            }
+          } catch (java.io.IOException e) {
+            parseFailure = e;
           }
-          return builder.buildPartial();
+          finishUnknownFields(instance, unknown);
+          if (to_bitField0_ != 0) {
+            instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+          }
+          if (parseFailure != null) {
+            throwParseException(parseFailure, instance);
+          }
+          return instance;
         }
-      };
+      }
 
       public static com.google.protobuf.Parser<NestedMessage> parser() {
         return PARSER;
@@ -1558,7 +1610,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
     }
 
     public static final int OPTIONAL_BYTES_FIELD_NUMBER = 9;
-    private com.google.protobuf.ByteString optionalBytes_ = com.google.protobuf.Internal.bytesDefaultValue("\000\001\002@fubar");
+    private com.google.protobuf.ByteString optionalBytes_;
     /**
      * <code>optional bytes optional_bytes = 9 [default = "&#92;000&#92;001&#92;002&#64;fubar"];</code>
      * @return Whether the optionalBytes field is set.
@@ -3592,7 +3644,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -3621,14 +3673,52 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
                 A.B.C.RubyGeneratedCodeProto2.TestMessage.class, A.B.C.RubyGeneratedCodeProto2.TestMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using A.B.C.RubyGeneratedCodeProto2.TestMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        optionalInt32_ = 1;
+        optionalInt64_ = 2L;
+        optionalUint32_ = 3;
+        optionalUint64_ = 4L;
+        optionalBool_ = true;
+        optionalDouble_ = 6D;
+        optionalFloat_ = 7F;
+        optionalString_ = "default str";
+        optionalBytes_ = getDefaultInstance().getOptionalBytes();
+        optionalEnum_ = 1;
+        repeatedInt32_ = emptyIntList();
+        repeatedInt64_ = emptyLongList();
+        repeatedUint32_ = emptyIntList();
+        repeatedUint64_ = emptyLongList();
+        repeatedBool_ = emptyBooleanList();
+        repeatedDouble_ = emptyDoubleList();
+        repeatedFloat_ = emptyFloatList();
+        repeatedString_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        repeatedBytes_ = emptyList(com.google.protobuf.ByteString.class);
+        repeatedEnum_ = emptyIntList();
+        repeatedMsg_ = emptyList(A.B.C.RubyGeneratedCodeProto2.TestMessage.class);
+        requiredString_ = "";
+        requiredBytes_ = com.google.protobuf.ByteString.EMPTY;
+        requiredEnum_ = 0;
+        maybeForceBuilderInitialization();
+      }
+      private Builder(A.B.C.RubyGeneratedCodeProto2.TestMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
+        copyFrom_autosplit_1(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -3654,7 +3744,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         optionalDouble_ = 6D;
         optionalFloat_ = 7F;
         optionalString_ = "default str";
-        optionalBytes_ = com.google.protobuf.Internal.bytesDefaultValue("\000\001\002@fubar");
+        optionalBytes_ = getDefaultInstance().getOptionalBytes();
         optionalEnum_ = 1;
         optionalMsg_ = null;
         if (optionalMsgBuilder_ != null) {
@@ -3884,6 +3974,67 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         result.bitField0_ |= to_bitField0_;
       }
 
+      private void copyFrom_autosplit_0(A.B.C.RubyGeneratedCodeProto2.TestMessage other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00ffffff);
+        optionalInt32_ = other.getOptionalInt32();
+        optionalInt64_ = other.getOptionalInt64();
+        optionalUint32_ = other.getOptionalUint32();
+        optionalUint64_ = other.getOptionalUint64();
+        optionalBool_ = other.getOptionalBool();
+        optionalDouble_ = other.getOptionalDouble();
+        optionalFloat_ = other.getOptionalFloat();
+        optionalString_ = other.optionalString_;
+        optionalBytes_ = other.getOptionalBytes();
+        optionalEnum_ = other.optionalEnum_;
+        optionalMsg_ = other.optionalMsg_;
+        optionalProto2Submessage_ = other.optionalProto2Submessage_;
+        requiredInt32_ = other.getRequiredInt32();
+        requiredInt64_ = other.getRequiredInt64();
+        requiredUint32_ = other.getRequiredUint32();
+        requiredUint64_ = other.getRequiredUint64();
+        requiredBool_ = other.getRequiredBool();
+        requiredDouble_ = other.getRequiredDouble();
+        requiredFloat_ = other.getRequiredFloat();
+        requiredString_ = other.requiredString_;
+        requiredBytes_ = other.getRequiredBytes();
+        requiredEnum_ = other.requiredEnum_;
+        requiredMsg_ = other.requiredMsg_;
+        nestedMessage_ = other.nestedMessage_;
+        repeatedInt32_ = other.repeatedInt32_;
+        if (!repeatedInt32_.isEmpty()) {
+          to_bitField0_ |= 0x01000000;
+        }
+        repeatedInt64_ = other.repeatedInt64_;
+        if (!repeatedInt64_.isEmpty()) {
+          to_bitField0_ |= 0x02000000;
+        }
+        repeatedUint32_ = other.repeatedUint32_;
+        if (!repeatedUint32_.isEmpty()) {
+          to_bitField0_ |= 0x04000000;
+        }
+        repeatedUint64_ = other.repeatedUint64_;
+        if (!repeatedUint64_.isEmpty()) {
+          to_bitField0_ |= 0x08000000;
+        }
+        repeatedBool_ = other.repeatedBool_;
+        if (!repeatedBool_.isEmpty()) {
+          to_bitField0_ |= 0x10000000;
+        }
+        repeatedDouble_ = other.repeatedDouble_;
+        if (!repeatedDouble_.isEmpty()) {
+          to_bitField0_ |= 0x20000000;
+        }
+        repeatedFloat_ = other.repeatedFloat_;
+        if (!repeatedFloat_.isEmpty()) {
+          to_bitField0_ |= 0x40000000;
+        }
+        repeatedString_ = other.repeatedString_;
+        if (!repeatedString_.isEmpty()) {
+          to_bitField0_ |= 0x80000000;
+        }
+        bitField0_ |= to_bitField0_;
+      }
+
       private void buildPartial_autosplit_1(A.B.C.RubyGeneratedCodeProto2.TestMessage result) {
         int from_bitField1_ = bitField1_;
         int to_bitField1_ = 0;
@@ -3916,6 +4067,58 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
           result.myOneof_ = myOneof_;
         }
         result.bitField1_ |= to_bitField1_;
+      }
+
+      private void copyFrom_autosplit_1(A.B.C.RubyGeneratedCodeProto2.TestMessage other) {
+        int to_bitField1_ = 0;
+        repeatedBytes_ = other.repeatedBytes_;
+        if (!repeatedBytes_.isEmpty()) {
+          to_bitField1_ |= 0x00000001;
+        }
+        repeatedEnum_ = other.repeatedEnum_;
+        if (!repeatedEnum_.isEmpty()) {
+          to_bitField1_ |= 0x00000002;
+        }
+        repeatedMsg_ = other.repeatedMsg_;
+        if (!repeatedMsg_.isEmpty()) {
+          to_bitField1_ |= 0x00000004;
+        }
+        if (other.myOneofCase_ == 61) {
+          to_bitField1_ |= 0x00000008;
+        }
+        if (other.myOneofCase_ == 62) {
+          to_bitField1_ |= 0x00000010;
+        }
+        if (other.myOneofCase_ == 63) {
+          to_bitField1_ |= 0x00000020;
+        }
+        if (other.myOneofCase_ == 64) {
+          to_bitField1_ |= 0x00000040;
+        }
+        if (other.myOneofCase_ == 65) {
+          to_bitField1_ |= 0x00000080;
+        }
+        if (other.myOneofCase_ == 66) {
+          to_bitField1_ |= 0x00000100;
+        }
+        if (other.myOneofCase_ == 67) {
+          to_bitField1_ |= 0x00000200;
+        }
+        if (other.myOneofCase_ == 68) {
+          to_bitField1_ |= 0x00000400;
+        }
+        if (other.myOneofCase_ == 69) {
+          to_bitField1_ |= 0x00000800;
+        }
+        if (other.myOneofCase_ == 70) {
+          to_bitField1_ |= 0x00001000;
+        }
+        if (other.myOneofCase_ == 71) {
+          to_bitField1_ |= 0x00002000;
+        }
+        myOneofCase_ = other.myOneofCase_;
+        myOneof_ = other.myOneof_;
+        bitField1_ |= to_bitField1_;
       }
 
       @java.lang.Override
@@ -4649,7 +4852,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         } // finally
         return this;
       }
-      private int myOneofCase_ = 0;
+      private int myOneofCase_;
       private java.lang.Object myOneof_;
       public MyOneofCase
           getMyOneofCase() {
@@ -4673,7 +4876,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
       private int bitField0_;
       private int bitField1_;
 
-      private int optionalInt32_ = 1;
+      private int optionalInt32_;
       /**
        * <code>optional int32 optional_int32 = 1 [default = 1];</code>
        * @return Whether the optionalInt32 field is set.
@@ -4713,7 +4916,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private long optionalInt64_ = 2L;
+      private long optionalInt64_;
       /**
        * <code>optional int64 optional_int64 = 2 [default = 2];</code>
        * @return Whether the optionalInt64 field is set.
@@ -4753,7 +4956,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private int optionalUint32_ = 3;
+      private int optionalUint32_;
       /**
        * <code>optional uint32 optional_uint32 = 3 [default = 3];</code>
        * @return Whether the optionalUint32 field is set.
@@ -4793,7 +4996,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private long optionalUint64_ = 4L;
+      private long optionalUint64_;
       /**
        * <code>optional uint64 optional_uint64 = 4 [default = 4];</code>
        * @return Whether the optionalUint64 field is set.
@@ -4833,7 +5036,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private boolean optionalBool_ = true;
+      private boolean optionalBool_;
       /**
        * <code>optional bool optional_bool = 5 [default = true];</code>
        * @return Whether the optionalBool field is set.
@@ -4873,7 +5076,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private double optionalDouble_ = 6D;
+      private double optionalDouble_;
       /**
        * <code>optional double optional_double = 6 [default = 6];</code>
        * @return Whether the optionalDouble field is set.
@@ -4913,7 +5116,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private float optionalFloat_ = 7F;
+      private float optionalFloat_;
       /**
        * <code>optional float optional_float = 7 [default = 7];</code>
        * @return Whether the optionalFloat field is set.
@@ -4953,7 +5156,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private java.lang.Object optionalString_ = "default str";
+      private java.lang.Object optionalString_;
       /**
        * <code>optional string optional_string = 8 [default = "default str"];</code>
        * @return Whether the optionalString field is set.
@@ -5033,7 +5236,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private com.google.protobuf.ByteString optionalBytes_ = com.google.protobuf.Internal.bytesDefaultValue("\000\001\002@fubar");
+      private com.google.protobuf.ByteString optionalBytes_;
       /**
        * <code>optional bytes optional_bytes = 9 [default = "&#92;000&#92;001&#92;002&#64;fubar"];</code>
        * @return Whether the optionalBytes field is set.
@@ -5073,7 +5276,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private int optionalEnum_ = 1;
+      private int optionalEnum_;
       /**
        * <code>optional .A.B.C.TestEnum optional_enum = 10 [default = A];</code>
        * @return Whether the optionalEnum field is set.
@@ -5369,7 +5572,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         bitField0_ |= 0x00000800;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedInt32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedInt32_;
       private void ensureRepeatedInt32IsMutable(int capacity) {
         if (!repeatedInt32_.isModifiable()) {
           repeatedInt32_ = makeMutableCopy(repeatedInt32_, capacity);
@@ -5453,7 +5656,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedInt64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedInt64_;
       private void ensureRepeatedInt64IsMutable(int capacity) {
         if (!repeatedInt64_.isModifiable()) {
           repeatedInt64_ = makeMutableCopy(repeatedInt64_, capacity);
@@ -5537,7 +5740,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedUint32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedUint32_;
       private void ensureRepeatedUint32IsMutable(int capacity) {
         if (!repeatedUint32_.isModifiable()) {
           repeatedUint32_ = makeMutableCopy(repeatedUint32_, capacity);
@@ -5621,7 +5824,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedUint64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedUint64_;
       private void ensureRepeatedUint64IsMutable(int capacity) {
         if (!repeatedUint64_.isModifiable()) {
           repeatedUint64_ = makeMutableCopy(repeatedUint64_, capacity);
@@ -5705,7 +5908,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private com.google.protobuf.Internal.BooleanList repeatedBool_ = emptyBooleanList();
+      private com.google.protobuf.Internal.BooleanList repeatedBool_;
       private void ensureRepeatedBoolIsMutable(int capacity) {
         if (!repeatedBool_.isModifiable()) {
           repeatedBool_ = makeMutableCopy(repeatedBool_, capacity);
@@ -5789,7 +5992,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private com.google.protobuf.Internal.DoubleList repeatedDouble_ = emptyDoubleList();
+      private com.google.protobuf.Internal.DoubleList repeatedDouble_;
       private void ensureRepeatedDoubleIsMutable(int capacity) {
         if (!repeatedDouble_.isModifiable()) {
           repeatedDouble_ = makeMutableCopy(repeatedDouble_, capacity);
@@ -5873,7 +6076,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private com.google.protobuf.Internal.FloatList repeatedFloat_ = emptyFloatList();
+      private com.google.protobuf.Internal.FloatList repeatedFloat_;
       private void ensureRepeatedFloatIsMutable(int capacity) {
         if (!repeatedFloat_.isModifiable()) {
           repeatedFloat_ = makeMutableCopy(repeatedFloat_, capacity);
@@ -5957,8 +6160,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList repeatedString_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList repeatedString_;
       private void ensureRepeatedStringIsMutable() {
         if (!repeatedString_.isModifiable()) {
           repeatedString_ = new com.google.protobuf.LazyStringArrayList(repeatedString_);
@@ -6067,7 +6269,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes_ = emptyList(com.google.protobuf.ByteString.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes_;
       private void ensureRepeatedBytesIsMutable(int capacity) {
         if (!repeatedBytes_.isModifiable()) {
           repeatedBytes_ = makeMutableCopy(repeatedBytes_, capacity);
@@ -6151,7 +6353,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedEnum_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedEnum_;
       private void ensureRepeatedEnumIsMutable(int capacity) {
         if (!repeatedEnum_.isModifiable()) {
           repeatedEnum_ = makeMutableCopy(repeatedEnum_, capacity);
@@ -6232,8 +6434,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<A.B.C.RubyGeneratedCodeProto2.TestMessage> repeatedMsg_ =
-          emptyList(A.B.C.RubyGeneratedCodeProto2.TestMessage.class);
+      private com.google.protobuf.Internal.ProtobufList<A.B.C.RubyGeneratedCodeProto2.TestMessage> repeatedMsg_;
       private void ensureRepeatedMsgIsMutable() {
         if (!repeatedMsg_.isModifiable()) {
           repeatedMsg_ = makeMutableCopy(repeatedMsg_);
@@ -6466,7 +6667,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return repeatedMsgBuilder_;
       }
 
-      private int requiredInt32_ ;
+      private int requiredInt32_;
       /**
        * <code>required int32 required_int32 = 41;</code>
        * @return Whether the requiredInt32 field is set.
@@ -6506,7 +6707,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private long requiredInt64_ ;
+      private long requiredInt64_;
       /**
        * <code>required int64 required_int64 = 42;</code>
        * @return Whether the requiredInt64 field is set.
@@ -6546,7 +6747,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private int requiredUint32_ ;
+      private int requiredUint32_;
       /**
        * <code>required uint32 required_uint32 = 43;</code>
        * @return Whether the requiredUint32 field is set.
@@ -6586,7 +6787,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private long requiredUint64_ ;
+      private long requiredUint64_;
       /**
        * <code>required uint64 required_uint64 = 44;</code>
        * @return Whether the requiredUint64 field is set.
@@ -6626,7 +6827,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private boolean requiredBool_ ;
+      private boolean requiredBool_;
       /**
        * <code>required bool required_bool = 45;</code>
        * @return Whether the requiredBool field is set.
@@ -6666,7 +6867,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private double requiredDouble_ ;
+      private double requiredDouble_;
       /**
        * <code>required double required_double = 46;</code>
        * @return Whether the requiredDouble field is set.
@@ -6706,7 +6907,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private float requiredFloat_ ;
+      private float requiredFloat_;
       /**
        * <code>required float required_float = 47;</code>
        * @return Whether the requiredFloat field is set.
@@ -6746,7 +6947,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private java.lang.Object requiredString_ = "";
+      private java.lang.Object requiredString_;
       /**
        * <code>required string required_string = 48;</code>
        * @return Whether the requiredString field is set.
@@ -6826,7 +7027,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private com.google.protobuf.ByteString requiredBytes_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString requiredBytes_;
       /**
        * <code>required bytes required_bytes = 49;</code>
        * @return Whether the requiredBytes field is set.
@@ -6866,7 +7067,7 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
         return this;
       }
 
-      private int requiredEnum_ = 0;
+      private int requiredEnum_;
       /**
        * <code>required .A.B.C.TestEnum required_enum = 50;</code>
        * @return Whether the requiredEnum field is set.
@@ -8071,21 +8272,851 @@ public final class RubyGeneratedCodeProto2 extends com.google.protobuf.Generated
     }
 
     private static final com.google.protobuf.Parser<TestMessage>
-        PARSER = new com.google.protobuf.AbstractParser<TestMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestMessage instance = new TestMessage((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.lang.Object parsed_optionalString = null;
+        java.lang.Object parsed_requiredString = null;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.optionalInt32_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                instance.optionalInt64_ = input.readInt64();
+                to_bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                instance.optionalUint32_ = input.readUInt32();
+                to_bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                instance.optionalUint64_ = input.readUInt64();
+                to_bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 40: {
+                instance.optionalBool_ = input.readBool();
+                to_bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 49: {
+                instance.optionalDouble_ = input.readDouble();
+                to_bitField0_ |= 0x00000020;
+                break;
+              } // case 49
+              case 61: {
+                instance.optionalFloat_ = input.readFloat();
+                to_bitField0_ |= 0x00000040;
+                break;
+              } // case 61
+              case 66: {
+                parsed_optionalString = input.readBytes();
+                to_bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              case 74: {
+                instance.optionalBytes_ = input.readBytes();
+                to_bitField0_ |= 0x00000100;
+                break;
+              } // case 74
+              case 80: {
+                int tmpRaw = input.readEnum();
+                if (A.B.C.RubyGeneratedCodeProto2.TestEnum.forNumber(tmpRaw) == null) {
+                  unknown = mergeUnknownVarintField(unknown, 10, tmpRaw);
+                } else {
+                  instance.optionalEnum_ = tmpRaw;
+                  to_bitField0_ |= 0x00000200;
+                }
+                break;
+              } // case 80
+              case 90: {
+                pendingTag = parseOptionalMsgField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 90
+              case 98: {
+                pendingTag = parseOptionalProto2SubmessageField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 98
+              case 168: {
+                int v = input.readInt32();
+                ensureRepeatedInt32IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedInt32_.addInt(v);
+                break;
+              } // case 168
+              case 170: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedInt32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedInt32_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 170
+              case 176: {
+                long v = input.readInt64();
+                ensureRepeatedInt64IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedInt64_.addLong(v);
+                break;
+              } // case 176
+              case 178: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedInt64IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedInt64_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 178
+              case 184: {
+                int v = input.readUInt32();
+                ensureRepeatedUint32IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedUint32_.addInt(v);
+                break;
+              } // case 184
+              case 186: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedUint32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedUint32_.addInt(input.readUInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 186
+              case 192: {
+                long v = input.readUInt64();
+                ensureRepeatedUint64IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedUint64_.addLong(v);
+                break;
+              } // case 192
+              case 194: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedUint64IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedUint64_.addLong(input.readUInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 194
+              case 200: {
+                boolean v = input.readBool();
+                ensureRepeatedBoolIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedBool_.addBoolean(v);
+                break;
+              } // case 200
+              case 202: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedBoolIsMutable(instance, alloc / 1);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedBool_.addBoolean(input.readBool());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 202
+              case 209: {
+                double v = input.readDouble();
+                ensureRepeatedDoubleIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedDouble_.addDouble(v);
+                break;
+              } // case 209
+              case 210: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedDoubleIsMutable(instance, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedDouble_.addDouble(input.readDouble());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 210
+              case 221: {
+                float v = input.readFloat();
+                ensureRepeatedFloatIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedFloat_.addFloat(v);
+                break;
+              } // case 221
+              case 218: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedFloatIsMutable(instance, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedFloat_.addFloat(input.readFloat());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 218
+              case 226: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                ensureRepeatedStringIsMutable(instance);
+                instance.repeatedString_.add(bs);
+                break;
+              } // case 226
+              case 234: {
+                com.google.protobuf.ByteString v = input.readBytes();
+                ensureRepeatedBytesIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedBytes_.add(v);
+                break;
+              } // case 234
+              case 240: {
+                int tmpRaw = input.readEnum();
+                A.B.C.RubyGeneratedCodeProto2.TestEnum tmpValue =
+                    A.B.C.RubyGeneratedCodeProto2.TestEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 30, tmpRaw);
+                } else {
+                  ensureRepeatedEnumIsMutable(instance, /* capacity= */ -1);
+                  instance.repeatedEnum_.addInt(tmpRaw);
+                }
+                break;
+              } // case 240
+              case 242: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedEnumIsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  int tmpRaw = input.readEnum();
+                  A.B.C.RubyGeneratedCodeProto2.TestEnum tmpValue =
+                      A.B.C.RubyGeneratedCodeProto2.TestEnum.forNumber(tmpRaw);
+                  if (tmpValue == null) {
+                    unknown = mergeUnknownVarintField(unknown, 30, tmpRaw);
+                  } else {
+                    instance.repeatedEnum_.addInt(tmpRaw);
+                  }
+                }
+                input.popLimit(limit);
+                break;
+              } // case 242
+              case 250: {
+                final int oldLimit = input.pushLimitBeforeMessage();
+                A.B.C.RubyGeneratedCodeProto2.TestMessage m = A.B.C.RubyGeneratedCodeProto2.TestMessage.parser().parsePartialFrom(input, extensionRegistry);
+                input.popLimitAfterMessage(oldLimit);
+                if (!instance.repeatedMsg_.isModifiable()) {
+  instance.repeatedMsg_ = makeMutableCopy(instance.repeatedMsg_);
+}
+                instance.repeatedMsg_.add(m);
+                break;
+              } // case 250
+              case 328: {
+                instance.requiredInt32_ = input.readInt32();
+                to_bitField0_ |= 0x00001000;
+                break;
+              } // case 328
+              case 336: {
+                instance.requiredInt64_ = input.readInt64();
+                to_bitField0_ |= 0x00002000;
+                break;
+              } // case 336
+              case 344: {
+                instance.requiredUint32_ = input.readUInt32();
+                to_bitField0_ |= 0x00004000;
+                break;
+              } // case 344
+              case 352: {
+                instance.requiredUint64_ = input.readUInt64();
+                to_bitField0_ |= 0x00008000;
+                break;
+              } // case 352
+              case 360: {
+                instance.requiredBool_ = input.readBool();
+                to_bitField0_ |= 0x00010000;
+                break;
+              } // case 360
+              case 369: {
+                instance.requiredDouble_ = input.readDouble();
+                to_bitField0_ |= 0x00020000;
+                break;
+              } // case 369
+              case 381: {
+                instance.requiredFloat_ = input.readFloat();
+                to_bitField0_ |= 0x00040000;
+                break;
+              } // case 381
+              case 386: {
+                parsed_requiredString = input.readBytes();
+                to_bitField0_ |= 0x00080000;
+                break;
+              } // case 386
+              case 394: {
+                instance.requiredBytes_ = input.readBytes();
+                to_bitField0_ |= 0x00100000;
+                break;
+              } // case 394
+              case 400: {
+                int tmpRaw = input.readEnum();
+                if (A.B.C.RubyGeneratedCodeProto2.TestEnum.forNumber(tmpRaw) == null) {
+                  unknown = mergeUnknownVarintField(unknown, 50, tmpRaw);
+                } else {
+                  instance.requiredEnum_ = tmpRaw;
+                  to_bitField0_ |= 0x00200000;
+                }
+                break;
+              } // case 400
+              case 410: {
+                pendingTag = parseRequiredMsgField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 410
+              case 488: {
+                pendingTag = parseOneofInt32Field(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 488
+              case 496: {
+                pendingTag = parseOneofInt64Field(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 496
+              case 504: {
+                pendingTag = parseOneofUint32Field(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 504
+              case 512: {
+                pendingTag = parseOneofUint64Field(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 512
+              case 520: {
+                pendingTag = parseOneofBoolField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 520
+              case 529: {
+                pendingTag = parseOneofDoubleField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 529
+              case 541: {
+                pendingTag = parseOneofFloatField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 541
+              case 546: {
+                pendingTag = parseOneofStringField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 546
+              case 554: {
+                pendingTag = parseOneofBytesField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 554
+              case 560: {
+                if (fieldBuilders == null && instance.myOneof_ instanceof com.google.protobuf.GeneratedMessage) {
+                  pendingTag = tag;
+                  break;
+                }
+                unknown = parseOneofEnumField(instance, input, extensionRegistry, unknown);
+                break;
+              } // case 560
+              case 570: {
+                pendingTag = parseOneofMsgField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 570
+              case 642: {
+                pendingTag = parseNestedMessageField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 642
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parsed_optionalString != null) instance.optionalString_ = parsed_optionalString;
+        if (parsed_requiredString != null) instance.requiredString_ = parsed_requiredString;
+        finishCollections0(instance);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseOptionalMsgField(
+          A.B.C.RubyGeneratedCodeProto2.TestMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.optionalMsg_ != null) {
+          return 90;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.optionalMsg_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    A.B.C.RubyGeneratedCodeProto2.TestMessage, A.B.C.RubyGeneratedCodeProto2.TestMessage.Builder, A.B.C.RubyGeneratedCodeProto2.TestMessageOrBuilder>(
+                        instance.getOptionalMsg(),
+                        null,
+                        false);
+                instance.optionalMsg_ = null;
+              }
+              instance.bitField0_ |= 0x00000400;
+            ((com.google.protobuf.SingleFieldBuilder<A.B.C.RubyGeneratedCodeProto2.TestMessage, A.B.C.RubyGeneratedCodeProto2.TestMessage.Builder, A.B.C.RubyGeneratedCodeProto2.TestMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.optionalMsg_ = A.B.C.RubyGeneratedCodeProto2.TestMessage.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000400;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.optionalMsg_ = A.B.C.RubyGeneratedCodeProto2.TestMessage.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000400;
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseOptionalProto2SubmessageField(
+          A.B.C.RubyGeneratedCodeProto2.TestMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.optionalProto2Submessage_ != null) {
+          return 98;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.optionalProto2Submessage_ != null || fieldBuilders[1] != null) {
+              if (fieldBuilders[1] == null) {
+                fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+                    A.B.C.RubyGeneratedCodeProto2Import.TestImportedMessage, A.B.C.RubyGeneratedCodeProto2Import.TestImportedMessage.Builder, A.B.C.RubyGeneratedCodeProto2Import.TestImportedMessageOrBuilder>(
+                        instance.getOptionalProto2Submessage(),
+                        null,
+                        false);
+                instance.optionalProto2Submessage_ = null;
+              }
+              instance.bitField0_ |= 0x00000800;
+            ((com.google.protobuf.SingleFieldBuilder<A.B.C.RubyGeneratedCodeProto2Import.TestImportedMessage, A.B.C.RubyGeneratedCodeProto2Import.TestImportedMessage.Builder, A.B.C.RubyGeneratedCodeProto2Import.TestImportedMessageOrBuilder>) fieldBuilders[1]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.optionalProto2Submessage_ = A.B.C.RubyGeneratedCodeProto2Import.TestImportedMessage.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000800;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.optionalProto2Submessage_ = A.B.C.RubyGeneratedCodeProto2Import.TestImportedMessage.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000800;
+        return 0;
+      }
+      private static void ensureRepeatedInt32IsMutable(A.B.C.RubyGeneratedCodeProto2.TestMessage instance, int minCapacity) {
+        if (!instance.repeatedInt32_.isModifiable()) {
+          instance.repeatedInt32_ = makeMutableCopy(instance.repeatedInt32_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedInt64IsMutable(A.B.C.RubyGeneratedCodeProto2.TestMessage instance, int minCapacity) {
+        if (!instance.repeatedInt64_.isModifiable()) {
+          instance.repeatedInt64_ = makeMutableCopy(instance.repeatedInt64_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedUint32IsMutable(A.B.C.RubyGeneratedCodeProto2.TestMessage instance, int minCapacity) {
+        if (!instance.repeatedUint32_.isModifiable()) {
+          instance.repeatedUint32_ = makeMutableCopy(instance.repeatedUint32_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedUint64IsMutable(A.B.C.RubyGeneratedCodeProto2.TestMessage instance, int minCapacity) {
+        if (!instance.repeatedUint64_.isModifiable()) {
+          instance.repeatedUint64_ = makeMutableCopy(instance.repeatedUint64_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedBoolIsMutable(A.B.C.RubyGeneratedCodeProto2.TestMessage instance, int minCapacity) {
+        if (!instance.repeatedBool_.isModifiable()) {
+          instance.repeatedBool_ = makeMutableCopy(instance.repeatedBool_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedDoubleIsMutable(A.B.C.RubyGeneratedCodeProto2.TestMessage instance, int minCapacity) {
+        if (!instance.repeatedDouble_.isModifiable()) {
+          instance.repeatedDouble_ = makeMutableCopy(instance.repeatedDouble_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedFloatIsMutable(A.B.C.RubyGeneratedCodeProto2.TestMessage instance, int minCapacity) {
+        if (!instance.repeatedFloat_.isModifiable()) {
+          instance.repeatedFloat_ = makeMutableCopy(instance.repeatedFloat_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedStringIsMutable(A.B.C.RubyGeneratedCodeProto2.TestMessage instance) {
+        if (!instance.repeatedString_.isModifiable()) {
+          instance.repeatedString_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString_);
+        }
+      }
+      private static void ensureRepeatedBytesIsMutable(A.B.C.RubyGeneratedCodeProto2.TestMessage instance, int minCapacity) {
+        if (!instance.repeatedBytes_.isModifiable()) {
+          instance.repeatedBytes_ = makeMutableCopy(instance.repeatedBytes_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedEnumIsMutable(A.B.C.RubyGeneratedCodeProto2.TestMessage instance, int minCapacity) {
+        if (!instance.repeatedEnum_.isModifiable()) {
+          instance.repeatedEnum_ = makeMutableCopy(instance.repeatedEnum_, minCapacity);
+        }
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseRequiredMsgField(
+          A.B.C.RubyGeneratedCodeProto2.TestMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.requiredMsg_ != null) {
+          return 410;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.requiredMsg_ != null || fieldBuilders[2] != null) {
+              if (fieldBuilders[2] == null) {
+                fieldBuilders[2] = new com.google.protobuf.SingleFieldBuilder<
+                    A.B.C.RubyGeneratedCodeProto2.TestMessage, A.B.C.RubyGeneratedCodeProto2.TestMessage.Builder, A.B.C.RubyGeneratedCodeProto2.TestMessageOrBuilder>(
+                        instance.getRequiredMsg(),
+                        null,
+                        false);
+                instance.requiredMsg_ = null;
+              }
+              instance.bitField0_ |= 0x00400000;
+            ((com.google.protobuf.SingleFieldBuilder<A.B.C.RubyGeneratedCodeProto2.TestMessage, A.B.C.RubyGeneratedCodeProto2.TestMessage.Builder, A.B.C.RubyGeneratedCodeProto2.TestMessageOrBuilder>) fieldBuilders[2]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.requiredMsg_ = A.B.C.RubyGeneratedCodeProto2.TestMessage.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00400000;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.requiredMsg_ = A.B.C.RubyGeneratedCodeProto2.TestMessage.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00400000;
+        return 0;
+      }
+      private static int parseOneofInt32Field(
+          A.B.C.RubyGeneratedCodeProto2.TestMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.myOneof_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 488;
+        }
+        int value = input.readInt32();
+        instance.myOneofCase_ = 61;
+        instance.myOneof_ = value;
+        return 0;
+      }
+      private static int parseOneofInt64Field(
+          A.B.C.RubyGeneratedCodeProto2.TestMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.myOneof_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 496;
+        }
+        long value = input.readInt64();
+        instance.myOneofCase_ = 62;
+        instance.myOneof_ = value;
+        return 0;
+      }
+      private static int parseOneofUint32Field(
+          A.B.C.RubyGeneratedCodeProto2.TestMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.myOneof_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 504;
+        }
+        int value = input.readUInt32();
+        instance.myOneofCase_ = 63;
+        instance.myOneof_ = value;
+        return 0;
+      }
+      private static int parseOneofUint64Field(
+          A.B.C.RubyGeneratedCodeProto2.TestMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.myOneof_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 512;
+        }
+        long value = input.readUInt64();
+        instance.myOneofCase_ = 64;
+        instance.myOneof_ = value;
+        return 0;
+      }
+      private static int parseOneofBoolField(
+          A.B.C.RubyGeneratedCodeProto2.TestMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.myOneof_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 520;
+        }
+        boolean value = input.readBool();
+        instance.myOneofCase_ = 65;
+        instance.myOneof_ = value;
+        return 0;
+      }
+      private static int parseOneofDoubleField(
+          A.B.C.RubyGeneratedCodeProto2.TestMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.myOneof_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 529;
+        }
+        double value = input.readDouble();
+        instance.myOneofCase_ = 66;
+        instance.myOneof_ = value;
+        return 0;
+      }
+      private static int parseOneofFloatField(
+          A.B.C.RubyGeneratedCodeProto2.TestMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.myOneof_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 541;
+        }
+        float value = input.readFloat();
+        instance.myOneofCase_ = 67;
+        instance.myOneof_ = value;
+        return 0;
+      }
+      private static int parseOneofStringField(
+          A.B.C.RubyGeneratedCodeProto2.TestMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.myOneof_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 546;
+        }
+        com.google.protobuf.ByteString bs = input.readBytes();
+        instance.myOneofCase_ = 68;
+        instance.myOneof_ = bs;
+        return 0;
+      }
+      private static int parseOneofBytesField(
+          A.B.C.RubyGeneratedCodeProto2.TestMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.myOneof_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 554;
+        }
+        com.google.protobuf.ByteString value = input.readBytes();
+        instance.myOneofCase_ = 69;
+        instance.myOneof_ = value;
+        return 0;
+      }
+      private static java.lang.Object parseOneofEnumField(
+          A.B.C.RubyGeneratedCodeProto2.TestMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, java.lang.Object unknown)
+          throws java.io.IOException {
+        int rawValue = input.readEnum();
+        A.B.C.RubyGeneratedCodeProto2.TestEnum value =
+            A.B.C.RubyGeneratedCodeProto2.TestEnum.forNumber(rawValue);
+        if (value == null) {
+          unknown = mergeUnknownVarintField(unknown, 70, rawValue);
+        } else {
+          instance.myOneofCase_ = 70;
+          instance.myOneof_ = rawValue;
+        }
+        return unknown;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseOneofMsgField(
+          A.B.C.RubyGeneratedCodeProto2.TestMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.myOneof_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 570;
+        }
+        if (fieldBuilders != null) {
+          input.readMessage(
+              internalGetOneofMsgFieldBuilder(instance, fieldBuilders).getBuilder(),
+              extensionRegistry);
+          switch (instance.myOneofCase_) {
+          default:
+             // fallthrough
+          case 0:
+            instance.myOneofCase_ = 71;
+             // fallthrough
+          case 71:
+            break;
+          }
+          return 0;
+        }
+        instance.myOneofCase_ = 71;
+        instance.myOneof_ = A.B.C.RubyGeneratedCodeProto2.TestMessage.getDefaultInstance();
+        try {
+          instance.myOneof_ = input.readMessage(A.B.C.RubyGeneratedCodeProto2.TestMessage.parser(), extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+            instance.myOneof_ = e.getUnfinishedMessage();
+          }
+          throw e;
+        }
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static com.google.protobuf.SingleFieldBuilder<
+          A.B.C.RubyGeneratedCodeProto2.TestMessage, A.B.C.RubyGeneratedCodeProto2.TestMessage.Builder, A.B.C.RubyGeneratedCodeProto2.TestMessageOrBuilder>
+          internalGetOneofMsgFieldBuilder(
+              A.B.C.RubyGeneratedCodeProto2.TestMessage instance,
+              com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (fieldBuilders[3] == null) {
+          if (!(instance.hasOneofMsg())) {
+            instance.myOneof_ = A.B.C.RubyGeneratedCodeProto2.TestMessage.getDefaultInstance();
+          }
+          fieldBuilders[3] = new com.google.protobuf.SingleFieldBuilder<
+              A.B.C.RubyGeneratedCodeProto2.TestMessage, A.B.C.RubyGeneratedCodeProto2.TestMessage.Builder, A.B.C.RubyGeneratedCodeProto2.TestMessageOrBuilder>(
+                  (A.B.C.RubyGeneratedCodeProto2.TestMessage) instance.myOneof_,
+                  null,
+                  false);
+          instance.myOneof_ = null;
+        }
+        switch (instance.myOneofCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.myOneofCase_ = 71;
+           // fallthrough
+        case 71:
+          break;
+        }
+
+        return ((com.google.protobuf.SingleFieldBuilder<A.B.C.RubyGeneratedCodeProto2.TestMessage, A.B.C.RubyGeneratedCodeProto2.TestMessage.Builder, A.B.C.RubyGeneratedCodeProto2.TestMessageOrBuilder>) fieldBuilders[3]);
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseNestedMessageField(
+          A.B.C.RubyGeneratedCodeProto2.TestMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.nestedMessage_ != null) {
+          return 642;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.nestedMessage_ != null || fieldBuilders[4] != null) {
+              if (fieldBuilders[4] == null) {
+                fieldBuilders[4] = new com.google.protobuf.SingleFieldBuilder<
+                    A.B.C.RubyGeneratedCodeProto2.TestMessage.NestedMessage, A.B.C.RubyGeneratedCodeProto2.TestMessage.NestedMessage.Builder, A.B.C.RubyGeneratedCodeProto2.TestMessage.NestedMessageOrBuilder>(
+                        instance.getNestedMessage(),
+                        null,
+                        false);
+                instance.nestedMessage_ = null;
+              }
+              instance.bitField0_ |= 0x00800000;
+            ((com.google.protobuf.SingleFieldBuilder<A.B.C.RubyGeneratedCodeProto2.TestMessage.NestedMessage, A.B.C.RubyGeneratedCodeProto2.TestMessage.NestedMessage.Builder, A.B.C.RubyGeneratedCodeProto2.TestMessage.NestedMessageOrBuilder>) fieldBuilders[4]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.nestedMessage_ = A.B.C.RubyGeneratedCodeProto2.TestMessage.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00800000;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.nestedMessage_ = A.B.C.RubyGeneratedCodeProto2.TestMessage.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00800000;
+        return 0;
+      }
+      private static void finishCollections0(TestMessage instance) {
+        instance.repeatedInt32_.makeImmutable();
+        instance.repeatedInt64_.makeImmutable();
+        instance.repeatedUint32_.makeImmutable();
+        instance.repeatedUint64_.makeImmutable();
+        instance.repeatedBool_.makeImmutable();
+        instance.repeatedDouble_.makeImmutable();
+        instance.repeatedFloat_.makeImmutable();
+        instance.repeatedString_.makeImmutable();
+        instance.repeatedBytes_.makeImmutable();
+        instance.repeatedEnum_.makeImmutable();
+        instance.repeatedMsg_.makeImmutable();
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          TestMessage instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[5];
+        if (instance.myOneofCase_ == 71 && tag != 570) {
+          internalGetOneofMsgFieldBuilder(instance, fieldBuilders);
+        }
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          TestMessage instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasOptionalMsg()) instance.optionalMsg_ = null;
+        if (instance.hasOptionalMsg()) {
+          instance.optionalMsg_ = fieldBuilders[0] == null
+              ? instance.optionalMsg_
+              : ((com.google.protobuf.SingleFieldBuilder<A.B.C.RubyGeneratedCodeProto2.TestMessage, A.B.C.RubyGeneratedCodeProto2.TestMessage.Builder, A.B.C.RubyGeneratedCodeProto2.TestMessageOrBuilder>) fieldBuilders[0]).build();
+
+        }
+        if (!instance.hasOptionalProto2Submessage()) instance.optionalProto2Submessage_ = null;
+        if (instance.hasOptionalProto2Submessage()) {
+          instance.optionalProto2Submessage_ = fieldBuilders[1] == null
+              ? instance.optionalProto2Submessage_
+              : ((com.google.protobuf.SingleFieldBuilder<A.B.C.RubyGeneratedCodeProto2Import.TestImportedMessage, A.B.C.RubyGeneratedCodeProto2Import.TestImportedMessage.Builder, A.B.C.RubyGeneratedCodeProto2Import.TestImportedMessageOrBuilder>) fieldBuilders[1]).build();
+
+        }
+        if (!instance.hasRequiredMsg()) instance.requiredMsg_ = null;
+        if (instance.hasRequiredMsg()) {
+          instance.requiredMsg_ = fieldBuilders[2] == null
+              ? instance.requiredMsg_
+              : ((com.google.protobuf.SingleFieldBuilder<A.B.C.RubyGeneratedCodeProto2.TestMessage, A.B.C.RubyGeneratedCodeProto2.TestMessage.Builder, A.B.C.RubyGeneratedCodeProto2.TestMessageOrBuilder>) fieldBuilders[2]).build();
+
+        }
+        {
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?> child = null;
+          switch (instance.myOneofCase_) {
+            case 71: child = fieldBuilders[3]; break;
+            default: break;
+          }
+          if (child != null) {
+            instance.myOneof_ = child == null
+                ? instance.myOneof_
+                : child.build();
+          }
+        }
+        if (!instance.hasNestedMessage()) instance.nestedMessage_ = null;
+        if (instance.hasNestedMessage()) {
+          instance.nestedMessage_ = fieldBuilders[4] == null
+              ? instance.nestedMessage_
+              : ((com.google.protobuf.SingleFieldBuilder<A.B.C.RubyGeneratedCodeProto2.TestMessage.NestedMessage, A.B.C.RubyGeneratedCodeProto2.TestMessage.NestedMessage.Builder, A.B.C.RubyGeneratedCodeProto2.TestMessage.NestedMessageOrBuilder>) fieldBuilders[4]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<TestMessage> parser() {
       return PARSER;

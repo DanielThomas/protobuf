@@ -630,7 +630,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -668,14 +668,32 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.Method.class, com.google.protobuf.Method.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.Method.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      name_ = "";
+      requestTypeUrl_ = "";
+      responseTypeUrl_ = "";
+      options_ = emptyList(com.google.protobuf.Option.class);
+      syntax_ = 0;
+      edition_ = "";
+
+    }
+    private Builder(com.google.protobuf.Method other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -732,23 +750,18 @@ private static final long serialVersionUID = 0L;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.name_ = name_;
-        ;
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.requestTypeUrl_ = requestTypeUrl_;
-        ;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.requestStreaming_ = requestStreaming_;
-        
       }
       if (((from_bitField0_ & 0x00000008) != 0)) {
         result.responseTypeUrl_ = responseTypeUrl_;
-        ;
       }
       if (((from_bitField0_ & 0x00000010) != 0)) {
         result.responseStreaming_ = responseStreaming_;
-        
       }
       if (((from_bitField0_ & 0x00000020) != 0)) {
       if (optionsBuilder_ == null) {
@@ -760,13 +773,34 @@ private static final long serialVersionUID = 0L;
       }
       if (((from_bitField0_ & 0x00000040) != 0)) {
         result.syntax_ = syntax_;
-        ;
       }
       if (((from_bitField0_ & 0x00000080) != 0)) {
         result.edition_ = edition_;
-        ;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.google.protobuf.Method other) {
+      int to_bitField0_ = 0;
+      name_ = other.name_;
+      to_bitField0_ |= 0x00000001;
+      requestTypeUrl_ = other.requestTypeUrl_;
+      to_bitField0_ |= 0x00000002;
+      requestStreaming_ = other.getRequestStreaming();
+      to_bitField0_ |= 0x00000004;
+      responseTypeUrl_ = other.responseTypeUrl_;
+      to_bitField0_ |= 0x00000008;
+      responseStreaming_ = other.getResponseStreaming();
+      to_bitField0_ |= 0x00000010;
+      options_ = other.options_;
+      if (!options_.isEmpty()) {
+        to_bitField0_ |= 0x00000020;
+      }
+      syntax_ = other.getSyntaxValue();
+      to_bitField0_ |= 0x00000040;
+      edition_ = other.edition_;
+      to_bitField0_ |= 0x00000080;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -928,7 +962,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object name_ = "";
+    private java.lang.Object name_;
     /**
      * <pre>
      * The simple name of this method.
@@ -1020,7 +1054,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object requestTypeUrl_ = "";
+    private java.lang.Object requestTypeUrl_;
     /**
      * <pre>
      * A URL of the input message type.
@@ -1112,7 +1146,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean requestStreaming_ ;
+    private boolean requestStreaming_;
     /**
      * <pre>
      * If true, the request is streamed.
@@ -1156,7 +1190,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object responseTypeUrl_ = "";
+    private java.lang.Object responseTypeUrl_;
     /**
      * <pre>
      * The URL of the output message type.
@@ -1248,7 +1282,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean responseStreaming_ ;
+    private boolean responseStreaming_;
     /**
      * <pre>
      * If true, the response is streamed.
@@ -1292,8 +1326,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Option> options_ =
-        emptyList(com.google.protobuf.Option.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Option> options_;
     private void ensureOptionsIsMutable() {
       if (!options_.isModifiable()) {
         options_ = makeMutableCopy(options_);
@@ -1598,7 +1631,7 @@ private static final long serialVersionUID = 0L;
       return optionsBuilder_;
     }
 
-    private int syntax_ = 0;
+    private int syntax_;
     /**
      * <pre>
      * The source syntax of this method.
@@ -1695,7 +1728,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object edition_ = "";
+    private java.lang.Object edition_;
     /**
      * <pre>
      * The source edition string, only valid when syntax is SYNTAX_EDITIONS.
@@ -1826,21 +1859,102 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<Method>
-      PARSER = new com.google.protobuf.AbstractParser<Method>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<Method> {
+    MessageParser() {}
+
     @java.lang.Override
     public Method parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Method instance = new Method((Builder) null);
+      java.lang.Object unknown = null;
+      java.lang.Object parsed_name = null;
+      java.lang.Object parsed_requestTypeUrl = null;
+      java.lang.Object parsed_responseTypeUrl = null;
+      java.lang.Object parsed_edition = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              parsed_name = input.readStringRequireUtf8();
+
+              break;
+            } // case 10
+            case 18: {
+              parsed_requestTypeUrl = input.readStringRequireUtf8();
+
+              break;
+            } // case 18
+            case 24: {
+              instance.requestStreaming_ = input.readBool();
+
+              break;
+            } // case 24
+            case 34: {
+              parsed_responseTypeUrl = input.readStringRequireUtf8();
+
+              break;
+            } // case 34
+            case 40: {
+              instance.responseStreaming_ = input.readBool();
+
+              break;
+            } // case 40
+            case 50: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Option m = com.google.protobuf.Option.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (!instance.options_.isModifiable()) {
+  instance.options_ = makeMutableCopy(instance.options_);
+}
+              instance.options_.add(m);
+              break;
+            } // case 50
+            case 56: {
+              instance.syntax_ = input.readEnum();
+
+              break;
+            } // case 56
+            case 66: {
+              parsed_edition = input.readStringRequireUtf8();
+
+              break;
+            } // case 66
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (parsed_name != null) instance.name_ = parsed_name;
+      if (parsed_requestTypeUrl != null) instance.requestTypeUrl_ = parsed_requestTypeUrl;
+      if (parsed_responseTypeUrl != null) instance.responseTypeUrl_ = parsed_responseTypeUrl;
+      if (parsed_edition != null) instance.edition_ = parsed_edition;
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void finishCollections0(Method instance) {
+      instance.options_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<Method> parser() {
     return PARSER;

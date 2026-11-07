@@ -408,7 +408,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -437,14 +437,28 @@ private static final long serialVersionUID = 0L;
                 edition_unittest.TestNestedMessageHasBits.NestedMessage.class, edition_unittest.TestNestedMessageHasBits.NestedMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using edition_unittest.TestNestedMessageHasBits.NestedMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        nestedmessageRepeatedInt32_ = emptyIntList();
+        nestedmessageRepeatedForeignmessage_ = emptyList(edition_unittest.ForeignMessage.class);
+
+      }
+      private Builder(edition_unittest.TestNestedMessageHasBits.NestedMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -506,6 +520,19 @@ private static final long serialVersionUID = 0L;
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(edition_unittest.TestNestedMessageHasBits.NestedMessage other) {
+        int to_bitField0_ = 0;
+        nestedmessageRepeatedInt32_ = other.nestedmessageRepeatedInt32_;
+        if (!nestedmessageRepeatedInt32_.isEmpty()) {
+          to_bitField0_ |= 0x00000001;
+        }
+        nestedmessageRepeatedForeignmessage_ = other.nestedmessageRepeatedForeignmessage_;
+        if (!nestedmessageRepeatedForeignmessage_.isEmpty()) {
+          to_bitField0_ |= 0x00000002;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -631,7 +658,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.IntList nestedmessageRepeatedInt32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList nestedmessageRepeatedInt32_;
       private void ensureNestedmessageRepeatedInt32IsMutable(int capacity) {
         if (!nestedmessageRepeatedInt32_.isModifiable()) {
           nestedmessageRepeatedInt32_ = makeMutableCopy(nestedmessageRepeatedInt32_, capacity);
@@ -715,8 +742,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<edition_unittest.ForeignMessage> nestedmessageRepeatedForeignmessage_ =
-          emptyList(edition_unittest.ForeignMessage.class);
+      private com.google.protobuf.Internal.ProtobufList<edition_unittest.ForeignMessage> nestedmessageRepeatedForeignmessage_;
       private void ensureNestedmessageRepeatedForeignmessageIsMutable() {
         if (!nestedmessageRepeatedForeignmessage_.isModifiable()) {
           nestedmessageRepeatedForeignmessage_ = makeMutableCopy(nestedmessageRepeatedForeignmessage_);
@@ -963,21 +989,82 @@ private static final long serialVersionUID = 0L;
     }
 
     private static final com.google.protobuf.Parser<NestedMessage>
-        PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<NestedMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public NestedMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        NestedMessage instance = new NestedMessage((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                int v = input.readInt32();
+                ensureNestedmessageRepeatedInt32IsMutable(instance, /* capacity= */ -1);
+                instance.nestedmessageRepeatedInt32_.addInt(v);
+                break;
+              } // case 8
+              case 10: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureNestedmessageRepeatedInt32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.nestedmessageRepeatedInt32_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 10
+              case 18: {
+                final int oldLimit = input.pushLimitBeforeMessage();
+                edition_unittest.ForeignMessage m = edition_unittest.ForeignMessage.parser().parsePartialFrom(input, extensionRegistry);
+                input.popLimitAfterMessage(oldLimit);
+                if (!instance.nestedmessageRepeatedForeignmessage_.isModifiable()) {
+  instance.nestedmessageRepeatedForeignmessage_ = makeMutableCopy(instance.nestedmessageRepeatedForeignmessage_);
+}
+                instance.nestedmessageRepeatedForeignmessage_.add(m);
+                break;
+              } // case 18
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        finishCollections0(instance);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static void ensureNestedmessageRepeatedInt32IsMutable(edition_unittest.TestNestedMessageHasBits.NestedMessage instance, int minCapacity) {
+        if (!instance.nestedmessageRepeatedInt32_.isModifiable()) {
+          instance.nestedmessageRepeatedInt32_ = makeMutableCopy(instance.nestedmessageRepeatedInt32_, minCapacity);
+        }
+      }
+      private static void finishCollections0(NestedMessage instance) {
+        instance.nestedmessageRepeatedInt32_.makeImmutable();
+        instance.nestedmessageRepeatedForeignmessage_.makeImmutable();
+      }
+    }
 
     public static com.google.protobuf.Parser<NestedMessage> parser() {
       return PARSER;
@@ -1187,7 +1274,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -1220,14 +1307,26 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestNestedMessageHasBits.class, edition_unittest.TestNestedMessageHasBits.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestNestedMessageHasBits.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      maybeForceBuilderInitialization();
+    }
+    private Builder(edition_unittest.TestNestedMessageHasBits other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -1286,6 +1385,12 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestNestedMessageHasBits other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000001);
+      optionalNestedMessage_ = other.optionalNestedMessage_;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -1490,21 +1595,110 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestNestedMessageHasBits>
-      PARSER = new com.google.protobuf.AbstractParser<TestNestedMessageHasBits>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestNestedMessageHasBits> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestNestedMessageHasBits parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestNestedMessageHasBits instance = new TestNestedMessageHasBits((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              pendingTag = parseOptionalNestedMessageField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 10
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseOptionalNestedMessageField(
+        edition_unittest.TestNestedMessageHasBits instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.optionalNestedMessage_ != null) {
+        return 10;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.optionalNestedMessage_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  edition_unittest.TestNestedMessageHasBits.NestedMessage, edition_unittest.TestNestedMessageHasBits.NestedMessage.Builder, edition_unittest.TestNestedMessageHasBits.NestedMessageOrBuilder>(
+                      instance.getOptionalNestedMessage(),
+                      null,
+                      false);
+              instance.optionalNestedMessage_ = null;
+            }
+            instance.bitField0_ |= 0x00000001;
+          ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedMessageHasBits.NestedMessage, edition_unittest.TestNestedMessageHasBits.NestedMessage.Builder, edition_unittest.TestNestedMessageHasBits.NestedMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.optionalNestedMessage_ = edition_unittest.TestNestedMessageHasBits.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.optionalNestedMessage_ = edition_unittest.TestNestedMessageHasBits.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+      return 0;
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        TestNestedMessageHasBits instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        TestNestedMessageHasBits instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasOptionalNestedMessage()) instance.optionalNestedMessage_ = null;
+      if (instance.hasOptionalNestedMessage()) {
+        instance.optionalNestedMessage_ = fieldBuilders[0] == null
+            ? instance.optionalNestedMessage_
+            : ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedMessageHasBits.NestedMessage, edition_unittest.TestNestedMessageHasBits.NestedMessage.Builder, edition_unittest.TestNestedMessageHasBits.NestedMessageOrBuilder>) fieldBuilders[0]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<TestNestedMessageHasBits> parser() {
     return PARSER;

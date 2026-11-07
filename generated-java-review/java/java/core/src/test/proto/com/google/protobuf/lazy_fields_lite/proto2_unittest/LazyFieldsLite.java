@@ -654,7 +654,7 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -683,14 +683,28 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
                 proto2_unittest.LazyFieldsLite.LazyMessageLite.class, proto2_unittest.LazyFieldsLite.LazyMessageLite.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.LazyFieldsLite.LazyMessageLite.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        numWithDefault_ = 421;
+        repeatedInner_ = emptyList(proto2_unittest.LazyFieldsLite.LazyInnerMessageLite.class);
+        maybeForceBuilderInitialization();
+      }
+      private Builder(proto2_unittest.LazyFieldsLite.LazyMessageLite other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -793,6 +807,26 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
           result.oneofField_ = oneofField_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_unittest.LazyFieldsLite.LazyMessageLite other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000007);
+        num_ = other.getNum();
+        numWithDefault_ = other.getNumWithDefault();
+        inner_ = other.inner_;
+        repeatedInner_ = other.repeatedInner_;
+        if (!repeatedInner_.isEmpty()) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (other.oneofFieldCase_ == 5) {
+          to_bitField0_ |= 0x00000010;
+        }
+        if (other.oneofFieldCase_ == 6) {
+          to_bitField0_ |= 0x00000020;
+        }
+        oneofFieldCase_ = other.oneofFieldCase_;
+        oneofField_ = other.oneofField_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -947,7 +981,7 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
         } // finally
         return this;
       }
-      private int oneofFieldCase_ = 0;
+      private int oneofFieldCase_;
       private java.lang.Object oneofField_;
       public OneofFieldCase
           getOneofFieldCase() {
@@ -970,7 +1004,7 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
 
       private int bitField0_;
 
-      private int num_ ;
+      private int num_;
       /**
        * <code>int32 num = 1;</code>
        * @return Whether the num field is set.
@@ -1010,7 +1044,7 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int numWithDefault_ = 421;
+      private int numWithDefault_;
       /**
        * <code>int32 num_with_default = 2 [default = 421];</code>
        * @return Whether the numWithDefault field is set.
@@ -1178,8 +1212,7 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
         bitField0_ |= 0x00000004;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<proto2_unittest.LazyFieldsLite.LazyInnerMessageLite> repeatedInner_ =
-          emptyList(proto2_unittest.LazyFieldsLite.LazyInnerMessageLite.class);
+      private com.google.protobuf.Internal.ProtobufList<proto2_unittest.LazyFieldsLite.LazyInnerMessageLite> repeatedInner_;
       private void ensureRepeatedInnerIsMutable() {
         if (!repeatedInner_.isModifiable()) {
           repeatedInner_ = makeMutableCopy(repeatedInner_);
@@ -1668,21 +1701,237 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<LazyMessageLite>
-        PARSER = new com.google.protobuf.AbstractParser<LazyMessageLite>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<LazyMessageLite> {
+      MessageParser() {}
+
       @java.lang.Override
       public LazyMessageLite parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        LazyMessageLite instance = new LazyMessageLite((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.num_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                instance.numWithDefault_ = input.readInt32();
+                to_bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                pendingTag = parseInnerField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 26
+              case 34: {
+                final int oldLimit = input.pushLimitBeforeMessage();
+                proto2_unittest.LazyFieldsLite.LazyInnerMessageLite m = proto2_unittest.LazyFieldsLite.LazyInnerMessageLite.parser().parsePartialFrom(input, extensionRegistry);
+                input.popLimitAfterMessage(oldLimit);
+                if (!instance.repeatedInner_.isModifiable()) {
+  instance.repeatedInner_ = makeMutableCopy(instance.repeatedInner_);
+}
+                instance.repeatedInner_.add(m);
+                break;
+              } // case 34
+              case 40: {
+                pendingTag = parseOneofNumField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 40
+              case 50: {
+                pendingTag = parseOneofInnerField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 50
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        finishCollections0(instance);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseInnerField(
+          proto2_unittest.LazyFieldsLite.LazyMessageLite instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.inner_ != null) {
+          return 26;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.inner_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    proto2_unittest.LazyFieldsLite.LazyInnerMessageLite, proto2_unittest.LazyFieldsLite.LazyInnerMessageLite.Builder, proto2_unittest.LazyFieldsLite.LazyInnerMessageLiteOrBuilder>(
+                        instance.getInner(),
+                        null,
+                        false);
+                instance.inner_ = null;
+              }
+              instance.bitField0_ |= 0x00000004;
+            ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.LazyFieldsLite.LazyInnerMessageLite, proto2_unittest.LazyFieldsLite.LazyInnerMessageLite.Builder, proto2_unittest.LazyFieldsLite.LazyInnerMessageLiteOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.inner_ = proto2_unittest.LazyFieldsLite.LazyInnerMessageLite.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000004;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.inner_ = proto2_unittest.LazyFieldsLite.LazyInnerMessageLite.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000004;
+        return 0;
+      }
+      private static int parseOneofNumField(
+          proto2_unittest.LazyFieldsLite.LazyMessageLite instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.oneofField_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 40;
+        }
+        int value = input.readInt32();
+        instance.oneofFieldCase_ = 5;
+        instance.oneofField_ = value;
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseOneofInnerField(
+          proto2_unittest.LazyFieldsLite.LazyMessageLite instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.oneofField_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 50;
+        }
+        if (fieldBuilders != null) {
+          input.readMessage(
+              internalGetOneofInnerFieldBuilder(instance, fieldBuilders).getBuilder(),
+              extensionRegistry);
+          switch (instance.oneofFieldCase_) {
+          default:
+             // fallthrough
+          case 0:
+            instance.oneofFieldCase_ = 6;
+             // fallthrough
+          case 6:
+            break;
+          }
+          return 0;
+        }
+        instance.oneofFieldCase_ = 6;
+        instance.oneofField_ = proto2_unittest.LazyFieldsLite.LazyInnerMessageLite.getDefaultInstance();
+        try {
+          instance.oneofField_ = input.readMessage(proto2_unittest.LazyFieldsLite.LazyInnerMessageLite.parser(), extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+            instance.oneofField_ = e.getUnfinishedMessage();
+          }
+          throw e;
+        }
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static com.google.protobuf.SingleFieldBuilder<
+          proto2_unittest.LazyFieldsLite.LazyInnerMessageLite, proto2_unittest.LazyFieldsLite.LazyInnerMessageLite.Builder, proto2_unittest.LazyFieldsLite.LazyInnerMessageLiteOrBuilder>
+          internalGetOneofInnerFieldBuilder(
+              proto2_unittest.LazyFieldsLite.LazyMessageLite instance,
+              com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (fieldBuilders[1] == null) {
+          if (!(instance.hasOneofInner())) {
+            instance.oneofField_ = proto2_unittest.LazyFieldsLite.LazyInnerMessageLite.getDefaultInstance();
+          }
+          fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+              proto2_unittest.LazyFieldsLite.LazyInnerMessageLite, proto2_unittest.LazyFieldsLite.LazyInnerMessageLite.Builder, proto2_unittest.LazyFieldsLite.LazyInnerMessageLiteOrBuilder>(
+                  (proto2_unittest.LazyFieldsLite.LazyInnerMessageLite) instance.oneofField_,
+                  null,
+                  false);
+          instance.oneofField_ = null;
+        }
+        switch (instance.oneofFieldCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.oneofFieldCase_ = 6;
+           // fallthrough
+        case 6:
+          break;
+        }
+
+        return ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.LazyFieldsLite.LazyInnerMessageLite, proto2_unittest.LazyFieldsLite.LazyInnerMessageLite.Builder, proto2_unittest.LazyFieldsLite.LazyInnerMessageLiteOrBuilder>) fieldBuilders[1]);
+      }
+      private static void finishCollections0(LazyMessageLite instance) {
+        instance.repeatedInner_.makeImmutable();
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          LazyMessageLite instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[2];
+        if (instance.oneofFieldCase_ == 6 && tag != 50) {
+          internalGetOneofInnerFieldBuilder(instance, fieldBuilders);
+        }
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          LazyMessageLite instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasInner()) instance.inner_ = null;
+        if (instance.hasInner()) {
+          instance.inner_ = fieldBuilders[0] == null
+              ? instance.inner_
+              : ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.LazyFieldsLite.LazyInnerMessageLite, proto2_unittest.LazyFieldsLite.LazyInnerMessageLite.Builder, proto2_unittest.LazyFieldsLite.LazyInnerMessageLiteOrBuilder>) fieldBuilders[0]).build();
+
+        }
+        {
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?> child = null;
+          switch (instance.oneofFieldCase_) {
+            case 6: child = fieldBuilders[1]; break;
+            default: break;
+          }
+          if (child != null) {
+            instance.oneofField_ = child == null
+                ? instance.oneofField_
+                : child.build();
+          }
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<LazyMessageLite> parser() {
       return PARSER;
@@ -2059,7 +2308,7 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -2089,14 +2338,27 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
                 proto2_unittest.LazyFieldsLite.LazyInnerMessageLite.class, proto2_unittest.LazyFieldsLite.LazyInnerMessageLite.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.LazyFieldsLite.LazyInnerMessageLite.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        numWithDefault_ = 42;
+        maybeForceBuilderInitialization();
+      }
+      private Builder(proto2_unittest.LazyFieldsLite.LazyInnerMessageLite other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -2165,6 +2427,14 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_unittest.LazyFieldsLite.LazyInnerMessageLite other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000007);
+        num_ = other.getNum();
+        numWithDefault_ = other.getNumWithDefault();
+        nested_ = other.nested_;
+        bitField0_ |= to_bitField0_;
       }
 
       public <Type> Builder setExtension(
@@ -2270,7 +2540,7 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int num_ ;
+      private int num_;
       /**
        * <code>int32 num = 1;</code>
        * @return Whether the num field is set.
@@ -2310,7 +2580,7 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int numWithDefault_ = 42;
+      private int numWithDefault_;
       /**
        * <code>int32 num_with_default = 2 [default = 42];</code>
        * @return Whether the numWithDefault field is set.
@@ -2477,6 +2747,14 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
         input.popLimitAfterMessage(oldLimit);
         bitField0_ |= 0x00000004;
       }
+      @java.lang.SuppressWarnings("unchecked")
+      private void transferChildren0(
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (fieldBuilders[0] != null) {
+          if (nestedBuilder_ != null) nestedBuilder_.dispose();
+          nestedBuilder_ = ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLite, proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLite.Builder, proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLiteOrBuilder>) fieldBuilders[0]);
+        }
+      }
 
       // @@protoc_insertion_point(builder_scope:proto2_unittest.LazyInnerMessageLite)
     }
@@ -2492,21 +2770,136 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<LazyInnerMessageLite>
-        PARSER = new com.google.protobuf.AbstractParser<LazyInnerMessageLite>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<LazyInnerMessageLite> {
+      MessageParser() {}
+
       @java.lang.Override
       public LazyInnerMessageLite parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        LazyInnerMessageLite instance = new LazyInnerMessageLite((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.num_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                instance.numWithDefault_ = input.readInt32();
+                to_bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 26: {
+                pendingTag = parseNestedField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 26
+              default: {
+                pendingTag = tag;
+                break parseLoop;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (pendingTag != 0 && parseFailure == null) {
+          return mergeWithBuilder(instance, input, extensionRegistry, pendingTag, fieldBuilders);
+        }
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseNestedField(
+          proto2_unittest.LazyFieldsLite.LazyInnerMessageLite instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.nested_ != null) {
+          return 26;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.nested_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLite, proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLite.Builder, proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLiteOrBuilder>(
+                        instance.getNested(),
+                        null,
+                        false);
+                instance.nested_ = null;
+              }
+              instance.bitField0_ |= 0x00000004;
+            ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLite, proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLite.Builder, proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLiteOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.nested_ = proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLite.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000004;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.nested_ = proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLite.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000004;
+        return 0;
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          LazyInnerMessageLite instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          LazyInnerMessageLite instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasNested()) instance.nested_ = null;
+        if (instance.hasNested()) {
+          instance.nested_ = fieldBuilders[0] == null
+              ? instance.nested_
+              : ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLite, proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLite.Builder, proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLiteOrBuilder>) fieldBuilders[0]).build();
+
+        }
+      }
+      private static LazyInnerMessageLite mergeWithBuilder(
+          LazyInnerMessageLite instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite registry, int tag,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = new Builder(instance);
+        if (fieldBuilders == null) {
+        } else {
+          builder.transferChildren0(fieldBuilders);
+        }
+        return mergeFrom(builder, input, registry, tag, null);
+      }
+    }
 
     public static com.google.protobuf.Parser<LazyInnerMessageLite> parser() {
       return PARSER;
@@ -2794,7 +3187,7 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -2823,14 +3216,27 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
                 proto2_unittest.LazyFieldsLite.LazyExtension.class, proto2_unittest.LazyFieldsLite.LazyExtension.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.LazyFieldsLite.LazyExtension.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        name_ = "";
+
+      }
+      private Builder(proto2_unittest.LazyFieldsLite.LazyExtension other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -2877,6 +3283,12 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_unittest.LazyFieldsLite.LazyExtension other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        name_ = other.name_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -2942,7 +3354,7 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private java.lang.Object name_ = "";
+      private java.lang.Object name_;
       /**
        * <code>string name = 1;</code>
        * @return Whether the name field is set.
@@ -3036,21 +3448,56 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<LazyExtension>
-        PARSER = new com.google.protobuf.AbstractParser<LazyExtension>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<LazyExtension> {
+      MessageParser() {}
+
       @java.lang.Override
       public LazyExtension parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        LazyExtension instance = new LazyExtension((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.lang.Object parsed_name = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                parsed_name = input.readBytes();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parsed_name != null) instance.name_ = parsed_name;
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<LazyExtension> parser() {
       return PARSER;
@@ -3362,7 +3809,7 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -3391,14 +3838,27 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
                 proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLite.class, proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLite.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLite.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        numWithDefault_ = 4;
+
+      }
+      private Builder(proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLite other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -3450,6 +3910,13 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_unittest.LazyFieldsLite.LazyNestedInnerMessageLite other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000003);
+        num_ = other.getNum();
+        numWithDefault_ = other.getNumWithDefault();
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -3521,7 +3988,7 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int num_ ;
+      private int num_;
       /**
        * <code>int32 num = 1;</code>
        * @return Whether the num field is set.
@@ -3561,7 +4028,7 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int numWithDefault_ = 4;
+      private int numWithDefault_;
       /**
        * <code>int32 num_with_default = 2 [default = 4];</code>
        * @return Whether the numWithDefault field is set.
@@ -3615,21 +4082,59 @@ public final class LazyFieldsLite extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<LazyNestedInnerMessageLite>
-        PARSER = new com.google.protobuf.AbstractParser<LazyNestedInnerMessageLite>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<LazyNestedInnerMessageLite> {
+      MessageParser() {}
+
       @java.lang.Override
       public LazyNestedInnerMessageLite parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        LazyNestedInnerMessageLite instance = new LazyNestedInnerMessageLite((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.num_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                instance.numWithDefault_ = input.readInt32();
+                to_bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<LazyNestedInnerMessageLite> parser() {
       return PARSER;

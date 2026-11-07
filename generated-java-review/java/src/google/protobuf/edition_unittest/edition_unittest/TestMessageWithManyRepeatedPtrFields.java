@@ -1982,7 +1982,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -2011,14 +2011,90 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestMessageWithManyRepeatedPtrFields.class, edition_unittest.TestMessageWithManyRepeatedPtrFields.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestMessageWithManyRepeatedPtrFields.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      repeatedString1_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString2_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString3_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString4_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString5_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString6_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString7_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString8_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString9_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString10_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString11_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString12_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString13_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString14_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString15_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString16_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString17_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString18_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString19_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString20_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString21_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString22_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString23_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString24_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString25_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString26_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString27_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString28_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString29_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString30_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString31_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedString32_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+
+    }
+    private Builder(edition_unittest.TestMessageWithManyRepeatedPtrFields other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -2252,6 +2328,139 @@ private static final long serialVersionUID = 0L;
         result.repeatedString32_ = repeatedString32_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestMessageWithManyRepeatedPtrFields other) {
+      int to_bitField0_ = 0;
+      repeatedString1_ = other.repeatedString1_;
+      if (!repeatedString1_.isEmpty()) {
+        to_bitField0_ |= 0x00000001;
+      }
+      repeatedString2_ = other.repeatedString2_;
+      if (!repeatedString2_.isEmpty()) {
+        to_bitField0_ |= 0x00000002;
+      }
+      repeatedString3_ = other.repeatedString3_;
+      if (!repeatedString3_.isEmpty()) {
+        to_bitField0_ |= 0x00000004;
+      }
+      repeatedString4_ = other.repeatedString4_;
+      if (!repeatedString4_.isEmpty()) {
+        to_bitField0_ |= 0x00000008;
+      }
+      repeatedString5_ = other.repeatedString5_;
+      if (!repeatedString5_.isEmpty()) {
+        to_bitField0_ |= 0x00000010;
+      }
+      repeatedString6_ = other.repeatedString6_;
+      if (!repeatedString6_.isEmpty()) {
+        to_bitField0_ |= 0x00000020;
+      }
+      repeatedString7_ = other.repeatedString7_;
+      if (!repeatedString7_.isEmpty()) {
+        to_bitField0_ |= 0x00000040;
+      }
+      repeatedString8_ = other.repeatedString8_;
+      if (!repeatedString8_.isEmpty()) {
+        to_bitField0_ |= 0x00000080;
+      }
+      repeatedString9_ = other.repeatedString9_;
+      if (!repeatedString9_.isEmpty()) {
+        to_bitField0_ |= 0x00000100;
+      }
+      repeatedString10_ = other.repeatedString10_;
+      if (!repeatedString10_.isEmpty()) {
+        to_bitField0_ |= 0x00000200;
+      }
+      repeatedString11_ = other.repeatedString11_;
+      if (!repeatedString11_.isEmpty()) {
+        to_bitField0_ |= 0x00000400;
+      }
+      repeatedString12_ = other.repeatedString12_;
+      if (!repeatedString12_.isEmpty()) {
+        to_bitField0_ |= 0x00000800;
+      }
+      repeatedString13_ = other.repeatedString13_;
+      if (!repeatedString13_.isEmpty()) {
+        to_bitField0_ |= 0x00001000;
+      }
+      repeatedString14_ = other.repeatedString14_;
+      if (!repeatedString14_.isEmpty()) {
+        to_bitField0_ |= 0x00002000;
+      }
+      repeatedString15_ = other.repeatedString15_;
+      if (!repeatedString15_.isEmpty()) {
+        to_bitField0_ |= 0x00004000;
+      }
+      repeatedString16_ = other.repeatedString16_;
+      if (!repeatedString16_.isEmpty()) {
+        to_bitField0_ |= 0x00008000;
+      }
+      repeatedString17_ = other.repeatedString17_;
+      if (!repeatedString17_.isEmpty()) {
+        to_bitField0_ |= 0x00010000;
+      }
+      repeatedString18_ = other.repeatedString18_;
+      if (!repeatedString18_.isEmpty()) {
+        to_bitField0_ |= 0x00020000;
+      }
+      repeatedString19_ = other.repeatedString19_;
+      if (!repeatedString19_.isEmpty()) {
+        to_bitField0_ |= 0x00040000;
+      }
+      repeatedString20_ = other.repeatedString20_;
+      if (!repeatedString20_.isEmpty()) {
+        to_bitField0_ |= 0x00080000;
+      }
+      repeatedString21_ = other.repeatedString21_;
+      if (!repeatedString21_.isEmpty()) {
+        to_bitField0_ |= 0x00100000;
+      }
+      repeatedString22_ = other.repeatedString22_;
+      if (!repeatedString22_.isEmpty()) {
+        to_bitField0_ |= 0x00200000;
+      }
+      repeatedString23_ = other.repeatedString23_;
+      if (!repeatedString23_.isEmpty()) {
+        to_bitField0_ |= 0x00400000;
+      }
+      repeatedString24_ = other.repeatedString24_;
+      if (!repeatedString24_.isEmpty()) {
+        to_bitField0_ |= 0x00800000;
+      }
+      repeatedString25_ = other.repeatedString25_;
+      if (!repeatedString25_.isEmpty()) {
+        to_bitField0_ |= 0x01000000;
+      }
+      repeatedString26_ = other.repeatedString26_;
+      if (!repeatedString26_.isEmpty()) {
+        to_bitField0_ |= 0x02000000;
+      }
+      repeatedString27_ = other.repeatedString27_;
+      if (!repeatedString27_.isEmpty()) {
+        to_bitField0_ |= 0x04000000;
+      }
+      repeatedString28_ = other.repeatedString28_;
+      if (!repeatedString28_.isEmpty()) {
+        to_bitField0_ |= 0x08000000;
+      }
+      repeatedString29_ = other.repeatedString29_;
+      if (!repeatedString29_.isEmpty()) {
+        to_bitField0_ |= 0x10000000;
+      }
+      repeatedString30_ = other.repeatedString30_;
+      if (!repeatedString30_.isEmpty()) {
+        to_bitField0_ |= 0x20000000;
+      }
+      repeatedString31_ = other.repeatedString31_;
+      if (!repeatedString31_.isEmpty()) {
+        to_bitField0_ |= 0x40000000;
+      }
+      repeatedString32_ = other.repeatedString32_;
+      if (!repeatedString32_.isEmpty()) {
+        to_bitField0_ |= 0x80000000;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -2787,8 +2996,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.LazyStringArrayList repeatedString1_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString1_;
     private void ensureRepeatedString1IsMutable() {
       if (!repeatedString1_.isModifiable()) {
         repeatedString1_ = new com.google.protobuf.LazyStringArrayList(repeatedString1_);
@@ -2898,8 +3106,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString2_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString2_;
     private void ensureRepeatedString2IsMutable() {
       if (!repeatedString2_.isModifiable()) {
         repeatedString2_ = new com.google.protobuf.LazyStringArrayList(repeatedString2_);
@@ -3009,8 +3216,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString3_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString3_;
     private void ensureRepeatedString3IsMutable() {
       if (!repeatedString3_.isModifiable()) {
         repeatedString3_ = new com.google.protobuf.LazyStringArrayList(repeatedString3_);
@@ -3120,8 +3326,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString4_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString4_;
     private void ensureRepeatedString4IsMutable() {
       if (!repeatedString4_.isModifiable()) {
         repeatedString4_ = new com.google.protobuf.LazyStringArrayList(repeatedString4_);
@@ -3231,8 +3436,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString5_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString5_;
     private void ensureRepeatedString5IsMutable() {
       if (!repeatedString5_.isModifiable()) {
         repeatedString5_ = new com.google.protobuf.LazyStringArrayList(repeatedString5_);
@@ -3342,8 +3546,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString6_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString6_;
     private void ensureRepeatedString6IsMutable() {
       if (!repeatedString6_.isModifiable()) {
         repeatedString6_ = new com.google.protobuf.LazyStringArrayList(repeatedString6_);
@@ -3453,8 +3656,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString7_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString7_;
     private void ensureRepeatedString7IsMutable() {
       if (!repeatedString7_.isModifiable()) {
         repeatedString7_ = new com.google.protobuf.LazyStringArrayList(repeatedString7_);
@@ -3564,8 +3766,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString8_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString8_;
     private void ensureRepeatedString8IsMutable() {
       if (!repeatedString8_.isModifiable()) {
         repeatedString8_ = new com.google.protobuf.LazyStringArrayList(repeatedString8_);
@@ -3675,8 +3876,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString9_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString9_;
     private void ensureRepeatedString9IsMutable() {
       if (!repeatedString9_.isModifiable()) {
         repeatedString9_ = new com.google.protobuf.LazyStringArrayList(repeatedString9_);
@@ -3786,8 +3986,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString10_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString10_;
     private void ensureRepeatedString10IsMutable() {
       if (!repeatedString10_.isModifiable()) {
         repeatedString10_ = new com.google.protobuf.LazyStringArrayList(repeatedString10_);
@@ -3897,8 +4096,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString11_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString11_;
     private void ensureRepeatedString11IsMutable() {
       if (!repeatedString11_.isModifiable()) {
         repeatedString11_ = new com.google.protobuf.LazyStringArrayList(repeatedString11_);
@@ -4008,8 +4206,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString12_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString12_;
     private void ensureRepeatedString12IsMutable() {
       if (!repeatedString12_.isModifiable()) {
         repeatedString12_ = new com.google.protobuf.LazyStringArrayList(repeatedString12_);
@@ -4119,8 +4316,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString13_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString13_;
     private void ensureRepeatedString13IsMutable() {
       if (!repeatedString13_.isModifiable()) {
         repeatedString13_ = new com.google.protobuf.LazyStringArrayList(repeatedString13_);
@@ -4230,8 +4426,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString14_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString14_;
     private void ensureRepeatedString14IsMutable() {
       if (!repeatedString14_.isModifiable()) {
         repeatedString14_ = new com.google.protobuf.LazyStringArrayList(repeatedString14_);
@@ -4341,8 +4536,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString15_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString15_;
     private void ensureRepeatedString15IsMutable() {
       if (!repeatedString15_.isModifiable()) {
         repeatedString15_ = new com.google.protobuf.LazyStringArrayList(repeatedString15_);
@@ -4452,8 +4646,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString16_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString16_;
     private void ensureRepeatedString16IsMutable() {
       if (!repeatedString16_.isModifiable()) {
         repeatedString16_ = new com.google.protobuf.LazyStringArrayList(repeatedString16_);
@@ -4563,8 +4756,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString17_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString17_;
     private void ensureRepeatedString17IsMutable() {
       if (!repeatedString17_.isModifiable()) {
         repeatedString17_ = new com.google.protobuf.LazyStringArrayList(repeatedString17_);
@@ -4674,8 +4866,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString18_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString18_;
     private void ensureRepeatedString18IsMutable() {
       if (!repeatedString18_.isModifiable()) {
         repeatedString18_ = new com.google.protobuf.LazyStringArrayList(repeatedString18_);
@@ -4785,8 +4976,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString19_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString19_;
     private void ensureRepeatedString19IsMutable() {
       if (!repeatedString19_.isModifiable()) {
         repeatedString19_ = new com.google.protobuf.LazyStringArrayList(repeatedString19_);
@@ -4896,8 +5086,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString20_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString20_;
     private void ensureRepeatedString20IsMutable() {
       if (!repeatedString20_.isModifiable()) {
         repeatedString20_ = new com.google.protobuf.LazyStringArrayList(repeatedString20_);
@@ -5007,8 +5196,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString21_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString21_;
     private void ensureRepeatedString21IsMutable() {
       if (!repeatedString21_.isModifiable()) {
         repeatedString21_ = new com.google.protobuf.LazyStringArrayList(repeatedString21_);
@@ -5118,8 +5306,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString22_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString22_;
     private void ensureRepeatedString22IsMutable() {
       if (!repeatedString22_.isModifiable()) {
         repeatedString22_ = new com.google.protobuf.LazyStringArrayList(repeatedString22_);
@@ -5229,8 +5416,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString23_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString23_;
     private void ensureRepeatedString23IsMutable() {
       if (!repeatedString23_.isModifiable()) {
         repeatedString23_ = new com.google.protobuf.LazyStringArrayList(repeatedString23_);
@@ -5340,8 +5526,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString24_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString24_;
     private void ensureRepeatedString24IsMutable() {
       if (!repeatedString24_.isModifiable()) {
         repeatedString24_ = new com.google.protobuf.LazyStringArrayList(repeatedString24_);
@@ -5451,8 +5636,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString25_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString25_;
     private void ensureRepeatedString25IsMutable() {
       if (!repeatedString25_.isModifiable()) {
         repeatedString25_ = new com.google.protobuf.LazyStringArrayList(repeatedString25_);
@@ -5562,8 +5746,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString26_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString26_;
     private void ensureRepeatedString26IsMutable() {
       if (!repeatedString26_.isModifiable()) {
         repeatedString26_ = new com.google.protobuf.LazyStringArrayList(repeatedString26_);
@@ -5673,8 +5856,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString27_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString27_;
     private void ensureRepeatedString27IsMutable() {
       if (!repeatedString27_.isModifiable()) {
         repeatedString27_ = new com.google.protobuf.LazyStringArrayList(repeatedString27_);
@@ -5784,8 +5966,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString28_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString28_;
     private void ensureRepeatedString28IsMutable() {
       if (!repeatedString28_.isModifiable()) {
         repeatedString28_ = new com.google.protobuf.LazyStringArrayList(repeatedString28_);
@@ -5895,8 +6076,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString29_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString29_;
     private void ensureRepeatedString29IsMutable() {
       if (!repeatedString29_.isModifiable()) {
         repeatedString29_ = new com.google.protobuf.LazyStringArrayList(repeatedString29_);
@@ -6006,8 +6186,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString30_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString30_;
     private void ensureRepeatedString30IsMutable() {
       if (!repeatedString30_.isModifiable()) {
         repeatedString30_ = new com.google.protobuf.LazyStringArrayList(repeatedString30_);
@@ -6117,8 +6296,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString31_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString31_;
     private void ensureRepeatedString31IsMutable() {
       if (!repeatedString31_.isModifiable()) {
         repeatedString31_ = new com.google.protobuf.LazyStringArrayList(repeatedString31_);
@@ -6228,8 +6406,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString32_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString32_;
     private void ensureRepeatedString32IsMutable() {
       if (!repeatedString32_.isModifiable()) {
         repeatedString32_ = new com.google.protobuf.LazyStringArrayList(repeatedString32_);
@@ -6353,21 +6530,400 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestMessageWithManyRepeatedPtrFields>
-      PARSER = new com.google.protobuf.AbstractParser<TestMessageWithManyRepeatedPtrFields>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestMessageWithManyRepeatedPtrFields> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestMessageWithManyRepeatedPtrFields parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestMessageWithManyRepeatedPtrFields instance = new TestMessageWithManyRepeatedPtrFields((Builder) null);
+      java.lang.Object unknown = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              ensureRepeatedString1IsMutable(instance);
+              instance.repeatedString1_.add(input.readStringRequireUtf8());
+              break;
+            } // case 10
+            case 18: {
+              ensureRepeatedString2IsMutable(instance);
+              instance.repeatedString2_.add(input.readStringRequireUtf8());
+              break;
+            } // case 18
+            case 26: {
+              ensureRepeatedString3IsMutable(instance);
+              instance.repeatedString3_.add(input.readStringRequireUtf8());
+              break;
+            } // case 26
+            case 34: {
+              ensureRepeatedString4IsMutable(instance);
+              instance.repeatedString4_.add(input.readStringRequireUtf8());
+              break;
+            } // case 34
+            case 42: {
+              ensureRepeatedString5IsMutable(instance);
+              instance.repeatedString5_.add(input.readStringRequireUtf8());
+              break;
+            } // case 42
+            case 50: {
+              ensureRepeatedString6IsMutable(instance);
+              instance.repeatedString6_.add(input.readStringRequireUtf8());
+              break;
+            } // case 50
+            case 58: {
+              ensureRepeatedString7IsMutable(instance);
+              instance.repeatedString7_.add(input.readStringRequireUtf8());
+              break;
+            } // case 58
+            case 66: {
+              ensureRepeatedString8IsMutable(instance);
+              instance.repeatedString8_.add(input.readStringRequireUtf8());
+              break;
+            } // case 66
+            case 74: {
+              ensureRepeatedString9IsMutable(instance);
+              instance.repeatedString9_.add(input.readStringRequireUtf8());
+              break;
+            } // case 74
+            case 82: {
+              ensureRepeatedString10IsMutable(instance);
+              instance.repeatedString10_.add(input.readStringRequireUtf8());
+              break;
+            } // case 82
+            case 90: {
+              ensureRepeatedString11IsMutable(instance);
+              instance.repeatedString11_.add(input.readStringRequireUtf8());
+              break;
+            } // case 90
+            case 98: {
+              ensureRepeatedString12IsMutable(instance);
+              instance.repeatedString12_.add(input.readStringRequireUtf8());
+              break;
+            } // case 98
+            case 106: {
+              ensureRepeatedString13IsMutable(instance);
+              instance.repeatedString13_.add(input.readStringRequireUtf8());
+              break;
+            } // case 106
+            case 114: {
+              ensureRepeatedString14IsMutable(instance);
+              instance.repeatedString14_.add(input.readStringRequireUtf8());
+              break;
+            } // case 114
+            case 122: {
+              ensureRepeatedString15IsMutable(instance);
+              instance.repeatedString15_.add(input.readStringRequireUtf8());
+              break;
+            } // case 122
+            case 130: {
+              ensureRepeatedString16IsMutable(instance);
+              instance.repeatedString16_.add(input.readStringRequireUtf8());
+              break;
+            } // case 130
+            case 138: {
+              ensureRepeatedString17IsMutable(instance);
+              instance.repeatedString17_.add(input.readStringRequireUtf8());
+              break;
+            } // case 138
+            case 146: {
+              ensureRepeatedString18IsMutable(instance);
+              instance.repeatedString18_.add(input.readStringRequireUtf8());
+              break;
+            } // case 146
+            case 154: {
+              ensureRepeatedString19IsMutable(instance);
+              instance.repeatedString19_.add(input.readStringRequireUtf8());
+              break;
+            } // case 154
+            case 162: {
+              ensureRepeatedString20IsMutable(instance);
+              instance.repeatedString20_.add(input.readStringRequireUtf8());
+              break;
+            } // case 162
+            case 170: {
+              ensureRepeatedString21IsMutable(instance);
+              instance.repeatedString21_.add(input.readStringRequireUtf8());
+              break;
+            } // case 170
+            case 178: {
+              ensureRepeatedString22IsMutable(instance);
+              instance.repeatedString22_.add(input.readStringRequireUtf8());
+              break;
+            } // case 178
+            case 186: {
+              ensureRepeatedString23IsMutable(instance);
+              instance.repeatedString23_.add(input.readStringRequireUtf8());
+              break;
+            } // case 186
+            case 194: {
+              ensureRepeatedString24IsMutable(instance);
+              instance.repeatedString24_.add(input.readStringRequireUtf8());
+              break;
+            } // case 194
+            case 202: {
+              ensureRepeatedString25IsMutable(instance);
+              instance.repeatedString25_.add(input.readStringRequireUtf8());
+              break;
+            } // case 202
+            case 210: {
+              ensureRepeatedString26IsMutable(instance);
+              instance.repeatedString26_.add(input.readStringRequireUtf8());
+              break;
+            } // case 210
+            case 218: {
+              ensureRepeatedString27IsMutable(instance);
+              instance.repeatedString27_.add(input.readStringRequireUtf8());
+              break;
+            } // case 218
+            case 226: {
+              ensureRepeatedString28IsMutable(instance);
+              instance.repeatedString28_.add(input.readStringRequireUtf8());
+              break;
+            } // case 226
+            case 234: {
+              ensureRepeatedString29IsMutable(instance);
+              instance.repeatedString29_.add(input.readStringRequireUtf8());
+              break;
+            } // case 234
+            case 242: {
+              ensureRepeatedString30IsMutable(instance);
+              instance.repeatedString30_.add(input.readStringRequireUtf8());
+              break;
+            } // case 242
+            case 250: {
+              ensureRepeatedString31IsMutable(instance);
+              instance.repeatedString31_.add(input.readStringRequireUtf8());
+              break;
+            } // case 250
+            case 258: {
+              ensureRepeatedString32IsMutable(instance);
+              instance.repeatedString32_.add(input.readStringRequireUtf8());
+              break;
+            } // case 258
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensureRepeatedString1IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString1_.isModifiable()) {
+        instance.repeatedString1_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString1_);
+      }
+    }
+    private static void ensureRepeatedString2IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString2_.isModifiable()) {
+        instance.repeatedString2_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString2_);
+      }
+    }
+    private static void ensureRepeatedString3IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString3_.isModifiable()) {
+        instance.repeatedString3_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString3_);
+      }
+    }
+    private static void ensureRepeatedString4IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString4_.isModifiable()) {
+        instance.repeatedString4_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString4_);
+      }
+    }
+    private static void ensureRepeatedString5IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString5_.isModifiable()) {
+        instance.repeatedString5_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString5_);
+      }
+    }
+    private static void ensureRepeatedString6IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString6_.isModifiable()) {
+        instance.repeatedString6_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString6_);
+      }
+    }
+    private static void ensureRepeatedString7IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString7_.isModifiable()) {
+        instance.repeatedString7_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString7_);
+      }
+    }
+    private static void ensureRepeatedString8IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString8_.isModifiable()) {
+        instance.repeatedString8_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString8_);
+      }
+    }
+    private static void ensureRepeatedString9IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString9_.isModifiable()) {
+        instance.repeatedString9_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString9_);
+      }
+    }
+    private static void ensureRepeatedString10IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString10_.isModifiable()) {
+        instance.repeatedString10_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString10_);
+      }
+    }
+    private static void ensureRepeatedString11IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString11_.isModifiable()) {
+        instance.repeatedString11_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString11_);
+      }
+    }
+    private static void ensureRepeatedString12IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString12_.isModifiable()) {
+        instance.repeatedString12_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString12_);
+      }
+    }
+    private static void ensureRepeatedString13IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString13_.isModifiable()) {
+        instance.repeatedString13_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString13_);
+      }
+    }
+    private static void ensureRepeatedString14IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString14_.isModifiable()) {
+        instance.repeatedString14_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString14_);
+      }
+    }
+    private static void ensureRepeatedString15IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString15_.isModifiable()) {
+        instance.repeatedString15_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString15_);
+      }
+    }
+    private static void ensureRepeatedString16IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString16_.isModifiable()) {
+        instance.repeatedString16_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString16_);
+      }
+    }
+    private static void ensureRepeatedString17IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString17_.isModifiable()) {
+        instance.repeatedString17_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString17_);
+      }
+    }
+    private static void ensureRepeatedString18IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString18_.isModifiable()) {
+        instance.repeatedString18_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString18_);
+      }
+    }
+    private static void ensureRepeatedString19IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString19_.isModifiable()) {
+        instance.repeatedString19_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString19_);
+      }
+    }
+    private static void ensureRepeatedString20IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString20_.isModifiable()) {
+        instance.repeatedString20_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString20_);
+      }
+    }
+    private static void ensureRepeatedString21IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString21_.isModifiable()) {
+        instance.repeatedString21_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString21_);
+      }
+    }
+    private static void ensureRepeatedString22IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString22_.isModifiable()) {
+        instance.repeatedString22_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString22_);
+      }
+    }
+    private static void ensureRepeatedString23IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString23_.isModifiable()) {
+        instance.repeatedString23_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString23_);
+      }
+    }
+    private static void ensureRepeatedString24IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString24_.isModifiable()) {
+        instance.repeatedString24_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString24_);
+      }
+    }
+    private static void ensureRepeatedString25IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString25_.isModifiable()) {
+        instance.repeatedString25_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString25_);
+      }
+    }
+    private static void ensureRepeatedString26IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString26_.isModifiable()) {
+        instance.repeatedString26_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString26_);
+      }
+    }
+    private static void ensureRepeatedString27IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString27_.isModifiable()) {
+        instance.repeatedString27_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString27_);
+      }
+    }
+    private static void ensureRepeatedString28IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString28_.isModifiable()) {
+        instance.repeatedString28_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString28_);
+      }
+    }
+    private static void ensureRepeatedString29IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString29_.isModifiable()) {
+        instance.repeatedString29_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString29_);
+      }
+    }
+    private static void ensureRepeatedString30IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString30_.isModifiable()) {
+        instance.repeatedString30_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString30_);
+      }
+    }
+    private static void ensureRepeatedString31IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString31_.isModifiable()) {
+        instance.repeatedString31_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString31_);
+      }
+    }
+    private static void ensureRepeatedString32IsMutable(edition_unittest.TestMessageWithManyRepeatedPtrFields instance) {
+      if (!instance.repeatedString32_.isModifiable()) {
+        instance.repeatedString32_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString32_);
+      }
+    }
+    private static void finishCollections0(TestMessageWithManyRepeatedPtrFields instance) {
+      instance.repeatedString1_.makeImmutable();
+      instance.repeatedString2_.makeImmutable();
+      instance.repeatedString3_.makeImmutable();
+      instance.repeatedString4_.makeImmutable();
+      instance.repeatedString5_.makeImmutable();
+      instance.repeatedString6_.makeImmutable();
+      instance.repeatedString7_.makeImmutable();
+      instance.repeatedString8_.makeImmutable();
+      instance.repeatedString9_.makeImmutable();
+      instance.repeatedString10_.makeImmutable();
+      instance.repeatedString11_.makeImmutable();
+      instance.repeatedString12_.makeImmutable();
+      instance.repeatedString13_.makeImmutable();
+      instance.repeatedString14_.makeImmutable();
+      instance.repeatedString15_.makeImmutable();
+      instance.repeatedString16_.makeImmutable();
+      instance.repeatedString17_.makeImmutable();
+      instance.repeatedString18_.makeImmutable();
+      instance.repeatedString19_.makeImmutable();
+      instance.repeatedString20_.makeImmutable();
+      instance.repeatedString21_.makeImmutable();
+      instance.repeatedString22_.makeImmutable();
+      instance.repeatedString23_.makeImmutable();
+      instance.repeatedString24_.makeImmutable();
+      instance.repeatedString25_.makeImmutable();
+      instance.repeatedString26_.makeImmutable();
+      instance.repeatedString27_.makeImmutable();
+      instance.repeatedString28_.makeImmutable();
+      instance.repeatedString29_.makeImmutable();
+      instance.repeatedString30_.makeImmutable();
+      instance.repeatedString31_.makeImmutable();
+      instance.repeatedString32_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<TestMessageWithManyRepeatedPtrFields> parser() {
     return PARSER;

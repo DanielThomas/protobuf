@@ -530,7 +530,7 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -559,14 +559,31 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
                 test.Edition2023.EditionsMessage.class, test.Edition2023.EditionsMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using test.Edition2023.EditionsMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        strView_ = "";
+        repeatedStrView_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        repeatedStr_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+
+      }
+      private Builder(test.Edition2023.EditionsMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -624,7 +641,6 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
           result.implicitPresenceField_ = implicitPresenceField_;
-          
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
           repeatedStrView_.makeImmutable();
@@ -635,6 +651,23 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
           result.repeatedStr_ = repeatedStr_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(test.Edition2023.EditionsMessage other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000003);
+        plainField_ = other.getPlainField();
+        strView_ = other.strView_;
+        implicitPresenceField_ = other.getImplicitPresenceField();
+        to_bitField0_ |= 0x00000004;
+        repeatedStrView_ = other.repeatedStrView_;
+        if (!repeatedStrView_.isEmpty()) {
+          to_bitField0_ |= 0x00000008;
+        }
+        repeatedStr_ = other.repeatedStr_;
+        if (!repeatedStr_.isEmpty()) {
+          to_bitField0_ |= 0x00000010;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -746,7 +779,7 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int plainField_ ;
+      private int plainField_;
       /**
        * <code>int32 plain_field = 1;</code>
        * @return Whether the plainField field is set.
@@ -786,7 +819,7 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int implicitPresenceField_ ;
+      private int implicitPresenceField_;
       /**
        * <code>int32 implicit_presence_field = 2 [features = { ... }</code>
        * @return The implicitPresenceField.
@@ -818,7 +851,7 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private java.lang.Object strView_ = "";
+      private java.lang.Object strView_;
       /**
        * <code>string str_view = 3 [features = { ... }</code>
        * @return Whether the strView field is set.
@@ -897,8 +930,7 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList repeatedStrView_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList repeatedStrView_;
       private void ensureRepeatedStrViewIsMutable() {
         if (!repeatedStrView_.isModifiable()) {
           repeatedStrView_ = new com.google.protobuf.LazyStringArrayList(repeatedStrView_);
@@ -1008,8 +1040,7 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList repeatedStr_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList repeatedStr_;
       private void ensureRepeatedStrIsMutable() {
         if (!repeatedStr_.isModifiable()) {
           repeatedStr_ = new com.google.protobuf.LazyStringArrayList(repeatedStr_);
@@ -1133,21 +1164,91 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<EditionsMessage>
-        PARSER = new com.google.protobuf.AbstractParser<EditionsMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<EditionsMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public EditionsMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        EditionsMessage instance = new EditionsMessage((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.lang.Object parsed_strView = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.plainField_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                instance.implicitPresenceField_ = input.readInt32();
+
+                break;
+              } // case 16
+              case 26: {
+                parsed_strView = input.readStringRequireUtf8();
+                to_bitField0_ |= 0x00000002;
+                break;
+              } // case 26
+              case 34: {
+                ensureRepeatedStrViewIsMutable(instance);
+                instance.repeatedStrView_.add(input.readStringRequireUtf8());
+                break;
+              } // case 34
+              case 42: {
+                ensureRepeatedStrIsMutable(instance);
+                instance.repeatedStr_.add(input.readStringRequireUtf8());
+                break;
+              } // case 42
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parsed_strView != null) instance.strView_ = parsed_strView;
+        finishCollections0(instance);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static void ensureRepeatedStrViewIsMutable(test.Edition2023.EditionsMessage instance) {
+        if (!instance.repeatedStrView_.isModifiable()) {
+          instance.repeatedStrView_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedStrView_);
+        }
+      }
+      private static void ensureRepeatedStrIsMutable(test.Edition2023.EditionsMessage instance) {
+        if (!instance.repeatedStr_.isModifiable()) {
+          instance.repeatedStr_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedStr_);
+        }
+      }
+      private static void finishCollections0(EditionsMessage instance) {
+        instance.repeatedStrView_.makeImmutable();
+        instance.repeatedStr_.makeImmutable();
+      }
+    }
 
     public static com.google.protobuf.Parser<EditionsMessage> parser() {
       return PARSER;

@@ -402,7 +402,7 @@ public final class LiteEqualsAndHash extends com.google.protobuf.GeneratedFile {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -431,14 +431,26 @@ public final class LiteEqualsAndHash extends com.google.protobuf.GeneratedFile {
                 proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofEquals.class, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofEquals.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofEquals.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofEquals other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -488,6 +500,19 @@ public final class LiteEqualsAndHash extends com.google.protobuf.GeneratedFile {
           result.oneofField_ = oneofField_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofEquals other) {
+        int to_bitField0_ = 0;
+        if (other.oneofFieldCase_ == 1) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (other.oneofFieldCase_ == 2) {
+          to_bitField0_ |= 0x00000002;
+        }
+        oneofFieldCase_ = other.oneofFieldCase_;
+        oneofField_ = other.oneofField_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -572,7 +597,7 @@ public final class LiteEqualsAndHash extends com.google.protobuf.GeneratedFile {
         } // finally
         return this;
       }
-      private int oneofFieldCase_ = 0;
+      private int oneofFieldCase_;
       private java.lang.Object oneofField_;
       public OneofFieldCase
           getOneofFieldCase() {
@@ -796,21 +821,69 @@ public final class LiteEqualsAndHash extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<TestOneofEquals>
-        PARSER = new com.google.protobuf.AbstractParser<TestOneofEquals>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestOneofEquals> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestOneofEquals parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestOneofEquals instance = new TestOneofEquals((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                parseNameField(instance, input, extensionRegistry);
+                break;
+              } // case 10
+              case 16: {
+                parseValueField(instance, input, extensionRegistry);
+                break;
+              } // case 16
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static void parseNameField(
+          proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofEquals instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.google.protobuf.ByteString bs = input.readBytes();
+        instance.oneofFieldCase_ = 1;
+        instance.oneofField_ = bs;
+      }
+      private static void parseValueField(
+          proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofEquals instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        int value = input.readInt32();
+        instance.oneofFieldCase_ = 2;
+        instance.oneofField_ = value;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestOneofEquals> parser() {
       return PARSER;
@@ -1220,7 +1293,7 @@ java.lang.String defaultValue);
       @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
+            ? new Builder() : new Builder(this);
       }
 
       @java.lang.Override
@@ -1249,14 +1322,26 @@ java.lang.String defaultValue);
                   proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroup.class, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroup.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroup.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+
+        }
+        private Builder(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroup other) {
+          super(other, null);
+          copyFrom_autosplit_0(other);
 
         }
         @java.lang.Override
@@ -1303,6 +1388,12 @@ java.lang.String defaultValue);
             to_bitField0_ |= 0x00000001;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroup other) {
+          int to_bitField0_ = (other.bitField0_ & 0x00000001);
+          value_ = other.getValue();
+          bitField0_ |= to_bitField0_;
         }
 
         @java.lang.Override
@@ -1366,7 +1457,7 @@ java.lang.String defaultValue);
         }
         private int bitField0_;
 
-        private int value_ ;
+        private int value_;
         /**
          * <code>int32 value = 1;</code>
          * @return Whether the value field is set.
@@ -1420,21 +1511,54 @@ java.lang.String defaultValue);
       }
 
       private static final com.google.protobuf.Parser<MyGroup>
-          PARSER = new com.google.protobuf.AbstractParser<MyGroup>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<MyGroup> {
+        MessageParser() {}
+
         @java.lang.Override
         public MyGroup parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
+          java.util.Objects.requireNonNull(extensionRegistry);
+          MyGroup instance = new MyGroup((Builder) null);
+          java.lang.Object unknown = null;
+          int to_bitField0_ = 0;
+          java.io.IOException parseFailure = null;
           try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
+            parseLoop: while (true) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0: break parseLoop;
+                case 8: {
+                  instance.value_ = input.readInt32();
+                  to_bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+                default: {
+                  unknown = prepareUnknownFields(unknown, input);
+                  if (!parseUnknownField(input, unknown, tag)) {
+                    break parseLoop;
+                  }
+                  break;
+                }
+              }
+            }
+          } catch (java.io.IOException e) {
+            parseFailure = e;
           }
-          return builder.buildPartial();
+          finishUnknownFields(instance, unknown);
+          if (to_bitField0_ != 0) {
+            instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+          }
+          if (parseFailure != null) {
+            throwParseException(parseFailure, instance);
+          }
+          return instance;
         }
-      };
+      }
 
       public static com.google.protobuf.Parser<MyGroup> parser() {
         return PARSER;
@@ -1954,7 +2078,7 @@ java.lang.String defaultValue) {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -2006,14 +2130,27 @@ java.lang.String defaultValue) {
                 proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.class, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        bar_ = emptyList(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Bar.class);
+
+      }
+      private Builder(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -2098,6 +2235,28 @@ java.lang.String defaultValue) {
           result.single_ = single_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        value_ = other.getValue();
+        bar_ = other.bar_;
+        if (!bar_.isEmpty()) {
+          to_bitField0_ |= 0x00000002;
+        }
+        myMap_ = other.myMap_;
+        if (myMap_ != null) {
+          to_bitField0_ |= 0x00000004;
+        }
+        if (other.singleCase_ == 4) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (other.singleCase_ == 5) {
+          to_bitField0_ |= 0x00000010;
+        }
+        singleCase_ = other.singleCase_;
+        single_ = other.single_;
+        bitField0_ |= to_bitField0_;
       }
 
       public <Type> Builder setExtension(
@@ -2263,7 +2422,7 @@ java.lang.String defaultValue) {
         } // finally
         return this;
       }
-      private int singleCase_ = 0;
+      private int singleCase_;
       private java.lang.Object single_;
       public SingleCase
           getSingleCase() {
@@ -2286,7 +2445,7 @@ java.lang.String defaultValue) {
 
       private int bitField0_;
 
-      private int value_ ;
+      private int value_;
       /**
        * <code>int32 value = 1;</code>
        * @return Whether the value field is set.
@@ -2326,8 +2485,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Bar> bar_ =
-          emptyList(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Bar.class);
+      private com.google.protobuf.Internal.ProtobufList<proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Bar> bar_;
       private void ensureBarIsMutable() {
         if (!bar_.isModifiable()) {
           bar_ = makeMutableCopy(bar_);
@@ -2929,6 +3087,14 @@ java.lang.String defaultValue) {
           break;
         }
       }
+      @java.lang.SuppressWarnings("unchecked")
+      private void transferChildren0(
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (fieldBuilders[0] != null) {
+          if (myGroupBuilder_ != null) myGroupBuilder_.dispose();
+          myGroupBuilder_ = ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroup, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroup.Builder, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroupOrBuilder>) fieldBuilders[0]);
+        }
+      }
 
       // @@protoc_insertion_point(builder_scope:proto2_unittest.lite_equals_and_hash.Foo)
     }
@@ -2944,21 +3110,220 @@ java.lang.String defaultValue) {
     }
 
     private static final com.google.protobuf.Parser<Foo>
-        PARSER = new com.google.protobuf.AbstractParser<Foo>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Foo> {
+      MessageParser() {}
+
       @java.lang.Override
       public Foo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Foo instance = new Foo((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.value_ = input.readInt32();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                final int oldLimit = input.pushLimitBeforeMessage();
+                proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Bar m = proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Bar.parser().parsePartialFrom(input, extensionRegistry);
+                input.popLimitAfterMessage(oldLimit);
+                if (!instance.bar_.isModifiable()) {
+  instance.bar_ = makeMutableCopy(instance.bar_);
+}
+                instance.bar_.add(m);
+                break;
+              } // case 18
+              case 26: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                myMap__ = input.readMessage(
+                    MyMapDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMyMap(instance).getMutableMap().put(
+                    myMap__.getKey(), myMap__.getValue());
+
+                break;
+              } // case 26
+              case 32: {
+                pendingTag = parseSint64Field(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 32
+              case 43: {
+                pendingTag = parseMyGroupField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 43
+              default: {
+                pendingTag = tag;
+                break parseLoop;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        finishCollections0(instance);
+        if (pendingTag != 0 && parseFailure == null) {
+          return mergeWithBuilder(instance, input, extensionRegistry, pendingTag, fieldBuilders);
+        }
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static com.google.protobuf.MapField<java.lang.String, java.lang.String>
+          internalGetMutableMyMap(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo instance) {
+        if (instance.myMap_ == null) {
+          instance.myMap_ = com.google.protobuf.MapField.newMapField(
+              MyMapDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.myMap_.isMutable()) {
+          instance.myMap_ = instance.myMap_.copy();
+        }
+        return instance.myMap_;
+      }
+      private static int parseSint64Field(
+          proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.single_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 32;
+        }
+        long value = input.readSInt64();
+        instance.singleCase_ = 4;
+        instance.single_ = value;
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseMyGroupField(
+          proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.single_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 43;
+        }
+        if (fieldBuilders != null) {
+          input.readGroup(5,
+              internalGetMyGroupFieldBuilder(instance, fieldBuilders).getBuilder(),
+              extensionRegistry);
+          switch (instance.singleCase_) {
+          default:
+             // fallthrough
+          case 0:
+            instance.singleCase_ = 5;
+             // fallthrough
+          case 5:
+            break;
+          }
+          return 0;
+        }
+        instance.singleCase_ = 5;
+        instance.single_ = proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroup.getDefaultInstance();
+        try {
+          instance.single_ = input.readGroup(5, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroup.parser(), extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+            instance.single_ = e.getUnfinishedMessage();
+          }
+          throw e;
+        }
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static com.google.protobuf.SingleFieldBuilder<
+          proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroup, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroup.Builder, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroupOrBuilder>
+          internalGetMyGroupFieldBuilder(
+              proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo instance,
+              com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (fieldBuilders[0] == null) {
+          if (!(instance.hasMyGroup())) {
+            instance.single_ = proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroup.getDefaultInstance();
+          }
+          fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+              proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroup, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroup.Builder, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroupOrBuilder>(
+                  (proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroup) instance.single_,
+                  null,
+                  false);
+          instance.single_ = null;
+        }
+        switch (instance.singleCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.singleCase_ = 5;
+           // fallthrough
+        case 5:
+          break;
+        }
+
+        return ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroup, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroup.Builder, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Foo.MyGroupOrBuilder>) fieldBuilders[0]);
+      }
+      private static void finishCollections0(Foo instance) {
+        instance.bar_.makeImmutable();
+        if (instance.myMap_ != null) instance.myMap_.makeImmutable();
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          Foo instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        if (instance.singleCase_ == 5 && tag != 43) {
+          internalGetMyGroupFieldBuilder(instance, fieldBuilders);
+        }
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          Foo instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        {
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?> child = null;
+          switch (instance.singleCase_) {
+            case 5: child = fieldBuilders[0]; break;
+            default: break;
+          }
+          if (child != null) {
+            instance.single_ = child == null
+                ? instance.single_
+                : child.build();
+          }
+        }
+      }
+      private static Foo mergeWithBuilder(
+          Foo instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite registry, int tag,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = new Builder(instance);
+        if (fieldBuilders == null) {
+          if (instance.singleCase_ == 5) builder.getMyGroupBuilder();
+        } else {
+          builder.transferChildren0(fieldBuilders);
+        }
+        return mergeFrom(builder, input, registry, tag, null);
+      }
+    }
 
     public static com.google.protobuf.Parser<Foo> parser() {
       return PARSER;
@@ -3246,7 +3611,7 @@ java.lang.String defaultValue) {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -3275,14 +3640,27 @@ java.lang.String defaultValue) {
                 proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Bar.class, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Bar.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Bar.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        name_ = "";
+
+      }
+      private Builder(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Bar other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -3329,6 +3707,12 @@ java.lang.String defaultValue) {
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Bar other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        name_ = other.name_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -3394,7 +3778,7 @@ java.lang.String defaultValue) {
       }
       private int bitField0_;
 
-      private java.lang.Object name_ = "";
+      private java.lang.Object name_;
       /**
        * <code>string name = 1;</code>
        * @return Whether the name field is set.
@@ -3488,21 +3872,56 @@ java.lang.String defaultValue) {
     }
 
     private static final com.google.protobuf.Parser<Bar>
-        PARSER = new com.google.protobuf.AbstractParser<Bar>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Bar> {
+      MessageParser() {}
+
       @java.lang.Override
       public Bar parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Bar instance = new Bar((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.lang.Object parsed_name = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                parsed_name = input.readBytes();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parsed_name != null) instance.name_ = parsed_name;
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<Bar> parser() {
       return PARSER;
@@ -3803,7 +4222,7 @@ java.lang.String defaultValue) {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -3832,14 +4251,27 @@ java.lang.String defaultValue) {
                 proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.BarPrime.class, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.BarPrime.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.BarPrime.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        name_ = "";
+
+      }
+      private Builder(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.BarPrime other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -3886,6 +4318,12 @@ java.lang.String defaultValue) {
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.BarPrime other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        name_ = other.name_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -3951,7 +4389,7 @@ java.lang.String defaultValue) {
       }
       private int bitField0_;
 
-      private java.lang.Object name_ = "";
+      private java.lang.Object name_;
       /**
        * <code>string name = 1;</code>
        * @return Whether the name field is set.
@@ -4045,21 +4483,56 @@ java.lang.String defaultValue) {
     }
 
     private static final com.google.protobuf.Parser<BarPrime>
-        PARSER = new com.google.protobuf.AbstractParser<BarPrime>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<BarPrime> {
+      MessageParser() {}
+
       @java.lang.Override
       public BarPrime parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        BarPrime instance = new BarPrime((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.lang.Object parsed_name = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                parsed_name = input.readBytes();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parsed_name != null) instance.name_ = parsed_name;
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<BarPrime> parser() {
       return PARSER;
@@ -4259,7 +4732,7 @@ java.lang.String defaultValue) {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -4288,14 +4761,25 @@ java.lang.String defaultValue) {
                 proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Empty.class, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Empty.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Empty.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.Empty other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -4397,21 +4881,45 @@ java.lang.String defaultValue) {
     }
 
     private static final com.google.protobuf.Parser<Empty>
-        PARSER = new com.google.protobuf.AbstractParser<Empty>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Empty> {
+      MessageParser() {}
+
       @java.lang.Override
       public Empty parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Empty instance = new Empty((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<Empty> parser() {
       return PARSER;
@@ -4699,7 +5207,7 @@ java.lang.String defaultValue) {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -4728,14 +5236,27 @@ java.lang.String defaultValue) {
                 proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.MyGroup.class, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.MyGroup.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.MyGroup.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        groupValue_ = "";
+
+      }
+      private Builder(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.MyGroup other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -4782,6 +5303,12 @@ java.lang.String defaultValue) {
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.MyGroup other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        groupValue_ = other.groupValue_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -4847,7 +5374,7 @@ java.lang.String defaultValue) {
       }
       private int bitField0_;
 
-      private java.lang.Object groupValue_ = "";
+      private java.lang.Object groupValue_;
       /**
        * <code>string group_value = 1;</code>
        * @return Whether the groupValue field is set.
@@ -4941,21 +5468,56 @@ java.lang.String defaultValue) {
     }
 
     private static final com.google.protobuf.Parser<MyGroup>
-        PARSER = new com.google.protobuf.AbstractParser<MyGroup>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MyGroup> {
+      MessageParser() {}
+
       @java.lang.Override
       public MyGroup parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        MyGroup instance = new MyGroup((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.lang.Object parsed_groupValue = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                parsed_groupValue = input.readBytes();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parsed_groupValue != null) instance.groupValue_ = parsed_groupValue;
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<MyGroup> parser() {
       return PARSER;
@@ -5281,7 +5843,7 @@ java.lang.String defaultValue) {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -5310,14 +5872,26 @@ java.lang.String defaultValue) {
                 proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneof.class, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneof.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneof.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneof other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -5372,6 +5946,16 @@ java.lang.String defaultValue) {
           ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneof other) {
+        int to_bitField0_ = 0;
+        if (other.fooCase_ == 1) {
+          to_bitField0_ |= 0x00000001;
+        }
+        fooCase_ = other.fooCase_;
+        foo_ = other.foo_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -5438,7 +6022,7 @@ java.lang.String defaultValue) {
         } // finally
         return this;
       }
-      private int fooCase_ = 0;
+      private int fooCase_;
       private java.lang.Object foo_;
       public FooCase
           getFooCase() {
@@ -5652,21 +6236,147 @@ java.lang.String defaultValue) {
     }
 
     private static final com.google.protobuf.Parser<TestRecursiveOneof>
-        PARSER = new com.google.protobuf.AbstractParser<TestRecursiveOneof>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestRecursiveOneof> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestRecursiveOneof parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestRecursiveOneof instance = new TestRecursiveOneof((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                pendingTag = parseRField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseRField(
+          proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneof instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.foo_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 10;
+        }
+        if (fieldBuilders != null) {
+          input.readMessage(
+              internalGetRFieldBuilder(instance, fieldBuilders).getBuilder(),
+              extensionRegistry);
+          switch (instance.fooCase_) {
+          default:
+             // fallthrough
+          case 0:
+            instance.fooCase_ = 1;
+             // fallthrough
+          case 1:
+            break;
+          }
+          return 0;
+        }
+        instance.fooCase_ = 1;
+        instance.foo_ = proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneof.getDefaultInstance();
+        try {
+          instance.foo_ = input.readMessage(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneof.parser(), extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+            instance.foo_ = e.getUnfinishedMessage();
+          }
+          throw e;
+        }
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static com.google.protobuf.SingleFieldBuilder<
+          proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneof, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneof.Builder, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneofOrBuilder>
+          internalGetRFieldBuilder(
+              proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneof instance,
+              com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (fieldBuilders[0] == null) {
+          if (!(instance.hasR())) {
+            instance.foo_ = proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneof.getDefaultInstance();
+          }
+          fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+              proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneof, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneof.Builder, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneofOrBuilder>(
+                  (proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneof) instance.foo_,
+                  null,
+                  false);
+          instance.foo_ = null;
+        }
+        switch (instance.fooCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.fooCase_ = 1;
+           // fallthrough
+        case 1:
+          break;
+        }
+
+        return ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneof, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneof.Builder, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestRecursiveOneofOrBuilder>) fieldBuilders[0]);
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          TestRecursiveOneof instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        if (instance.fooCase_ == 1 && tag != 10) {
+          internalGetRFieldBuilder(instance, fieldBuilders);
+        }
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          TestRecursiveOneof instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        {
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?> child = null;
+          switch (instance.fooCase_) {
+            case 1: child = fieldBuilders[0]; break;
+            default: break;
+          }
+          if (child != null) {
+            instance.foo_ = child == null
+                ? instance.foo_
+                : child.build();
+          }
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<TestRecursiveOneof> parser() {
       return PARSER;
@@ -6289,7 +6999,7 @@ java.lang.String defaultValue) {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -6324,14 +7034,26 @@ java.lang.String defaultValue) {
                 proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVariants.class, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVariants.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVariants.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVariants other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -6391,6 +7113,31 @@ java.lang.String defaultValue) {
           result.valueType_ = valueType_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVariants other) {
+        int to_bitField0_ = 0;
+        if (other.valueTypeCase_ == 1) {
+          to_bitField0_ |= 0x00000001;
+        }
+        if (other.valueTypeCase_ == 2) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (other.valueTypeCase_ == 3) {
+          to_bitField0_ |= 0x00000004;
+        }
+        if (other.valueTypeCase_ == 4) {
+          to_bitField0_ |= 0x00000008;
+        }
+        if (other.valueTypeCase_ == 5) {
+          to_bitField0_ |= 0x00000010;
+        }
+        if (other.valueTypeCase_ == 6) {
+          to_bitField0_ |= 0x00000020;
+        }
+        valueTypeCase_ = other.valueTypeCase_;
+        valueType_ = other.valueType_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -6507,7 +7254,7 @@ java.lang.String defaultValue) {
         } // finally
         return this;
       }
-      private int valueTypeCase_ = 0;
+      private int valueTypeCase_;
       private java.lang.Object valueType_;
       public ValueTypeCase
           getValueTypeCase() {
@@ -7103,21 +7850,227 @@ java.lang.String defaultValue) {
     }
 
     private static final com.google.protobuf.Parser<TestOneofWithMultipleVariants>
-        PARSER = new com.google.protobuf.AbstractParser<TestOneofWithMultipleVariants>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestOneofWithMultipleVariants> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestOneofWithMultipleVariants parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestOneofWithMultipleVariants instance = new TestOneofWithMultipleVariants((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                pendingTag = parseBooleanValueField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 8
+              case 16: {
+                pendingTag = parseIntegerValueField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 16
+              case 25: {
+                pendingTag = parseDoubleValueField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 25
+              case 34: {
+                pendingTag = parseStringValueField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 34
+              case 42: {
+                pendingTag = parseBytesValueField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 42
+              case 50: {
+                pendingTag = parseNestedValueField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 50
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static int parseBooleanValueField(
+          proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVariants instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.valueType_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 8;
+        }
+        boolean value = input.readBool();
+        instance.valueTypeCase_ = 1;
+        instance.valueType_ = value;
+        return 0;
+      }
+      private static int parseIntegerValueField(
+          proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVariants instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.valueType_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 16;
+        }
+        long value = input.readInt64();
+        instance.valueTypeCase_ = 2;
+        instance.valueType_ = value;
+        return 0;
+      }
+      private static int parseDoubleValueField(
+          proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVariants instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.valueType_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 25;
+        }
+        double value = input.readDouble();
+        instance.valueTypeCase_ = 3;
+        instance.valueType_ = value;
+        return 0;
+      }
+      private static int parseStringValueField(
+          proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVariants instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.valueType_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 34;
+        }
+        com.google.protobuf.ByteString bs = input.readBytes();
+        instance.valueTypeCase_ = 4;
+        instance.valueType_ = bs;
+        return 0;
+      }
+      private static int parseBytesValueField(
+          proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVariants instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.valueType_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 42;
+        }
+        com.google.protobuf.ByteString value = input.readBytes();
+        instance.valueTypeCase_ = 5;
+        instance.valueType_ = value;
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseNestedValueField(
+          proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVariants instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.valueType_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 50;
+        }
+        if (fieldBuilders != null) {
+          input.readMessage(
+              internalGetNestedValueFieldBuilder(instance, fieldBuilders).getBuilder(),
+              extensionRegistry);
+          switch (instance.valueTypeCase_) {
+          default:
+             // fallthrough
+          case 0:
+            instance.valueTypeCase_ = 6;
+             // fallthrough
+          case 6:
+            break;
+          }
+          return 0;
+        }
+        instance.valueTypeCase_ = 6;
+        instance.valueType_ = proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValue.getDefaultInstance();
+        try {
+          instance.valueType_ = input.readMessage(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValue.parser(), extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+            instance.valueType_ = e.getUnfinishedMessage();
+          }
+          throw e;
+        }
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static com.google.protobuf.SingleFieldBuilder<
+          proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValue, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValue.Builder, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValueOrBuilder>
+          internalGetNestedValueFieldBuilder(
+              proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVariants instance,
+              com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (fieldBuilders[0] == null) {
+          if (!(instance.hasNestedValue())) {
+            instance.valueType_ = proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValue.getDefaultInstance();
+          }
+          fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+              proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValue, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValue.Builder, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValueOrBuilder>(
+                  (proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValue) instance.valueType_,
+                  null,
+                  false);
+          instance.valueType_ = null;
+        }
+        switch (instance.valueTypeCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.valueTypeCase_ = 6;
+           // fallthrough
+        case 6:
+          break;
+        }
+
+        return ((com.google.protobuf.SingleFieldBuilder<proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValue, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValue.Builder, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValueOrBuilder>) fieldBuilders[0]);
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          TestOneofWithMultipleVariants instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        if (instance.valueTypeCase_ == 6 && tag != 50) {
+          internalGetNestedValueFieldBuilder(instance, fieldBuilders);
+        }
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          TestOneofWithMultipleVariants instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        {
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?> child = null;
+          switch (instance.valueTypeCase_) {
+            case 6: child = fieldBuilders[0]; break;
+            default: break;
+          }
+          if (child != null) {
+            instance.valueType_ = child == null
+                ? instance.valueType_
+                : child.build();
+          }
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<TestOneofWithMultipleVariants> parser() {
       return PARSER;
@@ -7475,7 +8428,7 @@ proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVari
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -7526,14 +8479,26 @@ proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVari
                 proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValue.class, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValue.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValue.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValue other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -7579,6 +8544,16 @@ proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVari
           result.fields_ = internalGetFields().build(FieldsDefaultEntryHolder.defaultEntry);
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValue other) {
+        int to_bitField0_ = 0;
+        if (other.getFieldsCount() > 0) {
+          internalGetMutableFields().mergeFrom(
+              other.internalGetFields());
+          bitField0_ |= 0x00000001;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -7817,21 +8792,69 @@ proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVari
     }
 
     private static final com.google.protobuf.Parser<NestedValue>
-        PARSER = new com.google.protobuf.AbstractParser<NestedValue>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<NestedValue> {
+      MessageParser() {}
+
       @java.lang.Override
       public NestedValue parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        NestedValue instance = new NestedValue((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                com.google.protobuf.MapEntry<java.lang.String, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVariants>
+                fields__ = input.readMessage(
+                    FieldsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableFields(instance).getMutableMap().put(
+                    fields__.getKey(), fields__.getValue());
+
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        finishCollections0(instance);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static com.google.protobuf.MapField<java.lang.String, proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.TestOneofWithMultipleVariants>
+          internalGetMutableFields(proto2_unittest.lite_equals_and_hash.LiteEqualsAndHash.NestedValue instance) {
+        if (instance.fields_ == null) {
+          instance.fields_ = com.google.protobuf.MapField.newMapField(
+              FieldsDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.fields_.isMutable()) {
+          instance.fields_ = instance.fields_.copy();
+        }
+        return instance.fields_;
+      }
+      private static void finishCollections0(NestedValue instance) {
+        if (instance.fields_ != null) instance.fields_.makeImmutable();
+      }
+    }
 
     public static com.google.protobuf.Parser<NestedValue> parser() {
       return PARSER;

@@ -517,7 +517,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -547,14 +547,26 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestExtensionInsideTable.class, edition_unittest.TestExtensionInsideTable.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestExtensionInsideTable.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+
+    }
+    private Builder(edition_unittest.TestExtensionInsideTable other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -641,6 +653,20 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000100;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestExtensionInsideTable other) {
+      int to_bitField0_ = (other.bitField0_ & 0x000001ff);
+      field1_ = other.getField1();
+      field2_ = other.getField2();
+      field3_ = other.getField3();
+      field4_ = other.getField4();
+      field6_ = other.getField6();
+      field7_ = other.getField7();
+      field8_ = other.getField8();
+      field9_ = other.getField9();
+      field10_ = other.getField10();
+      bitField0_ |= to_bitField0_;
     }
 
     public <Type> Builder setExtension(
@@ -795,7 +821,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int field1_ ;
+    private int field1_;
     /**
      * <code>int32 field1 = 1;</code>
      * @return Whether the field1 field is set.
@@ -835,7 +861,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int field2_ ;
+    private int field2_;
     /**
      * <code>int32 field2 = 2;</code>
      * @return Whether the field2 field is set.
@@ -875,7 +901,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int field3_ ;
+    private int field3_;
     /**
      * <code>int32 field3 = 3;</code>
      * @return Whether the field3 field is set.
@@ -915,7 +941,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int field4_ ;
+    private int field4_;
     /**
      * <code>int32 field4 = 4;</code>
      * @return Whether the field4 field is set.
@@ -955,7 +981,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int field6_ ;
+    private int field6_;
     /**
      * <code>int32 field6 = 6;</code>
      * @return Whether the field6 field is set.
@@ -995,7 +1021,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int field7_ ;
+    private int field7_;
     /**
      * <code>int32 field7 = 7;</code>
      * @return Whether the field7 field is set.
@@ -1035,7 +1061,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int field8_ ;
+    private int field8_;
     /**
      * <code>int32 field8 = 8;</code>
      * @return Whether the field8 field is set.
@@ -1075,7 +1101,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int field9_ ;
+    private int field9_;
     /**
      * <code>int32 field9 = 9;</code>
      * @return Whether the field9 field is set.
@@ -1115,7 +1141,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int field10_ ;
+    private int field10_;
     /**
      * <code>int32 field10 = 10;</code>
      * @return Whether the field10 field is set.
@@ -1169,21 +1195,95 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestExtensionInsideTable>
-      PARSER = new com.google.protobuf.AbstractParser<TestExtensionInsideTable>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestExtensionInsideTable> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestExtensionInsideTable parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestExtensionInsideTable instance = new TestExtensionInsideTable((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.field1_ = input.readInt32();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.field2_ = input.readInt32();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              instance.field3_ = input.readInt32();
+              to_bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              instance.field4_ = input.readInt32();
+              to_bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 48: {
+              instance.field6_ = input.readInt32();
+              to_bitField0_ |= 0x00000010;
+              break;
+            } // case 48
+            case 56: {
+              instance.field7_ = input.readInt32();
+              to_bitField0_ |= 0x00000020;
+              break;
+            } // case 56
+            case 64: {
+              instance.field8_ = input.readInt32();
+              to_bitField0_ |= 0x00000040;
+              break;
+            } // case 64
+            case 72: {
+              instance.field9_ = input.readInt32();
+              to_bitField0_ |= 0x00000080;
+              break;
+            } // case 72
+            case 80: {
+              instance.field10_ = input.readInt32();
+              to_bitField0_ |= 0x00000100;
+              break;
+            } // case 80
+            default: {
+              pendingTag = tag;
+              break parseLoop;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      if (pendingTag != 0) {
+        return mergeFrom(instance.toBuilder(), input, extensionRegistry, pendingTag, null);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<TestExtensionInsideTable> parser() {
     return PARSER;

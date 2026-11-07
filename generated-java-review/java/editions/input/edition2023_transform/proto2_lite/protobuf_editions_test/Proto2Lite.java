@@ -494,7 +494,7 @@ java.lang.String defaultValue) {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -545,14 +545,27 @@ java.lang.String defaultValue) {
                 protobuf_editions_test.Proto2Lite.TestMessageLite.class, protobuf_editions_test.Proto2Lite.TestMessageLite.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.Proto2Lite.TestMessageLite.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        stringField_ = "";
+
+      }
+      private Builder(protobuf_editions_test.Proto2Lite.TestMessageLite other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -609,6 +622,17 @@ java.lang.String defaultValue) {
           result.stringMapField_.makeImmutable();
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(protobuf_editions_test.Proto2Lite.TestMessageLite other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000003);
+        stringField_ = other.stringField_;
+        intField_ = other.getIntField();
+        stringMapField_ = other.stringMapField_;
+        if (stringMapField_ != null) {
+          to_bitField0_ |= 0x00000004;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -696,7 +720,7 @@ java.lang.String defaultValue) {
       }
       private int bitField0_;
 
-      private java.lang.Object stringField_ = "";
+      private java.lang.Object stringField_;
       /**
        * <code>optional string string_field = 1;</code>
        * @return Whether the stringField field is set.
@@ -904,7 +928,7 @@ java.lang.String defaultValue) {
         return this;
       }
 
-      private int intField_ ;
+      private int intField_;
       /**
        * <code>optional int32 int_field = 5;</code>
        * @return Whether the intField field is set.
@@ -958,21 +982,85 @@ java.lang.String defaultValue) {
     }
 
     private static final com.google.protobuf.Parser<TestMessageLite>
-        PARSER = new com.google.protobuf.AbstractParser<TestMessageLite>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestMessageLite> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestMessageLite parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestMessageLite instance = new TestMessageLite((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.lang.Object parsed_stringField = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 10: {
+                parsed_stringField = input.readBytes();
+                to_bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              case 34: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                stringMapField__ = input.readMessage(
+                    StringMapFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableStringMapField(instance).getMutableMap().put(
+                    stringMapField__.getKey(), stringMapField__.getValue());
+
+                break;
+              } // case 34
+              case 40: {
+                instance.intField_ = input.readInt32();
+                to_bitField0_ |= 0x00000002;
+                break;
+              } // case 40
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parsed_stringField != null) instance.stringField_ = parsed_stringField;
+        finishCollections0(instance);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static com.google.protobuf.MapField<java.lang.String, java.lang.String>
+          internalGetMutableStringMapField(protobuf_editions_test.Proto2Lite.TestMessageLite instance) {
+        if (instance.stringMapField_ == null) {
+          instance.stringMapField_ = com.google.protobuf.MapField.newMapField(
+              StringMapFieldDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.stringMapField_.isMutable()) {
+          instance.stringMapField_ = instance.stringMapField_.copy();
+        }
+        return instance.stringMapField_;
+      }
+      private static void finishCollections0(TestMessageLite instance) {
+        if (instance.stringMapField_ != null) instance.stringMapField_.makeImmutable();
+      }
+    }
 
     public static com.google.protobuf.Parser<TestMessageLite> parser() {
       return PARSER;

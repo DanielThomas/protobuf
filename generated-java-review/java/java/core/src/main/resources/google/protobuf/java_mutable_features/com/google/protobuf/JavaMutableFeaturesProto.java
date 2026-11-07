@@ -436,7 +436,7 @@ public final class JavaMutableFeaturesProto extends com.google.protobuf.Generate
       @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
+            ? new Builder() : new Builder(this);
       }
 
       @java.lang.Override
@@ -465,14 +465,25 @@ public final class JavaMutableFeaturesProto extends com.google.protobuf.Generate
                   com.google.protobuf.JavaMutableFeaturesProto.JavaMutableFeatures.NestInFileClassFeature.class, com.google.protobuf.JavaMutableFeaturesProto.JavaMutableFeatures.NestInFileClassFeature.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using com.google.protobuf.JavaMutableFeaturesProto.JavaMutableFeatures.NestInFileClassFeature.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+
+        }
+        private Builder(com.google.protobuf.JavaMutableFeaturesProto.JavaMutableFeatures.NestInFileClassFeature other) {
+          super(other, null);
 
         }
         @java.lang.Override
@@ -574,21 +585,45 @@ public final class JavaMutableFeaturesProto extends com.google.protobuf.Generate
       }
 
       private static final com.google.protobuf.Parser<NestInFileClassFeature>
-          PARSER = new com.google.protobuf.AbstractParser<NestInFileClassFeature>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<NestInFileClassFeature> {
+        MessageParser() {}
+
         @java.lang.Override
         public NestInFileClassFeature parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
+          java.util.Objects.requireNonNull(extensionRegistry);
+          NestInFileClassFeature instance = new NestInFileClassFeature((Builder) null);
+          java.lang.Object unknown = null;
+          java.io.IOException parseFailure = null;
           try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
+            parseLoop: while (true) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0: break parseLoop;
+                default: {
+                  unknown = prepareUnknownFields(unknown, input);
+                  if (!parseUnknownField(input, unknown, tag)) {
+                    break parseLoop;
+                  }
+                  break;
+                }
+              }
+            }
+          } catch (java.io.IOException e) {
+            parseFailure = e;
           }
-          return builder.buildPartial();
+          finishUnknownFields(instance, unknown);
+          if (parseFailure != null) {
+            throwParseException(parseFailure, instance);
+          }
+          return instance;
         }
-      };
+      }
 
       public static com.google.protobuf.Parser<NestInFileClassFeature> parser() {
         return PARSER;
@@ -791,7 +826,7 @@ public final class JavaMutableFeaturesProto extends com.google.protobuf.Generate
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -820,14 +855,27 @@ public final class JavaMutableFeaturesProto extends com.google.protobuf.Generate
                 com.google.protobuf.JavaMutableFeaturesProto.JavaMutableFeatures.class, com.google.protobuf.JavaMutableFeaturesProto.JavaMutableFeatures.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.JavaMutableFeaturesProto.JavaMutableFeatures.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        nestInFileClass_ = 0;
+
+      }
+      private Builder(com.google.protobuf.JavaMutableFeaturesProto.JavaMutableFeatures other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -874,6 +922,12 @@ public final class JavaMutableFeaturesProto extends com.google.protobuf.Generate
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.JavaMutableFeaturesProto.JavaMutableFeatures other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        nestInFileClass_ = other.nestInFileClass_;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -944,7 +998,7 @@ public final class JavaMutableFeaturesProto extends com.google.protobuf.Generate
       }
       private int bitField0_;
 
-      private int nestInFileClass_ = 0;
+      private int nestInFileClass_;
       /**
        * <pre>
        * Whether to nest the generated class in the generated file class for
@@ -1018,21 +1072,59 @@ public final class JavaMutableFeaturesProto extends com.google.protobuf.Generate
     }
 
     private static final com.google.protobuf.Parser<JavaMutableFeatures>
-        PARSER = new com.google.protobuf.AbstractParser<JavaMutableFeatures>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<JavaMutableFeatures> {
+      MessageParser() {}
+
       @java.lang.Override
       public JavaMutableFeatures parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        JavaMutableFeatures instance = new JavaMutableFeatures((Builder) null);
+        java.lang.Object unknown = null;
+        int to_bitField0_ = 0;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 48: {
+                int tmpRaw = input.readEnum();
+                if (com.google.protobuf.JavaMutableFeaturesProto.JavaMutableFeatures.NestInFileClassFeature.NestInFileClass.forNumber(tmpRaw) == null) {
+                  unknown = mergeUnknownVarintField(unknown, 6, tmpRaw);
+                } else {
+                  instance.nestInFileClass_ = tmpRaw;
+                  to_bitField0_ |= 0x00000001;
+                }
+                break;
+              } // case 48
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (to_bitField0_ != 0) {
+          instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+        }
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<JavaMutableFeatures> parser() {
       return PARSER;

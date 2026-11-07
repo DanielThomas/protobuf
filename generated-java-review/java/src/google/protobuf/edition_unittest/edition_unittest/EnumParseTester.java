@@ -3077,7 +3077,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -3112,14 +3112,63 @@ private static final long serialVersionUID = 0L;
               edition_unittest.EnumParseTester.class, edition_unittest.EnumParseTester.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.EnumParseTester.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      optionalSeqSmall0Lowfield_ = 0;
+      optionalSeqSmall0Midfield_ = 0;
+      optionalSeqSmall0Hifield_ = 0;
+      repeatedSeqSmall0Lowfield_ = emptyIntList();
+      repeatedSeqSmall0Midfield_ = emptyIntList();
+      repeatedSeqSmall0Hifield_ = emptyIntList();
+      packedSeqSmall0Lowfield_ = emptyIntList();
+      packedSeqSmall0Midfield_ = emptyIntList();
+      packedSeqSmall0Hifield_ = emptyIntList();
+      optionalSeqSmall1Lowfield_ = 0;
+      optionalSeqSmall1Midfield_ = 0;
+      optionalSeqSmall1Hifield_ = 0;
+      repeatedSeqSmall1Lowfield_ = emptyIntList();
+      repeatedSeqSmall1Midfield_ = emptyIntList();
+      repeatedSeqSmall1Hifield_ = emptyIntList();
+      packedSeqSmall1Lowfield_ = emptyIntList();
+      packedSeqSmall1Midfield_ = emptyIntList();
+      packedSeqSmall1Hifield_ = emptyIntList();
+      optionalSeqLargeLowfield_ = -1;
+      optionalSeqLargeMidfield_ = -1;
+      optionalSeqLargeHifield_ = -1;
+      repeatedSeqLargeLowfield_ = emptyIntList();
+      repeatedSeqLargeMidfield_ = emptyIntList();
+      repeatedSeqLargeHifield_ = emptyIntList();
+      packedSeqLargeLowfield_ = emptyIntList();
+      packedSeqLargeMidfield_ = emptyIntList();
+      packedSeqLargeHifield_ = emptyIntList();
+      optionalArbitraryLowfield_ = -123123;
+      optionalArbitraryMidfield_ = -123123;
+      optionalArbitraryHifield_ = -123123;
+      repeatedArbitraryLowfield_ = emptyIntList();
+      repeatedArbitraryMidfield_ = emptyIntList();
+      repeatedArbitraryHifield_ = emptyIntList();
+      packedArbitraryLowfield_ = emptyIntList();
+      packedArbitraryMidfield_ = emptyIntList();
+      packedArbitraryHifield_ = emptyIntList();
+
+    }
+    private Builder(edition_unittest.EnumParseTester other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
+      copyFrom_autosplit_1(other);
 
     }
     @java.lang.Override
@@ -3330,6 +3379,100 @@ private static final long serialVersionUID = 0L;
       result.bitField0_ |= to_bitField0_;
     }
 
+    private void copyFrom_autosplit_0(edition_unittest.EnumParseTester other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00001fff);
+      optionalSeqSmall0Lowfield_ = other.optionalSeqSmall0Lowfield_;
+      optionalSeqSmall0Midfield_ = other.optionalSeqSmall0Midfield_;
+      optionalSeqSmall0Hifield_ = other.optionalSeqSmall0Hifield_;
+      optionalSeqSmall1Lowfield_ = other.optionalSeqSmall1Lowfield_;
+      optionalSeqSmall1Midfield_ = other.optionalSeqSmall1Midfield_;
+      optionalSeqSmall1Hifield_ = other.optionalSeqSmall1Hifield_;
+      optionalSeqLargeLowfield_ = other.optionalSeqLargeLowfield_;
+      optionalSeqLargeMidfield_ = other.optionalSeqLargeMidfield_;
+      optionalSeqLargeHifield_ = other.optionalSeqLargeHifield_;
+      optionalArbitraryLowfield_ = other.optionalArbitraryLowfield_;
+      optionalArbitraryMidfield_ = other.optionalArbitraryMidfield_;
+      optionalArbitraryHifield_ = other.optionalArbitraryHifield_;
+      otherField_ = other.getOtherField();
+      repeatedSeqSmall0Lowfield_ = other.repeatedSeqSmall0Lowfield_;
+      if (!repeatedSeqSmall0Lowfield_.isEmpty()) {
+        to_bitField0_ |= 0x00002000;
+      }
+      repeatedSeqSmall0Midfield_ = other.repeatedSeqSmall0Midfield_;
+      if (!repeatedSeqSmall0Midfield_.isEmpty()) {
+        to_bitField0_ |= 0x00004000;
+      }
+      repeatedSeqSmall0Hifield_ = other.repeatedSeqSmall0Hifield_;
+      if (!repeatedSeqSmall0Hifield_.isEmpty()) {
+        to_bitField0_ |= 0x00008000;
+      }
+      packedSeqSmall0Lowfield_ = other.packedSeqSmall0Lowfield_;
+      if (!packedSeqSmall0Lowfield_.isEmpty()) {
+        to_bitField0_ |= 0x00010000;
+      }
+      packedSeqSmall0Midfield_ = other.packedSeqSmall0Midfield_;
+      if (!packedSeqSmall0Midfield_.isEmpty()) {
+        to_bitField0_ |= 0x00020000;
+      }
+      packedSeqSmall0Hifield_ = other.packedSeqSmall0Hifield_;
+      if (!packedSeqSmall0Hifield_.isEmpty()) {
+        to_bitField0_ |= 0x00040000;
+      }
+      repeatedSeqSmall1Lowfield_ = other.repeatedSeqSmall1Lowfield_;
+      if (!repeatedSeqSmall1Lowfield_.isEmpty()) {
+        to_bitField0_ |= 0x00080000;
+      }
+      repeatedSeqSmall1Midfield_ = other.repeatedSeqSmall1Midfield_;
+      if (!repeatedSeqSmall1Midfield_.isEmpty()) {
+        to_bitField0_ |= 0x00100000;
+      }
+      repeatedSeqSmall1Hifield_ = other.repeatedSeqSmall1Hifield_;
+      if (!repeatedSeqSmall1Hifield_.isEmpty()) {
+        to_bitField0_ |= 0x00200000;
+      }
+      packedSeqSmall1Lowfield_ = other.packedSeqSmall1Lowfield_;
+      if (!packedSeqSmall1Lowfield_.isEmpty()) {
+        to_bitField0_ |= 0x00400000;
+      }
+      packedSeqSmall1Midfield_ = other.packedSeqSmall1Midfield_;
+      if (!packedSeqSmall1Midfield_.isEmpty()) {
+        to_bitField0_ |= 0x00800000;
+      }
+      packedSeqSmall1Hifield_ = other.packedSeqSmall1Hifield_;
+      if (!packedSeqSmall1Hifield_.isEmpty()) {
+        to_bitField0_ |= 0x01000000;
+      }
+      repeatedSeqLargeLowfield_ = other.repeatedSeqLargeLowfield_;
+      if (!repeatedSeqLargeLowfield_.isEmpty()) {
+        to_bitField0_ |= 0x02000000;
+      }
+      repeatedSeqLargeMidfield_ = other.repeatedSeqLargeMidfield_;
+      if (!repeatedSeqLargeMidfield_.isEmpty()) {
+        to_bitField0_ |= 0x04000000;
+      }
+      repeatedSeqLargeHifield_ = other.repeatedSeqLargeHifield_;
+      if (!repeatedSeqLargeHifield_.isEmpty()) {
+        to_bitField0_ |= 0x08000000;
+      }
+      packedSeqLargeLowfield_ = other.packedSeqLargeLowfield_;
+      if (!packedSeqLargeLowfield_.isEmpty()) {
+        to_bitField0_ |= 0x10000000;
+      }
+      packedSeqLargeMidfield_ = other.packedSeqLargeMidfield_;
+      if (!packedSeqLargeMidfield_.isEmpty()) {
+        to_bitField0_ |= 0x20000000;
+      }
+      packedSeqLargeHifield_ = other.packedSeqLargeHifield_;
+      if (!packedSeqLargeHifield_.isEmpty()) {
+        to_bitField0_ |= 0x40000000;
+      }
+      repeatedArbitraryLowfield_ = other.repeatedArbitraryLowfield_;
+      if (!repeatedArbitraryLowfield_.isEmpty()) {
+        to_bitField0_ |= 0x80000000;
+      }
+      bitField0_ |= to_bitField0_;
+    }
+
     private void buildPartial_autosplit_1(edition_unittest.EnumParseTester result) {
       int from_bitField1_ = bitField1_;
       int to_bitField1_ = 0;
@@ -3354,6 +3497,31 @@ private static final long serialVersionUID = 0L;
         result.packedArbitraryHifield_ = packedArbitraryHifield_;
       }
       result.bitField1_ |= to_bitField1_;
+    }
+
+    private void copyFrom_autosplit_1(edition_unittest.EnumParseTester other) {
+      int to_bitField1_ = 0;
+      repeatedArbitraryMidfield_ = other.repeatedArbitraryMidfield_;
+      if (!repeatedArbitraryMidfield_.isEmpty()) {
+        to_bitField1_ |= 0x00000001;
+      }
+      repeatedArbitraryHifield_ = other.repeatedArbitraryHifield_;
+      if (!repeatedArbitraryHifield_.isEmpty()) {
+        to_bitField1_ |= 0x00000002;
+      }
+      packedArbitraryLowfield_ = other.packedArbitraryLowfield_;
+      if (!packedArbitraryLowfield_.isEmpty()) {
+        to_bitField1_ |= 0x00000004;
+      }
+      packedArbitraryMidfield_ = other.packedArbitraryMidfield_;
+      if (!packedArbitraryMidfield_.isEmpty()) {
+        to_bitField1_ |= 0x00000008;
+      }
+      packedArbitraryHifield_ = other.packedArbitraryHifield_;
+      if (!packedArbitraryHifield_.isEmpty()) {
+        to_bitField1_ |= 0x00000010;
+      }
+      bitField1_ |= to_bitField1_;
     }
 
     public <Type> Builder setExtension(
@@ -4617,7 +4785,7 @@ private static final long serialVersionUID = 0L;
     private int bitField0_;
     private int bitField1_;
 
-    private int optionalSeqSmall0Lowfield_ = 0;
+    private int optionalSeqSmall0Lowfield_;
     /**
      * <code>.edition_unittest.EnumParseTester.SeqSmall0 optional_seq_small_0_lowfield = 1;</code>
      * @return Whether the optionalSeqSmall0Lowfield field is set.
@@ -4657,7 +4825,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalSeqSmall0Midfield_ = 0;
+    private int optionalSeqSmall0Midfield_;
     /**
      * <code>.edition_unittest.EnumParseTester.SeqSmall0 optional_seq_small_0_midfield = 1001;</code>
      * @return Whether the optionalSeqSmall0Midfield field is set.
@@ -4697,7 +4865,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalSeqSmall0Hifield_ = 0;
+    private int optionalSeqSmall0Hifield_;
     /**
      * <code>.edition_unittest.EnumParseTester.SeqSmall0 optional_seq_small_0_hifield = 1000001;</code>
      * @return Whether the optionalSeqSmall0Hifield field is set.
@@ -4737,7 +4905,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedSeqSmall0Lowfield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedSeqSmall0Lowfield_;
     private void ensureRepeatedSeqSmall0LowfieldIsMutable(int capacity) {
       if (!repeatedSeqSmall0Lowfield_.isModifiable()) {
         repeatedSeqSmall0Lowfield_ = makeMutableCopy(repeatedSeqSmall0Lowfield_, capacity);
@@ -4818,7 +4986,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedSeqSmall0Midfield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedSeqSmall0Midfield_;
     private void ensureRepeatedSeqSmall0MidfieldIsMutable(int capacity) {
       if (!repeatedSeqSmall0Midfield_.isModifiable()) {
         repeatedSeqSmall0Midfield_ = makeMutableCopy(repeatedSeqSmall0Midfield_, capacity);
@@ -4899,7 +5067,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedSeqSmall0Hifield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedSeqSmall0Hifield_;
     private void ensureRepeatedSeqSmall0HifieldIsMutable(int capacity) {
       if (!repeatedSeqSmall0Hifield_.isModifiable()) {
         repeatedSeqSmall0Hifield_ = makeMutableCopy(repeatedSeqSmall0Hifield_, capacity);
@@ -4980,7 +5148,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedSeqSmall0Lowfield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedSeqSmall0Lowfield_;
     private void ensurePackedSeqSmall0LowfieldIsMutable(int capacity) {
       if (!packedSeqSmall0Lowfield_.isModifiable()) {
         packedSeqSmall0Lowfield_ = makeMutableCopy(packedSeqSmall0Lowfield_, capacity);
@@ -5061,7 +5229,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedSeqSmall0Midfield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedSeqSmall0Midfield_;
     private void ensurePackedSeqSmall0MidfieldIsMutable(int capacity) {
       if (!packedSeqSmall0Midfield_.isModifiable()) {
         packedSeqSmall0Midfield_ = makeMutableCopy(packedSeqSmall0Midfield_, capacity);
@@ -5142,7 +5310,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedSeqSmall0Hifield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedSeqSmall0Hifield_;
     private void ensurePackedSeqSmall0HifieldIsMutable(int capacity) {
       if (!packedSeqSmall0Hifield_.isModifiable()) {
         packedSeqSmall0Hifield_ = makeMutableCopy(packedSeqSmall0Hifield_, capacity);
@@ -5223,7 +5391,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalSeqSmall1Lowfield_ = 0;
+    private int optionalSeqSmall1Lowfield_;
     /**
      * <code>.edition_unittest.EnumParseTester.SeqSmall1 optional_seq_small_1_lowfield = 4;</code>
      * @return Whether the optionalSeqSmall1Lowfield field is set.
@@ -5263,7 +5431,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalSeqSmall1Midfield_ = 0;
+    private int optionalSeqSmall1Midfield_;
     /**
      * <code>.edition_unittest.EnumParseTester.SeqSmall1 optional_seq_small_1_midfield = 1004;</code>
      * @return Whether the optionalSeqSmall1Midfield field is set.
@@ -5303,7 +5471,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalSeqSmall1Hifield_ = 0;
+    private int optionalSeqSmall1Hifield_;
     /**
      * <code>.edition_unittest.EnumParseTester.SeqSmall1 optional_seq_small_1_hifield = 1000004;</code>
      * @return Whether the optionalSeqSmall1Hifield field is set.
@@ -5343,7 +5511,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedSeqSmall1Lowfield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedSeqSmall1Lowfield_;
     private void ensureRepeatedSeqSmall1LowfieldIsMutable(int capacity) {
       if (!repeatedSeqSmall1Lowfield_.isModifiable()) {
         repeatedSeqSmall1Lowfield_ = makeMutableCopy(repeatedSeqSmall1Lowfield_, capacity);
@@ -5424,7 +5592,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedSeqSmall1Midfield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedSeqSmall1Midfield_;
     private void ensureRepeatedSeqSmall1MidfieldIsMutable(int capacity) {
       if (!repeatedSeqSmall1Midfield_.isModifiable()) {
         repeatedSeqSmall1Midfield_ = makeMutableCopy(repeatedSeqSmall1Midfield_, capacity);
@@ -5505,7 +5673,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedSeqSmall1Hifield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedSeqSmall1Hifield_;
     private void ensureRepeatedSeqSmall1HifieldIsMutable(int capacity) {
       if (!repeatedSeqSmall1Hifield_.isModifiable()) {
         repeatedSeqSmall1Hifield_ = makeMutableCopy(repeatedSeqSmall1Hifield_, capacity);
@@ -5586,7 +5754,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedSeqSmall1Lowfield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedSeqSmall1Lowfield_;
     private void ensurePackedSeqSmall1LowfieldIsMutable(int capacity) {
       if (!packedSeqSmall1Lowfield_.isModifiable()) {
         packedSeqSmall1Lowfield_ = makeMutableCopy(packedSeqSmall1Lowfield_, capacity);
@@ -5667,7 +5835,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedSeqSmall1Midfield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedSeqSmall1Midfield_;
     private void ensurePackedSeqSmall1MidfieldIsMutable(int capacity) {
       if (!packedSeqSmall1Midfield_.isModifiable()) {
         packedSeqSmall1Midfield_ = makeMutableCopy(packedSeqSmall1Midfield_, capacity);
@@ -5748,7 +5916,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedSeqSmall1Hifield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedSeqSmall1Hifield_;
     private void ensurePackedSeqSmall1HifieldIsMutable(int capacity) {
       if (!packedSeqSmall1Hifield_.isModifiable()) {
         packedSeqSmall1Hifield_ = makeMutableCopy(packedSeqSmall1Hifield_, capacity);
@@ -5829,7 +5997,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalSeqLargeLowfield_ = -1;
+    private int optionalSeqLargeLowfield_;
     /**
      * <code>.edition_unittest.EnumParseTester.SeqLarge optional_seq_large_lowfield = 7;</code>
      * @return Whether the optionalSeqLargeLowfield field is set.
@@ -5869,7 +6037,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalSeqLargeMidfield_ = -1;
+    private int optionalSeqLargeMidfield_;
     /**
      * <code>.edition_unittest.EnumParseTester.SeqLarge optional_seq_large_midfield = 1007;</code>
      * @return Whether the optionalSeqLargeMidfield field is set.
@@ -5909,7 +6077,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalSeqLargeHifield_ = -1;
+    private int optionalSeqLargeHifield_;
     /**
      * <code>.edition_unittest.EnumParseTester.SeqLarge optional_seq_large_hifield = 1000007;</code>
      * @return Whether the optionalSeqLargeHifield field is set.
@@ -5949,7 +6117,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedSeqLargeLowfield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedSeqLargeLowfield_;
     private void ensureRepeatedSeqLargeLowfieldIsMutable(int capacity) {
       if (!repeatedSeqLargeLowfield_.isModifiable()) {
         repeatedSeqLargeLowfield_ = makeMutableCopy(repeatedSeqLargeLowfield_, capacity);
@@ -6030,7 +6198,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedSeqLargeMidfield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedSeqLargeMidfield_;
     private void ensureRepeatedSeqLargeMidfieldIsMutable(int capacity) {
       if (!repeatedSeqLargeMidfield_.isModifiable()) {
         repeatedSeqLargeMidfield_ = makeMutableCopy(repeatedSeqLargeMidfield_, capacity);
@@ -6111,7 +6279,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedSeqLargeHifield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedSeqLargeHifield_;
     private void ensureRepeatedSeqLargeHifieldIsMutable(int capacity) {
       if (!repeatedSeqLargeHifield_.isModifiable()) {
         repeatedSeqLargeHifield_ = makeMutableCopy(repeatedSeqLargeHifield_, capacity);
@@ -6192,7 +6360,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedSeqLargeLowfield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedSeqLargeLowfield_;
     private void ensurePackedSeqLargeLowfieldIsMutable(int capacity) {
       if (!packedSeqLargeLowfield_.isModifiable()) {
         packedSeqLargeLowfield_ = makeMutableCopy(packedSeqLargeLowfield_, capacity);
@@ -6273,7 +6441,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedSeqLargeMidfield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedSeqLargeMidfield_;
     private void ensurePackedSeqLargeMidfieldIsMutable(int capacity) {
       if (!packedSeqLargeMidfield_.isModifiable()) {
         packedSeqLargeMidfield_ = makeMutableCopy(packedSeqLargeMidfield_, capacity);
@@ -6354,7 +6522,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedSeqLargeHifield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedSeqLargeHifield_;
     private void ensurePackedSeqLargeHifieldIsMutable(int capacity) {
       if (!packedSeqLargeHifield_.isModifiable()) {
         packedSeqLargeHifield_ = makeMutableCopy(packedSeqLargeHifield_, capacity);
@@ -6435,7 +6603,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalArbitraryLowfield_ = -123123;
+    private int optionalArbitraryLowfield_;
     /**
      * <code>.edition_unittest.EnumParseTester.Arbitrary optional_arbitrary_lowfield = 10;</code>
      * @return Whether the optionalArbitraryLowfield field is set.
@@ -6475,7 +6643,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalArbitraryMidfield_ = -123123;
+    private int optionalArbitraryMidfield_;
     /**
      * <code>.edition_unittest.EnumParseTester.Arbitrary optional_arbitrary_midfield = 1010;</code>
      * @return Whether the optionalArbitraryMidfield field is set.
@@ -6515,7 +6683,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalArbitraryHifield_ = -123123;
+    private int optionalArbitraryHifield_;
     /**
      * <code>.edition_unittest.EnumParseTester.Arbitrary optional_arbitrary_hifield = 1000010;</code>
      * @return Whether the optionalArbitraryHifield field is set.
@@ -6555,7 +6723,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedArbitraryLowfield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedArbitraryLowfield_;
     private void ensureRepeatedArbitraryLowfieldIsMutable(int capacity) {
       if (!repeatedArbitraryLowfield_.isModifiable()) {
         repeatedArbitraryLowfield_ = makeMutableCopy(repeatedArbitraryLowfield_, capacity);
@@ -6636,7 +6804,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedArbitraryMidfield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedArbitraryMidfield_;
     private void ensureRepeatedArbitraryMidfieldIsMutable(int capacity) {
       if (!repeatedArbitraryMidfield_.isModifiable()) {
         repeatedArbitraryMidfield_ = makeMutableCopy(repeatedArbitraryMidfield_, capacity);
@@ -6717,7 +6885,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedArbitraryHifield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedArbitraryHifield_;
     private void ensureRepeatedArbitraryHifieldIsMutable(int capacity) {
       if (!repeatedArbitraryHifield_.isModifiable()) {
         repeatedArbitraryHifield_ = makeMutableCopy(repeatedArbitraryHifield_, capacity);
@@ -6798,7 +6966,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedArbitraryLowfield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedArbitraryLowfield_;
     private void ensurePackedArbitraryLowfieldIsMutable(int capacity) {
       if (!packedArbitraryLowfield_.isModifiable()) {
         packedArbitraryLowfield_ = makeMutableCopy(packedArbitraryLowfield_, capacity);
@@ -6879,7 +7047,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedArbitraryMidfield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedArbitraryMidfield_;
     private void ensurePackedArbitraryMidfieldIsMutable(int capacity) {
       if (!packedArbitraryMidfield_.isModifiable()) {
         packedArbitraryMidfield_ = makeMutableCopy(packedArbitraryMidfield_, capacity);
@@ -6960,7 +7128,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedArbitraryHifield_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedArbitraryHifield_;
     private void ensurePackedArbitraryHifieldIsMutable(int capacity) {
       if (!packedArbitraryHifield_.isModifiable()) {
         packedArbitraryHifield_ = makeMutableCopy(packedArbitraryHifield_, capacity);
@@ -7041,7 +7209,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int otherField_ ;
+    private int otherField_;
     /**
      * <pre>
      * An arbitrary field we can append to to break the runs of repeated fields.
@@ -7111,21 +7279,1042 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<EnumParseTester>
-      PARSER = new com.google.protobuf.AbstractParser<EnumParseTester>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<EnumParseTester> {
+    MessageParser() {}
+
     @java.lang.Override
     public EnumParseTester parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      EnumParseTester instance = new EnumParseTester((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              int tmpRaw = input.readEnum();
+              if (edition_unittest.EnumParseTester.SeqSmall0.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 1, tmpRaw);
+              } else {
+                instance.optionalSeqSmall0Lowfield_ = tmpRaw;
+                to_bitField0_ |= 0x00000001;
+              }
+              break;
+            } // case 8
+            case 16: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqSmall0 tmpValue =
+                  edition_unittest.EnumParseTester.SeqSmall0.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 2, tmpRaw);
+              } else {
+                ensureRepeatedSeqSmall0LowfieldIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSeqSmall0Lowfield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedSeqSmall0LowfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqSmall0 tmpValue =
+                    edition_unittest.EnumParseTester.SeqSmall0.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 2, tmpRaw);
+                } else {
+                  instance.repeatedSeqSmall0Lowfield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            case 24: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqSmall0 tmpValue =
+                  edition_unittest.EnumParseTester.SeqSmall0.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 3, tmpRaw);
+              } else {
+                ensurePackedSeqSmall0LowfieldIsMutable(instance, /* capacity= */ -1);
+                instance.packedSeqSmall0Lowfield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 24
+            case 26: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedSeqSmall0LowfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqSmall0 tmpValue =
+                    edition_unittest.EnumParseTester.SeqSmall0.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 3, tmpRaw);
+                } else {
+                  instance.packedSeqSmall0Lowfield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 26
+            case 32: {
+              int tmpRaw = input.readEnum();
+              if (edition_unittest.EnumParseTester.SeqSmall1.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 4, tmpRaw);
+              } else {
+                instance.optionalSeqSmall1Lowfield_ = tmpRaw;
+                to_bitField0_ |= 0x00000008;
+              }
+              break;
+            } // case 32
+            case 40: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqSmall1 tmpValue =
+                  edition_unittest.EnumParseTester.SeqSmall1.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 5, tmpRaw);
+              } else {
+                ensureRepeatedSeqSmall1LowfieldIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSeqSmall1Lowfield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 40
+            case 42: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedSeqSmall1LowfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqSmall1 tmpValue =
+                    edition_unittest.EnumParseTester.SeqSmall1.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 5, tmpRaw);
+                } else {
+                  instance.repeatedSeqSmall1Lowfield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 42
+            case 48: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqSmall1 tmpValue =
+                  edition_unittest.EnumParseTester.SeqSmall1.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 6, tmpRaw);
+              } else {
+                ensurePackedSeqSmall1LowfieldIsMutable(instance, /* capacity= */ -1);
+                instance.packedSeqSmall1Lowfield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 48
+            case 50: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedSeqSmall1LowfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqSmall1 tmpValue =
+                    edition_unittest.EnumParseTester.SeqSmall1.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 6, tmpRaw);
+                } else {
+                  instance.packedSeqSmall1Lowfield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 50
+            case 56: {
+              int tmpRaw = input.readEnum();
+              if (edition_unittest.EnumParseTester.SeqLarge.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 7, tmpRaw);
+              } else {
+                instance.optionalSeqLargeLowfield_ = tmpRaw;
+                to_bitField0_ |= 0x00000040;
+              }
+              break;
+            } // case 56
+            case 64: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqLarge tmpValue =
+                  edition_unittest.EnumParseTester.SeqLarge.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 8, tmpRaw);
+              } else {
+                ensureRepeatedSeqLargeLowfieldIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSeqLargeLowfield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 64
+            case 66: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedSeqLargeLowfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqLarge tmpValue =
+                    edition_unittest.EnumParseTester.SeqLarge.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 8, tmpRaw);
+                } else {
+                  instance.repeatedSeqLargeLowfield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 66
+            case 72: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqLarge tmpValue =
+                  edition_unittest.EnumParseTester.SeqLarge.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 9, tmpRaw);
+              } else {
+                ensurePackedSeqLargeLowfieldIsMutable(instance, /* capacity= */ -1);
+                instance.packedSeqLargeLowfield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 72
+            case 74: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedSeqLargeLowfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqLarge tmpValue =
+                    edition_unittest.EnumParseTester.SeqLarge.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 9, tmpRaw);
+                } else {
+                  instance.packedSeqLargeLowfield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 74
+            case 80: {
+              int tmpRaw = input.readEnum();
+              if (edition_unittest.EnumParseTester.Arbitrary.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 10, tmpRaw);
+              } else {
+                instance.optionalArbitraryLowfield_ = tmpRaw;
+                to_bitField0_ |= 0x00000200;
+              }
+              break;
+            } // case 80
+            case 88: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.Arbitrary tmpValue =
+                  edition_unittest.EnumParseTester.Arbitrary.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 11, tmpRaw);
+              } else {
+                ensureRepeatedArbitraryLowfieldIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedArbitraryLowfield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 88
+            case 90: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedArbitraryLowfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.Arbitrary tmpValue =
+                    edition_unittest.EnumParseTester.Arbitrary.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 11, tmpRaw);
+                } else {
+                  instance.repeatedArbitraryLowfield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 90
+            case 96: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.Arbitrary tmpValue =
+                  edition_unittest.EnumParseTester.Arbitrary.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 12, tmpRaw);
+              } else {
+                ensurePackedArbitraryLowfieldIsMutable(instance, /* capacity= */ -1);
+                instance.packedArbitraryLowfield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 96
+            case 98: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedArbitraryLowfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.Arbitrary tmpValue =
+                    edition_unittest.EnumParseTester.Arbitrary.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 12, tmpRaw);
+                } else {
+                  instance.packedArbitraryLowfield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 98
+            case 792: {
+              instance.otherField_ = input.readInt32();
+              to_bitField0_ |= 0x00001000;
+              break;
+            } // case 792
+            case 8008: {
+              int tmpRaw = input.readEnum();
+              if (edition_unittest.EnumParseTester.SeqSmall0.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 1001, tmpRaw);
+              } else {
+                instance.optionalSeqSmall0Midfield_ = tmpRaw;
+                to_bitField0_ |= 0x00000002;
+              }
+              break;
+            } // case 8008
+            case 8016: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqSmall0 tmpValue =
+                  edition_unittest.EnumParseTester.SeqSmall0.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 1002, tmpRaw);
+              } else {
+                ensureRepeatedSeqSmall0MidfieldIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSeqSmall0Midfield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8016
+            case 8018: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedSeqSmall0MidfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqSmall0 tmpValue =
+                    edition_unittest.EnumParseTester.SeqSmall0.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1002, tmpRaw);
+                } else {
+                  instance.repeatedSeqSmall0Midfield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8018
+            case 8024: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqSmall0 tmpValue =
+                  edition_unittest.EnumParseTester.SeqSmall0.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 1003, tmpRaw);
+              } else {
+                ensurePackedSeqSmall0MidfieldIsMutable(instance, /* capacity= */ -1);
+                instance.packedSeqSmall0Midfield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8024
+            case 8026: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedSeqSmall0MidfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqSmall0 tmpValue =
+                    edition_unittest.EnumParseTester.SeqSmall0.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1003, tmpRaw);
+                } else {
+                  instance.packedSeqSmall0Midfield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8026
+            case 8032: {
+              int tmpRaw = input.readEnum();
+              if (edition_unittest.EnumParseTester.SeqSmall1.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 1004, tmpRaw);
+              } else {
+                instance.optionalSeqSmall1Midfield_ = tmpRaw;
+                to_bitField0_ |= 0x00000010;
+              }
+              break;
+            } // case 8032
+            case 8040: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqSmall1 tmpValue =
+                  edition_unittest.EnumParseTester.SeqSmall1.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 1005, tmpRaw);
+              } else {
+                ensureRepeatedSeqSmall1MidfieldIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSeqSmall1Midfield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8040
+            case 8042: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedSeqSmall1MidfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqSmall1 tmpValue =
+                    edition_unittest.EnumParseTester.SeqSmall1.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1005, tmpRaw);
+                } else {
+                  instance.repeatedSeqSmall1Midfield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8042
+            case 8048: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqSmall1 tmpValue =
+                  edition_unittest.EnumParseTester.SeqSmall1.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 1006, tmpRaw);
+              } else {
+                ensurePackedSeqSmall1MidfieldIsMutable(instance, /* capacity= */ -1);
+                instance.packedSeqSmall1Midfield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8048
+            case 8050: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedSeqSmall1MidfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqSmall1 tmpValue =
+                    edition_unittest.EnumParseTester.SeqSmall1.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1006, tmpRaw);
+                } else {
+                  instance.packedSeqSmall1Midfield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8050
+            case 8056: {
+              int tmpRaw = input.readEnum();
+              if (edition_unittest.EnumParseTester.SeqLarge.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 1007, tmpRaw);
+              } else {
+                instance.optionalSeqLargeMidfield_ = tmpRaw;
+                to_bitField0_ |= 0x00000080;
+              }
+              break;
+            } // case 8056
+            case 8064: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqLarge tmpValue =
+                  edition_unittest.EnumParseTester.SeqLarge.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 1008, tmpRaw);
+              } else {
+                ensureRepeatedSeqLargeMidfieldIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSeqLargeMidfield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8064
+            case 8066: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedSeqLargeMidfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqLarge tmpValue =
+                    edition_unittest.EnumParseTester.SeqLarge.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1008, tmpRaw);
+                } else {
+                  instance.repeatedSeqLargeMidfield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8066
+            case 8072: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqLarge tmpValue =
+                  edition_unittest.EnumParseTester.SeqLarge.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 1009, tmpRaw);
+              } else {
+                ensurePackedSeqLargeMidfieldIsMutable(instance, /* capacity= */ -1);
+                instance.packedSeqLargeMidfield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8072
+            case 8074: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedSeqLargeMidfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqLarge tmpValue =
+                    edition_unittest.EnumParseTester.SeqLarge.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1009, tmpRaw);
+                } else {
+                  instance.packedSeqLargeMidfield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8074
+            case 8080: {
+              int tmpRaw = input.readEnum();
+              if (edition_unittest.EnumParseTester.Arbitrary.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 1010, tmpRaw);
+              } else {
+                instance.optionalArbitraryMidfield_ = tmpRaw;
+                to_bitField0_ |= 0x00000400;
+              }
+              break;
+            } // case 8080
+            case 8088: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.Arbitrary tmpValue =
+                  edition_unittest.EnumParseTester.Arbitrary.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 1011, tmpRaw);
+              } else {
+                ensureRepeatedArbitraryMidfieldIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedArbitraryMidfield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8088
+            case 8090: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedArbitraryMidfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.Arbitrary tmpValue =
+                    edition_unittest.EnumParseTester.Arbitrary.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1011, tmpRaw);
+                } else {
+                  instance.repeatedArbitraryMidfield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8090
+            case 8096: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.Arbitrary tmpValue =
+                  edition_unittest.EnumParseTester.Arbitrary.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 1012, tmpRaw);
+              } else {
+                ensurePackedArbitraryMidfieldIsMutable(instance, /* capacity= */ -1);
+                instance.packedArbitraryMidfield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8096
+            case 8098: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedArbitraryMidfieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.Arbitrary tmpValue =
+                    edition_unittest.EnumParseTester.Arbitrary.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1012, tmpRaw);
+                } else {
+                  instance.packedArbitraryMidfield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8098
+            case 8000008: {
+              int tmpRaw = input.readEnum();
+              if (edition_unittest.EnumParseTester.SeqSmall0.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 1000001, tmpRaw);
+              } else {
+                instance.optionalSeqSmall0Hifield_ = tmpRaw;
+                to_bitField0_ |= 0x00000004;
+              }
+              break;
+            } // case 8000008
+            case 8000016: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqSmall0 tmpValue =
+                  edition_unittest.EnumParseTester.SeqSmall0.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 1000002, tmpRaw);
+              } else {
+                ensureRepeatedSeqSmall0HifieldIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSeqSmall0Hifield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8000016
+            case 8000018: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedSeqSmall0HifieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqSmall0 tmpValue =
+                    edition_unittest.EnumParseTester.SeqSmall0.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1000002, tmpRaw);
+                } else {
+                  instance.repeatedSeqSmall0Hifield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8000018
+            case 8000024: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqSmall0 tmpValue =
+                  edition_unittest.EnumParseTester.SeqSmall0.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 1000003, tmpRaw);
+              } else {
+                ensurePackedSeqSmall0HifieldIsMutable(instance, /* capacity= */ -1);
+                instance.packedSeqSmall0Hifield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8000024
+            case 8000026: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedSeqSmall0HifieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqSmall0 tmpValue =
+                    edition_unittest.EnumParseTester.SeqSmall0.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1000003, tmpRaw);
+                } else {
+                  instance.packedSeqSmall0Hifield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8000026
+            case 8000032: {
+              int tmpRaw = input.readEnum();
+              if (edition_unittest.EnumParseTester.SeqSmall1.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 1000004, tmpRaw);
+              } else {
+                instance.optionalSeqSmall1Hifield_ = tmpRaw;
+                to_bitField0_ |= 0x00000020;
+              }
+              break;
+            } // case 8000032
+            case 8000040: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqSmall1 tmpValue =
+                  edition_unittest.EnumParseTester.SeqSmall1.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 1000005, tmpRaw);
+              } else {
+                ensureRepeatedSeqSmall1HifieldIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSeqSmall1Hifield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8000040
+            case 8000042: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedSeqSmall1HifieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqSmall1 tmpValue =
+                    edition_unittest.EnumParseTester.SeqSmall1.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1000005, tmpRaw);
+                } else {
+                  instance.repeatedSeqSmall1Hifield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8000042
+            case 8000048: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqSmall1 tmpValue =
+                  edition_unittest.EnumParseTester.SeqSmall1.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 1000006, tmpRaw);
+              } else {
+                ensurePackedSeqSmall1HifieldIsMutable(instance, /* capacity= */ -1);
+                instance.packedSeqSmall1Hifield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8000048
+            case 8000050: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedSeqSmall1HifieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqSmall1 tmpValue =
+                    edition_unittest.EnumParseTester.SeqSmall1.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1000006, tmpRaw);
+                } else {
+                  instance.packedSeqSmall1Hifield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8000050
+            case 8000056: {
+              int tmpRaw = input.readEnum();
+              if (edition_unittest.EnumParseTester.SeqLarge.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 1000007, tmpRaw);
+              } else {
+                instance.optionalSeqLargeHifield_ = tmpRaw;
+                to_bitField0_ |= 0x00000100;
+              }
+              break;
+            } // case 8000056
+            case 8000064: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqLarge tmpValue =
+                  edition_unittest.EnumParseTester.SeqLarge.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 1000008, tmpRaw);
+              } else {
+                ensureRepeatedSeqLargeHifieldIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSeqLargeHifield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8000064
+            case 8000066: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedSeqLargeHifieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqLarge tmpValue =
+                    edition_unittest.EnumParseTester.SeqLarge.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1000008, tmpRaw);
+                } else {
+                  instance.repeatedSeqLargeHifield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8000066
+            case 8000072: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.SeqLarge tmpValue =
+                  edition_unittest.EnumParseTester.SeqLarge.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 1000009, tmpRaw);
+              } else {
+                ensurePackedSeqLargeHifieldIsMutable(instance, /* capacity= */ -1);
+                instance.packedSeqLargeHifield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8000072
+            case 8000074: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedSeqLargeHifieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.SeqLarge tmpValue =
+                    edition_unittest.EnumParseTester.SeqLarge.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1000009, tmpRaw);
+                } else {
+                  instance.packedSeqLargeHifield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8000074
+            case 8000080: {
+              int tmpRaw = input.readEnum();
+              if (edition_unittest.EnumParseTester.Arbitrary.forNumber(tmpRaw) == null) {
+                unknown = mergeUnknownVarintField(unknown, 1000010, tmpRaw);
+              } else {
+                instance.optionalArbitraryHifield_ = tmpRaw;
+                to_bitField0_ |= 0x00000800;
+              }
+              break;
+            } // case 8000080
+            case 8000088: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.Arbitrary tmpValue =
+                  edition_unittest.EnumParseTester.Arbitrary.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 1000011, tmpRaw);
+              } else {
+                ensureRepeatedArbitraryHifieldIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedArbitraryHifield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8000088
+            case 8000090: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRepeatedArbitraryHifieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.Arbitrary tmpValue =
+                    edition_unittest.EnumParseTester.Arbitrary.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1000011, tmpRaw);
+                } else {
+                  instance.repeatedArbitraryHifield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8000090
+            case 8000096: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.EnumParseTester.Arbitrary tmpValue =
+                  edition_unittest.EnumParseTester.Arbitrary.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = mergeUnknownVarintField(unknown, 1000012, tmpRaw);
+              } else {
+                ensurePackedArbitraryHifieldIsMutable(instance, /* capacity= */ -1);
+                instance.packedArbitraryHifield_.addInt(tmpRaw);
+              }
+              break;
+            } // case 8000096
+            case 8000098: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensurePackedArbitraryHifieldIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.EnumParseTester.Arbitrary tmpValue =
+                    edition_unittest.EnumParseTester.Arbitrary.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknown = mergeUnknownVarintField(unknown, 1000012, tmpRaw);
+                } else {
+                  instance.packedArbitraryHifield_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 8000098
+            default: {
+              pendingTag = tag;
+              break parseLoop;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      if (pendingTag != 0) {
+        return mergeFrom(instance.toBuilder(), input, extensionRegistry, pendingTag, null);
+      }
+      return instance;
     }
-  };
+    private static void ensureRepeatedSeqSmall0LowfieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.repeatedSeqSmall0Lowfield_.isModifiable()) {
+        instance.repeatedSeqSmall0Lowfield_ = makeMutableCopy(instance.repeatedSeqSmall0Lowfield_, minCapacity);
+      }
+    }
+    private static void ensureRepeatedSeqSmall0MidfieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.repeatedSeqSmall0Midfield_.isModifiable()) {
+        instance.repeatedSeqSmall0Midfield_ = makeMutableCopy(instance.repeatedSeqSmall0Midfield_, minCapacity);
+      }
+    }
+    private static void ensureRepeatedSeqSmall0HifieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.repeatedSeqSmall0Hifield_.isModifiable()) {
+        instance.repeatedSeqSmall0Hifield_ = makeMutableCopy(instance.repeatedSeqSmall0Hifield_, minCapacity);
+      }
+    }
+    private static void ensurePackedSeqSmall0LowfieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.packedSeqSmall0Lowfield_.isModifiable()) {
+        instance.packedSeqSmall0Lowfield_ = makeMutableCopy(instance.packedSeqSmall0Lowfield_, minCapacity);
+      }
+    }
+    private static void ensurePackedSeqSmall0MidfieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.packedSeqSmall0Midfield_.isModifiable()) {
+        instance.packedSeqSmall0Midfield_ = makeMutableCopy(instance.packedSeqSmall0Midfield_, minCapacity);
+      }
+    }
+    private static void ensurePackedSeqSmall0HifieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.packedSeqSmall0Hifield_.isModifiable()) {
+        instance.packedSeqSmall0Hifield_ = makeMutableCopy(instance.packedSeqSmall0Hifield_, minCapacity);
+      }
+    }
+    private static void ensureRepeatedSeqSmall1LowfieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.repeatedSeqSmall1Lowfield_.isModifiable()) {
+        instance.repeatedSeqSmall1Lowfield_ = makeMutableCopy(instance.repeatedSeqSmall1Lowfield_, minCapacity);
+      }
+    }
+    private static void ensureRepeatedSeqSmall1MidfieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.repeatedSeqSmall1Midfield_.isModifiable()) {
+        instance.repeatedSeqSmall1Midfield_ = makeMutableCopy(instance.repeatedSeqSmall1Midfield_, minCapacity);
+      }
+    }
+    private static void ensureRepeatedSeqSmall1HifieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.repeatedSeqSmall1Hifield_.isModifiable()) {
+        instance.repeatedSeqSmall1Hifield_ = makeMutableCopy(instance.repeatedSeqSmall1Hifield_, minCapacity);
+      }
+    }
+    private static void ensurePackedSeqSmall1LowfieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.packedSeqSmall1Lowfield_.isModifiable()) {
+        instance.packedSeqSmall1Lowfield_ = makeMutableCopy(instance.packedSeqSmall1Lowfield_, minCapacity);
+      }
+    }
+    private static void ensurePackedSeqSmall1MidfieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.packedSeqSmall1Midfield_.isModifiable()) {
+        instance.packedSeqSmall1Midfield_ = makeMutableCopy(instance.packedSeqSmall1Midfield_, minCapacity);
+      }
+    }
+    private static void ensurePackedSeqSmall1HifieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.packedSeqSmall1Hifield_.isModifiable()) {
+        instance.packedSeqSmall1Hifield_ = makeMutableCopy(instance.packedSeqSmall1Hifield_, minCapacity);
+      }
+    }
+    private static void ensureRepeatedSeqLargeLowfieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.repeatedSeqLargeLowfield_.isModifiable()) {
+        instance.repeatedSeqLargeLowfield_ = makeMutableCopy(instance.repeatedSeqLargeLowfield_, minCapacity);
+      }
+    }
+    private static void ensureRepeatedSeqLargeMidfieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.repeatedSeqLargeMidfield_.isModifiable()) {
+        instance.repeatedSeqLargeMidfield_ = makeMutableCopy(instance.repeatedSeqLargeMidfield_, minCapacity);
+      }
+    }
+    private static void ensureRepeatedSeqLargeHifieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.repeatedSeqLargeHifield_.isModifiable()) {
+        instance.repeatedSeqLargeHifield_ = makeMutableCopy(instance.repeatedSeqLargeHifield_, minCapacity);
+      }
+    }
+    private static void ensurePackedSeqLargeLowfieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.packedSeqLargeLowfield_.isModifiable()) {
+        instance.packedSeqLargeLowfield_ = makeMutableCopy(instance.packedSeqLargeLowfield_, minCapacity);
+      }
+    }
+    private static void ensurePackedSeqLargeMidfieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.packedSeqLargeMidfield_.isModifiable()) {
+        instance.packedSeqLargeMidfield_ = makeMutableCopy(instance.packedSeqLargeMidfield_, minCapacity);
+      }
+    }
+    private static void ensurePackedSeqLargeHifieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.packedSeqLargeHifield_.isModifiable()) {
+        instance.packedSeqLargeHifield_ = makeMutableCopy(instance.packedSeqLargeHifield_, minCapacity);
+      }
+    }
+    private static void ensureRepeatedArbitraryLowfieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.repeatedArbitraryLowfield_.isModifiable()) {
+        instance.repeatedArbitraryLowfield_ = makeMutableCopy(instance.repeatedArbitraryLowfield_, minCapacity);
+      }
+    }
+    private static void ensureRepeatedArbitraryMidfieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.repeatedArbitraryMidfield_.isModifiable()) {
+        instance.repeatedArbitraryMidfield_ = makeMutableCopy(instance.repeatedArbitraryMidfield_, minCapacity);
+      }
+    }
+    private static void ensureRepeatedArbitraryHifieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.repeatedArbitraryHifield_.isModifiable()) {
+        instance.repeatedArbitraryHifield_ = makeMutableCopy(instance.repeatedArbitraryHifield_, minCapacity);
+      }
+    }
+    private static void ensurePackedArbitraryLowfieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.packedArbitraryLowfield_.isModifiable()) {
+        instance.packedArbitraryLowfield_ = makeMutableCopy(instance.packedArbitraryLowfield_, minCapacity);
+      }
+    }
+    private static void ensurePackedArbitraryMidfieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.packedArbitraryMidfield_.isModifiable()) {
+        instance.packedArbitraryMidfield_ = makeMutableCopy(instance.packedArbitraryMidfield_, minCapacity);
+      }
+    }
+    private static void ensurePackedArbitraryHifieldIsMutable(edition_unittest.EnumParseTester instance, int minCapacity) {
+      if (!instance.packedArbitraryHifield_.isModifiable()) {
+        instance.packedArbitraryHifield_ = makeMutableCopy(instance.packedArbitraryHifield_, minCapacity);
+      }
+    }
+    private static void finishCollections0(EnumParseTester instance) {
+      instance.repeatedSeqSmall0Lowfield_.makeImmutable();
+      instance.repeatedSeqSmall0Midfield_.makeImmutable();
+      instance.repeatedSeqSmall0Hifield_.makeImmutable();
+      instance.packedSeqSmall0Lowfield_.makeImmutable();
+      instance.packedSeqSmall0Midfield_.makeImmutable();
+      instance.packedSeqSmall0Hifield_.makeImmutable();
+      instance.repeatedSeqSmall1Lowfield_.makeImmutable();
+      instance.repeatedSeqSmall1Midfield_.makeImmutable();
+      instance.repeatedSeqSmall1Hifield_.makeImmutable();
+      instance.packedSeqSmall1Lowfield_.makeImmutable();
+      instance.packedSeqSmall1Midfield_.makeImmutable();
+      instance.packedSeqSmall1Hifield_.makeImmutable();
+      instance.repeatedSeqLargeLowfield_.makeImmutable();
+      instance.repeatedSeqLargeMidfield_.makeImmutable();
+      instance.repeatedSeqLargeHifield_.makeImmutable();
+      instance.packedSeqLargeLowfield_.makeImmutable();
+      instance.packedSeqLargeMidfield_.makeImmutable();
+      instance.packedSeqLargeHifield_.makeImmutable();
+      instance.repeatedArbitraryLowfield_.makeImmutable();
+      instance.repeatedArbitraryMidfield_.makeImmutable();
+      instance.repeatedArbitraryHifield_.makeImmutable();
+      instance.packedArbitraryLowfield_.makeImmutable();
+      instance.packedArbitraryMidfield_.makeImmutable();
+      instance.packedArbitraryHifield_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<EnumParseTester> parser() {
     return PARSER;

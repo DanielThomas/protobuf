@@ -520,7 +520,7 @@ public final class MessageDifferencerUnittestProto3 extends com.google.protobuf.
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -549,14 +549,28 @@ public final class MessageDifferencerUnittestProto3 extends com.google.protobuf.
                 proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField.class, proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        noPresenceRepeatedNested_ = emptyList(proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField.class);
+        noPresenceString_ = "";
+        maybeForceBuilderInitialization();
+      }
+      private Builder(proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -628,7 +642,6 @@ public final class MessageDifferencerUnittestProto3 extends com.google.protobuf.
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.noPresenceBool_ = noPresenceBool_;
-          
         }
         if (((from_bitField0_ & 0x00000004) != 0)) {
         if (noPresenceRepeatedNestedBuilder_ == null) {
@@ -640,17 +653,32 @@ public final class MessageDifferencerUnittestProto3 extends com.google.protobuf.
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
           result.noPresenceString_ = noPresenceString_;
-          ;
         }
         if (((from_bitField0_ & 0x00000010) != 0)) {
           result.noPresenceBool2_ = noPresenceBool2_;
-          
         }
         if (((from_bitField0_ & 0x00000020) != 0)) {
           result.noPresenceBool3_ = noPresenceBool3_;
-          
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        noPresenceNested_ = other.noPresenceNested_;
+        noPresenceBool_ = other.getNoPresenceBool();
+        to_bitField0_ |= 0x00000002;
+        noPresenceRepeatedNested_ = other.noPresenceRepeatedNested_;
+        if (!noPresenceRepeatedNested_.isEmpty()) {
+          to_bitField0_ |= 0x00000004;
+        }
+        noPresenceString_ = other.noPresenceString_;
+        to_bitField0_ |= 0x00000008;
+        noPresenceBool2_ = other.getNoPresenceBool2();
+        to_bitField0_ |= 0x00000010;
+        noPresenceBool3_ = other.getNoPresenceBool3();
+        to_bitField0_ |= 0x00000020;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -789,7 +817,7 @@ public final class MessageDifferencerUnittestProto3 extends com.google.protobuf.
       }
       private int bitField0_;
 
-      private boolean noPresenceBool_ ;
+      private boolean noPresenceBool_;
       /**
        * <code>bool no_presence_bool = 1;</code>
        * @return The noPresenceBool.
@@ -949,8 +977,7 @@ public final class MessageDifferencerUnittestProto3 extends com.google.protobuf.
         bitField0_ |= 0x00000001;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField> noPresenceRepeatedNested_ =
-          emptyList(proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField.class);
+      private com.google.protobuf.Internal.ProtobufList<proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField> noPresenceRepeatedNested_;
       private void ensureNoPresenceRepeatedNestedIsMutable() {
         if (!noPresenceRepeatedNested_.isModifiable()) {
           noPresenceRepeatedNested_ = makeMutableCopy(noPresenceRepeatedNested_);
@@ -1183,7 +1210,7 @@ public final class MessageDifferencerUnittestProto3 extends com.google.protobuf.
         return noPresenceRepeatedNestedBuilder_;
       }
 
-      private java.lang.Object noPresenceString_ = "";
+      private java.lang.Object noPresenceString_;
       /**
        * <code>string no_presence_string = 4;</code>
        * @return The noPresenceString.
@@ -1255,7 +1282,7 @@ public final class MessageDifferencerUnittestProto3 extends com.google.protobuf.
         return this;
       }
 
-      private boolean noPresenceBool2_ ;
+      private boolean noPresenceBool2_;
       /**
        * <code>bool no_presence_bool2 = 5;</code>
        * @return The noPresenceBool2.
@@ -1287,7 +1314,7 @@ public final class MessageDifferencerUnittestProto3 extends com.google.protobuf.
         return this;
       }
 
-      private boolean noPresenceBool3_ ;
+      private boolean noPresenceBool3_;
       /**
        * <code>bool no_presence_bool3 = 6;</code>
        * @return The noPresenceBool3.
@@ -1333,21 +1360,146 @@ public final class MessageDifferencerUnittestProto3 extends com.google.protobuf.
     }
 
     private static final com.google.protobuf.Parser<TestNoPresenceField>
-        PARSER = new com.google.protobuf.AbstractParser<TestNoPresenceField>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestNoPresenceField> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestNoPresenceField parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestNoPresenceField instance = new TestNoPresenceField((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.lang.Object parsed_noPresenceString = null;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.noPresenceBool_ = input.readBool();
+
+                break;
+              } // case 8
+              case 18: {
+                pendingTag = parseNoPresenceNestedField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 18
+              case 26: {
+                final int oldLimit = input.pushLimitBeforeMessage();
+                proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField m = proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField.parser().parsePartialFrom(input, extensionRegistry);
+                input.popLimitAfterMessage(oldLimit);
+                if (!instance.noPresenceRepeatedNested_.isModifiable()) {
+  instance.noPresenceRepeatedNested_ = makeMutableCopy(instance.noPresenceRepeatedNested_);
+}
+                instance.noPresenceRepeatedNested_.add(m);
+                break;
+              } // case 26
+              case 34: {
+                parsed_noPresenceString = input.readStringRequireUtf8();
+
+                break;
+              } // case 34
+              case 40: {
+                instance.noPresenceBool2_ = input.readBool();
+
+                break;
+              } // case 40
+              case 48: {
+                instance.noPresenceBool3_ = input.readBool();
+
+                break;
+              } // case 48
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parsed_noPresenceString != null) instance.noPresenceString_ = parsed_noPresenceString;
+        finishCollections0(instance);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseNoPresenceNestedField(
+          proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.noPresenceNested_ != null) {
+          return 18;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.noPresenceNested_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField, proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField.Builder, proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceFieldOrBuilder>(
+                        instance.getNoPresenceNested(),
+                        null,
+                        false);
+                instance.noPresenceNested_ = null;
+              }
+              instance.bitField0_ |= 0x00000001;
+            ((com.google.protobuf.SingleFieldBuilder<proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField, proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField.Builder, proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceFieldOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.noPresenceNested_ = proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000001;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.noPresenceNested_ = proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      private static void finishCollections0(TestNoPresenceField instance) {
+        instance.noPresenceRepeatedNested_.makeImmutable();
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          TestNoPresenceField instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          TestNoPresenceField instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasNoPresenceNested()) instance.noPresenceNested_ = null;
+        if (instance.hasNoPresenceNested()) {
+          instance.noPresenceNested_ = fieldBuilders[0] == null
+              ? instance.noPresenceNested_
+              : ((com.google.protobuf.SingleFieldBuilder<proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField, proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceField.Builder, proto3_unittest.MessageDifferencerUnittestProto3.TestNoPresenceFieldOrBuilder>) fieldBuilders[0]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<TestNoPresenceField> parser() {
       return PARSER;

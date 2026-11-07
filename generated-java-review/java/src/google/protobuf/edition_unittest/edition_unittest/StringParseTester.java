@@ -559,7 +559,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -589,14 +589,35 @@ private static final long serialVersionUID = 0L;
               edition_unittest.StringParseTester.class, edition_unittest.StringParseTester.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.StringParseTester.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      optionalStringLowfield_ = "";
+      optionalStringMidfield_ = "";
+      optionalStringHifield_ = "";
+      repeatedStringLowfield_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedStringMidfield_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedStringHifield_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+
+    }
+    private Builder(edition_unittest.StringParseTester other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -671,6 +692,26 @@ private static final long serialVersionUID = 0L;
         result.repeatedStringHifield_ = repeatedStringHifield_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.StringParseTester other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000007);
+      optionalStringLowfield_ = other.optionalStringLowfield_;
+      optionalStringMidfield_ = other.optionalStringMidfield_;
+      optionalStringHifield_ = other.optionalStringHifield_;
+      repeatedStringLowfield_ = other.repeatedStringLowfield_;
+      if (!repeatedStringLowfield_.isEmpty()) {
+        to_bitField0_ |= 0x00000008;
+      }
+      repeatedStringMidfield_ = other.repeatedStringMidfield_;
+      if (!repeatedStringMidfield_.isEmpty()) {
+        to_bitField0_ |= 0x00000010;
+      }
+      repeatedStringHifield_ = other.repeatedStringHifield_;
+      if (!repeatedStringHifield_.isEmpty()) {
+        to_bitField0_ |= 0x00000020;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     public <Type> Builder setExtension(
@@ -828,7 +869,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private java.lang.Object optionalStringLowfield_ = "";
+    private java.lang.Object optionalStringLowfield_;
     /**
      * <code>string optional_string_lowfield = 1;</code>
      * @return Whether the optionalStringLowfield field is set.
@@ -907,7 +948,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object optionalStringMidfield_ = "";
+    private java.lang.Object optionalStringMidfield_;
     /**
      * <code>string optional_string_midfield = 1001;</code>
      * @return Whether the optionalStringMidfield field is set.
@@ -986,7 +1027,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object optionalStringHifield_ = "";
+    private java.lang.Object optionalStringHifield_;
     /**
      * <code>string optional_string_hifield = 1000001;</code>
      * @return Whether the optionalStringHifield field is set.
@@ -1065,8 +1106,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedStringLowfield_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedStringLowfield_;
     private void ensureRepeatedStringLowfieldIsMutable() {
       if (!repeatedStringLowfield_.isModifiable()) {
         repeatedStringLowfield_ = new com.google.protobuf.LazyStringArrayList(repeatedStringLowfield_);
@@ -1176,8 +1216,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedStringMidfield_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedStringMidfield_;
     private void ensureRepeatedStringMidfieldIsMutable() {
       if (!repeatedStringMidfield_.isModifiable()) {
         repeatedStringMidfield_ = new com.google.protobuf.LazyStringArrayList(repeatedStringMidfield_);
@@ -1287,8 +1326,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedStringHifield_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedStringHifield_;
     private void ensureRepeatedStringHifieldIsMutable() {
       if (!repeatedStringHifield_.isModifiable()) {
         repeatedStringHifield_ = new com.google.protobuf.LazyStringArrayList(repeatedStringHifield_);
@@ -1412,21 +1450,107 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<StringParseTester>
-      PARSER = new com.google.protobuf.AbstractParser<StringParseTester>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<StringParseTester> {
+    MessageParser() {}
+
     @java.lang.Override
     public StringParseTester parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      StringParseTester instance = new StringParseTester((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.lang.Object parsed_optionalStringLowfield = null;
+      java.lang.Object parsed_optionalStringMidfield = null;
+      java.lang.Object parsed_optionalStringHifield = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              parsed_optionalStringLowfield = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              ensureRepeatedStringLowfieldIsMutable(instance);
+              instance.repeatedStringLowfield_.add(input.readStringRequireUtf8());
+              break;
+            } // case 18
+            case 8010: {
+              parsed_optionalStringMidfield = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000002;
+              break;
+            } // case 8010
+            case 8018: {
+              ensureRepeatedStringMidfieldIsMutable(instance);
+              instance.repeatedStringMidfield_.add(input.readStringRequireUtf8());
+              break;
+            } // case 8018
+            case 8000010: {
+              parsed_optionalStringHifield = input.readStringRequireUtf8();
+              to_bitField0_ |= 0x00000004;
+              break;
+            } // case 8000010
+            case 8000018: {
+              ensureRepeatedStringHifieldIsMutable(instance);
+              instance.repeatedStringHifield_.add(input.readStringRequireUtf8());
+              break;
+            } // case 8000018
+            default: {
+              pendingTag = tag;
+              break parseLoop;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      if (parsed_optionalStringLowfield != null) instance.optionalStringLowfield_ = parsed_optionalStringLowfield;
+      if (parsed_optionalStringMidfield != null) instance.optionalStringMidfield_ = parsed_optionalStringMidfield;
+      if (parsed_optionalStringHifield != null) instance.optionalStringHifield_ = parsed_optionalStringHifield;
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      if (pendingTag != 0) {
+        return mergeFrom(instance.toBuilder(), input, extensionRegistry, pendingTag, null);
+      }
+      return instance;
     }
-  };
+    private static void ensureRepeatedStringLowfieldIsMutable(edition_unittest.StringParseTester instance) {
+      if (!instance.repeatedStringLowfield_.isModifiable()) {
+        instance.repeatedStringLowfield_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedStringLowfield_);
+      }
+    }
+    private static void ensureRepeatedStringMidfieldIsMutable(edition_unittest.StringParseTester instance) {
+      if (!instance.repeatedStringMidfield_.isModifiable()) {
+        instance.repeatedStringMidfield_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedStringMidfield_);
+      }
+    }
+    private static void ensureRepeatedStringHifieldIsMutable(edition_unittest.StringParseTester instance) {
+      if (!instance.repeatedStringHifield_.isModifiable()) {
+        instance.repeatedStringHifield_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedStringHifield_);
+      }
+    }
+    private static void finishCollections0(StringParseTester instance) {
+      instance.repeatedStringLowfield_.makeImmutable();
+      instance.repeatedStringMidfield_.makeImmutable();
+      instance.repeatedStringHifield_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<StringParseTester> parser() {
     return PARSER;

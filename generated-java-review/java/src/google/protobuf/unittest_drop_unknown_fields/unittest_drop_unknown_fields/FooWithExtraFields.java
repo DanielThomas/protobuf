@@ -398,7 +398,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -427,14 +427,27 @@ private static final long serialVersionUID = 0L;
               unittest_drop_unknown_fields.FooWithExtraFields.class, unittest_drop_unknown_fields.FooWithExtraFields.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using unittest_drop_unknown_fields.FooWithExtraFields.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      enumValue_ = 0;
+
+    }
+    private Builder(unittest_drop_unknown_fields.FooWithExtraFields other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -480,17 +493,25 @@ private static final long serialVersionUID = 0L;
       int to_bitField0_ = 0;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.int32Value_ = int32Value_;
-        
       }
       if (((from_bitField0_ & 0x00000002) != 0)) {
         result.enumValue_ = enumValue_;
-        ;
       }
       if (((from_bitField0_ & 0x00000004) != 0)) {
         result.extraInt32Value_ = extraInt32Value_;
-        
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(unittest_drop_unknown_fields.FooWithExtraFields other) {
+      int to_bitField0_ = 0;
+      int32Value_ = other.getInt32Value();
+      to_bitField0_ |= 0x00000001;
+      enumValue_ = other.getEnumValueValue();
+      to_bitField0_ |= 0x00000002;
+      extraInt32Value_ = other.getExtraInt32Value();
+      to_bitField0_ |= 0x00000004;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -570,7 +591,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int int32Value_ ;
+    private int int32Value_;
     /**
      * <code>int32 int32_value = 1;</code>
      * @return The int32Value.
@@ -602,7 +623,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int enumValue_ = 0;
+    private int enumValue_;
     /**
      * <code>.unittest_drop_unknown_fields.FooWithExtraFields.NestedEnum enum_value = 2;</code>
      * @return The enum numeric value on the wire for enumValue.
@@ -654,7 +675,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int extraInt32Value_ ;
+    private int extraInt32Value_;
     /**
      * <code>int32 extra_int32_value = 3;</code>
      * @return The extraInt32Value.
@@ -700,21 +721,60 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<FooWithExtraFields>
-      PARSER = new com.google.protobuf.AbstractParser<FooWithExtraFields>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<FooWithExtraFields> {
+    MessageParser() {}
+
     @java.lang.Override
     public FooWithExtraFields parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      FooWithExtraFields instance = new FooWithExtraFields((Builder) null);
+      java.lang.Object unknown = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.int32Value_ = input.readInt32();
+
+              break;
+            } // case 8
+            case 16: {
+              instance.enumValue_ = input.readEnum();
+
+              break;
+            } // case 16
+            case 24: {
+              instance.extraInt32Value_ = input.readInt32();
+
+              break;
+            } // case 24
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+  }
 
   public static com.google.protobuf.Parser<FooWithExtraFields> parser() {
     return PARSER;

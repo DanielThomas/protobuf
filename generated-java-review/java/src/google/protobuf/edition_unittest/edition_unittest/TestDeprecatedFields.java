@@ -488,7 +488,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -517,14 +517,28 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestDeprecatedFields.class, edition_unittest.TestDeprecatedFields.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestDeprecatedFields.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      deprecatedRepeatedString_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      maybeForceBuilderInitialization();
+    }
+    private Builder(edition_unittest.TestDeprecatedFields other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
       maybeForceBuilderInitialization();
     }
     private void maybeForceBuilderInitialization() {
@@ -614,6 +628,23 @@ private static final long serialVersionUID = 0L;
         result.oneofFields_ = oneofFields_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestDeprecatedFields other) {
+      int to_bitField0_ = (other.bitField0_ & 0x00000007);
+      deprecatedInt32_ = other.getDeprecatedInt32();
+      deprecatedMessage_ = other.deprecatedMessage_;
+      nested_ = other.nested_;
+      deprecatedRepeatedString_ = other.deprecatedRepeatedString_;
+      if (!deprecatedRepeatedString_.isEmpty()) {
+        to_bitField0_ |= 0x00000008;
+      }
+      if (other.oneofFieldsCase_ == 2) {
+        to_bitField0_ |= 0x00000010;
+      }
+      oneofFieldsCase_ = other.oneofFieldsCase_;
+      oneofFields_ = other.oneofFields_;
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -717,7 +748,7 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int oneofFieldsCase_ = 0;
+    private int oneofFieldsCase_;
     private java.lang.Object oneofFields_;
     public OneofFieldsCase
         getOneofFieldsCase() {
@@ -740,7 +771,7 @@ private static final long serialVersionUID = 0L;
 
     private int bitField0_;
 
-    private int deprecatedInt32_ ;
+    private int deprecatedInt32_;
     /**
      * <code>int32 deprecated_int32 = 1 [deprecated = true];</code>
      * @deprecated edition_unittest.TestDeprecatedFields.deprecated_int32 is deprecated.
@@ -788,8 +819,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList deprecatedRepeatedString_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList deprecatedRepeatedString_;
     private void ensureDeprecatedRepeatedStringIsMutable() {
       if (!deprecatedRepeatedString_.isModifiable()) {
         deprecatedRepeatedString_ = new com.google.protobuf.LazyStringArrayList(deprecatedRepeatedString_);
@@ -1264,21 +1294,186 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestDeprecatedFields>
-      PARSER = new com.google.protobuf.AbstractParser<TestDeprecatedFields>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestDeprecatedFields> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestDeprecatedFields parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestDeprecatedFields instance = new TestDeprecatedFields((Builder) null);
+      java.lang.Object unknown = null;
+      int pendingTag = 0;
+      int to_bitField0_ = 0;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          retryTag: while (true) {
+          switch (tag) {
+            case 0: break parseLoop;
+            case 8: {
+              instance.deprecatedInt32_ = input.readInt32();
+              to_bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16:
+            {
+              int value = input.readInt32();
+              instance.oneofFieldsCase_ = tag >>> 3;
+              instance.oneofFields_ = value;
+              break;
+            }
+            case 26: {
+              pendingTag = parseDeprecatedMessageField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 26
+            case 34: {
+              ensureDeprecatedRepeatedStringIsMutable(instance);
+              instance.deprecatedRepeatedString_.add(input.readStringRequireUtf8());
+              break;
+            } // case 34
+            case 42: {
+              pendingTag = parseNestedField(instance, input, extensionRegistry, fieldBuilders);
+              break;
+            } // case 42
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+          if (pendingTag == 0) break retryTag;
+          fieldBuilders = prepareChildren(instance, pendingTag);
+          pendingTag = 0;
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      if (to_bitField0_ != 0) {
+        instance.bitField0_ = instance.bitField0_ | to_bitField0_;
+      }
+      finishCollections0(instance);
+      if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static void ensureDeprecatedRepeatedStringIsMutable(edition_unittest.TestDeprecatedFields instance) {
+      if (!instance.deprecatedRepeatedString_.isModifiable()) {
+        instance.deprecatedRepeatedString_ = new com.google.protobuf.LazyStringArrayList(instance.deprecatedRepeatedString_);
+      }
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseDeprecatedMessageField(
+        edition_unittest.TestDeprecatedFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.deprecatedMessage_ != null) {
+        return 26;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.deprecatedMessage_ != null || fieldBuilders[0] != null) {
+            if (fieldBuilders[0] == null) {
+              fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                  edition_unittest.TestAllTypes.NestedMessage, edition_unittest.TestAllTypes.NestedMessage.Builder, edition_unittest.TestAllTypes.NestedMessageOrBuilder>(
+                      instance.getDeprecatedMessage(),
+                      null,
+                      false);
+              instance.deprecatedMessage_ = null;
+            }
+            instance.bitField0_ |= 0x00000002;
+          ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes.NestedMessage, edition_unittest.TestAllTypes.NestedMessage.Builder, edition_unittest.TestAllTypes.NestedMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.deprecatedMessage_ = edition_unittest.TestAllTypes.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000002;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.deprecatedMessage_ = edition_unittest.TestAllTypes.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+      return 0;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static int parseNestedField(
+        edition_unittest.TestDeprecatedFields instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+        throws java.io.IOException {
+      if (fieldBuilders == null && instance.nested_ != null) {
+        return 42;
+      }
+      if (fieldBuilders != null) {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.nested_ != null || fieldBuilders[1] != null) {
+            if (fieldBuilders[1] == null) {
+              fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+                  edition_unittest.TestDeprecatedFields, edition_unittest.TestDeprecatedFields.Builder, edition_unittest.TestDeprecatedFieldsOrBuilder>(
+                      instance.getNested(),
+                      null,
+                      false);
+              instance.nested_ = null;
+            }
+            instance.bitField0_ |= 0x00000004;
+          ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestDeprecatedFields, edition_unittest.TestDeprecatedFields.Builder, edition_unittest.TestDeprecatedFieldsOrBuilder>) fieldBuilders[1]).getBuilder()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.nested_ = edition_unittest.TestDeprecatedFields.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000004;
+        return 0;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      instance.nested_ = edition_unittest.TestDeprecatedFields.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+      return 0;
+    }
+    private static void finishCollections0(TestDeprecatedFields instance) {
+      instance.deprecatedRepeatedString_.makeImmutable();
+    }
+    private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+        TestDeprecatedFields instance, int tag) {
+      com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+          new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[2];
+      return fieldBuilders;
+    }
+    @java.lang.SuppressWarnings("unchecked")
+    private static void finishChildren0(
+        TestDeprecatedFields instance,
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+      if (!instance.hasDeprecatedMessage()) instance.deprecatedMessage_ = null;
+      if (instance.hasDeprecatedMessage()) {
+        instance.deprecatedMessage_ = fieldBuilders[0] == null
+            ? instance.deprecatedMessage_
+            : ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes.NestedMessage, edition_unittest.TestAllTypes.NestedMessage.Builder, edition_unittest.TestAllTypes.NestedMessageOrBuilder>) fieldBuilders[0]).build();
+
+      }
+      if (!instance.hasNested()) instance.nested_ = null;
+      if (instance.hasNested()) {
+        instance.nested_ = fieldBuilders[1] == null
+            ? instance.nested_
+            : ((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestDeprecatedFields, edition_unittest.TestDeprecatedFields.Builder, edition_unittest.TestDeprecatedFieldsOrBuilder>) fieldBuilders[1]).build();
+
+      }
+    }
+  }
 
   public static com.google.protobuf.Parser<TestDeprecatedFields> parser() {
     return PARSER;

@@ -524,7 +524,7 @@ public final class TestEnumOuterClass extends com.google.protobuf.GeneratedFile 
       @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
+            ? new Builder() : new Builder(this);
       }
 
       @java.lang.Override
@@ -553,14 +553,25 @@ public final class TestEnumOuterClass extends com.google.protobuf.GeneratedFile 
                   hpb_unittest.TestEnumOuterClass.ContainingMessage.OtherMessage.class, hpb_unittest.TestEnumOuterClass.ContainingMessage.OtherMessage.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using hpb_unittest.TestEnumOuterClass.ContainingMessage.OtherMessage.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+
+        }
+        private Builder(hpb_unittest.TestEnumOuterClass.ContainingMessage.OtherMessage other) {
+          super(other, null);
 
         }
         @java.lang.Override
@@ -662,21 +673,45 @@ public final class TestEnumOuterClass extends com.google.protobuf.GeneratedFile 
       }
 
       private static final com.google.protobuf.Parser<OtherMessage>
-          PARSER = new com.google.protobuf.AbstractParser<OtherMessage>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<OtherMessage> {
+        MessageParser() {}
+
         @java.lang.Override
         public OtherMessage parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
+          java.util.Objects.requireNonNull(extensionRegistry);
+          OtherMessage instance = new OtherMessage((Builder) null);
+          java.lang.Object unknown = null;
+          java.io.IOException parseFailure = null;
           try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
+            parseLoop: while (true) {
+              int tag = input.readTag();
+              switch (tag) {
+                case 0: break parseLoop;
+                default: {
+                  unknown = prepareUnknownFields(unknown, input);
+                  if (!parseUnknownField(input, unknown, tag)) {
+                    break parseLoop;
+                  }
+                  break;
+                }
+              }
+            }
+          } catch (java.io.IOException e) {
+            parseFailure = e;
           }
-          return builder.buildPartial();
+          finishUnknownFields(instance, unknown);
+          if (parseFailure != null) {
+            throwParseException(parseFailure, instance);
+          }
+          return instance;
         }
-      };
+      }
 
       public static com.google.protobuf.Parser<OtherMessage> parser() {
         return PARSER;
@@ -830,7 +865,7 @@ public final class TestEnumOuterClass extends com.google.protobuf.GeneratedFile 
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -859,14 +894,25 @@ public final class TestEnumOuterClass extends com.google.protobuf.GeneratedFile 
                 hpb_unittest.TestEnumOuterClass.ContainingMessage.class, hpb_unittest.TestEnumOuterClass.ContainingMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using hpb_unittest.TestEnumOuterClass.ContainingMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(hpb_unittest.TestEnumOuterClass.ContainingMessage other) {
+        super(other, null);
 
       }
       @java.lang.Override
@@ -968,21 +1014,45 @@ public final class TestEnumOuterClass extends com.google.protobuf.GeneratedFile 
     }
 
     private static final com.google.protobuf.Parser<ContainingMessage>
-        PARSER = new com.google.protobuf.AbstractParser<ContainingMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ContainingMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public ContainingMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        ContainingMessage instance = new ContainingMessage((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<ContainingMessage> parser() {
       return PARSER;

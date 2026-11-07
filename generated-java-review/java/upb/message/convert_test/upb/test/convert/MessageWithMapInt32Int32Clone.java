@@ -306,7 +306,7 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public Builder toBuilder() {
     return this == DEFAULT_INSTANCE
-        ? new Builder() : new Builder().mergeFrom(this);
+        ? new Builder() : new Builder(this);
   }
 
   @java.lang.Override
@@ -357,14 +357,26 @@ private static final long serialVersionUID = 0L;
               upb.test.convert.MessageWithMapInt32Int32Clone.class, upb.test.convert.MessageWithMapInt32Int32Clone.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using upb.test.convert.MessageWithMapInt32Int32Clone.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+
+    }
+    private Builder(upb.test.convert.MessageWithMapInt32Int32Clone other) {
+      super(other, null);
+      copyFrom_autosplit_0(other);
 
     }
     @java.lang.Override
@@ -411,6 +423,15 @@ private static final long serialVersionUID = 0L;
         result.m_.makeImmutable();
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(upb.test.convert.MessageWithMapInt32Int32Clone other) {
+      int to_bitField0_ = 0;
+      m_ = other.m_;
+      if (m_ != null) {
+        to_bitField0_ |= 0x00000001;
+      }
+      bitField0_ |= to_bitField0_;
     }
 
     @java.lang.Override
@@ -620,21 +641,69 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<MessageWithMapInt32Int32Clone>
-      PARSER = new com.google.protobuf.AbstractParser<MessageWithMapInt32Int32Clone>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<MessageWithMapInt32Int32Clone> {
+    MessageParser() {}
+
     @java.lang.Override
     public MessageWithMapInt32Int32Clone parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MessageWithMapInt32Int32Clone instance = new MessageWithMapInt32Int32Clone((Builder) null);
+      java.lang.Object unknown = null;
+      java.io.IOException parseFailure = null;
       try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
+        parseLoop: while (true) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0: break parseLoop;
+            case 10: {
+              com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+              m__ = input.readMessage(
+                  MDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+              internalGetMutableM(instance).getMutableMap().put(
+                  m__.getKey(), m__.getValue());
+
+              break;
+            } // case 10
+            default: {
+              unknown = prepareUnknownFields(unknown, input);
+              if (!parseUnknownField(input, unknown, tag)) {
+                break parseLoop;
+              }
+              break;
+            }
+          }
+        }
+      } catch (java.io.IOException e) {
+        parseFailure = e;
       }
-      return builder.buildPartial();
+      finishUnknownFields(instance, unknown);
+      finishCollections0(instance);
+      if (parseFailure != null) {
+        throwParseException(parseFailure, instance);
+      }
+      return instance;
     }
-  };
+    private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+        internalGetMutableM(upb.test.convert.MessageWithMapInt32Int32Clone instance) {
+      if (instance.m_ == null) {
+        instance.m_ = com.google.protobuf.MapField.newMapField(
+            MDefaultEntryHolder.defaultEntry);
+      }
+      if (!instance.m_.isMutable()) {
+        instance.m_ = instance.m_.copy();
+      }
+      return instance.m_;
+    }
+    private static void finishCollections0(MessageWithMapInt32Int32Clone instance) {
+      if (instance.m_ != null) instance.m_.makeImmutable();
+    }
+  }
 
   public static com.google.protobuf.Parser<MessageWithMapInt32Int32Clone> parser() {
     return PARSER;

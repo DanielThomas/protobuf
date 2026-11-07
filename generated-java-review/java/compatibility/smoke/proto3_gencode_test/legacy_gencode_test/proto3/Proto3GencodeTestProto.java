@@ -467,7 +467,7 @@ public final class Proto3GencodeTestProto extends com.google.protobuf.GeneratedF
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -496,14 +496,27 @@ public final class Proto3GencodeTestProto extends com.google.protobuf.GeneratedF
                 legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMessage.class, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        x_ = "";
+        maybeForceBuilderInitialization();
+      }
+      private Builder(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -564,9 +577,16 @@ public final class Proto3GencodeTestProto extends com.google.protobuf.GeneratedF
         }
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.x_ = x_;
-          ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMessage other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000001);
+        y_ = other.y_;
+        x_ = other.x_;
+        to_bitField0_ |= 0x00000002;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -639,7 +659,7 @@ public final class Proto3GencodeTestProto extends com.google.protobuf.GeneratedF
       }
       private int bitField0_;
 
-      private java.lang.Object x_ = "";
+      private java.lang.Object x_;
       /**
        * <code>string x = 2;</code>
        * @return The x.
@@ -853,21 +873,117 @@ public final class Proto3GencodeTestProto extends com.google.protobuf.GeneratedF
     }
 
     private static final com.google.protobuf.Parser<TestMessage>
-        PARSER = new com.google.protobuf.AbstractParser<TestMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestMessage instance = new TestMessage((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.lang.Object parsed_x = null;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 18: {
+                parsed_x = input.readStringRequireUtf8();
+
+                break;
+              } // case 18
+              case 26: {
+                pendingTag = parseYField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 26
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parsed_x != null) instance.x_ = parsed_x;
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseYField(
+          legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMessage instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.y_ != null) {
+          return 26;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.y_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    legacy_gencode_test.proto3.Proto3GencodeTestProto.NestedTestMessage, legacy_gencode_test.proto3.Proto3GencodeTestProto.NestedTestMessage.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.NestedTestMessageOrBuilder>(
+                        instance.getY(),
+                        null,
+                        false);
+                instance.y_ = null;
+              }
+              instance.bitField0_ |= 0x00000001;
+            ((com.google.protobuf.SingleFieldBuilder<legacy_gencode_test.proto3.Proto3GencodeTestProto.NestedTestMessage, legacy_gencode_test.proto3.Proto3GencodeTestProto.NestedTestMessage.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.NestedTestMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.y_ = legacy_gencode_test.proto3.Proto3GencodeTestProto.NestedTestMessage.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000001;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.y_ = legacy_gencode_test.proto3.Proto3GencodeTestProto.NestedTestMessage.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          TestMessage instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          TestMessage instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasY()) instance.y_ = null;
+        if (instance.hasY()) {
+          instance.y_ = fieldBuilders[0] == null
+              ? instance.y_
+              : ((com.google.protobuf.SingleFieldBuilder<legacy_gencode_test.proto3.Proto3GencodeTestProto.NestedTestMessage, legacy_gencode_test.proto3.Proto3GencodeTestProto.NestedTestMessage.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.NestedTestMessageOrBuilder>) fieldBuilders[0]).build();
+
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<TestMessage> parser() {
       return PARSER;
@@ -1149,7 +1265,7 @@ public final class Proto3GencodeTestProto extends com.google.protobuf.GeneratedF
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -1178,14 +1294,27 @@ public final class Proto3GencodeTestProto extends com.google.protobuf.GeneratedF
                 legacy_gencode_test.proto3.Proto3GencodeTestProto.NestedTestMessage.class, legacy_gencode_test.proto3.Proto3GencodeTestProto.NestedTestMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using legacy_gencode_test.proto3.Proto3GencodeTestProto.NestedTestMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        z_ = emptyIntList();
+
+      }
+      private Builder(legacy_gencode_test.proto3.Proto3GencodeTestProto.NestedTestMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -1232,6 +1361,15 @@ public final class Proto3GencodeTestProto extends com.google.protobuf.GeneratedF
           result.z_ = z_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(legacy_gencode_test.proto3.Proto3GencodeTestProto.NestedTestMessage other) {
+        int to_bitField0_ = 0;
+        z_ = other.z_;
+        if (!z_.isEmpty()) {
+          to_bitField0_ |= 0x00000001;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -1315,7 +1453,7 @@ public final class Proto3GencodeTestProto extends com.google.protobuf.GeneratedF
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.IntList z_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList z_;
       private void ensureZIsMutable(int capacity) {
         if (!z_.isModifiable()) {
           z_ = makeMutableCopy(z_, capacity);
@@ -1413,21 +1551,71 @@ public final class Proto3GencodeTestProto extends com.google.protobuf.GeneratedF
     }
 
     private static final com.google.protobuf.Parser<NestedTestMessage>
-        PARSER = new com.google.protobuf.AbstractParser<NestedTestMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<NestedTestMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public NestedTestMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        NestedTestMessage instance = new NestedTestMessage((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                int v = input.readInt32();
+                ensureZIsMutable(instance, /* capacity= */ -1);
+                instance.z_.addInt(v);
+                break;
+              } // case 8
+              case 10: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureZIsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.z_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 10
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        finishCollections0(instance);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      private static void ensureZIsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.NestedTestMessage instance, int minCapacity) {
+        if (!instance.z_.isModifiable()) {
+          instance.z_ = makeMutableCopy(instance.z_, minCapacity);
+        }
+      }
+      private static void finishCollections0(NestedTestMessage instance) {
+        instance.z_.makeImmutable();
+      }
+    }
 
     public static com.google.protobuf.Parser<NestedTestMessage> parser() {
       return PARSER;
@@ -4054,7 +4242,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum         defaultVal
       @java.lang.Override
       public Builder toBuilder() {
         return this == DEFAULT_INSTANCE
-            ? new Builder() : new Builder().mergeFrom(this);
+            ? new Builder() : new Builder(this);
       }
 
       @java.lang.Override
@@ -4083,14 +4271,26 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum         defaultVal
                   legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage.class, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private Builder(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage other) {
+          super(other, null);
+          copyFrom_autosplit_0(other);
           maybeForceBuilderInitialization();
         }
         private void maybeForceBuilderInitialization() {
@@ -4151,9 +4351,16 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum         defaultVal
           }
           if (((from_bitField0_ & 0x00000002) != 0)) {
             result.a_ = a_;
-            
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage other) {
+          int to_bitField0_ = (other.bitField0_ & 0x00000001);
+          corecursive_ = other.corecursive_;
+          a_ = other.getA();
+          to_bitField0_ |= 0x00000002;
+          bitField0_ |= to_bitField0_;
         }
 
         @java.lang.Override
@@ -4224,7 +4431,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum         defaultVal
         }
         private int bitField0_;
 
-        private int a_ ;
+        private int a_;
         /**
          * <code>int32 a = 1;</code>
          * @return The a.
@@ -4398,21 +4605,115 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum         defaultVal
       }
 
       private static final com.google.protobuf.Parser<NestedMessage>
-          PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<NestedMessage> {
+        MessageParser() {}
+
         @java.lang.Override
         public NestedMessage parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
+          java.util.Objects.requireNonNull(extensionRegistry);
+          NestedMessage instance = new NestedMessage((Builder) null);
+          java.lang.Object unknown = null;
+          int pendingTag = 0;
+          java.io.IOException parseFailure = null;
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
           try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
+            parseLoop: while (true) {
+              int tag = input.readTag();
+              retryTag: while (true) {
+              switch (tag) {
+                case 0: break parseLoop;
+                case 8: {
+                  instance.a_ = input.readInt32();
+
+                  break;
+                } // case 8
+                case 18: {
+                  pendingTag = parseCorecursiveField(instance, input, extensionRegistry, fieldBuilders);
+                  break;
+                } // case 18
+                default: {
+                  unknown = prepareUnknownFields(unknown, input);
+                  if (!parseUnknownField(input, unknown, tag)) {
+                    break parseLoop;
+                  }
+                  break;
+                }
+              }
+              if (pendingTag == 0) break retryTag;
+              fieldBuilders = prepareChildren(instance, pendingTag);
+              pendingTag = 0;
+              }
+            }
+          } catch (java.io.IOException e) {
+            parseFailure = e;
           }
-          return builder.buildPartial();
+          finishUnknownFields(instance, unknown);
+          if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+          if (parseFailure != null) {
+            throwParseException(parseFailure, instance);
+          }
+          return instance;
         }
-      };
+        @java.lang.SuppressWarnings("unchecked")
+        private static int parseCorecursiveField(
+            legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage instance, com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+            throws java.io.IOException {
+          if (fieldBuilders == null && instance.corecursive_ != null) {
+            return 18;
+          }
+          if (fieldBuilders != null) {
+            final int oldLimit = input.pushLimitBeforeMessage();
+            if (instance.corecursive_ != null || fieldBuilders[0] != null) {
+                if (fieldBuilders[0] == null) {
+                  fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                      legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3OrBuilder>(
+                          instance.getCorecursive(),
+                          null,
+                          false);
+                  instance.corecursive_ = null;
+                }
+                instance.bitField0_ |= 0x00000001;
+              ((com.google.protobuf.SingleFieldBuilder<legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3OrBuilder>) fieldBuilders[0]).getBuilder()
+                  .mergeFrom(input, extensionRegistry);
+            } else {
+              instance.corecursive_ = legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.parser().parsePartialFrom(input, extensionRegistry);
+            }
+            input.popLimitAfterMessage(oldLimit);
+            instance.bitField0_ |= 0x00000001;
+            return 0;
+          }
+          final int oldLimit = input.pushLimitBeforeMessage();
+          instance.corecursive_ = legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.parser().parsePartialFrom(input, extensionRegistry);
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000001;
+          return 0;
+        }
+        private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+            NestedMessage instance, int tag) {
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+              new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[1];
+          return fieldBuilders;
+        }
+        @java.lang.SuppressWarnings("unchecked")
+        private static void finishChildren0(
+            NestedMessage instance,
+            com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+          if (!instance.hasCorecursive()) instance.corecursive_ = null;
+          if (instance.hasCorecursive()) {
+            instance.corecursive_ = fieldBuilders[0] == null
+                ? instance.corecursive_
+                : ((com.google.protobuf.SingleFieldBuilder<legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3OrBuilder>) fieldBuilders[0]).build();
+
+          }
+        }
+      }
 
       public static com.google.protobuf.Parser<NestedMessage> parser() {
         return PARSER;
@@ -10432,7 +10733,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -10560,14 +10861,81 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
                 legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.class, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        optionalString_ = "";
+        optionalBytes_ = com.google.protobuf.ByteString.EMPTY;
+        optionalNestedEnum_ = 0;
+        optionalForeignEnum_ = 0;
+        optionalAliasedEnum_ = 0;
+        repeatedInt32_ = emptyIntList();
+        repeatedInt64_ = emptyLongList();
+        repeatedUint32_ = emptyIntList();
+        repeatedUint64_ = emptyLongList();
+        repeatedSint32_ = emptyIntList();
+        repeatedSint64_ = emptyLongList();
+        repeatedFixed32_ = emptyIntList();
+        repeatedFixed64_ = emptyLongList();
+        repeatedSfixed32_ = emptyIntList();
+        repeatedSfixed64_ = emptyLongList();
+        repeatedFloat_ = emptyFloatList();
+        repeatedDouble_ = emptyDoubleList();
+        repeatedBool_ = emptyBooleanList();
+        repeatedString_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        repeatedBytes_ = emptyList(com.google.protobuf.ByteString.class);
+        repeatedNestedMessage_ = emptyList(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage.class);
+        repeatedForeignMessage_ = emptyList(legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage.class);
+        repeatedNestedEnum_ = emptyIntList();
+        repeatedForeignEnum_ = emptyIntList();
+        packedInt32_ = emptyIntList();
+        packedInt64_ = emptyLongList();
+        packedUint32_ = emptyIntList();
+        packedUint64_ = emptyLongList();
+        packedSint32_ = emptyIntList();
+        packedSint64_ = emptyLongList();
+        packedFixed32_ = emptyIntList();
+        packedFixed64_ = emptyLongList();
+        packedSfixed32_ = emptyIntList();
+        packedSfixed64_ = emptyLongList();
+        packedFloat_ = emptyFloatList();
+        packedDouble_ = emptyDoubleList();
+        packedBool_ = emptyBooleanList();
+        packedNestedEnum_ = emptyIntList();
+        unpackedInt32_ = emptyIntList();
+        unpackedInt64_ = emptyLongList();
+        unpackedUint32_ = emptyIntList();
+        unpackedUint64_ = emptyLongList();
+        unpackedSint32_ = emptyIntList();
+        unpackedSint64_ = emptyLongList();
+        unpackedFixed32_ = emptyIntList();
+        unpackedFixed64_ = emptyLongList();
+        unpackedSfixed32_ = emptyIntList();
+        unpackedSfixed64_ = emptyLongList();
+        unpackedFloat_ = emptyFloatList();
+        unpackedDouble_ = emptyDoubleList();
+        unpackedBool_ = emptyBooleanList();
+        unpackedNestedEnum_ = emptyIntList();
+        maybeForceBuilderInitialization();
+      }
+      private Builder(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
+        copyFrom_autosplit_1(other);
+        copyFrom_autosplit_2(other);
         maybeForceBuilderInitialization();
       }
       private void maybeForceBuilderInitialization() {
@@ -10760,75 +11128,57 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         }
         if (((from_bitField0_ & 0x00000008) != 0)) {
           result.optionalInt32_ = optionalInt32_;
-          
         }
         if (((from_bitField0_ & 0x00000010) != 0)) {
           result.optionalInt64_ = optionalInt64_;
-          
         }
         if (((from_bitField0_ & 0x00000020) != 0)) {
           result.optionalUint32_ = optionalUint32_;
-          
         }
         if (((from_bitField0_ & 0x00000040) != 0)) {
           result.optionalUint64_ = optionalUint64_;
-          
         }
         if (((from_bitField0_ & 0x00000080) != 0)) {
           result.optionalSint32_ = optionalSint32_;
-          
         }
         if (((from_bitField0_ & 0x00000100) != 0)) {
           result.optionalSint64_ = optionalSint64_;
-          
         }
         if (((from_bitField0_ & 0x00000200) != 0)) {
           result.optionalFixed32_ = optionalFixed32_;
-          
         }
         if (((from_bitField0_ & 0x00000400) != 0)) {
           result.optionalFixed64_ = optionalFixed64_;
-          
         }
         if (((from_bitField0_ & 0x00000800) != 0)) {
           result.optionalSfixed32_ = optionalSfixed32_;
-          
         }
         if (((from_bitField0_ & 0x00001000) != 0)) {
           result.optionalSfixed64_ = optionalSfixed64_;
-          
         }
         if (((from_bitField0_ & 0x00002000) != 0)) {
           result.optionalFloat_ = optionalFloat_;
-          
         }
         if (((from_bitField0_ & 0x00004000) != 0)) {
           result.optionalDouble_ = optionalDouble_;
-          
         }
         if (((from_bitField0_ & 0x00008000) != 0)) {
           result.optionalBool_ = optionalBool_;
-          
         }
         if (((from_bitField0_ & 0x00010000) != 0)) {
           result.optionalString_ = optionalString_;
-          ;
         }
         if (((from_bitField0_ & 0x00020000) != 0)) {
           result.optionalBytes_ = optionalBytes_;
-          
         }
         if (((from_bitField0_ & 0x00040000) != 0)) {
           result.optionalNestedEnum_ = optionalNestedEnum_;
-          ;
         }
         if (((from_bitField0_ & 0x00080000) != 0)) {
           result.optionalForeignEnum_ = optionalForeignEnum_;
-          ;
         }
         if (((from_bitField0_ & 0x00100000) != 0)) {
           result.optionalAliasedEnum_ = optionalAliasedEnum_;
-          ;
         }
         if (((from_bitField0_ & 0x00200000) != 0)) {
           repeatedInt32_.makeImmutable();
@@ -10875,6 +11225,94 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
           result.repeatedFloat_ = repeatedFloat_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 other) {
+        int to_bitField0_ = (other.bitField0_ & 0x00000007);
+        optionalNestedMessage_ = other.optionalNestedMessage_;
+        optionalForeignMessage_ = other.optionalForeignMessage_;
+        recursiveMessage_ = other.recursiveMessage_;
+        optionalInt32_ = other.getOptionalInt32();
+        to_bitField0_ |= 0x00000008;
+        optionalInt64_ = other.getOptionalInt64();
+        to_bitField0_ |= 0x00000010;
+        optionalUint32_ = other.getOptionalUint32();
+        to_bitField0_ |= 0x00000020;
+        optionalUint64_ = other.getOptionalUint64();
+        to_bitField0_ |= 0x00000040;
+        optionalSint32_ = other.getOptionalSint32();
+        to_bitField0_ |= 0x00000080;
+        optionalSint64_ = other.getOptionalSint64();
+        to_bitField0_ |= 0x00000100;
+        optionalFixed32_ = other.getOptionalFixed32();
+        to_bitField0_ |= 0x00000200;
+        optionalFixed64_ = other.getOptionalFixed64();
+        to_bitField0_ |= 0x00000400;
+        optionalSfixed32_ = other.getOptionalSfixed32();
+        to_bitField0_ |= 0x00000800;
+        optionalSfixed64_ = other.getOptionalSfixed64();
+        to_bitField0_ |= 0x00001000;
+        optionalFloat_ = other.getOptionalFloat();
+        to_bitField0_ |= 0x00002000;
+        optionalDouble_ = other.getOptionalDouble();
+        to_bitField0_ |= 0x00004000;
+        optionalBool_ = other.getOptionalBool();
+        to_bitField0_ |= 0x00008000;
+        optionalString_ = other.optionalString_;
+        to_bitField0_ |= 0x00010000;
+        optionalBytes_ = other.getOptionalBytes();
+        to_bitField0_ |= 0x00020000;
+        optionalNestedEnum_ = other.getOptionalNestedEnumValue();
+        to_bitField0_ |= 0x00040000;
+        optionalForeignEnum_ = other.getOptionalForeignEnumValue();
+        to_bitField0_ |= 0x00080000;
+        optionalAliasedEnum_ = other.getOptionalAliasedEnumValue();
+        to_bitField0_ |= 0x00100000;
+        repeatedInt32_ = other.repeatedInt32_;
+        if (!repeatedInt32_.isEmpty()) {
+          to_bitField0_ |= 0x00200000;
+        }
+        repeatedInt64_ = other.repeatedInt64_;
+        if (!repeatedInt64_.isEmpty()) {
+          to_bitField0_ |= 0x00400000;
+        }
+        repeatedUint32_ = other.repeatedUint32_;
+        if (!repeatedUint32_.isEmpty()) {
+          to_bitField0_ |= 0x00800000;
+        }
+        repeatedUint64_ = other.repeatedUint64_;
+        if (!repeatedUint64_.isEmpty()) {
+          to_bitField0_ |= 0x01000000;
+        }
+        repeatedSint32_ = other.repeatedSint32_;
+        if (!repeatedSint32_.isEmpty()) {
+          to_bitField0_ |= 0x02000000;
+        }
+        repeatedSint64_ = other.repeatedSint64_;
+        if (!repeatedSint64_.isEmpty()) {
+          to_bitField0_ |= 0x04000000;
+        }
+        repeatedFixed32_ = other.repeatedFixed32_;
+        if (!repeatedFixed32_.isEmpty()) {
+          to_bitField0_ |= 0x08000000;
+        }
+        repeatedFixed64_ = other.repeatedFixed64_;
+        if (!repeatedFixed64_.isEmpty()) {
+          to_bitField0_ |= 0x10000000;
+        }
+        repeatedSfixed32_ = other.repeatedSfixed32_;
+        if (!repeatedSfixed32_.isEmpty()) {
+          to_bitField0_ |= 0x20000000;
+        }
+        repeatedSfixed64_ = other.repeatedSfixed64_;
+        if (!repeatedSfixed64_.isEmpty()) {
+          to_bitField0_ |= 0x40000000;
+        }
+        repeatedFloat_ = other.repeatedFloat_;
+        if (!repeatedFloat_.isEmpty()) {
+          to_bitField0_ |= 0x80000000;
+        }
+        bitField0_ |= to_bitField0_;
       }
 
       private void buildPartial_autosplit_1(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 result) {
@@ -11019,6 +11457,139 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         result.bitField1_ |= to_bitField1_;
       }
 
+      private void copyFrom_autosplit_1(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 other) {
+        int to_bitField1_ = 0;
+        repeatedDouble_ = other.repeatedDouble_;
+        if (!repeatedDouble_.isEmpty()) {
+          to_bitField1_ |= 0x00000001;
+        }
+        repeatedBool_ = other.repeatedBool_;
+        if (!repeatedBool_.isEmpty()) {
+          to_bitField1_ |= 0x00000002;
+        }
+        repeatedString_ = other.repeatedString_;
+        if (!repeatedString_.isEmpty()) {
+          to_bitField1_ |= 0x00000004;
+        }
+        repeatedBytes_ = other.repeatedBytes_;
+        if (!repeatedBytes_.isEmpty()) {
+          to_bitField1_ |= 0x00000008;
+        }
+        repeatedNestedMessage_ = other.repeatedNestedMessage_;
+        if (!repeatedNestedMessage_.isEmpty()) {
+          to_bitField1_ |= 0x00000010;
+        }
+        repeatedForeignMessage_ = other.repeatedForeignMessage_;
+        if (!repeatedForeignMessage_.isEmpty()) {
+          to_bitField1_ |= 0x00000020;
+        }
+        repeatedNestedEnum_ = other.repeatedNestedEnum_;
+        if (!repeatedNestedEnum_.isEmpty()) {
+          to_bitField1_ |= 0x00000040;
+        }
+        repeatedForeignEnum_ = other.repeatedForeignEnum_;
+        if (!repeatedForeignEnum_.isEmpty()) {
+          to_bitField1_ |= 0x00000080;
+        }
+        packedInt32_ = other.packedInt32_;
+        if (!packedInt32_.isEmpty()) {
+          to_bitField1_ |= 0x00000100;
+        }
+        packedInt64_ = other.packedInt64_;
+        if (!packedInt64_.isEmpty()) {
+          to_bitField1_ |= 0x00000200;
+        }
+        packedUint32_ = other.packedUint32_;
+        if (!packedUint32_.isEmpty()) {
+          to_bitField1_ |= 0x00000400;
+        }
+        packedUint64_ = other.packedUint64_;
+        if (!packedUint64_.isEmpty()) {
+          to_bitField1_ |= 0x00000800;
+        }
+        packedSint32_ = other.packedSint32_;
+        if (!packedSint32_.isEmpty()) {
+          to_bitField1_ |= 0x00001000;
+        }
+        packedSint64_ = other.packedSint64_;
+        if (!packedSint64_.isEmpty()) {
+          to_bitField1_ |= 0x00002000;
+        }
+        packedFixed32_ = other.packedFixed32_;
+        if (!packedFixed32_.isEmpty()) {
+          to_bitField1_ |= 0x00004000;
+        }
+        packedFixed64_ = other.packedFixed64_;
+        if (!packedFixed64_.isEmpty()) {
+          to_bitField1_ |= 0x00008000;
+        }
+        packedSfixed32_ = other.packedSfixed32_;
+        if (!packedSfixed32_.isEmpty()) {
+          to_bitField1_ |= 0x00010000;
+        }
+        packedSfixed64_ = other.packedSfixed64_;
+        if (!packedSfixed64_.isEmpty()) {
+          to_bitField1_ |= 0x00020000;
+        }
+        packedFloat_ = other.packedFloat_;
+        if (!packedFloat_.isEmpty()) {
+          to_bitField1_ |= 0x00040000;
+        }
+        packedDouble_ = other.packedDouble_;
+        if (!packedDouble_.isEmpty()) {
+          to_bitField1_ |= 0x00080000;
+        }
+        packedBool_ = other.packedBool_;
+        if (!packedBool_.isEmpty()) {
+          to_bitField1_ |= 0x00100000;
+        }
+        packedNestedEnum_ = other.packedNestedEnum_;
+        if (!packedNestedEnum_.isEmpty()) {
+          to_bitField1_ |= 0x00200000;
+        }
+        unpackedInt32_ = other.unpackedInt32_;
+        if (!unpackedInt32_.isEmpty()) {
+          to_bitField1_ |= 0x00400000;
+        }
+        unpackedInt64_ = other.unpackedInt64_;
+        if (!unpackedInt64_.isEmpty()) {
+          to_bitField1_ |= 0x00800000;
+        }
+        unpackedUint32_ = other.unpackedUint32_;
+        if (!unpackedUint32_.isEmpty()) {
+          to_bitField1_ |= 0x01000000;
+        }
+        unpackedUint64_ = other.unpackedUint64_;
+        if (!unpackedUint64_.isEmpty()) {
+          to_bitField1_ |= 0x02000000;
+        }
+        unpackedSint32_ = other.unpackedSint32_;
+        if (!unpackedSint32_.isEmpty()) {
+          to_bitField1_ |= 0x04000000;
+        }
+        unpackedSint64_ = other.unpackedSint64_;
+        if (!unpackedSint64_.isEmpty()) {
+          to_bitField1_ |= 0x08000000;
+        }
+        unpackedFixed32_ = other.unpackedFixed32_;
+        if (!unpackedFixed32_.isEmpty()) {
+          to_bitField1_ |= 0x10000000;
+        }
+        unpackedFixed64_ = other.unpackedFixed64_;
+        if (!unpackedFixed64_.isEmpty()) {
+          to_bitField1_ |= 0x20000000;
+        }
+        unpackedSfixed32_ = other.unpackedSfixed32_;
+        if (!unpackedSfixed32_.isEmpty()) {
+          to_bitField1_ |= 0x40000000;
+        }
+        unpackedSfixed64_ = other.unpackedSfixed64_;
+        if (!unpackedSfixed64_.isEmpty()) {
+          to_bitField1_ |= 0x80000000;
+        }
+        bitField1_ |= to_bitField1_;
+      }
+
       private void buildPartial_autosplit_2(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 result) {
         int from_bitField2_ = bitField2_;
         int to_bitField2_ = 0;
@@ -11125,6 +11696,134 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
           result.oneofField_ = oneofField_;
         }
         result.bitField2_ |= to_bitField2_;
+      }
+
+      private void copyFrom_autosplit_2(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 other) {
+        int to_bitField2_ = 0;
+        unpackedFloat_ = other.unpackedFloat_;
+        if (!unpackedFloat_.isEmpty()) {
+          to_bitField2_ |= 0x00000001;
+        }
+        unpackedDouble_ = other.unpackedDouble_;
+        if (!unpackedDouble_.isEmpty()) {
+          to_bitField2_ |= 0x00000002;
+        }
+        unpackedBool_ = other.unpackedBool_;
+        if (!unpackedBool_.isEmpty()) {
+          to_bitField2_ |= 0x00000004;
+        }
+        unpackedNestedEnum_ = other.unpackedNestedEnum_;
+        if (!unpackedNestedEnum_.isEmpty()) {
+          to_bitField2_ |= 0x00000008;
+        }
+        mapInt32Int32_ = other.mapInt32Int32_;
+        if (mapInt32Int32_ != null) {
+          to_bitField2_ |= 0x00000010;
+        }
+        mapInt64Int64_ = other.mapInt64Int64_;
+        if (mapInt64Int64_ != null) {
+          to_bitField2_ |= 0x00000020;
+        }
+        mapUint32Uint32_ = other.mapUint32Uint32_;
+        if (mapUint32Uint32_ != null) {
+          to_bitField2_ |= 0x00000040;
+        }
+        mapUint64Uint64_ = other.mapUint64Uint64_;
+        if (mapUint64Uint64_ != null) {
+          to_bitField2_ |= 0x00000080;
+        }
+        mapSint32Sint32_ = other.mapSint32Sint32_;
+        if (mapSint32Sint32_ != null) {
+          to_bitField2_ |= 0x00000100;
+        }
+        mapSint64Sint64_ = other.mapSint64Sint64_;
+        if (mapSint64Sint64_ != null) {
+          to_bitField2_ |= 0x00000200;
+        }
+        mapFixed32Fixed32_ = other.mapFixed32Fixed32_;
+        if (mapFixed32Fixed32_ != null) {
+          to_bitField2_ |= 0x00000400;
+        }
+        mapFixed64Fixed64_ = other.mapFixed64Fixed64_;
+        if (mapFixed64Fixed64_ != null) {
+          to_bitField2_ |= 0x00000800;
+        }
+        mapSfixed32Sfixed32_ = other.mapSfixed32Sfixed32_;
+        if (mapSfixed32Sfixed32_ != null) {
+          to_bitField2_ |= 0x00001000;
+        }
+        mapSfixed64Sfixed64_ = other.mapSfixed64Sfixed64_;
+        if (mapSfixed64Sfixed64_ != null) {
+          to_bitField2_ |= 0x00002000;
+        }
+        mapInt32Float_ = other.mapInt32Float_;
+        if (mapInt32Float_ != null) {
+          to_bitField2_ |= 0x00004000;
+        }
+        mapInt32Double_ = other.mapInt32Double_;
+        if (mapInt32Double_ != null) {
+          to_bitField2_ |= 0x00008000;
+        }
+        mapBoolBool_ = other.mapBoolBool_;
+        if (mapBoolBool_ != null) {
+          to_bitField2_ |= 0x00010000;
+        }
+        mapStringString_ = other.mapStringString_;
+        if (mapStringString_ != null) {
+          to_bitField2_ |= 0x00020000;
+        }
+        mapStringBytes_ = other.mapStringBytes_;
+        if (mapStringBytes_ != null) {
+          to_bitField2_ |= 0x00040000;
+        }
+        if (other.getMapStringNestedMessageCount() > 0) {
+          internalGetMutableMapStringNestedMessage().mergeFrom(
+              other.internalGetMapStringNestedMessage());
+          bitField2_ |= 0x00080000;
+        }
+        if (other.getMapStringForeignMessageCount() > 0) {
+          internalGetMutableMapStringForeignMessage().mergeFrom(
+              other.internalGetMapStringForeignMessage());
+          bitField2_ |= 0x00100000;
+        }
+        mapStringNestedEnum_ = other.mapStringNestedEnum_;
+        if (mapStringNestedEnum_ != null) {
+          to_bitField2_ |= 0x00200000;
+        }
+        mapStringForeignEnum_ = other.mapStringForeignEnum_;
+        if (mapStringForeignEnum_ != null) {
+          to_bitField2_ |= 0x00400000;
+        }
+        if (other.oneofFieldCase_ == 111) {
+          to_bitField2_ |= 0x00800000;
+        }
+        if (other.oneofFieldCase_ == 112) {
+          to_bitField2_ |= 0x01000000;
+        }
+        if (other.oneofFieldCase_ == 113) {
+          to_bitField2_ |= 0x02000000;
+        }
+        if (other.oneofFieldCase_ == 114) {
+          to_bitField2_ |= 0x04000000;
+        }
+        if (other.oneofFieldCase_ == 115) {
+          to_bitField2_ |= 0x08000000;
+        }
+        if (other.oneofFieldCase_ == 116) {
+          to_bitField2_ |= 0x10000000;
+        }
+        if (other.oneofFieldCase_ == 117) {
+          to_bitField2_ |= 0x20000000;
+        }
+        if (other.oneofFieldCase_ == 118) {
+          to_bitField2_ |= 0x40000000;
+        }
+        if (other.oneofFieldCase_ == 119) {
+          to_bitField2_ |= 0x80000000;
+        }
+        oneofFieldCase_ = other.oneofFieldCase_;
+        oneofField_ = other.oneofField_;
+        bitField2_ |= to_bitField2_;
       }
 
       @java.lang.Override
@@ -13030,7 +13729,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         } // finally
         return this;
       }
-      private int oneofFieldCase_ = 0;
+      private int oneofFieldCase_;
       private java.lang.Object oneofField_;
       public OneofFieldCase
           getOneofFieldCase() {
@@ -13055,7 +13754,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
       private int bitField1_;
       private int bitField2_;
 
-      private int optionalInt32_ ;
+      private int optionalInt32_;
       /**
        * <code>int32 optional_int32 = 1;</code>
        * @return The optionalInt32.
@@ -13087,7 +13786,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private long optionalInt64_ ;
+      private long optionalInt64_;
       /**
        * <code>int64 optional_int64 = 2;</code>
        * @return The optionalInt64.
@@ -13119,7 +13818,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private int optionalUint32_ ;
+      private int optionalUint32_;
       /**
        * <code>uint32 optional_uint32 = 3;</code>
        * @return The optionalUint32.
@@ -13151,7 +13850,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private long optionalUint64_ ;
+      private long optionalUint64_;
       /**
        * <code>uint64 optional_uint64 = 4;</code>
        * @return The optionalUint64.
@@ -13183,7 +13882,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private int optionalSint32_ ;
+      private int optionalSint32_;
       /**
        * <code>sint32 optional_sint32 = 5;</code>
        * @return The optionalSint32.
@@ -13215,7 +13914,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private long optionalSint64_ ;
+      private long optionalSint64_;
       /**
        * <code>sint64 optional_sint64 = 6;</code>
        * @return The optionalSint64.
@@ -13247,7 +13946,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private int optionalFixed32_ ;
+      private int optionalFixed32_;
       /**
        * <code>fixed32 optional_fixed32 = 7;</code>
        * @return The optionalFixed32.
@@ -13279,7 +13978,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private long optionalFixed64_ ;
+      private long optionalFixed64_;
       /**
        * <code>fixed64 optional_fixed64 = 8;</code>
        * @return The optionalFixed64.
@@ -13311,7 +14010,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private int optionalSfixed32_ ;
+      private int optionalSfixed32_;
       /**
        * <code>sfixed32 optional_sfixed32 = 9;</code>
        * @return The optionalSfixed32.
@@ -13343,7 +14042,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private long optionalSfixed64_ ;
+      private long optionalSfixed64_;
       /**
        * <code>sfixed64 optional_sfixed64 = 10;</code>
        * @return The optionalSfixed64.
@@ -13375,7 +14074,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private float optionalFloat_ ;
+      private float optionalFloat_;
       /**
        * <code>float optional_float = 11;</code>
        * @return The optionalFloat.
@@ -13407,7 +14106,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private double optionalDouble_ ;
+      private double optionalDouble_;
       /**
        * <code>double optional_double = 12;</code>
        * @return The optionalDouble.
@@ -13439,7 +14138,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private boolean optionalBool_ ;
+      private boolean optionalBool_;
       /**
        * <code>bool optional_bool = 13;</code>
        * @return The optionalBool.
@@ -13471,7 +14170,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private java.lang.Object optionalString_ = "";
+      private java.lang.Object optionalString_;
       /**
        * <code>string optional_string = 14;</code>
        * @return The optionalString.
@@ -13543,7 +14242,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.ByteString optionalBytes_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString optionalBytes_;
       /**
        * <code>bytes optional_bytes = 15;</code>
        * @return The optionalBytes.
@@ -13831,7 +14530,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         bitField0_ |= 0x00000002;
       }
 
-      private int optionalNestedEnum_ = 0;
+      private int optionalNestedEnum_;
       /**
        * <code>.legacy_gencode_test.proto3.TestMostTypesProto3.NestedEnum optional_nested_enum = 21;</code>
        * @return The enum numeric value on the wire for optionalNestedEnum.
@@ -13883,7 +14582,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private int optionalForeignEnum_ = 0;
+      private int optionalForeignEnum_;
       /**
        * <code>.legacy_gencode_test.proto3.ForeignEnum optional_foreign_enum = 22;</code>
        * @return The enum numeric value on the wire for optionalForeignEnum.
@@ -13935,7 +14634,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private int optionalAliasedEnum_ = 0;
+      private int optionalAliasedEnum_;
       /**
        * <code>.legacy_gencode_test.proto3.TestMostTypesProto3.AliasedEnum optional_aliased_enum = 23;</code>
        * @return The enum numeric value on the wire for optionalAliasedEnum.
@@ -14115,7 +14814,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         bitField0_ |= 0x00000004;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedInt32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedInt32_;
       private void ensureRepeatedInt32IsMutable(int capacity) {
         if (!repeatedInt32_.isModifiable()) {
           repeatedInt32_ = makeMutableCopy(repeatedInt32_, capacity);
@@ -14227,7 +14926,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedInt64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedInt64_;
       private void ensureRepeatedInt64IsMutable(int capacity) {
         if (!repeatedInt64_.isModifiable()) {
           repeatedInt64_ = makeMutableCopy(repeatedInt64_, capacity);
@@ -14311,7 +15010,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedUint32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedUint32_;
       private void ensureRepeatedUint32IsMutable(int capacity) {
         if (!repeatedUint32_.isModifiable()) {
           repeatedUint32_ = makeMutableCopy(repeatedUint32_, capacity);
@@ -14395,7 +15094,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedUint64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedUint64_;
       private void ensureRepeatedUint64IsMutable(int capacity) {
         if (!repeatedUint64_.isModifiable()) {
           repeatedUint64_ = makeMutableCopy(repeatedUint64_, capacity);
@@ -14479,7 +15178,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedSint32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedSint32_;
       private void ensureRepeatedSint32IsMutable(int capacity) {
         if (!repeatedSint32_.isModifiable()) {
           repeatedSint32_ = makeMutableCopy(repeatedSint32_, capacity);
@@ -14563,7 +15262,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedSint64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedSint64_;
       private void ensureRepeatedSint64IsMutable(int capacity) {
         if (!repeatedSint64_.isModifiable()) {
           repeatedSint64_ = makeMutableCopy(repeatedSint64_, capacity);
@@ -14647,7 +15346,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedFixed32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedFixed32_;
       private void ensureRepeatedFixed32IsMutable(int capacity) {
         if (!repeatedFixed32_.isModifiable()) {
           repeatedFixed32_ = makeMutableCopy(repeatedFixed32_, capacity);
@@ -14731,7 +15430,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedFixed64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedFixed64_;
       private void ensureRepeatedFixed64IsMutable(int capacity) {
         if (!repeatedFixed64_.isModifiable()) {
           repeatedFixed64_ = makeMutableCopy(repeatedFixed64_, capacity);
@@ -14815,7 +15514,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedSfixed32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedSfixed32_;
       private void ensureRepeatedSfixed32IsMutable(int capacity) {
         if (!repeatedSfixed32_.isModifiable()) {
           repeatedSfixed32_ = makeMutableCopy(repeatedSfixed32_, capacity);
@@ -14899,7 +15598,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList repeatedSfixed64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList repeatedSfixed64_;
       private void ensureRepeatedSfixed64IsMutable(int capacity) {
         if (!repeatedSfixed64_.isModifiable()) {
           repeatedSfixed64_ = makeMutableCopy(repeatedSfixed64_, capacity);
@@ -14983,7 +15682,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.FloatList repeatedFloat_ = emptyFloatList();
+      private com.google.protobuf.Internal.FloatList repeatedFloat_;
       private void ensureRepeatedFloatIsMutable(int capacity) {
         if (!repeatedFloat_.isModifiable()) {
           repeatedFloat_ = makeMutableCopy(repeatedFloat_, capacity);
@@ -15067,7 +15766,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.DoubleList repeatedDouble_ = emptyDoubleList();
+      private com.google.protobuf.Internal.DoubleList repeatedDouble_;
       private void ensureRepeatedDoubleIsMutable(int capacity) {
         if (!repeatedDouble_.isModifiable()) {
           repeatedDouble_ = makeMutableCopy(repeatedDouble_, capacity);
@@ -15151,7 +15850,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.BooleanList repeatedBool_ = emptyBooleanList();
+      private com.google.protobuf.Internal.BooleanList repeatedBool_;
       private void ensureRepeatedBoolIsMutable(int capacity) {
         if (!repeatedBool_.isModifiable()) {
           repeatedBool_ = makeMutableCopy(repeatedBool_, capacity);
@@ -15235,8 +15934,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList repeatedString_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList repeatedString_;
       private void ensureRepeatedStringIsMutable() {
         if (!repeatedString_.isModifiable()) {
           repeatedString_ = new com.google.protobuf.LazyStringArrayList(repeatedString_);
@@ -15346,7 +16044,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes_ = emptyList(com.google.protobuf.ByteString.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes_;
       private void ensureRepeatedBytesIsMutable(int capacity) {
         if (!repeatedBytes_.isModifiable()) {
           repeatedBytes_ = makeMutableCopy(repeatedBytes_, capacity);
@@ -15430,8 +16128,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage> repeatedNestedMessage_ =
-          emptyList(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage.class);
+      private com.google.protobuf.Internal.ProtobufList<legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage> repeatedNestedMessage_;
       private void ensureRepeatedNestedMessageIsMutable() {
         if (!repeatedNestedMessage_.isModifiable()) {
           repeatedNestedMessage_ = makeMutableCopy(repeatedNestedMessage_);
@@ -15664,8 +16361,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return repeatedNestedMessageBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage> repeatedForeignMessage_ =
-          emptyList(legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage.class);
+      private com.google.protobuf.Internal.ProtobufList<legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage> repeatedForeignMessage_;
       private void ensureRepeatedForeignMessageIsMutable() {
         if (!repeatedForeignMessage_.isModifiable()) {
           repeatedForeignMessage_ = makeMutableCopy(repeatedForeignMessage_);
@@ -15898,7 +16594,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return repeatedForeignMessageBuilder_;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedNestedEnum_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedNestedEnum_;
       private void ensureRepeatedNestedEnumIsMutable(int capacity) {
         if (!repeatedNestedEnum_.isModifiable()) {
           repeatedNestedEnum_ = makeMutableCopy(repeatedNestedEnum_, capacity);
@@ -16036,7 +16732,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList repeatedForeignEnum_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList repeatedForeignEnum_;
       private void ensureRepeatedForeignEnumIsMutable(int capacity) {
         if (!repeatedForeignEnum_.isModifiable()) {
           repeatedForeignEnum_ = makeMutableCopy(repeatedForeignEnum_, capacity);
@@ -16174,7 +16870,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList packedInt32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList packedInt32_;
       private void ensurePackedInt32IsMutable(int capacity) {
         if (!packedInt32_.isModifiable()) {
           packedInt32_ = makeMutableCopy(packedInt32_, capacity);
@@ -16286,7 +16982,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList packedInt64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList packedInt64_;
       private void ensurePackedInt64IsMutable(int capacity) {
         if (!packedInt64_.isModifiable()) {
           packedInt64_ = makeMutableCopy(packedInt64_, capacity);
@@ -16370,7 +17066,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList packedUint32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList packedUint32_;
       private void ensurePackedUint32IsMutable(int capacity) {
         if (!packedUint32_.isModifiable()) {
           packedUint32_ = makeMutableCopy(packedUint32_, capacity);
@@ -16454,7 +17150,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList packedUint64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList packedUint64_;
       private void ensurePackedUint64IsMutable(int capacity) {
         if (!packedUint64_.isModifiable()) {
           packedUint64_ = makeMutableCopy(packedUint64_, capacity);
@@ -16538,7 +17234,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList packedSint32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList packedSint32_;
       private void ensurePackedSint32IsMutable(int capacity) {
         if (!packedSint32_.isModifiable()) {
           packedSint32_ = makeMutableCopy(packedSint32_, capacity);
@@ -16622,7 +17318,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList packedSint64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList packedSint64_;
       private void ensurePackedSint64IsMutable(int capacity) {
         if (!packedSint64_.isModifiable()) {
           packedSint64_ = makeMutableCopy(packedSint64_, capacity);
@@ -16706,7 +17402,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList packedFixed32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList packedFixed32_;
       private void ensurePackedFixed32IsMutable(int capacity) {
         if (!packedFixed32_.isModifiable()) {
           packedFixed32_ = makeMutableCopy(packedFixed32_, capacity);
@@ -16790,7 +17486,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList packedFixed64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList packedFixed64_;
       private void ensurePackedFixed64IsMutable(int capacity) {
         if (!packedFixed64_.isModifiable()) {
           packedFixed64_ = makeMutableCopy(packedFixed64_, capacity);
@@ -16874,7 +17570,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList packedSfixed32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList packedSfixed32_;
       private void ensurePackedSfixed32IsMutable(int capacity) {
         if (!packedSfixed32_.isModifiable()) {
           packedSfixed32_ = makeMutableCopy(packedSfixed32_, capacity);
@@ -16958,7 +17654,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList packedSfixed64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList packedSfixed64_;
       private void ensurePackedSfixed64IsMutable(int capacity) {
         if (!packedSfixed64_.isModifiable()) {
           packedSfixed64_ = makeMutableCopy(packedSfixed64_, capacity);
@@ -17042,7 +17738,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.FloatList packedFloat_ = emptyFloatList();
+      private com.google.protobuf.Internal.FloatList packedFloat_;
       private void ensurePackedFloatIsMutable(int capacity) {
         if (!packedFloat_.isModifiable()) {
           packedFloat_ = makeMutableCopy(packedFloat_, capacity);
@@ -17126,7 +17822,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.DoubleList packedDouble_ = emptyDoubleList();
+      private com.google.protobuf.Internal.DoubleList packedDouble_;
       private void ensurePackedDoubleIsMutable(int capacity) {
         if (!packedDouble_.isModifiable()) {
           packedDouble_ = makeMutableCopy(packedDouble_, capacity);
@@ -17210,7 +17906,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.BooleanList packedBool_ = emptyBooleanList();
+      private com.google.protobuf.Internal.BooleanList packedBool_;
       private void ensurePackedBoolIsMutable(int capacity) {
         if (!packedBool_.isModifiable()) {
           packedBool_ = makeMutableCopy(packedBool_, capacity);
@@ -17294,7 +17990,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList packedNestedEnum_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList packedNestedEnum_;
       private void ensurePackedNestedEnumIsMutable(int capacity) {
         if (!packedNestedEnum_.isModifiable()) {
           packedNestedEnum_ = makeMutableCopy(packedNestedEnum_, capacity);
@@ -17432,7 +18128,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList unpackedInt32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList unpackedInt32_;
       private void ensureUnpackedInt32IsMutable(int capacity) {
         if (!unpackedInt32_.isModifiable()) {
           unpackedInt32_ = makeMutableCopy(unpackedInt32_, capacity);
@@ -17544,7 +18240,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList unpackedInt64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList unpackedInt64_;
       private void ensureUnpackedInt64IsMutable(int capacity) {
         if (!unpackedInt64_.isModifiable()) {
           unpackedInt64_ = makeMutableCopy(unpackedInt64_, capacity);
@@ -17628,7 +18324,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList unpackedUint32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList unpackedUint32_;
       private void ensureUnpackedUint32IsMutable(int capacity) {
         if (!unpackedUint32_.isModifiable()) {
           unpackedUint32_ = makeMutableCopy(unpackedUint32_, capacity);
@@ -17712,7 +18408,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList unpackedUint64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList unpackedUint64_;
       private void ensureUnpackedUint64IsMutable(int capacity) {
         if (!unpackedUint64_.isModifiable()) {
           unpackedUint64_ = makeMutableCopy(unpackedUint64_, capacity);
@@ -17796,7 +18492,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList unpackedSint32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList unpackedSint32_;
       private void ensureUnpackedSint32IsMutable(int capacity) {
         if (!unpackedSint32_.isModifiable()) {
           unpackedSint32_ = makeMutableCopy(unpackedSint32_, capacity);
@@ -17880,7 +18576,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList unpackedSint64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList unpackedSint64_;
       private void ensureUnpackedSint64IsMutable(int capacity) {
         if (!unpackedSint64_.isModifiable()) {
           unpackedSint64_ = makeMutableCopy(unpackedSint64_, capacity);
@@ -17964,7 +18660,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList unpackedFixed32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList unpackedFixed32_;
       private void ensureUnpackedFixed32IsMutable(int capacity) {
         if (!unpackedFixed32_.isModifiable()) {
           unpackedFixed32_ = makeMutableCopy(unpackedFixed32_, capacity);
@@ -18048,7 +18744,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList unpackedFixed64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList unpackedFixed64_;
       private void ensureUnpackedFixed64IsMutable(int capacity) {
         if (!unpackedFixed64_.isModifiable()) {
           unpackedFixed64_ = makeMutableCopy(unpackedFixed64_, capacity);
@@ -18132,7 +18828,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList unpackedSfixed32_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList unpackedSfixed32_;
       private void ensureUnpackedSfixed32IsMutable(int capacity) {
         if (!unpackedSfixed32_.isModifiable()) {
           unpackedSfixed32_ = makeMutableCopy(unpackedSfixed32_, capacity);
@@ -18216,7 +18912,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.LongList unpackedSfixed64_ = emptyLongList();
+      private com.google.protobuf.Internal.LongList unpackedSfixed64_;
       private void ensureUnpackedSfixed64IsMutable(int capacity) {
         if (!unpackedSfixed64_.isModifiable()) {
           unpackedSfixed64_ = makeMutableCopy(unpackedSfixed64_, capacity);
@@ -18300,7 +18996,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.FloatList unpackedFloat_ = emptyFloatList();
+      private com.google.protobuf.Internal.FloatList unpackedFloat_;
       private void ensureUnpackedFloatIsMutable(int capacity) {
         if (!unpackedFloat_.isModifiable()) {
           unpackedFloat_ = makeMutableCopy(unpackedFloat_, capacity);
@@ -18384,7 +19080,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.DoubleList unpackedDouble_ = emptyDoubleList();
+      private com.google.protobuf.Internal.DoubleList unpackedDouble_;
       private void ensureUnpackedDoubleIsMutable(int capacity) {
         if (!unpackedDouble_.isModifiable()) {
           unpackedDouble_ = makeMutableCopy(unpackedDouble_, capacity);
@@ -18468,7 +19164,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.BooleanList unpackedBool_ = emptyBooleanList();
+      private com.google.protobuf.Internal.BooleanList unpackedBool_;
       private void ensureUnpackedBoolIsMutable(int capacity) {
         if (!unpackedBool_.isModifiable()) {
           unpackedBool_ = makeMutableCopy(unpackedBool_, capacity);
@@ -18552,7 +19248,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList unpackedNestedEnum_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList unpackedNestedEnum_;
       private void ensureUnpackedNestedEnumIsMutable(int capacity) {
         if (!unpackedNestedEnum_.isModifiable()) {
           unpackedNestedEnum_ = makeMutableCopy(unpackedNestedEnum_, capacity);
@@ -22142,21 +22838,1948 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
     }
 
     private static final com.google.protobuf.Parser<TestMostTypesProto3>
-        PARSER = new com.google.protobuf.AbstractParser<TestMostTypesProto3>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestMostTypesProto3> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestMostTypesProto3 parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        TestMostTypesProto3 instance = new TestMostTypesProto3((Builder) null);
+        java.lang.Object unknown = null;
+        int pendingTag = 0;
+        java.lang.Object parsed_optionalString = null;
+        java.io.IOException parseFailure = null;
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            retryTag: while (true) {
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.optionalInt32_ = input.readInt32();
+
+                break;
+              } // case 8
+              case 16: {
+                instance.optionalInt64_ = input.readInt64();
+
+                break;
+              } // case 16
+              case 24: {
+                instance.optionalUint32_ = input.readUInt32();
+
+                break;
+              } // case 24
+              case 32: {
+                instance.optionalUint64_ = input.readUInt64();
+
+                break;
+              } // case 32
+              case 40: {
+                instance.optionalSint32_ = input.readSInt32();
+
+                break;
+              } // case 40
+              case 48: {
+                instance.optionalSint64_ = input.readSInt64();
+
+                break;
+              } // case 48
+              case 61: {
+                instance.optionalFixed32_ = input.readFixed32();
+
+                break;
+              } // case 61
+              case 65: {
+                instance.optionalFixed64_ = input.readFixed64();
+
+                break;
+              } // case 65
+              case 77: {
+                instance.optionalSfixed32_ = input.readSFixed32();
+
+                break;
+              } // case 77
+              case 81: {
+                instance.optionalSfixed64_ = input.readSFixed64();
+
+                break;
+              } // case 81
+              case 93: {
+                instance.optionalFloat_ = input.readFloat();
+
+                break;
+              } // case 93
+              case 97: {
+                instance.optionalDouble_ = input.readDouble();
+
+                break;
+              } // case 97
+              case 104: {
+                instance.optionalBool_ = input.readBool();
+
+                break;
+              } // case 104
+              case 114: {
+                parsed_optionalString = input.readStringRequireUtf8();
+
+                break;
+              } // case 114
+              case 122: {
+                instance.optionalBytes_ = input.readBytes();
+
+                break;
+              } // case 122
+              case 146: {
+                pendingTag = parseOptionalNestedMessageField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 146
+              case 154: {
+                pendingTag = parseOptionalForeignMessageField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 154
+              case 168: {
+                instance.optionalNestedEnum_ = input.readEnum();
+
+                break;
+              } // case 168
+              case 176: {
+                instance.optionalForeignEnum_ = input.readEnum();
+
+                break;
+              } // case 176
+              case 184: {
+                instance.optionalAliasedEnum_ = input.readEnum();
+
+                break;
+              } // case 184
+              case 218: {
+                pendingTag = parseRecursiveMessageField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 218
+              case 248: {
+                int v = input.readInt32();
+                ensureRepeatedInt32IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedInt32_.addInt(v);
+                break;
+              } // case 248
+              case 250: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedInt32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedInt32_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 250
+              case 256: {
+                long v = input.readInt64();
+                ensureRepeatedInt64IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedInt64_.addLong(v);
+                break;
+              } // case 256
+              case 258: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedInt64IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedInt64_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 258
+              case 264: {
+                int v = input.readUInt32();
+                ensureRepeatedUint32IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedUint32_.addInt(v);
+                break;
+              } // case 264
+              case 266: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedUint32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedUint32_.addInt(input.readUInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 266
+              case 272: {
+                long v = input.readUInt64();
+                ensureRepeatedUint64IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedUint64_.addLong(v);
+                break;
+              } // case 272
+              case 274: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedUint64IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedUint64_.addLong(input.readUInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 274
+              case 280: {
+                int v = input.readSInt32();
+                ensureRepeatedSint32IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSint32_.addInt(v);
+                break;
+              } // case 280
+              case 282: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedSint32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedSint32_.addInt(input.readSInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 282
+              case 288: {
+                long v = input.readSInt64();
+                ensureRepeatedSint64IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSint64_.addLong(v);
+                break;
+              } // case 288
+              case 290: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedSint64IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedSint64_.addLong(input.readSInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 290
+              case 301: {
+                int v = input.readFixed32();
+                ensureRepeatedFixed32IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedFixed32_.addInt(v);
+                break;
+              } // case 301
+              case 298: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedFixed32IsMutable(instance, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedFixed32_.addInt(input.readFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 298
+              case 305: {
+                long v = input.readFixed64();
+                ensureRepeatedFixed64IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedFixed64_.addLong(v);
+                break;
+              } // case 305
+              case 306: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedFixed64IsMutable(instance, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedFixed64_.addLong(input.readFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 306
+              case 317: {
+                int v = input.readSFixed32();
+                ensureRepeatedSfixed32IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSfixed32_.addInt(v);
+                break;
+              } // case 317
+              case 314: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedSfixed32IsMutable(instance, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedSfixed32_.addInt(input.readSFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 314
+              case 321: {
+                long v = input.readSFixed64();
+                ensureRepeatedSfixed64IsMutable(instance, /* capacity= */ -1);
+                instance.repeatedSfixed64_.addLong(v);
+                break;
+              } // case 321
+              case 322: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedSfixed64IsMutable(instance, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedSfixed64_.addLong(input.readSFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 322
+              case 333: {
+                float v = input.readFloat();
+                ensureRepeatedFloatIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedFloat_.addFloat(v);
+                break;
+              } // case 333
+              case 330: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedFloatIsMutable(instance, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedFloat_.addFloat(input.readFloat());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 330
+              case 337: {
+                double v = input.readDouble();
+                ensureRepeatedDoubleIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedDouble_.addDouble(v);
+                break;
+              } // case 337
+              case 338: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedDoubleIsMutable(instance, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedDouble_.addDouble(input.readDouble());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 338
+              case 344: {
+                boolean v = input.readBool();
+                ensureRepeatedBoolIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedBool_.addBoolean(v);
+                break;
+              } // case 344
+              case 346: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureRepeatedBoolIsMutable(instance, alloc / 1);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedBool_.addBoolean(input.readBool());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 346
+              case 354: {
+                ensureRepeatedStringIsMutable(instance);
+                instance.repeatedString_.add(input.readStringRequireUtf8());
+                break;
+              } // case 354
+              case 362: {
+                com.google.protobuf.ByteString v = input.readBytes();
+                ensureRepeatedBytesIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedBytes_.add(v);
+                break;
+              } // case 362
+              case 386: {
+                final int oldLimit = input.pushLimitBeforeMessage();
+                legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage m = legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+                input.popLimitAfterMessage(oldLimit);
+                if (!instance.repeatedNestedMessage_.isModifiable()) {
+  instance.repeatedNestedMessage_ = makeMutableCopy(instance.repeatedNestedMessage_);
+}
+                instance.repeatedNestedMessage_.add(m);
+                break;
+              } // case 386
+              case 394: {
+                final int oldLimit = input.pushLimitBeforeMessage();
+                legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage m = legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage.parser().parsePartialFrom(input, extensionRegistry);
+                input.popLimitAfterMessage(oldLimit);
+                if (!instance.repeatedForeignMessage_.isModifiable()) {
+  instance.repeatedForeignMessage_ = makeMutableCopy(instance.repeatedForeignMessage_);
+}
+                instance.repeatedForeignMessage_.add(m);
+                break;
+              } // case 394
+              case 408: {
+                int tmpRaw = input.readEnum();
+                ensureRepeatedNestedEnumIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedNestedEnum_.addInt(tmpRaw);
+                break;
+              } // case 408
+              case 410: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedNestedEnumIsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedNestedEnum_.addInt(input.readEnum());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 410
+              case 416: {
+                int tmpRaw = input.readEnum();
+                ensureRepeatedForeignEnumIsMutable(instance, /* capacity= */ -1);
+                instance.repeatedForeignEnum_.addInt(tmpRaw);
+                break;
+              } // case 416
+              case 418: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRepeatedForeignEnumIsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.repeatedForeignEnum_.addInt(input.readEnum());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 418
+              case 450: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapInt32Int32__ = input.readMessage(
+                    MapInt32Int32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Int32(instance).getMutableMap().put(
+                    mapInt32Int32__.getKey(), mapInt32Int32__.getValue());
+
+                break;
+              } // case 450
+              case 458: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapInt64Int64__ = input.readMessage(
+                    MapInt64Int64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt64Int64(instance).getMutableMap().put(
+                    mapInt64Int64__.getKey(), mapInt64Int64__.getValue());
+
+                break;
+              } // case 458
+              case 466: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapUint32Uint32__ = input.readMessage(
+                    MapUint32Uint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapUint32Uint32(instance).getMutableMap().put(
+                    mapUint32Uint32__.getKey(), mapUint32Uint32__.getValue());
+
+                break;
+              } // case 466
+              case 474: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapUint64Uint64__ = input.readMessage(
+                    MapUint64Uint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapUint64Uint64(instance).getMutableMap().put(
+                    mapUint64Uint64__.getKey(), mapUint64Uint64__.getValue());
+
+                break;
+              } // case 474
+              case 482: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapSint32Sint32__ = input.readMessage(
+                    MapSint32Sint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapSint32Sint32(instance).getMutableMap().put(
+                    mapSint32Sint32__.getKey(), mapSint32Sint32__.getValue());
+
+                break;
+              } // case 482
+              case 490: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapSint64Sint64__ = input.readMessage(
+                    MapSint64Sint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapSint64Sint64(instance).getMutableMap().put(
+                    mapSint64Sint64__.getKey(), mapSint64Sint64__.getValue());
+
+                break;
+              } // case 490
+              case 498: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapFixed32Fixed32__ = input.readMessage(
+                    MapFixed32Fixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapFixed32Fixed32(instance).getMutableMap().put(
+                    mapFixed32Fixed32__.getKey(), mapFixed32Fixed32__.getValue());
+
+                break;
+              } // case 498
+              case 506: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapFixed64Fixed64__ = input.readMessage(
+                    MapFixed64Fixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapFixed64Fixed64(instance).getMutableMap().put(
+                    mapFixed64Fixed64__.getKey(), mapFixed64Fixed64__.getValue());
+
+                break;
+              } // case 506
+              case 514: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+                mapSfixed32Sfixed32__ = input.readMessage(
+                    MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapSfixed32Sfixed32(instance).getMutableMap().put(
+                    mapSfixed32Sfixed32__.getKey(), mapSfixed32Sfixed32__.getValue());
+
+                break;
+              } // case 514
+              case 522: {
+                com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+                mapSfixed64Sfixed64__ = input.readMessage(
+                    MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapSfixed64Sfixed64(instance).getMutableMap().put(
+                    mapSfixed64Sfixed64__.getKey(), mapSfixed64Sfixed64__.getValue());
+
+                break;
+              } // case 522
+              case 530: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Float>
+                mapInt32Float__ = input.readMessage(
+                    MapInt32FloatDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Float(instance).getMutableMap().put(
+                    mapInt32Float__.getKey(), mapInt32Float__.getValue());
+
+                break;
+              } // case 530
+              case 538: {
+                com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Double>
+                mapInt32Double__ = input.readMessage(
+                    MapInt32DoubleDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapInt32Double(instance).getMutableMap().put(
+                    mapInt32Double__.getKey(), mapInt32Double__.getValue());
+
+                break;
+              } // case 538
+              case 546: {
+                com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.Boolean>
+                mapBoolBool__ = input.readMessage(
+                    MapBoolBoolDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapBoolBool(instance).getMutableMap().put(
+                    mapBoolBool__.getKey(), mapBoolBool__.getValue());
+
+                break;
+              } // case 546
+              case 554: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+                mapStringString__ = input.readMessage(
+                    MapStringStringDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapStringString(instance).getMutableMap().put(
+                    mapStringString__.getKey(), mapStringString__.getValue());
+
+                break;
+              } // case 554
+              case 562: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
+                mapStringBytes__ = input.readMessage(
+                    MapStringBytesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapStringBytes(instance).getMutableMap().put(
+                    mapStringBytes__.getKey(), mapStringBytes__.getValue());
+
+                break;
+              } // case 562
+              case 570: {
+                com.google.protobuf.MapEntry<java.lang.String, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage>
+                mapStringNestedMessage__ = input.readMessage(
+                    MapStringNestedMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapStringNestedMessage(instance).getMutableMap().put(
+                    mapStringNestedMessage__.getKey(), mapStringNestedMessage__.getValue());
+
+                break;
+              } // case 570
+              case 578: {
+                com.google.protobuf.MapEntry<java.lang.String, legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage>
+                mapStringForeignMessage__ = input.readMessage(
+                    MapStringForeignMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapStringForeignMessage(instance).getMutableMap().put(
+                    mapStringForeignMessage__.getKey(), mapStringForeignMessage__.getValue());
+
+                break;
+              } // case 578
+              case 586: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+                mapStringNestedEnum__ = input.readMessage(
+                    MapStringNestedEnumDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapStringNestedEnum(instance).getMutableMap().put(
+                    mapStringNestedEnum__.getKey(), mapStringNestedEnum__.getValue());
+
+                break;
+              } // case 586
+              case 594: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+                mapStringForeignEnum__ = input.readMessage(
+                    MapStringForeignEnumDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapStringForeignEnum(instance).getMutableMap().put(
+                    mapStringForeignEnum__.getKey(), mapStringForeignEnum__.getValue());
+
+                break;
+              } // case 594
+              case 600: {
+                int v = input.readInt32();
+                ensurePackedInt32IsMutable(instance, /* capacity= */ -1);
+                instance.packedInt32_.addInt(v);
+                break;
+              } // case 600
+              case 602: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensurePackedInt32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.packedInt32_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 602
+              case 608: {
+                long v = input.readInt64();
+                ensurePackedInt64IsMutable(instance, /* capacity= */ -1);
+                instance.packedInt64_.addLong(v);
+                break;
+              } // case 608
+              case 610: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensurePackedInt64IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.packedInt64_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 610
+              case 616: {
+                int v = input.readUInt32();
+                ensurePackedUint32IsMutable(instance, /* capacity= */ -1);
+                instance.packedUint32_.addInt(v);
+                break;
+              } // case 616
+              case 618: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensurePackedUint32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.packedUint32_.addInt(input.readUInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 618
+              case 624: {
+                long v = input.readUInt64();
+                ensurePackedUint64IsMutable(instance, /* capacity= */ -1);
+                instance.packedUint64_.addLong(v);
+                break;
+              } // case 624
+              case 626: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensurePackedUint64IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.packedUint64_.addLong(input.readUInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 626
+              case 632: {
+                int v = input.readSInt32();
+                ensurePackedSint32IsMutable(instance, /* capacity= */ -1);
+                instance.packedSint32_.addInt(v);
+                break;
+              } // case 632
+              case 634: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensurePackedSint32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.packedSint32_.addInt(input.readSInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 634
+              case 640: {
+                long v = input.readSInt64();
+                ensurePackedSint64IsMutable(instance, /* capacity= */ -1);
+                instance.packedSint64_.addLong(v);
+                break;
+              } // case 640
+              case 642: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensurePackedSint64IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.packedSint64_.addLong(input.readSInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 642
+              case 653: {
+                int v = input.readFixed32();
+                ensurePackedFixed32IsMutable(instance, /* capacity= */ -1);
+                instance.packedFixed32_.addInt(v);
+                break;
+              } // case 653
+              case 650: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensurePackedFixed32IsMutable(instance, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.packedFixed32_.addInt(input.readFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 650
+              case 657: {
+                long v = input.readFixed64();
+                ensurePackedFixed64IsMutable(instance, /* capacity= */ -1);
+                instance.packedFixed64_.addLong(v);
+                break;
+              } // case 657
+              case 658: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensurePackedFixed64IsMutable(instance, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.packedFixed64_.addLong(input.readFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 658
+              case 669: {
+                int v = input.readSFixed32();
+                ensurePackedSfixed32IsMutable(instance, /* capacity= */ -1);
+                instance.packedSfixed32_.addInt(v);
+                break;
+              } // case 669
+              case 666: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensurePackedSfixed32IsMutable(instance, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.packedSfixed32_.addInt(input.readSFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 666
+              case 673: {
+                long v = input.readSFixed64();
+                ensurePackedSfixed64IsMutable(instance, /* capacity= */ -1);
+                instance.packedSfixed64_.addLong(v);
+                break;
+              } // case 673
+              case 674: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensurePackedSfixed64IsMutable(instance, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.packedSfixed64_.addLong(input.readSFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 674
+              case 685: {
+                float v = input.readFloat();
+                ensurePackedFloatIsMutable(instance, /* capacity= */ -1);
+                instance.packedFloat_.addFloat(v);
+                break;
+              } // case 685
+              case 682: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensurePackedFloatIsMutable(instance, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.packedFloat_.addFloat(input.readFloat());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 682
+              case 689: {
+                double v = input.readDouble();
+                ensurePackedDoubleIsMutable(instance, /* capacity= */ -1);
+                instance.packedDouble_.addDouble(v);
+                break;
+              } // case 689
+              case 690: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensurePackedDoubleIsMutable(instance, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.packedDouble_.addDouble(input.readDouble());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 690
+              case 696: {
+                boolean v = input.readBool();
+                ensurePackedBoolIsMutable(instance, /* capacity= */ -1);
+                instance.packedBool_.addBoolean(v);
+                break;
+              } // case 696
+              case 698: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensurePackedBoolIsMutable(instance, alloc / 1);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.packedBool_.addBoolean(input.readBool());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 698
+              case 704: {
+                int tmpRaw = input.readEnum();
+                ensurePackedNestedEnumIsMutable(instance, /* capacity= */ -1);
+                instance.packedNestedEnum_.addInt(tmpRaw);
+                break;
+              } // case 704
+              case 706: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensurePackedNestedEnumIsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.packedNestedEnum_.addInt(input.readEnum());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 706
+              case 712: {
+                int v = input.readInt32();
+                ensureUnpackedInt32IsMutable(instance, /* capacity= */ -1);
+                instance.unpackedInt32_.addInt(v);
+                break;
+              } // case 712
+              case 714: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureUnpackedInt32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.unpackedInt32_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 714
+              case 720: {
+                long v = input.readInt64();
+                ensureUnpackedInt64IsMutable(instance, /* capacity= */ -1);
+                instance.unpackedInt64_.addLong(v);
+                break;
+              } // case 720
+              case 722: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureUnpackedInt64IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.unpackedInt64_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 722
+              case 728: {
+                int v = input.readUInt32();
+                ensureUnpackedUint32IsMutable(instance, /* capacity= */ -1);
+                instance.unpackedUint32_.addInt(v);
+                break;
+              } // case 728
+              case 730: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureUnpackedUint32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.unpackedUint32_.addInt(input.readUInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 730
+              case 736: {
+                long v = input.readUInt64();
+                ensureUnpackedUint64IsMutable(instance, /* capacity= */ -1);
+                instance.unpackedUint64_.addLong(v);
+                break;
+              } // case 736
+              case 738: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureUnpackedUint64IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.unpackedUint64_.addLong(input.readUInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 738
+              case 744: {
+                int v = input.readSInt32();
+                ensureUnpackedSint32IsMutable(instance, /* capacity= */ -1);
+                instance.unpackedSint32_.addInt(v);
+                break;
+              } // case 744
+              case 746: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureUnpackedSint32IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.unpackedSint32_.addInt(input.readSInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 746
+              case 752: {
+                long v = input.readSInt64();
+                ensureUnpackedSint64IsMutable(instance, /* capacity= */ -1);
+                instance.unpackedSint64_.addLong(v);
+                break;
+              } // case 752
+              case 754: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureUnpackedSint64IsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.unpackedSint64_.addLong(input.readSInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 754
+              case 765: {
+                int v = input.readFixed32();
+                ensureUnpackedFixed32IsMutable(instance, /* capacity= */ -1);
+                instance.unpackedFixed32_.addInt(v);
+                break;
+              } // case 765
+              case 762: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureUnpackedFixed32IsMutable(instance, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.unpackedFixed32_.addInt(input.readFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 762
+              case 769: {
+                long v = input.readFixed64();
+                ensureUnpackedFixed64IsMutable(instance, /* capacity= */ -1);
+                instance.unpackedFixed64_.addLong(v);
+                break;
+              } // case 769
+              case 770: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureUnpackedFixed64IsMutable(instance, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.unpackedFixed64_.addLong(input.readFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 770
+              case 781: {
+                int v = input.readSFixed32();
+                ensureUnpackedSfixed32IsMutable(instance, /* capacity= */ -1);
+                instance.unpackedSfixed32_.addInt(v);
+                break;
+              } // case 781
+              case 778: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureUnpackedSfixed32IsMutable(instance, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.unpackedSfixed32_.addInt(input.readSFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 778
+              case 785: {
+                long v = input.readSFixed64();
+                ensureUnpackedSfixed64IsMutable(instance, /* capacity= */ -1);
+                instance.unpackedSfixed64_.addLong(v);
+                break;
+              } // case 785
+              case 786: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureUnpackedSfixed64IsMutable(instance, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.unpackedSfixed64_.addLong(input.readSFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 786
+              case 797: {
+                float v = input.readFloat();
+                ensureUnpackedFloatIsMutable(instance, /* capacity= */ -1);
+                instance.unpackedFloat_.addFloat(v);
+                break;
+              } // case 797
+              case 794: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureUnpackedFloatIsMutable(instance, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.unpackedFloat_.addFloat(input.readFloat());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 794
+              case 801: {
+                double v = input.readDouble();
+                ensureUnpackedDoubleIsMutable(instance, /* capacity= */ -1);
+                instance.unpackedDouble_.addDouble(v);
+                break;
+              } // case 801
+              case 802: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureUnpackedDoubleIsMutable(instance, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.unpackedDouble_.addDouble(input.readDouble());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 802
+              case 808: {
+                boolean v = input.readBool();
+                ensureUnpackedBoolIsMutable(instance, /* capacity= */ -1);
+                instance.unpackedBool_.addBoolean(v);
+                break;
+              } // case 808
+              case 810: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                ensureUnpackedBoolIsMutable(instance, alloc / 1);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.unpackedBool_.addBoolean(input.readBool());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 810
+              case 816: {
+                int tmpRaw = input.readEnum();
+                ensureUnpackedNestedEnumIsMutable(instance, /* capacity= */ -1);
+                instance.unpackedNestedEnum_.addInt(tmpRaw);
+                break;
+              } // case 816
+              case 818: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureUnpackedNestedEnumIsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.unpackedNestedEnum_.addInt(input.readEnum());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 818
+              case 888: {
+                pendingTag = parseOneofUint32Field(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 888
+              case 898: {
+                pendingTag = parseOneofNestedMessageField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 898
+              case 906: {
+                pendingTag = parseOneofStringField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 906
+              case 914: {
+                pendingTag = parseOneofBytesField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 914
+              case 920: {
+                pendingTag = parseOneofBoolField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 920
+              case 928: {
+                pendingTag = parseOneofUint64Field(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 928
+              case 941: {
+                pendingTag = parseOneofFloatField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 941
+              case 945: {
+                pendingTag = parseOneofDoubleField(instance, input, extensionRegistry, fieldBuilders);
+                break;
+              } // case 945
+              case 952: {
+                if (fieldBuilders == null && instance.oneofField_ instanceof com.google.protobuf.GeneratedMessage) {
+                  pendingTag = tag;
+                  break;
+                }
+                unknown = parseOneofEnumField(instance, input, extensionRegistry, unknown);
+                break;
+              } // case 952
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+            if (pendingTag == 0) break retryTag;
+            fieldBuilders = prepareChildren(instance, pendingTag);
+            pendingTag = 0;
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parsed_optionalString != null) instance.optionalString_ = parsed_optionalString;
+        finishCollections0(instance);
+        finishCollections1(instance);
+        finishCollections2(instance);
+        if (fieldBuilders != null) finishChildren0(instance, fieldBuilders);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseOptionalNestedMessageField(
+          legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.optionalNestedMessage_ != null) {
+          return 146;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.optionalNestedMessage_ != null || fieldBuilders[0] != null) {
+              if (fieldBuilders[0] == null) {
+                fieldBuilders[0] = new com.google.protobuf.SingleFieldBuilder<
+                    legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessageOrBuilder>(
+                        instance.getOptionalNestedMessage(),
+                        null,
+                        false);
+                instance.optionalNestedMessage_ = null;
+              }
+              instance.bitField0_ |= 0x00000001;
+            ((com.google.protobuf.SingleFieldBuilder<legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessageOrBuilder>) fieldBuilders[0]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.optionalNestedMessage_ = legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000001;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.optionalNestedMessage_ = legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseOptionalForeignMessageField(
+          legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.optionalForeignMessage_ != null) {
+          return 154;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.optionalForeignMessage_ != null || fieldBuilders[1] != null) {
+              if (fieldBuilders[1] == null) {
+                fieldBuilders[1] = new com.google.protobuf.SingleFieldBuilder<
+                    legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage, legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessageOrBuilder>(
+                        instance.getOptionalForeignMessage(),
+                        null,
+                        false);
+                instance.optionalForeignMessage_ = null;
+              }
+              instance.bitField0_ |= 0x00000002;
+            ((com.google.protobuf.SingleFieldBuilder<legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage, legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessageOrBuilder>) fieldBuilders[1]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.optionalForeignMessage_ = legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000002;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.optionalForeignMessage_ = legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000002;
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseRecursiveMessageField(
+          legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.recursiveMessage_ != null) {
+          return 218;
+        }
+        if (fieldBuilders != null) {
+          final int oldLimit = input.pushLimitBeforeMessage();
+          if (instance.recursiveMessage_ != null || fieldBuilders[2] != null) {
+              if (fieldBuilders[2] == null) {
+                fieldBuilders[2] = new com.google.protobuf.SingleFieldBuilder<
+                    legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3OrBuilder>(
+                        instance.getRecursiveMessage(),
+                        null,
+                        false);
+                instance.recursiveMessage_ = null;
+              }
+              instance.bitField0_ |= 0x00000004;
+            ((com.google.protobuf.SingleFieldBuilder<legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3OrBuilder>) fieldBuilders[2]).getBuilder()
+                .mergeFrom(input, extensionRegistry);
+          } else {
+            instance.recursiveMessage_ = legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.parser().parsePartialFrom(input, extensionRegistry);
+          }
+          input.popLimitAfterMessage(oldLimit);
+          instance.bitField0_ |= 0x00000004;
+          return 0;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        instance.recursiveMessage_ = legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000004;
+        return 0;
+      }
+      private static void ensureRepeatedInt32IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.repeatedInt32_.isModifiable()) {
+          instance.repeatedInt32_ = makeMutableCopy(instance.repeatedInt32_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedInt64IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.repeatedInt64_.isModifiable()) {
+          instance.repeatedInt64_ = makeMutableCopy(instance.repeatedInt64_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedUint32IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.repeatedUint32_.isModifiable()) {
+          instance.repeatedUint32_ = makeMutableCopy(instance.repeatedUint32_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedUint64IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.repeatedUint64_.isModifiable()) {
+          instance.repeatedUint64_ = makeMutableCopy(instance.repeatedUint64_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedSint32IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.repeatedSint32_.isModifiable()) {
+          instance.repeatedSint32_ = makeMutableCopy(instance.repeatedSint32_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedSint64IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.repeatedSint64_.isModifiable()) {
+          instance.repeatedSint64_ = makeMutableCopy(instance.repeatedSint64_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedFixed32IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.repeatedFixed32_.isModifiable()) {
+          instance.repeatedFixed32_ = makeMutableCopy(instance.repeatedFixed32_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedFixed64IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.repeatedFixed64_.isModifiable()) {
+          instance.repeatedFixed64_ = makeMutableCopy(instance.repeatedFixed64_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedSfixed32IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.repeatedSfixed32_.isModifiable()) {
+          instance.repeatedSfixed32_ = makeMutableCopy(instance.repeatedSfixed32_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedSfixed64IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.repeatedSfixed64_.isModifiable()) {
+          instance.repeatedSfixed64_ = makeMutableCopy(instance.repeatedSfixed64_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedFloatIsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.repeatedFloat_.isModifiable()) {
+          instance.repeatedFloat_ = makeMutableCopy(instance.repeatedFloat_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedDoubleIsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.repeatedDouble_.isModifiable()) {
+          instance.repeatedDouble_ = makeMutableCopy(instance.repeatedDouble_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedBoolIsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.repeatedBool_.isModifiable()) {
+          instance.repeatedBool_ = makeMutableCopy(instance.repeatedBool_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedStringIsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (!instance.repeatedString_.isModifiable()) {
+          instance.repeatedString_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString_);
+        }
+      }
+      private static void ensureRepeatedBytesIsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.repeatedBytes_.isModifiable()) {
+          instance.repeatedBytes_ = makeMutableCopy(instance.repeatedBytes_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedNestedEnumIsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.repeatedNestedEnum_.isModifiable()) {
+          instance.repeatedNestedEnum_ = makeMutableCopy(instance.repeatedNestedEnum_, minCapacity);
+        }
+      }
+      private static void ensureRepeatedForeignEnumIsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.repeatedForeignEnum_.isModifiable()) {
+          instance.repeatedForeignEnum_ = makeMutableCopy(instance.repeatedForeignEnum_, minCapacity);
+        }
+      }
+      private static void ensurePackedInt32IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.packedInt32_.isModifiable()) {
+          instance.packedInt32_ = makeMutableCopy(instance.packedInt32_, minCapacity);
+        }
+      }
+      private static void ensurePackedInt64IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.packedInt64_.isModifiable()) {
+          instance.packedInt64_ = makeMutableCopy(instance.packedInt64_, minCapacity);
+        }
+      }
+      private static void ensurePackedUint32IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.packedUint32_.isModifiable()) {
+          instance.packedUint32_ = makeMutableCopy(instance.packedUint32_, minCapacity);
+        }
+      }
+      private static void ensurePackedUint64IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.packedUint64_.isModifiable()) {
+          instance.packedUint64_ = makeMutableCopy(instance.packedUint64_, minCapacity);
+        }
+      }
+      private static void ensurePackedSint32IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.packedSint32_.isModifiable()) {
+          instance.packedSint32_ = makeMutableCopy(instance.packedSint32_, minCapacity);
+        }
+      }
+      private static void ensurePackedSint64IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.packedSint64_.isModifiable()) {
+          instance.packedSint64_ = makeMutableCopy(instance.packedSint64_, minCapacity);
+        }
+      }
+      private static void ensurePackedFixed32IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.packedFixed32_.isModifiable()) {
+          instance.packedFixed32_ = makeMutableCopy(instance.packedFixed32_, minCapacity);
+        }
+      }
+      private static void ensurePackedFixed64IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.packedFixed64_.isModifiable()) {
+          instance.packedFixed64_ = makeMutableCopy(instance.packedFixed64_, minCapacity);
+        }
+      }
+      private static void ensurePackedSfixed32IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.packedSfixed32_.isModifiable()) {
+          instance.packedSfixed32_ = makeMutableCopy(instance.packedSfixed32_, minCapacity);
+        }
+      }
+      private static void ensurePackedSfixed64IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.packedSfixed64_.isModifiable()) {
+          instance.packedSfixed64_ = makeMutableCopy(instance.packedSfixed64_, minCapacity);
+        }
+      }
+      private static void ensurePackedFloatIsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.packedFloat_.isModifiable()) {
+          instance.packedFloat_ = makeMutableCopy(instance.packedFloat_, minCapacity);
+        }
+      }
+      private static void ensurePackedDoubleIsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.packedDouble_.isModifiable()) {
+          instance.packedDouble_ = makeMutableCopy(instance.packedDouble_, minCapacity);
+        }
+      }
+      private static void ensurePackedBoolIsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.packedBool_.isModifiable()) {
+          instance.packedBool_ = makeMutableCopy(instance.packedBool_, minCapacity);
+        }
+      }
+      private static void ensurePackedNestedEnumIsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.packedNestedEnum_.isModifiable()) {
+          instance.packedNestedEnum_ = makeMutableCopy(instance.packedNestedEnum_, minCapacity);
+        }
+      }
+      private static void ensureUnpackedInt32IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.unpackedInt32_.isModifiable()) {
+          instance.unpackedInt32_ = makeMutableCopy(instance.unpackedInt32_, minCapacity);
+        }
+      }
+      private static void ensureUnpackedInt64IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.unpackedInt64_.isModifiable()) {
+          instance.unpackedInt64_ = makeMutableCopy(instance.unpackedInt64_, minCapacity);
+        }
+      }
+      private static void ensureUnpackedUint32IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.unpackedUint32_.isModifiable()) {
+          instance.unpackedUint32_ = makeMutableCopy(instance.unpackedUint32_, minCapacity);
+        }
+      }
+      private static void ensureUnpackedUint64IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.unpackedUint64_.isModifiable()) {
+          instance.unpackedUint64_ = makeMutableCopy(instance.unpackedUint64_, minCapacity);
+        }
+      }
+      private static void ensureUnpackedSint32IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.unpackedSint32_.isModifiable()) {
+          instance.unpackedSint32_ = makeMutableCopy(instance.unpackedSint32_, minCapacity);
+        }
+      }
+      private static void ensureUnpackedSint64IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.unpackedSint64_.isModifiable()) {
+          instance.unpackedSint64_ = makeMutableCopy(instance.unpackedSint64_, minCapacity);
+        }
+      }
+      private static void ensureUnpackedFixed32IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.unpackedFixed32_.isModifiable()) {
+          instance.unpackedFixed32_ = makeMutableCopy(instance.unpackedFixed32_, minCapacity);
+        }
+      }
+      private static void ensureUnpackedFixed64IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.unpackedFixed64_.isModifiable()) {
+          instance.unpackedFixed64_ = makeMutableCopy(instance.unpackedFixed64_, minCapacity);
+        }
+      }
+      private static void ensureUnpackedSfixed32IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.unpackedSfixed32_.isModifiable()) {
+          instance.unpackedSfixed32_ = makeMutableCopy(instance.unpackedSfixed32_, minCapacity);
+        }
+      }
+      private static void ensureUnpackedSfixed64IsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.unpackedSfixed64_.isModifiable()) {
+          instance.unpackedSfixed64_ = makeMutableCopy(instance.unpackedSfixed64_, minCapacity);
+        }
+      }
+      private static void ensureUnpackedFloatIsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.unpackedFloat_.isModifiable()) {
+          instance.unpackedFloat_ = makeMutableCopy(instance.unpackedFloat_, minCapacity);
+        }
+      }
+      private static void ensureUnpackedDoubleIsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.unpackedDouble_.isModifiable()) {
+          instance.unpackedDouble_ = makeMutableCopy(instance.unpackedDouble_, minCapacity);
+        }
+      }
+      private static void ensureUnpackedBoolIsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.unpackedBool_.isModifiable()) {
+          instance.unpackedBool_ = makeMutableCopy(instance.unpackedBool_, minCapacity);
+        }
+      }
+      private static void ensureUnpackedNestedEnumIsMutable(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, int minCapacity) {
+        if (!instance.unpackedNestedEnum_.isModifiable()) {
+          instance.unpackedNestedEnum_ = makeMutableCopy(instance.unpackedNestedEnum_, minCapacity);
+        }
+      }
+      private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+          internalGetMutableMapInt32Int32(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapInt32Int32_ == null) {
+          instance.mapInt32Int32_ = com.google.protobuf.MapField.newMapField(
+              MapInt32Int32DefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapInt32Int32_.isMutable()) {
+          instance.mapInt32Int32_ = instance.mapInt32Int32_.copy();
+        }
+        return instance.mapInt32Int32_;
+      }
+      private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+          internalGetMutableMapInt64Int64(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapInt64Int64_ == null) {
+          instance.mapInt64Int64_ = com.google.protobuf.MapField.newMapField(
+              MapInt64Int64DefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapInt64Int64_.isMutable()) {
+          instance.mapInt64Int64_ = instance.mapInt64Int64_.copy();
+        }
+        return instance.mapInt64Int64_;
+      }
+      private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+          internalGetMutableMapUint32Uint32(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapUint32Uint32_ == null) {
+          instance.mapUint32Uint32_ = com.google.protobuf.MapField.newMapField(
+              MapUint32Uint32DefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapUint32Uint32_.isMutable()) {
+          instance.mapUint32Uint32_ = instance.mapUint32Uint32_.copy();
+        }
+        return instance.mapUint32Uint32_;
+      }
+      private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+          internalGetMutableMapUint64Uint64(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapUint64Uint64_ == null) {
+          instance.mapUint64Uint64_ = com.google.protobuf.MapField.newMapField(
+              MapUint64Uint64DefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapUint64Uint64_.isMutable()) {
+          instance.mapUint64Uint64_ = instance.mapUint64Uint64_.copy();
+        }
+        return instance.mapUint64Uint64_;
+      }
+      private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+          internalGetMutableMapSint32Sint32(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapSint32Sint32_ == null) {
+          instance.mapSint32Sint32_ = com.google.protobuf.MapField.newMapField(
+              MapSint32Sint32DefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapSint32Sint32_.isMutable()) {
+          instance.mapSint32Sint32_ = instance.mapSint32Sint32_.copy();
+        }
+        return instance.mapSint32Sint32_;
+      }
+      private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+          internalGetMutableMapSint64Sint64(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapSint64Sint64_ == null) {
+          instance.mapSint64Sint64_ = com.google.protobuf.MapField.newMapField(
+              MapSint64Sint64DefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapSint64Sint64_.isMutable()) {
+          instance.mapSint64Sint64_ = instance.mapSint64Sint64_.copy();
+        }
+        return instance.mapSint64Sint64_;
+      }
+      private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+          internalGetMutableMapFixed32Fixed32(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapFixed32Fixed32_ == null) {
+          instance.mapFixed32Fixed32_ = com.google.protobuf.MapField.newMapField(
+              MapFixed32Fixed32DefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapFixed32Fixed32_.isMutable()) {
+          instance.mapFixed32Fixed32_ = instance.mapFixed32Fixed32_.copy();
+        }
+        return instance.mapFixed32Fixed32_;
+      }
+      private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+          internalGetMutableMapFixed64Fixed64(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapFixed64Fixed64_ == null) {
+          instance.mapFixed64Fixed64_ = com.google.protobuf.MapField.newMapField(
+              MapFixed64Fixed64DefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapFixed64Fixed64_.isMutable()) {
+          instance.mapFixed64Fixed64_ = instance.mapFixed64Fixed64_.copy();
+        }
+        return instance.mapFixed64Fixed64_;
+      }
+      private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+          internalGetMutableMapSfixed32Sfixed32(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapSfixed32Sfixed32_ == null) {
+          instance.mapSfixed32Sfixed32_ = com.google.protobuf.MapField.newMapField(
+              MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapSfixed32Sfixed32_.isMutable()) {
+          instance.mapSfixed32Sfixed32_ = instance.mapSfixed32Sfixed32_.copy();
+        }
+        return instance.mapSfixed32Sfixed32_;
+      }
+      private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+          internalGetMutableMapSfixed64Sfixed64(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapSfixed64Sfixed64_ == null) {
+          instance.mapSfixed64Sfixed64_ = com.google.protobuf.MapField.newMapField(
+              MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapSfixed64Sfixed64_.isMutable()) {
+          instance.mapSfixed64Sfixed64_ = instance.mapSfixed64Sfixed64_.copy();
+        }
+        return instance.mapSfixed64Sfixed64_;
+      }
+      private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Float>
+          internalGetMutableMapInt32Float(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapInt32Float_ == null) {
+          instance.mapInt32Float_ = com.google.protobuf.MapField.newMapField(
+              MapInt32FloatDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapInt32Float_.isMutable()) {
+          instance.mapInt32Float_ = instance.mapInt32Float_.copy();
+        }
+        return instance.mapInt32Float_;
+      }
+      private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Double>
+          internalGetMutableMapInt32Double(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapInt32Double_ == null) {
+          instance.mapInt32Double_ = com.google.protobuf.MapField.newMapField(
+              MapInt32DoubleDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapInt32Double_.isMutable()) {
+          instance.mapInt32Double_ = instance.mapInt32Double_.copy();
+        }
+        return instance.mapInt32Double_;
+      }
+      private static com.google.protobuf.MapField<java.lang.Boolean, java.lang.Boolean>
+          internalGetMutableMapBoolBool(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapBoolBool_ == null) {
+          instance.mapBoolBool_ = com.google.protobuf.MapField.newMapField(
+              MapBoolBoolDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapBoolBool_.isMutable()) {
+          instance.mapBoolBool_ = instance.mapBoolBool_.copy();
+        }
+        return instance.mapBoolBool_;
+      }
+      private static com.google.protobuf.MapField<java.lang.String, java.lang.String>
+          internalGetMutableMapStringString(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapStringString_ == null) {
+          instance.mapStringString_ = com.google.protobuf.MapField.newMapField(
+              MapStringStringDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapStringString_.isMutable()) {
+          instance.mapStringString_ = instance.mapStringString_.copy();
+        }
+        return instance.mapStringString_;
+      }
+      private static com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
+          internalGetMutableMapStringBytes(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapStringBytes_ == null) {
+          instance.mapStringBytes_ = com.google.protobuf.MapField.newMapField(
+              MapStringBytesDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapStringBytes_.isMutable()) {
+          instance.mapStringBytes_ = instance.mapStringBytes_.copy();
+        }
+        return instance.mapStringBytes_;
+      }
+      private static com.google.protobuf.MapField<java.lang.String, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage>
+          internalGetMutableMapStringNestedMessage(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapStringNestedMessage_ == null) {
+          instance.mapStringNestedMessage_ = com.google.protobuf.MapField.newMapField(
+              MapStringNestedMessageDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapStringNestedMessage_.isMutable()) {
+          instance.mapStringNestedMessage_ = instance.mapStringNestedMessage_.copy();
+        }
+        return instance.mapStringNestedMessage_;
+      }
+      private static com.google.protobuf.MapField<java.lang.String, legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage>
+          internalGetMutableMapStringForeignMessage(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapStringForeignMessage_ == null) {
+          instance.mapStringForeignMessage_ = com.google.protobuf.MapField.newMapField(
+              MapStringForeignMessageDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapStringForeignMessage_.isMutable()) {
+          instance.mapStringForeignMessage_ = instance.mapStringForeignMessage_.copy();
+        }
+        return instance.mapStringForeignMessage_;
+      }
+      private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+          internalGetMutableMapStringNestedEnum(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapStringNestedEnum_ == null) {
+          instance.mapStringNestedEnum_ = com.google.protobuf.MapField.newMapField(
+              MapStringNestedEnumDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapStringNestedEnum_.isMutable()) {
+          instance.mapStringNestedEnum_ = instance.mapStringNestedEnum_.copy();
+        }
+        return instance.mapStringNestedEnum_;
+      }
+      private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+          internalGetMutableMapStringForeignEnum(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance) {
+        if (instance.mapStringForeignEnum_ == null) {
+          instance.mapStringForeignEnum_ = com.google.protobuf.MapField.newMapField(
+              MapStringForeignEnumDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mapStringForeignEnum_.isMutable()) {
+          instance.mapStringForeignEnum_ = instance.mapStringForeignEnum_.copy();
+        }
+        return instance.mapStringForeignEnum_;
+      }
+      private static int parseOneofUint32Field(
+          legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.oneofField_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 888;
+        }
+        int value = input.readUInt32();
+        instance.oneofFieldCase_ = 111;
+        instance.oneofField_ = value;
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static int parseOneofNestedMessageField(
+          legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.oneofField_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 898;
+        }
+        if (fieldBuilders != null) {
+          input.readMessage(
+              internalGetOneofNestedMessageFieldBuilder(instance, fieldBuilders).getBuilder(),
+              extensionRegistry);
+          switch (instance.oneofFieldCase_) {
+          default:
+             // fallthrough
+          case 0:
+            instance.oneofFieldCase_ = 112;
+             // fallthrough
+          case 112:
+            break;
+          }
+          return 0;
+        }
+        instance.oneofFieldCase_ = 112;
+        instance.oneofField_ = legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage.getDefaultInstance();
+        try {
+          instance.oneofField_ = input.readMessage(legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage.parser(), extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          if (e.getUnfinishedMessage() instanceof com.google.protobuf.GeneratedMessage) {
+            instance.oneofField_ = e.getUnfinishedMessage();
+          }
+          throw e;
+        }
+        return 0;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static com.google.protobuf.SingleFieldBuilder<
+          legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessageOrBuilder>
+          internalGetOneofNestedMessageFieldBuilder(
+              legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance,
+              com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (fieldBuilders[3] == null) {
+          if (!(instance.hasOneofNestedMessage())) {
+            instance.oneofField_ = legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage.getDefaultInstance();
+          }
+          fieldBuilders[3] = new com.google.protobuf.SingleFieldBuilder<
+              legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessageOrBuilder>(
+                  (legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage) instance.oneofField_,
+                  null,
+                  false);
+          instance.oneofField_ = null;
+        }
+        switch (instance.oneofFieldCase_) {
+        default:
+           // fallthrough
+        case 0:
+          instance.oneofFieldCase_ = 112;
+           // fallthrough
+        case 112:
+          break;
+        }
+
+        return ((com.google.protobuf.SingleFieldBuilder<legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessageOrBuilder>) fieldBuilders[3]);
+      }
+      private static int parseOneofStringField(
+          legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.oneofField_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 906;
+        }
+        java.lang.String value = input.readStringRequireUtf8();
+        instance.oneofFieldCase_ = 113;
+        instance.oneofField_ = value;
+        return 0;
+      }
+      private static int parseOneofBytesField(
+          legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.oneofField_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 914;
+        }
+        com.google.protobuf.ByteString value = input.readBytes();
+        instance.oneofFieldCase_ = 114;
+        instance.oneofField_ = value;
+        return 0;
+      }
+      private static int parseOneofBoolField(
+          legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.oneofField_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 920;
+        }
+        boolean value = input.readBool();
+        instance.oneofFieldCase_ = 115;
+        instance.oneofField_ = value;
+        return 0;
+      }
+      private static int parseOneofUint64Field(
+          legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.oneofField_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 928;
+        }
+        long value = input.readUInt64();
+        instance.oneofFieldCase_ = 116;
+        instance.oneofField_ = value;
+        return 0;
+      }
+      private static int parseOneofFloatField(
+          legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.oneofField_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 941;
+        }
+        float value = input.readFloat();
+        instance.oneofFieldCase_ = 117;
+        instance.oneofField_ = value;
+        return 0;
+      }
+      private static int parseOneofDoubleField(
+          legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders)
+          throws java.io.IOException {
+        if (fieldBuilders == null && instance.oneofField_ instanceof com.google.protobuf.GeneratedMessage) {
+          return 945;
+        }
+        double value = input.readDouble();
+        instance.oneofFieldCase_ = 118;
+        instance.oneofField_ = value;
+        return 0;
+      }
+      private static java.lang.Object parseOneofEnumField(
+          legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3 instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, java.lang.Object unknown)
+          throws java.io.IOException {
+        int rawValue = input.readEnum();
+        instance.oneofFieldCase_ = 119;
+        instance.oneofField_ = rawValue;
+        return unknown;
+      }
+      private static void finishCollections0(TestMostTypesProto3 instance) {
+        instance.repeatedInt32_.makeImmutable();
+        instance.repeatedInt64_.makeImmutable();
+        instance.repeatedUint32_.makeImmutable();
+        instance.repeatedUint64_.makeImmutable();
+        instance.repeatedSint32_.makeImmutable();
+        instance.repeatedSint64_.makeImmutable();
+        instance.repeatedFixed32_.makeImmutable();
+        instance.repeatedFixed64_.makeImmutable();
+        instance.repeatedSfixed32_.makeImmutable();
+        instance.repeatedSfixed64_.makeImmutable();
+        instance.repeatedFloat_.makeImmutable();
+        instance.repeatedDouble_.makeImmutable();
+        instance.repeatedBool_.makeImmutable();
+        instance.repeatedString_.makeImmutable();
+        instance.repeatedBytes_.makeImmutable();
+        instance.repeatedNestedMessage_.makeImmutable();
+        instance.repeatedForeignMessage_.makeImmutable();
+        instance.repeatedNestedEnum_.makeImmutable();
+        instance.repeatedForeignEnum_.makeImmutable();
+        instance.packedInt32_.makeImmutable();
+        instance.packedInt64_.makeImmutable();
+        instance.packedUint32_.makeImmutable();
+        instance.packedUint64_.makeImmutable();
+        instance.packedSint32_.makeImmutable();
+        instance.packedSint64_.makeImmutable();
+        instance.packedFixed32_.makeImmutable();
+        instance.packedFixed64_.makeImmutable();
+        instance.packedSfixed32_.makeImmutable();
+        instance.packedSfixed64_.makeImmutable();
+        instance.packedFloat_.makeImmutable();
+        instance.packedDouble_.makeImmutable();
+        instance.packedBool_.makeImmutable();
+      }
+      private static void finishCollections1(TestMostTypesProto3 instance) {
+        instance.packedNestedEnum_.makeImmutable();
+        instance.unpackedInt32_.makeImmutable();
+        instance.unpackedInt64_.makeImmutable();
+        instance.unpackedUint32_.makeImmutable();
+        instance.unpackedUint64_.makeImmutable();
+        instance.unpackedSint32_.makeImmutable();
+        instance.unpackedSint64_.makeImmutable();
+        instance.unpackedFixed32_.makeImmutable();
+        instance.unpackedFixed64_.makeImmutable();
+        instance.unpackedSfixed32_.makeImmutable();
+        instance.unpackedSfixed64_.makeImmutable();
+        instance.unpackedFloat_.makeImmutable();
+        instance.unpackedDouble_.makeImmutable();
+        instance.unpackedBool_.makeImmutable();
+        instance.unpackedNestedEnum_.makeImmutable();
+        if (instance.mapInt32Int32_ != null) instance.mapInt32Int32_.makeImmutable();
+        if (instance.mapInt64Int64_ != null) instance.mapInt64Int64_.makeImmutable();
+        if (instance.mapUint32Uint32_ != null) instance.mapUint32Uint32_.makeImmutable();
+        if (instance.mapUint64Uint64_ != null) instance.mapUint64Uint64_.makeImmutable();
+        if (instance.mapSint32Sint32_ != null) instance.mapSint32Sint32_.makeImmutable();
+        if (instance.mapSint64Sint64_ != null) instance.mapSint64Sint64_.makeImmutable();
+        if (instance.mapFixed32Fixed32_ != null) instance.mapFixed32Fixed32_.makeImmutable();
+        if (instance.mapFixed64Fixed64_ != null) instance.mapFixed64Fixed64_.makeImmutable();
+        if (instance.mapSfixed32Sfixed32_ != null) instance.mapSfixed32Sfixed32_.makeImmutable();
+        if (instance.mapSfixed64Sfixed64_ != null) instance.mapSfixed64Sfixed64_.makeImmutable();
+        if (instance.mapInt32Float_ != null) instance.mapInt32Float_.makeImmutable();
+        if (instance.mapInt32Double_ != null) instance.mapInt32Double_.makeImmutable();
+        if (instance.mapBoolBool_ != null) instance.mapBoolBool_.makeImmutable();
+        if (instance.mapStringString_ != null) instance.mapStringString_.makeImmutable();
+        if (instance.mapStringBytes_ != null) instance.mapStringBytes_.makeImmutable();
+        if (instance.mapStringNestedMessage_ != null) instance.mapStringNestedMessage_.makeImmutable();
+        if (instance.mapStringForeignMessage_ != null) instance.mapStringForeignMessage_.makeImmutable();
+      }
+      private static void finishCollections2(TestMostTypesProto3 instance) {
+        if (instance.mapStringNestedEnum_ != null) instance.mapStringNestedEnum_.makeImmutable();
+        if (instance.mapStringForeignEnum_ != null) instance.mapStringForeignEnum_.makeImmutable();
+      }
+      private static com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] prepareChildren(
+          TestMostTypesProto3 instance, int tag) {
+        com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders =
+            new com.google.protobuf.SingleFieldBuilder<?, ?, ?>[4];
+        if (instance.oneofFieldCase_ == 112 && tag != 898) {
+          internalGetOneofNestedMessageFieldBuilder(instance, fieldBuilders);
+        }
+        return fieldBuilders;
+      }
+      @java.lang.SuppressWarnings("unchecked")
+      private static void finishChildren0(
+          TestMostTypesProto3 instance,
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {
+        if (!instance.hasOptionalNestedMessage()) instance.optionalNestedMessage_ = null;
+        if (instance.hasOptionalNestedMessage()) {
+          instance.optionalNestedMessage_ = fieldBuilders[0] == null
+              ? instance.optionalNestedMessage_
+              : ((com.google.protobuf.SingleFieldBuilder<legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessage.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.NestedMessageOrBuilder>) fieldBuilders[0]).build();
+
+        }
+        if (!instance.hasOptionalForeignMessage()) instance.optionalForeignMessage_ = null;
+        if (instance.hasOptionalForeignMessage()) {
+          instance.optionalForeignMessage_ = fieldBuilders[1] == null
+              ? instance.optionalForeignMessage_
+              : ((com.google.protobuf.SingleFieldBuilder<legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage, legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessageOrBuilder>) fieldBuilders[1]).build();
+
+        }
+        if (!instance.hasRecursiveMessage()) instance.recursiveMessage_ = null;
+        if (instance.hasRecursiveMessage()) {
+          instance.recursiveMessage_ = fieldBuilders[2] == null
+              ? instance.recursiveMessage_
+              : ((com.google.protobuf.SingleFieldBuilder<legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3.Builder, legacy_gencode_test.proto3.Proto3GencodeTestProto.TestMostTypesProto3OrBuilder>) fieldBuilders[2]).build();
+
+        }
+        {
+          com.google.protobuf.SingleFieldBuilder<?, ?, ?> child = null;
+          switch (instance.oneofFieldCase_) {
+            case 112: child = fieldBuilders[3]; break;
+            default: break;
+          }
+          if (child != null) {
+            instance.oneofField_ = child == null
+                ? instance.oneofField_
+                : child.build();
+          }
+        }
+      }
+    }
 
     public static com.google.protobuf.Parser<TestMostTypesProto3> parser() {
       return PARSER;
@@ -22390,7 +25013,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
     @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
+          ? new Builder() : new Builder(this);
     }
 
     @java.lang.Override
@@ -22419,14 +25042,26 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
                 legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage.class, legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+
+      }
+      private Builder(legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage other) {
+        super(other, null);
+        copyFrom_autosplit_0(other);
 
       }
       @java.lang.Override
@@ -22470,9 +25105,15 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.c_ = c_;
-          
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignMessage other) {
+        int to_bitField0_ = 0;
+        c_ = other.getC();
+        to_bitField0_ |= 0x00000001;
+        bitField0_ |= to_bitField0_;
       }
 
       @java.lang.Override
@@ -22536,7 +25177,7 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
       }
       private int bitField0_;
 
-      private int c_ ;
+      private int c_;
       /**
        * <code>int32 c = 1;</code>
        * @return The c.
@@ -22582,21 +25223,50 @@ legacy_gencode_test.proto3.Proto3GencodeTestProto.ForeignEnum defaultValue) {
     }
 
     private static final com.google.protobuf.Parser<ForeignMessage>
-        PARSER = new com.google.protobuf.AbstractParser<ForeignMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ForeignMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public ForeignMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
+        java.util.Objects.requireNonNull(extensionRegistry);
+        ForeignMessage instance = new ForeignMessage((Builder) null);
+        java.lang.Object unknown = null;
+        java.io.IOException parseFailure = null;
         try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
+          parseLoop: while (true) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0: break parseLoop;
+              case 8: {
+                instance.c_ = input.readInt32();
+
+                break;
+              } // case 8
+              default: {
+                unknown = prepareUnknownFields(unknown, input);
+                if (!parseUnknownField(input, unknown, tag)) {
+                  break parseLoop;
+                }
+                break;
+              }
+            }
+          }
+        } catch (java.io.IOException e) {
+          parseFailure = e;
         }
-        return builder.buildPartial();
+        finishUnknownFields(instance, unknown);
+        if (parseFailure != null) {
+          throwParseException(parseFailure, instance);
+        }
+        return instance;
       }
-    };
+    }
 
     public static com.google.protobuf.Parser<ForeignMessage> parser() {
       return PARSER;
