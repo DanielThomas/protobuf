@@ -32,8 +32,11 @@ class ImmutableMapFieldGenerator : public ImmutableFieldGenerator {
   void GenerateInitializationCode(io::Printer* printer) const override;
   void GenerateBuilderClearCode(io::Printer* printer) const override;
   void GenerateMergingCode(io::Printer* printer) const override;
-  void GenerateBuildingCode(io::Printer* printer) const override;
-  void GenerateBuilderParsingCode(io::Printer* printer) const override;
+  void GenerateBuildingCode(io::Printer* printer,
+                            CopyTarget target) const override;
+  void GenerateParsingCode(io::Printer* printer,
+                           ParsingTarget target) const override;
+  void GenerateParserHelperCode(io::Printer* printer) const override;
   void GenerateSerializationCode(io::Printer* printer) const override;
   void GenerateSerializedSizeCode(io::Printer* printer) const override;
   void GenerateFieldBuilderInitializationCode(
@@ -46,6 +49,8 @@ class ImmutableMapFieldGenerator : public ImmutableFieldGenerator {
  private:
   void SetMessageVariables(const FieldGeneratorInfo* info);
   void GenerateMapGetters(io::Printer* printer) const;
+  void GenerateMapFieldMutabilityCode(io::Printer* printer,
+                                     ParsingTarget target) const;
   void GenerateMessageMapBuilderMembers(io::Printer* printer) const;
   void GenerateMessageMapGetters(io::Printer* printer) const;
 

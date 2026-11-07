@@ -53,8 +53,10 @@ class ImmutableMessageFieldGenerator : public ImmutableFieldGenerator {
   void GenerateInitializationCode(io::Printer* printer) const override;
   void GenerateBuilderClearCode(io::Printer* printer) const override;
   void GenerateMergingCode(io::Printer* printer) const override;
-  void GenerateBuildingCode(io::Printer* printer) const override;
-  void GenerateBuilderParsingCode(io::Printer* printer) const override;
+  void GenerateBuildingCode(io::Printer* printer,
+                            CopyTarget target) const override;
+  void GenerateParsingCode(io::Printer* printer,
+                           ParsingTarget target) const override;
   void GenerateSerializationCode(io::Printer* printer) const override;
   void GenerateSerializedSizeCode(io::Printer* printer) const override;
   void GenerateFieldBuilderInitializationCode(
@@ -63,8 +65,23 @@ class ImmutableMessageFieldGenerator : public ImmutableFieldGenerator {
   void GenerateHashCode(io::Printer* printer) const override;
 
   std::string GetBoxedType() const override;
+  void GenerateParserMergingHelpers(io::Printer* printer) const override;
+  void GenerateParserMergingCode(io::Printer* printer) const override;
+  void GenerateParserChildFinalizationCode(io::Printer* printer) const override;
+  void GenerateParserChildTransferCode(io::Printer* printer) const override;
+  void GenerateParserOneofFinalizationCode(io::Printer* printer) const override;
 
  protected:
+  FieldVariables GetFieldBuilderVariables(ParsingTarget target) const;
+  virtual void GenerateFieldBuilderInitialization(
+      io::Printer* printer, const FieldVariables& vars) const;
+  virtual void GenerateFieldParsingCode(
+      io::Printer* printer, const FieldVariables& vars,
+      bool inline_field_builder = false) const;
+  virtual void GenerateFieldBuildingCode(
+      io::Printer* printer, const FieldVariables& vars) const;
+  void GenerateFieldBuildingValueCode(
+      io::Printer* printer, const FieldVariables& vars) const;
   virtual void PrintNestedBuilderCondition(
       io::Printer* printer, const char* regular_case,
       const char* nested_builder_case) const;
@@ -113,10 +130,21 @@ class ImmutableMessageOneofFieldGenerator
   void GenerateBuilderClearCode(io::Printer* printer) const override;
 
   void GenerateMergingCode(io::Printer* printer) const override;
-  void GenerateBuildingCode(io::Printer* printer) const override;
-  void GenerateBuilderParsingCode(io::Printer* printer) const override;
+  void GenerateBuildingCode(io::Printer* printer,
+                            CopyTarget target) const override;
+  void GenerateParsingCode(io::Printer* printer,
+                           ParsingTarget target) const override;
   void GenerateSerializationCode(io::Printer* printer) const override;
   void GenerateSerializedSizeCode(io::Printer* printer) const override;
+
+ protected:
+  void GenerateFieldBuilderInitialization(
+      io::Printer* printer, const FieldVariables& vars) const override;
+  void GenerateFieldParsingCode(
+      io::Printer* printer, const FieldVariables& vars,
+      bool inline_field_builder = false) const override;
+  void GenerateFieldBuildingCode(
+      io::Printer* printer, const FieldVariables& vars) const override;
 
  private:
   void GenerateHasMethod(io::Printer* printer) const;
@@ -154,8 +182,10 @@ class RepeatedImmutableMessageFieldGenerator
   void GenerateInitializationCode(io::Printer* printer) const override;
   void GenerateBuilderClearCode(io::Printer* printer) const override;
   void GenerateMergingCode(io::Printer* printer) const override;
-  void GenerateBuildingCode(io::Printer* printer) const override;
-  void GenerateBuilderParsingCode(io::Printer* printer) const override;
+  void GenerateBuildingCode(io::Printer* printer,
+                            CopyTarget target) const override;
+  void GenerateParsingCode(io::Printer* printer,
+                           ParsingTarget target) const override;
   void GenerateSerializationCode(io::Printer* printer) const override;
   void GenerateSerializedSizeCode(io::Printer* printer) const override;
   void GenerateFieldBuilderInitializationCode(

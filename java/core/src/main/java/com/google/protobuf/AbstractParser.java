@@ -68,7 +68,7 @@ public abstract class AbstractParser<MessageType extends MessageLite>
    * @throws InvalidProtocolBufferException if it is not initialized.
    * @return The message to check.
    */
-  private MessageType checkMessageInitialized(MessageType message)
+  final MessageType checkMessageInitialized(MessageType message)
       throws InvalidProtocolBufferException {
     if (message != null && !message.isInitialized()) {
       throw newUninitializedMessageException(message)
@@ -78,7 +78,7 @@ public abstract class AbstractParser<MessageType extends MessageLite>
     return message;
   }
 
-  private static final ExtensionRegistryLite EMPTY_REGISTRY =
+  static final ExtensionRegistryLite EMPTY_REGISTRY =
       ExtensionRegistryLite.getEmptyRegistry();
 
   @Override

@@ -77,8 +77,14 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
     unknownFields = UnknownFieldSet.getDefaultInstance();
   }
 
+  /**
+   * Initializes a message with unknown fields from a builder.
+   *
+   * @param builder the source builder, or {@code null} to use the default unknown field set
+   */
   protected GeneratedMessage(Builder<?> builder) {
-    unknownFields = builder.getUnknownFields();
+    unknownFields =
+        builder == null ? UnknownFieldSet.getDefaultInstance() : builder.getUnknownFields();
   }
 
   /** TODO: Remove this unnecessary intermediate implementation of this method. */
@@ -507,6 +513,12 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
     throw new UnsupportedOperationException("This method must be overridden by the subclass.");
   }
 
+  final Builder<?> toBuilder(BuilderParent parent) {
+    Builder<?> builder = (Builder<?>) toBuilder();
+    builder.builderParent = parent;
+    return builder;
+  }
+
   /** Builder class for {@link GeneratedMessage}. */
   @SuppressWarnings("unchecked")
   public abstract static class Builder<BuilderT extends Builder<BuilderT>>
@@ -543,12 +555,26 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
      * UnknownFieldSet} will be converted to a {@link UnknownFieldSet.Builder} and left that way
      * until either {@link #setUnknownFields} or {@link #buildPartial} or {@link #build} is called.
      */
-    private Object unknownFieldsOrBuilder = UnknownFieldSet.getDefaultInstance();
+    private Object unknownFieldsOrBuilder;
 
-    protected Builder() {}
+    protected Builder() {
+      unknownFieldsOrBuilder = UnknownFieldSet.getDefaultInstance();
+    }
 
     protected Builder(BuilderParent builderParent) {
+      this();
       this.builderParent = builderParent;
+    }
+
+    /**
+     * Initializes a builder with the unknown fields of the given message.
+     *
+     * @param message the message to copy
+     * @param parent the parent builder, or {@code null} if there is no parent
+     */
+    protected Builder(GeneratedMessage message, BuilderParent parent) {
+      builderParent = parent;
+      unknownFieldsOrBuilder = message.unknownFields;
     }
 
     @Override
@@ -1058,9 +1084,15 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
       this.extensions = FieldSet.newFieldSet();
     }
 
+    /**
+     * Initializes a message with unknown fields and extensions from a builder.
+     *
+     * @param builder the source builder, or {@code null} to use default unknown fields and an empty
+     *     extension set
+     */
     protected ExtendableMessage(ExtendableBuilder<MessageT, ?> builder) {
       super(builder);
-      this.extensions = builder.buildExtensions();
+      this.extensions = builder == null ? FieldSet.emptySet() : builder.buildExtensions();
     }
 
     /**
@@ -1462,6 +1494,17 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
 
     protected ExtendableBuilder(BuilderParent parent) {
       super(parent);
+    }
+
+    /**
+     * Initializes a builder with the unknown fields and extensions of the given message.
+     *
+     * @param message the message to copy
+     * @param parent the parent builder, or {@code null} if there is no parent
+     */
+    protected ExtendableBuilder(ExtendableMessage<?> message, BuilderParent parent) {
+      super(message, parent);
+      mergeExtensionFields(message);
     }
 
     // For immutable message conversion.
