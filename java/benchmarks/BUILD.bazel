@@ -1,0 +1,139 @@
+load("@rules_java//java:java_binary.bzl", "java_binary")
+load("@rules_java//java:java_library.bzl", "java_library")
+load("@rules_java//java:java_plugin.bzl", "java_plugin")
+load("@rules_java//java:java_test.bzl", "java_test")
+load("//bazel:java_proto_library.bzl", "java_proto_library")
+load("//bazel:proto_library.bzl", "proto_library")
+
+package(default_testonly = True)
+
+genrule(
+    name = "fixture_sources",
+    outs = [
+        "generated/benchmark/flat.proto",
+        "generated/benchmark/wide.proto",
+        "generated/enum138.proto",
+        "generated/enum139.proto",
+        "generated/wide495.proto",
+    ],
+    cmd = """
+    emit_fields() {
+      local type="$$1" name="$$2" count="$$3"
+      for ((i = 1; i <= count; i++)); do
+        printf '  %s %s_%d = %d;\n' "$$type" "$$name" "$$i" "$$i"
+      done
+    }
+    mkdir -p $(RULEDIR)/generated/benchmark
+    printf '%s\\n' \\
+      'syntax = "proto2";' \\
+      'package benchmark.fixtures;' \\
+      'option java_multiple_files = true;' \\
+      'message FlatProto2 {' \\
+      '  optional int32 optional_int32 = 1;' \\
+      '  optional int64 optional_int64 = 2;' \\
+      '  optional fixed32 optional_fixed32 = 7;' \\
+      '  optional double optional_double = 12;' \\
+      '  optional bool optional_bool = 13;' \\
+      '  optional string optional_string = 14;' \\
+      '  optional bytes optional_bytes = 15;' \\
+      '  extensions 1000 to max;' \\
+      '}' > $(RULEDIR)/generated/benchmark/flat.proto
+    {
+      echo 'syntax = "proto2";'
+      echo 'package benchmark.fixtures;'
+      echo 'option java_multiple_files = true;'
+      echo 'option java_outer_classname = "BenchmarkFixturesProto";'
+      echo 'message WideMessageOneof {'
+      echo '  message Child { repeated int32 values = 1; optional string text = 2; }'
+      echo '  oneof choice {'
+      emit_fields Child value 128
+      echo '  }'
+      echo '}'
+      echo 'message WideMessageFields {'
+      emit_fields 'optional WideMessageOneof.Child' value 65
+      echo '}'
+      echo 'message WideOneof {'
+      echo '  oneof choice {'
+      emit_fields int32 value 494
+      echo '  }'
+      echo '}'
+      echo 'message WideClosedEnum {'
+      echo '  enum Status { ZERO = 0; ONE = 1; }'
+      emit_fields 'optional Status' state 900
+      echo '}'
+    } > $(RULEDIR)/generated/benchmark/wide.proto
+    {
+      echo 'syntax = "proto2";'
+      echo 'package benchmark.fixtures;'
+      echo 'option java_multiple_files = true;'
+      echo 'message Wide495 {'
+      echo '  oneof choice {'
+      emit_fields int32 value 495
+      echo '  }'
+      echo '}'
+    } > $(RULEDIR)/generated/wide495.proto
+    for width in 138 139; do
+      {
+        echo 'syntax = "proto2";'
+        echo "package benchmark.fixtures.enum$$width;"
+        echo 'option java_multiple_files = true;'
+        echo 'message ClosedEnums {'
+        echo '  enum Status { ZERO = 0; ONE = 1; }'
+        emit_fields 'optional Status' state "$$width"
+        echo '}'
+      } > $(RULEDIR)/generated/enum$$width.proto
+    done
+    """,
+)
+
+proto_library(
+    name = "fixtures_proto",
+    srcs = [":fixture_sources"],
+    strip_import_prefix = "generated",
+)
+
+java_proto_library(
+    name = "fixtures_java_proto",
+    deps = [":fixtures_proto"],
+)
+
+java_plugin(
+    name = "jmh_processor",
+    processor_class = "org.openjdk.jmh.generators.BenchmarkProcessor",
+    deps = ["@protobuf_maven_dev//:org_openjdk_jmh_jmh_generator_annprocess"],
+)
+
+java_library(
+    name = "benchmark_lib",
+    srcs = glob(["src/main/java/com/google/protobuf/benchmarks/*.java"]),
+    plugins = [":jmh_processor"],
+    deps = [
+        ":fixtures_java_proto",
+        "//:test_messages_proto2_java_proto",
+        "//java/core",
+        "//java/core:generic_test_protos_java_proto",
+        "//java/core:java_test_protos_java_proto",
+        "@protobuf_maven_dev//:org_openjdk_jmh_jmh_core",
+    ],
+)
+
+java_binary(
+    name = "benchmarks",
+    main_class = "org.openjdk.jmh.Main",
+    runtime_deps = [
+        ":benchmark_lib",
+        "@protobuf_maven_dev//:org_openjdk_jmh_jmh_core",
+    ],
+)
+
+java_test(
+    name = "input_test",
+    srcs = ["src/test/java/com/google/protobuf/benchmarks/BenchmarkInputsTest.java"],
+    test_class = "com.google.protobuf.benchmarks.BenchmarkInputsTest",
+    deps = [
+        ":benchmark_lib",
+        ":fixtures_java_proto",
+        "//java/core",
+        "@protobuf_maven_dev//:junit_junit",
+    ],
+)
