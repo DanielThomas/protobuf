@@ -1,6 +1,8 @@
 # JDK 8 handoff results
 
-Builder baseline [`c0acd3a`](https://github.com/DanielThomas/protobuf/commit/c0acd3a8f5aedaa6705530b9704c2af527f51575) versus parser base [`d43da02`](https://github.com/DanielThomas/protobuf/commit/d43da02858ec898079832d5dd94d1d54c40cd59d) plus the current handoff changes, using unchanged benchmark revision [`0c313de`](https://github.com/DanielThomas/protobuf/commit/0c313dec156cb6cbea2d36ee557d85190c8ead7c). The handoff changes remain an unpublished working-tree patch, SHA-256 `78f185ad47d410d60aae21c70d98e2fce349ede8aba5e32970da3cc3b78a0770`. These results should be attributed to that candidate rather than the published PR #1 revision alone.
+Builder baseline [`c0acd3a`](https://github.com/DanielThomas/protobuf/commit/c0acd3a8f5aedaa6705530b9704c2af527f51575) versus parser [`01935fc`](https://github.com/DanielThomas/protobuf/commit/01935fc6f86dca758e2547018ed3925d7e6dea72) from [PR #1](https://github.com/DanielThomas/protobuf/pull/1), using unchanged benchmark revision [`0c313de`](https://github.com/DanielThomas/protobuf/commit/0c313dec156cb6cbea2d36ee557d85190c8ead7c).
+
+The measured handoff patch, SHA-256 `78f185ad47d410d60aae21c70d98e2fce349ede8aba5e32970da3cc3b78a0770`, is the exact diff from `d43da02` to `01935fc`.
 
 All 73 public binary inputs and the representative private request were measured. All 1,184 fresh forks passed, with CPU and memory placement verified. Timing completed before allocation profiling began. No retries, discarded results or pooling with earlier measurements. The separate text-format and unknown-field workloads passed their input checks but were not timed.
 
@@ -29,7 +31,7 @@ builder: de50af705ebd4171a534e9c76dd19ad2b28c18f285fdfd66a285e5baf757cbe3
 parser:  083de04c61e7c6095d4b428bd0e240772a230d0c0578201465d37753c464ccf4
 ```
 
-The [previous report's timing command](jdk8-d43da02.md#run-configuration) applies with these jars and the same paired schedule. The private request and worker allocation profiler remain outside the public target. The unpublished candidate patch is an additional prerequisite for reproducing its generated classes.
+The [previous report's timing command](jdk8-d43da02.md#run-configuration) applies with these jars and the same paired schedule. The private request and worker allocation profiler remain outside the public target.
 
 Earlier diagnostics identified interpreted decoding loops for `FLAT_PROTO2_WIDE` and `ENUMS900`. No new compilation evidence was collected during this run. The nested inactive-oneof-history and malformed UTF-8 unfinished-oneof correctness gaps remain separate from this performance evaluation.
 
