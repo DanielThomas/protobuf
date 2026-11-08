@@ -2,7 +2,7 @@
 
 JMH benchmarks using the repository's public test and conformance schemas. Small binary inputs exercise individual decoding paths and the transition to child builders. The suite also carries over the existing unknown-field and text-format performance workloads.
 
-[JDK 8 results for parser revision d43da02](results/jdk8-d43da02.md) include every measured input, timing and allocation intervals, and the run configuration.
+[JDK 8 results with the current handoff changes](results/jdk8-handoff-78f185ad.md) combine throughput and allocation for every input, with confidence intervals and the run configuration. [Results for published parser revision d43da02](results/jdk8-d43da02.md) are retained separately.
 
 ## Build and check
 
