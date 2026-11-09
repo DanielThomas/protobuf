@@ -53,6 +53,7 @@ class MessageBuilderGenerator {
   virtual ~MessageBuilderGenerator();
 
   virtual void Generate(io::Printer* printer);
+  void GenerateParser(io::Printer* printer);
 
  private:
   void GenerateCommonBuilderMethods(io::Printer* printer);
@@ -67,14 +68,24 @@ class MessageBuilderGenerator {
       io::Printer* printer, absl::Span<const std::string> merging_code_blocks,
       absl::string_view method_suffix);
   void GenerateBuildPartial(io::Printer* printer);
-  void GenerateBuildPartialShard(io::Printer* printer, int shard);
+  void GenerateBuildPartialShard(io::Printer* printer, int shard,
+                                 CopyTarget target = CopyTarget::kMessage);
+  void GenerateBuilderStateCopyShard(io::Printer* printer, int shard);
+  bool NeedsParserBuildPartialShard(int shard) const;
+  void GenerateParserBuildPartialCalls(io::Printer* printer);
+  void GenerateParserHandoff(io::Printer* printer);
+  void GenerateBuilderPendingFieldParsing(io::Printer* printer);
   void GenerateDescriptorMethods(io::Printer* printer);
-  void GenerateBuilderParsingMethods(io::Printer* printer);
-  void GenerateBuilderFieldParsingCases(io::Printer* printer);
-  void GenerateBuilderFieldParsingCase(io::Printer* printer,
-                                       const FieldDescriptor* field);
-  void GenerateBuilderPackedFieldParsingCase(io::Printer* printer,
-                                             const FieldDescriptor* field);
+  void GenerateBuilderParsingMethods(
+      io::Printer* printer, ParsingTarget target = ParsingTarget::kBuilder);
+  void GenerateBuilderFieldParsingCases(
+      io::Printer* printer, ParsingTarget target = ParsingTarget::kBuilder);
+  void GenerateBuilderFieldParsingCase(
+      io::Printer* printer, const FieldDescriptor* field,
+      ParsingTarget target = ParsingTarget::kBuilder, bool pending = false);
+  void GenerateBuilderPackedFieldParsingCase(
+      io::Printer* printer, const FieldDescriptor* field,
+      ParsingTarget target = ParsingTarget::kBuilder);
   void GenerateIsInitialized(io::Printer* printer);
 
   const Descriptor* descriptor_;

@@ -76,7 +76,7 @@ OneofGenerator::~OneofGenerator() = default;
 void OneofGenerator::GenerateCommonBuilderMethods(io::Printer* printer) const {
   // oneofCase_ and oneof_
   printer->Print(variables_,
-                 "private int $oneof_name$Case_ = 0;\n"
+                 "private int $oneof_name$Case_;\n"
                  "private java.lang.Object $oneof_name$_;\n");
   GenerateBuilderGetOneofCase(printer);
   GenerateBuilderClearOneof(printer);
@@ -150,17 +150,24 @@ void OneofGenerator::GenerateMergingCode(
 }
 
 void OneofGenerator::GenerateBuilderClearOneofHasBits(
-    io::Printer* printer) const {
-  printer->Print(
-      variables_,
-      "\n"
-      "private void ${$clear$oneof_capitalized_name$HasBits$}$() {\n");
+    io::Printer* printer, ParsingTarget target) const {
+  auto vars = variables_;
+  const bool message = target == ParsingTarget::kMessage;
+  vars["static"] = message ? "static " : "";
+  vars["parameter"] =
+      message ? absl::StrCat(vars.at("classname"), " instance") : "";
+  printer->Print(vars,
+                 "\n"
+                 "private $static$void "
+                 "${$clear$oneof_capitalized_name$HasBits$}$($parameter$) {\n");
   for (const auto& kv : clear_masks_) {
-    printer->Print("  $bit_field_name$ = ($bit_field_name$ & ~$mask$);\n",
-                   "bit_field_name", GetBitFieldName(kv.first), "mask",
-                   absl::StrCat("0x", absl::Hex(kv.second, absl::kZeroPad8)));
+    printer->Print(
+        "  $bit_field_name$ = ($bit_field_name$ & ~$mask$);\n",
+        "bit_field_name",
+        absl::StrCat(message ? "instance." : "", GetBitFieldName(kv.first)),
+        "mask", absl::StrCat("0x", absl::Hex(kv.second, absl::kZeroPad8)));
   }
-  printer->Print(variables_, "}\n\n");
+  printer->Print(vars, "}\n\n");
 }
 
 bool OneofGenerator::HasScalarFields(int shard) const {
@@ -180,6 +187,14 @@ void OneofGenerator::GenerateBuildingCode(io::Printer* printer,
                  "  result.$oneof_name$Case_ = $oneof_name$Case_;\n"
                  "  result.$oneof_name$_ = $oneof_name$_;\n"
                  "}\n");
+}
+
+void OneofGenerator::GenerateBuilderStateCode(io::Printer* printer,
+                                              int shard) const {
+  if (clear_masks_.empty() || clear_masks_.begin()->first != shard) return;
+  printer->Print(variables_,
+                 "$oneof_name$Case_ = other.$oneof_name$Case_;\n"
+                 "$oneof_name$_ = other.$oneof_name$_;\n");
 }
 
 void OneofGenerator::GenerateInterfaceMembers(io::Printer* printer) const {

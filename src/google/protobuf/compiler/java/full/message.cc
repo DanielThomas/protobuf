@@ -1094,23 +1094,75 @@ void ImmutableMessageGenerator::GenerateExtensionRegistrationCode(
 
 // ===================================================================
 void ImmutableMessageGenerator::GenerateParser(io::Printer* printer) {
+  const bool direct = context_->HasGeneratedMethods(descriptor_);
+  std::string parser_class = "MessageParser";
+  if (direct) {
+    const auto* file = descriptor_->file();
+    while (parser_class == name_resolver_->GetFileClassName(file, true) ||
+           ClassNameResolver::HasConflictingClassName(
+               file, parser_class, NameEquality::EXACT_EQUAL)) {
+      parser_class += "_";
+    }
+  }
+  auto vars = printer->WithVars(
+      {{"classname", descriptor_->name()}, {"parser_class", parser_class}});
+  if (direct) {
+    // Keep field writes in the message class. Java 8 private-access bridges
+    // otherwise push wide parsing loops beyond the JVM method-size limit.
+    MessageBuilderGenerator(descriptor_, context_, oneof_generators_)
+        .GenerateParser(printer);
+    printer->Print(
+        "private static final com.google.protobuf.Parser<$classname$>\n"
+        "    PARSER = new $parser_class$();\n"
+        "\n"
+        "private static final class $parser_class$\n"
+        "    extends com.google.protobuf.GeneratedMessageParser<$classname$> "
+        "{\n");
+  } else {
+    printer->Print(
+        "private static final com.google.protobuf.Parser<$classname$>\n"
+        "    PARSER = new com.google.protobuf.AbstractParser<$classname$>() "
+        "{\n");
+  }
+  printer->Indent();
+  if (direct) {
+    // Package access avoids a synthetic constructor bridge on Java 8.
+    printer->Print(
+        "$parser_class$() {}\n\n"
+        "@java.lang.Override\n"
+        "public $classname$ parsePartialFrom(\n"
+        "    com.google.protobuf.CodedInputStream input,\n"
+        "    com.google.protobuf.ExtensionRegistryLite extensionRegistry)\n"
+        "    throws com.google.protobuf.InvalidProtocolBufferException {\n"
+        "  return $classname$.parsePartialFrom(input, extensionRegistry);\n"
+        "}\n");
+    printer->Print(
+        "@java.lang.Override\n"
+        "protected Builder newBuilderForParsing($classname$ instance) {\n"
+        "  Builder builder = new Builder(instance, null, null);\n");
+    if (!BuilderInitializationFields(descriptor_).empty()) {
+      printer->Print("  builder.maybeForceBuilderInitialization();\n");
+    }
+    printer->Print("  return builder;\n}\n");
+  } else {
+    printer->Print(
+        "@java.lang.Override\n"
+        "public $classname$ parsePartialFrom(\n"
+        "    com.google.protobuf.CodedInputStream input,\n"
+        "    com.google.protobuf.ExtensionRegistryLite extensionRegistry)\n"
+        "    throws com.google.protobuf.InvalidProtocolBufferException {\n"
+        "  Builder builder = newBuilder();\n"
+        "  try {\n"
+        "    builder.mergeFrom(input, extensionRegistry);\n"
+        "  } catch (java.lang.Exception e) {\n"
+        "    wrapAndThrowParseException(e, builder);\n"
+        "  }\n"
+        "  return builder.buildPartial();\n"
+        "}\n");
+  }
+  printer->Outdent();
+  printer->Print(direct ? "}\n" : "};\n");
   printer->Print(
-      "private static final com.google.protobuf.Parser<$classname$>\n"
-      "    PARSER = new com.google.protobuf.AbstractParser<$classname$>() {\n"
-      "  @java.lang.Override\n"
-      "  public $classname$ parsePartialFrom(\n"
-      "      com.google.protobuf.CodedInputStream input,\n"
-      "      com.google.protobuf.ExtensionRegistryLite extensionRegistry)\n"
-      "      throws com.google.protobuf.InvalidProtocolBufferException {\n"
-      "    Builder builder = newBuilder();\n"
-      "    try {\n"
-      "      builder.mergeFrom(input, extensionRegistry);\n"
-      "    } catch (java.lang.Exception e) {\n"
-      "      wrapAndThrowParseException(e, builder);\n"
-      "    }\n"
-      "    return builder.buildPartial();\n"
-      "  }\n"
-      "};\n"
       "\n"
       "public static com.google.protobuf.Parser<$classname$> parser() {\n"
       "  return PARSER;\n"
@@ -1120,8 +1172,7 @@ void ImmutableMessageGenerator::GenerateParser(io::Printer* printer) {
       "public com.google.protobuf.Parser<$classname$> getParserForType() {\n"
       "  return PARSER;\n"
       "}\n"
-      "\n",
-      "classname", descriptor_->name());
+      "\n");
 }
 
 // ===================================================================

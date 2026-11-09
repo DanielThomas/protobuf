@@ -57,6 +57,9 @@ class OneofGenerator {
       io::Printer* printer,
       const FieldGeneratorMap<ImmutableFieldGenerator>& field_generators) const;
 
+  void GenerateBuilderClearOneofHasBits(
+      io::Printer* printer,
+      ParsingTarget target = ParsingTarget::kBuilder) const;
   void GenerateCommonBuilderMethods(io::Printer* printer) const;
   void GenerateBuilderClearMethod(io::Printer* printer) const;
 
@@ -65,11 +68,11 @@ class OneofGenerator {
       const FieldGeneratorMap<ImmutableFieldGenerator>& field_generators) const;
   bool HasScalarFields(int shard) const;
   void GenerateBuildingCode(io::Printer* printer, int shard) const;
+  void GenerateBuilderStateCode(io::Printer* printer, int shard) const;
 
  private:
   void GenerateBuilderGetOneofCase(io::Printer* printer) const;
   void GenerateBuilderClearOneof(io::Printer* printer) const;
-  void GenerateBuilderClearOneofHasBits(io::Printer* printer) const;
 
   const OneofDescriptor* descriptor_;
   absl::flat_hash_map<absl::string_view, std::string> variables_;

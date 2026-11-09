@@ -59,6 +59,10 @@ public class SingleFieldBuilder<
     this.isClean = isClean;
   }
 
+  void setParent(GeneratedMessage.BuilderParent parent) {
+    this.parent = parent;
+  }
+
   public void dispose() {
     // Null out parent so we stop sending it invalidations.
     parent = null;
@@ -113,6 +117,22 @@ public class SingleFieldBuilder<
       // build() cannot break any invariants.
       this.builder = builder = (BType) message.newBuilderForType(this);
       builder.mergeFrom(message); // no-op if message is the default message
+      builder.markClean();
+    }
+    return builder;
+  }
+
+  /**
+   * Gets a builder for continuing wire decoding without merging the previously parsed message.
+   *
+   * <p>Older generated messages retain the normal {@link #getBuilder()} behavior.
+   */
+  @SuppressWarnings("unchecked")
+  public BType getBuilderForParsing() {
+    BType builder = this.builder;
+    if (builder == null) {
+      this.builder = builder = (BType) GeneratedMessageParser.toBuilderForParsing(message);
+      builder.setParent(this);
       builder.markClean();
     }
     return builder;
