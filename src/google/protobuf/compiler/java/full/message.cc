@@ -381,9 +381,17 @@ void ImmutableMessageGenerator::Generate(io::Printer* printer) {
   printer->Print(
       "// Use $classname$.newBuilder() to construct.\n"
       "private $classname$($buildertype$ builder) {\n"
-      "  super(builder);\n"
-      "}\n",
+      "  super(builder);\n",
       "classname", descriptor_->name(), "buildertype", builder_type);
+  printer->Indent();
+  for (int i = 0; i < descriptor_->field_count(); ++i) {
+    const auto* field = descriptor_->field(i);
+    if (!IsRealOneof(field)) {
+      field_generators_.get(field).GenerateConstructorInitializationCode(printer);
+    }
+  }
+  printer->Outdent();
+  printer->Print("}\n");
   printer->Print("private $classname$() {\n", "classname", descriptor_->name());
   printer->Indent();
   GenerateInitializers(printer);

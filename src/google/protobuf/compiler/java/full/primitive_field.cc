@@ -40,6 +40,11 @@ namespace {
 using internal::WireFormat;
 using Semantic = ::google::protobuf::io::AnnotationCollector::Semantic;
 
+bool HasBytesDefault(const FieldDescriptor* descriptor) {
+  return GetJavaType(descriptor) == JAVATYPE_BYTES &&
+         descriptor->has_default_value();
+}
+
 // Adds two variables to (*variables) that operate on a particular field value,
 // both for use locally and on another instance named 'other'. This ensures that
 // we treat these values the same way, whether it's in the current instance or
@@ -101,6 +106,10 @@ void SetPrimitiveVariables(
 
   (*variables)["default"] =
       ImmutableDefaultValue(descriptor, name_resolver, context->options());
+  (*variables)["builder_default"] =
+      HasBytesDefault(descriptor)
+          ? absl::StrCat("getDefaultInstance().get", info->capitalized_name, "()")
+          : (*variables)["default"];
   (*variables)["default_init"] =
       IsDefaultValueJavaDefault(descriptor)
           ? ""
@@ -252,7 +261,9 @@ void ImmutablePrimitiveFieldGenerator::GenerateGetMethod(
 
 void ImmutablePrimitiveFieldGenerator::GenerateMembers(
     io::Printer* printer) const {
-  printer->Print(variables_, "private $field_type$ $name$_ = $default$;\n");
+  printer->Print(variables_, HasBytesDefault(descriptor_)
+                                 ? "private $field_type$ $name$_;\n"
+                                 : "private $field_type$ $name$_ = $default$;\n");
   PrintExtraFieldInfo(variables_, printer);
   GenerateHasMethod(printer);
   GenerateGetMethod(printer);
@@ -330,7 +341,9 @@ void ImmutablePrimitiveFieldGenerator::GenerateBuilderClearMethod(
 
 void ImmutablePrimitiveFieldGenerator::GenerateBuilderMembers(
     io::Printer* printer) const {
-  printer->Print(variables_, "private $field_type$ $name$_ $default_init$;\n");
+  printer->Print(variables_, HasBytesDefault(descriptor_)
+                                 ? "private $field_type$ $name$_;\n"
+                                 : "private $field_type$ $name$_ $default_init$;\n");
   GenerateBuilderHasMethod(printer);
   GenerateBuilderGetMethod(printer);
   GenerateBuilderSetMethod(printer);
@@ -349,10 +362,25 @@ void ImmutablePrimitiveFieldGenerator::GenerateInitializationCode(
   }
 }
 
+void ImmutablePrimitiveFieldGenerator::GenerateConstructorInitializationCode(
+    io::Printer* printer) const {
+  if (HasBytesDefault(descriptor_)) {
+    // The no-argument constructor initializes the default instance itself.
+    printer->Print(variables_, "$name$_ = DEFAULT_INSTANCE.$name$_;\n");
+  }
+}
+
+void ImmutablePrimitiveFieldGenerator::GenerateBuilderInitializationCode(
+    io::Printer* printer) const {
+  if (HasBytesDefault(descriptor_)) {
+    printer->Print(variables_, "$name$_ = $builder_default$;\n");
+  }
+}
+
 void ImmutablePrimitiveFieldGenerator::GenerateBuilderClearCode(
     io::Printer* printer) const {
   // No need to clear the has-bit since we clear the bitField ints all at once.
-  printer->Print(variables_, "$name$_ = $default$;\n");
+  printer->Print(variables_, "$name$_ = $builder_default$;\n");
 }
 
 void ImmutablePrimitiveFieldGenerator::GenerateMergingCode(
