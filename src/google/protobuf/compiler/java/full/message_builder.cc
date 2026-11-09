@@ -276,6 +276,13 @@ void MessageBuilderGenerator::GenerateBuilderConstructors(
                                        : "";
 
   printer->Print(
+      "// Resolve parameter types so constructor access bridges generated for\n"
+      "// targets before Java 11 can inline.\n"
+      "static {\n"
+      "  java.lang.reflect.Constructor<?>[] unused =\n"
+      "      Builder.class.getDeclaredConstructors();\n"
+      "}\n"
+      "\n"
       "// Construct using $classname$.newBuilder()\n"
       "private Builder() {\n"
       "  this((com.google.protobuf.GeneratedMessage.BuilderParent) null);\n"
