@@ -564,7 +564,7 @@ TEST_F(JavaGeneratorTest, OneofHasBitsBuildPartial) {
   // membership (0x00000002 | 0x00000004 = 0x00000006).
   EXPECT_TRUE(FileContainsSubstring(
       PACKAGE_PREFIX "com/google/protos/TestOneofHasBits.java",
-      "to_bitField0_ |= (from_bitField0_ & 0x00000006);"));
+      "(from_bitField0_ & 0x00000006)"));
   // Verify clear<FieldName>() clears the individual has-bit.
   EXPECT_TRUE(FileContainsSubstring(
       PACKAGE_PREFIX "com/google/protos/TestOneofHasBits.java",

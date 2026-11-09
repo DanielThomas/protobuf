@@ -29,6 +29,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InterruptedIOException;
+import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.After;
@@ -297,6 +298,57 @@ public class ParserTest {
     assertThat(parsingMerge.getRepeatedAllTypesCount()).isEqualTo(3);
     assertThat(parsingMerge.getRepeatedGroupCount()).isEqualTo(3);
     assertThat(parsingMerge.getExtensionCount(TestParsingMerge.repeatedExt)).isEqualTo(3);
+  }
+
+  @Test
+  public void testParsingMergeAtInputBoundary() throws Exception {
+    TestAllTypes first = TestAllTypes.newBuilder().setOptionalInt32(1).build();
+    TestAllTypes second = TestAllTypes.newBuilder().setOptionalInt64(2).build();
+    TestAllTypes merged = first.toBuilder().mergeFrom(second).build();
+    for (boolean group : new boolean[] {false, true}) {
+      TestParsingMerge.RepeatedFieldsGenerator.Builder wire =
+          TestParsingMerge.RepeatedFieldsGenerator.newBuilder()
+              .addField1(TestAllTypes.getDefaultInstance());
+      TestParsingMerge.Builder expected =
+          TestParsingMerge.newBuilder().setRequiredAllTypes(TestAllTypes.getDefaultInstance());
+      if (group) {
+        wire.addGroup1(
+                TestParsingMerge.RepeatedFieldsGenerator.Group1.newBuilder().setField1(first))
+            .addGroup1(
+                TestParsingMerge.RepeatedFieldsGenerator.Group1.newBuilder().setField1(second));
+        expected.setOptionalGroup(
+            TestParsingMerge.OptionalGroup.newBuilder().setOptionalGroupAllTypes(merged));
+      } else {
+        wire.addField2(first).addField2(second);
+        expected.setOptionalAllTypes(merged);
+      }
+      byte[] data = wire.build().toByteArray();
+      for (boolean limited : new boolean[] {false, true}) {
+        byte[] bytes = limited ? Arrays.copyOf(data, data.length + 2) : data;
+        if (limited) {
+          bytes[data.length] = 8;
+          bytes[data.length + 1] = 7;
+        }
+        ByteBuffer direct = ByteBuffer.allocateDirect(bytes.length);
+        direct.put(bytes).flip();
+        for (CodedInputStream input :
+            Arrays.asList(
+                CodedInputStream.newInstance(bytes),
+                CodedInputStream.newInstance(ByteBuffer.wrap(bytes).asReadOnlyBuffer()),
+                CodedInputStream.newInstance(direct),
+                CodedInputStream.newInstance(new ByteArrayInputStream(bytes), 1))) {
+          int oldLimit = limited ? input.pushLimit(data.length) : 0;
+          assertThat(TestParsingMerge.parseFrom(input)).isEqualTo(expected.build());
+          assertThat(input.getLastTag()).isEqualTo(0);
+          if (limited) {
+            input.popLimit(oldLimit);
+            assertThat(input.readTag()).isEqualTo(8);
+            assertThat(input.readInt32()).isEqualTo(7);
+          }
+          assertThat(input.isAtEnd()).isTrue();
+        }
+      }
+    }
   }
 
   @Test
