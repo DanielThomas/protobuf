@@ -76,11 +76,11 @@ OneofGenerator::~OneofGenerator() = default;
 void OneofGenerator::GenerateCommonBuilderMethods(io::Printer* printer) const {
   // oneofCase_ and oneof_
   printer->Print(variables_,
-                 "private int $oneof_name$Case_ = 0;\n"
+                 "private int $oneof_name$Case_;\n"
                  "private java.lang.Object $oneof_name$_;\n");
   GenerateBuilderGetOneofCase(printer);
   GenerateBuilderClearOneof(printer);
-  GenerateBuilderClearOneofHasBits(printer);
+  GenerateClearHasBits(printer, ParsingTarget::kBuilder);
 }
 
 void OneofGenerator::GenerateBuilderGetOneofCase(io::Printer* printer) const {
@@ -149,37 +149,51 @@ void OneofGenerator::GenerateMergingCode(
                  "}\n");
 }
 
-void OneofGenerator::GenerateBuilderClearOneofHasBits(
-    io::Printer* printer) const {
-  printer->Print(
-      variables_,
-      "\n"
-      "private void ${$clear$oneof_capitalized_name$HasBits$}$() {\n");
+void OneofGenerator::GenerateClearHasBits(io::Printer* printer,
+                                          ParsingTarget target) const {
+  auto vars = variables_;
+  vars["static"] = target == ParsingTarget::kMessage ? "static " : "";
+  vars["parameter"] = target == ParsingTarget::kMessage
+                          ? absl::StrCat(vars.at("classname"), " instance")
+                          : "";
+  const std::string prefix =
+      target == ParsingTarget::kMessage ? "instance." : "";
+  printer->Print(vars,
+                 "\n"
+                 "private $static$void "
+                 "${$clear$oneof_capitalized_name$HasBits$}$($parameter$) {\n");
   for (const auto& kv : clear_masks_) {
     printer->Print("  $bit_field_name$ = ($bit_field_name$ & ~$mask$);\n",
-                   "bit_field_name", GetBitFieldName(kv.first), "mask",
+                   "bit_field_name",
+                   absl::StrCat(prefix, GetBitFieldName(kv.first)), "mask",
                    absl::StrCat("0x", absl::Hex(kv.second, absl::kZeroPad8)));
   }
-  printer->Print(variables_, "}\n\n");
+  printer->Print("}\n\n");
 }
 
-bool OneofGenerator::HasScalarFields(int shard) const {
-  return scalar_masks_.find(shard) != scalar_masks_.end();
-}
-
-void OneofGenerator::GenerateBuildingCode(io::Printer* printer,
-                                          int shard) const {
-  auto it = scalar_masks_.find(shard);
-  if (it == scalar_masks_.end()) return;
+void OneofGenerator::GenerateBuildingCode(io::Printer* printer, int shard,
+                                          CopyTarget target) const {
   auto vars = variables_;
-  vars["bit_field_name"] = GetBitFieldName(shard);
-  vars["mask"] = absl::StrCat("0x", absl::Hex(it->second, absl::kZeroPad8));
+  vars["source"] = target == CopyTarget::kMessage ? "" : "other.";
+  vars["destination"] = target == CopyTarget::kMessage ? "result." : "";
+  if (target == CopyTarget::kMessage) {
+    auto it = scalar_masks_.find(shard);
+    if (it == scalar_masks_.end()) return;
+    vars["bit_field_name"] = GetBitFieldName(shard);
+    vars["mask"] = absl::StrCat("0x", absl::Hex(it->second, absl::kZeroPad8));
+    printer->Print(vars,
+                   "if ((from_$bit_field_name$ & $mask$) != 0) {\n");
+    printer->Indent();
+  } else if (clear_masks_.empty() || clear_masks_.begin()->first != shard) {
+    return;
+  }
   printer->Print(vars,
-                 "to_$bit_field_name$ |= (from_$bit_field_name$ & $mask$);\n"
-                 "if ((from_$bit_field_name$ & $mask$) != 0) {\n"
-                 "  result.$oneof_name$Case_ = $oneof_name$Case_;\n"
-                 "  result.$oneof_name$_ = $oneof_name$_;\n"
-                 "}\n");
+                 "$destination$$oneof_name$Case_ = $source$$oneof_name$Case_;\n"
+                 "$destination$$oneof_name$_ = $source$$oneof_name$_;\n");
+  if (target == CopyTarget::kMessage) {
+    printer->Outdent();
+    printer->Print("}\n");
+  }
 }
 
 void OneofGenerator::GenerateInterfaceMembers(io::Printer* printer) const {

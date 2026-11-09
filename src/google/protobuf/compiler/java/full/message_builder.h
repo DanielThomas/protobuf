@@ -67,14 +67,13 @@ class MessageBuilderGenerator {
       io::Printer* printer, absl::Span<const std::string> merging_code_blocks,
       absl::string_view method_suffix);
   void GenerateBuildPartial(io::Printer* printer);
-  void GenerateBuildPartialShard(io::Printer* printer, int shard);
+  void GenerateCopyShard(io::Printer* printer, int shard, CopyTarget target);
   void GenerateDescriptorMethods(io::Printer* printer);
   void GenerateBuilderParsingMethods(io::Printer* printer);
   void GenerateBuilderFieldParsingCases(io::Printer* printer);
-  void GenerateBuilderFieldParsingCase(io::Printer* printer,
-                                       const FieldDescriptor* field);
-  void GenerateBuilderPackedFieldParsingCase(io::Printer* printer,
-                                             const FieldDescriptor* field);
+  void GenerateBuilderPendingFieldParsing(io::Printer* printer);
+  void GenerateParserChildTransfer(io::Printer* printer);
+  void GenerateParserBuilderHandoff(io::Printer* printer);
   void GenerateIsInitialized(io::Printer* printer);
 
   const Descriptor* descriptor_;

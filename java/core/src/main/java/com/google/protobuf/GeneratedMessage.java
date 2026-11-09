@@ -77,8 +77,14 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
     unknownFields = UnknownFieldSet.getDefaultInstance();
   }
 
+  /**
+   * Initializes a message with unknown fields from a builder.
+   *
+   * @param builder the source builder, or {@code null} to use the default unknown field set
+   */
   protected GeneratedMessage(Builder<?> builder) {
-    unknownFields = builder.getUnknownFields();
+    unknownFields =
+        builder == null ? UnknownFieldSet.getDefaultInstance() : builder.getUnknownFields();
   }
 
   /** TODO: Remove this unnecessary intermediate implementation of this method. */
@@ -293,10 +299,14 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
       ExtensionRegistryLite extensionRegistry,
       int tag)
       throws IOException {
-    if (input.shouldDiscardUnknownFields()) {
-      return input.skipField(tag);
-    }
-    return unknownFields.mergeFieldFrom(tag, input);
+    return parseUnknownField(input, unknownFields, tag);
+  }
+
+  static boolean parseUnknownField(
+      CodedInputStream input, UnknownFieldSet.Builder unknownFields, int tag) throws IOException {
+    return input.shouldDiscardUnknownFields()
+        ? input.skipField(tag)
+        : unknownFields.mergeFieldFrom(tag, input);
   }
 
   /**
@@ -524,6 +534,18 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
       return GeneratedMessage.emptyList(elementType);
     }
 
+    /** Connects a retained parsing child to this builder's invalidation chain. */
+    protected final <T extends SingleFieldBuilder<?, ?, ?>> T adoptFieldBuilder(T fieldBuilder) {
+      fieldBuilder.setParent(getParentForChildren());
+      return fieldBuilder;
+    }
+
+    /** Connects a retained repeated parsing field to this builder's invalidation chain. */
+    protected final <T extends RepeatedFieldBuilder<?, ?, ?>> T adoptFieldBuilder(T fieldBuilder) {
+      fieldBuilder.setParent(getParentForChildren());
+      return fieldBuilder;
+    }
+
     private BuilderParent builderParent;
 
     private BuilderParentImpl meAsParent;
@@ -543,12 +565,30 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
      * UnknownFieldSet} will be converted to a {@link UnknownFieldSet.Builder} and left that way
      * until either {@link #setUnknownFields} or {@link #buildPartial} or {@link #build} is called.
      */
-    private Object unknownFieldsOrBuilder = UnknownFieldSet.getDefaultInstance();
+    private Object unknownFieldsOrBuilder;
 
-    protected Builder() {}
+    protected Builder() {
+      unknownFieldsOrBuilder = UnknownFieldSet.getDefaultInstance();
+    }
 
     protected Builder(BuilderParent builderParent) {
+      this();
       this.builderParent = builderParent;
+    }
+
+    /**
+     * Initializes a builder with the unknown fields of the given message.
+     *
+     * @param message the message to copy
+     * @param parent the parent builder, or {@code null} if there is no parent
+     */
+    protected Builder(GeneratedMessage message, BuilderParent parent) {
+      builderParent = parent;
+      unknownFieldsOrBuilder = message.unknownFields;
+    }
+
+    void setParent(BuilderParent parent) {
+      builderParent = parent;
     }
 
     @Override
@@ -832,10 +872,9 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
     protected boolean parseUnknownField(
         CodedInputStream input, ExtensionRegistryLite extensionRegistry, int tag)
         throws IOException {
-      if (input.shouldDiscardUnknownFields()) {
-        return input.skipField(tag);
-      }
-      return getUnknownFieldSetBuilder().mergeFieldFrom(tag, input);
+      UnknownFieldSet.Builder unknown =
+          input.shouldDiscardUnknownFields() ? null : getUnknownFieldSetBuilder();
+      return GeneratedMessage.parseUnknownField(input, unknown, tag);
     }
 
     /** Called by generated subclasses to add to the unknown field set. */
@@ -1058,9 +1097,15 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
       this.extensions = FieldSet.newFieldSet();
     }
 
+    /**
+     * Initializes a message with unknown fields and extensions from a builder.
+     *
+     * @param builder the source builder, or {@code null} to use default unknown fields and an empty
+     *     extension set
+     */
     protected ExtendableMessage(ExtendableBuilder<MessageT, ?> builder) {
       super(builder);
-      this.extensions = builder.buildExtensions();
+      this.extensions = builder == null ? FieldSet.emptySet() : builder.buildExtensions();
     }
 
     /**
@@ -1462,6 +1507,22 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
 
     protected ExtendableBuilder(BuilderParent parent) {
       super(parent);
+    }
+
+    /**
+     * Initializes a parsing builder with the message's unknown fields and extension storage.
+     *
+     * <p>A live parser hands off before reading any extension. A previously parsed child can have
+     * extensions, which are copied directly rather than merged into an empty builder.
+     *
+     * @param message the message whose decoding will continue
+     * @param parent the parent builder, or {@code null} if there is no parent
+     */
+    protected ExtendableBuilder(ExtendableMessage<?> message, BuilderParent parent) {
+      super(message, parent);
+      if (!message.extensions.isEmpty()) {
+        internalSetExtensionSet(message.extensions);
+      }
     }
 
     // For immutable message conversion.

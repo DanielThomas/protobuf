@@ -27,19 +27,18 @@
 #include "google/protobuf/compiler/java/context.h"
 #include "google/protobuf/compiler/java/doc_comment.h"
 #include "google/protobuf/compiler/java/field_common.h"
-#include "google/protobuf/compiler/java/generator_common.h"
-#include "google/protobuf/compiler/java/helpers.h"
 #include "google/protobuf/compiler/java/full/enum.h"
 #include "google/protobuf/compiler/java/full/extension.h"
 #include "google/protobuf/compiler/java/full/field_generator.h"
 #include "google/protobuf/compiler/java/full/make_field_gens.h"
 #include "google/protobuf/compiler/java/full/oneof_generator.h"
+#include "google/protobuf/compiler/java/generator_common.h"
+#include "google/protobuf/compiler/java/helpers.h"
 #include "google/protobuf/compiler/java/name_resolver.h"
 #include "google/protobuf/descriptor.pb.h"
 #include "google/protobuf/io/printer.h"
 #include "google/protobuf/io/zero_copy_stream_impl_lite.h"
 #include "google/protobuf/wire_format.h"
-#include "google/protobuf/wire_format_lite.h"
 
 // Must be last.
 #include "google/protobuf/port_def.inc"
@@ -48,9 +47,6 @@ namespace google {
 namespace protobuf {
 namespace compiler {
 namespace java {
-
-using internal::WireFormat;
-using internal::WireFormatLite;
 
 namespace {
 
@@ -141,6 +137,10 @@ void MessageBuilderGenerator::Generate(io::Printer* printer) {
         .GenerateBuilderMembers(printer);
   }
 
+  if (context_->HasGeneratedMethods(descriptor_)) {
+    GenerateParserChildTransfer(printer);
+  }
+
   printer->Print(
       "\n"
       "// @@protoc_insertion_point(builder_scope:$full_name$)\n",
@@ -151,6 +151,35 @@ void MessageBuilderGenerator::Generate(io::Printer* printer) {
 }
 
 // ===================================================================
+
+void MessageBuilderGenerator::GenerateParserChildTransfer(io::Printer* printer) {
+  const auto fields = ParserChildFields(descriptor_);
+  for (int start = 0; start < fields.size(); start += 32) {
+    printer->Print(
+        "@java.lang.SuppressWarnings(\"unchecked\")\n"
+        "private void transferChildren$shard$(\n"
+        "    com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders) {\n",
+        "shard", absl::StrCat(start / 32));
+    printer->Indent();
+    const int end = std::min(start + 32, static_cast<int>(fields.size()));
+    for (int i = start; i < end; ++i) {
+      field_generators_.get(fields[i]).GenerateParserChildTransferCode(printer);
+    }
+    printer->Outdent();
+    printer->Print("}\n");
+  }
+}
+
+void MessageBuilderGenerator::GenerateParserBuilderHandoff(
+    io::Printer* printer) {
+  const auto fields = ParserChildFields(descriptor_);
+  printer->Print("if (fieldBuilders != null) {\n");
+  for (int i = 0; i < fields.size(); i += 32) {
+    printer->Print("  transferChildren$shard$(fieldBuilders);\n", "shard",
+                   absl::StrCat(i / 32));
+  }
+  printer->Print("}\n");
+}
 
 void MessageBuilderGenerator::GenerateDescriptorMethods(io::Printer* printer) {
   if (!descriptor_->options().no_standard_descriptor_accessor()) {
@@ -261,19 +290,8 @@ void MessageBuilderGenerator::GenerateBuilderConstructors(
   // Decide if we really need to have the "maybeForceBuilderInitialization()"
   // method.
   // TODO: Remove the need for this entirely
-  bool need_maybe_force_builder_init = false;
-  for (int i = 0; i < descriptor_->field_count(); i++) {
-    if (descriptor_->field(i)->message_type() != nullptr &&
-        !IsRealOneof(descriptor_->field(i)) &&
-        HasHasbit(descriptor_->field(i))) {
-      need_maybe_force_builder_init = true;
-      break;
-    }
-  }
-
-  const char* force_builder_init = need_maybe_force_builder_init
-                                       ? "  maybeForceBuilderInitialization();"
-                                       : "";
+  const auto initialization_fields = BuilderInitializationFields(descriptor_);
+  const bool need_maybe_force_builder_init = !initialization_fields.empty();
 
   printer->Print(
       "// Resolve parameter types so constructor access bridges generated for\n"
@@ -300,8 +318,36 @@ void MessageBuilderGenerator::GenerateBuilderConstructors(
     }
   }
   printer->Outdent();
-  printer->Print("$force_builder_init$\n}\n",
-                 "force_builder_init", force_builder_init);
+  if (need_maybe_force_builder_init) {
+    printer->Print("  maybeForceBuilderInitialization();\n");
+  }
+  printer->Print("}\n");
+
+  if (context_->HasGeneratedMethods(descriptor_)) {
+    // Any generated message can be promoted as a singular child, even when
+    // its own parser never hands off.
+    // Pack locals only at handoff so wide messages stay below the JVM's
+    // 255-parameter-slot limit without allocating a parse-state object up
+    // front.
+    printer->Print(
+        "private Builder($classname$ other,\n"
+        "    com.google.protobuf.SingleFieldBuilder<?, ?, ?>[] fieldBuilders,\n"
+        "    com.google.protobuf.UnknownFieldSet.Builder unknown,\n"
+        "    java.lang.Object[] parserLocals) {\n"
+        "  super(other, null);\n"
+        "  if (unknown != null) setUnknownFieldSetBuilder(unknown);\n",
+        "classname", name_resolver_->GetImmutableClassName(descriptor_));
+    for (int i = 0; i < (descriptor_->field_count() + 31) / 32; ++i) {
+      printer->Print("  copyFrom_autosplit_$shard$(other, parserLocals);\n",
+                     "shard", absl::StrCat(i));
+    }
+    if (!ParserChildFields(descriptor_).empty()) {
+      printer->Indent();
+      GenerateParserBuilderHandoff(printer);
+      printer->Outdent();
+    }
+    printer->Print("}\n");
+  }
 
   if (need_maybe_force_builder_init) {
     printer->Print(
@@ -311,11 +357,9 @@ void MessageBuilderGenerator::GenerateBuilderConstructors(
 
     printer->Indent();
     printer->Indent();
-    for (int i = 0; i < descriptor_->field_count(); i++) {
-      if (!IsRealOneof(descriptor_->field(i))) {
-        field_generators_.get(descriptor_->field(i))
-            .GenerateFieldBuilderInitializationCode(printer);
-      }
+    for (const auto* field : initialization_fields) {
+      field_generators_.get(field).GenerateFieldBuilderInitializationCode(
+          printer);
     }
     printer->Outdent();
     printer->Outdent();
@@ -588,43 +632,65 @@ void MessageBuilderGenerator::GenerateBuildPartial(io::Printer* printer) {
 
   // Build all fields in shards organized by bitfield membership.
   for (int i = 0; i < totalInts; i++) {
-    GenerateBuildPartialShard(printer, i);
+    GenerateCopyShard(printer, i, CopyTarget::kMessage);
+    if (context_->HasGeneratedMethods(descriptor_)) {
+      GenerateCopyShard(printer, i, CopyTarget::kBuilder);
+    }
   }
 }
 
-void MessageBuilderGenerator::GenerateBuildPartialShard(io::Printer* printer,
-                                                        int shard) {
-  printer->Print(
-      "private void buildPartial_autosplit_$shard$($classname$ result) {\n"
-      "  int from_$bit_field_name$ = $bit_field_name$;\n"
-      "  int to_$bit_field_name$ = 0;\n",
-      "classname", name_resolver_->GetImmutableClassName(descriptor_), "shard",
-      absl::StrCat(shard), "bit_field_name", GetBitFieldName(shard));
+void MessageBuilderGenerator::GenerateCopyShard(io::Printer* printer, int shard,
+                                                CopyTarget target) {
+  const std::string bit_field = GetBitFieldName(shard);
+  const int begin = shard * 32;
+  const int end = std::min(begin + 32, static_cast<int>(field_generators_.size()));
+  if (target == CopyTarget::kMessage) {
+    // Both storage layouts use the builder's bit indexes, so a live parser
+    // can transfer bookkeeping without reconstructing presence.
+    printer->Print(
+        "private void buildPartial_autosplit_$shard$($classname$ result) {\n"
+        "  int from_$bit_field_name$ = $bit_field_name$;\n"
+        "  int to_$bit_field_name$ = from_$bit_field_name$;\n",
+        "classname", name_resolver_->GetImmutableClassName(descriptor_),
+        "shard", absl::StrCat(shard), "bit_field_name", bit_field);
+  } else {
+    printer->Print(
+        "@java.lang.SuppressWarnings(\"unchecked\")\n"
+        "private void copyFrom_autosplit_$shard$($classname$ other, "
+        "java.lang.Object[] parserLocals) {\n"
+        "  int to_$bit_field_name$ = other.$bit_field_name$;\n",
+        "classname", name_resolver_->GetImmutableClassName(descriptor_),
+        "shard", absl::StrCat(shard), "bit_field_name", bit_field);
+  }
   printer->Indent();
 
-  int i = shard * 32;
-  int shard_end = std::min(i + 32, static_cast<int>(field_generators_.size()));
-  for (; i < shard_end; ++i) {
-    const ImmutableFieldGenerator& field =
-        field_generators_.getInInsertOrder(i);
-
-    // Copy the field from the builder to the message
-    field.GenerateBuildingCode(printer);
+  for (int i = begin; i < end; ++i) {
+    field_generators_.getInInsertOrder(i).GenerateBuildingCode(printer, target);
   }
-
   for (const auto& kv : oneof_generators_) {
-    if (kv.second->HasScalarFields(shard)) {
-      kv.second->GenerateBuildingCode(printer, shard);
+    kv.second->GenerateBuildingCode(printer, shard, target);
+  }
+  if (target == CopyTarget::kBuilder) {
+    const auto locals = ParserLocalFields(descriptor_);
+    bool opened = false;
+    for (int i = 0; i < locals.size(); ++i) {
+      const auto& generator = field_generators_.get(locals[i]);
+      if (generator.GetBitIndex() / 32 != shard) continue;
+      if (!opened) {
+        printer->Print("if (parserLocals != null) {\n");
+        opened = true;
+      }
+      generator.GenerateParserLocalTransferCode(printer, i);
     }
+    if (opened) printer->Print("}\n");
   }
 
   printer->Outdent();
-
-  // Copy the bit field results to the generated message
   printer->Print(
-      "  result.$bit_field_name$ |= to_$bit_field_name$;\n"
+      "  $destination$$bit_field_name$ |= to_$bit_field_name$;\n"
       "}\n\n",
-      "bit_field_name", GetBitFieldName(shard));
+      "destination", target == CopyTarget::kMessage ? "result." : "",
+      "bit_field_name", bit_field);
 }
 
 // ===================================================================
@@ -672,55 +738,45 @@ void MessageBuilderGenerator::GenerateBuilderParsingMethods(
       "  } // finally\n"
       "  return this;\n"
       "}\n");
+  if (context_->HasGeneratedMethods(descriptor_) &&
+      ParserMayHandoff(descriptor_)) {
+    GenerateBuilderPendingFieldParsing(printer);
+  }
+}
+
+void MessageBuilderGenerator::GenerateBuilderPendingFieldParsing(
+    io::Printer* printer) {
+  printer->Print(
+      "private boolean mergeFromPendingField(\n"
+      "    com.google.protobuf.CodedInputStream input,\n"
+      "    com.google.protobuf.ExtensionRegistryLite extensionRegistry, int "
+      "tag)\n"
+      "    throws java.io.IOException {\n"
+      "  switch (tag) {\n");
+  printer->Indent();
+  printer->Indent();
+  for (const auto* field : ParserChildFields(descriptor_)) {
+    printer->Print("case $tag$: {\n", "tag",
+                   absl::StrCat(static_cast<int32_t>(
+                       internal::WireFormat::MakeTag(field))));
+    printer->Indent();
+    field_generators_.get(field).GenerateBuilderParsingCode(printer);
+    printer->Print("return true;\n");
+    printer->Outdent();
+    printer->Print("}\n");
+  }
+  printer->Print(
+      "default: return super.parseUnknownField(input, extensionRegistry, "
+      "tag);\n");
+  printer->Outdent();
+  printer->Outdent();
+  printer->Print("  }\n}\n");
 }
 
 void MessageBuilderGenerator::GenerateBuilderFieldParsingCases(
     io::Printer* printer) {
-  std::vector<const FieldDescriptor*> sorted_fields(
-      SortFieldsByNumber(descriptor_));
-  for (int i = 0; i < descriptor_->field_count(); i++) {
-    const FieldDescriptor* field = sorted_fields[i];
-    GenerateBuilderFieldParsingCase(printer, field);
-    if (field->is_packable()) {
-      GenerateBuilderPackedFieldParsingCase(printer, field);
-    }
-  }
-}
-
-void MessageBuilderGenerator::GenerateBuilderFieldParsingCase(
-    io::Printer* printer, const FieldDescriptor* field) {
-  uint32_t tag = WireFormatLite::MakeTag(
-      field->number(), WireFormat::WireTypeForFieldType(field->type()));
-  std::string tagString = absl::StrCat(static_cast<int32_t>(tag));
-  printer->Print("case $tag$: {\n", "tag", tagString);
-  printer->Indent();
-
-  field_generators_.get(field).GenerateBuilderParsingCode(printer);
-
-  printer->Outdent();
-  printer->Print(
-      "  break;\n"
-      "} // case $tag$\n",
-      "tag", tagString);
-}
-
-void MessageBuilderGenerator::GenerateBuilderPackedFieldParsingCase(
-    io::Printer* printer, const FieldDescriptor* field) {
-  // To make packed = true wire compatible, we generate parsing code from a
-  // packed version of this field regardless of field->options().packed().
-  uint32_t tag = WireFormatLite::MakeTag(
-      field->number(), WireFormatLite::WIRETYPE_LENGTH_DELIMITED);
-  std::string tagString = absl::StrCat(static_cast<int32_t>(tag));
-  printer->Print("case $tag$: {\n", "tag", tagString);
-  printer->Indent();
-
-  field_generators_.get(field).GenerateBuilderParsingCodeFromPacked(printer);
-
-  printer->Outdent();
-  printer->Print(
-      "  break;\n"
-      "} // case $tag$\n",
-      "tag", tagString);
+  GenerateFieldParsingCases(descriptor_, field_generators_, printer,
+                            ParsingTarget::kBuilder);
 }
 
 // ===================================================================

@@ -16,12 +16,13 @@
 
 #include "absl/log/absl_check.h"
 #include "absl/strings/str_cat.h"
+#include "absl/strings/str_replace.h"
 #include "absl/types/optional.h"
 #include "google/protobuf/compiler/java/context.h"
 #include "google/protobuf/compiler/java/doc_comment.h"
 #include "google/protobuf/compiler/java/field_common.h"
-#include "google/protobuf/compiler/java/helpers.h"
 #include "google/protobuf/compiler/java/full/field_generator.h"
+#include "google/protobuf/compiler/java/helpers.h"
 #include "google/protobuf/compiler/java/name_resolver.h"
 #include "google/protobuf/io/printer.h"
 #include "google/protobuf/wire_format.h"
@@ -61,13 +62,8 @@ void SetMessageVariables(
 
   if (HasHasbit(descriptor)) {
     // For singular messages and builders, one bit is used for the hasField bit.
-    // Note that these have a trailing ";".
-    (*variables)["set_has_field_bit_to_local"] =
-        GenerateSetBitToLocal(bit_index);
-
     (*variables)["is_field_present"] = GenerateGetBit(bit_index);
   } else {
-    (*variables)["set_has_field_bit_to_local"] = "";
     variables->insert(
         {"is_field_present", absl::StrCat((*variables)["name"], "_ != null")});
   }
@@ -104,6 +100,115 @@ ImmutableMessageFieldGenerator::ImmutableMessageFieldGenerator(
 }
 
 ImmutableMessageFieldGenerator::~ImmutableMessageFieldGenerator() = default;
+
+ImmutableFieldGenerator::FieldVariables
+ImmutableMessageFieldGenerator::GetFieldBuilderVariables(
+    ParsingTarget target) const {
+  auto vars = variables_;
+  const std::string field_name =
+      IsRealOneof() ? vars.at("oneof_name") : vars.at("name");
+  vars["field"] = absl::StrCat(field_name, "_");
+  vars["result_field"] = absl::StrCat("result.", field_name, "_");
+  vars["field_builder"] = absl::StrCat(vars.at("name"), "Builder_");
+  vars["typed_field_builder"] = vars.at("field_builder");
+  vars["builder_type"] = ParserFieldBuilderType(descriptor_, context_);
+  vars["get_field_builder"] = absl::StrCat(
+      "internalGet", vars.at("capitalized_name"), "FieldBuilder()");
+  vars["get_field"] = absl::StrCat("get", vars.at("capitalized_name"), "()");
+  vars["field_parent"] = "getParentForChildren()";
+  vars["field_clean"] = "isClean()";
+  vars["build_presence"] = vars.at("get_has_field_bit_from_local");
+  if (IsRealOneof()) {
+    vars["build_case"] = absl::StrCat("result.", vars.at("oneof_name"),
+                                      "Case_ = ", vars.at("number"), ";");
+  }
+  if (target == ParsingTarget::kMessage) {
+    vars["field"] = absl::StrCat("instance.", field_name, "_");
+    vars["result_field"] = vars.at("field");
+    vars["get_field_builder"] = vars.at("field_builder");
+    vars["get_field"] = absl::StrCat("instance.", vars.at("get_field"));
+    vars["field_parent"] = "null";
+    vars["field_clean"] = "false";
+    vars["on_changed"] = "";
+    vars["set_has_field_bit"] =
+        GetParsingVariables(target).at("set_has_field_bit");
+    vars["build_presence"] =
+        descriptor_->is_repeated()
+            ? absl::StrReplaceAll(
+                  vars.at("get_has_field_bit"),
+                  {{GetBitFieldName(bit_index_ / 32),
+                    absl::StrCat("instance.",
+                                 GetBitFieldName(bit_index_ / 32))}})
+            : absl::StrCat("instance.has", vars.at("capitalized_name"), "()");
+    if (IsRealOneof()) {
+      vars["has_oneof_case_message"] = absl::StrReplaceAll(
+          vars.at("has_oneof_case_message"),
+          {{absl::StrCat(vars.at("oneof_name"), "Case_"),
+            absl::StrCat("instance.", vars.at("oneof_name"), "Case_")}});
+      vars["build_case"] = "";
+    }
+  }
+  return vars;
+}
+
+void ImmutableMessageFieldGenerator::GenerateParserLocalCode(
+    io::Printer* printer) const {
+  printer->Print(GetFieldBuilderVariables(ParsingTarget::kMessage),
+                 "$builder_type$ $field_builder$ = null;\n");
+}
+
+void ImmutableMessageFieldGenerator::GenerateParserFieldBuilderHelper(
+    io::Printer* printer) const {
+  if (!IsRealOneof() &&
+      BuilderInitializationFields(descriptor_->containing_type()).empty())
+    return;
+  auto vars = GetFieldBuilderVariables(ParsingTarget::kMessage);
+  vars["message_type"] =
+      name_resolver_->GetImmutableClassName(descriptor_->containing_type());
+  printer->Print(
+      vars,
+      "private static $builder_type$\n"
+      "    internalGet$capitalized_name$FieldBuilder(\n"
+      "        $message_type$ instance, $builder_type$ $field_builder$) {\n");
+  GenerateFieldBuilderInitialization(printer, vars, ParsingTarget::kMessage);
+  printer->Print(vars, "  return $field_builder$;\n}\n");
+}
+
+void ImmutableMessageFieldGenerator::GenerateParserChildTransferCode(
+    io::Printer* printer) const {
+  auto vars = GetFieldBuilderVariables(ParsingTarget::kMessage);
+  int slot = 0;
+  for (int i = 0; i < descriptor_->index(); ++i) {
+    const auto* field = descriptor_->containing_type()->field(i);
+    if (!field->is_repeated() && GetJavaType(field) == JAVATYPE_MESSAGE) ++slot;
+  }
+  vars["builder_field"] = vars.at("field_builder");
+  vars["field_builder"] = absl::StrCat("fieldBuilders[", slot, "]");
+  vars["typed_field_builder"] = absl::StrCat("(", vars.at("builder_type"), ") ",
+                                             vars.at("field_builder"));
+  printer->Print(
+      vars,
+      "if ($field_builder$ != null) {\n"
+      "  $builder_field$ = adoptFieldBuilder($typed_field_builder$);\n");
+  if (IsRealOneof()) {
+    printer->Print(
+        variables_,
+        "  if ($oneof_name$Case_ == $number$) $oneof_name$_ = null;\n");
+  } else {
+    printer->Print(variables_, "  $name$_ = null;\n");
+  }
+  printer->Print("}\n");
+}
+
+void ImmutableMessageFieldGenerator::GenerateParserChildFinalizationCode(
+    io::Printer* printer) const {
+  auto vars = GetFieldBuilderVariables(ParsingTarget::kMessage);
+  // The message is filled in place. Builder publication starts from a fresh message.
+  if (!IsRealOneof()) {
+    printer->Print(vars, "if (!$build_presence$) $field$ = null;\n");
+  }
+  GenerateBuildingCode(printer, CopyTarget::kParserInPlace);
+}
 
 void ImmutableMessageFieldGenerator::GenerateInterfaceHasMethod(
     io::Printer* printer) const {
@@ -188,6 +293,7 @@ void ImmutableMessageFieldGenerator::GenerateMembers(
 
 void ImmutableMessageFieldGenerator::GenerateWriteFieldMethod(
     io::Printer* printer) const {
+  if (!context_->HasGeneratedMethods(descriptor_->containing_type())) return;
   if (GetType(descriptor_) == FieldDescriptor::TYPE_GROUP) {
     printer->Print(variables_,
                    "private void write$capitalized_name$Field(\n"
@@ -211,13 +317,20 @@ void ImmutableMessageFieldGenerator::GenerateWriteFieldMethod(
 void ImmutableMessageFieldGenerator::PrintNestedBuilderCondition(
     io::Printer* printer, const char* regular_case,
     const char* nested_builder_case) const {
-  printer->Print(variables_, "if ($name$Builder_ == null) {\n");
+  PrintNestedBuilderCondition(printer, variables_, regular_case,
+                              nested_builder_case);
+}
+
+void ImmutableMessageFieldGenerator::PrintNestedBuilderCondition(
+    io::Printer* printer, const FieldVariables& vars, const char* regular_case,
+    const char* nested_builder_case) const {
+  printer->Print(vars, "if ($name$Builder_ == null) {\n");
   printer->Indent();
-  printer->Print(variables_, regular_case);
+  printer->Print(vars, regular_case);
   printer->Outdent();
   printer->Print("} else {\n");
   printer->Indent();
-  printer->Print(variables_, nested_builder_case);
+  printer->Print(vars, nested_builder_case);
   printer->Outdent();
   printer->Print("}\n");
 }
@@ -378,22 +491,31 @@ void ImmutableMessageFieldGenerator::
       variables_,
       "private com.google.protobuf.SingleFieldBuilder<\n"
       "    $type$, $type$.Builder, $type$OrBuilder> \n"
-      "    internalGet$capitalized_name$FieldBuilder() {\n"
-      "  if ($name$Builder_ == null) {\n"
-      "    $name$Builder_ = new com.google.protobuf.SingleFieldBuilder<\n"
+      "    internalGet$capitalized_name$FieldBuilder() {\n");
+  const auto vars = GetFieldBuilderVariables(ParsingTarget::kBuilder);
+  GenerateFieldBuilderInitialization(printer, vars);
+  printer->Print(vars, "  return $typed_field_builder$;\n}\n");
+}
+
+void ImmutableMessageFieldGenerator::GenerateFieldBuilderInitialization(
+    io::Printer* printer, const FieldVariables& vars, ParsingTarget target) const {
+  printer->Print(vars, "  if ($field_builder$ == null) {\n");
+  printer->Print(
+      vars,
+      "    $field_builder$ = new com.google.protobuf.SingleFieldBuilder<\n"
       "        $type$, $type$.Builder, $type$OrBuilder>(\n"
-      "            get$capitalized_name$(),\n"
-      "            getParentForChildren(),\n"
-      "            isClean());\n"
-      "    $name$_ = null;\n"
+      "            $get_field$,\n"
+      "            $field_parent$,\n"
+      "            $field_clean$);\n");
+  printer->Print(vars,
+      "    $field$ = null;\n"
       "  }\n"
-      "  $set_has_field_bit$\n"
-      "  return $name$Builder_;\n"
-      "}\n");
+      "  $set_has_field_bit$\n");
 }
 
 void ImmutableMessageFieldGenerator::GenerateBuilderParseMethod(
     io::Printer* printer) const {
+  if (!context_->HasGeneratedMethods(descriptor_->containing_type())) return;
   // Private parse method for this field, created to avoid code size too large
   // issues in the try-catch block.
   printer->Print(
@@ -404,34 +526,44 @@ void ImmutableMessageFieldGenerator::GenerateBuilderParseMethod(
       "    throws java.io.IOException {\n");
   printer->Indent();
 
-  if (GetType(descriptor_) == FieldDescriptor::TYPE_GROUP) {
-    printer->Print(variables_,
-                   "if ($name$_ != null || $name$Builder_ != null) {\n"
-                   "  input.readGroup($number$,\n"
-                   "      "
-                   "internalGet$capitalized_name$FieldBuilder().getBuilder(),\n"
-                   "      extensionRegistry);\n"
-                   "} else {\n"
-                   "  $name$_ = input.readGroup($number$, $type$.parser(),\n"
-                   "      extensionRegistry);\n"
-                   "}\n"
-                   "$set_has_field_bit$\n");
-  } else {
-    printer->Print(
-        variables_,
-        "final int oldLimit = input.pushLimitBeforeMessage();\n"
-        "if ($name$_ != null || $name$Builder_ != null) {\n"
-        "  internalGet$capitalized_name$FieldBuilder().getBuilder()\n"
-        "      .mergeFrom(input, extensionRegistry);\n"
-        "} else {\n"
-        "  $name$_ = $type$.parser().parsePartialFrom(input, "
-        "extensionRegistry);\n"
-        "}\n"
-        "input.popLimitAfterMessage(oldLimit);\n"
-        "$set_has_field_bit$\n");
-  }
+  GenerateFieldParsingCode(
+      printer, GetFieldBuilderVariables(ParsingTarget::kBuilder));
   printer->Outdent();
   printer->Print("}\n");
+}
+
+void ImmutableMessageFieldGenerator::GenerateFieldParsingCode(
+    io::Printer* printer, const FieldVariables& vars,
+    ParsingTarget target) const {
+  const bool group = GetType(descriptor_) == FieldDescriptor::TYPE_GROUP;
+  if (!group) {
+    printer->Print("final int oldLimit = input.pushLimitBeforeMessage();\n");
+  }
+  printer->Print(vars, "if ($field$ != null || $field_builder$ != null) {\n");
+  if (group) {
+    printer->Print(vars,
+                   "  input.readGroup($number$,\n"
+                   "      $get_field_builder$.getBuilderForParsing(),\n"
+                   "      extensionRegistry);\n");
+  } else {
+    printer->Print(vars,
+                   "  $get_field_builder$.getBuilderForParsing()\n"
+                   "      .mergeFrom(input, extensionRegistry);\n");
+  }
+  printer->Print("} else {\n");
+  if (group) {
+    printer->Print(vars,
+        "  $field$ = input.readGroup($number$, $type$.parser(),\n"
+        "      extensionRegistry);\n");
+  } else {
+    printer->Print(vars,
+        "  $field$ = $type$.parser().parsePartialFrom(input, extensionRegistry);\n");
+  }
+  printer->Print("}\n");
+  if (!group) {
+    printer->Print("input.popLimitAfterMessage(oldLimit);\n");
+  }
+  printer->Print(vars, "$set_has_field_bit$\n");
 }
 
 void ImmutableMessageFieldGenerator::GenerateBuilderMembers(
@@ -488,20 +620,42 @@ void ImmutableMessageFieldGenerator::GenerateMergingCode(
 }
 
 void ImmutableMessageFieldGenerator::GenerateBuildingCode(
-    io::Printer* printer) const {
-  printer->Print(variables_,
-                 "if ($get_has_field_bit_from_local$) {\n"
-                 "  result.$name$_ = $name$Builder_ == null\n"
-                 "      ? $name$_\n"
-                 "      : $name$Builder_.build();\n"
-                 "  $set_has_field_bit_to_local$;\n"
-                 "}\n");
+    io::Printer* printer, CopyTarget target) const {
+  if (target == CopyTarget::kBuilder) {
+    GenerateCopyAssignment(printer, target);
+    return;
+  }
+  GenerateFieldBuildingCode(
+      printer, GetFieldBuilderVariables(target == CopyTarget::kParserInPlace
+                                            ? ParsingTarget::kMessage
+                                            : ParsingTarget::kBuilder));
 }
 
-void ImmutableMessageFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
-  printer->Print(variables_,
-                 "parse$capitalized_name$Field(input, extensionRegistry);\n");
+void ImmutableMessageFieldGenerator::GenerateFieldBuildingCode(
+    io::Printer* printer, const FieldVariables& vars) const {
+  printer->Print(vars, "if ($build_presence$) {\n");
+  printer->Indent();
+  GenerateFieldBuildingValueCode(printer, vars);
+  printer->Outdent();
+  printer->Print("}\n");
+}
+
+void ImmutableMessageFieldGenerator::GenerateFieldBuildingValueCode(
+    io::Printer* printer, const FieldVariables& vars) const {
+  printer->Print(vars,
+                 "$result_field$ = $field_builder$ == null\n"
+                 "    ? $field$\n"
+                 "    : $typed_field_builder$.build();\n");
+}
+
+void ImmutableMessageFieldGenerator::GenerateParsingCode(
+    io::Printer* printer, ParsingTarget target) const {
+  if (target == ParsingTarget::kBuilder) {
+    printer->Print(variables_,
+                   "parse$capitalized_name$Field(input, extensionRegistry);\n");
+    return;
+  }
+  GenerateFieldParsingCode(printer, GetFieldBuilderVariables(target), target);
 }
 
 void ImmutableMessageFieldGenerator::GenerateSerializationCode(
@@ -606,6 +760,7 @@ void ImmutableMessageOneofFieldGenerator::GenerateMembers(
 
 void ImmutableMessageOneofFieldGenerator::GenerateWriteFieldMethod(
     io::Printer* printer) const {
+  if (!context_->HasGeneratedMethods(descriptor_->containing_type())) return;
   if (GetType(descriptor_) == FieldDescriptor::TYPE_GROUP) {
     printer->Print(variables_,
                    "private void write$capitalized_name$Field(\n"
@@ -803,31 +958,33 @@ void ImmutableMessageOneofFieldGenerator::
       variables_,
       "private com.google.protobuf.SingleFieldBuilder<\n"
       "    $type$, $type$.Builder, $type$OrBuilder> \n"
-      "    ${$internalGet$capitalized_name$FieldBuilder$}$() {\n"
-      "  if ($name$Builder_ == null) {\n"
-      "    if (!($has_oneof_case_message$)) {\n"
-      "      $oneof_name$_ = $type$.getDefaultInstance();\n"
-      "    }\n"
-      "    $name$Builder_ = new com.google.protobuf.SingleFieldBuilder<\n"
-      "        $type$, $type$.Builder, $type$OrBuilder>(\n"
-      "            ($type$) $oneof_name$_,\n"
-      "            getParentForChildren(),\n"
-      "            isClean());\n"
-      "    $oneof_name$_ = null;\n"
-      "  }\n"
-      "  switch ($oneof_name$Case_) {\n"
-      "  default:\n"
-      "    clear$oneof_capitalized_name$HasBits(); // fallthrough\n"
-      "  case 0:\n"
-      "    $set_oneof_case_message$;\n"
-      "    $set_has_field_bit$ // fallthrough\n"
-      "  case $number$:\n"
-      "    break;\n"
-      "  }\n"
-      "  $on_changed$\n"
-      "  return $name$Builder_;\n"
-      "}\n");
+      "    ${$internalGet$capitalized_name$FieldBuilder$}$() {\n");
+  const auto vars = GetFieldBuilderVariables(ParsingTarget::kBuilder);
+  GenerateFieldBuilderInitialization(printer, vars);
+  printer->Print(vars, "  return $typed_field_builder$;\n}\n");
   printer->Annotate("{", "}", descriptor_, Semantic::kSet);
+}
+
+void ImmutableMessageOneofFieldGenerator::GenerateFieldBuilderInitialization(
+    io::Printer* printer, const FieldVariables& vars, ParsingTarget target) const {
+  printer->Print(
+      vars,
+      "  if ($field_builder$ == null) {\n"
+      "    if (!($has_oneof_case_message$)) {\n"
+      "      $field$ = $type$.getDefaultInstance();\n"
+      "    }\n");
+  printer->Print(
+      vars,
+      "    $field_builder$ = new com.google.protobuf.SingleFieldBuilder<\n"
+      "        $type$, $type$.Builder, $type$OrBuilder>(\n"
+      "            ($type$) $field$,\n"
+      "            $field_parent$,\n"
+      "            $field_clean$);\n");
+  printer->Print(vars,
+                 "    $field$ = null;\n"
+                 "  }\n");
+  GenerateOneofParsingCaseUpdate(printer, target);
+  if (!vars.at("on_changed").empty()) printer->Print(vars, "  $on_changed$\n");
 }
 
 void ImmutableMessageOneofFieldGenerator::GenerateBuilderMembers(
@@ -864,15 +1021,19 @@ void ImmutableMessageOneofFieldGenerator::GenerateBuilderClearCode(
 }
 
 void ImmutableMessageOneofFieldGenerator::GenerateBuildingCode(
-    io::Printer* printer) const {
-  printer->Print(variables_,
-                 "if ($get_has_field_bit_from_local$) {\n"
-                 "  result.$oneof_name$_ = $name$Builder_ == null\n"
-                 "      ? $oneof_name$_\n"
-                 "      : $name$Builder_.build();\n"
-                 "  result.$oneof_name$Case_ = $number$;\n"
-                 "  $set_has_field_bit_to_local$;\n"
-                 "}\n");
+    io::Printer* printer, CopyTarget target) const {
+  if (target == CopyTarget::kBuilder) return;
+  ImmutableMessageFieldGenerator::GenerateBuildingCode(printer, target);
+}
+
+void ImmutableMessageOneofFieldGenerator::GenerateFieldBuildingCode(
+    io::Printer* printer, const FieldVariables& vars) const {
+  printer->Print(vars, "if ($build_presence$) {\n");
+  printer->Indent();
+  GenerateFieldBuildingValueCode(printer, vars);
+  if (!vars.at("build_case").empty()) printer->Print(vars, "$build_case$\n");
+  printer->Outdent();
+  printer->Print("}\n");
 }
 
 void ImmutableMessageOneofFieldGenerator::GenerateMergingCode(
@@ -883,6 +1044,7 @@ void ImmutableMessageOneofFieldGenerator::GenerateMergingCode(
 
 void ImmutableMessageOneofFieldGenerator::GenerateBuilderParseMethod(
     io::Printer* printer) const {
+  if (!context_->HasGeneratedMethods(descriptor_->containing_type())) return;
   printer->Print(
       variables_,
       "private void parse$capitalized_name$(\n"
@@ -890,45 +1052,37 @@ void ImmutableMessageOneofFieldGenerator::GenerateBuilderParseMethod(
       "    com.google.protobuf.ExtensionRegistryLite extensionRegistry)\n"
       "    throws java.io.IOException {\n");
   printer->Indent();
-  if (GetType(descriptor_) == FieldDescriptor::TYPE_GROUP) {
-    printer->Print(variables_,
-                   "input.readGroup($number$,\n"
-                   "    "
-                   "internalGet$capitalized_name$FieldBuilder().getBuilder(),\n"
-                   "    extensionRegistry);\n"
-                   "switch ($oneof_name$Case_) {\n"
-                   "default:\n"
-                   "  clear$oneof_capitalized_name$HasBits(); // fallthrough\n"
-                   "case 0:\n"
-                   "  $set_oneof_case_message$;\n"
-                   "  $set_has_field_bit$ // fallthrough\n"
-                   "case $number$:\n"
-                   "  break;\n"
-                   "}\n");
-  } else {
-    printer->Print(variables_,
-                   "input.readMessage(\n"
-                   "    "
-                   "internalGet$capitalized_name$FieldBuilder().getBuilder(),\n"
-                   "    extensionRegistry);\n"
-                   "switch ($oneof_name$Case_) {\n"
-                   "default:\n"
-                   "  clear$oneof_capitalized_name$HasBits(); // fallthrough\n"
-                   "case 0:\n"
-                   "  $set_oneof_case_message$;\n"
-                   "  $set_has_field_bit$ // fallthrough\n"
-                   "case $number$:\n"
-                   "  break;\n"
-                   "}\n");
-  }
+  GenerateFieldParsingCode(
+      printer, GetFieldBuilderVariables(ParsingTarget::kBuilder));
   printer->Outdent();
   printer->Print("}\n");
 }
 
-void ImmutableMessageOneofFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
-  printer->Print(variables_,
-                 "parse$capitalized_name$(input, extensionRegistry);\n");
+void ImmutableMessageOneofFieldGenerator::GenerateFieldParsingCode(
+    io::Printer* printer, const FieldVariables& vars,
+    ParsingTarget target) const {
+  if (GetType(descriptor_) == FieldDescriptor::TYPE_GROUP) {
+    printer->Print(vars,
+                   "input.readGroup($number$,\n"
+                   "    $get_field_builder$.getBuilderForParsing(),\n"
+                   "    extensionRegistry);\n");
+  } else {
+    printer->Print(vars,
+                   "input.readMessage(\n"
+                   "    $get_field_builder$.getBuilderForParsing(),\n"
+                   "    extensionRegistry);\n");
+  }
+  GenerateOneofParsingCaseUpdate(printer, target);
+}
+
+void ImmutableMessageOneofFieldGenerator::GenerateParsingCode(
+    io::Printer* printer, ParsingTarget target) const {
+  if (target == ParsingTarget::kBuilder) {
+    printer->Print(variables_,
+                   "parse$capitalized_name$(input, extensionRegistry);\n");
+    return;
+  }
+  GenerateFieldParsingCode(printer, GetFieldBuilderVariables(target), target);
 }
 
 void ImmutableMessageOneofFieldGenerator::GenerateSerializationCode(
@@ -1093,6 +1247,7 @@ void RepeatedImmutableMessageFieldGenerator::GenerateMembers(
 
 void RepeatedImmutableMessageFieldGenerator::GenerateWriteFieldMethod(
     io::Printer* printer) const {
+  if (!context_->HasGeneratedMethods(descriptor_->containing_type())) return;
   if (GetType(descriptor_) == FieldDescriptor::TYPE_GROUP) {
     printer->Print(variables_,
                    "private void write$capitalized_name$Field(\n"
@@ -1120,12 +1275,11 @@ void RepeatedImmutableMessageFieldGenerator::GenerateWriteFieldMethod(
 void RepeatedImmutableMessageFieldGenerator::GenerateEnsureIsMutableMethod(
     io::Printer* printer) const {
   printer->Print(variables_,
-                 "private void ensure$capitalized_name$IsMutable() {\n"
-                 "  if (!$name$_.isModifiable()) {\n"
-                 "    $name$_ = makeMutableCopy($name$_);\n"
-                 "  }\n"
-                 "  $set_has_field_bit$\n"
-                 "}\n");
+                 "private void ensure$capitalized_name$IsMutable() {\n");
+  printer->Indent();
+  GenerateEnsureIsMutableBody(printer, ParsingTarget::kBuilder);
+  printer->Outdent();
+  printer->Print("}\n");
 }
 
 void RepeatedImmutableMessageFieldGenerator::GenerateBuilderGetListMethod(
@@ -1433,29 +1587,35 @@ void RepeatedImmutableMessageFieldGenerator::
   printer->Print(variables_,
                  "private com.google.protobuf.RepeatedFieldBuilder<\n"
                  "    $type$, $type$.Builder, $type$OrBuilder> \n"
-                 "    internalGet$capitalized_name$FieldBuilder() {\n"
-                 "  if ($name$Builder_ == null) {\n"
-                 "    $name$Builder_ = new "
-                 "com.google.protobuf.RepeatedFieldBuilder<\n"
-                 "        $type$, $type$.Builder, $type$OrBuilder>(\n"
-                 "            $name$_,\n"
-                 "            $name$_.isModifiable(),\n"
-                 "            getParentForChildren(),\n"
-                 "            isClean());\n"
-                 "    $name$_ = null;\n"
-                 "  }\n"
-                 "  $set_has_field_bit$\n"
-                 "  $on_changed$\n"
-                 "  return $name$Builder_;\n"
-                 "}\n");
+                 "    internalGet$capitalized_name$FieldBuilder() {\n");
+  const auto vars = GetFieldBuilderVariables(ParsingTarget::kBuilder);
+  GenerateFieldBuilderInitialization(printer, vars);
+  printer->Print(vars, "  return $field_builder$;\n}\n");
+}
+
+void RepeatedImmutableMessageFieldGenerator::GenerateFieldBuilderInitialization(
+    io::Printer* printer, const FieldVariables& vars,
+    ParsingTarget target) const {
+  printer->Print(
+      vars,
+      "  if ($field_builder$ == null) {\n"
+      "    $field_builder$ = new com.google.protobuf.RepeatedFieldBuilder<\n"
+      "        $type$, $type$.Builder, $type$OrBuilder>(\n"
+      "            $field$,\n"
+      "            $field$.isModifiable(),\n"
+      "            $field_parent$,\n"
+      "            $field_clean$);\n"
+      "    $field$ = null;\n"
+      "  }\n"
+      "  $set_has_field_bit$\n");
+  if (!vars.at("on_changed").empty()) printer->Print(vars, "  $on_changed$\n");
 }
 
 void RepeatedImmutableMessageFieldGenerator::GenerateBuilderMembers(
     io::Printer* printer) const {
   printer->Print(
       variables_,
-      "private com.google.protobuf.Internal.ProtobufList<$type$> $name$_ =\n"
-      "    emptyList($type$.class);\n");
+      "private com.google.protobuf.Internal.ProtobufList<$type$> $name$_;\n");
 
   GenerateEnsureIsMutableMethod(printer);
 
@@ -1545,38 +1705,64 @@ void RepeatedImmutableMessageFieldGenerator::GenerateMergingCode(
 }
 
 void RepeatedImmutableMessageFieldGenerator::GenerateBuildingCode(
-    io::Printer* printer) const {
+    io::Printer* printer, CopyTarget target) const {
+  if (target == CopyTarget::kBuilder) {
+    GenerateRepeatedCopyCode(printer, target);
+    return;
+  }
   // The code below (non-nested builder case) ensures that the result has an
   // immutable list. If our list is immutable, we can just reuse it. If not,
   // we make it immutable.
-  printer->Print(variables_, "if ($get_has_field_bit_from_local$) {\n");
-  PrintNestedBuilderCondition(
-      printer,
-      "$name$_.makeImmutable();\n"
-      "result.$name$_ = $name$_;\n",
+  GenerateFieldBuildingCode(
+      printer, GetFieldBuilderVariables(target == CopyTarget::kParserInPlace
+                                            ? ParsingTarget::kMessage
+                                            : ParsingTarget::kBuilder));
+}
 
-      "result.$name$_ = $name$Builder_.buildProtobufList();\n");
+void RepeatedImmutableMessageFieldGenerator::GenerateFieldBuildingCode(
+    io::Printer* printer, const FieldVariables& vars) const {
+  printer->Print(vars, "if ($build_presence$) {\n");
+  const std::string assignment = vars.at("field") == vars.at("result_field")
+                                     ? ""
+                                     : "$result_field$ = $field$;\n";
+  PrintNestedBuilderCondition(
+      printer, vars,
+      absl::StrCat("$field$.makeImmutable();\n", assignment).c_str(),
+      "$result_field$ = $field_builder$.buildProtobufList();\n");
   printer->Print("}\n");
 }
 
-void RepeatedImmutableMessageFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
+void RepeatedImmutableMessageFieldGenerator::GenerateParserLocalTransferCode(
+    io::Printer* printer, int index) const {
+  auto vars = GetFieldBuilderVariables(ParsingTarget::kBuilder);
+  vars["index"] = absl::StrCat(index);
+  printer->Print(vars,
+                 "if (parserLocals[$index$] != null) {\n"
+                 "  $field_builder$ = adoptFieldBuilder(($builder_type$) "
+                 "parserLocals[$index$]);\n"
+                 "}\n");
+}
+
+void RepeatedImmutableMessageFieldGenerator::GenerateParsingCode(
+    io::Printer* printer, ParsingTarget target) const {
+  auto vars = GetParsingVariables(target);
+  vars["ensure_mutable"] = GetParsingEnsureMutableCode(target);
   if (GetType(descriptor_) == FieldDescriptor::TYPE_GROUP) {
-    printer->Print(variables_,
+    printer->Print(vars,
                    "$type$ m =\n"
                    "    input.readGroup($number$,\n"
                    "        $type$.$get_parser$,\n"
                    "        extensionRegistry);\n");
   } else {
-    printer->Print(variables_,
+    printer->Print(vars,
                    "final int oldLimit = input.pushLimitBeforeMessage();\n"
                    "$type$ m = $type$.parser().parsePartialFrom(input, "
                    "extensionRegistry);\n"
                    "input.popLimitAfterMessage(oldLimit);\n");
   }
-  PrintNestedBuilderCondition(printer,
-                              "ensure$capitalized_name$IsMutable();\n"
-                              "$name$_.add(m);\n",
+  PrintNestedBuilderCondition(printer, vars,
+                              "$ensure_mutable$\n"
+                              "$field$.add(m);\n",
                               "$name$Builder_.addMessage(m);\n"
                               "$set_has_field_bit$\n"
                               "$on_changed$\n");

@@ -44,16 +44,12 @@ public abstract class AbstractParser<MessageType extends MessageLite>
   @SuppressWarnings("PatternMatchingInstanceof")
   protected final void wrapAndThrowParseException(Exception e, MessageLite.Builder builder)
       throws InvalidProtocolBufferException {
-    if (e instanceof InvalidProtocolBufferException) {
-      throw ((InvalidProtocolBufferException) e).setUnfinishedMessage(builder.buildPartial());
+    if (e instanceof IOException) {
+      throwParseException((IOException) e, builder.buildPartial());
     }
     if (e instanceof UninitializedMessageException) {
       throw ((UninitializedMessageException) e)
           .asInvalidProtocolBufferException()
-          .setUnfinishedMessage(builder.buildPartial());
-    }
-    if (e instanceof IOException) {
-      throw new InvalidProtocolBufferException((IOException) e)
           .setUnfinishedMessage(builder.buildPartial());
     }
     if (e instanceof RuntimeException) {
@@ -63,12 +59,28 @@ public abstract class AbstractParser<MessageType extends MessageLite>
   }
 
   /**
+   * Throws a parse exception containing the unfinished message.
+   *
+   * @param e the parsing failure
+   * @param message the unfinished message
+   * @throws InvalidProtocolBufferException the supplied exception if it is an {@code
+   *     InvalidProtocolBufferException}, otherwise a new exception wrapping {@code e}
+   */
+  protected static void throwParseException(IOException e, MessageLite message)
+      throws InvalidProtocolBufferException {
+    if (e instanceof InvalidProtocolBufferException) {
+      throw ((InvalidProtocolBufferException) e).setUnfinishedMessage(message);
+    }
+    throw new InvalidProtocolBufferException(e).setUnfinishedMessage(message);
+  }
+
+  /**
    * Helper method to check if message is initialized.
    *
    * @throws InvalidProtocolBufferException if it is not initialized.
    * @return The message to check.
    */
-  private MessageType checkMessageInitialized(MessageType message)
+  final MessageType checkMessageInitialized(MessageType message)
       throws InvalidProtocolBufferException {
     if (message != null && !message.isInitialized()) {
       throw newUninitializedMessageException(message)
@@ -78,7 +90,7 @@ public abstract class AbstractParser<MessageType extends MessageLite>
     return message;
   }
 
-  private static final ExtensionRegistryLite EMPTY_REGISTRY =
+  static final ExtensionRegistryLite EMPTY_REGISTRY =
       ExtensionRegistryLite.getEmptyRegistry();
 
   @Override

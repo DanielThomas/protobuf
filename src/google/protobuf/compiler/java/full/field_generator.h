@@ -9,6 +9,7 @@
 #define GOOGLE_PROTOBUF_COMPILER_JAVA_IMMUTABLE_FIELD_GENERATOR_H__
 
 #include <string>
+#include <vector>
 
 #include "absl/container/flat_hash_map.h"
 #include "absl/strings/string_view.h"
@@ -22,6 +23,9 @@ namespace java {
 class Context;            // context.h
 class ClassNameResolver;  // name_resolver.h
 
+enum class ParsingTarget { kBuilder, kMessage };
+enum class CopyTarget { kBuilder, kMessage, kParserInPlace };
+
 class ImmutableFieldGenerator : public FieldGenerator {
  public:
   explicit ImmutableFieldGenerator(const FieldDescriptor* descriptor,
@@ -29,6 +33,16 @@ class ImmutableFieldGenerator : public FieldGenerator {
   ImmutableFieldGenerator(const ImmutableFieldGenerator&) = delete;
   ImmutableFieldGenerator& operator=(const ImmutableFieldGenerator&) = delete;
   ~ImmutableFieldGenerator() override = default;
+
+  virtual void GenerateParserLocalCode(io::Printer* printer) const;
+  virtual void GenerateParserLocalTransferCode(io::Printer* printer,
+                                               int index) const;
+  void GenerateParserParsingCode(io::Printer* printer, bool packed = false) const;
+  void GenerateParserFieldBuilderInitializationCode(io::Printer* printer) const;
+  virtual void GenerateParserHelperCode(io::Printer* printer) const;
+  virtual void GenerateParserFieldBuilderHelper(io::Printer* printer) const {}
+  virtual void GenerateParserChildFinalizationCode(io::Printer* printer) const {}
+  virtual void GenerateParserChildTransferCode(io::Printer* printer) const {}
 
   bool HasHasbit() const;
   bool IsRealOneof() const;
@@ -40,17 +54,27 @@ class ImmutableFieldGenerator : public FieldGenerator {
   virtual void GenerateBuilderMembers(io::Printer* printer) const = 0;
   virtual void GenerateInitializationCode(io::Printer* printer) const = 0;
   virtual void GenerateConstructorInitializationCode(io::Printer* printer) const {}
-  virtual void GenerateBuilderInitializationCode(io::Printer* printer) const {}
+  virtual void GenerateBuilderInitializationCode(io::Printer* printer) const {
+    GenerateInitializationCode(printer);
+  }
   virtual void GenerateBuilderClearCode(io::Printer* printer) const = 0;
   virtual void GenerateMergingCode(io::Printer* printer) const = 0;
-  virtual void GenerateBuildingCode(io::Printer* printer) const = 0;
-  virtual void GenerateBuilderParsingCode(io::Printer* printer) const = 0;
+  virtual void GenerateBuildingCode(
+      io::Printer* printer, CopyTarget target = CopyTarget::kMessage) const = 0;
+  void GenerateBuilderParsingCode(io::Printer* printer) const {
+    GenerateParsingCode(printer, ParsingTarget::kBuilder);
+  }
+  virtual void GenerateParsingCode(io::Printer* printer,
+                                   ParsingTarget target) const = 0;
   virtual void GenerateSerializedSizeCode(io::Printer* printer) const = 0;
   virtual void GenerateFieldBuilderInitializationCode(
       io::Printer* printer) const = 0;
 
-  virtual void GenerateBuilderParsingCodeFromPacked(
-      io::Printer* printer) const {
+  void GenerateBuilderParsingCodeFromPacked(io::Printer* printer) const {
+    GenerateParsingCodeFromPacked(printer, ParsingTarget::kBuilder);
+  }
+  virtual void GenerateParsingCodeFromPacked(io::Printer* printer,
+                                             ParsingTarget target) const {
     ReportUnexpectedPackedFieldsCall();
   }
 
@@ -60,12 +84,44 @@ class ImmutableFieldGenerator : public FieldGenerator {
   virtual std::string GetBoxedType() const = 0;
 
  protected:
+  using FieldVariables = absl::flat_hash_map<absl::string_view, std::string>;
+
+  FieldVariables GetCopyingVariables(CopyTarget target) const;
+  void GenerateCopyAssignment(io::Printer* printer, CopyTarget target) const;
+  void GenerateScalarCopyCode(io::Printer* printer, CopyTarget target) const;
+  void GenerateRepeatedCopyCode(io::Printer* printer, CopyTarget target) const;
+  FieldVariables GetParsingVariables(ParsingTarget target) const;
+  std::string GetParsingEnsureMutableCode(
+      ParsingTarget target, absl::string_view capacity = "") const;
+  void GenerateEnsureIsMutableBody(io::Printer* printer, ParsingTarget target,
+                                   absl::string_view capacity = "") const;
+  void GenerateOneofParsingCaseUpdate(io::Printer* printer,
+                                      ParsingTarget target) const;
+  bool ParserNeedsHelper() const;
+
   const FieldDescriptor* descriptor_;
   int bit_index_;
   Context* context_;
   ClassNameResolver* name_resolver_;
   absl::flat_hash_map<absl::string_view, std::string> variables_;
 };
+
+void GenerateFieldParsingCases(
+    const Descriptor* descriptor,
+    const FieldGeneratorMap<ImmutableFieldGenerator>& fields,
+    io::Printer* printer, ParsingTarget target);
+
+std::string ParserFieldBuilderType(const FieldDescriptor* field,
+                                   Context* context);
+bool ParserMayHandoff(const Descriptor* descriptor);
+std::vector<const FieldDescriptor*> BuilderInitializationFields(
+    const Descriptor* descriptor);
+bool IsParserLocalMap(const FieldDescriptor* field);
+std::vector<const FieldDescriptor*> ParserLocalFields(
+    const Descriptor* descriptor);
+
+std::vector<const FieldDescriptor*> ParserChildFields(
+    const Descriptor* descriptor);
 
 }  // namespace java
 }  // namespace compiler

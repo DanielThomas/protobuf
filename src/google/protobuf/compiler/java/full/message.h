@@ -73,7 +73,9 @@ class ImmutableMessageGenerator : public MessageGenerator {
   void GenerateInitializers(io::Printer* printer);
   void GenerateEqualsAndHashCode(io::Printer* printer);
   void GenerateParser(io::Printer* printer);
-  void GenerateParsingConstructor(io::Printer* printer);
+  void GenerateParserBody(io::Printer* printer);
+  void GenerateParserChildFinalization(io::Printer* printer);
+  void GenerateParserCollectionFinalization(io::Printer* printer);
   void GenerateAnyMethods(io::Printer* printer);
 
   Context* context_;
