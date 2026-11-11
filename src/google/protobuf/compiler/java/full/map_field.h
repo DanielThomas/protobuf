@@ -28,16 +28,23 @@ class ImmutableMapFieldGenerator : public ImmutableFieldGenerator {
 
   void GenerateInterfaceMembers(io::Printer* printer) const override;
   void GenerateMembers(io::Printer* printer) const override;
-  void GenerateBuilderMembers(io::Printer* printer) const override;
+  void GenerateBuilderMembers(
+      io::Printer* printer,
+      ParsingTarget target = ParsingTarget::kBuilder) const override;
   void GenerateInitializationCode(io::Printer* printer) const override;
   void GenerateBuilderClearCode(io::Printer* printer) const override;
   void GenerateMergingCode(io::Printer* printer) const override;
-  void GenerateBuildingCode(io::Printer* printer) const override;
-  void GenerateBuilderParsingCode(io::Printer* printer) const override;
+  void GenerateBuildingCode(
+      io::Printer* printer,
+      CopyTarget target = CopyTarget::kMessage) const override;
+  void GenerateBuilderParsingCode(
+      io::Printer* printer,
+      ParsingTarget target = ParsingTarget::kBuilder) const override;
   void GenerateSerializationCode(io::Printer* printer) const override;
   void GenerateSerializedSizeCode(io::Printer* printer) const override;
   void GenerateFieldBuilderInitializationCode(
-      io::Printer* printer) const override;
+      io::Printer* printer,
+      ParsingTarget target = ParsingTarget::kBuilder) const override;
   void GenerateEqualsCode(io::Printer* printer) const override;
   void GenerateHashCode(io::Printer* printer) const override;
 
@@ -46,7 +53,9 @@ class ImmutableMapFieldGenerator : public ImmutableFieldGenerator {
  private:
   void SetMessageVariables(const FieldGeneratorInfo* info);
   void GenerateMapGetters(io::Printer* printer) const;
-  void GenerateMessageMapBuilderMembers(io::Printer* printer) const;
+  void GenerateMessageMapBuilderMembers(
+      io::Printer* printer,
+      ParsingTarget target = ParsingTarget::kBuilder) const;
   void GenerateMessageMapGetters(io::Printer* printer) const;
 
   void GenerateInterfaceGetCountMethod(io::Printer* printer) const;

@@ -1,0 +1,48 @@
+// Protocol Buffers - Google's data interchange format
+// Copyright 2026 Google LLC
+//
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file or at
+// https://developers.google.com/open-source/licenses/bsd
+
+edition = "2024";
+
+package com.google.protobuf.test;
+
+import "google/protobuf/java_features.proto";
+
+option java_outer_classname = "GeneratedMessageParserTestProto";
+
+message TestMapParsing {
+  option features.(pb.java).nest_in_file_class = NO;
+
+  int32 value = 1;
+  TestMapParsing child = 2;
+  oneof choice {
+    TestMapParsing selected = 3;
+  }
+  map<string, TestMapParsing> children = 4;
+  string text = 5;
+}
+
+message TestExtensionParsing {
+  option features.(pb.java).nest_in_file_class = NO;
+
+  int32 value = 1;
+  TestExtensionParsing child = 2;
+  oneof choice {
+    TestExtensionParsing selected = 3;
+    bytes text = 4;
+    TestExtensionParsing other = 5;
+  }
+  TestExtensionParsing group = 6 [features.message_encoding = DELIMITED];
+  repeated int32 values = 7;
+  map<string, int32> entries = 8;
+
+  extensions 100 to max;
+}
+
+extend TestExtensionParsing {
+  int32 number = 100;
+  TestExtensionParsing extension_child = 101;
+}

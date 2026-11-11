@@ -969,6 +969,15 @@ class MessageReflection {
       return registry.findImmutableExtensionByNumber(containingType, fieldNumber);
     }
 
+    private Message.Builder newBuilderForParsing(
+        Descriptors.FieldDescriptor field, Message defaultInstance) {
+      Object original = field.isRepeated() ? null : extensions.getFieldAllowBuilders(field);
+      return original == null
+          ? defaultInstance.newBuilderForType()
+          : (Message.Builder)
+              GeneratedMessageParser.toBuilderForParsing((MessageLiteOrBuilder) original);
+    }
+
     @Override
     public Object parseGroup(
         CodedInputStream input,
@@ -976,13 +985,7 @@ class MessageReflection {
         Descriptors.FieldDescriptor field,
         Message defaultInstance)
         throws IOException {
-      Message.Builder subBuilder = defaultInstance.newBuilderForType();
-      if (!field.isRepeated()) {
-        Message originalMessage = (Message) getField(field);
-        if (originalMessage != null) {
-          subBuilder.mergeFrom(originalMessage);
-        }
-      }
+      Message.Builder subBuilder = newBuilderForParsing(field, defaultInstance);
       input.readGroup(field.getNumber(), subBuilder, registry);
       return subBuilder.buildPartial();
     }
@@ -994,13 +997,7 @@ class MessageReflection {
         Message defaultInstance,
         boolean isLengthPrefixed)
         throws IOException {
-      Message.Builder subBuilder = defaultInstance.newBuilderForType();
-      if (!field.isRepeated()) {
-        Message originalMessage = (Message) getField(field);
-        if (originalMessage != null) {
-          subBuilder.mergeFrom(originalMessage);
-        }
-      }
+      Message.Builder subBuilder = newBuilderForParsing(field, defaultInstance);
       if (isLengthPrefixed) {
         input.readMessage(subBuilder, registry);
       } else {
@@ -1042,11 +1039,9 @@ class MessageReflection {
       if (!field.isRepeated()) {
         if (hasField(field)) {
           Object fieldOrBuilder = extensions.getFieldAllowBuilders(field);
-          MessageLite.Builder subBuilder;
-          if (fieldOrBuilder instanceof MessageLite.Builder) {
-            subBuilder = (MessageLite.Builder) fieldOrBuilder;
-          } else {
-            subBuilder = ((MessageLite) fieldOrBuilder).toBuilder();
+          MessageLite.Builder subBuilder =
+              GeneratedMessageParser.toBuilderForParsing((MessageLiteOrBuilder) fieldOrBuilder);
+          if (subBuilder != fieldOrBuilder) {
             extensions.setField(field, subBuilder);
           }
           input.readGroup(field.getNumber(), subBuilder, extensionRegistry);
@@ -1082,11 +1077,9 @@ class MessageReflection {
             return;
           }
           Object fieldOrBuilder = extensions.getFieldAllowBuilders(field);
-          MessageLite.Builder subBuilder;
-          if (fieldOrBuilder instanceof MessageLite.Builder) {
-            subBuilder = (MessageLite.Builder) fieldOrBuilder;
-          } else {
-            subBuilder = ((MessageLite) fieldOrBuilder).toBuilder();
+          MessageLite.Builder subBuilder =
+              GeneratedMessageParser.toBuilderForParsing((MessageLiteOrBuilder) fieldOrBuilder);
+          if (subBuilder != fieldOrBuilder) {
             extensions.setField(field, subBuilder);
           }
           input.readMessage(subBuilder, extensionRegistry);

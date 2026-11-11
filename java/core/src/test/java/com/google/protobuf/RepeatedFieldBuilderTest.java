@@ -26,6 +26,21 @@ import org.junit.runners.JUnit4;
 public class RepeatedFieldBuilderTest {
 
   @Test
+  public void testReparentedFieldBuilderInvalidatesCachedMessage() {
+    RepeatedFieldBuilder<TestAllTypes, TestAllTypes.Builder, TestAllTypesOrBuilder> field =
+        new RepeatedFieldBuilder<>(Collections.<TestAllTypes>emptyList(), false, null, false);
+    TestAllTypes.Builder child = field.addBuilder(TestAllTypes.getDefaultInstance());
+    child.setOptionalInt32(1);
+    List<TestAllTypes> first = field.build();
+    TestUtil.MockBuilderParent parent = new TestUtil.MockBuilderParent();
+    field.setParent(parent);
+    child.setOptionalInt32(2);
+    assertThat(field.getMessage(0).getOptionalInt32()).isEqualTo(2);
+    assertThat(first.get(0).getOptionalInt32()).isEqualTo(1);
+    assertThat(parent.getInvalidationCount()).isEqualTo(1);
+  }
+
+  @Test
   public void testBasicUse() {
     TestUtil.MockBuilderParent mockParent = new TestUtil.MockBuilderParent();
     RepeatedFieldBuilder<TestAllTypes, TestAllTypes.Builder, TestAllTypesOrBuilder> builder =

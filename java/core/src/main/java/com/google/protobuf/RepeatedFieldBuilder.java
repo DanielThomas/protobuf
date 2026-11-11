@@ -117,6 +117,10 @@ public class RepeatedFieldBuilder<
     this.isClean = isClean;
   }
 
+  void setParent(GeneratedMessage.BuilderParent parent) {
+    this.parent = parent;
+  }
+
   public void dispose() {
     // Null out parent so we stop sending it invalidations.
     parent = null;

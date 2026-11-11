@@ -10,6 +10,7 @@ package com.google.protobuf;
 import static com.google.common.truth.Truth.assertThat;
 
 import proto2_unittest.UnittestProto;
+import proto2_unittest.UnittestProto.TestOneof2;
 import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
@@ -69,6 +70,27 @@ public class LazyStringEndToEndTest {
     tV2.writeTo(outputStream);
     outputStream.flush();
     assertThat(ByteString.copyFrom(sink)).isEqualTo(TEST_ALL_TYPES_SERIALIZED_WITH_ILLEGAL_UTF8);
+  }
+
+  @Test
+  public void testOneofStringSurvivesBuilderHandoff() throws Exception {
+    ByteString invalidUtf8 = ByteString.copyFrom(new byte[] {-1, 0, -1, 0});
+    TestOneof2 prefix =
+        TestOneof2.newBuilder()
+            .setFooMessage(TestOneof2.NestedMessage.newBuilder().addCorgeInt(17))
+            .setBarStringBytes(invalidUtf8)
+            .build();
+    TestOneof2 suffix =
+        TestOneof2.newBuilder()
+            .setFooMessage(TestOneof2.NestedMessage.newBuilder().addCorgeInt(23))
+            .build();
+    TestOneof2 expected =
+        prefix.toBuilder()
+            .setFooMessage(TestOneof2.NestedMessage.newBuilder().addCorgeInt(17).addCorgeInt(23))
+            .build();
+    TestOneof2 parsed = TestOneof2.parseFrom(prefix.toByteString().concat(suffix.toByteString()));
+    assertThat(parsed.getBarStringBytes()).isEqualTo(invalidUtf8);
+    assertThat(parsed.toByteString()).isEqualTo(expected.toByteString());
   }
 
   @Test

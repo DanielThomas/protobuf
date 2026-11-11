@@ -292,8 +292,9 @@ void ImmutableEnumFieldGenerator::GenerateBuilderClearMethod(
 }
 
 void ImmutableEnumFieldGenerator::GenerateBuilderMembers(
-    io::Printer* printer) const {
-  printer->Print(variables_, "private int $name$_ = $default_number$;\n");
+    io::Printer* printer, ParsingTarget target) const {
+  if (target == ParsingTarget::kMessage) return;
+  printer->Print(variables_, "private int $name$_;\n");
   GenerateBuilderHasMethod(printer);
   GenerateBuilderGetValueMethod(printer);
   GenerateBuilderSetValueMethod(printer);
@@ -303,7 +304,7 @@ void ImmutableEnumFieldGenerator::GenerateBuilderMembers(
 }
 
 void ImmutableEnumFieldGenerator::GenerateFieldBuilderInitializationCode(
-    io::Printer* printer) const {
+    io::Printer* printer, ParsingTarget target) const {
   // noop for enums
 }
 
@@ -338,7 +339,8 @@ void ImmutableEnumFieldGenerator::GenerateMergingCode(
 }
 
 void ImmutableEnumFieldGenerator::GenerateBuildingCode(
-    io::Printer* printer) const {
+    io::Printer* printer, CopyTarget target) const {
+  if (target == CopyTarget::kParserInPlace) return;
   printer->Print(variables_,
                  "if ($get_has_field_bit_from_local$) {\n"
                  "  result.$name$_ = $name$_;\n");
@@ -349,20 +351,23 @@ void ImmutableEnumFieldGenerator::GenerateBuildingCode(
 }
 
 void ImmutableEnumFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
+    io::Printer* printer, ParsingTarget target) const {
+  const auto vars = GetParsingVariables(target);
   if (SupportUnknownEnumValue(descriptor_)) {
-    printer->Print(variables_,
-                   "$name$_ = input.readEnum();\n"
+    printer->Print(vars,
+                   "$field$ = input.readEnum();\n"
                    "$set_has_field_bit$\n");
   } else {
-    printer->Print(variables_,
+    printer->Print(vars,
                    "int tmpRaw = input.readEnum();\n"
                    "$type$ tmpValue =\n"
                    "    $type$.forNumber(tmpRaw);\n"
                    "if (tmpValue == null) {\n"
-                   "  mergeUnknownVarintField($number$, tmpRaw);\n"
+                   "  "
+                   "$unknown_receiver$$runtime$mergeUnknownVarintField($"
+                   "unknown_argument$$number$, tmpRaw);\n"
                    "} else {\n"
-                   "  $name$_ = tmpRaw;\n"
+                   "  $field$ = tmpRaw;\n"
                    "  $set_has_field_bit$\n"
                    "}\n");
   }
@@ -585,7 +590,11 @@ void ImmutableEnumOneofFieldGenerator::GenerateBuilderClearMethod(
 }
 
 void ImmutableEnumOneofFieldGenerator::GenerateBuilderMembers(
-    io::Printer* printer) const {
+    io::Printer* printer, ParsingTarget target) const {
+  if (target == ParsingTarget::kMessage) {
+    GenerateBuilderParseMethod(printer, target);
+    return;
+  }
   GenerateBuilderHasMethod(printer);
   GenerateBuilderGetValueMethod(printer);
   GenerateBuilderSetValueMethod(printer);
@@ -601,7 +610,7 @@ void ImmutableEnumOneofFieldGenerator::GenerateBuilderClearCode(
 }
 
 void ImmutableEnumOneofFieldGenerator::GenerateBuildingCode(
-    io::Printer* printer) const {
+    io::Printer* printer, CopyTarget target) const {
   // No-Op: Handled by single block statement in GenerateBuildPartialShard.
 }
 
@@ -618,53 +627,66 @@ void ImmutableEnumOneofFieldGenerator::GenerateMergingCode(
 }
 
 void ImmutableEnumOneofFieldGenerator::GenerateBuilderParseMethod(
-    io::Printer* printer) const {
-  printer->Print(variables_,
-                 "private void parse$capitalized_name$(\n"
-                 "    com.google.protobuf.CodedInputStream input)\n"
+    io::Printer* printer, ParsingTarget target) const {
+  const auto vars = GetParsingVariables(target);
+  printer->Print(vars,
+                 "private $static$$parse_return$ parse$capitalized_name$(\n"
+                 "    $instance_parameter$com.google.protobuf.CodedInputStream "
+                 "input$parse_unknown_parameter$)\n"
                  "    throws java.io.IOException {\n");
   printer->Indent();
   if (SupportUnknownEnumValue(descriptor_)) {
-    printer->Print(variables_,
+    printer->Print(vars,
                    "int rawValue = input.readEnum();\n"
-                   "switch ($oneof_name$Case_) {\n"
+                   "switch ($oneof_case$) {\n"
                    "default:\n"
-                   "  clear$oneof_capitalized_name$HasBits(); // fallthrough\n"
+                   "  clear$oneof_capitalized_name$HasBits($instance_value$); "
+                   "// fallthrough\n"
                    "case 0:\n"
                    "  $set_oneof_case_message$;\n"
                    "  $set_has_field_bit$ // fallthrough\n"
                    "case $number$:\n"
                    "  break;\n"
                    "}\n"
-                   "$oneof_name$_ = rawValue;\n");
+                   "$field$ = rawValue;\n");
   } else {
     printer->Print(
-        variables_,
+        vars,
         "int rawValue = input.readEnum();\n"
         "$type$ value =\n"
         "    $type$.forNumber(rawValue);\n"
         "if (value == null) {\n"
-        "  mergeUnknownVarintField($number$, rawValue);\n"
+        "  "
+        "$unknown_receiver$$runtime$mergeUnknownVarintField($unknown_argument$$"
+        "number$, rawValue);\n"
         "} else {\n"
-        "  switch ($oneof_name$Case_) {\n"
+        "  switch ($oneof_case$) {\n"
         "  default:\n"
-        "    clear$oneof_capitalized_name$HasBits(); // fallthrough\n"
+        "    clear$oneof_capitalized_name$HasBits($instance_value$); // "
+        "fallthrough\n"
         "  case 0:\n"
         "    $set_oneof_case_message$;\n"
         "    $set_has_field_bit$ // fallthrough\n"
         "  case $number$:\n"
         "    break;\n"
         "  }\n"
-        "  $oneof_name$_ = rawValue;\n"
+        "  $field$ = rawValue;\n"
         "}\n");
+  }
+  if (target == ParsingTarget::kMessage &&
+      !SupportUnknownEnumValue(descriptor_)) {
+    printer->Print("return unknown;\n");
   }
   printer->Outdent();
   printer->Print("}\n");
 }
 
 void ImmutableEnumOneofFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
-  printer->Print(variables_, "parse$capitalized_name$(input);\n");
+    io::Printer* printer, ParsingTarget target) const {
+  const auto vars = GetParsingVariables(target);
+  printer->Print(vars,
+                 "$parse_unknown_receiver$parse$capitalized_name$($instance_"
+                 "argument$input$parse_unknown_argument$);\n");
 }
 
 void ImmutableEnumOneofFieldGenerator::GenerateSerializationCode(
@@ -879,13 +901,17 @@ void RepeatedImmutableEnumFieldGenerator::GenerateMembers(
 }
 
 void RepeatedImmutableEnumFieldGenerator::GenerateEnsureIsMutableMethod(
-    io::Printer* printer) const {
+    io::Printer* printer, ParsingTarget target) const {
+  const auto vars = GetParsingVariables(target);
+  if (target == ParsingTarget::kBuilder) {
+    printer->Print(variables_, "private $field_list_type$ $name$_;\n");
+  }
   printer->Print(
-      variables_,
-      "private $field_list_type$ $name$_ = $empty_list$;\n"
-      "private void ensure$capitalized_name$IsMutable(int capacity) {\n"
-      "  if (!$name$_.isModifiable()) {\n"
-      "    $name$_ = makeMutableCopy($name$_, capacity);\n"
+      vars,
+      "private $static$void "
+      "ensure$capitalized_name$IsMutable($instance_parameter$int capacity) {\n"
+      "  if (!$field$.isModifiable()) {\n"
+      "    $field$ = makeMutableCopy($field$, capacity);\n"
       "  }\n"
       "  $set_has_field_bit$\n"
       "}\n");
@@ -1085,7 +1111,11 @@ void RepeatedImmutableEnumFieldGenerator::GenerateBuilderAddAllValueMethod(
 }
 
 void RepeatedImmutableEnumFieldGenerator::GenerateBuilderMembers(
-    io::Printer* printer) const {
+    io::Printer* printer, ParsingTarget target) const {
+  if (target == ParsingTarget::kMessage) {
+    GenerateEnsureIsMutableMethod(printer, target);
+    return;
+  }
   GenerateEnsureIsMutableMethod(printer);
   GenerateBuilderGetListMethod(printer);
   GenerateBuilderGetCountMethod(printer);
@@ -1102,7 +1132,8 @@ void RepeatedImmutableEnumFieldGenerator::GenerateBuilderMembers(
 }
 
 void RepeatedImmutableEnumFieldGenerator::
-    GenerateFieldBuilderInitializationCode(io::Printer* printer) const {
+    GenerateFieldBuilderInitializationCode(io::Printer* printer,
+                                           ParsingTarget target) const {
   // noop for enums
 }
 
@@ -1138,85 +1169,98 @@ void RepeatedImmutableEnumFieldGenerator::GenerateMergingCode(
 }
 
 void RepeatedImmutableEnumFieldGenerator::GenerateBuildingCode(
-    io::Printer* printer) const {
+    io::Printer* printer, CopyTarget target) const {
+  const auto vars = GetBuildingVariables(target);
   // The code below ensures that the result has an immutable list. If our
   // list is immutable, we can just reuse it. If not, we make it immutable.
-  printer->Print(variables_,
+  printer->Print(vars,
                  "if ($get_has_field_bit_from_local$) {\n"
-                 "  $name_make_immutable$;\n"
-                 "  result.$name$_ = $name$_;\n"
-                 "}\n");
+                 "  $name_make_immutable$;\n");
+  if (target == CopyTarget::kMessage) {
+    printer->Print(vars, "  $result_field$ = $field$;\n");
+  }
+  printer->Print("}\n");
 }
 
 void RepeatedImmutableEnumFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
+    io::Printer* printer, ParsingTarget target) const {
+  const auto vars = GetParsingVariables(target);
   // Read and store the enum
   if (SupportUnknownEnumValue(descriptor_)) {
-    printer->Print(variables_,
+    printer->Print(vars,
                    "int tmpRaw = input.readEnum();\n"
-                   "ensure$capitalized_name$IsMutable(/* capacity= */ -1);\n"
-                   "$name$_.addInt(tmpRaw);\n");
+                   "ensure$capitalized_name$IsMutable($instance_argument$/* "
+                   "capacity= */ -1);\n"
+                   "$field$.addInt(tmpRaw);\n");
   } else {
-    printer->Print(variables_,
+    printer->Print(vars,
                    "int tmpRaw = input.readEnum();\n"
                    "$type$ tmpValue =\n"
                    "    $type$.forNumber(tmpRaw);\n"
                    "if (tmpValue == null) {\n"
-                   "  mergeUnknownVarintField($number$, tmpRaw);\n"
+                   "  "
+                   "$unknown_receiver$$runtime$mergeUnknownVarintField($"
+                   "unknown_argument$$number$, tmpRaw);\n"
                    "} else {\n"
-                   "  ensure$capitalized_name$IsMutable(/* capacity= */ -1);\n"
-                   "  $name$_.addInt(tmpRaw);\n"
+                   "  ensure$capitalized_name$IsMutable($instance_argument$/* "
+                   "capacity= */ -1);\n"
+                   "  $field$.addInt(tmpRaw);\n"
                    "}\n");
   }
 }
 
 void RepeatedImmutableEnumFieldGenerator::GenerateBuilderParsingCodeFromPacked(
-    io::Printer* printer) const {
+    io::Printer* printer, ParsingTarget target) const {
+  const auto vars = GetParsingVariables(target);
   if (SupportUnknownEnumValue(descriptor_)) {
     // Bulk packed decoding is not yet released to OSS.
     if (!google::protobuf::internal::IsOss()) {
       // Open enums accept any value and decode exactly like int32, so the
       // runtime decodes the whole payload into a new list. Adopt it if we
       // have nothing yet, otherwise append.
-      printer->Print(variables_,
+      printer->Print(vars,
                      "$field_list_type$ packed =\n"
-                     "    super.readPackedInt32(input);\n"
-                     "if ($name$_.isEmpty()) {\n"
-                     "  $name$_ = packed;\n"
+                     "    $packed_reader_receiver$.readPackedInt32(input);\n"
+                     "if ($field$.isEmpty()) {\n"
+                     "  $field$ = packed;\n"
                      "  $set_has_field_bit$\n"
                      "} else {\n"
-                     "  ensure$capitalized_name$IsMutable(\n"
-                     "      $name$_.size() + packed.size());\n"
-                     "  $name$_.addAll(packed);\n"
+                     "  ensure$capitalized_name$IsMutable($instance_argument$\n"
+                     "      $field$.size() + packed.size());\n"
+                     "  $field$.addAll(packed);\n"
                      "}\n");
     } else {
-      printer->Print(variables_,
-                     "int length = input.readRawVarint32();\n"
-                     "int limit = input.pushLimit(length);\n"
-                     "int count = input.countPackedVarints(length);\n"
-                     "ensure$capitalized_name$IsMutable(count);\n"
-                     "while (input.getBytesUntilLimit() > 0) {\n"
-                     "  $name$_.addInt(input.readEnum());\n"
-                     "}\n"
-                     "input.popLimit(limit);\n");
+      printer->Print(
+          vars,
+          "int length = input.readRawVarint32();\n"
+          "int limit = input.pushLimit(length);\n"
+          "int count = input.countPackedVarints(length);\n"
+          "ensure$capitalized_name$IsMutable($instance_argument$count);\n"
+          "while (input.getBytesUntilLimit() > 0) {\n"
+          "  $field$.addInt(input.readEnum());\n"
+          "}\n"
+          "input.popLimit(limit);\n");
     }
   } else {
-    printer->Print(variables_,
-                   "int length = input.readRawVarint32();\n"
-                   "int limit = input.pushLimit(length);\n"
-                   "int count = input.countPackedVarints(length);\n"
-                   "ensure$capitalized_name$IsMutable(count);\n"
-                   "while (input.getBytesUntilLimit() > 0) {\n"
-                   "  int tmpRaw = input.readEnum();\n"
-                   "  $type$ tmpValue =\n"
-                   "      $type$.forNumber(tmpRaw);\n"
-                   "  if (tmpValue == null) {\n"
-                   "    mergeUnknownVarintField($number$, tmpRaw);\n"
-                   "  } else {\n"
-                   "    $name$_.addInt(tmpRaw);\n"
-                   "  }\n"
-                   "}\n"
-                   "input.popLimit(limit);\n");
+    printer->Print(
+        vars,
+        "int length = input.readRawVarint32();\n"
+        "int limit = input.pushLimit(length);\n"
+        "int count = input.countPackedVarints(length);\n"
+        "ensure$capitalized_name$IsMutable($instance_argument$count);\n"
+        "while (input.getBytesUntilLimit() > 0) {\n"
+        "  int tmpRaw = input.readEnum();\n"
+        "  $type$ tmpValue =\n"
+        "      $type$.forNumber(tmpRaw);\n"
+        "  if (tmpValue == null) {\n"
+        "    "
+        "$unknown_receiver$$runtime$mergeUnknownVarintField($unknown_argument$$"
+        "number$, tmpRaw);\n"
+        "  } else {\n"
+        "    $field$.addInt(tmpRaw);\n"
+        "  }\n"
+        "}\n"
+        "input.popLimit(limit);\n");
   }
 }
 void RepeatedImmutableEnumFieldGenerator::GenerateSerializationCode(

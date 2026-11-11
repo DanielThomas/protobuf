@@ -1065,7 +1065,11 @@ public abstract class CodedInputStream {
       checkRecursionLimit();
       ++groupDepth;
       T result = parser.parsePartialFrom(this, extensionRegistry);
-      checkLastTagWas(WireFormat.makeTag(fieldNumber, WireFormat.WIRETYPE_END_GROUP));
+      try {
+        checkLastTagWas(WireFormat.makeTag(fieldNumber, WireFormat.WIRETYPE_END_GROUP));
+      } catch (InvalidProtocolBufferException failure) {
+        throw failure.setUnfinishedMessage(result);
+      }
       --groupDepth;
       return result;
     }
@@ -2133,7 +2137,11 @@ public abstract class CodedInputStream {
       checkRecursionLimit();
       ++groupDepth;
       T result = parser.parsePartialFrom(this, extensionRegistry);
-      checkLastTagWas(WireFormat.makeTag(fieldNumber, WireFormat.WIRETYPE_END_GROUP));
+      try {
+        checkLastTagWas(WireFormat.makeTag(fieldNumber, WireFormat.WIRETYPE_END_GROUP));
+      } catch (InvalidProtocolBufferException failure) {
+        throw failure.setUnfinishedMessage(result);
+      }
       --groupDepth;
       return result;
     }

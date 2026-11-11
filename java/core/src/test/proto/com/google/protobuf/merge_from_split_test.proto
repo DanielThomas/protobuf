@@ -3714,3 +3714,96 @@ message Boundary1024WithOneof {
     int32 oneof_field_2 = 1026;
   }
 }
+
+message RetainedChildren {
+  message Child {
+    repeated int32 values = 1;
+    Child child = 2;
+    Group group = 3 [features.message_encoding = DELIMITED];
+
+    message Group {
+      repeated int32 values = 4;
+    }
+  }
+
+  oneof choice {
+    Child child_1 = 1;
+    Child child_2 = 2;
+    Child child_3 = 3;
+    Child child_4 = 4;
+    Child child_5 = 5;
+    Child child_6 = 6;
+    Child child_7 = 7;
+    Child child_8 = 8;
+    Child child_9 = 9;
+    Child child_10 = 10;
+    Child child_11 = 11;
+    Child child_12 = 12;
+    Child child_13 = 13;
+    Child child_14 = 14;
+    Child child_15 = 15;
+    Child child_16 = 16;
+    Child child_17 = 17;
+    Child child_18 = 18;
+    Child child_19 = 19;
+    Child child_20 = 20;
+    Child child_21 = 21;
+    Child child_22 = 22;
+    Child child_23 = 23;
+    Child child_24 = 24;
+    Child child_25 = 25;
+    Child child_26 = 26;
+    Child child_27 = 27;
+    Child child_28 = 28;
+    Child child_29 = 29;
+    Child child_30 = 30;
+    Child child_31 = 31;
+    Child child_32 = 32;
+    Child child_33 = 33;
+    Child child_34 = 34;
+    Child child_35 = 35;
+    Child child_36 = 36;
+    Child child_37 = 37;
+    Child child_38 = 38;
+    Child child_39 = 39;
+    Child child_40 = 40;
+    Child child_41 = 41;
+    Child child_42 = 42;
+    Child child_43 = 43;
+    Child child_44 = 44;
+    Child child_45 = 45;
+    Child child_46 = 46;
+    Child child_47 = 47;
+    Child child_48 = 48;
+    Child child_49 = 49;
+    Child child_50 = 50;
+    Child child_51 = 51;
+    Child child_52 = 52;
+    Child child_53 = 53;
+    Child child_54 = 54;
+    Child child_55 = 55;
+    Child child_56 = 56;
+    Child child_57 = 57;
+    Child child_58 = 58;
+    Child child_59 = 59;
+    Child child_60 = 60;
+    Child child_61 = 61;
+    Child child_62 = 62;
+    Child child_63 = 63;
+    Child child_64 = 64;
+    Child child_65 = 65;
+  }
+
+  extensions 100 to max;
+}
+
+extend RetainedChildren {
+  int32 retained_number = 100;
+}
+
+message RetainedChildrenParent {
+  oneof choice {
+    RetainedChildren selected = 1;
+    string text = 2;
+  }
+}

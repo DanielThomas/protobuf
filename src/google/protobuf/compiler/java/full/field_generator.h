@@ -9,6 +9,7 @@
 #define GOOGLE_PROTOBUF_COMPILER_JAVA_IMMUTABLE_FIELD_GENERATOR_H__
 
 #include <string>
+#include <vector>
 
 #include "absl/container/flat_hash_map.h"
 #include "absl/strings/string_view.h"
@@ -21,6 +22,9 @@ namespace compiler {
 namespace java {
 class Context;            // context.h
 class ClassNameResolver;  // name_resolver.h
+
+enum class ParsingTarget { kBuilder, kMessage };
+enum class CopyTarget { kMessage, kParserInPlace };
 
 class ImmutableFieldGenerator : public FieldGenerator {
  public:
@@ -35,20 +39,36 @@ class ImmutableFieldGenerator : public FieldGenerator {
 
   int GetBitIndex() const { return bit_index_; }
   constexpr int GetNumBits() const { return 1; }
+  std::string ParserLocalType() const;
+  std::string ParserLocalName() const;
+  void GenerateParserLocalTransferCode(io::Printer* printer, int index) const;
+  void GenerateBuilderStateCode(io::Printer* printer) const;
+
   virtual void GenerateInterfaceMembers(io::Printer* printer) const = 0;
   virtual void GenerateMembers(io::Printer* printer) const = 0;
-  virtual void GenerateBuilderMembers(io::Printer* printer) const = 0;
+  virtual void GenerateBuilderMembers(
+      io::Printer* printer,
+      ParsingTarget target = ParsingTarget::kBuilder) const = 0;
   virtual void GenerateInitializationCode(io::Printer* printer) const = 0;
+  virtual void GenerateConstructorInitializationCode(io::Printer* printer) const {}
+  virtual void GenerateBuilderInitializationCode(io::Printer* printer) const {
+    GenerateInitializationCode(printer);
+  }
   virtual void GenerateBuilderClearCode(io::Printer* printer) const = 0;
   virtual void GenerateMergingCode(io::Printer* printer) const = 0;
-  virtual void GenerateBuildingCode(io::Printer* printer) const = 0;
-  virtual void GenerateBuilderParsingCode(io::Printer* printer) const = 0;
+  virtual void GenerateBuildingCode(
+      io::Printer* printer, CopyTarget target = CopyTarget::kMessage) const = 0;
+  virtual void GenerateBuilderParsingCode(
+      io::Printer* printer,
+      ParsingTarget target = ParsingTarget::kBuilder) const = 0;
   virtual void GenerateSerializedSizeCode(io::Printer* printer) const = 0;
   virtual void GenerateFieldBuilderInitializationCode(
-      io::Printer* printer) const = 0;
+      io::Printer* printer,
+      ParsingTarget target = ParsingTarget::kBuilder) const = 0;
 
   virtual void GenerateBuilderParsingCodeFromPacked(
-      io::Printer* printer) const {
+      io::Printer* printer,
+      ParsingTarget target = ParsingTarget::kBuilder) const {
     ReportUnexpectedPackedFieldsCall();
   }
 
@@ -58,12 +78,25 @@ class ImmutableFieldGenerator : public FieldGenerator {
   virtual std::string GetBoxedType() const = 0;
 
  protected:
+  using FieldVariables = absl::flat_hash_map<absl::string_view, std::string>;
+  FieldVariables GetParsingVariables(ParsingTarget target) const;
+  FieldVariables GetBuildingVariables(CopyTarget target) const;
+
   const FieldDescriptor* descriptor_;
   int bit_index_;
   Context* context_;
   ClassNameResolver* name_resolver_;
-  absl::flat_hash_map<absl::string_view, std::string> variables_;
+  FieldVariables variables_;
 };
+
+bool ParserMayHandoff(const Descriptor* descriptor);
+std::vector<const FieldDescriptor*> BuilderInitializationFields(
+    const Descriptor* descriptor);
+bool IsParserLocalMap(const FieldDescriptor* field);
+std::vector<const FieldDescriptor*> ParserLocalFields(
+    const Descriptor* descriptor);
+std::vector<const FieldDescriptor*> ParserChildFields(
+    const Descriptor* descriptor);
 
 }  // namespace java
 }  // namespace compiler
