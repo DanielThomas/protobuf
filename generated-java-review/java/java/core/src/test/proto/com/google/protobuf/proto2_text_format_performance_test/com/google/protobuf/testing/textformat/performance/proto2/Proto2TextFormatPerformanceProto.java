@@ -309,15 +309,28 @@ public final class Proto2TextFormatPerformanceProto extends com.google.protobuf.
                 com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32.class, com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32 other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -367,7 +380,7 @@ public final class Proto2TextFormatPerformanceProto extends com.google.protobuf.
 
       private void buildPartial_autosplit_0(com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32 result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.subMsg_ = subMsgBuilder_ == null
               ? subMsg_
@@ -375,6 +388,18 @@ public final class Proto2TextFormatPerformanceProto extends com.google.protobuf.
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32 other, java.lang.Object[] parserLocals) {
+        subMsg_ = other.subMsg_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            subMsgBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32, com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32.Builder, com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32OrBuilder>) parserLocals[0]);
+            subMsg_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -434,6 +459,18 @@ public final class Proto2TextFormatPerformanceProto extends com.google.protobuf.
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseSubMsgField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -556,7 +593,7 @@ public final class Proto2TextFormatPerformanceProto extends com.google.protobuf.
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (subMsg_ != null || subMsgBuilder_ != null) {
-          internalGetSubMsgFieldBuilder().getBuilder()
+          internalGetSubMsgFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           subMsg_ = com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32.parser().parsePartialFrom(input, extensionRegistry);
@@ -578,22 +615,132 @@ public final class Proto2TextFormatPerformanceProto extends com.google.protobuf.
       return DEFAULT_INSTANCE;
     }
 
+    static ContainsSubMessageWithRepeatedInt32 parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ContainsSubMessageWithRepeatedInt32 instance = new ContainsSubMessageWithRepeatedInt32((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32, com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32.Builder, com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32OrBuilder> subMsgBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        subMsgBuilder_ = internalGetSubMsgFieldBuilder(instance, subMsgBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.subMsg_ != null || subMsgBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseSubMsgField(instance, input, extensionRegistry, subMsgBuilder_);
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {subMsgBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, subMsgBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.protobuf.testing.textformat.performance.proto2.RepeatedInt32 sub_msg = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32, com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32.Builder, com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32OrBuilder> 
+        internalGetSubMsgFieldBuilder(com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32 instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32, com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32.Builder, com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32OrBuilder> subMsgBuilder_) {
+      if (subMsgBuilder_ == null) {
+        subMsgBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32, com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32.Builder, com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32OrBuilder>(
+                instance.getSubMsg(),
+                null,
+                false);
+        instance.subMsg_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return subMsgBuilder_;
+    }
+    private static void parseSubMsgField(
+        com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32 instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32, com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32.Builder, com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32OrBuilder> subMsgBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.subMsg_ != null || subMsgBuilder_ != null) {
+        subMsgBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.subMsg_ = com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32 instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32, com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32.Builder, com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32OrBuilder> subMsgBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.subMsg_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.subMsg_ = subMsgBuilder_ == null
+            ? instance.subMsg_
+            : subMsgBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<ContainsSubMessageWithRepeatedInt32>
-        PARSER = new com.google.protobuf.AbstractParser<ContainsSubMessageWithRepeatedInt32>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ContainsSubMessageWithRepeatedInt32> {
+      MessageParser() {}
+
       @java.lang.Override
       public ContainsSubMessageWithRepeatedInt32 parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return ContainsSubMessageWithRepeatedInt32.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(ContainsSubMessageWithRepeatedInt32 instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<ContainsSubMessageWithRepeatedInt32> parser() {
       return PARSER;
@@ -895,15 +1042,28 @@ public final class Proto2TextFormatPerformanceProto extends com.google.protobuf.
                 com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32.class, com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        value_ = emptyIntList();
+      }
+      private Builder(com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32 other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -943,12 +1103,17 @@ public final class Proto2TextFormatPerformanceProto extends com.google.protobuf.
 
       private void buildPartial_autosplit_0(com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32 result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           value_.makeImmutable();
           result.value_ = value_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32 other, java.lang.Object[] parserLocals) {
+        value_ = other.value_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1032,7 +1197,7 @@ public final class Proto2TextFormatPerformanceProto extends com.google.protobuf.
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.IntList value_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList value_;
       private void ensureValueIsMutable(int capacity) {
         if (!value_.isModifiable()) {
           value_ = makeMutableCopy(value_, capacity);
@@ -1129,22 +1294,93 @@ public final class Proto2TextFormatPerformanceProto extends com.google.protobuf.
       return DEFAULT_INSTANCE;
     }
 
+    static RepeatedInt32 parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      RepeatedInt32 instance = new RepeatedInt32((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 16: {
+              int v = input.readInt32();
+              ensureValueIsMutable(instance, /* capacity= */ -1);
+              instance.value_.addInt(v);
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureValueIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.value_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureValueIsMutable(com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32 instance, int capacity) {
+      if (!instance.value_.isModifiable()) {
+        instance.value_ = makeMutableCopy(instance.value_, capacity);
+      }
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.RepeatedInt32 instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.value_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<RepeatedInt32>
-        PARSER = new com.google.protobuf.AbstractParser<RepeatedInt32>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<RepeatedInt32> {
+      MessageParser() {}
+
       @java.lang.Override
       public RepeatedInt32 parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return RepeatedInt32.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(RepeatedInt32 instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<RepeatedInt32> parser() {
       return PARSER;
@@ -1387,15 +1623,26 @@ public final class Proto2TextFormatPerformanceProto extends com.google.protobuf.
                 com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.ContainsExtensionSubMessage.class, com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.ContainsExtensionSubMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.ContainsExtensionSubMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.testing.textformat.performance.proto2.Proto2TextFormatPerformanceProto.ContainsExtensionSubMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
       }
       @java.lang.Override
       public Builder clear() {
@@ -1508,6 +1755,14 @@ public final class Proto2TextFormatPerformanceProto extends com.google.protobuf.
         } // finally
         return this;
       }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
 
       // @@protoc_insertion_point(builder_scope:protobuf.testing.textformat.performance.proto2.ContainsExtensionSubMessage)
     }
@@ -1522,22 +1777,72 @@ public final class Proto2TextFormatPerformanceProto extends com.google.protobuf.
       return DEFAULT_INSTANCE;
     }
 
+    static ContainsExtensionSubMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      ContainsExtensionSubMessage instance = new ContainsExtensionSubMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              pendingTag = tag;
+              done = true;
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, null);
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<ContainsExtensionSubMessage>
-        PARSER = new com.google.protobuf.AbstractParser<ContainsExtensionSubMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<ContainsExtensionSubMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public ContainsExtensionSubMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return ContainsExtensionSubMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(ContainsExtensionSubMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<ContainsExtensionSubMessage> parser() {
       return PARSER;

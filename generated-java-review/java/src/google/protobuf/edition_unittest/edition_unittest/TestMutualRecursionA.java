@@ -335,15 +335,28 @@ private static final long serialVersionUID = 0L;
                 edition_unittest.TestMutualRecursionA.SubMessage.class, edition_unittest.TestMutualRecursionA.SubMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using edition_unittest.TestMutualRecursionA.SubMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(edition_unittest.TestMutualRecursionA.SubMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -393,7 +406,7 @@ private static final long serialVersionUID = 0L;
 
       private void buildPartial_autosplit_0(edition_unittest.TestMutualRecursionA.SubMessage result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.b_ = bBuilder_ == null
               ? b_
@@ -401,6 +414,18 @@ private static final long serialVersionUID = 0L;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(edition_unittest.TestMutualRecursionA.SubMessage other, java.lang.Object[] parserLocals) {
+        b_ = other.b_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            bBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionB, edition_unittest.TestMutualRecursionB.Builder, edition_unittest.TestMutualRecursionBOrBuilder>) parserLocals[0]);
+            b_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -460,6 +485,18 @@ private static final long serialVersionUID = 0L;
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseBField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -582,7 +619,7 @@ private static final long serialVersionUID = 0L;
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (b_ != null || bBuilder_ != null) {
-          internalGetBFieldBuilder().getBuilder()
+          internalGetBFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           b_ = edition_unittest.TestMutualRecursionB.parser().parsePartialFrom(input, extensionRegistry);
@@ -604,22 +641,132 @@ private static final long serialVersionUID = 0L;
       return DEFAULT_INSTANCE;
     }
 
+    static SubMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      SubMessage instance = new SubMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionB, edition_unittest.TestMutualRecursionB.Builder, edition_unittest.TestMutualRecursionBOrBuilder> bBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        bBuilder_ = internalGetBFieldBuilder(instance, bBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.b_ != null || bBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseBField(instance, input, extensionRegistry, bBuilder_);
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {bBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, bBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.edition_unittest.TestMutualRecursionB b = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        edition_unittest.TestMutualRecursionB, edition_unittest.TestMutualRecursionB.Builder, edition_unittest.TestMutualRecursionBOrBuilder> 
+        internalGetBFieldBuilder(edition_unittest.TestMutualRecursionA.SubMessage instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionB, edition_unittest.TestMutualRecursionB.Builder, edition_unittest.TestMutualRecursionBOrBuilder> bBuilder_) {
+      if (bBuilder_ == null) {
+        bBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            edition_unittest.TestMutualRecursionB, edition_unittest.TestMutualRecursionB.Builder, edition_unittest.TestMutualRecursionBOrBuilder>(
+                instance.getB(),
+                null,
+                false);
+        instance.b_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return bBuilder_;
+    }
+    private static void parseBField(
+        edition_unittest.TestMutualRecursionA.SubMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionB, edition_unittest.TestMutualRecursionB.Builder, edition_unittest.TestMutualRecursionBOrBuilder> bBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.b_ != null || bBuilder_ != null) {
+        bBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.b_ = edition_unittest.TestMutualRecursionB.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void buildPartial_autosplit_0(edition_unittest.TestMutualRecursionA.SubMessage instance,
+        com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionB, edition_unittest.TestMutualRecursionB.Builder, edition_unittest.TestMutualRecursionBOrBuilder> bBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.b_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.b_ = bBuilder_ == null
+            ? instance.b_
+            : bBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<SubMessage>
-        PARSER = new com.google.protobuf.AbstractParser<SubMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<SubMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public SubMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return SubMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(SubMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<SubMessage> parser() {
       return PARSER;
@@ -1008,15 +1155,28 @@ private static final long serialVersionUID = 0L;
                 edition_unittest.TestMutualRecursionA.SubGroup.class, edition_unittest.TestMutualRecursionA.SubGroup.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using edition_unittest.TestMutualRecursionA.SubGroup.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(edition_unittest.TestMutualRecursionA.SubGroup other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -1072,7 +1232,7 @@ private static final long serialVersionUID = 0L;
 
       private void buildPartial_autosplit_0(edition_unittest.TestMutualRecursionA.SubGroup result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.subMessage_ = subMessageBuilder_ == null
               ? subMessage_
@@ -1086,6 +1246,23 @@ private static final long serialVersionUID = 0L;
           to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(edition_unittest.TestMutualRecursionA.SubGroup other, java.lang.Object[] parserLocals) {
+        subMessage_ = other.subMessage_;
+        notInThisScc_ = other.notInThisScc_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            subMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionA.SubMessage, edition_unittest.TestMutualRecursionA.SubMessage.Builder, edition_unittest.TestMutualRecursionA.SubMessageOrBuilder>) parserLocals[0]);
+            subMessage_ = null;
+          }
+          if (parserLocals[1] != null) {
+            notInThisSccBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder>) parserLocals[1]);
+            notInThisScc_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1152,6 +1329,22 @@ private static final long serialVersionUID = 0L;
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 26: {
+            parseSubMessageField(input, extensionRegistry);
+            return true;
+          } // case 26
+          case 34: {
+            parseNotInThisSccField(input, extensionRegistry);
+            return true;
+          } // case 34
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -1310,7 +1503,7 @@ private static final long serialVersionUID = 0L;
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (subMessage_ != null || subMessageBuilder_ != null) {
-          internalGetSubMessageFieldBuilder().getBuilder()
+          internalGetSubMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           subMessage_ = edition_unittest.TestMutualRecursionA.SubMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -1438,7 +1631,7 @@ private static final long serialVersionUID = 0L;
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (notInThisScc_ != null || notInThisSccBuilder_ != null) {
-          internalGetNotInThisSccFieldBuilder().getBuilder()
+          internalGetNotInThisSccFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           notInThisScc_ = edition_unittest.TestAllTypes.parser().parsePartialFrom(input, extensionRegistry);
@@ -1460,22 +1653,186 @@ private static final long serialVersionUID = 0L;
       return DEFAULT_INSTANCE;
     }
 
+    static SubGroup parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      SubGroup instance = new SubGroup((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionA.SubMessage, edition_unittest.TestMutualRecursionA.SubMessage.Builder, edition_unittest.TestMutualRecursionA.SubMessageOrBuilder> subMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> notInThisSccBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        subMessageBuilder_ = internalGetSubMessageFieldBuilder(instance, subMessageBuilder_);
+        notInThisSccBuilder_ = internalGetNotInThisSccFieldBuilder(instance, notInThisSccBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 26: {
+              if (instance.subMessage_ != null || subMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseSubMessageField(instance, input, extensionRegistry, subMessageBuilder_);
+              break;
+            } // case 26
+            case 34: {
+              if (instance.notInThisScc_ != null || notInThisSccBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseNotInThisSccField(instance, input, extensionRegistry, notInThisSccBuilder_);
+              break;
+            } // case 34
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {subMessageBuilder_, notInThisSccBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, subMessageBuilder_, notInThisSccBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <pre>
+     * Needed because of bug in javatest
+     * </pre>
+     *
+     * <code>.edition_unittest.TestMutualRecursionA.SubMessage sub_message = 3;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        edition_unittest.TestMutualRecursionA.SubMessage, edition_unittest.TestMutualRecursionA.SubMessage.Builder, edition_unittest.TestMutualRecursionA.SubMessageOrBuilder> 
+        internalGetSubMessageFieldBuilder(edition_unittest.TestMutualRecursionA.SubGroup instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionA.SubMessage, edition_unittest.TestMutualRecursionA.SubMessage.Builder, edition_unittest.TestMutualRecursionA.SubMessageOrBuilder> subMessageBuilder_) {
+      if (subMessageBuilder_ == null) {
+        subMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            edition_unittest.TestMutualRecursionA.SubMessage, edition_unittest.TestMutualRecursionA.SubMessage.Builder, edition_unittest.TestMutualRecursionA.SubMessageOrBuilder>(
+                instance.getSubMessage(),
+                null,
+                false);
+        instance.subMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return subMessageBuilder_;
+    }
+    private static void parseSubMessageField(
+        edition_unittest.TestMutualRecursionA.SubGroup instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionA.SubMessage, edition_unittest.TestMutualRecursionA.SubMessage.Builder, edition_unittest.TestMutualRecursionA.SubMessageOrBuilder> subMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.subMessage_ != null || subMessageBuilder_ != null) {
+        subMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.subMessage_ = edition_unittest.TestMutualRecursionA.SubMessage.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    /**
+     * <code>.edition_unittest.TestAllTypes not_in_this_scc = 4;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> 
+        internalGetNotInThisSccFieldBuilder(edition_unittest.TestMutualRecursionA.SubGroup instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> notInThisSccBuilder_) {
+      if (notInThisSccBuilder_ == null) {
+        notInThisSccBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder>(
+                instance.getNotInThisScc(),
+                null,
+                false);
+        instance.notInThisScc_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+      return notInThisSccBuilder_;
+    }
+    private static void parseNotInThisSccField(
+        edition_unittest.TestMutualRecursionA.SubGroup instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> notInThisSccBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.notInThisScc_ != null || notInThisSccBuilder_ != null) {
+        notInThisSccBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.notInThisScc_ = edition_unittest.TestAllTypes.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static void buildPartial_autosplit_0(edition_unittest.TestMutualRecursionA.SubGroup instance,
+        com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionA.SubMessage, edition_unittest.TestMutualRecursionA.SubMessage.Builder, edition_unittest.TestMutualRecursionA.SubMessageOrBuilder> subMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> notInThisSccBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.subMessage_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.subMessage_ = subMessageBuilder_ == null
+            ? instance.subMessage_
+            : subMessageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000002) != 0)) instance.notInThisScc_ = null;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.notInThisScc_ = notInThisSccBuilder_ == null
+            ? instance.notInThisScc_
+            : notInThisSccBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<SubGroup>
-        PARSER = new com.google.protobuf.AbstractParser<SubGroup>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<SubGroup> {
+      MessageParser() {}
+
       @java.lang.Override
       public SubGroup parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return SubGroup.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(SubGroup instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<SubGroup> parser() {
       return PARSER;
@@ -1775,15 +2132,28 @@ private static final long serialVersionUID = 0L;
                 edition_unittest.TestMutualRecursionA.SubGroupR.class, edition_unittest.TestMutualRecursionA.SubGroupR.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using edition_unittest.TestMutualRecursionA.SubGroupR.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(edition_unittest.TestMutualRecursionA.SubGroupR other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -1833,7 +2203,7 @@ private static final long serialVersionUID = 0L;
 
       private void buildPartial_autosplit_0(edition_unittest.TestMutualRecursionA.SubGroupR result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.payload_ = payloadBuilder_ == null
               ? payload_
@@ -1841,6 +2211,18 @@ private static final long serialVersionUID = 0L;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(edition_unittest.TestMutualRecursionA.SubGroupR other, java.lang.Object[] parserLocals) {
+        payload_ = other.payload_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            payloadBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder>) parserLocals[0]);
+            payload_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1900,6 +2282,18 @@ private static final long serialVersionUID = 0L;
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 50: {
+            parsePayloadField(input, extensionRegistry);
+            return true;
+          } // case 50
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -2022,7 +2416,7 @@ private static final long serialVersionUID = 0L;
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (payload_ != null || payloadBuilder_ != null) {
-          internalGetPayloadFieldBuilder().getBuilder()
+          internalGetPayloadFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           payload_ = edition_unittest.TestAllTypes.parser().parsePartialFrom(input, extensionRegistry);
@@ -2044,22 +2438,132 @@ private static final long serialVersionUID = 0L;
       return DEFAULT_INSTANCE;
     }
 
+    static SubGroupR parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      SubGroupR instance = new SubGroupR((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> payloadBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        payloadBuilder_ = internalGetPayloadFieldBuilder(instance, payloadBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 50: {
+              if (instance.payload_ != null || payloadBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parsePayloadField(instance, input, extensionRegistry, payloadBuilder_);
+              break;
+            } // case 50
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {payloadBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, payloadBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.edition_unittest.TestAllTypes payload = 6;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> 
+        internalGetPayloadFieldBuilder(edition_unittest.TestMutualRecursionA.SubGroupR instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> payloadBuilder_) {
+      if (payloadBuilder_ == null) {
+        payloadBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder>(
+                instance.getPayload(),
+                null,
+                false);
+        instance.payload_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return payloadBuilder_;
+    }
+    private static void parsePayloadField(
+        edition_unittest.TestMutualRecursionA.SubGroupR instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> payloadBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.payload_ != null || payloadBuilder_ != null) {
+        payloadBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.payload_ = edition_unittest.TestAllTypes.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void buildPartial_autosplit_0(edition_unittest.TestMutualRecursionA.SubGroupR instance,
+        com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> payloadBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.payload_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.payload_ = payloadBuilder_ == null
+            ? instance.payload_
+            : payloadBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<SubGroupR>
-        PARSER = new com.google.protobuf.AbstractParser<SubGroupR>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<SubGroupR> {
+      MessageParser() {}
+
       @java.lang.Override
       public SubGroupR parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return SubGroupR.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(SubGroupR instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<SubGroupR> parser() {
       return PARSER;
@@ -2413,15 +2917,29 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestMutualRecursionA.class, edition_unittest.TestMutualRecursionA.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestMutualRecursionA.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      subGroupR_ = emptyList(edition_unittest.TestMutualRecursionA.SubGroupR.class);
       maybeForceBuilderInitialization();
+    }
+    private Builder(edition_unittest.TestMutualRecursionA other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -2485,7 +3003,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(edition_unittest.TestMutualRecursionA result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.bb_ = bbBuilder_ == null
             ? bb_
@@ -2507,6 +3025,28 @@ private static final long serialVersionUID = 0L;
       }
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(edition_unittest.TestMutualRecursionA other, java.lang.Object[] parserLocals) {
+      bb_ = other.bb_;
+      subGroup_ = other.subGroup_;
+      subGroupR_ = other.subGroupR_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          bbBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionB, edition_unittest.TestMutualRecursionB.Builder, edition_unittest.TestMutualRecursionBOrBuilder>) parserLocals[0]);
+          bb_ = null;
+        }
+        if (parserLocals[1] != null) {
+          subGroupBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionA.SubGroup, edition_unittest.TestMutualRecursionA.SubGroup.Builder, edition_unittest.TestMutualRecursionA.SubGroupOrBuilder>) parserLocals[1]);
+          subGroup_ = null;
+        }
+        if (parserLocals[2] != null) {
+          subGroupRBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestMutualRecursionA.SubGroupR, edition_unittest.TestMutualRecursionA.SubGroupR.Builder, edition_unittest.TestMutualRecursionA.SubGroupROrBuilder>) parserLocals[2]);
+          subGroupR_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -2616,6 +3156,22 @@ private static final long serialVersionUID = 0L;
         onChanged();
       } // finally
       return this;
+    }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 10: {
+          parseBbField(input, extensionRegistry);
+          return true;
+        } // case 10
+        case 19: {
+          parseSubGroupField(input, extensionRegistry);
+          return true;
+        } // case 19
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
     }
     private int bitField0_;
 
@@ -2738,7 +3294,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (bb_ != null || bbBuilder_ != null) {
-        internalGetBbFieldBuilder().getBuilder()
+        internalGetBbFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         bb_ = edition_unittest.TestMutualRecursionB.parser().parsePartialFrom(input, extensionRegistry);
@@ -2866,7 +3422,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       if (subGroup_ != null || subGroupBuilder_ != null) {
         input.readGroup(2,
-            internalGetSubGroupFieldBuilder().getBuilder(),
+            internalGetSubGroupFieldBuilder().getBuilderForParsing(),
             extensionRegistry);
       } else {
         subGroup_ = input.readGroup(2, edition_unittest.TestMutualRecursionA.SubGroup.parser(),
@@ -2875,8 +3431,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000002;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<edition_unittest.TestMutualRecursionA.SubGroupR> subGroupR_ =
-        emptyList(edition_unittest.TestMutualRecursionA.SubGroupR.class);
+    private com.google.protobuf.Internal.ProtobufList<edition_unittest.TestMutualRecursionA.SubGroupR> subGroupR_;
     private void ensureSubGroupRIsMutable() {
       if (!subGroupR_.isModifiable()) {
         subGroupR_ = makeMutableCopy(subGroupR_);
@@ -3122,22 +3677,229 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static TestMutualRecursionA parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    TestMutualRecursionA instance = new TestMutualRecursionA((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionB, edition_unittest.TestMutualRecursionB.Builder, edition_unittest.TestMutualRecursionBOrBuilder> bbBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionA.SubGroup, edition_unittest.TestMutualRecursionA.SubGroup.Builder, edition_unittest.TestMutualRecursionA.SubGroupOrBuilder> subGroupBuilder_ = null;
+    com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestMutualRecursionA.SubGroupR, edition_unittest.TestMutualRecursionA.SubGroupR.Builder, edition_unittest.TestMutualRecursionA.SubGroupROrBuilder> subGroupRBuilder_ = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      bbBuilder_ = internalGetBbFieldBuilder(instance, bbBuilder_);
+      subGroupBuilder_ = internalGetSubGroupFieldBuilder(instance, subGroupBuilder_);
+      subGroupRBuilder_ = internalGetSubGroupRFieldBuilder(instance, subGroupRBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            if (instance.bb_ != null || bbBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseBbField(instance, input, extensionRegistry, bbBuilder_);
+            break;
+          } // case 10
+          case 19: {
+            if (instance.subGroup_ != null || subGroupBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseSubGroupField(instance, input, extensionRegistry, subGroupBuilder_);
+            break;
+          } // case 19
+          case 43: {
+            edition_unittest.TestMutualRecursionA.SubGroupR m =
+                input.readGroup(5,
+                    edition_unittest.TestMutualRecursionA.SubGroupR.parser(),
+                    extensionRegistry);
+            if (subGroupRBuilder_ == null) {
+              ensureSubGroupRIsMutable(instance);
+              instance.subGroupR_.add(m);
+            } else {
+              subGroupRBuilder_.addMessage(m);
+              instance.bitField0_ |= 0x00000004;
+
+            }
+            break;
+          } // case 43
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {bbBuilder_, subGroupBuilder_, subGroupRBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, bbBuilder_, subGroupBuilder_, subGroupRBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>.edition_unittest.TestMutualRecursionB bb = 1;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      edition_unittest.TestMutualRecursionB, edition_unittest.TestMutualRecursionB.Builder, edition_unittest.TestMutualRecursionBOrBuilder> 
+      internalGetBbFieldBuilder(edition_unittest.TestMutualRecursionA instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionB, edition_unittest.TestMutualRecursionB.Builder, edition_unittest.TestMutualRecursionBOrBuilder> bbBuilder_) {
+    if (bbBuilder_ == null) {
+      bbBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          edition_unittest.TestMutualRecursionB, edition_unittest.TestMutualRecursionB.Builder, edition_unittest.TestMutualRecursionBOrBuilder>(
+              instance.getBb(),
+              null,
+              false);
+      instance.bb_ = null;
+    }
+    instance.bitField0_ |= 0x00000001;
+    return bbBuilder_;
+  }
+  private static void parseBbField(
+      edition_unittest.TestMutualRecursionA instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionB, edition_unittest.TestMutualRecursionB.Builder, edition_unittest.TestMutualRecursionBOrBuilder> bbBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.bb_ != null || bbBuilder_ != null) {
+      bbBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.bb_ = edition_unittest.TestMutualRecursionB.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000001;
+  }
+  /**
+   * <code>.edition_unittest.TestMutualRecursionA.SubGroup subgroup = 2 [features = { ... }</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      edition_unittest.TestMutualRecursionA.SubGroup, edition_unittest.TestMutualRecursionA.SubGroup.Builder, edition_unittest.TestMutualRecursionA.SubGroupOrBuilder> 
+      internalGetSubGroupFieldBuilder(edition_unittest.TestMutualRecursionA instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionA.SubGroup, edition_unittest.TestMutualRecursionA.SubGroup.Builder, edition_unittest.TestMutualRecursionA.SubGroupOrBuilder> subGroupBuilder_) {
+    if (subGroupBuilder_ == null) {
+      subGroupBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          edition_unittest.TestMutualRecursionA.SubGroup, edition_unittest.TestMutualRecursionA.SubGroup.Builder, edition_unittest.TestMutualRecursionA.SubGroupOrBuilder>(
+              instance.getSubGroup(),
+              null,
+              false);
+      instance.subGroup_ = null;
+    }
+    instance.bitField0_ |= 0x00000002;
+    return subGroupBuilder_;
+  }
+  private static void parseSubGroupField(
+      edition_unittest.TestMutualRecursionA instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionA.SubGroup, edition_unittest.TestMutualRecursionA.SubGroup.Builder, edition_unittest.TestMutualRecursionA.SubGroupOrBuilder> subGroupBuilder_)
+      throws java.io.IOException {
+    if (instance.subGroup_ != null || subGroupBuilder_ != null) {
+      input.readGroup(2,
+          subGroupBuilder_.getBuilderForParsing(),
+          extensionRegistry);
+    } else {
+      instance.subGroup_ = input.readGroup(2, edition_unittest.TestMutualRecursionA.SubGroup.parser(),
+          extensionRegistry);
+    }
+    instance.bitField0_ |= 0x00000002;
+  }
+  private static void ensureSubGroupRIsMutable(edition_unittest.TestMutualRecursionA instance) {
+    if (!instance.subGroupR_.isModifiable()) {
+      instance.subGroupR_ = makeMutableCopy(instance.subGroupR_);
+    }
+    instance.bitField0_ |= 0x00000004;
+  }
+  private static com.google.protobuf.RepeatedFieldBuilder<
+      edition_unittest.TestMutualRecursionA.SubGroupR, edition_unittest.TestMutualRecursionA.SubGroupR.Builder, edition_unittest.TestMutualRecursionA.SubGroupROrBuilder> 
+      internalGetSubGroupRFieldBuilder(edition_unittest.TestMutualRecursionA instance, com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestMutualRecursionA.SubGroupR, edition_unittest.TestMutualRecursionA.SubGroupR.Builder, edition_unittest.TestMutualRecursionA.SubGroupROrBuilder> subGroupRBuilder_) {
+    if (subGroupRBuilder_ == null) {
+      subGroupRBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          edition_unittest.TestMutualRecursionA.SubGroupR, edition_unittest.TestMutualRecursionA.SubGroupR.Builder, edition_unittest.TestMutualRecursionA.SubGroupROrBuilder>(
+              instance.subGroupR_,
+              instance.subGroupR_.isModifiable(),
+              null,
+              false);
+      instance.subGroupR_ = null;
+    }
+    instance.bitField0_ |= 0x00000004;
+
+    return subGroupRBuilder_;
+  }
+  private static void buildPartial_autosplit_0(edition_unittest.TestMutualRecursionA instance,
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionB, edition_unittest.TestMutualRecursionB.Builder, edition_unittest.TestMutualRecursionBOrBuilder> bbBuilder_,
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestMutualRecursionA.SubGroup, edition_unittest.TestMutualRecursionA.SubGroup.Builder, edition_unittest.TestMutualRecursionA.SubGroupOrBuilder> subGroupBuilder_,
+      com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestMutualRecursionA.SubGroupR, edition_unittest.TestMutualRecursionA.SubGroupR.Builder, edition_unittest.TestMutualRecursionA.SubGroupROrBuilder> subGroupRBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00000001) != 0)) instance.bb_ = null;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.bb_ = bbBuilder_ == null
+          ? instance.bb_
+          : bbBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000002) != 0)) instance.subGroup_ = null;
+    if (((from_bitField0_ & 0x00000002) != 0)) {
+      instance.subGroup_ = subGroupBuilder_ == null
+          ? instance.subGroup_
+          : subGroupBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000004) != 0)) {
+    if (subGroupRBuilder_ == null) {
+      instance.subGroupR_.makeImmutable();
+    } else {
+      instance.subGroupR_ = subGroupRBuilder_.buildProtobufList();
+    }
+    }
+  }
+
   private static final com.google.protobuf.Parser<TestMutualRecursionA>
-      PARSER = new com.google.protobuf.AbstractParser<TestMutualRecursionA>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestMutualRecursionA> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestMutualRecursionA parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return TestMutualRecursionA.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(TestMutualRecursionA instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<TestMutualRecursionA> parser() {
     return PARSER;

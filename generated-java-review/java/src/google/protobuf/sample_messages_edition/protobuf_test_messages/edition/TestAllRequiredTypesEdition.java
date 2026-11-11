@@ -27,6 +27,7 @@ private static final long serialVersionUID = 0L;
   // Use TestAllRequiredTypesEdition.newBuilder() to construct.
   private TestAllRequiredTypesEdition(com.google.protobuf.GeneratedMessage.ExtendableBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, ?> builder) {
     super(builder);
+    defaultBytes_ = DEFAULT_INSTANCE.defaultBytes_;
   }
   private TestAllRequiredTypesEdition() {
     requiredString_ = "";
@@ -624,15 +625,28 @@ private static final long serialVersionUID = 0L;
                 protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage.class, protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -689,7 +703,7 @@ private static final long serialVersionUID = 0L;
 
       private void buildPartial_autosplit_0(protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.a_ = a_;
           to_bitField0_ |= 0x00000001;
@@ -707,6 +721,24 @@ private static final long serialVersionUID = 0L;
           to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage other, java.lang.Object[] parserLocals) {
+        a_ = other.getA();
+        corecursive_ = other.corecursive_;
+        optionalCorecursive_ = other.optionalCorecursive_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            corecursiveBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder>) parserLocals[0]);
+            corecursive_ = null;
+          }
+          if (parserLocals[1] != null) {
+            optionalCorecursiveBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder>) parserLocals[1]);
+            optionalCorecursive_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -796,9 +828,25 @@ private static final long serialVersionUID = 0L;
         } // finally
         return this;
       }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 18: {
+            parseCorecursiveField(input, extensionRegistry);
+            return true;
+          } // case 18
+          case 26: {
+            parseOptionalCorecursiveField(input, extensionRegistry);
+            return true;
+          } // case 26
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
       private int bitField0_;
 
-      private int a_ ;
+      private int a_;
       /**
        * <code>int32 a = 1 [features = { ... }</code>
        * @return Whether the a field is set.
@@ -957,7 +1005,7 @@ private static final long serialVersionUID = 0L;
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (corecursive_ != null || corecursiveBuilder_ != null) {
-          internalGetCorecursiveFieldBuilder().getBuilder()
+          internalGetCorecursiveFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           corecursive_ = protobuf_test_messages.edition.TestAllRequiredTypesEdition.parser().parsePartialFrom(input, extensionRegistry);
@@ -1085,7 +1133,7 @@ private static final long serialVersionUID = 0L;
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (optionalCorecursive_ != null || optionalCorecursiveBuilder_ != null) {
-          internalGetOptionalCorecursiveFieldBuilder().getBuilder()
+          internalGetOptionalCorecursiveFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           optionalCorecursive_ = protobuf_test_messages.edition.TestAllRequiredTypesEdition.parser().parsePartialFrom(input, extensionRegistry);
@@ -1107,22 +1155,187 @@ private static final long serialVersionUID = 0L;
       return DEFAULT_INSTANCE;
     }
 
+    static NestedMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      NestedMessage instance = new NestedMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> corecursiveBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> optionalCorecursiveBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        corecursiveBuilder_ = internalGetCorecursiveFieldBuilder(instance, corecursiveBuilder_);
+        optionalCorecursiveBuilder_ = internalGetOptionalCorecursiveFieldBuilder(instance, optionalCorecursiveBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.a_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              if (instance.corecursive_ != null || corecursiveBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseCorecursiveField(instance, input, extensionRegistry, corecursiveBuilder_);
+              break;
+            } // case 18
+            case 26: {
+              if (instance.optionalCorecursive_ != null || optionalCorecursiveBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseOptionalCorecursiveField(instance, input, extensionRegistry, optionalCorecursiveBuilder_);
+              break;
+            } // case 26
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {corecursiveBuilder_, optionalCorecursiveBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, corecursiveBuilder_, optionalCorecursiveBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.protobuf_test_messages.edition.TestAllRequiredTypesEdition corecursive = 2 [features = { ... }</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> 
+        internalGetCorecursiveFieldBuilder(protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage instance, com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> corecursiveBuilder_) {
+      if (corecursiveBuilder_ == null) {
+        corecursiveBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder>(
+                instance.getCorecursive(),
+                null,
+                false);
+        instance.corecursive_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+      return corecursiveBuilder_;
+    }
+    private static void parseCorecursiveField(
+        protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> corecursiveBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.corecursive_ != null || corecursiveBuilder_ != null) {
+        corecursiveBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.corecursive_ = protobuf_test_messages.edition.TestAllRequiredTypesEdition.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+    }
+    /**
+     * <code>.protobuf_test_messages.edition.TestAllRequiredTypesEdition optional_corecursive = 3;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> 
+        internalGetOptionalCorecursiveFieldBuilder(protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage instance, com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> optionalCorecursiveBuilder_) {
+      if (optionalCorecursiveBuilder_ == null) {
+        optionalCorecursiveBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder>(
+                instance.getOptionalCorecursive(),
+                null,
+                false);
+        instance.optionalCorecursive_ = null;
+      }
+      instance.bitField0_ |= 0x00000004;
+      return optionalCorecursiveBuilder_;
+    }
+    private static void parseOptionalCorecursiveField(
+        protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> optionalCorecursiveBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.optionalCorecursive_ != null || optionalCorecursiveBuilder_ != null) {
+        optionalCorecursiveBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.optionalCorecursive_ = protobuf_test_messages.edition.TestAllRequiredTypesEdition.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+    }
+    private static void buildPartial_autosplit_0(protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage instance,
+        com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> corecursiveBuilder_,
+        com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> optionalCorecursiveBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000002) != 0)) instance.corecursive_ = null;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.corecursive_ = corecursiveBuilder_ == null
+            ? instance.corecursive_
+            : corecursiveBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000004) != 0)) instance.optionalCorecursive_ = null;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.optionalCorecursive_ = optionalCorecursiveBuilder_ == null
+            ? instance.optionalCorecursive_
+            : optionalCorecursiveBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<NestedMessage>
-        PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<NestedMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public NestedMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return NestedMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(NestedMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<NestedMessage> parser() {
       return PARSER;
@@ -1465,15 +1678,27 @@ private static final long serialVersionUID = 0L;
                 protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data.class, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -1514,7 +1739,7 @@ private static final long serialVersionUID = 0L;
 
       private void buildPartial_autosplit_0(protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.groupInt32_ = groupInt32_;
           to_bitField0_ |= 0x00000001;
@@ -1524,6 +1749,12 @@ private static final long serialVersionUID = 0L;
           to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data other, java.lang.Object[] parserLocals) {
+        groupInt32_ = other.getGroupInt32();
+        groupUint32_ = other.getGroupUint32();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1601,7 +1832,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private int groupInt32_ ;
+      private int groupInt32_;
       /**
        * <code>int32 group_int32 = 202 [features = { ... }</code>
        * @return Whether the groupInt32 field is set.
@@ -1641,7 +1872,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
-      private int groupUint32_ ;
+      private int groupUint32_;
       /**
        * <code>uint32 group_uint32 = 203 [features = { ... }</code>
        * @return Whether the groupUint32 field is set.
@@ -1694,22 +1925,72 @@ private static final long serialVersionUID = 0L;
       return DEFAULT_INSTANCE;
     }
 
+    static Data parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Data instance = new Data((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 1616: {
+              instance.groupInt32_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 1616
+            case 1624: {
+              instance.groupUint32_ = input.readUInt32();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 1624
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<Data>
-        PARSER = new com.google.protobuf.AbstractParser<Data>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Data> {
+      MessageParser() {}
+
       @java.lang.Override
       public Data parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Data.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Data instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Data> parser() {
       return PARSER;
@@ -1960,15 +2241,26 @@ private static final long serialVersionUID = 0L;
                 protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrect.class, protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrect.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrect.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrect other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
       }
       @java.lang.Override
       public Builder clear() {
@@ -2081,6 +2373,14 @@ private static final long serialVersionUID = 0L;
         } // finally
         return this;
       }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
 
       // @@protoc_insertion_point(builder_scope:protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrect)
     }
@@ -2095,22 +2395,72 @@ private static final long serialVersionUID = 0L;
       return DEFAULT_INSTANCE;
     }
 
+    static MessageSetCorrect parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MessageSetCorrect instance = new MessageSetCorrect((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              pendingTag = tag;
+              done = true;
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, null);
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<MessageSetCorrect>
-        PARSER = new com.google.protobuf.AbstractParser<MessageSetCorrect>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MessageSetCorrect> {
+      MessageParser() {}
+
       @java.lang.Override
       public MessageSetCorrect parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return MessageSetCorrect.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(MessageSetCorrect instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<MessageSetCorrect> parser() {
       return PARSER;
@@ -2429,15 +2779,28 @@ private static final long serialVersionUID = 0L;
                 protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension1.class, protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension1.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension1.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        str_ = "";
+      }
+      private Builder(protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension1 other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -2477,12 +2840,17 @@ private static final long serialVersionUID = 0L;
 
       private void buildPartial_autosplit_0(protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension1 result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.str_ = str_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension1 other, java.lang.Object[] parserLocals) {
+        str_ = other.str_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -2551,7 +2919,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private java.lang.Object str_ = "";
+      private java.lang.Object str_;
       /**
        * <code>string str = 25 [features = { ... }</code>
        * @return Whether the str field is set.
@@ -2643,22 +3011,67 @@ private static final long serialVersionUID = 0L;
       return DEFAULT_INSTANCE;
     }
 
+    static MessageSetCorrectExtension1 parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MessageSetCorrectExtension1 instance = new MessageSetCorrectExtension1((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 202: {
+              instance.str_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 202
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<MessageSetCorrectExtension1>
-        PARSER = new com.google.protobuf.AbstractParser<MessageSetCorrectExtension1>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MessageSetCorrectExtension1> {
+      MessageParser() {}
+
       @java.lang.Override
       public MessageSetCorrectExtension1 parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return MessageSetCorrectExtension1.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(MessageSetCorrectExtension1 instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<MessageSetCorrectExtension1> parser() {
       return PARSER;
@@ -2956,15 +3369,27 @@ private static final long serialVersionUID = 0L;
                 protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension2.class, protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension2.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension2.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension2 other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -3004,12 +3429,17 @@ private static final long serialVersionUID = 0L;
 
       private void buildPartial_autosplit_0(protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension2 result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.i_ = i_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(protobuf_test_messages.edition.TestAllRequiredTypesEdition.MessageSetCorrectExtension2 other, java.lang.Object[] parserLocals) {
+        i_ = other.getI();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -3076,7 +3506,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private int i_ ;
+      private int i_;
       /**
        * <code>int32 i = 9 [features = { ... }</code>
        * @return Whether the i field is set.
@@ -3129,22 +3559,67 @@ private static final long serialVersionUID = 0L;
       return DEFAULT_INSTANCE;
     }
 
+    static MessageSetCorrectExtension2 parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MessageSetCorrectExtension2 instance = new MessageSetCorrectExtension2((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 72: {
+              instance.i_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 72
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<MessageSetCorrectExtension2>
-        PARSER = new com.google.protobuf.AbstractParser<MessageSetCorrectExtension2>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MessageSetCorrectExtension2> {
+      MessageParser() {}
+
       @java.lang.Override
       public MessageSetCorrectExtension2 parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return MessageSetCorrectExtension2.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(MessageSetCorrectExtension2 instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<MessageSetCorrectExtension2> parser() {
       return PARSER;
@@ -4112,7 +4587,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int DEFAULT_BYTES_FIELD_NUMBER = 255;
-  private com.google.protobuf.ByteString defaultBytes_ = com.google.protobuf.Internal.bytesDefaultValue("joshua");
+  private com.google.protobuf.ByteString defaultBytes_;
   /**
    * <code>bytes default_bytes = 255 [default = "joshua", features = { ... }</code>
    * @return Whether the defaultBytes field is set.
@@ -5121,15 +5596,50 @@ private static final long serialVersionUID = 0L;
               protobuf_test_messages.edition.TestAllRequiredTypesEdition.class, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using protobuf_test_messages.edition.TestAllRequiredTypesEdition.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      requiredString_ = "";
+      requiredBytes_ = com.google.protobuf.ByteString.EMPTY;
+      requiredNestedEnum_ = 0;
+      requiredForeignEnum_ = 0;
+      requiredStringPiece_ = "";
+      requiredCord_ = "";
+      defaultInt32_ = -123456789;
+      defaultInt64_ = -9123456789123456789L;
+      defaultUint32_ = 2123456789;
+      defaultUint64_ = -8323287284586094827L;
+      defaultSint32_ = -123456789;
+      defaultSint64_ = -9123456789123456789L;
+      defaultFixed32_ = 2123456789;
+      defaultFixed64_ = -8323287284586094827L;
+      defaultSfixed32_ = -123456789;
+      defaultSfixed64_ = -9123456789123456789L;
+      defaultFloat_ = 9e+09F;
+      defaultDouble_ = 7e+22D;
+      defaultBool_ = true;
+      defaultString_ = "Rosebud";
+      defaultBytes_ = getDefaultInstance().getDefaultBytes();
       maybeForceBuilderInitialization();
+    }
+    private Builder(protobuf_test_messages.edition.TestAllRequiredTypesEdition other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
+      copyFrom_autosplit_1(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -5204,7 +5714,7 @@ private static final long serialVersionUID = 0L;
       defaultDouble_ = 7e+22D;
       defaultBool_ = true;
       defaultString_ = "Rosebud";
-      defaultBytes_ = com.google.protobuf.Internal.bytesDefaultValue("joshua");
+      defaultBytes_ = getDefaultInstance().getDefaultBytes();
       return this;
     }
 
@@ -5239,7 +5749,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(protobuf_test_messages.edition.TestAllRequiredTypesEdition result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.requiredInt32_ = requiredInt32_;
         to_bitField0_ |= 0x00000001;
@@ -5381,9 +5891,68 @@ private static final long serialVersionUID = 0L;
       result.bitField0_ |= to_bitField0_;
     }
 
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(protobuf_test_messages.edition.TestAllRequiredTypesEdition other, java.lang.Object[] parserLocals) {
+      requiredInt32_ = other.getRequiredInt32();
+      requiredInt64_ = other.getRequiredInt64();
+      requiredUint32_ = other.getRequiredUint32();
+      requiredUint64_ = other.getRequiredUint64();
+      requiredSint32_ = other.getRequiredSint32();
+      requiredSint64_ = other.getRequiredSint64();
+      requiredFixed32_ = other.getRequiredFixed32();
+      requiredFixed64_ = other.getRequiredFixed64();
+      requiredSfixed32_ = other.getRequiredSfixed32();
+      requiredSfixed64_ = other.getRequiredSfixed64();
+      requiredFloat_ = other.getRequiredFloat();
+      requiredDouble_ = other.getRequiredDouble();
+      requiredBool_ = other.getRequiredBool();
+      requiredString_ = other.requiredString_;
+      requiredBytes_ = other.getRequiredBytes();
+      requiredNestedMessage_ = other.requiredNestedMessage_;
+      requiredForeignMessage_ = other.requiredForeignMessage_;
+      requiredNestedEnum_ = other.getRequiredNestedEnumValue();
+      requiredForeignEnum_ = other.getRequiredForeignEnumValue();
+      requiredStringPiece_ = other.requiredStringPiece_;
+      requiredCord_ = other.requiredCord_;
+      recursiveMessage_ = other.recursiveMessage_;
+      optionalRecursiveMessage_ = other.optionalRecursiveMessage_;
+      data_ = other.data_;
+      defaultInt32_ = other.getDefaultInt32();
+      defaultInt64_ = other.getDefaultInt64();
+      defaultUint32_ = other.getDefaultUint32();
+      defaultUint64_ = other.getDefaultUint64();
+      defaultSint32_ = other.getDefaultSint32();
+      defaultSint64_ = other.getDefaultSint64();
+      defaultFixed32_ = other.getDefaultFixed32();
+      defaultFixed64_ = other.getDefaultFixed64();
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          requiredNestedMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage, protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessageOrBuilder>) parserLocals[0]);
+          requiredNestedMessage_ = null;
+        }
+        if (parserLocals[1] != null) {
+          requiredForeignMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.ForeignMessageEdition, protobuf_test_messages.edition.ForeignMessageEdition.Builder, protobuf_test_messages.edition.ForeignMessageEditionOrBuilder>) parserLocals[1]);
+          requiredForeignMessage_ = null;
+        }
+        if (parserLocals[2] != null) {
+          recursiveMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder>) parserLocals[2]);
+          recursiveMessage_ = null;
+        }
+        if (parserLocals[3] != null) {
+          optionalRecursiveMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder>) parserLocals[3]);
+          optionalRecursiveMessage_ = null;
+        }
+        if (parserLocals[4] != null) {
+          dataBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEdition.DataOrBuilder>) parserLocals[4]);
+          data_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
+    }
+
     private void buildPartial_autosplit_1(protobuf_test_messages.edition.TestAllRequiredTypesEdition result) {
       int from_bitField1_ = bitField1_;
-      int to_bitField1_ = 0;
+      int to_bitField1_ = from_bitField1_;
       if (((from_bitField1_ & 0x00000001) != 0)) {
         result.defaultSfixed32_ = defaultSfixed32_;
         to_bitField1_ |= 0x00000001;
@@ -5413,6 +5982,17 @@ private static final long serialVersionUID = 0L;
         to_bitField1_ |= 0x00000040;
       }
       result.bitField1_ |= to_bitField1_;
+    }
+
+    private void copyFrom_autosplit_1(protobuf_test_messages.edition.TestAllRequiredTypesEdition other, java.lang.Object[] parserLocals) {
+      defaultSfixed32_ = other.getDefaultSfixed32();
+      defaultSfixed64_ = other.getDefaultSfixed64();
+      defaultFloat_ = other.getDefaultFloat();
+      defaultDouble_ = other.getDefaultDouble();
+      defaultBool_ = other.getDefaultBool();
+      defaultString_ = other.defaultString_;
+      defaultBytes_ = other.getDefaultBytes();
+      bitField1_ = other.bitField1_;
     }
 
     public <Type> Builder setExtension(
@@ -5942,10 +6522,38 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 146: {
+          parseRequiredNestedMessageField(input, extensionRegistry);
+          return true;
+        } // case 146
+        case 154: {
+          parseRequiredForeignMessageField(input, extensionRegistry);
+          return true;
+        } // case 154
+        case 218: {
+          parseRecursiveMessageField(input, extensionRegistry);
+          return true;
+        } // case 218
+        case 226: {
+          parseOptionalRecursiveMessageField(input, extensionRegistry);
+          return true;
+        } // case 226
+        case 1611: {
+          parseDataField(input, extensionRegistry);
+          return true;
+        } // case 1611
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
+    }
     private int bitField0_;
     private int bitField1_;
 
-    private int requiredInt32_ ;
+    private int requiredInt32_;
     /**
      * <pre>
      * Singular
@@ -6001,7 +6609,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long requiredInt64_ ;
+    private long requiredInt64_;
     /**
      * <code>int64 required_int64 = 2 [features = { ... }</code>
      * @return Whether the requiredInt64 field is set.
@@ -6041,7 +6649,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int requiredUint32_ ;
+    private int requiredUint32_;
     /**
      * <code>uint32 required_uint32 = 3 [features = { ... }</code>
      * @return Whether the requiredUint32 field is set.
@@ -6081,7 +6689,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long requiredUint64_ ;
+    private long requiredUint64_;
     /**
      * <code>uint64 required_uint64 = 4 [features = { ... }</code>
      * @return Whether the requiredUint64 field is set.
@@ -6121,7 +6729,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int requiredSint32_ ;
+    private int requiredSint32_;
     /**
      * <code>sint32 required_sint32 = 5 [features = { ... }</code>
      * @return Whether the requiredSint32 field is set.
@@ -6161,7 +6769,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long requiredSint64_ ;
+    private long requiredSint64_;
     /**
      * <code>sint64 required_sint64 = 6 [features = { ... }</code>
      * @return Whether the requiredSint64 field is set.
@@ -6201,7 +6809,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int requiredFixed32_ ;
+    private int requiredFixed32_;
     /**
      * <code>fixed32 required_fixed32 = 7 [features = { ... }</code>
      * @return Whether the requiredFixed32 field is set.
@@ -6241,7 +6849,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long requiredFixed64_ ;
+    private long requiredFixed64_;
     /**
      * <code>fixed64 required_fixed64 = 8 [features = { ... }</code>
      * @return Whether the requiredFixed64 field is set.
@@ -6281,7 +6889,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int requiredSfixed32_ ;
+    private int requiredSfixed32_;
     /**
      * <code>sfixed32 required_sfixed32 = 9 [features = { ... }</code>
      * @return Whether the requiredSfixed32 field is set.
@@ -6321,7 +6929,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long requiredSfixed64_ ;
+    private long requiredSfixed64_;
     /**
      * <code>sfixed64 required_sfixed64 = 10 [features = { ... }</code>
      * @return Whether the requiredSfixed64 field is set.
@@ -6361,7 +6969,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float requiredFloat_ ;
+    private float requiredFloat_;
     /**
      * <code>float required_float = 11 [features = { ... }</code>
      * @return Whether the requiredFloat field is set.
@@ -6401,7 +7009,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double requiredDouble_ ;
+    private double requiredDouble_;
     /**
      * <code>double required_double = 12 [features = { ... }</code>
      * @return Whether the requiredDouble field is set.
@@ -6441,7 +7049,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean requiredBool_ ;
+    private boolean requiredBool_;
     /**
      * <code>bool required_bool = 13 [features = { ... }</code>
      * @return Whether the requiredBool field is set.
@@ -6481,7 +7089,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object requiredString_ = "";
+    private java.lang.Object requiredString_;
     /**
      * <code>string required_string = 14 [features = { ... }</code>
      * @return Whether the requiredString field is set.
@@ -6560,7 +7168,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.ByteString requiredBytes_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString requiredBytes_;
     /**
      * <code>bytes required_bytes = 15 [features = { ... }</code>
      * @return Whether the requiredBytes field is set.
@@ -6719,7 +7327,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (requiredNestedMessage_ != null || requiredNestedMessageBuilder_ != null) {
-        internalGetRequiredNestedMessageFieldBuilder().getBuilder()
+        internalGetRequiredNestedMessageFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         requiredNestedMessage_ = protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -6847,7 +7455,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (requiredForeignMessage_ != null || requiredForeignMessageBuilder_ != null) {
-        internalGetRequiredForeignMessageFieldBuilder().getBuilder()
+        internalGetRequiredForeignMessageFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         requiredForeignMessage_ = protobuf_test_messages.edition.ForeignMessageEdition.parser().parsePartialFrom(input, extensionRegistry);
@@ -6856,7 +7464,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00010000;
     }
 
-    private int requiredNestedEnum_ = 0;
+    private int requiredNestedEnum_;
     /**
      * <code>.protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedEnum required_nested_enum = 21 [features = { ... }</code>
      * @return Whether the requiredNestedEnum field is set.
@@ -6915,7 +7523,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int requiredForeignEnum_ = 0;
+    private int requiredForeignEnum_;
     /**
      * <code>.protobuf_test_messages.edition.ForeignEnumEdition required_foreign_enum = 22 [features = { ... }</code>
      * @return Whether the requiredForeignEnum field is set.
@@ -6974,7 +7582,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object requiredStringPiece_ = "";
+    private java.lang.Object requiredStringPiece_;
     /**
      * <code>string required_string_piece = 24 [features = { ... }</code>
      * @return Whether the requiredStringPiece field is set.
@@ -7053,7 +7661,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object requiredCord_ = "";
+    private java.lang.Object requiredCord_;
     /**
      * <code>string required_cord = 25 [features = { ... }</code>
      * @return Whether the requiredCord field is set.
@@ -7251,7 +7859,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (recursiveMessage_ != null || recursiveMessageBuilder_ != null) {
-        internalGetRecursiveMessageFieldBuilder().getBuilder()
+        internalGetRecursiveMessageFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         recursiveMessage_ = protobuf_test_messages.edition.TestAllRequiredTypesEdition.parser().parsePartialFrom(input, extensionRegistry);
@@ -7379,7 +7987,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (optionalRecursiveMessage_ != null || optionalRecursiveMessageBuilder_ != null) {
-        internalGetOptionalRecursiveMessageFieldBuilder().getBuilder()
+        internalGetOptionalRecursiveMessageFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         optionalRecursiveMessage_ = protobuf_test_messages.edition.TestAllRequiredTypesEdition.parser().parsePartialFrom(input, extensionRegistry);
@@ -7507,7 +8115,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       if (data_ != null || dataBuilder_ != null) {
         input.readGroup(201,
-            internalGetDataFieldBuilder().getBuilder(),
+            internalGetDataFieldBuilder().getBuilderForParsing(),
             extensionRegistry);
       } else {
         data_ = input.readGroup(201, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data.parser(),
@@ -7516,7 +8124,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00800000;
     }
 
-    private int defaultInt32_ = -123456789;
+    private int defaultInt32_;
     /**
      * <pre>
      * default values
@@ -7572,7 +8180,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long defaultInt64_ = -9123456789123456789L;
+    private long defaultInt64_;
     /**
      * <code>int64 default_int64 = 242 [default = -9123456789123456789, features = { ... }</code>
      * @return Whether the defaultInt64 field is set.
@@ -7612,7 +8220,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int defaultUint32_ = 2123456789;
+    private int defaultUint32_;
     /**
      * <code>uint32 default_uint32 = 243 [default = 2123456789, features = { ... }</code>
      * @return Whether the defaultUint32 field is set.
@@ -7652,7 +8260,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long defaultUint64_ = -8323287284586094827L;
+    private long defaultUint64_;
     /**
      * <code>uint64 default_uint64 = 244 [default = 10123456789123456789, features = { ... }</code>
      * @return Whether the defaultUint64 field is set.
@@ -7692,7 +8300,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int defaultSint32_ = -123456789;
+    private int defaultSint32_;
     /**
      * <code>sint32 default_sint32 = 245 [default = -123456789, features = { ... }</code>
      * @return Whether the defaultSint32 field is set.
@@ -7732,7 +8340,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long defaultSint64_ = -9123456789123456789L;
+    private long defaultSint64_;
     /**
      * <code>sint64 default_sint64 = 246 [default = -9123456789123456789, features = { ... }</code>
      * @return Whether the defaultSint64 field is set.
@@ -7772,7 +8380,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int defaultFixed32_ = 2123456789;
+    private int defaultFixed32_;
     /**
      * <code>fixed32 default_fixed32 = 247 [default = 2123456789, features = { ... }</code>
      * @return Whether the defaultFixed32 field is set.
@@ -7812,7 +8420,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long defaultFixed64_ = -8323287284586094827L;
+    private long defaultFixed64_;
     /**
      * <code>fixed64 default_fixed64 = 248 [default = 10123456789123456789, features = { ... }</code>
      * @return Whether the defaultFixed64 field is set.
@@ -7852,7 +8460,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int defaultSfixed32_ = -123456789;
+    private int defaultSfixed32_;
     /**
      * <code>sfixed32 default_sfixed32 = 249 [default = -123456789, features = { ... }</code>
      * @return Whether the defaultSfixed32 field is set.
@@ -7892,7 +8500,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long defaultSfixed64_ = -9123456789123456789L;
+    private long defaultSfixed64_;
     /**
      * <code>sfixed64 default_sfixed64 = 250 [default = -9123456789123456789, features = { ... }</code>
      * @return Whether the defaultSfixed64 field is set.
@@ -7932,7 +8540,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float defaultFloat_ = 9e+09F;
+    private float defaultFloat_;
     /**
      * <code>float default_float = 251 [default = 9e+09, features = { ... }</code>
      * @return Whether the defaultFloat field is set.
@@ -7972,7 +8580,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double defaultDouble_ = 7e+22D;
+    private double defaultDouble_;
     /**
      * <code>double default_double = 252 [default = 7e+22, features = { ... }</code>
      * @return Whether the defaultDouble field is set.
@@ -8012,7 +8620,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean defaultBool_ = true;
+    private boolean defaultBool_;
     /**
      * <code>bool default_bool = 253 [default = true, features = { ... }</code>
      * @return Whether the defaultBool field is set.
@@ -8052,7 +8660,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object defaultString_ = "Rosebud";
+    private java.lang.Object defaultString_;
     /**
      * <code>string default_string = 254 [default = "Rosebud", features = { ... }</code>
      * @return Whether the defaultString field is set.
@@ -8131,7 +8739,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.ByteString defaultBytes_ = com.google.protobuf.Internal.bytesDefaultValue("joshua");
+    private com.google.protobuf.ByteString defaultBytes_;
     /**
      * <code>bytes default_bytes = 255 [default = "joshua", features = { ... }</code>
      * @return Whether the defaultBytes field is set.
@@ -8184,22 +8792,500 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static TestAllRequiredTypesEdition parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    TestAllRequiredTypesEdition instance = new TestAllRequiredTypesEdition((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage, protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessageOrBuilder> requiredNestedMessageBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.ForeignMessageEdition, protobuf_test_messages.edition.ForeignMessageEdition.Builder, protobuf_test_messages.edition.ForeignMessageEditionOrBuilder> requiredForeignMessageBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> recursiveMessageBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> optionalRecursiveMessageBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEdition.DataOrBuilder> dataBuilder_ = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      requiredNestedMessageBuilder_ = internalGetRequiredNestedMessageFieldBuilder(instance, requiredNestedMessageBuilder_);
+      requiredForeignMessageBuilder_ = internalGetRequiredForeignMessageFieldBuilder(instance, requiredForeignMessageBuilder_);
+      recursiveMessageBuilder_ = internalGetRecursiveMessageFieldBuilder(instance, recursiveMessageBuilder_);
+      optionalRecursiveMessageBuilder_ = internalGetOptionalRecursiveMessageFieldBuilder(instance, optionalRecursiveMessageBuilder_);
+      dataBuilder_ = internalGetDataFieldBuilder(instance, dataBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
+            instance.requiredInt32_ = input.readInt32();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 8
+          case 16: {
+            instance.requiredInt64_ = input.readInt64();
+            instance.bitField0_ |= 0x00000002;
+            break;
+          } // case 16
+          case 24: {
+            instance.requiredUint32_ = input.readUInt32();
+            instance.bitField0_ |= 0x00000004;
+            break;
+          } // case 24
+          case 32: {
+            instance.requiredUint64_ = input.readUInt64();
+            instance.bitField0_ |= 0x00000008;
+            break;
+          } // case 32
+          case 40: {
+            instance.requiredSint32_ = input.readSInt32();
+            instance.bitField0_ |= 0x00000010;
+            break;
+          } // case 40
+          case 48: {
+            instance.requiredSint64_ = input.readSInt64();
+            instance.bitField0_ |= 0x00000020;
+            break;
+          } // case 48
+          case 61: {
+            instance.requiredFixed32_ = input.readFixed32();
+            instance.bitField0_ |= 0x00000040;
+            break;
+          } // case 61
+          case 65: {
+            instance.requiredFixed64_ = input.readFixed64();
+            instance.bitField0_ |= 0x00000080;
+            break;
+          } // case 65
+          case 77: {
+            instance.requiredSfixed32_ = input.readSFixed32();
+            instance.bitField0_ |= 0x00000100;
+            break;
+          } // case 77
+          case 81: {
+            instance.requiredSfixed64_ = input.readSFixed64();
+            instance.bitField0_ |= 0x00000200;
+            break;
+          } // case 81
+          case 93: {
+            instance.requiredFloat_ = input.readFloat();
+            instance.bitField0_ |= 0x00000400;
+            break;
+          } // case 93
+          case 97: {
+            instance.requiredDouble_ = input.readDouble();
+            instance.bitField0_ |= 0x00000800;
+            break;
+          } // case 97
+          case 104: {
+            instance.requiredBool_ = input.readBool();
+            instance.bitField0_ |= 0x00001000;
+            break;
+          } // case 104
+          case 114: {
+            instance.requiredString_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00002000;
+            break;
+          } // case 114
+          case 122: {
+            instance.requiredBytes_ = input.readBytes();
+            instance.bitField0_ |= 0x00004000;
+            break;
+          } // case 122
+          case 146: {
+            if (instance.requiredNestedMessage_ != null || requiredNestedMessageBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseRequiredNestedMessageField(instance, input, extensionRegistry, requiredNestedMessageBuilder_);
+            break;
+          } // case 146
+          case 154: {
+            if (instance.requiredForeignMessage_ != null || requiredForeignMessageBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseRequiredForeignMessageField(instance, input, extensionRegistry, requiredForeignMessageBuilder_);
+            break;
+          } // case 154
+          case 168: {
+            instance.requiredNestedEnum_ = input.readEnum();
+            instance.bitField0_ |= 0x00020000;
+            break;
+          } // case 168
+          case 176: {
+            instance.requiredForeignEnum_ = input.readEnum();
+            instance.bitField0_ |= 0x00040000;
+            break;
+          } // case 176
+          case 194: {
+            instance.requiredStringPiece_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00080000;
+            break;
+          } // case 194
+          case 202: {
+            instance.requiredCord_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00100000;
+            break;
+          } // case 202
+          case 218: {
+            if (instance.recursiveMessage_ != null || recursiveMessageBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseRecursiveMessageField(instance, input, extensionRegistry, recursiveMessageBuilder_);
+            break;
+          } // case 218
+          case 226: {
+            if (instance.optionalRecursiveMessage_ != null || optionalRecursiveMessageBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseOptionalRecursiveMessageField(instance, input, extensionRegistry, optionalRecursiveMessageBuilder_);
+            break;
+          } // case 226
+          case 1611: {
+            if (instance.data_ != null || dataBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseDataField(instance, input, extensionRegistry, dataBuilder_);
+            break;
+          } // case 1611
+          case 1928: {
+            instance.defaultInt32_ = input.readInt32();
+            instance.bitField0_ |= 0x01000000;
+            break;
+          } // case 1928
+          case 1936: {
+            instance.defaultInt64_ = input.readInt64();
+            instance.bitField0_ |= 0x02000000;
+            break;
+          } // case 1936
+          case 1944: {
+            instance.defaultUint32_ = input.readUInt32();
+            instance.bitField0_ |= 0x04000000;
+            break;
+          } // case 1944
+          case 1952: {
+            instance.defaultUint64_ = input.readUInt64();
+            instance.bitField0_ |= 0x08000000;
+            break;
+          } // case 1952
+          case 1960: {
+            instance.defaultSint32_ = input.readSInt32();
+            instance.bitField0_ |= 0x10000000;
+            break;
+          } // case 1960
+          case 1968: {
+            instance.defaultSint64_ = input.readSInt64();
+            instance.bitField0_ |= 0x20000000;
+            break;
+          } // case 1968
+          case 1981: {
+            instance.defaultFixed32_ = input.readFixed32();
+            instance.bitField0_ |= 0x40000000;
+            break;
+          } // case 1981
+          case 1985: {
+            instance.defaultFixed64_ = input.readFixed64();
+            instance.bitField0_ |= 0x80000000;
+            break;
+          } // case 1985
+          case 1997: {
+            instance.defaultSfixed32_ = input.readSFixed32();
+            instance.bitField1_ |= 0x00000001;
+            break;
+          } // case 1997
+          case 2001: {
+            instance.defaultSfixed64_ = input.readSFixed64();
+            instance.bitField1_ |= 0x00000002;
+            break;
+          } // case 2001
+          case 2013: {
+            instance.defaultFloat_ = input.readFloat();
+            instance.bitField1_ |= 0x00000004;
+            break;
+          } // case 2013
+          case 2017: {
+            instance.defaultDouble_ = input.readDouble();
+            instance.bitField1_ |= 0x00000008;
+            break;
+          } // case 2017
+          case 2024: {
+            instance.defaultBool_ = input.readBool();
+            instance.bitField1_ |= 0x00000010;
+            break;
+          } // case 2024
+          case 2034: {
+            instance.defaultString_ = input.readStringRequireUtf8();
+            instance.bitField1_ |= 0x00000020;
+            break;
+          } // case 2034
+          case 2042: {
+            instance.defaultBytes_ = input.readBytes();
+            instance.bitField1_ |= 0x00000040;
+            break;
+          } // case 2042
+          default: {
+            pendingTag = tag;
+            done = true;
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {requiredNestedMessageBuilder_, requiredForeignMessageBuilder_, recursiveMessageBuilder_, optionalRecursiveMessageBuilder_, dataBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, requiredNestedMessageBuilder_, requiredForeignMessageBuilder_, recursiveMessageBuilder_, optionalRecursiveMessageBuilder_, dataBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>.protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage required_nested_message = 18 [features = { ... }</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage, protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessageOrBuilder> 
+      internalGetRequiredNestedMessageFieldBuilder(protobuf_test_messages.edition.TestAllRequiredTypesEdition instance, com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage, protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessageOrBuilder> requiredNestedMessageBuilder_) {
+    if (requiredNestedMessageBuilder_ == null) {
+      requiredNestedMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage, protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessageOrBuilder>(
+              instance.getRequiredNestedMessage(),
+              null,
+              false);
+      instance.requiredNestedMessage_ = null;
+    }
+    instance.bitField0_ |= 0x00008000;
+    return requiredNestedMessageBuilder_;
+  }
+  private static void parseRequiredNestedMessageField(
+      protobuf_test_messages.edition.TestAllRequiredTypesEdition instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage, protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessageOrBuilder> requiredNestedMessageBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.requiredNestedMessage_ != null || requiredNestedMessageBuilder_ != null) {
+      requiredNestedMessageBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.requiredNestedMessage_ = protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00008000;
+  }
+  /**
+   * <code>.protobuf_test_messages.edition.ForeignMessageEdition required_foreign_message = 19 [features = { ... }</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      protobuf_test_messages.edition.ForeignMessageEdition, protobuf_test_messages.edition.ForeignMessageEdition.Builder, protobuf_test_messages.edition.ForeignMessageEditionOrBuilder> 
+      internalGetRequiredForeignMessageFieldBuilder(protobuf_test_messages.edition.TestAllRequiredTypesEdition instance, com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.ForeignMessageEdition, protobuf_test_messages.edition.ForeignMessageEdition.Builder, protobuf_test_messages.edition.ForeignMessageEditionOrBuilder> requiredForeignMessageBuilder_) {
+    if (requiredForeignMessageBuilder_ == null) {
+      requiredForeignMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          protobuf_test_messages.edition.ForeignMessageEdition, protobuf_test_messages.edition.ForeignMessageEdition.Builder, protobuf_test_messages.edition.ForeignMessageEditionOrBuilder>(
+              instance.getRequiredForeignMessage(),
+              null,
+              false);
+      instance.requiredForeignMessage_ = null;
+    }
+    instance.bitField0_ |= 0x00010000;
+    return requiredForeignMessageBuilder_;
+  }
+  private static void parseRequiredForeignMessageField(
+      protobuf_test_messages.edition.TestAllRequiredTypesEdition instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.ForeignMessageEdition, protobuf_test_messages.edition.ForeignMessageEdition.Builder, protobuf_test_messages.edition.ForeignMessageEditionOrBuilder> requiredForeignMessageBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.requiredForeignMessage_ != null || requiredForeignMessageBuilder_ != null) {
+      requiredForeignMessageBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.requiredForeignMessage_ = protobuf_test_messages.edition.ForeignMessageEdition.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00010000;
+  }
+  /**
+   * <code>.protobuf_test_messages.edition.TestAllRequiredTypesEdition recursive_message = 27;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> 
+      internalGetRecursiveMessageFieldBuilder(protobuf_test_messages.edition.TestAllRequiredTypesEdition instance, com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> recursiveMessageBuilder_) {
+    if (recursiveMessageBuilder_ == null) {
+      recursiveMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder>(
+              instance.getRecursiveMessage(),
+              null,
+              false);
+      instance.recursiveMessage_ = null;
+    }
+    instance.bitField0_ |= 0x00200000;
+    return recursiveMessageBuilder_;
+  }
+  private static void parseRecursiveMessageField(
+      protobuf_test_messages.edition.TestAllRequiredTypesEdition instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> recursiveMessageBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.recursiveMessage_ != null || recursiveMessageBuilder_ != null) {
+      recursiveMessageBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.recursiveMessage_ = protobuf_test_messages.edition.TestAllRequiredTypesEdition.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00200000;
+  }
+  /**
+   * <code>.protobuf_test_messages.edition.TestAllRequiredTypesEdition optional_recursive_message = 28;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> 
+      internalGetOptionalRecursiveMessageFieldBuilder(protobuf_test_messages.edition.TestAllRequiredTypesEdition instance, com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> optionalRecursiveMessageBuilder_) {
+    if (optionalRecursiveMessageBuilder_ == null) {
+      optionalRecursiveMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder>(
+              instance.getOptionalRecursiveMessage(),
+              null,
+              false);
+      instance.optionalRecursiveMessage_ = null;
+    }
+    instance.bitField0_ |= 0x00400000;
+    return optionalRecursiveMessageBuilder_;
+  }
+  private static void parseOptionalRecursiveMessageField(
+      protobuf_test_messages.edition.TestAllRequiredTypesEdition instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> optionalRecursiveMessageBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.optionalRecursiveMessage_ != null || optionalRecursiveMessageBuilder_ != null) {
+      optionalRecursiveMessageBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.optionalRecursiveMessage_ = protobuf_test_messages.edition.TestAllRequiredTypesEdition.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00400000;
+  }
+  /**
+   * <code>.protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data data = 201 [features = { ... }</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEdition.DataOrBuilder> 
+      internalGetDataFieldBuilder(protobuf_test_messages.edition.TestAllRequiredTypesEdition instance, com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEdition.DataOrBuilder> dataBuilder_) {
+    if (dataBuilder_ == null) {
+      dataBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEdition.DataOrBuilder>(
+              instance.getData(),
+              null,
+              false);
+      instance.data_ = null;
+    }
+    instance.bitField0_ |= 0x00800000;
+    return dataBuilder_;
+  }
+  private static void parseDataField(
+      protobuf_test_messages.edition.TestAllRequiredTypesEdition instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEdition.DataOrBuilder> dataBuilder_)
+      throws java.io.IOException {
+    if (instance.data_ != null || dataBuilder_ != null) {
+      input.readGroup(201,
+          dataBuilder_.getBuilderForParsing(),
+          extensionRegistry);
+    } else {
+      instance.data_ = input.readGroup(201, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data.parser(),
+          extensionRegistry);
+    }
+    instance.bitField0_ |= 0x00800000;
+  }
+  private static void buildPartial_autosplit_0(protobuf_test_messages.edition.TestAllRequiredTypesEdition instance,
+      com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage, protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessage.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEdition.NestedMessageOrBuilder> requiredNestedMessageBuilder_,
+      com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.ForeignMessageEdition, protobuf_test_messages.edition.ForeignMessageEdition.Builder, protobuf_test_messages.edition.ForeignMessageEditionOrBuilder> requiredForeignMessageBuilder_,
+      com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> recursiveMessageBuilder_,
+      com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEditionOrBuilder> optionalRecursiveMessageBuilder_,
+      com.google.protobuf.SingleFieldBuilder<protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data, protobuf_test_messages.edition.TestAllRequiredTypesEdition.Data.Builder, protobuf_test_messages.edition.TestAllRequiredTypesEdition.DataOrBuilder> dataBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00008000) != 0)) instance.requiredNestedMessage_ = null;
+    if (((from_bitField0_ & 0x00008000) != 0)) {
+      instance.requiredNestedMessage_ = requiredNestedMessageBuilder_ == null
+          ? instance.requiredNestedMessage_
+          : requiredNestedMessageBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00010000) != 0)) instance.requiredForeignMessage_ = null;
+    if (((from_bitField0_ & 0x00010000) != 0)) {
+      instance.requiredForeignMessage_ = requiredForeignMessageBuilder_ == null
+          ? instance.requiredForeignMessage_
+          : requiredForeignMessageBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00200000) != 0)) instance.recursiveMessage_ = null;
+    if (((from_bitField0_ & 0x00200000) != 0)) {
+      instance.recursiveMessage_ = recursiveMessageBuilder_ == null
+          ? instance.recursiveMessage_
+          : recursiveMessageBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00400000) != 0)) instance.optionalRecursiveMessage_ = null;
+    if (((from_bitField0_ & 0x00400000) != 0)) {
+      instance.optionalRecursiveMessage_ = optionalRecursiveMessageBuilder_ == null
+          ? instance.optionalRecursiveMessage_
+          : optionalRecursiveMessageBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00800000) != 0)) instance.data_ = null;
+    if (((from_bitField0_ & 0x00800000) != 0)) {
+      instance.data_ = dataBuilder_ == null
+          ? instance.data_
+          : dataBuilder_.build();
+    }
+  }
+
   private static final com.google.protobuf.Parser<TestAllRequiredTypesEdition>
-      PARSER = new com.google.protobuf.AbstractParser<TestAllRequiredTypesEdition>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestAllRequiredTypesEdition> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestAllRequiredTypesEdition parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return TestAllRequiredTypesEdition.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(TestAllRequiredTypesEdition instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<TestAllRequiredTypesEdition> parser() {
     return PARSER;

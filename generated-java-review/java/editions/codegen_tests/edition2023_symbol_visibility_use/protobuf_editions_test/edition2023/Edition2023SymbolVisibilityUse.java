@@ -438,15 +438,29 @@ public final class Edition2023SymbolVisibilityUse extends com.google.protobuf.Ge
                 protobuf_editions_test.edition2023.Edition2023SymbolVisibilityUse.SymbolVisibilityUseMessage.class, protobuf_editions_test.edition2023.Edition2023SymbolVisibilityUse.SymbolVisibilityUseMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.edition2023.Edition2023SymbolVisibilityUse.SymbolVisibilityUseMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        nestedEnum_ = 0;
         maybeForceBuilderInitialization();
+      }
+      private Builder(protobuf_editions_test.edition2023.Edition2023SymbolVisibilityUse.SymbolVisibilityUseMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -503,7 +517,7 @@ public final class Edition2023SymbolVisibilityUse extends com.google.protobuf.Ge
 
       private void buildPartial_autosplit_0(protobuf_editions_test.edition2023.Edition2023SymbolVisibilityUse.SymbolVisibilityUseMessage result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.topLevelMessage_ = topLevelMessageBuilder_ == null
               ? topLevelMessage_
@@ -521,6 +535,24 @@ public final class Edition2023SymbolVisibilityUse extends com.google.protobuf.Ge
           to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(protobuf_editions_test.edition2023.Edition2023SymbolVisibilityUse.SymbolVisibilityUseMessage other, java.lang.Object[] parserLocals) {
+        topLevelMessage_ = other.topLevelMessage_;
+        nestedMessage_ = other.nestedMessage_;
+        nestedEnum_ = other.getNestedEnumValue();
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            topLevelMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.Builder, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessageOrBuilder>) parserLocals[0]);
+            topLevelMessage_ = null;
+          }
+          if (parserLocals[1] != null) {
+            nestedMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage.Builder, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessageOrBuilder>) parserLocals[1]);
+            nestedMessage_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -595,6 +627,22 @@ public final class Edition2023SymbolVisibilityUse extends com.google.protobuf.Ge
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseTopLevelMessageField(input, extensionRegistry);
+            return true;
+          } // case 10
+          case 18: {
+            parseNestedMessageField(input, extensionRegistry);
+            return true;
+          } // case 18
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -717,7 +765,7 @@ public final class Edition2023SymbolVisibilityUse extends com.google.protobuf.Ge
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (topLevelMessage_ != null || topLevelMessageBuilder_ != null) {
-          internalGetTopLevelMessageFieldBuilder().getBuilder()
+          internalGetTopLevelMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           topLevelMessage_ = protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -845,7 +893,7 @@ public final class Edition2023SymbolVisibilityUse extends com.google.protobuf.Ge
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (nestedMessage_ != null || nestedMessageBuilder_ != null) {
-          internalGetNestedMessageFieldBuilder().getBuilder()
+          internalGetNestedMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           nestedMessage_ = protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -854,7 +902,7 @@ public final class Edition2023SymbolVisibilityUse extends com.google.protobuf.Ge
         bitField0_ |= 0x00000002;
       }
 
-      private int nestedEnum_ = 0;
+      private int nestedEnum_;
       /**
        * <code>.protobuf_editions_test.edition2023.SymbolVisibilityMessage.NestedEnum nested_enum = 3;</code>
        * @return Whether the nestedEnum field is set.
@@ -926,22 +974,187 @@ public final class Edition2023SymbolVisibilityUse extends com.google.protobuf.Ge
       return DEFAULT_INSTANCE;
     }
 
+    static SymbolVisibilityUseMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      SymbolVisibilityUseMessage instance = new SymbolVisibilityUseMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.Builder, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessageOrBuilder> topLevelMessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage.Builder, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessageOrBuilder> nestedMessageBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        topLevelMessageBuilder_ = internalGetTopLevelMessageFieldBuilder(instance, topLevelMessageBuilder_);
+        nestedMessageBuilder_ = internalGetNestedMessageFieldBuilder(instance, nestedMessageBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.topLevelMessage_ != null || topLevelMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseTopLevelMessageField(instance, input, extensionRegistry, topLevelMessageBuilder_);
+              break;
+            } // case 10
+            case 18: {
+              if (instance.nestedMessage_ != null || nestedMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseNestedMessageField(instance, input, extensionRegistry, nestedMessageBuilder_);
+              break;
+            } // case 18
+            case 24: {
+              instance.nestedEnum_ = input.readEnum();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {topLevelMessageBuilder_, nestedMessageBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, topLevelMessageBuilder_, nestedMessageBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.protobuf_editions_test.edition2023.SymbolVisibilityMessage top_level_message = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.Builder, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessageOrBuilder> 
+        internalGetTopLevelMessageFieldBuilder(protobuf_editions_test.edition2023.Edition2023SymbolVisibilityUse.SymbolVisibilityUseMessage instance, com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.Builder, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessageOrBuilder> topLevelMessageBuilder_) {
+      if (topLevelMessageBuilder_ == null) {
+        topLevelMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.Builder, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessageOrBuilder>(
+                instance.getTopLevelMessage(),
+                null,
+                false);
+        instance.topLevelMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return topLevelMessageBuilder_;
+    }
+    private static void parseTopLevelMessageField(
+        protobuf_editions_test.edition2023.Edition2023SymbolVisibilityUse.SymbolVisibilityUseMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.Builder, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessageOrBuilder> topLevelMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.topLevelMessage_ != null || topLevelMessageBuilder_ != null) {
+        topLevelMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.topLevelMessage_ = protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    /**
+     * <code>.protobuf_editions_test.edition2023.SymbolVisibilityMessage.NestedMessage nested_message = 2;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage.Builder, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessageOrBuilder> 
+        internalGetNestedMessageFieldBuilder(protobuf_editions_test.edition2023.Edition2023SymbolVisibilityUse.SymbolVisibilityUseMessage instance, com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage.Builder, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessageOrBuilder> nestedMessageBuilder_) {
+      if (nestedMessageBuilder_ == null) {
+        nestedMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage.Builder, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessageOrBuilder>(
+                instance.getNestedMessage(),
+                null,
+                false);
+        instance.nestedMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+      return nestedMessageBuilder_;
+    }
+    private static void parseNestedMessageField(
+        protobuf_editions_test.edition2023.Edition2023SymbolVisibilityUse.SymbolVisibilityUseMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage.Builder, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessageOrBuilder> nestedMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.nestedMessage_ != null || nestedMessageBuilder_ != null) {
+        nestedMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.nestedMessage_ = protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static void buildPartial_autosplit_0(protobuf_editions_test.edition2023.Edition2023SymbolVisibilityUse.SymbolVisibilityUseMessage instance,
+        com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.Builder, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessageOrBuilder> topLevelMessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessage.Builder, protobuf_editions_test.edition2023.Edition2023SymbolVisibility.SymbolVisibilityMessage.NestedMessageOrBuilder> nestedMessageBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.topLevelMessage_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.topLevelMessage_ = topLevelMessageBuilder_ == null
+            ? instance.topLevelMessage_
+            : topLevelMessageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000002) != 0)) instance.nestedMessage_ = null;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.nestedMessage_ = nestedMessageBuilder_ == null
+            ? instance.nestedMessage_
+            : nestedMessageBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<SymbolVisibilityUseMessage>
-        PARSER = new com.google.protobuf.AbstractParser<SymbolVisibilityUseMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<SymbolVisibilityUseMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public SymbolVisibilityUseMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return SymbolVisibilityUseMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(SymbolVisibilityUseMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<SymbolVisibilityUseMessage> parser() {
       return PARSER;

@@ -691,15 +691,29 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.FieldMask.class, com.google.protobuf.FieldMask.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.FieldMask.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      paths_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+    }
+    private Builder(com.google.protobuf.FieldMask other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -740,12 +754,17 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(com.google.protobuf.FieldMask result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         paths_.makeImmutable();
         result.paths_ = paths_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(com.google.protobuf.FieldMask other, java.lang.Object[] parserLocals) {
+      paths_ = other.paths_;
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -816,8 +835,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.LazyStringArrayList paths_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList paths_;
     private void ensurePathsIsMutable() {
       if (!paths_.isModifiable()) {
         paths_ = new com.google.protobuf.LazyStringArrayList(paths_);
@@ -976,22 +994,81 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static FieldMask parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    FieldMask instance = new FieldMask((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            ensurePathsIsMutable(instance);
+            instance.paths_.add(input.readStringRequireUtf8());
+            break;
+          } // case 10
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static void ensurePathsIsMutable(com.google.protobuf.FieldMask instance) {
+    if (!instance.paths_.isModifiable()) {
+      instance.paths_ = new com.google.protobuf.LazyStringArrayList(instance.paths_);
+    }
+    instance.bitField0_ |= 0x00000001;
+  }
+  private static void buildPartial_autosplit_0(com.google.protobuf.FieldMask instance) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.paths_.makeImmutable();
+    }
+  }
+
   private static final com.google.protobuf.Parser<FieldMask>
-      PARSER = new com.google.protobuf.AbstractParser<FieldMask>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<FieldMask> {
+    MessageParser() {}
+
     @java.lang.Override
     public FieldMask parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return FieldMask.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(FieldMask instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<FieldMask> parser() {
     return PARSER;

@@ -319,15 +319,28 @@ private static final long serialVersionUID = 0L;
               protobuf.rust.test.same_name_direct_deps.Child.class, protobuf.rust.test.same_name_direct_deps.Child.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using protobuf.rust.test.same_name_direct_deps.Child.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
+    }
+    private Builder(protobuf.rust.test.same_name_direct_deps.Child other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -383,7 +396,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(protobuf.rust.test.same_name_direct_deps.Child result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.p_ = pBuilder_ == null
             ? p_
@@ -397,6 +410,23 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000002;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(protobuf.rust.test.same_name_direct_deps.Child other, java.lang.Object[] parserLocals) {
+      p_ = other.p_;
+      q_ = other.q_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          pBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<protobuf.rust.test.p.Parent, protobuf.rust.test.p.Parent.Builder, protobuf.rust.test.p.ParentOrBuilder>) parserLocals[0]);
+          p_ = null;
+        }
+        if (parserLocals[1] != null) {
+          qBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<protobuf.rust.test.q.Parent, protobuf.rust.test.q.Parent.Builder, protobuf.rust.test.q.ParentOrBuilder>) parserLocals[1]);
+          q_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -463,6 +493,22 @@ private static final long serialVersionUID = 0L;
         onChanged();
       } // finally
       return this;
+    }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 10: {
+          parsePField(input, extensionRegistry);
+          return true;
+        } // case 10
+        case 18: {
+          parseQField(input, extensionRegistry);
+          return true;
+        } // case 18
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
     }
     private int bitField0_;
 
@@ -585,7 +631,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (p_ != null || pBuilder_ != null) {
-        internalGetPFieldBuilder().getBuilder()
+        internalGetPFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         p_ = protobuf.rust.test.p.Parent.parser().parsePartialFrom(input, extensionRegistry);
@@ -713,7 +759,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (q_ != null || qBuilder_ != null) {
-        internalGetQFieldBuilder().getBuilder()
+        internalGetQFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         q_ = protobuf.rust.test.q.Parent.parser().parsePartialFrom(input, extensionRegistry);
@@ -735,22 +781,182 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static Child parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    Child instance = new Child((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<protobuf.rust.test.p.Parent, protobuf.rust.test.p.Parent.Builder, protobuf.rust.test.p.ParentOrBuilder> pBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<protobuf.rust.test.q.Parent, protobuf.rust.test.q.Parent.Builder, protobuf.rust.test.q.ParentOrBuilder> qBuilder_ = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      pBuilder_ = internalGetPFieldBuilder(instance, pBuilder_);
+      qBuilder_ = internalGetQFieldBuilder(instance, qBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            if (instance.p_ != null || pBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parsePField(instance, input, extensionRegistry, pBuilder_);
+            break;
+          } // case 10
+          case 18: {
+            if (instance.q_ != null || qBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseQField(instance, input, extensionRegistry, qBuilder_);
+            break;
+          } // case 18
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {pBuilder_, qBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, pBuilder_, qBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>optional .p.Parent p = 1;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      protobuf.rust.test.p.Parent, protobuf.rust.test.p.Parent.Builder, protobuf.rust.test.p.ParentOrBuilder> 
+      internalGetPFieldBuilder(protobuf.rust.test.same_name_direct_deps.Child instance, com.google.protobuf.SingleFieldBuilder<protobuf.rust.test.p.Parent, protobuf.rust.test.p.Parent.Builder, protobuf.rust.test.p.ParentOrBuilder> pBuilder_) {
+    if (pBuilder_ == null) {
+      pBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          protobuf.rust.test.p.Parent, protobuf.rust.test.p.Parent.Builder, protobuf.rust.test.p.ParentOrBuilder>(
+              instance.getP(),
+              null,
+              false);
+      instance.p_ = null;
+    }
+    instance.bitField0_ |= 0x00000001;
+    return pBuilder_;
+  }
+  private static void parsePField(
+      protobuf.rust.test.same_name_direct_deps.Child instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<protobuf.rust.test.p.Parent, protobuf.rust.test.p.Parent.Builder, protobuf.rust.test.p.ParentOrBuilder> pBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.p_ != null || pBuilder_ != null) {
+      pBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.p_ = protobuf.rust.test.p.Parent.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000001;
+  }
+  /**
+   * <code>optional .q.Parent q = 2;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      protobuf.rust.test.q.Parent, protobuf.rust.test.q.Parent.Builder, protobuf.rust.test.q.ParentOrBuilder> 
+      internalGetQFieldBuilder(protobuf.rust.test.same_name_direct_deps.Child instance, com.google.protobuf.SingleFieldBuilder<protobuf.rust.test.q.Parent, protobuf.rust.test.q.Parent.Builder, protobuf.rust.test.q.ParentOrBuilder> qBuilder_) {
+    if (qBuilder_ == null) {
+      qBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          protobuf.rust.test.q.Parent, protobuf.rust.test.q.Parent.Builder, protobuf.rust.test.q.ParentOrBuilder>(
+              instance.getQ(),
+              null,
+              false);
+      instance.q_ = null;
+    }
+    instance.bitField0_ |= 0x00000002;
+    return qBuilder_;
+  }
+  private static void parseQField(
+      protobuf.rust.test.same_name_direct_deps.Child instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<protobuf.rust.test.q.Parent, protobuf.rust.test.q.Parent.Builder, protobuf.rust.test.q.ParentOrBuilder> qBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.q_ != null || qBuilder_ != null) {
+      qBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.q_ = protobuf.rust.test.q.Parent.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000002;
+  }
+  private static void buildPartial_autosplit_0(protobuf.rust.test.same_name_direct_deps.Child instance,
+      com.google.protobuf.SingleFieldBuilder<protobuf.rust.test.p.Parent, protobuf.rust.test.p.Parent.Builder, protobuf.rust.test.p.ParentOrBuilder> pBuilder_,
+      com.google.protobuf.SingleFieldBuilder<protobuf.rust.test.q.Parent, protobuf.rust.test.q.Parent.Builder, protobuf.rust.test.q.ParentOrBuilder> qBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00000001) != 0)) instance.p_ = null;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.p_ = pBuilder_ == null
+          ? instance.p_
+          : pBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000002) != 0)) instance.q_ = null;
+    if (((from_bitField0_ & 0x00000002) != 0)) {
+      instance.q_ = qBuilder_ == null
+          ? instance.q_
+          : qBuilder_.build();
+    }
+  }
+
   private static final com.google.protobuf.Parser<Child>
-      PARSER = new com.google.protobuf.AbstractParser<Child>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<Child> {
+    MessageParser() {}
+
     @java.lang.Override
     public Child parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Child.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(Child instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<Child> parser() {
     return PARSER;

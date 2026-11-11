@@ -438,15 +438,28 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
                 objc.protobuf.tests.cycle.UnittestCycle.Foo.class, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.cycle.UnittestCycle.Foo.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(objc.protobuf.tests.cycle.UnittestCycle.Foo other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -508,7 +521,7 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.cycle.UnittestCycle.Foo result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.aFoo_ = aFooBuilder_ == null
               ? aFoo_
@@ -528,6 +541,28 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(objc.protobuf.tests.cycle.UnittestCycle.Foo other, java.lang.Object[] parserLocals) {
+        aFoo_ = other.aFoo_;
+        aBar_ = other.aBar_;
+        aBaz_ = other.aBaz_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            aFooBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder>) parserLocals[0]);
+            aFoo_ = null;
+          }
+          if (parserLocals[1] != null) {
+            aBarBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder>) parserLocals[1]);
+            aBar_ = null;
+          }
+          if (parserLocals[2] != null) {
+            aBazBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder>) parserLocals[2]);
+            aBaz_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -601,6 +636,26 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseAFooField(input, extensionRegistry);
+            return true;
+          } // case 10
+          case 18: {
+            parseABarField(input, extensionRegistry);
+            return true;
+          } // case 18
+          case 26: {
+            parseABazField(input, extensionRegistry);
+            return true;
+          } // case 26
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -723,7 +778,7 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (aFoo_ != null || aFooBuilder_ != null) {
-          internalGetAFooFieldBuilder().getBuilder()
+          internalGetAFooFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           aFoo_ = objc.protobuf.tests.cycle.UnittestCycle.Foo.parser().parsePartialFrom(input, extensionRegistry);
@@ -851,7 +906,7 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (aBar_ != null || aBarBuilder_ != null) {
-          internalGetABarFieldBuilder().getBuilder()
+          internalGetABarFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           aBar_ = objc.protobuf.tests.cycle.UnittestCycle.Bar.parser().parsePartialFrom(input, extensionRegistry);
@@ -979,7 +1034,7 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (aBaz_ != null || aBazBuilder_ != null) {
-          internalGetABazFieldBuilder().getBuilder()
+          internalGetABazFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           aBaz_ = objc.protobuf.tests.cycle.UnittestCycle.Baz.parser().parsePartialFrom(input, extensionRegistry);
@@ -1001,22 +1056,232 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static Foo parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Foo instance = new Foo((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder> aFooBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder> aBarBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder> aBazBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        aFooBuilder_ = internalGetAFooFieldBuilder(instance, aFooBuilder_);
+        aBarBuilder_ = internalGetABarFieldBuilder(instance, aBarBuilder_);
+        aBazBuilder_ = internalGetABazFieldBuilder(instance, aBazBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.aFoo_ != null || aFooBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseAFooField(instance, input, extensionRegistry, aFooBuilder_);
+              break;
+            } // case 10
+            case 18: {
+              if (instance.aBar_ != null || aBarBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseABarField(instance, input, extensionRegistry, aBarBuilder_);
+              break;
+            } // case 18
+            case 26: {
+              if (instance.aBaz_ != null || aBazBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseABazField(instance, input, extensionRegistry, aBazBuilder_);
+              break;
+            } // case 26
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {aFooBuilder_, aBarBuilder_, aBazBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, aFooBuilder_, aBarBuilder_, aBazBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.cycle.Foo a_foo = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder> 
+        internalGetAFooFieldBuilder(objc.protobuf.tests.cycle.UnittestCycle.Foo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder> aFooBuilder_) {
+      if (aFooBuilder_ == null) {
+        aFooBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder>(
+                instance.getAFoo(),
+                null,
+                false);
+        instance.aFoo_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return aFooBuilder_;
+    }
+    private static void parseAFooField(
+        objc.protobuf.tests.cycle.UnittestCycle.Foo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder> aFooBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.aFoo_ != null || aFooBuilder_ != null) {
+        aFooBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.aFoo_ = objc.protobuf.tests.cycle.UnittestCycle.Foo.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.cycle.Bar a_bar = 2;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder> 
+        internalGetABarFieldBuilder(objc.protobuf.tests.cycle.UnittestCycle.Foo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder> aBarBuilder_) {
+      if (aBarBuilder_ == null) {
+        aBarBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder>(
+                instance.getABar(),
+                null,
+                false);
+        instance.aBar_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+      return aBarBuilder_;
+    }
+    private static void parseABarField(
+        objc.protobuf.tests.cycle.UnittestCycle.Foo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder> aBarBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.aBar_ != null || aBarBuilder_ != null) {
+        aBarBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.aBar_ = objc.protobuf.tests.cycle.UnittestCycle.Bar.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.cycle.Baz a_baz = 3;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder> 
+        internalGetABazFieldBuilder(objc.protobuf.tests.cycle.UnittestCycle.Foo instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder> aBazBuilder_) {
+      if (aBazBuilder_ == null) {
+        aBazBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder>(
+                instance.getABaz(),
+                null,
+                false);
+        instance.aBaz_ = null;
+      }
+      instance.bitField0_ |= 0x00000004;
+      return aBazBuilder_;
+    }
+    private static void parseABazField(
+        objc.protobuf.tests.cycle.UnittestCycle.Foo instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder> aBazBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.aBaz_ != null || aBazBuilder_ != null) {
+        aBazBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.aBaz_ = objc.protobuf.tests.cycle.UnittestCycle.Baz.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+    }
+    private static void buildPartial_autosplit_0(objc.protobuf.tests.cycle.UnittestCycle.Foo instance,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder> aFooBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder> aBarBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder> aBazBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.aFoo_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.aFoo_ = aFooBuilder_ == null
+            ? instance.aFoo_
+            : aFooBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000002) != 0)) instance.aBar_ = null;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.aBar_ = aBarBuilder_ == null
+            ? instance.aBar_
+            : aBarBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000004) != 0)) instance.aBaz_ = null;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.aBaz_ = aBazBuilder_ == null
+            ? instance.aBaz_
+            : aBazBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<Foo>
-        PARSER = new com.google.protobuf.AbstractParser<Foo>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Foo> {
+      MessageParser() {}
+
       @java.lang.Override
       public Foo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Foo.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Foo instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Foo> parser() {
       return PARSER;
@@ -1446,15 +1711,28 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
                 objc.protobuf.tests.cycle.UnittestCycle.Bar.class, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.cycle.UnittestCycle.Bar.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(objc.protobuf.tests.cycle.UnittestCycle.Bar other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -1516,7 +1794,7 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.cycle.UnittestCycle.Bar result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.aBar_ = aBarBuilder_ == null
               ? aBar_
@@ -1536,6 +1814,28 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(objc.protobuf.tests.cycle.UnittestCycle.Bar other, java.lang.Object[] parserLocals) {
+        aBar_ = other.aBar_;
+        aBaz_ = other.aBaz_;
+        aFoo_ = other.aFoo_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            aBarBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder>) parserLocals[0]);
+            aBar_ = null;
+          }
+          if (parserLocals[1] != null) {
+            aBazBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder>) parserLocals[1]);
+            aBaz_ = null;
+          }
+          if (parserLocals[2] != null) {
+            aFooBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder>) parserLocals[2]);
+            aFoo_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1609,6 +1909,26 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseABarField(input, extensionRegistry);
+            return true;
+          } // case 10
+          case 18: {
+            parseABazField(input, extensionRegistry);
+            return true;
+          } // case 18
+          case 26: {
+            parseAFooField(input, extensionRegistry);
+            return true;
+          } // case 26
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -1731,7 +2051,7 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (aBar_ != null || aBarBuilder_ != null) {
-          internalGetABarFieldBuilder().getBuilder()
+          internalGetABarFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           aBar_ = objc.protobuf.tests.cycle.UnittestCycle.Bar.parser().parsePartialFrom(input, extensionRegistry);
@@ -1859,7 +2179,7 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (aBaz_ != null || aBazBuilder_ != null) {
-          internalGetABazFieldBuilder().getBuilder()
+          internalGetABazFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           aBaz_ = objc.protobuf.tests.cycle.UnittestCycle.Baz.parser().parsePartialFrom(input, extensionRegistry);
@@ -1987,7 +2307,7 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (aFoo_ != null || aFooBuilder_ != null) {
-          internalGetAFooFieldBuilder().getBuilder()
+          internalGetAFooFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           aFoo_ = objc.protobuf.tests.cycle.UnittestCycle.Foo.parser().parsePartialFrom(input, extensionRegistry);
@@ -2009,22 +2329,232 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static Bar parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Bar instance = new Bar((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder> aBarBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder> aBazBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder> aFooBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        aBarBuilder_ = internalGetABarFieldBuilder(instance, aBarBuilder_);
+        aBazBuilder_ = internalGetABazFieldBuilder(instance, aBazBuilder_);
+        aFooBuilder_ = internalGetAFooFieldBuilder(instance, aFooBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.aBar_ != null || aBarBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseABarField(instance, input, extensionRegistry, aBarBuilder_);
+              break;
+            } // case 10
+            case 18: {
+              if (instance.aBaz_ != null || aBazBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseABazField(instance, input, extensionRegistry, aBazBuilder_);
+              break;
+            } // case 18
+            case 26: {
+              if (instance.aFoo_ != null || aFooBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseAFooField(instance, input, extensionRegistry, aFooBuilder_);
+              break;
+            } // case 26
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {aBarBuilder_, aBazBuilder_, aFooBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, aBarBuilder_, aBazBuilder_, aFooBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.cycle.Bar a_bar = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder> 
+        internalGetABarFieldBuilder(objc.protobuf.tests.cycle.UnittestCycle.Bar instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder> aBarBuilder_) {
+      if (aBarBuilder_ == null) {
+        aBarBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder>(
+                instance.getABar(),
+                null,
+                false);
+        instance.aBar_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return aBarBuilder_;
+    }
+    private static void parseABarField(
+        objc.protobuf.tests.cycle.UnittestCycle.Bar instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder> aBarBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.aBar_ != null || aBarBuilder_ != null) {
+        aBarBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.aBar_ = objc.protobuf.tests.cycle.UnittestCycle.Bar.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.cycle.Baz a_baz = 2;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder> 
+        internalGetABazFieldBuilder(objc.protobuf.tests.cycle.UnittestCycle.Bar instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder> aBazBuilder_) {
+      if (aBazBuilder_ == null) {
+        aBazBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder>(
+                instance.getABaz(),
+                null,
+                false);
+        instance.aBaz_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+      return aBazBuilder_;
+    }
+    private static void parseABazField(
+        objc.protobuf.tests.cycle.UnittestCycle.Bar instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder> aBazBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.aBaz_ != null || aBazBuilder_ != null) {
+        aBazBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.aBaz_ = objc.protobuf.tests.cycle.UnittestCycle.Baz.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.cycle.Foo a_foo = 3;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder> 
+        internalGetAFooFieldBuilder(objc.protobuf.tests.cycle.UnittestCycle.Bar instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder> aFooBuilder_) {
+      if (aFooBuilder_ == null) {
+        aFooBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder>(
+                instance.getAFoo(),
+                null,
+                false);
+        instance.aFoo_ = null;
+      }
+      instance.bitField0_ |= 0x00000004;
+      return aFooBuilder_;
+    }
+    private static void parseAFooField(
+        objc.protobuf.tests.cycle.UnittestCycle.Bar instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder> aFooBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.aFoo_ != null || aFooBuilder_ != null) {
+        aFooBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.aFoo_ = objc.protobuf.tests.cycle.UnittestCycle.Foo.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+    }
+    private static void buildPartial_autosplit_0(objc.protobuf.tests.cycle.UnittestCycle.Bar instance,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder> aBarBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder> aBazBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder> aFooBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.aBar_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.aBar_ = aBarBuilder_ == null
+            ? instance.aBar_
+            : aBarBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000002) != 0)) instance.aBaz_ = null;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.aBaz_ = aBazBuilder_ == null
+            ? instance.aBaz_
+            : aBazBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000004) != 0)) instance.aFoo_ = null;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.aFoo_ = aFooBuilder_ == null
+            ? instance.aFoo_
+            : aFooBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<Bar>
-        PARSER = new com.google.protobuf.AbstractParser<Bar>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Bar> {
+      MessageParser() {}
+
       @java.lang.Override
       public Bar parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Bar.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Bar instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Bar> parser() {
       return PARSER;
@@ -2454,15 +2984,28 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
                 objc.protobuf.tests.cycle.UnittestCycle.Baz.class, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.cycle.UnittestCycle.Baz.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(objc.protobuf.tests.cycle.UnittestCycle.Baz other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -2524,7 +3067,7 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(objc.protobuf.tests.cycle.UnittestCycle.Baz result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.aBaz_ = aBazBuilder_ == null
               ? aBaz_
@@ -2544,6 +3087,28 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(objc.protobuf.tests.cycle.UnittestCycle.Baz other, java.lang.Object[] parserLocals) {
+        aBaz_ = other.aBaz_;
+        aFoo_ = other.aFoo_;
+        aBar_ = other.aBar_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            aBazBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder>) parserLocals[0]);
+            aBaz_ = null;
+          }
+          if (parserLocals[1] != null) {
+            aFooBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder>) parserLocals[1]);
+            aFoo_ = null;
+          }
+          if (parserLocals[2] != null) {
+            aBarBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder>) parserLocals[2]);
+            aBar_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -2617,6 +3182,26 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseABazField(input, extensionRegistry);
+            return true;
+          } // case 10
+          case 18: {
+            parseAFooField(input, extensionRegistry);
+            return true;
+          } // case 18
+          case 26: {
+            parseABarField(input, extensionRegistry);
+            return true;
+          } // case 26
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -2739,7 +3324,7 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (aBaz_ != null || aBazBuilder_ != null) {
-          internalGetABazFieldBuilder().getBuilder()
+          internalGetABazFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           aBaz_ = objc.protobuf.tests.cycle.UnittestCycle.Baz.parser().parsePartialFrom(input, extensionRegistry);
@@ -2867,7 +3452,7 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (aFoo_ != null || aFooBuilder_ != null) {
-          internalGetAFooFieldBuilder().getBuilder()
+          internalGetAFooFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           aFoo_ = objc.protobuf.tests.cycle.UnittestCycle.Foo.parser().parsePartialFrom(input, extensionRegistry);
@@ -2995,7 +3580,7 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (aBar_ != null || aBarBuilder_ != null) {
-          internalGetABarFieldBuilder().getBuilder()
+          internalGetABarFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           aBar_ = objc.protobuf.tests.cycle.UnittestCycle.Bar.parser().parsePartialFrom(input, extensionRegistry);
@@ -3017,22 +3602,232 @@ public final class UnittestCycle extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static Baz parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Baz instance = new Baz((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder> aBazBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder> aFooBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder> aBarBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        aBazBuilder_ = internalGetABazFieldBuilder(instance, aBazBuilder_);
+        aFooBuilder_ = internalGetAFooFieldBuilder(instance, aFooBuilder_);
+        aBarBuilder_ = internalGetABarFieldBuilder(instance, aBarBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.aBaz_ != null || aBazBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseABazField(instance, input, extensionRegistry, aBazBuilder_);
+              break;
+            } // case 10
+            case 18: {
+              if (instance.aFoo_ != null || aFooBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseAFooField(instance, input, extensionRegistry, aFooBuilder_);
+              break;
+            } // case 18
+            case 26: {
+              if (instance.aBar_ != null || aBarBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseABarField(instance, input, extensionRegistry, aBarBuilder_);
+              break;
+            } // case 26
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {aBazBuilder_, aFooBuilder_, aBarBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, aBazBuilder_, aFooBuilder_, aBarBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.cycle.Baz a_baz = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder> 
+        internalGetABazFieldBuilder(objc.protobuf.tests.cycle.UnittestCycle.Baz instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder> aBazBuilder_) {
+      if (aBazBuilder_ == null) {
+        aBazBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder>(
+                instance.getABaz(),
+                null,
+                false);
+        instance.aBaz_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return aBazBuilder_;
+    }
+    private static void parseABazField(
+        objc.protobuf.tests.cycle.UnittestCycle.Baz instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder> aBazBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.aBaz_ != null || aBazBuilder_ != null) {
+        aBazBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.aBaz_ = objc.protobuf.tests.cycle.UnittestCycle.Baz.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.cycle.Foo a_foo = 2;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder> 
+        internalGetAFooFieldBuilder(objc.protobuf.tests.cycle.UnittestCycle.Baz instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder> aFooBuilder_) {
+      if (aFooBuilder_ == null) {
+        aFooBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder>(
+                instance.getAFoo(),
+                null,
+                false);
+        instance.aFoo_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+      return aFooBuilder_;
+    }
+    private static void parseAFooField(
+        objc.protobuf.tests.cycle.UnittestCycle.Baz instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder> aFooBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.aFoo_ != null || aFooBuilder_ != null) {
+        aFooBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.aFoo_ = objc.protobuf.tests.cycle.UnittestCycle.Foo.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+    }
+    /**
+     * <code>optional .objc.protobuf.tests.cycle.Bar a_bar = 3;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder> 
+        internalGetABarFieldBuilder(objc.protobuf.tests.cycle.UnittestCycle.Baz instance, com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder> aBarBuilder_) {
+      if (aBarBuilder_ == null) {
+        aBarBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder>(
+                instance.getABar(),
+                null,
+                false);
+        instance.aBar_ = null;
+      }
+      instance.bitField0_ |= 0x00000004;
+      return aBarBuilder_;
+    }
+    private static void parseABarField(
+        objc.protobuf.tests.cycle.UnittestCycle.Baz instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder> aBarBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.aBar_ != null || aBarBuilder_ != null) {
+        aBarBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.aBar_ = objc.protobuf.tests.cycle.UnittestCycle.Bar.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+    }
+    private static void buildPartial_autosplit_0(objc.protobuf.tests.cycle.UnittestCycle.Baz instance,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Baz, objc.protobuf.tests.cycle.UnittestCycle.Baz.Builder, objc.protobuf.tests.cycle.UnittestCycle.BazOrBuilder> aBazBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Foo, objc.protobuf.tests.cycle.UnittestCycle.Foo.Builder, objc.protobuf.tests.cycle.UnittestCycle.FooOrBuilder> aFooBuilder_,
+        com.google.protobuf.SingleFieldBuilder<objc.protobuf.tests.cycle.UnittestCycle.Bar, objc.protobuf.tests.cycle.UnittestCycle.Bar.Builder, objc.protobuf.tests.cycle.UnittestCycle.BarOrBuilder> aBarBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.aBaz_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.aBaz_ = aBazBuilder_ == null
+            ? instance.aBaz_
+            : aBazBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000002) != 0)) instance.aFoo_ = null;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.aFoo_ = aFooBuilder_ == null
+            ? instance.aFoo_
+            : aFooBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000004) != 0)) instance.aBar_ = null;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.aBar_ = aBarBuilder_ == null
+            ? instance.aBar_
+            : aBarBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<Baz>
-        PARSER = new com.google.protobuf.AbstractParser<Baz>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Baz> {
+      MessageParser() {}
+
       @java.lang.Override
       public Baz parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Baz.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Baz instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Baz> parser() {
       return PARSER;

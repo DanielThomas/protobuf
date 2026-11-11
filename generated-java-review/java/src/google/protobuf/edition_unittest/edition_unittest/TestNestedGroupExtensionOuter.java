@@ -459,15 +459,28 @@ private static final long serialVersionUID = 0L;
                   edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup.class, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+          anotherField_ = "";
+        }
+        private Builder(edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         @java.lang.Override
         public Builder clear() {
@@ -507,12 +520,17 @@ private static final long serialVersionUID = 0L;
 
         private void buildPartial_autosplit_0(edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.anotherField_ = anotherField_;
             to_bitField0_ |= 0x00000001;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup other, java.lang.Object[] parserLocals) {
+          anotherField_ = other.anotherField_;
+          bitField0_ = other.bitField0_;
         }
 
         public <Type> Builder setExtension(
@@ -603,9 +621,17 @@ private static final long serialVersionUID = 0L;
           } // finally
           return this;
         }
+        private boolean mergeFromPendingField(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+            throws java.io.IOException {
+          switch (tag) {
+            default: return super.parseUnknownField(input, extensionRegistry, tag);
+          }
+        }
         private int bitField0_;
 
-        private java.lang.Object anotherField_ = "";
+        private java.lang.Object anotherField_;
         /**
          * <code>string another_field = 6;</code>
          * @return Whether the anotherField field is set.
@@ -697,22 +723,77 @@ private static final long serialVersionUID = 0L;
         return DEFAULT_INSTANCE;
       }
 
+      static Layer2RepeatedGroup parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Layer2RepeatedGroup instance = new Layer2RepeatedGroup((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        int pendingTag = 0;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 50: {
+                instance.anotherField_ = input.readStringRequireUtf8();
+                instance.bitField0_ |= 0x00000001;
+                break;
+              } // case 50
+              default: {
+                pendingTag = tag;
+                done = true;
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (parseFailure == null && pendingTag != 0) {
+          Builder builder = new Builder(instance, unknown, null);
+          try {
+            if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+              builder.mergeFrom(input, extensionRegistry);
+            }
+          } catch (java.io.IOException e) {
+            com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+          }
+          return builder.buildPartial();
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<Layer2RepeatedGroup>
-          PARSER = new com.google.protobuf.AbstractParser<Layer2RepeatedGroup>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<Layer2RepeatedGroup> {
+        MessageParser() {}
+
         @java.lang.Override
         public Layer2RepeatedGroup parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return Layer2RepeatedGroup.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(Layer2RepeatedGroup instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<Layer2RepeatedGroup> parser() {
         return PARSER;
@@ -1027,15 +1108,28 @@ private static final long serialVersionUID = 0L;
                   edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup.class, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+          butWhyTho_ = "";
+        }
+        private Builder(edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         @java.lang.Override
         public Builder clear() {
@@ -1075,12 +1169,17 @@ private static final long serialVersionUID = 0L;
 
         private void buildPartial_autosplit_0(edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.butWhyTho_ = butWhyTho_;
             to_bitField0_ |= 0x00000001;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup other, java.lang.Object[] parserLocals) {
+          butWhyTho_ = other.butWhyTho_;
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -1146,7 +1245,7 @@ private static final long serialVersionUID = 0L;
         }
         private int bitField0_;
 
-        private java.lang.Object butWhyTho_ = "";
+        private java.lang.Object butWhyTho_;
         /**
          * <code>string but_why_tho = 5;</code>
          * @return Whether the butWhyTho field is set.
@@ -1238,22 +1337,67 @@ private static final long serialVersionUID = 0L;
         return DEFAULT_INSTANCE;
       }
 
+      static Layer2AnotherOptionalRepeatedGroup parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Layer2AnotherOptionalRepeatedGroup instance = new Layer2AnotherOptionalRepeatedGroup((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 42: {
+                instance.butWhyTho_ = input.readStringRequireUtf8();
+                instance.bitField0_ |= 0x00000001;
+                break;
+              } // case 42
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<Layer2AnotherOptionalRepeatedGroup>
-          PARSER = new com.google.protobuf.AbstractParser<Layer2AnotherOptionalRepeatedGroup>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<Layer2AnotherOptionalRepeatedGroup> {
+        MessageParser() {}
+
         @java.lang.Override
         public Layer2AnotherOptionalRepeatedGroup parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return Layer2AnotherOptionalRepeatedGroup.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(Layer2AnotherOptionalRepeatedGroup instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<Layer2AnotherOptionalRepeatedGroup> parser() {
         return PARSER;
@@ -1576,15 +1720,29 @@ private static final long serialVersionUID = 0L;
                 edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.class, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        layer2RepeatedGroup_ = emptyList(edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup.class);
+        layer2AnotherOptionalRepeatedGroup_ = emptyList(edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup.class);
+      }
+      private Builder(edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -1637,7 +1795,7 @@ private static final long serialVersionUID = 0L;
 
       private void buildPartial_autosplit_0(edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
         if (layer2RepeatedGroupBuilder_ == null) {
           layer2RepeatedGroup_.makeImmutable();
@@ -1655,6 +1813,23 @@ private static final long serialVersionUID = 0L;
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup other, java.lang.Object[] parserLocals) {
+        layer2RepeatedGroup_ = other.layer2RepeatedGroup_;
+        layer2AnotherOptionalRepeatedGroup_ = other.layer2AnotherOptionalRepeatedGroup_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            layer2RepeatedGroupBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup.Builder, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroupOrBuilder>) parserLocals[0]);
+            layer2RepeatedGroup_ = null;
+          }
+          if (parserLocals[1] != null) {
+            layer2AnotherOptionalRepeatedGroupBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup.Builder, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroupOrBuilder>) parserLocals[1]);
+            layer2AnotherOptionalRepeatedGroup_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1801,8 +1976,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.ProtobufList<edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup> layer2RepeatedGroup_ =
-          emptyList(edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup.class);
+      private com.google.protobuf.Internal.ProtobufList<edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup> layer2RepeatedGroup_;
       private void ensureLayer2RepeatedGroupIsMutable() {
         if (!layer2RepeatedGroup_.isModifiable()) {
           layer2RepeatedGroup_ = makeMutableCopy(layer2RepeatedGroup_);
@@ -2035,8 +2209,7 @@ private static final long serialVersionUID = 0L;
         return layer2RepeatedGroupBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup> layer2AnotherOptionalRepeatedGroup_ =
-          emptyList(edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup.class);
+      private com.google.protobuf.Internal.ProtobufList<edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup> layer2AnotherOptionalRepeatedGroup_;
       private void ensureLayer2AnotherOptionalRepeatedGroupIsMutable() {
         if (!layer2AnotherOptionalRepeatedGroup_.isModifiable()) {
           layer2AnotherOptionalRepeatedGroup_ = makeMutableCopy(layer2AnotherOptionalRepeatedGroup_);
@@ -2282,22 +2455,127 @@ private static final long serialVersionUID = 0L;
       return DEFAULT_INSTANCE;
     }
 
+    static Layer1OptionalGroup parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Layer1OptionalGroup instance = new Layer1OptionalGroup((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup.Builder, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroupOrBuilder> layer2RepeatedGroupBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup.Builder, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroupOrBuilder> layer2AnotherOptionalRepeatedGroupBuilder_ = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 19: {
+              edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup m =
+                  input.readGroup(2,
+                      edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup.parser(),
+                      extensionRegistry);
+              if (layer2RepeatedGroupBuilder_ == null) {
+                ensureLayer2RepeatedGroupIsMutable(instance);
+                instance.layer2RepeatedGroup_.add(m);
+              } else {
+                layer2RepeatedGroupBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000001;
+
+              }
+              break;
+            } // case 19
+            case 35: {
+              edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup m =
+                  input.readGroup(4,
+                      edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup.parser(),
+                      extensionRegistry);
+              if (layer2AnotherOptionalRepeatedGroupBuilder_ == null) {
+                ensureLayer2AnotherOptionalRepeatedGroupIsMutable(instance);
+                instance.layer2AnotherOptionalRepeatedGroup_.add(m);
+              } else {
+                layer2AnotherOptionalRepeatedGroupBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000002;
+
+              }
+              break;
+            } // case 35
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, layer2RepeatedGroupBuilder_, layer2AnotherOptionalRepeatedGroupBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureLayer2RepeatedGroupIsMutable(edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup instance) {
+      if (!instance.layer2RepeatedGroup_.isModifiable()) {
+        instance.layer2RepeatedGroup_ = makeMutableCopy(instance.layer2RepeatedGroup_);
+      }
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void ensureLayer2AnotherOptionalRepeatedGroupIsMutable(edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup instance) {
+      if (!instance.layer2AnotherOptionalRepeatedGroup_.isModifiable()) {
+        instance.layer2AnotherOptionalRepeatedGroup_ = makeMutableCopy(instance.layer2AnotherOptionalRepeatedGroup_);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static void buildPartial_autosplit_0(edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup instance,
+        com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroup.Builder, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2RepeatedGroupOrBuilder> layer2RepeatedGroupBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroup.Builder, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Layer2AnotherOptionalRepeatedGroupOrBuilder> layer2AnotherOptionalRepeatedGroupBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+      if (layer2RepeatedGroupBuilder_ == null) {
+        instance.layer2RepeatedGroup_.makeImmutable();
+      } else {
+        instance.layer2RepeatedGroup_ = layer2RepeatedGroupBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (layer2AnotherOptionalRepeatedGroupBuilder_ == null) {
+        instance.layer2AnotherOptionalRepeatedGroup_.makeImmutable();
+      } else {
+        instance.layer2AnotherOptionalRepeatedGroup_ = layer2AnotherOptionalRepeatedGroupBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<Layer1OptionalGroup>
-        PARSER = new com.google.protobuf.AbstractParser<Layer1OptionalGroup>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Layer1OptionalGroup> {
+      MessageParser() {}
+
       @java.lang.Override
       public Layer1OptionalGroup parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Layer1OptionalGroup.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Layer1OptionalGroup instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Layer1OptionalGroup> parser() {
       return PARSER;
@@ -2543,15 +2821,28 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestNestedGroupExtensionOuter.class, edition_unittest.TestNestedGroupExtensionOuter.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestNestedGroupExtensionOuter.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
+    }
+    private Builder(edition_unittest.TestNestedGroupExtensionOuter other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -2601,7 +2892,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(edition_unittest.TestNestedGroupExtensionOuter result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.lay1Optionalgroup_ = lay1OptionalgroupBuilder_ == null
             ? lay1Optionalgroup_
@@ -2609,6 +2900,18 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(edition_unittest.TestNestedGroupExtensionOuter other, java.lang.Object[] parserLocals) {
+      lay1Optionalgroup_ = other.lay1Optionalgroup_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          lay1OptionalgroupBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Builder, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroupOrBuilder>) parserLocals[0]);
+          lay1Optionalgroup_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -2673,6 +2976,18 @@ private static final long serialVersionUID = 0L;
         onChanged();
       } // finally
       return this;
+    }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 11: {
+          parseLay1OptionalgroupField(input, extensionRegistry);
+          return true;
+        } // case 11
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
     }
     private int bitField0_;
 
@@ -2795,7 +3110,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       if (lay1Optionalgroup_ != null || lay1OptionalgroupBuilder_ != null) {
         input.readGroup(1,
-            internalGetLay1OptionalgroupFieldBuilder().getBuilder(),
+            internalGetLay1OptionalgroupFieldBuilder().getBuilderForParsing(),
             extensionRegistry);
       } else {
         lay1Optionalgroup_ = input.readGroup(1, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.parser(),
@@ -2817,22 +3132,132 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static TestNestedGroupExtensionOuter parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    TestNestedGroupExtensionOuter instance = new TestNestedGroupExtensionOuter((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Builder, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroupOrBuilder> lay1OptionalgroupBuilder_ = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      lay1OptionalgroupBuilder_ = internalGetLay1OptionalgroupFieldBuilder(instance, lay1OptionalgroupBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 11: {
+            if (instance.lay1Optionalgroup_ != null || lay1OptionalgroupBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseLay1OptionalgroupField(instance, input, extensionRegistry, lay1OptionalgroupBuilder_);
+            break;
+          } // case 11
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {lay1OptionalgroupBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, lay1OptionalgroupBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>.edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup lay1optionalgroup = 1 [features = { ... }</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Builder, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroupOrBuilder> 
+      internalGetLay1OptionalgroupFieldBuilder(edition_unittest.TestNestedGroupExtensionOuter instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Builder, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroupOrBuilder> lay1OptionalgroupBuilder_) {
+    if (lay1OptionalgroupBuilder_ == null) {
+      lay1OptionalgroupBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Builder, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroupOrBuilder>(
+              instance.getLay1Optionalgroup(),
+              null,
+              false);
+      instance.lay1Optionalgroup_ = null;
+    }
+    instance.bitField0_ |= 0x00000001;
+    return lay1OptionalgroupBuilder_;
+  }
+  private static void parseLay1OptionalgroupField(
+      edition_unittest.TestNestedGroupExtensionOuter instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Builder, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroupOrBuilder> lay1OptionalgroupBuilder_)
+      throws java.io.IOException {
+    if (instance.lay1Optionalgroup_ != null || lay1OptionalgroupBuilder_ != null) {
+      input.readGroup(1,
+          lay1OptionalgroupBuilder_.getBuilderForParsing(),
+          extensionRegistry);
+    } else {
+      instance.lay1Optionalgroup_ = input.readGroup(1, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.parser(),
+          extensionRegistry);
+    }
+    instance.bitField0_ |= 0x00000001;
+  }
+  private static void buildPartial_autosplit_0(edition_unittest.TestNestedGroupExtensionOuter instance,
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroup.Builder, edition_unittest.TestNestedGroupExtensionOuter.Layer1OptionalGroupOrBuilder> lay1OptionalgroupBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00000001) != 0)) instance.lay1Optionalgroup_ = null;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.lay1Optionalgroup_ = lay1OptionalgroupBuilder_ == null
+          ? instance.lay1Optionalgroup_
+          : lay1OptionalgroupBuilder_.build();
+    }
+  }
+
   private static final com.google.protobuf.Parser<TestNestedGroupExtensionOuter>
-      PARSER = new com.google.protobuf.AbstractParser<TestNestedGroupExtensionOuter>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestNestedGroupExtensionOuter> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestNestedGroupExtensionOuter parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return TestNestedGroupExtensionOuter.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(TestNestedGroupExtensionOuter instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<TestNestedGroupExtensionOuter> parser() {
     return PARSER;

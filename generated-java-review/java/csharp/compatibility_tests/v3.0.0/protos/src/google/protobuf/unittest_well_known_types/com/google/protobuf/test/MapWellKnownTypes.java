@@ -2275,15 +2275,27 @@ com.google.protobuf.BytesValue defaultValue) {
               com.google.protobuf.test.MapWellKnownTypes.class, com.google.protobuf.test.MapWellKnownTypes.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.test.MapWellKnownTypes.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+    }
+    private Builder(com.google.protobuf.test.MapWellKnownTypes other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -2340,7 +2352,7 @@ com.google.protobuf.BytesValue defaultValue) {
 
     private void buildPartial_autosplit_0(com.google.protobuf.test.MapWellKnownTypes result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.anyField_ = internalGetAnyField().build(AnyFieldDefaultEntryHolder.defaultEntry);
       }
@@ -2396,6 +2408,139 @@ com.google.protobuf.BytesValue defaultValue) {
         result.bytesField_ = internalGetBytesField().build(BytesFieldDefaultEntryHolder.defaultEntry);
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(com.google.protobuf.test.MapWellKnownTypes other, java.lang.Object[] parserLocals) {
+      if (parserLocals == null && other.anyField_ != null) {
+        anyField_ = new com.google.protobuf.MapFieldBuilder<>(anyFieldConverter);
+        anyField_.ensureBuilderMap().putAll(other.anyField_.getMap());
+      }
+      if (parserLocals == null && other.apiField_ != null) {
+        apiField_ = new com.google.protobuf.MapFieldBuilder<>(apiFieldConverter);
+        apiField_.ensureBuilderMap().putAll(other.apiField_.getMap());
+      }
+      if (parserLocals == null && other.durationField_ != null) {
+        durationField_ = new com.google.protobuf.MapFieldBuilder<>(durationFieldConverter);
+        durationField_.ensureBuilderMap().putAll(other.durationField_.getMap());
+      }
+      if (parserLocals == null && other.emptyField_ != null) {
+        emptyField_ = new com.google.protobuf.MapFieldBuilder<>(emptyFieldConverter);
+        emptyField_.ensureBuilderMap().putAll(other.emptyField_.getMap());
+      }
+      if (parserLocals == null && other.fieldMaskField_ != null) {
+        fieldMaskField_ = new com.google.protobuf.MapFieldBuilder<>(fieldMaskFieldConverter);
+        fieldMaskField_.ensureBuilderMap().putAll(other.fieldMaskField_.getMap());
+      }
+      if (parserLocals == null && other.sourceContextField_ != null) {
+        sourceContextField_ = new com.google.protobuf.MapFieldBuilder<>(sourceContextFieldConverter);
+        sourceContextField_.ensureBuilderMap().putAll(other.sourceContextField_.getMap());
+      }
+      if (parserLocals == null && other.structField_ != null) {
+        structField_ = new com.google.protobuf.MapFieldBuilder<>(structFieldConverter);
+        structField_.ensureBuilderMap().putAll(other.structField_.getMap());
+      }
+      if (parserLocals == null && other.timestampField_ != null) {
+        timestampField_ = new com.google.protobuf.MapFieldBuilder<>(timestampFieldConverter);
+        timestampField_.ensureBuilderMap().putAll(other.timestampField_.getMap());
+      }
+      if (parserLocals == null && other.typeField_ != null) {
+        typeField_ = new com.google.protobuf.MapFieldBuilder<>(typeFieldConverter);
+        typeField_.ensureBuilderMap().putAll(other.typeField_.getMap());
+      }
+      if (parserLocals == null && other.doubleField_ != null) {
+        doubleField_ = new com.google.protobuf.MapFieldBuilder<>(doubleFieldConverter);
+        doubleField_.ensureBuilderMap().putAll(other.doubleField_.getMap());
+      }
+      if (parserLocals == null && other.floatField_ != null) {
+        floatField_ = new com.google.protobuf.MapFieldBuilder<>(floatFieldConverter);
+        floatField_.ensureBuilderMap().putAll(other.floatField_.getMap());
+      }
+      if (parserLocals == null && other.int64Field_ != null) {
+        int64Field_ = new com.google.protobuf.MapFieldBuilder<>(int64FieldConverter);
+        int64Field_.ensureBuilderMap().putAll(other.int64Field_.getMap());
+      }
+      if (parserLocals == null && other.uint64Field_ != null) {
+        uint64Field_ = new com.google.protobuf.MapFieldBuilder<>(uint64FieldConverter);
+        uint64Field_.ensureBuilderMap().putAll(other.uint64Field_.getMap());
+      }
+      if (parserLocals == null && other.int32Field_ != null) {
+        int32Field_ = new com.google.protobuf.MapFieldBuilder<>(int32FieldConverter);
+        int32Field_.ensureBuilderMap().putAll(other.int32Field_.getMap());
+      }
+      if (parserLocals == null && other.uint32Field_ != null) {
+        uint32Field_ = new com.google.protobuf.MapFieldBuilder<>(uint32FieldConverter);
+        uint32Field_.ensureBuilderMap().putAll(other.uint32Field_.getMap());
+      }
+      if (parserLocals == null && other.boolField_ != null) {
+        boolField_ = new com.google.protobuf.MapFieldBuilder<>(boolFieldConverter);
+        boolField_.ensureBuilderMap().putAll(other.boolField_.getMap());
+      }
+      if (parserLocals == null && other.stringField_ != null) {
+        stringField_ = new com.google.protobuf.MapFieldBuilder<>(stringFieldConverter);
+        stringField_.ensureBuilderMap().putAll(other.stringField_.getMap());
+      }
+      if (parserLocals == null && other.bytesField_ != null) {
+        bytesField_ = new com.google.protobuf.MapFieldBuilder<>(bytesFieldConverter);
+        bytesField_.ensureBuilderMap().putAll(other.bytesField_.getMap());
+      }
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          anyField_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.AnyOrBuilder, com.google.protobuf.Any, com.google.protobuf.Any.Builder>) parserLocals[0];
+        }
+        if (parserLocals[1] != null) {
+          apiField_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.ApiOrBuilder, com.google.protobuf.Api, com.google.protobuf.Api.Builder>) parserLocals[1];
+        }
+        if (parserLocals[2] != null) {
+          durationField_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.DurationOrBuilder, com.google.protobuf.Duration, com.google.protobuf.Duration.Builder>) parserLocals[2];
+        }
+        if (parserLocals[3] != null) {
+          emptyField_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.EmptyOrBuilder, com.google.protobuf.Empty, com.google.protobuf.Empty.Builder>) parserLocals[3];
+        }
+        if (parserLocals[4] != null) {
+          fieldMaskField_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.FieldMaskOrBuilder, com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder>) parserLocals[4];
+        }
+        if (parserLocals[5] != null) {
+          sourceContextField_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.SourceContextOrBuilder, com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder>) parserLocals[5];
+        }
+        if (parserLocals[6] != null) {
+          structField_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.StructOrBuilder, com.google.protobuf.Struct, com.google.protobuf.Struct.Builder>) parserLocals[6];
+        }
+        if (parserLocals[7] != null) {
+          timestampField_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.TimestampOrBuilder, com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder>) parserLocals[7];
+        }
+        if (parserLocals[8] != null) {
+          typeField_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.TypeOrBuilder, com.google.protobuf.Type, com.google.protobuf.Type.Builder>) parserLocals[8];
+        }
+        if (parserLocals[9] != null) {
+          doubleField_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.DoubleValueOrBuilder, com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder>) parserLocals[9];
+        }
+        if (parserLocals[10] != null) {
+          floatField_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.FloatValueOrBuilder, com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder>) parserLocals[10];
+        }
+        if (parserLocals[11] != null) {
+          int64Field_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.Int64ValueOrBuilder, com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder>) parserLocals[11];
+        }
+        if (parserLocals[12] != null) {
+          uint64Field_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UInt64ValueOrBuilder, com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder>) parserLocals[12];
+        }
+        if (parserLocals[13] != null) {
+          int32Field_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.Int32ValueOrBuilder, com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder>) parserLocals[13];
+        }
+        if (parserLocals[14] != null) {
+          uint32Field_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UInt32ValueOrBuilder, com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder>) parserLocals[14];
+        }
+        if (parserLocals[15] != null) {
+          boolField_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.BoolValueOrBuilder, com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder>) parserLocals[15];
+        }
+        if (parserLocals[16] != null) {
+          stringField_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.StringValueOrBuilder, com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder>) parserLocals[16];
+        }
+        if (parserLocals[17] != null) {
+          bytesField_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.BytesValueOrBuilder, com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder>) parserLocals[17];
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -5506,22 +5651,481 @@ com.google.protobuf.BytesValue defaultValue) {
     return DEFAULT_INSTANCE;
   }
 
+  static MapWellKnownTypes parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    MapWellKnownTypes instance = new MapWellKnownTypes((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.AnyOrBuilder, com.google.protobuf.Any, com.google.protobuf.Any.Builder> parsed_anyField = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.ApiOrBuilder, com.google.protobuf.Api, com.google.protobuf.Api.Builder> parsed_apiField = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.DurationOrBuilder, com.google.protobuf.Duration, com.google.protobuf.Duration.Builder> parsed_durationField = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.EmptyOrBuilder, com.google.protobuf.Empty, com.google.protobuf.Empty.Builder> parsed_emptyField = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.FieldMaskOrBuilder, com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder> parsed_fieldMaskField = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.SourceContextOrBuilder, com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder> parsed_sourceContextField = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.StructOrBuilder, com.google.protobuf.Struct, com.google.protobuf.Struct.Builder> parsed_structField = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.TimestampOrBuilder, com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder> parsed_timestampField = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.TypeOrBuilder, com.google.protobuf.Type, com.google.protobuf.Type.Builder> parsed_typeField = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.DoubleValueOrBuilder, com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder> parsed_doubleField = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.FloatValueOrBuilder, com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder> parsed_floatField = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.Int64ValueOrBuilder, com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder> parsed_int64Field = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UInt64ValueOrBuilder, com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder> parsed_uint64Field = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.Int32ValueOrBuilder, com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder> parsed_int32Field = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UInt32ValueOrBuilder, com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder> parsed_uint32Field = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.BoolValueOrBuilder, com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder> parsed_boolField = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.StringValueOrBuilder, com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder> parsed_stringField = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.BytesValueOrBuilder, com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder> parsed_bytesField = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Any>
+            anyField__ = input.readMessage(
+                AnyFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_anyField = internalGetMutableAnyField(instance, parsed_anyField)).ensureBuilderMap().put(
+                anyField__.getKey(), anyField__.getValue());
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 10
+          case 18: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Api>
+            apiField__ = input.readMessage(
+                ApiFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_apiField = internalGetMutableApiField(instance, parsed_apiField)).ensureBuilderMap().put(
+                apiField__.getKey(), apiField__.getValue());
+            instance.bitField0_ |= 0x00000002;
+            break;
+          } // case 18
+          case 26: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Duration>
+            durationField__ = input.readMessage(
+                DurationFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_durationField = internalGetMutableDurationField(instance, parsed_durationField)).ensureBuilderMap().put(
+                durationField__.getKey(), durationField__.getValue());
+            instance.bitField0_ |= 0x00000004;
+            break;
+          } // case 26
+          case 34: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Empty>
+            emptyField__ = input.readMessage(
+                EmptyFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_emptyField = internalGetMutableEmptyField(instance, parsed_emptyField)).ensureBuilderMap().put(
+                emptyField__.getKey(), emptyField__.getValue());
+            instance.bitField0_ |= 0x00000008;
+            break;
+          } // case 34
+          case 42: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.FieldMask>
+            fieldMaskField__ = input.readMessage(
+                FieldMaskFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_fieldMaskField = internalGetMutableFieldMaskField(instance, parsed_fieldMaskField)).ensureBuilderMap().put(
+                fieldMaskField__.getKey(), fieldMaskField__.getValue());
+            instance.bitField0_ |= 0x00000010;
+            break;
+          } // case 42
+          case 50: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.SourceContext>
+            sourceContextField__ = input.readMessage(
+                SourceContextFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_sourceContextField = internalGetMutableSourceContextField(instance, parsed_sourceContextField)).ensureBuilderMap().put(
+                sourceContextField__.getKey(), sourceContextField__.getValue());
+            instance.bitField0_ |= 0x00000020;
+            break;
+          } // case 50
+          case 58: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Struct>
+            structField__ = input.readMessage(
+                StructFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_structField = internalGetMutableStructField(instance, parsed_structField)).ensureBuilderMap().put(
+                structField__.getKey(), structField__.getValue());
+            instance.bitField0_ |= 0x00000040;
+            break;
+          } // case 58
+          case 66: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Timestamp>
+            timestampField__ = input.readMessage(
+                TimestampFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_timestampField = internalGetMutableTimestampField(instance, parsed_timestampField)).ensureBuilderMap().put(
+                timestampField__.getKey(), timestampField__.getValue());
+            instance.bitField0_ |= 0x00000080;
+            break;
+          } // case 66
+          case 74: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Type>
+            typeField__ = input.readMessage(
+                TypeFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_typeField = internalGetMutableTypeField(instance, parsed_typeField)).ensureBuilderMap().put(
+                typeField__.getKey(), typeField__.getValue());
+            instance.bitField0_ |= 0x00000100;
+            break;
+          } // case 74
+          case 82: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.DoubleValue>
+            doubleField__ = input.readMessage(
+                DoubleFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_doubleField = internalGetMutableDoubleField(instance, parsed_doubleField)).ensureBuilderMap().put(
+                doubleField__.getKey(), doubleField__.getValue());
+            instance.bitField0_ |= 0x00000200;
+            break;
+          } // case 82
+          case 90: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.FloatValue>
+            floatField__ = input.readMessage(
+                FloatFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_floatField = internalGetMutableFloatField(instance, parsed_floatField)).ensureBuilderMap().put(
+                floatField__.getKey(), floatField__.getValue());
+            instance.bitField0_ |= 0x00000400;
+            break;
+          } // case 90
+          case 98: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Int64Value>
+            int64Field__ = input.readMessage(
+                Int64FieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_int64Field = internalGetMutableInt64Field(instance, parsed_int64Field)).ensureBuilderMap().put(
+                int64Field__.getKey(), int64Field__.getValue());
+            instance.bitField0_ |= 0x00000800;
+            break;
+          } // case 98
+          case 106: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.UInt64Value>
+            uint64Field__ = input.readMessage(
+                Uint64FieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_uint64Field = internalGetMutableUint64Field(instance, parsed_uint64Field)).ensureBuilderMap().put(
+                uint64Field__.getKey(), uint64Field__.getValue());
+            instance.bitField0_ |= 0x00001000;
+            break;
+          } // case 106
+          case 114: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.Int32Value>
+            int32Field__ = input.readMessage(
+                Int32FieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_int32Field = internalGetMutableInt32Field(instance, parsed_int32Field)).ensureBuilderMap().put(
+                int32Field__.getKey(), int32Field__.getValue());
+            instance.bitField0_ |= 0x00002000;
+            break;
+          } // case 114
+          case 122: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.UInt32Value>
+            uint32Field__ = input.readMessage(
+                Uint32FieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_uint32Field = internalGetMutableUint32Field(instance, parsed_uint32Field)).ensureBuilderMap().put(
+                uint32Field__.getKey(), uint32Field__.getValue());
+            instance.bitField0_ |= 0x00004000;
+            break;
+          } // case 122
+          case 130: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.BoolValue>
+            boolField__ = input.readMessage(
+                BoolFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_boolField = internalGetMutableBoolField(instance, parsed_boolField)).ensureBuilderMap().put(
+                boolField__.getKey(), boolField__.getValue());
+            instance.bitField0_ |= 0x00008000;
+            break;
+          } // case 130
+          case 138: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.StringValue>
+            stringField__ = input.readMessage(
+                StringFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_stringField = internalGetMutableStringField(instance, parsed_stringField)).ensureBuilderMap().put(
+                stringField__.getKey(), stringField__.getValue());
+            instance.bitField0_ |= 0x00010000;
+            break;
+          } // case 138
+          case 146: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf.BytesValue>
+            bytesField__ = input.readMessage(
+                BytesFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_bytesField = internalGetMutableBytesField(instance, parsed_bytesField)).ensureBuilderMap().put(
+                bytesField__.getKey(), bytesField__.getValue());
+            instance.bitField0_ |= 0x00020000;
+            break;
+          } // case 146
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, parsed_anyField, parsed_apiField, parsed_durationField, parsed_emptyField, parsed_fieldMaskField, parsed_sourceContextField, parsed_structField, parsed_timestampField, parsed_typeField, parsed_doubleField, parsed_floatField, parsed_int64Field, parsed_uint64Field, parsed_int32Field, parsed_uint32Field, parsed_boolField, parsed_stringField, parsed_bytesField);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.AnyOrBuilder, com.google.protobuf.Any, com.google.protobuf.Any.Builder>
+      internalGetMutableAnyField(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.AnyOrBuilder, com.google.protobuf.Any, com.google.protobuf.Any.Builder> parsed_anyField) {
+    if (parsed_anyField == null) {
+      parsed_anyField = new com.google.protobuf.MapFieldBuilder<>(Builder.anyFieldConverter);
+    }
+    instance.bitField0_ |= 0x00000001;
+
+    return parsed_anyField;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.ApiOrBuilder, com.google.protobuf.Api, com.google.protobuf.Api.Builder>
+      internalGetMutableApiField(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.ApiOrBuilder, com.google.protobuf.Api, com.google.protobuf.Api.Builder> parsed_apiField) {
+    if (parsed_apiField == null) {
+      parsed_apiField = new com.google.protobuf.MapFieldBuilder<>(Builder.apiFieldConverter);
+    }
+    instance.bitField0_ |= 0x00000002;
+
+    return parsed_apiField;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.DurationOrBuilder, com.google.protobuf.Duration, com.google.protobuf.Duration.Builder>
+      internalGetMutableDurationField(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.DurationOrBuilder, com.google.protobuf.Duration, com.google.protobuf.Duration.Builder> parsed_durationField) {
+    if (parsed_durationField == null) {
+      parsed_durationField = new com.google.protobuf.MapFieldBuilder<>(Builder.durationFieldConverter);
+    }
+    instance.bitField0_ |= 0x00000004;
+
+    return parsed_durationField;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.EmptyOrBuilder, com.google.protobuf.Empty, com.google.protobuf.Empty.Builder>
+      internalGetMutableEmptyField(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.EmptyOrBuilder, com.google.protobuf.Empty, com.google.protobuf.Empty.Builder> parsed_emptyField) {
+    if (parsed_emptyField == null) {
+      parsed_emptyField = new com.google.protobuf.MapFieldBuilder<>(Builder.emptyFieldConverter);
+    }
+    instance.bitField0_ |= 0x00000008;
+
+    return parsed_emptyField;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.FieldMaskOrBuilder, com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder>
+      internalGetMutableFieldMaskField(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.FieldMaskOrBuilder, com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder> parsed_fieldMaskField) {
+    if (parsed_fieldMaskField == null) {
+      parsed_fieldMaskField = new com.google.protobuf.MapFieldBuilder<>(Builder.fieldMaskFieldConverter);
+    }
+    instance.bitField0_ |= 0x00000010;
+
+    return parsed_fieldMaskField;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.SourceContextOrBuilder, com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder>
+      internalGetMutableSourceContextField(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.SourceContextOrBuilder, com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder> parsed_sourceContextField) {
+    if (parsed_sourceContextField == null) {
+      parsed_sourceContextField = new com.google.protobuf.MapFieldBuilder<>(Builder.sourceContextFieldConverter);
+    }
+    instance.bitField0_ |= 0x00000020;
+
+    return parsed_sourceContextField;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.StructOrBuilder, com.google.protobuf.Struct, com.google.protobuf.Struct.Builder>
+      internalGetMutableStructField(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.StructOrBuilder, com.google.protobuf.Struct, com.google.protobuf.Struct.Builder> parsed_structField) {
+    if (parsed_structField == null) {
+      parsed_structField = new com.google.protobuf.MapFieldBuilder<>(Builder.structFieldConverter);
+    }
+    instance.bitField0_ |= 0x00000040;
+
+    return parsed_structField;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.TimestampOrBuilder, com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder>
+      internalGetMutableTimestampField(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.TimestampOrBuilder, com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder> parsed_timestampField) {
+    if (parsed_timestampField == null) {
+      parsed_timestampField = new com.google.protobuf.MapFieldBuilder<>(Builder.timestampFieldConverter);
+    }
+    instance.bitField0_ |= 0x00000080;
+
+    return parsed_timestampField;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.TypeOrBuilder, com.google.protobuf.Type, com.google.protobuf.Type.Builder>
+      internalGetMutableTypeField(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.TypeOrBuilder, com.google.protobuf.Type, com.google.protobuf.Type.Builder> parsed_typeField) {
+    if (parsed_typeField == null) {
+      parsed_typeField = new com.google.protobuf.MapFieldBuilder<>(Builder.typeFieldConverter);
+    }
+    instance.bitField0_ |= 0x00000100;
+
+    return parsed_typeField;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.DoubleValueOrBuilder, com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder>
+      internalGetMutableDoubleField(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.DoubleValueOrBuilder, com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder> parsed_doubleField) {
+    if (parsed_doubleField == null) {
+      parsed_doubleField = new com.google.protobuf.MapFieldBuilder<>(Builder.doubleFieldConverter);
+    }
+    instance.bitField0_ |= 0x00000200;
+
+    return parsed_doubleField;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.FloatValueOrBuilder, com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder>
+      internalGetMutableFloatField(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.FloatValueOrBuilder, com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder> parsed_floatField) {
+    if (parsed_floatField == null) {
+      parsed_floatField = new com.google.protobuf.MapFieldBuilder<>(Builder.floatFieldConverter);
+    }
+    instance.bitField0_ |= 0x00000400;
+
+    return parsed_floatField;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.Int64ValueOrBuilder, com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder>
+      internalGetMutableInt64Field(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.Int64ValueOrBuilder, com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder> parsed_int64Field) {
+    if (parsed_int64Field == null) {
+      parsed_int64Field = new com.google.protobuf.MapFieldBuilder<>(Builder.int64FieldConverter);
+    }
+    instance.bitField0_ |= 0x00000800;
+
+    return parsed_int64Field;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UInt64ValueOrBuilder, com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder>
+      internalGetMutableUint64Field(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UInt64ValueOrBuilder, com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder> parsed_uint64Field) {
+    if (parsed_uint64Field == null) {
+      parsed_uint64Field = new com.google.protobuf.MapFieldBuilder<>(Builder.uint64FieldConverter);
+    }
+    instance.bitField0_ |= 0x00001000;
+
+    return parsed_uint64Field;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.Int32ValueOrBuilder, com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder>
+      internalGetMutableInt32Field(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.Int32ValueOrBuilder, com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder> parsed_int32Field) {
+    if (parsed_int32Field == null) {
+      parsed_int32Field = new com.google.protobuf.MapFieldBuilder<>(Builder.int32FieldConverter);
+    }
+    instance.bitField0_ |= 0x00002000;
+
+    return parsed_int32Field;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UInt32ValueOrBuilder, com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder>
+      internalGetMutableUint32Field(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UInt32ValueOrBuilder, com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder> parsed_uint32Field) {
+    if (parsed_uint32Field == null) {
+      parsed_uint32Field = new com.google.protobuf.MapFieldBuilder<>(Builder.uint32FieldConverter);
+    }
+    instance.bitField0_ |= 0x00004000;
+
+    return parsed_uint32Field;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.BoolValueOrBuilder, com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder>
+      internalGetMutableBoolField(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.BoolValueOrBuilder, com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder> parsed_boolField) {
+    if (parsed_boolField == null) {
+      parsed_boolField = new com.google.protobuf.MapFieldBuilder<>(Builder.boolFieldConverter);
+    }
+    instance.bitField0_ |= 0x00008000;
+
+    return parsed_boolField;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.StringValueOrBuilder, com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder>
+      internalGetMutableStringField(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.StringValueOrBuilder, com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder> parsed_stringField) {
+    if (parsed_stringField == null) {
+      parsed_stringField = new com.google.protobuf.MapFieldBuilder<>(Builder.stringFieldConverter);
+    }
+    instance.bitField0_ |= 0x00010000;
+
+    return parsed_stringField;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.BytesValueOrBuilder, com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder>
+      internalGetMutableBytesField(com.google.protobuf.test.MapWellKnownTypes instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.BytesValueOrBuilder, com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder> parsed_bytesField) {
+    if (parsed_bytesField == null) {
+      parsed_bytesField = new com.google.protobuf.MapFieldBuilder<>(Builder.bytesFieldConverter);
+    }
+    instance.bitField0_ |= 0x00020000;
+
+    return parsed_bytesField;
+  }
+  private static void buildPartial_autosplit_0(com.google.protobuf.test.MapWellKnownTypes instance,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.AnyOrBuilder, com.google.protobuf.Any, com.google.protobuf.Any.Builder> parsed_anyField,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.ApiOrBuilder, com.google.protobuf.Api, com.google.protobuf.Api.Builder> parsed_apiField,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.DurationOrBuilder, com.google.protobuf.Duration, com.google.protobuf.Duration.Builder> parsed_durationField,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.EmptyOrBuilder, com.google.protobuf.Empty, com.google.protobuf.Empty.Builder> parsed_emptyField,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.FieldMaskOrBuilder, com.google.protobuf.FieldMask, com.google.protobuf.FieldMask.Builder> parsed_fieldMaskField,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.SourceContextOrBuilder, com.google.protobuf.SourceContext, com.google.protobuf.SourceContext.Builder> parsed_sourceContextField,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.StructOrBuilder, com.google.protobuf.Struct, com.google.protobuf.Struct.Builder> parsed_structField,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.TimestampOrBuilder, com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder> parsed_timestampField,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.TypeOrBuilder, com.google.protobuf.Type, com.google.protobuf.Type.Builder> parsed_typeField,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.DoubleValueOrBuilder, com.google.protobuf.DoubleValue, com.google.protobuf.DoubleValue.Builder> parsed_doubleField,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.FloatValueOrBuilder, com.google.protobuf.FloatValue, com.google.protobuf.FloatValue.Builder> parsed_floatField,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.Int64ValueOrBuilder, com.google.protobuf.Int64Value, com.google.protobuf.Int64Value.Builder> parsed_int64Field,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UInt64ValueOrBuilder, com.google.protobuf.UInt64Value, com.google.protobuf.UInt64Value.Builder> parsed_uint64Field,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.Int32ValueOrBuilder, com.google.protobuf.Int32Value, com.google.protobuf.Int32Value.Builder> parsed_int32Field,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.UInt32ValueOrBuilder, com.google.protobuf.UInt32Value, com.google.protobuf.UInt32Value.Builder> parsed_uint32Field,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.BoolValueOrBuilder, com.google.protobuf.BoolValue, com.google.protobuf.BoolValue.Builder> parsed_boolField,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.StringValueOrBuilder, com.google.protobuf.StringValue, com.google.protobuf.StringValue.Builder> parsed_stringField,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf.BytesValueOrBuilder, com.google.protobuf.BytesValue, com.google.protobuf.BytesValue.Builder> parsed_bytesField) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.anyField_ = parsed_anyField.build(AnyFieldDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00000002) != 0)) {
+      instance.apiField_ = parsed_apiField.build(ApiFieldDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00000004) != 0)) {
+      instance.durationField_ = parsed_durationField.build(DurationFieldDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00000008) != 0)) {
+      instance.emptyField_ = parsed_emptyField.build(EmptyFieldDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00000010) != 0)) {
+      instance.fieldMaskField_ = parsed_fieldMaskField.build(FieldMaskFieldDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00000020) != 0)) {
+      instance.sourceContextField_ = parsed_sourceContextField.build(SourceContextFieldDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00000040) != 0)) {
+      instance.structField_ = parsed_structField.build(StructFieldDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00000080) != 0)) {
+      instance.timestampField_ = parsed_timestampField.build(TimestampFieldDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00000100) != 0)) {
+      instance.typeField_ = parsed_typeField.build(TypeFieldDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00000200) != 0)) {
+      instance.doubleField_ = parsed_doubleField.build(DoubleFieldDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00000400) != 0)) {
+      instance.floatField_ = parsed_floatField.build(FloatFieldDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00000800) != 0)) {
+      instance.int64Field_ = parsed_int64Field.build(Int64FieldDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00001000) != 0)) {
+      instance.uint64Field_ = parsed_uint64Field.build(Uint64FieldDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00002000) != 0)) {
+      instance.int32Field_ = parsed_int32Field.build(Int32FieldDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00004000) != 0)) {
+      instance.uint32Field_ = parsed_uint32Field.build(Uint32FieldDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00008000) != 0)) {
+      instance.boolField_ = parsed_boolField.build(BoolFieldDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00010000) != 0)) {
+      instance.stringField_ = parsed_stringField.build(StringFieldDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00020000) != 0)) {
+      instance.bytesField_ = parsed_bytesField.build(BytesFieldDefaultEntryHolder.defaultEntry);
+    }
+  }
+
   private static final com.google.protobuf.Parser<MapWellKnownTypes>
-      PARSER = new com.google.protobuf.AbstractParser<MapWellKnownTypes>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<MapWellKnownTypes> {
+    MessageParser() {}
+
     @java.lang.Override
     public MapWellKnownTypes parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return MapWellKnownTypes.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(MapWellKnownTypes instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<MapWellKnownTypes> parser() {
     return PARSER;

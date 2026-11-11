@@ -3481,15 +3481,30 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.test.WideMessageFields.class, com.google.protobuf.test.WideMessageFields.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.test.WideMessageFields.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
+    }
+    private Builder(com.google.protobuf.test.WideMessageFields other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
+      copyFrom_autosplit_1(other, parserLocals);
+      copyFrom_autosplit_2(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -3927,7 +3942,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(com.google.protobuf.test.WideMessageFields result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.value1_ = value1Builder_ == null
             ? value1_
@@ -4123,9 +4138,176 @@ private static final long serialVersionUID = 0L;
       result.bitField0_ |= to_bitField0_;
     }
 
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(com.google.protobuf.test.WideMessageFields other, java.lang.Object[] parserLocals) {
+      value1_ = other.value1_;
+      value2_ = other.value2_;
+      value3_ = other.value3_;
+      value4_ = other.value4_;
+      value5_ = other.value5_;
+      value6_ = other.value6_;
+      value7_ = other.value7_;
+      value8_ = other.value8_;
+      value9_ = other.value9_;
+      value10_ = other.value10_;
+      value11_ = other.value11_;
+      value12_ = other.value12_;
+      value13_ = other.value13_;
+      value14_ = other.value14_;
+      value15_ = other.value15_;
+      value16_ = other.value16_;
+      value17_ = other.value17_;
+      value18_ = other.value18_;
+      value19_ = other.value19_;
+      value20_ = other.value20_;
+      value21_ = other.value21_;
+      value22_ = other.value22_;
+      value23_ = other.value23_;
+      value24_ = other.value24_;
+      value25_ = other.value25_;
+      value26_ = other.value26_;
+      value27_ = other.value27_;
+      value28_ = other.value28_;
+      value29_ = other.value29_;
+      value30_ = other.value30_;
+      value31_ = other.value31_;
+      value32_ = other.value32_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          value1Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[0]);
+          value1_ = null;
+        }
+        if (parserLocals[1] != null) {
+          value2Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[1]);
+          value2_ = null;
+        }
+        if (parserLocals[2] != null) {
+          value3Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[2]);
+          value3_ = null;
+        }
+        if (parserLocals[3] != null) {
+          value4Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[3]);
+          value4_ = null;
+        }
+        if (parserLocals[4] != null) {
+          value5Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[4]);
+          value5_ = null;
+        }
+        if (parserLocals[5] != null) {
+          value6Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[5]);
+          value6_ = null;
+        }
+        if (parserLocals[6] != null) {
+          value7Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[6]);
+          value7_ = null;
+        }
+        if (parserLocals[7] != null) {
+          value8Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[7]);
+          value8_ = null;
+        }
+        if (parserLocals[8] != null) {
+          value9Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[8]);
+          value9_ = null;
+        }
+        if (parserLocals[9] != null) {
+          value10Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[9]);
+          value10_ = null;
+        }
+        if (parserLocals[10] != null) {
+          value11Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[10]);
+          value11_ = null;
+        }
+        if (parserLocals[11] != null) {
+          value12Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[11]);
+          value12_ = null;
+        }
+        if (parserLocals[12] != null) {
+          value13Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[12]);
+          value13_ = null;
+        }
+        if (parserLocals[13] != null) {
+          value14Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[13]);
+          value14_ = null;
+        }
+        if (parserLocals[14] != null) {
+          value15Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[14]);
+          value15_ = null;
+        }
+        if (parserLocals[15] != null) {
+          value16Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[15]);
+          value16_ = null;
+        }
+        if (parserLocals[16] != null) {
+          value17Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[16]);
+          value17_ = null;
+        }
+        if (parserLocals[17] != null) {
+          value18Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[17]);
+          value18_ = null;
+        }
+        if (parserLocals[18] != null) {
+          value19Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[18]);
+          value19_ = null;
+        }
+        if (parserLocals[19] != null) {
+          value20Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[19]);
+          value20_ = null;
+        }
+        if (parserLocals[20] != null) {
+          value21Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[20]);
+          value21_ = null;
+        }
+        if (parserLocals[21] != null) {
+          value22Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[21]);
+          value22_ = null;
+        }
+        if (parserLocals[22] != null) {
+          value23Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[22]);
+          value23_ = null;
+        }
+        if (parserLocals[23] != null) {
+          value24Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[23]);
+          value24_ = null;
+        }
+        if (parserLocals[24] != null) {
+          value25Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[24]);
+          value25_ = null;
+        }
+        if (parserLocals[25] != null) {
+          value26Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[25]);
+          value26_ = null;
+        }
+        if (parserLocals[26] != null) {
+          value27Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[26]);
+          value27_ = null;
+        }
+        if (parserLocals[27] != null) {
+          value28Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[27]);
+          value28_ = null;
+        }
+        if (parserLocals[28] != null) {
+          value29Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[28]);
+          value29_ = null;
+        }
+        if (parserLocals[29] != null) {
+          value30Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[29]);
+          value30_ = null;
+        }
+        if (parserLocals[30] != null) {
+          value31Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[30]);
+          value31_ = null;
+        }
+        if (parserLocals[31] != null) {
+          value32Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[31]);
+          value32_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
+    }
+
     private void buildPartial_autosplit_1(com.google.protobuf.test.WideMessageFields result) {
       int from_bitField1_ = bitField1_;
-      int to_bitField1_ = 0;
+      int to_bitField1_ = from_bitField1_;
       if (((from_bitField1_ & 0x00000001) != 0)) {
         result.value33_ = value33Builder_ == null
             ? value33_
@@ -4321,9 +4503,176 @@ private static final long serialVersionUID = 0L;
       result.bitField1_ |= to_bitField1_;
     }
 
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_1(com.google.protobuf.test.WideMessageFields other, java.lang.Object[] parserLocals) {
+      value33_ = other.value33_;
+      value34_ = other.value34_;
+      value35_ = other.value35_;
+      value36_ = other.value36_;
+      value37_ = other.value37_;
+      value38_ = other.value38_;
+      value39_ = other.value39_;
+      value40_ = other.value40_;
+      value41_ = other.value41_;
+      value42_ = other.value42_;
+      value43_ = other.value43_;
+      value44_ = other.value44_;
+      value45_ = other.value45_;
+      value46_ = other.value46_;
+      value47_ = other.value47_;
+      value48_ = other.value48_;
+      value49_ = other.value49_;
+      value50_ = other.value50_;
+      value51_ = other.value51_;
+      value52_ = other.value52_;
+      value53_ = other.value53_;
+      value54_ = other.value54_;
+      value55_ = other.value55_;
+      value56_ = other.value56_;
+      value57_ = other.value57_;
+      value58_ = other.value58_;
+      value59_ = other.value59_;
+      value60_ = other.value60_;
+      value61_ = other.value61_;
+      value62_ = other.value62_;
+      value63_ = other.value63_;
+      value64_ = other.value64_;
+      if (parserLocals != null) {
+        if (parserLocals[32] != null) {
+          value33Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[32]);
+          value33_ = null;
+        }
+        if (parserLocals[33] != null) {
+          value34Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[33]);
+          value34_ = null;
+        }
+        if (parserLocals[34] != null) {
+          value35Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[34]);
+          value35_ = null;
+        }
+        if (parserLocals[35] != null) {
+          value36Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[35]);
+          value36_ = null;
+        }
+        if (parserLocals[36] != null) {
+          value37Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[36]);
+          value37_ = null;
+        }
+        if (parserLocals[37] != null) {
+          value38Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[37]);
+          value38_ = null;
+        }
+        if (parserLocals[38] != null) {
+          value39Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[38]);
+          value39_ = null;
+        }
+        if (parserLocals[39] != null) {
+          value40Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[39]);
+          value40_ = null;
+        }
+        if (parserLocals[40] != null) {
+          value41Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[40]);
+          value41_ = null;
+        }
+        if (parserLocals[41] != null) {
+          value42Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[41]);
+          value42_ = null;
+        }
+        if (parserLocals[42] != null) {
+          value43Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[42]);
+          value43_ = null;
+        }
+        if (parserLocals[43] != null) {
+          value44Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[43]);
+          value44_ = null;
+        }
+        if (parserLocals[44] != null) {
+          value45Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[44]);
+          value45_ = null;
+        }
+        if (parserLocals[45] != null) {
+          value46Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[45]);
+          value46_ = null;
+        }
+        if (parserLocals[46] != null) {
+          value47Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[46]);
+          value47_ = null;
+        }
+        if (parserLocals[47] != null) {
+          value48Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[47]);
+          value48_ = null;
+        }
+        if (parserLocals[48] != null) {
+          value49Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[48]);
+          value49_ = null;
+        }
+        if (parserLocals[49] != null) {
+          value50Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[49]);
+          value50_ = null;
+        }
+        if (parserLocals[50] != null) {
+          value51Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[50]);
+          value51_ = null;
+        }
+        if (parserLocals[51] != null) {
+          value52Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[51]);
+          value52_ = null;
+        }
+        if (parserLocals[52] != null) {
+          value53Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[52]);
+          value53_ = null;
+        }
+        if (parserLocals[53] != null) {
+          value54Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[53]);
+          value54_ = null;
+        }
+        if (parserLocals[54] != null) {
+          value55Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[54]);
+          value55_ = null;
+        }
+        if (parserLocals[55] != null) {
+          value56Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[55]);
+          value56_ = null;
+        }
+        if (parserLocals[56] != null) {
+          value57Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[56]);
+          value57_ = null;
+        }
+        if (parserLocals[57] != null) {
+          value58Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[57]);
+          value58_ = null;
+        }
+        if (parserLocals[58] != null) {
+          value59Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[58]);
+          value59_ = null;
+        }
+        if (parserLocals[59] != null) {
+          value60Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[59]);
+          value60_ = null;
+        }
+        if (parserLocals[60] != null) {
+          value61Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[60]);
+          value61_ = null;
+        }
+        if (parserLocals[61] != null) {
+          value62Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[61]);
+          value62_ = null;
+        }
+        if (parserLocals[62] != null) {
+          value63Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[62]);
+          value63_ = null;
+        }
+        if (parserLocals[63] != null) {
+          value64Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[63]);
+          value64_ = null;
+        }
+      }
+      bitField1_ = other.bitField1_;
+    }
+
     private void buildPartial_autosplit_2(com.google.protobuf.test.WideMessageFields result) {
       int from_bitField2_ = bitField2_;
-      int to_bitField2_ = 0;
+      int to_bitField2_ = from_bitField2_;
       if (((from_bitField2_ & 0x00000001) != 0)) {
         result.value65_ = value65Builder_ == null
             ? value65_
@@ -4331,6 +4680,18 @@ private static final long serialVersionUID = 0L;
         to_bitField2_ |= 0x00000001;
       }
       result.bitField2_ |= to_bitField2_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_2(com.google.protobuf.test.WideMessageFields other, java.lang.Object[] parserLocals) {
+      value65_ = other.value65_;
+      if (parserLocals != null) {
+        if (parserLocals[64] != null) {
+          value65Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[64]);
+          value65_ = null;
+        }
+      }
+      bitField2_ = other.bitField2_;
     }
 
     @java.lang.Override
@@ -4851,6 +5212,274 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 10: {
+          parseValue1Field(input, extensionRegistry);
+          return true;
+        } // case 10
+        case 18: {
+          parseValue2Field(input, extensionRegistry);
+          return true;
+        } // case 18
+        case 26: {
+          parseValue3Field(input, extensionRegistry);
+          return true;
+        } // case 26
+        case 34: {
+          parseValue4Field(input, extensionRegistry);
+          return true;
+        } // case 34
+        case 42: {
+          parseValue5Field(input, extensionRegistry);
+          return true;
+        } // case 42
+        case 50: {
+          parseValue6Field(input, extensionRegistry);
+          return true;
+        } // case 50
+        case 58: {
+          parseValue7Field(input, extensionRegistry);
+          return true;
+        } // case 58
+        case 66: {
+          parseValue8Field(input, extensionRegistry);
+          return true;
+        } // case 66
+        case 74: {
+          parseValue9Field(input, extensionRegistry);
+          return true;
+        } // case 74
+        case 82: {
+          parseValue10Field(input, extensionRegistry);
+          return true;
+        } // case 82
+        case 90: {
+          parseValue11Field(input, extensionRegistry);
+          return true;
+        } // case 90
+        case 98: {
+          parseValue12Field(input, extensionRegistry);
+          return true;
+        } // case 98
+        case 106: {
+          parseValue13Field(input, extensionRegistry);
+          return true;
+        } // case 106
+        case 114: {
+          parseValue14Field(input, extensionRegistry);
+          return true;
+        } // case 114
+        case 122: {
+          parseValue15Field(input, extensionRegistry);
+          return true;
+        } // case 122
+        case 130: {
+          parseValue16Field(input, extensionRegistry);
+          return true;
+        } // case 130
+        case 138: {
+          parseValue17Field(input, extensionRegistry);
+          return true;
+        } // case 138
+        case 146: {
+          parseValue18Field(input, extensionRegistry);
+          return true;
+        } // case 146
+        case 154: {
+          parseValue19Field(input, extensionRegistry);
+          return true;
+        } // case 154
+        case 162: {
+          parseValue20Field(input, extensionRegistry);
+          return true;
+        } // case 162
+        case 170: {
+          parseValue21Field(input, extensionRegistry);
+          return true;
+        } // case 170
+        case 178: {
+          parseValue22Field(input, extensionRegistry);
+          return true;
+        } // case 178
+        case 186: {
+          parseValue23Field(input, extensionRegistry);
+          return true;
+        } // case 186
+        case 194: {
+          parseValue24Field(input, extensionRegistry);
+          return true;
+        } // case 194
+        case 202: {
+          parseValue25Field(input, extensionRegistry);
+          return true;
+        } // case 202
+        case 210: {
+          parseValue26Field(input, extensionRegistry);
+          return true;
+        } // case 210
+        case 218: {
+          parseValue27Field(input, extensionRegistry);
+          return true;
+        } // case 218
+        case 226: {
+          parseValue28Field(input, extensionRegistry);
+          return true;
+        } // case 226
+        case 234: {
+          parseValue29Field(input, extensionRegistry);
+          return true;
+        } // case 234
+        case 242: {
+          parseValue30Field(input, extensionRegistry);
+          return true;
+        } // case 242
+        case 250: {
+          parseValue31Field(input, extensionRegistry);
+          return true;
+        } // case 250
+        case 258: {
+          parseValue32Field(input, extensionRegistry);
+          return true;
+        } // case 258
+        case 266: {
+          parseValue33Field(input, extensionRegistry);
+          return true;
+        } // case 266
+        case 274: {
+          parseValue34Field(input, extensionRegistry);
+          return true;
+        } // case 274
+        case 282: {
+          parseValue35Field(input, extensionRegistry);
+          return true;
+        } // case 282
+        case 290: {
+          parseValue36Field(input, extensionRegistry);
+          return true;
+        } // case 290
+        case 298: {
+          parseValue37Field(input, extensionRegistry);
+          return true;
+        } // case 298
+        case 306: {
+          parseValue38Field(input, extensionRegistry);
+          return true;
+        } // case 306
+        case 314: {
+          parseValue39Field(input, extensionRegistry);
+          return true;
+        } // case 314
+        case 322: {
+          parseValue40Field(input, extensionRegistry);
+          return true;
+        } // case 322
+        case 330: {
+          parseValue41Field(input, extensionRegistry);
+          return true;
+        } // case 330
+        case 338: {
+          parseValue42Field(input, extensionRegistry);
+          return true;
+        } // case 338
+        case 346: {
+          parseValue43Field(input, extensionRegistry);
+          return true;
+        } // case 346
+        case 354: {
+          parseValue44Field(input, extensionRegistry);
+          return true;
+        } // case 354
+        case 362: {
+          parseValue45Field(input, extensionRegistry);
+          return true;
+        } // case 362
+        case 370: {
+          parseValue46Field(input, extensionRegistry);
+          return true;
+        } // case 370
+        case 378: {
+          parseValue47Field(input, extensionRegistry);
+          return true;
+        } // case 378
+        case 386: {
+          parseValue48Field(input, extensionRegistry);
+          return true;
+        } // case 386
+        case 394: {
+          parseValue49Field(input, extensionRegistry);
+          return true;
+        } // case 394
+        case 402: {
+          parseValue50Field(input, extensionRegistry);
+          return true;
+        } // case 402
+        case 410: {
+          parseValue51Field(input, extensionRegistry);
+          return true;
+        } // case 410
+        case 418: {
+          parseValue52Field(input, extensionRegistry);
+          return true;
+        } // case 418
+        case 426: {
+          parseValue53Field(input, extensionRegistry);
+          return true;
+        } // case 426
+        case 434: {
+          parseValue54Field(input, extensionRegistry);
+          return true;
+        } // case 434
+        case 442: {
+          parseValue55Field(input, extensionRegistry);
+          return true;
+        } // case 442
+        case 450: {
+          parseValue56Field(input, extensionRegistry);
+          return true;
+        } // case 450
+        case 458: {
+          parseValue57Field(input, extensionRegistry);
+          return true;
+        } // case 458
+        case 466: {
+          parseValue58Field(input, extensionRegistry);
+          return true;
+        } // case 466
+        case 474: {
+          parseValue59Field(input, extensionRegistry);
+          return true;
+        } // case 474
+        case 482: {
+          parseValue60Field(input, extensionRegistry);
+          return true;
+        } // case 482
+        case 490: {
+          parseValue61Field(input, extensionRegistry);
+          return true;
+        } // case 490
+        case 498: {
+          parseValue62Field(input, extensionRegistry);
+          return true;
+        } // case 498
+        case 506: {
+          parseValue63Field(input, extensionRegistry);
+          return true;
+        } // case 506
+        case 514: {
+          parseValue64Field(input, extensionRegistry);
+          return true;
+        } // case 514
+        case 522: {
+          parseValue65Field(input, extensionRegistry);
+          return true;
+        } // case 522
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
+    }
     private int bitField0_;
     private int bitField1_;
     private int bitField2_;
@@ -4974,7 +5603,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value1_ != null || value1Builder_ != null) {
-        internalGetValue1FieldBuilder().getBuilder()
+        internalGetValue1FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value1_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -5102,7 +5731,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value2_ != null || value2Builder_ != null) {
-        internalGetValue2FieldBuilder().getBuilder()
+        internalGetValue2FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value2_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -5230,7 +5859,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value3_ != null || value3Builder_ != null) {
-        internalGetValue3FieldBuilder().getBuilder()
+        internalGetValue3FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value3_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -5358,7 +5987,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value4_ != null || value4Builder_ != null) {
-        internalGetValue4FieldBuilder().getBuilder()
+        internalGetValue4FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value4_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -5486,7 +6115,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value5_ != null || value5Builder_ != null) {
-        internalGetValue5FieldBuilder().getBuilder()
+        internalGetValue5FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value5_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -5614,7 +6243,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value6_ != null || value6Builder_ != null) {
-        internalGetValue6FieldBuilder().getBuilder()
+        internalGetValue6FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value6_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -5742,7 +6371,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value7_ != null || value7Builder_ != null) {
-        internalGetValue7FieldBuilder().getBuilder()
+        internalGetValue7FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value7_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -5870,7 +6499,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value8_ != null || value8Builder_ != null) {
-        internalGetValue8FieldBuilder().getBuilder()
+        internalGetValue8FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value8_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -5998,7 +6627,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value9_ != null || value9Builder_ != null) {
-        internalGetValue9FieldBuilder().getBuilder()
+        internalGetValue9FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value9_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -6126,7 +6755,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value10_ != null || value10Builder_ != null) {
-        internalGetValue10FieldBuilder().getBuilder()
+        internalGetValue10FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value10_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -6254,7 +6883,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value11_ != null || value11Builder_ != null) {
-        internalGetValue11FieldBuilder().getBuilder()
+        internalGetValue11FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value11_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -6382,7 +7011,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value12_ != null || value12Builder_ != null) {
-        internalGetValue12FieldBuilder().getBuilder()
+        internalGetValue12FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value12_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -6510,7 +7139,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value13_ != null || value13Builder_ != null) {
-        internalGetValue13FieldBuilder().getBuilder()
+        internalGetValue13FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value13_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -6638,7 +7267,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value14_ != null || value14Builder_ != null) {
-        internalGetValue14FieldBuilder().getBuilder()
+        internalGetValue14FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value14_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -6766,7 +7395,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value15_ != null || value15Builder_ != null) {
-        internalGetValue15FieldBuilder().getBuilder()
+        internalGetValue15FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value15_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -6894,7 +7523,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value16_ != null || value16Builder_ != null) {
-        internalGetValue16FieldBuilder().getBuilder()
+        internalGetValue16FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value16_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -7022,7 +7651,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value17_ != null || value17Builder_ != null) {
-        internalGetValue17FieldBuilder().getBuilder()
+        internalGetValue17FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value17_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -7150,7 +7779,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value18_ != null || value18Builder_ != null) {
-        internalGetValue18FieldBuilder().getBuilder()
+        internalGetValue18FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value18_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -7278,7 +7907,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value19_ != null || value19Builder_ != null) {
-        internalGetValue19FieldBuilder().getBuilder()
+        internalGetValue19FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value19_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -7406,7 +8035,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value20_ != null || value20Builder_ != null) {
-        internalGetValue20FieldBuilder().getBuilder()
+        internalGetValue20FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value20_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -7534,7 +8163,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value21_ != null || value21Builder_ != null) {
-        internalGetValue21FieldBuilder().getBuilder()
+        internalGetValue21FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value21_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -7662,7 +8291,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value22_ != null || value22Builder_ != null) {
-        internalGetValue22FieldBuilder().getBuilder()
+        internalGetValue22FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value22_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -7790,7 +8419,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value23_ != null || value23Builder_ != null) {
-        internalGetValue23FieldBuilder().getBuilder()
+        internalGetValue23FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value23_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -7918,7 +8547,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value24_ != null || value24Builder_ != null) {
-        internalGetValue24FieldBuilder().getBuilder()
+        internalGetValue24FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value24_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -8046,7 +8675,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value25_ != null || value25Builder_ != null) {
-        internalGetValue25FieldBuilder().getBuilder()
+        internalGetValue25FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value25_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -8174,7 +8803,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value26_ != null || value26Builder_ != null) {
-        internalGetValue26FieldBuilder().getBuilder()
+        internalGetValue26FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value26_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -8302,7 +8931,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value27_ != null || value27Builder_ != null) {
-        internalGetValue27FieldBuilder().getBuilder()
+        internalGetValue27FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value27_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -8430,7 +9059,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value28_ != null || value28Builder_ != null) {
-        internalGetValue28FieldBuilder().getBuilder()
+        internalGetValue28FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value28_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -8558,7 +9187,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value29_ != null || value29Builder_ != null) {
-        internalGetValue29FieldBuilder().getBuilder()
+        internalGetValue29FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value29_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -8686,7 +9315,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value30_ != null || value30Builder_ != null) {
-        internalGetValue30FieldBuilder().getBuilder()
+        internalGetValue30FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value30_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -8814,7 +9443,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value31_ != null || value31Builder_ != null) {
-        internalGetValue31FieldBuilder().getBuilder()
+        internalGetValue31FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value31_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -8942,7 +9571,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value32_ != null || value32Builder_ != null) {
-        internalGetValue32FieldBuilder().getBuilder()
+        internalGetValue32FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value32_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -9070,7 +9699,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value33_ != null || value33Builder_ != null) {
-        internalGetValue33FieldBuilder().getBuilder()
+        internalGetValue33FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value33_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -9198,7 +9827,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value34_ != null || value34Builder_ != null) {
-        internalGetValue34FieldBuilder().getBuilder()
+        internalGetValue34FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value34_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -9326,7 +9955,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value35_ != null || value35Builder_ != null) {
-        internalGetValue35FieldBuilder().getBuilder()
+        internalGetValue35FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value35_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -9454,7 +10083,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value36_ != null || value36Builder_ != null) {
-        internalGetValue36FieldBuilder().getBuilder()
+        internalGetValue36FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value36_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -9582,7 +10211,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value37_ != null || value37Builder_ != null) {
-        internalGetValue37FieldBuilder().getBuilder()
+        internalGetValue37FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value37_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -9710,7 +10339,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value38_ != null || value38Builder_ != null) {
-        internalGetValue38FieldBuilder().getBuilder()
+        internalGetValue38FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value38_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -9838,7 +10467,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value39_ != null || value39Builder_ != null) {
-        internalGetValue39FieldBuilder().getBuilder()
+        internalGetValue39FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value39_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -9966,7 +10595,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value40_ != null || value40Builder_ != null) {
-        internalGetValue40FieldBuilder().getBuilder()
+        internalGetValue40FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value40_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -10094,7 +10723,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value41_ != null || value41Builder_ != null) {
-        internalGetValue41FieldBuilder().getBuilder()
+        internalGetValue41FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value41_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -10222,7 +10851,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value42_ != null || value42Builder_ != null) {
-        internalGetValue42FieldBuilder().getBuilder()
+        internalGetValue42FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value42_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -10350,7 +10979,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value43_ != null || value43Builder_ != null) {
-        internalGetValue43FieldBuilder().getBuilder()
+        internalGetValue43FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value43_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -10478,7 +11107,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value44_ != null || value44Builder_ != null) {
-        internalGetValue44FieldBuilder().getBuilder()
+        internalGetValue44FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value44_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -10606,7 +11235,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value45_ != null || value45Builder_ != null) {
-        internalGetValue45FieldBuilder().getBuilder()
+        internalGetValue45FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value45_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -10734,7 +11363,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value46_ != null || value46Builder_ != null) {
-        internalGetValue46FieldBuilder().getBuilder()
+        internalGetValue46FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value46_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -10862,7 +11491,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value47_ != null || value47Builder_ != null) {
-        internalGetValue47FieldBuilder().getBuilder()
+        internalGetValue47FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value47_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -10990,7 +11619,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value48_ != null || value48Builder_ != null) {
-        internalGetValue48FieldBuilder().getBuilder()
+        internalGetValue48FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value48_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -11118,7 +11747,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value49_ != null || value49Builder_ != null) {
-        internalGetValue49FieldBuilder().getBuilder()
+        internalGetValue49FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value49_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -11246,7 +11875,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value50_ != null || value50Builder_ != null) {
-        internalGetValue50FieldBuilder().getBuilder()
+        internalGetValue50FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value50_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -11374,7 +12003,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value51_ != null || value51Builder_ != null) {
-        internalGetValue51FieldBuilder().getBuilder()
+        internalGetValue51FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value51_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -11502,7 +12131,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value52_ != null || value52Builder_ != null) {
-        internalGetValue52FieldBuilder().getBuilder()
+        internalGetValue52FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value52_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -11630,7 +12259,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value53_ != null || value53Builder_ != null) {
-        internalGetValue53FieldBuilder().getBuilder()
+        internalGetValue53FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value53_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -11758,7 +12387,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value54_ != null || value54Builder_ != null) {
-        internalGetValue54FieldBuilder().getBuilder()
+        internalGetValue54FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value54_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -11886,7 +12515,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value55_ != null || value55Builder_ != null) {
-        internalGetValue55FieldBuilder().getBuilder()
+        internalGetValue55FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value55_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -12014,7 +12643,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value56_ != null || value56Builder_ != null) {
-        internalGetValue56FieldBuilder().getBuilder()
+        internalGetValue56FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value56_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -12142,7 +12771,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value57_ != null || value57Builder_ != null) {
-        internalGetValue57FieldBuilder().getBuilder()
+        internalGetValue57FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value57_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -12270,7 +12899,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value58_ != null || value58Builder_ != null) {
-        internalGetValue58FieldBuilder().getBuilder()
+        internalGetValue58FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value58_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -12398,7 +13027,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value59_ != null || value59Builder_ != null) {
-        internalGetValue59FieldBuilder().getBuilder()
+        internalGetValue59FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value59_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -12526,7 +13155,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value60_ != null || value60Builder_ != null) {
-        internalGetValue60FieldBuilder().getBuilder()
+        internalGetValue60FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value60_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -12654,7 +13283,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value61_ != null || value61Builder_ != null) {
-        internalGetValue61FieldBuilder().getBuilder()
+        internalGetValue61FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value61_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -12782,7 +13411,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value62_ != null || value62Builder_ != null) {
-        internalGetValue62FieldBuilder().getBuilder()
+        internalGetValue62FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value62_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -12910,7 +13539,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value63_ != null || value63Builder_ != null) {
-        internalGetValue63FieldBuilder().getBuilder()
+        internalGetValue63FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value63_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -13038,7 +13667,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value64_ != null || value64Builder_ != null) {
-        internalGetValue64FieldBuilder().getBuilder()
+        internalGetValue64FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value64_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -13166,7 +13795,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (value65_ != null || value65Builder_ != null) {
-        internalGetValue65FieldBuilder().getBuilder()
+        internalGetValue65FieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         value65_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
@@ -13188,22 +13817,3342 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static WideMessageFields parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    WideMessageFields instance = new WideMessageFields((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value1Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value2Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value3Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value4Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value5Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value6Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value7Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value8Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value9Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value10Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value11Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value12Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value13Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value14Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value15Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value16Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value17Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value18Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value19Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value20Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value21Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value22Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value23Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value24Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value25Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value26Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value27Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value28Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value29Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value30Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value31Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value32Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value33Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value34Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value35Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value36Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value37Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value38Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value39Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value40Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value41Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value42Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value43Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value44Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value45Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value46Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value47Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value48Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value49Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value50Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value51Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value52Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value53Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value54Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value55Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value56Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value57Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value58Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value59Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value60Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value61Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value62Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value63Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value64Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value65Builder_ = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      value1Builder_ = internalGetValue1FieldBuilder(instance, value1Builder_);
+      value2Builder_ = internalGetValue2FieldBuilder(instance, value2Builder_);
+      value3Builder_ = internalGetValue3FieldBuilder(instance, value3Builder_);
+      value4Builder_ = internalGetValue4FieldBuilder(instance, value4Builder_);
+      value5Builder_ = internalGetValue5FieldBuilder(instance, value5Builder_);
+      value6Builder_ = internalGetValue6FieldBuilder(instance, value6Builder_);
+      value7Builder_ = internalGetValue7FieldBuilder(instance, value7Builder_);
+      value8Builder_ = internalGetValue8FieldBuilder(instance, value8Builder_);
+      value9Builder_ = internalGetValue9FieldBuilder(instance, value9Builder_);
+      value10Builder_ = internalGetValue10FieldBuilder(instance, value10Builder_);
+      value11Builder_ = internalGetValue11FieldBuilder(instance, value11Builder_);
+      value12Builder_ = internalGetValue12FieldBuilder(instance, value12Builder_);
+      value13Builder_ = internalGetValue13FieldBuilder(instance, value13Builder_);
+      value14Builder_ = internalGetValue14FieldBuilder(instance, value14Builder_);
+      value15Builder_ = internalGetValue15FieldBuilder(instance, value15Builder_);
+      value16Builder_ = internalGetValue16FieldBuilder(instance, value16Builder_);
+      value17Builder_ = internalGetValue17FieldBuilder(instance, value17Builder_);
+      value18Builder_ = internalGetValue18FieldBuilder(instance, value18Builder_);
+      value19Builder_ = internalGetValue19FieldBuilder(instance, value19Builder_);
+      value20Builder_ = internalGetValue20FieldBuilder(instance, value20Builder_);
+      value21Builder_ = internalGetValue21FieldBuilder(instance, value21Builder_);
+      value22Builder_ = internalGetValue22FieldBuilder(instance, value22Builder_);
+      value23Builder_ = internalGetValue23FieldBuilder(instance, value23Builder_);
+      value24Builder_ = internalGetValue24FieldBuilder(instance, value24Builder_);
+      value25Builder_ = internalGetValue25FieldBuilder(instance, value25Builder_);
+      value26Builder_ = internalGetValue26FieldBuilder(instance, value26Builder_);
+      value27Builder_ = internalGetValue27FieldBuilder(instance, value27Builder_);
+      value28Builder_ = internalGetValue28FieldBuilder(instance, value28Builder_);
+      value29Builder_ = internalGetValue29FieldBuilder(instance, value29Builder_);
+      value30Builder_ = internalGetValue30FieldBuilder(instance, value30Builder_);
+      value31Builder_ = internalGetValue31FieldBuilder(instance, value31Builder_);
+      value32Builder_ = internalGetValue32FieldBuilder(instance, value32Builder_);
+      value33Builder_ = internalGetValue33FieldBuilder(instance, value33Builder_);
+      value34Builder_ = internalGetValue34FieldBuilder(instance, value34Builder_);
+      value35Builder_ = internalGetValue35FieldBuilder(instance, value35Builder_);
+      value36Builder_ = internalGetValue36FieldBuilder(instance, value36Builder_);
+      value37Builder_ = internalGetValue37FieldBuilder(instance, value37Builder_);
+      value38Builder_ = internalGetValue38FieldBuilder(instance, value38Builder_);
+      value39Builder_ = internalGetValue39FieldBuilder(instance, value39Builder_);
+      value40Builder_ = internalGetValue40FieldBuilder(instance, value40Builder_);
+      value41Builder_ = internalGetValue41FieldBuilder(instance, value41Builder_);
+      value42Builder_ = internalGetValue42FieldBuilder(instance, value42Builder_);
+      value43Builder_ = internalGetValue43FieldBuilder(instance, value43Builder_);
+      value44Builder_ = internalGetValue44FieldBuilder(instance, value44Builder_);
+      value45Builder_ = internalGetValue45FieldBuilder(instance, value45Builder_);
+      value46Builder_ = internalGetValue46FieldBuilder(instance, value46Builder_);
+      value47Builder_ = internalGetValue47FieldBuilder(instance, value47Builder_);
+      value48Builder_ = internalGetValue48FieldBuilder(instance, value48Builder_);
+      value49Builder_ = internalGetValue49FieldBuilder(instance, value49Builder_);
+      value50Builder_ = internalGetValue50FieldBuilder(instance, value50Builder_);
+      value51Builder_ = internalGetValue51FieldBuilder(instance, value51Builder_);
+      value52Builder_ = internalGetValue52FieldBuilder(instance, value52Builder_);
+      value53Builder_ = internalGetValue53FieldBuilder(instance, value53Builder_);
+      value54Builder_ = internalGetValue54FieldBuilder(instance, value54Builder_);
+      value55Builder_ = internalGetValue55FieldBuilder(instance, value55Builder_);
+      value56Builder_ = internalGetValue56FieldBuilder(instance, value56Builder_);
+      value57Builder_ = internalGetValue57FieldBuilder(instance, value57Builder_);
+      value58Builder_ = internalGetValue58FieldBuilder(instance, value58Builder_);
+      value59Builder_ = internalGetValue59FieldBuilder(instance, value59Builder_);
+      value60Builder_ = internalGetValue60FieldBuilder(instance, value60Builder_);
+      value61Builder_ = internalGetValue61FieldBuilder(instance, value61Builder_);
+      value62Builder_ = internalGetValue62FieldBuilder(instance, value62Builder_);
+      value63Builder_ = internalGetValue63FieldBuilder(instance, value63Builder_);
+      value64Builder_ = internalGetValue64FieldBuilder(instance, value64Builder_);
+      value65Builder_ = internalGetValue65FieldBuilder(instance, value65Builder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            if (instance.value1_ != null || value1Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue1Field(instance, input, extensionRegistry, value1Builder_);
+            break;
+          } // case 10
+          case 18: {
+            if (instance.value2_ != null || value2Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue2Field(instance, input, extensionRegistry, value2Builder_);
+            break;
+          } // case 18
+          case 26: {
+            if (instance.value3_ != null || value3Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue3Field(instance, input, extensionRegistry, value3Builder_);
+            break;
+          } // case 26
+          case 34: {
+            if (instance.value4_ != null || value4Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue4Field(instance, input, extensionRegistry, value4Builder_);
+            break;
+          } // case 34
+          case 42: {
+            if (instance.value5_ != null || value5Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue5Field(instance, input, extensionRegistry, value5Builder_);
+            break;
+          } // case 42
+          case 50: {
+            if (instance.value6_ != null || value6Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue6Field(instance, input, extensionRegistry, value6Builder_);
+            break;
+          } // case 50
+          case 58: {
+            if (instance.value7_ != null || value7Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue7Field(instance, input, extensionRegistry, value7Builder_);
+            break;
+          } // case 58
+          case 66: {
+            if (instance.value8_ != null || value8Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue8Field(instance, input, extensionRegistry, value8Builder_);
+            break;
+          } // case 66
+          case 74: {
+            if (instance.value9_ != null || value9Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue9Field(instance, input, extensionRegistry, value9Builder_);
+            break;
+          } // case 74
+          case 82: {
+            if (instance.value10_ != null || value10Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue10Field(instance, input, extensionRegistry, value10Builder_);
+            break;
+          } // case 82
+          case 90: {
+            if (instance.value11_ != null || value11Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue11Field(instance, input, extensionRegistry, value11Builder_);
+            break;
+          } // case 90
+          case 98: {
+            if (instance.value12_ != null || value12Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue12Field(instance, input, extensionRegistry, value12Builder_);
+            break;
+          } // case 98
+          case 106: {
+            if (instance.value13_ != null || value13Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue13Field(instance, input, extensionRegistry, value13Builder_);
+            break;
+          } // case 106
+          case 114: {
+            if (instance.value14_ != null || value14Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue14Field(instance, input, extensionRegistry, value14Builder_);
+            break;
+          } // case 114
+          case 122: {
+            if (instance.value15_ != null || value15Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue15Field(instance, input, extensionRegistry, value15Builder_);
+            break;
+          } // case 122
+          case 130: {
+            if (instance.value16_ != null || value16Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue16Field(instance, input, extensionRegistry, value16Builder_);
+            break;
+          } // case 130
+          case 138: {
+            if (instance.value17_ != null || value17Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue17Field(instance, input, extensionRegistry, value17Builder_);
+            break;
+          } // case 138
+          case 146: {
+            if (instance.value18_ != null || value18Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue18Field(instance, input, extensionRegistry, value18Builder_);
+            break;
+          } // case 146
+          case 154: {
+            if (instance.value19_ != null || value19Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue19Field(instance, input, extensionRegistry, value19Builder_);
+            break;
+          } // case 154
+          case 162: {
+            if (instance.value20_ != null || value20Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue20Field(instance, input, extensionRegistry, value20Builder_);
+            break;
+          } // case 162
+          case 170: {
+            if (instance.value21_ != null || value21Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue21Field(instance, input, extensionRegistry, value21Builder_);
+            break;
+          } // case 170
+          case 178: {
+            if (instance.value22_ != null || value22Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue22Field(instance, input, extensionRegistry, value22Builder_);
+            break;
+          } // case 178
+          case 186: {
+            if (instance.value23_ != null || value23Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue23Field(instance, input, extensionRegistry, value23Builder_);
+            break;
+          } // case 186
+          case 194: {
+            if (instance.value24_ != null || value24Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue24Field(instance, input, extensionRegistry, value24Builder_);
+            break;
+          } // case 194
+          case 202: {
+            if (instance.value25_ != null || value25Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue25Field(instance, input, extensionRegistry, value25Builder_);
+            break;
+          } // case 202
+          case 210: {
+            if (instance.value26_ != null || value26Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue26Field(instance, input, extensionRegistry, value26Builder_);
+            break;
+          } // case 210
+          case 218: {
+            if (instance.value27_ != null || value27Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue27Field(instance, input, extensionRegistry, value27Builder_);
+            break;
+          } // case 218
+          case 226: {
+            if (instance.value28_ != null || value28Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue28Field(instance, input, extensionRegistry, value28Builder_);
+            break;
+          } // case 226
+          case 234: {
+            if (instance.value29_ != null || value29Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue29Field(instance, input, extensionRegistry, value29Builder_);
+            break;
+          } // case 234
+          case 242: {
+            if (instance.value30_ != null || value30Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue30Field(instance, input, extensionRegistry, value30Builder_);
+            break;
+          } // case 242
+          case 250: {
+            if (instance.value31_ != null || value31Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue31Field(instance, input, extensionRegistry, value31Builder_);
+            break;
+          } // case 250
+          case 258: {
+            if (instance.value32_ != null || value32Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue32Field(instance, input, extensionRegistry, value32Builder_);
+            break;
+          } // case 258
+          case 266: {
+            if (instance.value33_ != null || value33Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue33Field(instance, input, extensionRegistry, value33Builder_);
+            break;
+          } // case 266
+          case 274: {
+            if (instance.value34_ != null || value34Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue34Field(instance, input, extensionRegistry, value34Builder_);
+            break;
+          } // case 274
+          case 282: {
+            if (instance.value35_ != null || value35Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue35Field(instance, input, extensionRegistry, value35Builder_);
+            break;
+          } // case 282
+          case 290: {
+            if (instance.value36_ != null || value36Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue36Field(instance, input, extensionRegistry, value36Builder_);
+            break;
+          } // case 290
+          case 298: {
+            if (instance.value37_ != null || value37Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue37Field(instance, input, extensionRegistry, value37Builder_);
+            break;
+          } // case 298
+          case 306: {
+            if (instance.value38_ != null || value38Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue38Field(instance, input, extensionRegistry, value38Builder_);
+            break;
+          } // case 306
+          case 314: {
+            if (instance.value39_ != null || value39Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue39Field(instance, input, extensionRegistry, value39Builder_);
+            break;
+          } // case 314
+          case 322: {
+            if (instance.value40_ != null || value40Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue40Field(instance, input, extensionRegistry, value40Builder_);
+            break;
+          } // case 322
+          case 330: {
+            if (instance.value41_ != null || value41Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue41Field(instance, input, extensionRegistry, value41Builder_);
+            break;
+          } // case 330
+          case 338: {
+            if (instance.value42_ != null || value42Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue42Field(instance, input, extensionRegistry, value42Builder_);
+            break;
+          } // case 338
+          case 346: {
+            if (instance.value43_ != null || value43Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue43Field(instance, input, extensionRegistry, value43Builder_);
+            break;
+          } // case 346
+          case 354: {
+            if (instance.value44_ != null || value44Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue44Field(instance, input, extensionRegistry, value44Builder_);
+            break;
+          } // case 354
+          case 362: {
+            if (instance.value45_ != null || value45Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue45Field(instance, input, extensionRegistry, value45Builder_);
+            break;
+          } // case 362
+          case 370: {
+            if (instance.value46_ != null || value46Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue46Field(instance, input, extensionRegistry, value46Builder_);
+            break;
+          } // case 370
+          case 378: {
+            if (instance.value47_ != null || value47Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue47Field(instance, input, extensionRegistry, value47Builder_);
+            break;
+          } // case 378
+          case 386: {
+            if (instance.value48_ != null || value48Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue48Field(instance, input, extensionRegistry, value48Builder_);
+            break;
+          } // case 386
+          case 394: {
+            if (instance.value49_ != null || value49Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue49Field(instance, input, extensionRegistry, value49Builder_);
+            break;
+          } // case 394
+          case 402: {
+            if (instance.value50_ != null || value50Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue50Field(instance, input, extensionRegistry, value50Builder_);
+            break;
+          } // case 402
+          case 410: {
+            if (instance.value51_ != null || value51Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue51Field(instance, input, extensionRegistry, value51Builder_);
+            break;
+          } // case 410
+          case 418: {
+            if (instance.value52_ != null || value52Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue52Field(instance, input, extensionRegistry, value52Builder_);
+            break;
+          } // case 418
+          case 426: {
+            if (instance.value53_ != null || value53Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue53Field(instance, input, extensionRegistry, value53Builder_);
+            break;
+          } // case 426
+          case 434: {
+            if (instance.value54_ != null || value54Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue54Field(instance, input, extensionRegistry, value54Builder_);
+            break;
+          } // case 434
+          case 442: {
+            if (instance.value55_ != null || value55Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue55Field(instance, input, extensionRegistry, value55Builder_);
+            break;
+          } // case 442
+          case 450: {
+            if (instance.value56_ != null || value56Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue56Field(instance, input, extensionRegistry, value56Builder_);
+            break;
+          } // case 450
+          case 458: {
+            if (instance.value57_ != null || value57Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue57Field(instance, input, extensionRegistry, value57Builder_);
+            break;
+          } // case 458
+          case 466: {
+            if (instance.value58_ != null || value58Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue58Field(instance, input, extensionRegistry, value58Builder_);
+            break;
+          } // case 466
+          case 474: {
+            if (instance.value59_ != null || value59Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue59Field(instance, input, extensionRegistry, value59Builder_);
+            break;
+          } // case 474
+          case 482: {
+            if (instance.value60_ != null || value60Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue60Field(instance, input, extensionRegistry, value60Builder_);
+            break;
+          } // case 482
+          case 490: {
+            if (instance.value61_ != null || value61Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue61Field(instance, input, extensionRegistry, value61Builder_);
+            break;
+          } // case 490
+          case 498: {
+            if (instance.value62_ != null || value62Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue62Field(instance, input, extensionRegistry, value62Builder_);
+            break;
+          } // case 498
+          case 506: {
+            if (instance.value63_ != null || value63Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue63Field(instance, input, extensionRegistry, value63Builder_);
+            break;
+          } // case 506
+          case 514: {
+            if (instance.value64_ != null || value64Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue64Field(instance, input, extensionRegistry, value64Builder_);
+            break;
+          } // case 514
+          case 522: {
+            if (instance.value65_ != null || value65Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseValue65Field(instance, input, extensionRegistry, value65Builder_);
+            break;
+          } // case 522
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {value1Builder_, value2Builder_, value3Builder_, value4Builder_, value5Builder_, value6Builder_, value7Builder_, value8Builder_, value9Builder_, value10Builder_, value11Builder_, value12Builder_, value13Builder_, value14Builder_, value15Builder_, value16Builder_, value17Builder_, value18Builder_, value19Builder_, value20Builder_, value21Builder_, value22Builder_, value23Builder_, value24Builder_, value25Builder_, value26Builder_, value27Builder_, value28Builder_, value29Builder_, value30Builder_, value31Builder_, value32Builder_, value33Builder_, value34Builder_, value35Builder_, value36Builder_, value37Builder_, value38Builder_, value39Builder_, value40Builder_, value41Builder_, value42Builder_, value43Builder_, value44Builder_, value45Builder_, value46Builder_, value47Builder_, value48Builder_, value49Builder_, value50Builder_, value51Builder_, value52Builder_, value53Builder_, value54Builder_, value55Builder_, value56Builder_, value57Builder_, value58Builder_, value59Builder_, value60Builder_, value61Builder_, value62Builder_, value63Builder_, value64Builder_, value65Builder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, value1Builder_, value2Builder_, value3Builder_, value4Builder_, value5Builder_, value6Builder_, value7Builder_, value8Builder_, value9Builder_, value10Builder_, value11Builder_, value12Builder_, value13Builder_, value14Builder_, value15Builder_, value16Builder_, value17Builder_, value18Builder_, value19Builder_, value20Builder_, value21Builder_, value22Builder_, value23Builder_, value24Builder_, value25Builder_, value26Builder_, value27Builder_, value28Builder_, value29Builder_, value30Builder_, value31Builder_, value32Builder_);
+    buildPartial_autosplit_1(instance, value33Builder_, value34Builder_, value35Builder_, value36Builder_, value37Builder_, value38Builder_, value39Builder_, value40Builder_, value41Builder_, value42Builder_, value43Builder_, value44Builder_, value45Builder_, value46Builder_, value47Builder_, value48Builder_, value49Builder_, value50Builder_, value51Builder_, value52Builder_, value53Builder_, value54Builder_, value55Builder_, value56Builder_, value57Builder_, value58Builder_, value59Builder_, value60Builder_, value61Builder_, value62Builder_, value63Builder_, value64Builder_);
+    buildPartial_autosplit_2(instance, value65Builder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_1 = 1;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue1FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value1Builder_) {
+    if (value1Builder_ == null) {
+      value1Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue1(),
+              null,
+              false);
+      instance.value1_ = null;
+    }
+    instance.bitField0_ |= 0x00000001;
+    return value1Builder_;
+  }
+  private static void parseValue1Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value1Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value1_ != null || value1Builder_ != null) {
+      value1Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value1_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000001;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_2 = 2;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue2FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value2Builder_) {
+    if (value2Builder_ == null) {
+      value2Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue2(),
+              null,
+              false);
+      instance.value2_ = null;
+    }
+    instance.bitField0_ |= 0x00000002;
+    return value2Builder_;
+  }
+  private static void parseValue2Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value2Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value2_ != null || value2Builder_ != null) {
+      value2Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value2_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000002;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_3 = 3;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue3FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value3Builder_) {
+    if (value3Builder_ == null) {
+      value3Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue3(),
+              null,
+              false);
+      instance.value3_ = null;
+    }
+    instance.bitField0_ |= 0x00000004;
+    return value3Builder_;
+  }
+  private static void parseValue3Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value3Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value3_ != null || value3Builder_ != null) {
+      value3Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value3_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000004;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_4 = 4;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue4FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value4Builder_) {
+    if (value4Builder_ == null) {
+      value4Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue4(),
+              null,
+              false);
+      instance.value4_ = null;
+    }
+    instance.bitField0_ |= 0x00000008;
+    return value4Builder_;
+  }
+  private static void parseValue4Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value4Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value4_ != null || value4Builder_ != null) {
+      value4Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value4_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000008;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_5 = 5;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue5FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value5Builder_) {
+    if (value5Builder_ == null) {
+      value5Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue5(),
+              null,
+              false);
+      instance.value5_ = null;
+    }
+    instance.bitField0_ |= 0x00000010;
+    return value5Builder_;
+  }
+  private static void parseValue5Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value5Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value5_ != null || value5Builder_ != null) {
+      value5Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value5_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000010;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_6 = 6;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue6FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value6Builder_) {
+    if (value6Builder_ == null) {
+      value6Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue6(),
+              null,
+              false);
+      instance.value6_ = null;
+    }
+    instance.bitField0_ |= 0x00000020;
+    return value6Builder_;
+  }
+  private static void parseValue6Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value6Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value6_ != null || value6Builder_ != null) {
+      value6Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value6_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000020;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_7 = 7;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue7FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value7Builder_) {
+    if (value7Builder_ == null) {
+      value7Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue7(),
+              null,
+              false);
+      instance.value7_ = null;
+    }
+    instance.bitField0_ |= 0x00000040;
+    return value7Builder_;
+  }
+  private static void parseValue7Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value7Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value7_ != null || value7Builder_ != null) {
+      value7Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value7_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000040;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_8 = 8;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue8FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value8Builder_) {
+    if (value8Builder_ == null) {
+      value8Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue8(),
+              null,
+              false);
+      instance.value8_ = null;
+    }
+    instance.bitField0_ |= 0x00000080;
+    return value8Builder_;
+  }
+  private static void parseValue8Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value8Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value8_ != null || value8Builder_ != null) {
+      value8Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value8_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000080;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_9 = 9;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue9FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value9Builder_) {
+    if (value9Builder_ == null) {
+      value9Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue9(),
+              null,
+              false);
+      instance.value9_ = null;
+    }
+    instance.bitField0_ |= 0x00000100;
+    return value9Builder_;
+  }
+  private static void parseValue9Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value9Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value9_ != null || value9Builder_ != null) {
+      value9Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value9_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000100;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_10 = 10;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue10FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value10Builder_) {
+    if (value10Builder_ == null) {
+      value10Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue10(),
+              null,
+              false);
+      instance.value10_ = null;
+    }
+    instance.bitField0_ |= 0x00000200;
+    return value10Builder_;
+  }
+  private static void parseValue10Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value10Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value10_ != null || value10Builder_ != null) {
+      value10Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value10_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000200;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_11 = 11;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue11FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value11Builder_) {
+    if (value11Builder_ == null) {
+      value11Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue11(),
+              null,
+              false);
+      instance.value11_ = null;
+    }
+    instance.bitField0_ |= 0x00000400;
+    return value11Builder_;
+  }
+  private static void parseValue11Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value11Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value11_ != null || value11Builder_ != null) {
+      value11Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value11_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000400;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_12 = 12;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue12FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value12Builder_) {
+    if (value12Builder_ == null) {
+      value12Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue12(),
+              null,
+              false);
+      instance.value12_ = null;
+    }
+    instance.bitField0_ |= 0x00000800;
+    return value12Builder_;
+  }
+  private static void parseValue12Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value12Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value12_ != null || value12Builder_ != null) {
+      value12Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value12_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000800;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_13 = 13;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue13FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value13Builder_) {
+    if (value13Builder_ == null) {
+      value13Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue13(),
+              null,
+              false);
+      instance.value13_ = null;
+    }
+    instance.bitField0_ |= 0x00001000;
+    return value13Builder_;
+  }
+  private static void parseValue13Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value13Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value13_ != null || value13Builder_ != null) {
+      value13Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value13_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00001000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_14 = 14;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue14FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value14Builder_) {
+    if (value14Builder_ == null) {
+      value14Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue14(),
+              null,
+              false);
+      instance.value14_ = null;
+    }
+    instance.bitField0_ |= 0x00002000;
+    return value14Builder_;
+  }
+  private static void parseValue14Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value14Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value14_ != null || value14Builder_ != null) {
+      value14Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value14_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00002000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_15 = 15;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue15FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value15Builder_) {
+    if (value15Builder_ == null) {
+      value15Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue15(),
+              null,
+              false);
+      instance.value15_ = null;
+    }
+    instance.bitField0_ |= 0x00004000;
+    return value15Builder_;
+  }
+  private static void parseValue15Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value15Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value15_ != null || value15Builder_ != null) {
+      value15Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value15_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00004000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_16 = 16;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue16FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value16Builder_) {
+    if (value16Builder_ == null) {
+      value16Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue16(),
+              null,
+              false);
+      instance.value16_ = null;
+    }
+    instance.bitField0_ |= 0x00008000;
+    return value16Builder_;
+  }
+  private static void parseValue16Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value16Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value16_ != null || value16Builder_ != null) {
+      value16Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value16_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00008000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_17 = 17;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue17FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value17Builder_) {
+    if (value17Builder_ == null) {
+      value17Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue17(),
+              null,
+              false);
+      instance.value17_ = null;
+    }
+    instance.bitField0_ |= 0x00010000;
+    return value17Builder_;
+  }
+  private static void parseValue17Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value17Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value17_ != null || value17Builder_ != null) {
+      value17Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value17_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00010000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_18 = 18;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue18FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value18Builder_) {
+    if (value18Builder_ == null) {
+      value18Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue18(),
+              null,
+              false);
+      instance.value18_ = null;
+    }
+    instance.bitField0_ |= 0x00020000;
+    return value18Builder_;
+  }
+  private static void parseValue18Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value18Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value18_ != null || value18Builder_ != null) {
+      value18Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value18_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00020000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_19 = 19;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue19FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value19Builder_) {
+    if (value19Builder_ == null) {
+      value19Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue19(),
+              null,
+              false);
+      instance.value19_ = null;
+    }
+    instance.bitField0_ |= 0x00040000;
+    return value19Builder_;
+  }
+  private static void parseValue19Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value19Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value19_ != null || value19Builder_ != null) {
+      value19Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value19_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00040000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_20 = 20;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue20FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value20Builder_) {
+    if (value20Builder_ == null) {
+      value20Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue20(),
+              null,
+              false);
+      instance.value20_ = null;
+    }
+    instance.bitField0_ |= 0x00080000;
+    return value20Builder_;
+  }
+  private static void parseValue20Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value20Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value20_ != null || value20Builder_ != null) {
+      value20Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value20_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00080000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_21 = 21;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue21FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value21Builder_) {
+    if (value21Builder_ == null) {
+      value21Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue21(),
+              null,
+              false);
+      instance.value21_ = null;
+    }
+    instance.bitField0_ |= 0x00100000;
+    return value21Builder_;
+  }
+  private static void parseValue21Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value21Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value21_ != null || value21Builder_ != null) {
+      value21Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value21_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00100000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_22 = 22;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue22FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value22Builder_) {
+    if (value22Builder_ == null) {
+      value22Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue22(),
+              null,
+              false);
+      instance.value22_ = null;
+    }
+    instance.bitField0_ |= 0x00200000;
+    return value22Builder_;
+  }
+  private static void parseValue22Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value22Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value22_ != null || value22Builder_ != null) {
+      value22Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value22_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00200000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_23 = 23;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue23FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value23Builder_) {
+    if (value23Builder_ == null) {
+      value23Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue23(),
+              null,
+              false);
+      instance.value23_ = null;
+    }
+    instance.bitField0_ |= 0x00400000;
+    return value23Builder_;
+  }
+  private static void parseValue23Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value23Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value23_ != null || value23Builder_ != null) {
+      value23Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value23_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00400000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_24 = 24;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue24FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value24Builder_) {
+    if (value24Builder_ == null) {
+      value24Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue24(),
+              null,
+              false);
+      instance.value24_ = null;
+    }
+    instance.bitField0_ |= 0x00800000;
+    return value24Builder_;
+  }
+  private static void parseValue24Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value24Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value24_ != null || value24Builder_ != null) {
+      value24Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value24_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00800000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_25 = 25;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue25FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value25Builder_) {
+    if (value25Builder_ == null) {
+      value25Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue25(),
+              null,
+              false);
+      instance.value25_ = null;
+    }
+    instance.bitField0_ |= 0x01000000;
+    return value25Builder_;
+  }
+  private static void parseValue25Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value25Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value25_ != null || value25Builder_ != null) {
+      value25Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value25_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x01000000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_26 = 26;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue26FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value26Builder_) {
+    if (value26Builder_ == null) {
+      value26Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue26(),
+              null,
+              false);
+      instance.value26_ = null;
+    }
+    instance.bitField0_ |= 0x02000000;
+    return value26Builder_;
+  }
+  private static void parseValue26Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value26Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value26_ != null || value26Builder_ != null) {
+      value26Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value26_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x02000000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_27 = 27;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue27FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value27Builder_) {
+    if (value27Builder_ == null) {
+      value27Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue27(),
+              null,
+              false);
+      instance.value27_ = null;
+    }
+    instance.bitField0_ |= 0x04000000;
+    return value27Builder_;
+  }
+  private static void parseValue27Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value27Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value27_ != null || value27Builder_ != null) {
+      value27Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value27_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x04000000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_28 = 28;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue28FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value28Builder_) {
+    if (value28Builder_ == null) {
+      value28Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue28(),
+              null,
+              false);
+      instance.value28_ = null;
+    }
+    instance.bitField0_ |= 0x08000000;
+    return value28Builder_;
+  }
+  private static void parseValue28Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value28Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value28_ != null || value28Builder_ != null) {
+      value28Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value28_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x08000000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_29 = 29;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue29FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value29Builder_) {
+    if (value29Builder_ == null) {
+      value29Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue29(),
+              null,
+              false);
+      instance.value29_ = null;
+    }
+    instance.bitField0_ |= 0x10000000;
+    return value29Builder_;
+  }
+  private static void parseValue29Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value29Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value29_ != null || value29Builder_ != null) {
+      value29Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value29_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x10000000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_30 = 30;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue30FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value30Builder_) {
+    if (value30Builder_ == null) {
+      value30Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue30(),
+              null,
+              false);
+      instance.value30_ = null;
+    }
+    instance.bitField0_ |= 0x20000000;
+    return value30Builder_;
+  }
+  private static void parseValue30Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value30Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value30_ != null || value30Builder_ != null) {
+      value30Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value30_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x20000000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_31 = 31;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue31FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value31Builder_) {
+    if (value31Builder_ == null) {
+      value31Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue31(),
+              null,
+              false);
+      instance.value31_ = null;
+    }
+    instance.bitField0_ |= 0x40000000;
+    return value31Builder_;
+  }
+  private static void parseValue31Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value31Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value31_ != null || value31Builder_ != null) {
+      value31Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value31_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x40000000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_32 = 32;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue32FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value32Builder_) {
+    if (value32Builder_ == null) {
+      value32Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue32(),
+              null,
+              false);
+      instance.value32_ = null;
+    }
+    instance.bitField0_ |= 0x80000000;
+    return value32Builder_;
+  }
+  private static void parseValue32Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value32Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value32_ != null || value32Builder_ != null) {
+      value32Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value32_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x80000000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_33 = 33;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue33FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value33Builder_) {
+    if (value33Builder_ == null) {
+      value33Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue33(),
+              null,
+              false);
+      instance.value33_ = null;
+    }
+    instance.bitField1_ |= 0x00000001;
+    return value33Builder_;
+  }
+  private static void parseValue33Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value33Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value33_ != null || value33Builder_ != null) {
+      value33Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value33_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00000001;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_34 = 34;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue34FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value34Builder_) {
+    if (value34Builder_ == null) {
+      value34Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue34(),
+              null,
+              false);
+      instance.value34_ = null;
+    }
+    instance.bitField1_ |= 0x00000002;
+    return value34Builder_;
+  }
+  private static void parseValue34Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value34Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value34_ != null || value34Builder_ != null) {
+      value34Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value34_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00000002;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_35 = 35;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue35FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value35Builder_) {
+    if (value35Builder_ == null) {
+      value35Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue35(),
+              null,
+              false);
+      instance.value35_ = null;
+    }
+    instance.bitField1_ |= 0x00000004;
+    return value35Builder_;
+  }
+  private static void parseValue35Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value35Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value35_ != null || value35Builder_ != null) {
+      value35Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value35_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00000004;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_36 = 36;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue36FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value36Builder_) {
+    if (value36Builder_ == null) {
+      value36Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue36(),
+              null,
+              false);
+      instance.value36_ = null;
+    }
+    instance.bitField1_ |= 0x00000008;
+    return value36Builder_;
+  }
+  private static void parseValue36Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value36Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value36_ != null || value36Builder_ != null) {
+      value36Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value36_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00000008;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_37 = 37;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue37FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value37Builder_) {
+    if (value37Builder_ == null) {
+      value37Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue37(),
+              null,
+              false);
+      instance.value37_ = null;
+    }
+    instance.bitField1_ |= 0x00000010;
+    return value37Builder_;
+  }
+  private static void parseValue37Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value37Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value37_ != null || value37Builder_ != null) {
+      value37Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value37_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00000010;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_38 = 38;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue38FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value38Builder_) {
+    if (value38Builder_ == null) {
+      value38Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue38(),
+              null,
+              false);
+      instance.value38_ = null;
+    }
+    instance.bitField1_ |= 0x00000020;
+    return value38Builder_;
+  }
+  private static void parseValue38Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value38Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value38_ != null || value38Builder_ != null) {
+      value38Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value38_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00000020;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_39 = 39;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue39FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value39Builder_) {
+    if (value39Builder_ == null) {
+      value39Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue39(),
+              null,
+              false);
+      instance.value39_ = null;
+    }
+    instance.bitField1_ |= 0x00000040;
+    return value39Builder_;
+  }
+  private static void parseValue39Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value39Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value39_ != null || value39Builder_ != null) {
+      value39Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value39_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00000040;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_40 = 40;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue40FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value40Builder_) {
+    if (value40Builder_ == null) {
+      value40Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue40(),
+              null,
+              false);
+      instance.value40_ = null;
+    }
+    instance.bitField1_ |= 0x00000080;
+    return value40Builder_;
+  }
+  private static void parseValue40Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value40Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value40_ != null || value40Builder_ != null) {
+      value40Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value40_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00000080;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_41 = 41;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue41FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value41Builder_) {
+    if (value41Builder_ == null) {
+      value41Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue41(),
+              null,
+              false);
+      instance.value41_ = null;
+    }
+    instance.bitField1_ |= 0x00000100;
+    return value41Builder_;
+  }
+  private static void parseValue41Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value41Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value41_ != null || value41Builder_ != null) {
+      value41Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value41_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00000100;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_42 = 42;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue42FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value42Builder_) {
+    if (value42Builder_ == null) {
+      value42Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue42(),
+              null,
+              false);
+      instance.value42_ = null;
+    }
+    instance.bitField1_ |= 0x00000200;
+    return value42Builder_;
+  }
+  private static void parseValue42Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value42Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value42_ != null || value42Builder_ != null) {
+      value42Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value42_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00000200;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_43 = 43;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue43FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value43Builder_) {
+    if (value43Builder_ == null) {
+      value43Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue43(),
+              null,
+              false);
+      instance.value43_ = null;
+    }
+    instance.bitField1_ |= 0x00000400;
+    return value43Builder_;
+  }
+  private static void parseValue43Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value43Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value43_ != null || value43Builder_ != null) {
+      value43Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value43_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00000400;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_44 = 44;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue44FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value44Builder_) {
+    if (value44Builder_ == null) {
+      value44Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue44(),
+              null,
+              false);
+      instance.value44_ = null;
+    }
+    instance.bitField1_ |= 0x00000800;
+    return value44Builder_;
+  }
+  private static void parseValue44Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value44Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value44_ != null || value44Builder_ != null) {
+      value44Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value44_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00000800;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_45 = 45;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue45FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value45Builder_) {
+    if (value45Builder_ == null) {
+      value45Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue45(),
+              null,
+              false);
+      instance.value45_ = null;
+    }
+    instance.bitField1_ |= 0x00001000;
+    return value45Builder_;
+  }
+  private static void parseValue45Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value45Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value45_ != null || value45Builder_ != null) {
+      value45Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value45_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00001000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_46 = 46;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue46FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value46Builder_) {
+    if (value46Builder_ == null) {
+      value46Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue46(),
+              null,
+              false);
+      instance.value46_ = null;
+    }
+    instance.bitField1_ |= 0x00002000;
+    return value46Builder_;
+  }
+  private static void parseValue46Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value46Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value46_ != null || value46Builder_ != null) {
+      value46Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value46_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00002000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_47 = 47;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue47FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value47Builder_) {
+    if (value47Builder_ == null) {
+      value47Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue47(),
+              null,
+              false);
+      instance.value47_ = null;
+    }
+    instance.bitField1_ |= 0x00004000;
+    return value47Builder_;
+  }
+  private static void parseValue47Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value47Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value47_ != null || value47Builder_ != null) {
+      value47Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value47_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00004000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_48 = 48;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue48FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value48Builder_) {
+    if (value48Builder_ == null) {
+      value48Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue48(),
+              null,
+              false);
+      instance.value48_ = null;
+    }
+    instance.bitField1_ |= 0x00008000;
+    return value48Builder_;
+  }
+  private static void parseValue48Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value48Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value48_ != null || value48Builder_ != null) {
+      value48Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value48_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00008000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_49 = 49;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue49FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value49Builder_) {
+    if (value49Builder_ == null) {
+      value49Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue49(),
+              null,
+              false);
+      instance.value49_ = null;
+    }
+    instance.bitField1_ |= 0x00010000;
+    return value49Builder_;
+  }
+  private static void parseValue49Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value49Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value49_ != null || value49Builder_ != null) {
+      value49Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value49_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00010000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_50 = 50;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue50FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value50Builder_) {
+    if (value50Builder_ == null) {
+      value50Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue50(),
+              null,
+              false);
+      instance.value50_ = null;
+    }
+    instance.bitField1_ |= 0x00020000;
+    return value50Builder_;
+  }
+  private static void parseValue50Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value50Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value50_ != null || value50Builder_ != null) {
+      value50Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value50_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00020000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_51 = 51;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue51FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value51Builder_) {
+    if (value51Builder_ == null) {
+      value51Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue51(),
+              null,
+              false);
+      instance.value51_ = null;
+    }
+    instance.bitField1_ |= 0x00040000;
+    return value51Builder_;
+  }
+  private static void parseValue51Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value51Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value51_ != null || value51Builder_ != null) {
+      value51Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value51_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00040000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_52 = 52;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue52FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value52Builder_) {
+    if (value52Builder_ == null) {
+      value52Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue52(),
+              null,
+              false);
+      instance.value52_ = null;
+    }
+    instance.bitField1_ |= 0x00080000;
+    return value52Builder_;
+  }
+  private static void parseValue52Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value52Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value52_ != null || value52Builder_ != null) {
+      value52Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value52_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00080000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_53 = 53;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue53FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value53Builder_) {
+    if (value53Builder_ == null) {
+      value53Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue53(),
+              null,
+              false);
+      instance.value53_ = null;
+    }
+    instance.bitField1_ |= 0x00100000;
+    return value53Builder_;
+  }
+  private static void parseValue53Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value53Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value53_ != null || value53Builder_ != null) {
+      value53Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value53_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00100000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_54 = 54;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue54FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value54Builder_) {
+    if (value54Builder_ == null) {
+      value54Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue54(),
+              null,
+              false);
+      instance.value54_ = null;
+    }
+    instance.bitField1_ |= 0x00200000;
+    return value54Builder_;
+  }
+  private static void parseValue54Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value54Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value54_ != null || value54Builder_ != null) {
+      value54Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value54_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00200000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_55 = 55;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue55FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value55Builder_) {
+    if (value55Builder_ == null) {
+      value55Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue55(),
+              null,
+              false);
+      instance.value55_ = null;
+    }
+    instance.bitField1_ |= 0x00400000;
+    return value55Builder_;
+  }
+  private static void parseValue55Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value55Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value55_ != null || value55Builder_ != null) {
+      value55Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value55_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00400000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_56 = 56;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue56FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value56Builder_) {
+    if (value56Builder_ == null) {
+      value56Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue56(),
+              null,
+              false);
+      instance.value56_ = null;
+    }
+    instance.bitField1_ |= 0x00800000;
+    return value56Builder_;
+  }
+  private static void parseValue56Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value56Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value56_ != null || value56Builder_ != null) {
+      value56Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value56_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x00800000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_57 = 57;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue57FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value57Builder_) {
+    if (value57Builder_ == null) {
+      value57Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue57(),
+              null,
+              false);
+      instance.value57_ = null;
+    }
+    instance.bitField1_ |= 0x01000000;
+    return value57Builder_;
+  }
+  private static void parseValue57Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value57Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value57_ != null || value57Builder_ != null) {
+      value57Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value57_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x01000000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_58 = 58;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue58FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value58Builder_) {
+    if (value58Builder_ == null) {
+      value58Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue58(),
+              null,
+              false);
+      instance.value58_ = null;
+    }
+    instance.bitField1_ |= 0x02000000;
+    return value58Builder_;
+  }
+  private static void parseValue58Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value58Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value58_ != null || value58Builder_ != null) {
+      value58Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value58_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x02000000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_59 = 59;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue59FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value59Builder_) {
+    if (value59Builder_ == null) {
+      value59Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue59(),
+              null,
+              false);
+      instance.value59_ = null;
+    }
+    instance.bitField1_ |= 0x04000000;
+    return value59Builder_;
+  }
+  private static void parseValue59Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value59Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value59_ != null || value59Builder_ != null) {
+      value59Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value59_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x04000000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_60 = 60;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue60FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value60Builder_) {
+    if (value60Builder_ == null) {
+      value60Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue60(),
+              null,
+              false);
+      instance.value60_ = null;
+    }
+    instance.bitField1_ |= 0x08000000;
+    return value60Builder_;
+  }
+  private static void parseValue60Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value60Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value60_ != null || value60Builder_ != null) {
+      value60Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value60_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x08000000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_61 = 61;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue61FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value61Builder_) {
+    if (value61Builder_ == null) {
+      value61Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue61(),
+              null,
+              false);
+      instance.value61_ = null;
+    }
+    instance.bitField1_ |= 0x10000000;
+    return value61Builder_;
+  }
+  private static void parseValue61Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value61Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value61_ != null || value61Builder_ != null) {
+      value61Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value61_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x10000000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_62 = 62;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue62FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value62Builder_) {
+    if (value62Builder_ == null) {
+      value62Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue62(),
+              null,
+              false);
+      instance.value62_ = null;
+    }
+    instance.bitField1_ |= 0x20000000;
+    return value62Builder_;
+  }
+  private static void parseValue62Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value62Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value62_ != null || value62Builder_ != null) {
+      value62Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value62_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x20000000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_63 = 63;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue63FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value63Builder_) {
+    if (value63Builder_ == null) {
+      value63Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue63(),
+              null,
+              false);
+      instance.value63_ = null;
+    }
+    instance.bitField1_ |= 0x40000000;
+    return value63Builder_;
+  }
+  private static void parseValue63Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value63Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value63_ != null || value63Builder_ != null) {
+      value63Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value63_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x40000000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_64 = 64;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue64FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value64Builder_) {
+    if (value64Builder_ == null) {
+      value64Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue64(),
+              null,
+              false);
+      instance.value64_ = null;
+    }
+    instance.bitField1_ |= 0x80000000;
+    return value64Builder_;
+  }
+  private static void parseValue64Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value64Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value64_ != null || value64Builder_ != null) {
+      value64Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value64_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField1_ |= 0x80000000;
+  }
+  /**
+   * <code>optional .generated_code_size_test.WideMessageOneof.Child value_65 = 65;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue65FieldBuilder(com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value65Builder_) {
+    if (value65Builder_ == null) {
+      value65Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              instance.getValue65(),
+              null,
+              false);
+      instance.value65_ = null;
+    }
+    instance.bitField2_ |= 0x00000001;
+    return value65Builder_;
+  }
+  private static void parseValue65Field(
+      com.google.protobuf.test.WideMessageFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value65Builder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.value65_ != null || value65Builder_ != null) {
+      value65Builder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.value65_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField2_ |= 0x00000001;
+  }
+  private static void buildPartial_autosplit_0(com.google.protobuf.test.WideMessageFields instance,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value1Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value2Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value3Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value4Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value5Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value6Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value7Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value8Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value9Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value10Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value11Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value12Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value13Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value14Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value15Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value16Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value17Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value18Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value19Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value20Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value21Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value22Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value23Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value24Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value25Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value26Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value27Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value28Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value29Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value30Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value31Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value32Builder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00000001) != 0)) instance.value1_ = null;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.value1_ = value1Builder_ == null
+          ? instance.value1_
+          : value1Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000002) != 0)) instance.value2_ = null;
+    if (((from_bitField0_ & 0x00000002) != 0)) {
+      instance.value2_ = value2Builder_ == null
+          ? instance.value2_
+          : value2Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000004) != 0)) instance.value3_ = null;
+    if (((from_bitField0_ & 0x00000004) != 0)) {
+      instance.value3_ = value3Builder_ == null
+          ? instance.value3_
+          : value3Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000008) != 0)) instance.value4_ = null;
+    if (((from_bitField0_ & 0x00000008) != 0)) {
+      instance.value4_ = value4Builder_ == null
+          ? instance.value4_
+          : value4Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000010) != 0)) instance.value5_ = null;
+    if (((from_bitField0_ & 0x00000010) != 0)) {
+      instance.value5_ = value5Builder_ == null
+          ? instance.value5_
+          : value5Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000020) != 0)) instance.value6_ = null;
+    if (((from_bitField0_ & 0x00000020) != 0)) {
+      instance.value6_ = value6Builder_ == null
+          ? instance.value6_
+          : value6Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000040) != 0)) instance.value7_ = null;
+    if (((from_bitField0_ & 0x00000040) != 0)) {
+      instance.value7_ = value7Builder_ == null
+          ? instance.value7_
+          : value7Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000080) != 0)) instance.value8_ = null;
+    if (((from_bitField0_ & 0x00000080) != 0)) {
+      instance.value8_ = value8Builder_ == null
+          ? instance.value8_
+          : value8Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000100) != 0)) instance.value9_ = null;
+    if (((from_bitField0_ & 0x00000100) != 0)) {
+      instance.value9_ = value9Builder_ == null
+          ? instance.value9_
+          : value9Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000200) != 0)) instance.value10_ = null;
+    if (((from_bitField0_ & 0x00000200) != 0)) {
+      instance.value10_ = value10Builder_ == null
+          ? instance.value10_
+          : value10Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000400) != 0)) instance.value11_ = null;
+    if (((from_bitField0_ & 0x00000400) != 0)) {
+      instance.value11_ = value11Builder_ == null
+          ? instance.value11_
+          : value11Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000800) != 0)) instance.value12_ = null;
+    if (((from_bitField0_ & 0x00000800) != 0)) {
+      instance.value12_ = value12Builder_ == null
+          ? instance.value12_
+          : value12Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00001000) != 0)) instance.value13_ = null;
+    if (((from_bitField0_ & 0x00001000) != 0)) {
+      instance.value13_ = value13Builder_ == null
+          ? instance.value13_
+          : value13Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00002000) != 0)) instance.value14_ = null;
+    if (((from_bitField0_ & 0x00002000) != 0)) {
+      instance.value14_ = value14Builder_ == null
+          ? instance.value14_
+          : value14Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00004000) != 0)) instance.value15_ = null;
+    if (((from_bitField0_ & 0x00004000) != 0)) {
+      instance.value15_ = value15Builder_ == null
+          ? instance.value15_
+          : value15Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00008000) != 0)) instance.value16_ = null;
+    if (((from_bitField0_ & 0x00008000) != 0)) {
+      instance.value16_ = value16Builder_ == null
+          ? instance.value16_
+          : value16Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00010000) != 0)) instance.value17_ = null;
+    if (((from_bitField0_ & 0x00010000) != 0)) {
+      instance.value17_ = value17Builder_ == null
+          ? instance.value17_
+          : value17Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00020000) != 0)) instance.value18_ = null;
+    if (((from_bitField0_ & 0x00020000) != 0)) {
+      instance.value18_ = value18Builder_ == null
+          ? instance.value18_
+          : value18Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00040000) != 0)) instance.value19_ = null;
+    if (((from_bitField0_ & 0x00040000) != 0)) {
+      instance.value19_ = value19Builder_ == null
+          ? instance.value19_
+          : value19Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00080000) != 0)) instance.value20_ = null;
+    if (((from_bitField0_ & 0x00080000) != 0)) {
+      instance.value20_ = value20Builder_ == null
+          ? instance.value20_
+          : value20Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00100000) != 0)) instance.value21_ = null;
+    if (((from_bitField0_ & 0x00100000) != 0)) {
+      instance.value21_ = value21Builder_ == null
+          ? instance.value21_
+          : value21Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00200000) != 0)) instance.value22_ = null;
+    if (((from_bitField0_ & 0x00200000) != 0)) {
+      instance.value22_ = value22Builder_ == null
+          ? instance.value22_
+          : value22Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00400000) != 0)) instance.value23_ = null;
+    if (((from_bitField0_ & 0x00400000) != 0)) {
+      instance.value23_ = value23Builder_ == null
+          ? instance.value23_
+          : value23Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x00800000) != 0)) instance.value24_ = null;
+    if (((from_bitField0_ & 0x00800000) != 0)) {
+      instance.value24_ = value24Builder_ == null
+          ? instance.value24_
+          : value24Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x01000000) != 0)) instance.value25_ = null;
+    if (((from_bitField0_ & 0x01000000) != 0)) {
+      instance.value25_ = value25Builder_ == null
+          ? instance.value25_
+          : value25Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x02000000) != 0)) instance.value26_ = null;
+    if (((from_bitField0_ & 0x02000000) != 0)) {
+      instance.value26_ = value26Builder_ == null
+          ? instance.value26_
+          : value26Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x04000000) != 0)) instance.value27_ = null;
+    if (((from_bitField0_ & 0x04000000) != 0)) {
+      instance.value27_ = value27Builder_ == null
+          ? instance.value27_
+          : value27Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x08000000) != 0)) instance.value28_ = null;
+    if (((from_bitField0_ & 0x08000000) != 0)) {
+      instance.value28_ = value28Builder_ == null
+          ? instance.value28_
+          : value28Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x10000000) != 0)) instance.value29_ = null;
+    if (((from_bitField0_ & 0x10000000) != 0)) {
+      instance.value29_ = value29Builder_ == null
+          ? instance.value29_
+          : value29Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x20000000) != 0)) instance.value30_ = null;
+    if (((from_bitField0_ & 0x20000000) != 0)) {
+      instance.value30_ = value30Builder_ == null
+          ? instance.value30_
+          : value30Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x40000000) != 0)) instance.value31_ = null;
+    if (((from_bitField0_ & 0x40000000) != 0)) {
+      instance.value31_ = value31Builder_ == null
+          ? instance.value31_
+          : value31Builder_.build();
+    }
+    if (!((from_bitField0_ & 0x80000000) != 0)) instance.value32_ = null;
+    if (((from_bitField0_ & 0x80000000) != 0)) {
+      instance.value32_ = value32Builder_ == null
+          ? instance.value32_
+          : value32Builder_.build();
+    }
+  }
+
+  private static void buildPartial_autosplit_1(com.google.protobuf.test.WideMessageFields instance,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value33Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value34Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value35Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value36Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value37Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value38Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value39Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value40Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value41Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value42Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value43Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value44Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value45Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value46Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value47Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value48Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value49Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value50Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value51Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value52Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value53Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value54Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value55Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value56Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value57Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value58Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value59Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value60Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value61Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value62Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value63Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value64Builder_) {
+    int from_bitField1_ = instance.bitField1_;
+    if (!((from_bitField1_ & 0x00000001) != 0)) instance.value33_ = null;
+    if (((from_bitField1_ & 0x00000001) != 0)) {
+      instance.value33_ = value33Builder_ == null
+          ? instance.value33_
+          : value33Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00000002) != 0)) instance.value34_ = null;
+    if (((from_bitField1_ & 0x00000002) != 0)) {
+      instance.value34_ = value34Builder_ == null
+          ? instance.value34_
+          : value34Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00000004) != 0)) instance.value35_ = null;
+    if (((from_bitField1_ & 0x00000004) != 0)) {
+      instance.value35_ = value35Builder_ == null
+          ? instance.value35_
+          : value35Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00000008) != 0)) instance.value36_ = null;
+    if (((from_bitField1_ & 0x00000008) != 0)) {
+      instance.value36_ = value36Builder_ == null
+          ? instance.value36_
+          : value36Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00000010) != 0)) instance.value37_ = null;
+    if (((from_bitField1_ & 0x00000010) != 0)) {
+      instance.value37_ = value37Builder_ == null
+          ? instance.value37_
+          : value37Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00000020) != 0)) instance.value38_ = null;
+    if (((from_bitField1_ & 0x00000020) != 0)) {
+      instance.value38_ = value38Builder_ == null
+          ? instance.value38_
+          : value38Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00000040) != 0)) instance.value39_ = null;
+    if (((from_bitField1_ & 0x00000040) != 0)) {
+      instance.value39_ = value39Builder_ == null
+          ? instance.value39_
+          : value39Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00000080) != 0)) instance.value40_ = null;
+    if (((from_bitField1_ & 0x00000080) != 0)) {
+      instance.value40_ = value40Builder_ == null
+          ? instance.value40_
+          : value40Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00000100) != 0)) instance.value41_ = null;
+    if (((from_bitField1_ & 0x00000100) != 0)) {
+      instance.value41_ = value41Builder_ == null
+          ? instance.value41_
+          : value41Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00000200) != 0)) instance.value42_ = null;
+    if (((from_bitField1_ & 0x00000200) != 0)) {
+      instance.value42_ = value42Builder_ == null
+          ? instance.value42_
+          : value42Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00000400) != 0)) instance.value43_ = null;
+    if (((from_bitField1_ & 0x00000400) != 0)) {
+      instance.value43_ = value43Builder_ == null
+          ? instance.value43_
+          : value43Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00000800) != 0)) instance.value44_ = null;
+    if (((from_bitField1_ & 0x00000800) != 0)) {
+      instance.value44_ = value44Builder_ == null
+          ? instance.value44_
+          : value44Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00001000) != 0)) instance.value45_ = null;
+    if (((from_bitField1_ & 0x00001000) != 0)) {
+      instance.value45_ = value45Builder_ == null
+          ? instance.value45_
+          : value45Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00002000) != 0)) instance.value46_ = null;
+    if (((from_bitField1_ & 0x00002000) != 0)) {
+      instance.value46_ = value46Builder_ == null
+          ? instance.value46_
+          : value46Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00004000) != 0)) instance.value47_ = null;
+    if (((from_bitField1_ & 0x00004000) != 0)) {
+      instance.value47_ = value47Builder_ == null
+          ? instance.value47_
+          : value47Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00008000) != 0)) instance.value48_ = null;
+    if (((from_bitField1_ & 0x00008000) != 0)) {
+      instance.value48_ = value48Builder_ == null
+          ? instance.value48_
+          : value48Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00010000) != 0)) instance.value49_ = null;
+    if (((from_bitField1_ & 0x00010000) != 0)) {
+      instance.value49_ = value49Builder_ == null
+          ? instance.value49_
+          : value49Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00020000) != 0)) instance.value50_ = null;
+    if (((from_bitField1_ & 0x00020000) != 0)) {
+      instance.value50_ = value50Builder_ == null
+          ? instance.value50_
+          : value50Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00040000) != 0)) instance.value51_ = null;
+    if (((from_bitField1_ & 0x00040000) != 0)) {
+      instance.value51_ = value51Builder_ == null
+          ? instance.value51_
+          : value51Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00080000) != 0)) instance.value52_ = null;
+    if (((from_bitField1_ & 0x00080000) != 0)) {
+      instance.value52_ = value52Builder_ == null
+          ? instance.value52_
+          : value52Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00100000) != 0)) instance.value53_ = null;
+    if (((from_bitField1_ & 0x00100000) != 0)) {
+      instance.value53_ = value53Builder_ == null
+          ? instance.value53_
+          : value53Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00200000) != 0)) instance.value54_ = null;
+    if (((from_bitField1_ & 0x00200000) != 0)) {
+      instance.value54_ = value54Builder_ == null
+          ? instance.value54_
+          : value54Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00400000) != 0)) instance.value55_ = null;
+    if (((from_bitField1_ & 0x00400000) != 0)) {
+      instance.value55_ = value55Builder_ == null
+          ? instance.value55_
+          : value55Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x00800000) != 0)) instance.value56_ = null;
+    if (((from_bitField1_ & 0x00800000) != 0)) {
+      instance.value56_ = value56Builder_ == null
+          ? instance.value56_
+          : value56Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x01000000) != 0)) instance.value57_ = null;
+    if (((from_bitField1_ & 0x01000000) != 0)) {
+      instance.value57_ = value57Builder_ == null
+          ? instance.value57_
+          : value57Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x02000000) != 0)) instance.value58_ = null;
+    if (((from_bitField1_ & 0x02000000) != 0)) {
+      instance.value58_ = value58Builder_ == null
+          ? instance.value58_
+          : value58Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x04000000) != 0)) instance.value59_ = null;
+    if (((from_bitField1_ & 0x04000000) != 0)) {
+      instance.value59_ = value59Builder_ == null
+          ? instance.value59_
+          : value59Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x08000000) != 0)) instance.value60_ = null;
+    if (((from_bitField1_ & 0x08000000) != 0)) {
+      instance.value60_ = value60Builder_ == null
+          ? instance.value60_
+          : value60Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x10000000) != 0)) instance.value61_ = null;
+    if (((from_bitField1_ & 0x10000000) != 0)) {
+      instance.value61_ = value61Builder_ == null
+          ? instance.value61_
+          : value61Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x20000000) != 0)) instance.value62_ = null;
+    if (((from_bitField1_ & 0x20000000) != 0)) {
+      instance.value62_ = value62Builder_ == null
+          ? instance.value62_
+          : value62Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x40000000) != 0)) instance.value63_ = null;
+    if (((from_bitField1_ & 0x40000000) != 0)) {
+      instance.value63_ = value63Builder_ == null
+          ? instance.value63_
+          : value63Builder_.build();
+    }
+    if (!((from_bitField1_ & 0x80000000) != 0)) instance.value64_ = null;
+    if (((from_bitField1_ & 0x80000000) != 0)) {
+      instance.value64_ = value64Builder_ == null
+          ? instance.value64_
+          : value64Builder_.build();
+    }
+  }
+
+  private static void buildPartial_autosplit_2(com.google.protobuf.test.WideMessageFields instance,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value65Builder_) {
+    int from_bitField2_ = instance.bitField2_;
+    if (!((from_bitField2_ & 0x00000001) != 0)) instance.value65_ = null;
+    if (((from_bitField2_ & 0x00000001) != 0)) {
+      instance.value65_ = value65Builder_ == null
+          ? instance.value65_
+          : value65Builder_.build();
+    }
+  }
+
   private static final com.google.protobuf.Parser<WideMessageFields>
-      PARSER = new com.google.protobuf.AbstractParser<WideMessageFields>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<WideMessageFields> {
+    MessageParser() {}
+
     @java.lang.Override
     public WideMessageFields parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return WideMessageFields.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(WideMessageFields instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<WideMessageFields> parser() {
     return PARSER;

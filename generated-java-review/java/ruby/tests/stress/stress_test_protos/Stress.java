@@ -381,15 +381,28 @@ public final class Stress extends com.google.protobuf.GeneratedFile {
                 stress_test_protos.Stress.TestMessage.class, stress_test_protos.Stress.TestMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using stress_test_protos.Stress.TestMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        b_ = emptyList(stress_test_protos.Stress.M.class);
+      }
+      private Builder(stress_test_protos.Stress.TestMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -436,7 +449,7 @@ public final class Stress extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(stress_test_protos.Stress.TestMessage result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.a_ = a_;
           to_bitField0_ |= 0x00000001;
@@ -450,6 +463,19 @@ public final class Stress extends com.google.protobuf.GeneratedFile {
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(stress_test_protos.Stress.TestMessage other, java.lang.Object[] parserLocals) {
+        a_ = other.getA();
+        b_ = other.b_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            bBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<stress_test_protos.Stress.M, stress_test_protos.Stress.M.Builder, stress_test_protos.Stress.MOrBuilder>) parserLocals[0]);
+            b_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -555,7 +581,7 @@ public final class Stress extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int a_ ;
+      private int a_;
       /**
        * <code>optional int32 a = 1;</code>
        * @return Whether the a field is set.
@@ -595,8 +621,7 @@ public final class Stress extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<stress_test_protos.Stress.M> b_ =
-          emptyList(stress_test_protos.Stress.M.class);
+      private com.google.protobuf.Internal.ProtobufList<stress_test_protos.Stress.M> b_;
       private void ensureBIsMutable() {
         if (!b_.isModifiable()) {
           b_ = makeMutableCopy(b_);
@@ -842,22 +867,101 @@ public final class Stress extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static TestMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestMessage instance = new TestMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      com.google.protobuf.RepeatedFieldBuilder<stress_test_protos.Stress.M, stress_test_protos.Stress.M.Builder, stress_test_protos.Stress.MOrBuilder> bBuilder_ = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.a_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              stress_test_protos.Stress.M m = stress_test_protos.Stress.M.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (bBuilder_ == null) {
+                ensureBIsMutable(instance);
+                instance.b_.add(m);
+              } else {
+                bBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000002;
+
+              }
+              break;
+            } // case 18
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, bBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureBIsMutable(stress_test_protos.Stress.TestMessage instance) {
+      if (!instance.b_.isModifiable()) {
+        instance.b_ = makeMutableCopy(instance.b_);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static void buildPartial_autosplit_0(stress_test_protos.Stress.TestMessage instance,
+        com.google.protobuf.RepeatedFieldBuilder<stress_test_protos.Stress.M, stress_test_protos.Stress.M.Builder, stress_test_protos.Stress.MOrBuilder> bBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (bBuilder_ == null) {
+        instance.b_.makeImmutable();
+      } else {
+        instance.b_ = bBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestMessage>
-        PARSER = new com.google.protobuf.AbstractParser<TestMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestMessage> parser() {
       return PARSER;
@@ -1172,15 +1276,28 @@ public final class Stress extends com.google.protobuf.GeneratedFile {
                 stress_test_protos.Stress.M.class, stress_test_protos.Stress.M.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using stress_test_protos.Stress.M.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        foo_ = "";
+      }
+      private Builder(stress_test_protos.Stress.M other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -1220,12 +1337,17 @@ public final class Stress extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(stress_test_protos.Stress.M result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.foo_ = foo_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(stress_test_protos.Stress.M other, java.lang.Object[] parserLocals) {
+        foo_ = other.foo_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1291,7 +1413,7 @@ public final class Stress extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private java.lang.Object foo_ = "";
+      private java.lang.Object foo_;
       /**
        * <code>optional string foo = 1;</code>
        * @return Whether the foo field is set.
@@ -1383,22 +1505,67 @@ public final class Stress extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static M parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      M instance = new M((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.foo_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<M>
-        PARSER = new com.google.protobuf.AbstractParser<M>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<M> {
+      MessageParser() {}
+
       @java.lang.Override
       public M parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return M.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(M instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<M> parser() {
       return PARSER;

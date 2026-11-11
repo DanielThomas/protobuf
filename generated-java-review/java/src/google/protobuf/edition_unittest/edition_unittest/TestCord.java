@@ -26,6 +26,7 @@ private static final long serialVersionUID = 0L;
   // Use TestCord.newBuilder() to construct.
   private TestCord(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
     super(builder);
+    optionalBytesCordDefault_ = DEFAULT_INSTANCE.optionalBytesCordDefault_;
   }
   private TestCord() {
     optionalBytesCord_ = com.google.protobuf.ByteString.EMPTY;
@@ -71,7 +72,7 @@ private static final long serialVersionUID = 0L;
   }
 
   public static final int OPTIONAL_BYTES_CORD_DEFAULT_FIELD_NUMBER = 2;
-  private com.google.protobuf.ByteString optionalBytesCordDefault_ = com.google.protobuf.Internal.bytesDefaultValue("hello");
+  private com.google.protobuf.ByteString optionalBytesCordDefault_;
   /**
    * <code>bytes optional_bytes_cord_default = 2 [default = "hello", features = { ... }</code>
    * @return Whether the optionalBytesCordDefault field is set.
@@ -291,22 +292,36 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestCord.class, edition_unittest.TestCord.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestCord.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      optionalBytesCord_ = com.google.protobuf.ByteString.EMPTY;
+      optionalBytesCordDefault_ = getDefaultInstance().getOptionalBytesCordDefault();
+    }
+    private Builder(edition_unittest.TestCord other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
       super.clear();
       bitField0_ = 0;
       optionalBytesCord_ = com.google.protobuf.ByteString.EMPTY;
-      optionalBytesCordDefault_ = com.google.protobuf.Internal.bytesDefaultValue("hello");
+      optionalBytesCordDefault_ = getDefaultInstance().getOptionalBytesCordDefault();
       return this;
     }
 
@@ -340,7 +355,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(edition_unittest.TestCord result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.optionalBytesCord_ = optionalBytesCord_;
         to_bitField0_ |= 0x00000001;
@@ -350,6 +365,12 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000002;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(edition_unittest.TestCord other, java.lang.Object[] parserLocals) {
+      optionalBytesCord_ = other.getOptionalBytesCord();
+      optionalBytesCordDefault_ = other.getOptionalBytesCordDefault();
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -421,7 +442,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.ByteString optionalBytesCord_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString optionalBytesCord_;
     /**
      * <code>bytes optional_bytes_cord = 1 [features = { ... }</code>
      * @return Whether the optionalBytesCord field is set.
@@ -461,7 +482,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.ByteString optionalBytesCordDefault_ = com.google.protobuf.Internal.bytesDefaultValue("hello");
+    private com.google.protobuf.ByteString optionalBytesCordDefault_;
     /**
      * <code>bytes optional_bytes_cord_default = 2 [default = "hello", features = { ... }</code>
      * @return Whether the optionalBytesCordDefault field is set.
@@ -514,22 +535,72 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static TestCord parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    TestCord instance = new TestCord((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            instance.optionalBytesCord_ = input.readBytes();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 10
+          case 18: {
+            instance.optionalBytesCordDefault_ = input.readBytes();
+            instance.bitField0_ |= 0x00000002;
+            break;
+          } // case 18
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
   private static final com.google.protobuf.Parser<TestCord>
-      PARSER = new com.google.protobuf.AbstractParser<TestCord>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestCord> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestCord parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return TestCord.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(TestCord instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<TestCord> parser() {
     return PARSER;

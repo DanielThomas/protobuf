@@ -229,9 +229,16 @@ private static final long serialVersionUID = 0L;
               proto2_unittest.TestCachedFieldSizeMessage.class, proto2_unittest.TestCachedFieldSizeMessage.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using proto2_unittest.TestCachedFieldSizeMessage.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
@@ -293,7 +300,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(proto2_unittest.TestCachedFieldSizeMessage result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.proto2Child_ = proto2ChildBuilder_ == null
             ? proto2Child_
@@ -430,7 +437,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (proto2Child_ != null || proto2ChildBuilder_ != null) {
-        internalGetProto2ChildFieldBuilder().getBuilder()
+        internalGetProto2ChildFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         proto2Child_ = proto2_unittest.UnittestProto.TestPackedTypes.parser().parsePartialFrom(input, extensionRegistry);
@@ -558,7 +565,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (proto3Child_ != null || proto3ChildBuilder_ != null) {
-        internalGetProto3ChildFieldBuilder().getBuilder()
+        internalGetProto3ChildFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         proto3Child_ = proto3_unittest.UnittestProto3.TestPackedTypes.parser().parsePartialFrom(input, extensionRegistry);

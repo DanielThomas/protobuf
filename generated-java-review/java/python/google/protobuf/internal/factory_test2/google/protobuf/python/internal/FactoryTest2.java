@@ -457,6 +457,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
     // Use Factory2Message.newBuilder() to construct.
     private Factory2Message(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      bytesWithDefault_ = DEFAULT_INSTANCE.bytesWithDefault_;
     }
     private Factory2Message() {
       factory2Enum_ = 0;
@@ -896,15 +897,28 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
                   google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message.class, google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+          value_ = "";
+        }
+        private Builder(google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         @java.lang.Override
         public Builder clear() {
@@ -944,12 +958,17 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
 
         private void buildPartial_autosplit_0(google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.value_ = value_;
             to_bitField0_ |= 0x00000001;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message other, java.lang.Object[] parserLocals) {
+          value_ = other.value_;
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -1015,7 +1034,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         }
         private int bitField0_;
 
-        private java.lang.Object value_ = "";
+        private java.lang.Object value_;
         /**
          * <code>optional string value = 1;</code>
          * @return Whether the value field is set.
@@ -1108,22 +1127,67 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         return DEFAULT_INSTANCE;
       }
 
+      static NestedFactory2Message parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        NestedFactory2Message instance = new NestedFactory2Message((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                instance.value_ = input.readBytes();
+                instance.bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<NestedFactory2Message>
-          PARSER = new com.google.protobuf.AbstractParser<NestedFactory2Message>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<NestedFactory2Message> {
+        MessageParser() {}
+
         @java.lang.Override
         public NestedFactory2Message parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return NestedFactory2Message.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(NestedFactory2Message instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<NestedFactory2Message> parser() {
         return PARSER;
@@ -1522,15 +1586,29 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
                   google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped.class, google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+          part1_ = "";
+          part2_ = "";
+        }
+        private Builder(google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         @java.lang.Override
         public Builder clear() {
@@ -1571,7 +1649,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
 
         private void buildPartial_autosplit_0(google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.part1_ = part1_;
             to_bitField0_ |= 0x00000001;
@@ -1581,6 +1659,12 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
             to_bitField0_ |= 0x00000002;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped other, java.lang.Object[] parserLocals) {
+          part1_ = other.part1_;
+          part2_ = other.part2_;
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -1656,7 +1740,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         }
         private int bitField0_;
 
-        private java.lang.Object part1_ = "";
+        private java.lang.Object part1_;
         /**
          * <code>optional string part_1 = 13;</code>
          * @return Whether the part1 field is set.
@@ -1736,7 +1820,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
           return this;
         }
 
-        private java.lang.Object part2_ = "";
+        private java.lang.Object part2_;
         /**
          * <code>optional string part_2 = 14;</code>
          * @return Whether the part2 field is set.
@@ -1829,22 +1913,72 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         return DEFAULT_INSTANCE;
       }
 
+      static Grouped parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Grouped instance = new Grouped((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 106: {
+                instance.part1_ = input.readBytes();
+                instance.bitField0_ |= 0x00000001;
+                break;
+              } // case 106
+              case 114: {
+                instance.part2_ = input.readBytes();
+                instance.bitField0_ |= 0x00000002;
+                break;
+              } // case 114
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<Grouped>
-          PARSER = new com.google.protobuf.AbstractParser<Grouped>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<Grouped> {
+        MessageParser() {}
+
         @java.lang.Override
         public Grouped parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return Grouped.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(Grouped instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<Grouped> parser() {
         return PARSER;
@@ -2425,7 +2559,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
     }
 
     public static final int BYTES_WITH_DEFAULT_FIELD_NUMBER = 21;
-    private com.google.protobuf.ByteString bytesWithDefault_ = com.google.protobuf.Internal.bytesDefaultValue("a\373\000c");
+    private com.google.protobuf.ByteString bytesWithDefault_;
     /**
      * <code>optional bytes bytes_with_default = 21 [default = "a&#92;373&#92;000c"];</code>
      * @return Whether the bytesWithDefault field is set.
@@ -3043,15 +3177,41 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
                 google.protobuf.python.internal.FactoryTest2.Factory2Message.class, google.protobuf.python.internal.FactoryTest2.Factory2Message.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.FactoryTest2.Factory2Message.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        factory2Enum_ = 0;
+        nestedFactory2Enum_ = 0;
+        factory1Enum_ = 0;
+        nestedFactory1Enum_ = 0;
+        scalarValue_ = "";
+        listValue_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        grouped_ = emptyList(google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped.class);
+        intWithDefault_ = 1776;
+        doubleWithDefault_ = 9.99D;
+        stringWithDefault_ = "hello world";
+        enumWithDefault_ = 1;
+        bytesWithDefault_ = getDefaultInstance().getBytesWithDefault();
         maybeForceBuilderInitialization();
+      }
+      private Builder(google.protobuf.python.internal.FactoryTest2.Factory2Message other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -3113,7 +3273,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         stringWithDefault_ = "hello world";
         boolWithDefault_ = false;
         enumWithDefault_ = 1;
-        bytesWithDefault_ = com.google.protobuf.Internal.bytesDefaultValue("a\373\000c");
+        bytesWithDefault_ = getDefaultInstance().getBytesWithDefault();
         oneofFieldCase_ = 0;
         oneofField_ = null;
         bitField0_ = (bitField0_ & ~0x00180000);
@@ -3150,7 +3310,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(google.protobuf.python.internal.FactoryTest2.Factory2Message result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.mandatory_ = mandatory_;
           to_bitField0_ |= 0x00000001;
@@ -3247,6 +3407,58 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
           result.oneofField_ = oneofField_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(google.protobuf.python.internal.FactoryTest2.Factory2Message other, java.lang.Object[] parserLocals) {
+        mandatory_ = other.getMandatory();
+        factory2Enum_ = other.factory2Enum_;
+        nestedFactory2Enum_ = other.nestedFactory2Enum_;
+        nestedFactory2Message_ = other.nestedFactory2Message_;
+        factory1Message_ = other.factory1Message_;
+        factory1Enum_ = other.factory1Enum_;
+        nestedFactory1Enum_ = other.nestedFactory1Enum_;
+        nestedFactory1Message_ = other.nestedFactory1Message_;
+        circularMessage_ = other.circularMessage_;
+        scalarValue_ = other.scalarValue_;
+        loop_ = other.loop_;
+        intWithDefault_ = other.getIntWithDefault();
+        doubleWithDefault_ = other.getDoubleWithDefault();
+        stringWithDefault_ = other.stringWithDefault_;
+        boolWithDefault_ = other.getBoolWithDefault();
+        enumWithDefault_ = other.enumWithDefault_;
+        bytesWithDefault_ = other.getBytesWithDefault();
+        listValue_ = other.listValue_;
+        grouped_ = other.grouped_;
+        oneofFieldCase_ = other.oneofFieldCase_;
+        oneofField_ = other.oneofField_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            nestedFactory2MessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2MessageOrBuilder>) parserLocals[0]);
+            nestedFactory2Message_ = null;
+          }
+          if (parserLocals[1] != null) {
+            factory1MessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest1.Factory1Message, google.protobuf.python.internal.FactoryTest1.Factory1Message.Builder, google.protobuf.python.internal.FactoryTest1.Factory1MessageOrBuilder>) parserLocals[1]);
+            factory1Message_ = null;
+          }
+          if (parserLocals[2] != null) {
+            nestedFactory1MessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Message, google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Message.Builder, google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1MessageOrBuilder>) parserLocals[2]);
+            nestedFactory1Message_ = null;
+          }
+          if (parserLocals[3] != null) {
+            circularMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2MessageOrBuilder>) parserLocals[3]);
+            circularMessage_ = null;
+          }
+          if (parserLocals[4] != null) {
+            groupedBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped, google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped.Builder, google.protobuf.python.internal.FactoryTest2.Factory2Message.GroupedOrBuilder>) parserLocals[4]);
+            grouped_ = null;
+          }
+          if (parserLocals[5] != null) {
+            loopBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.LoopMessage, google.protobuf.python.internal.FactoryTest2.LoopMessage.Builder, google.protobuf.python.internal.FactoryTest2.LoopMessageOrBuilder>) parserLocals[5]);
+            loop_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -3575,7 +3787,35 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         } // finally
         return this;
       }
-      private int oneofFieldCase_ = 0;
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 34: {
+            parseNestedFactory2MessageField(input, extensionRegistry);
+            return true;
+          } // case 34
+          case 42: {
+            parseFactory1MessageField(input, extensionRegistry);
+            return true;
+          } // case 42
+          case 66: {
+            parseNestedFactory1MessageField(input, extensionRegistry);
+            return true;
+          } // case 66
+          case 74: {
+            parseCircularMessageField(input, extensionRegistry);
+            return true;
+          } // case 74
+          case 122: {
+            parseLoopField(input, extensionRegistry);
+            return true;
+          } // case 122
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
+      private int oneofFieldCase_;
       private java.lang.Object oneofField_;
       public OneofFieldCase
           getOneofFieldCase() {
@@ -3598,7 +3838,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
 
       private int bitField0_;
 
-      private int mandatory_ ;
+      private int mandatory_;
       /**
        * <code>optional int32 mandatory = 1;</code>
        * @return Whether the mandatory field is set.
@@ -3638,7 +3878,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int factory2Enum_ = 0;
+      private int factory2Enum_;
       /**
        * <code>optional .google.protobuf.python.internal.Factory2Enum factory_2_enum = 2;</code>
        * @return Whether the factory2Enum field is set.
@@ -3678,7 +3918,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int nestedFactory2Enum_ = 0;
+      private int nestedFactory2Enum_;
       /**
        * <code>optional .google.protobuf.python.internal.Factory2Message.NestedFactory2Enum nested_factory_2_enum = 3;</code>
        * @return Whether the nestedFactory2Enum field is set.
@@ -3837,7 +4077,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (nestedFactory2Message_ != null || nestedFactory2MessageBuilder_ != null) {
-          internalGetNestedFactory2MessageFieldBuilder().getBuilder()
+          internalGetNestedFactory2MessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           nestedFactory2Message_ = google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message.parser().parsePartialFrom(input, extensionRegistry);
@@ -3965,7 +4205,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (factory1Message_ != null || factory1MessageBuilder_ != null) {
-          internalGetFactory1MessageFieldBuilder().getBuilder()
+          internalGetFactory1MessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           factory1Message_ = google.protobuf.python.internal.FactoryTest1.Factory1Message.parser().parsePartialFrom(input, extensionRegistry);
@@ -3974,7 +4214,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         bitField0_ |= 0x00000010;
       }
 
-      private int factory1Enum_ = 0;
+      private int factory1Enum_;
       /**
        * <code>optional .google.protobuf.python.internal.Factory1Enum factory_1_enum = 6;</code>
        * @return Whether the factory1Enum field is set.
@@ -4014,7 +4254,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int nestedFactory1Enum_ = 0;
+      private int nestedFactory1Enum_;
       /**
        * <code>optional .google.protobuf.python.internal.Factory1Message.NestedFactory1Enum nested_factory_1_enum = 7;</code>
        * @return Whether the nestedFactory1Enum field is set.
@@ -4173,7 +4413,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (nestedFactory1Message_ != null || nestedFactory1MessageBuilder_ != null) {
-          internalGetNestedFactory1MessageFieldBuilder().getBuilder()
+          internalGetNestedFactory1MessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           nestedFactory1Message_ = google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Message.parser().parsePartialFrom(input, extensionRegistry);
@@ -4301,7 +4541,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (circularMessage_ != null || circularMessageBuilder_ != null) {
-          internalGetCircularMessageFieldBuilder().getBuilder()
+          internalGetCircularMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           circularMessage_ = google.protobuf.python.internal.FactoryTest2.Factory2Message.parser().parsePartialFrom(input, extensionRegistry);
@@ -4310,7 +4550,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         bitField0_ |= 0x00000100;
       }
 
-      private java.lang.Object scalarValue_ = "";
+      private java.lang.Object scalarValue_;
       /**
        * <code>optional string scalar_value = 10;</code>
        * @return Whether the scalarValue field is set.
@@ -4390,8 +4630,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList listValue_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList listValue_;
       private void ensureListValueIsMutable() {
         if (!listValue_.isModifiable()) {
           listValue_ = new com.google.protobuf.LazyStringArrayList(listValue_);
@@ -4500,8 +4739,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped> grouped_ =
-          emptyList(google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped.class);
+      private com.google.protobuf.Internal.ProtobufList<google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped> grouped_;
       private void ensureGroupedIsMutable() {
         if (!grouped_.isModifiable()) {
           grouped_ = makeMutableCopy(grouped_);
@@ -4853,7 +5091,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (loop_ != null || loopBuilder_ != null) {
-          internalGetLoopFieldBuilder().getBuilder()
+          internalGetLoopFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           loop_ = google.protobuf.python.internal.FactoryTest2.LoopMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -4862,7 +5100,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         bitField0_ |= 0x00000400;
       }
 
-      private int intWithDefault_ = 1776;
+      private int intWithDefault_;
       /**
        * <code>optional int32 int_with_default = 16 [default = 1776];</code>
        * @return Whether the intWithDefault field is set.
@@ -4902,7 +5140,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private double doubleWithDefault_ = 9.99D;
+      private double doubleWithDefault_;
       /**
        * <code>optional double double_with_default = 17 [default = 9.99];</code>
        * @return Whether the doubleWithDefault field is set.
@@ -4942,7 +5180,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private java.lang.Object stringWithDefault_ = "hello world";
+      private java.lang.Object stringWithDefault_;
       /**
        * <code>optional string string_with_default = 18 [default = "hello world"];</code>
        * @return Whether the stringWithDefault field is set.
@@ -5022,7 +5260,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private boolean boolWithDefault_ ;
+      private boolean boolWithDefault_;
       /**
        * <code>optional bool bool_with_default = 19 [default = false];</code>
        * @return Whether the boolWithDefault field is set.
@@ -5062,7 +5300,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int enumWithDefault_ = 1;
+      private int enumWithDefault_;
       /**
        * <code>optional .google.protobuf.python.internal.Factory2Enum enum_with_default = 20 [default = FACTORY_2_VALUE_1];</code>
        * @return Whether the enumWithDefault field is set.
@@ -5102,7 +5340,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.ByteString bytesWithDefault_ = com.google.protobuf.Internal.bytesDefaultValue("a\373\000c");
+      private com.google.protobuf.ByteString bytesWithDefault_;
       /**
        * <code>optional bytes bytes_with_default = 21 [default = "a&#92;373&#92;000c"];</code>
        * @return Whether the bytesWithDefault field is set.
@@ -5342,22 +5580,531 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static Factory2Message parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Factory2Message instance = new Factory2Message((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2MessageOrBuilder> nestedFactory2MessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest1.Factory1Message, google.protobuf.python.internal.FactoryTest1.Factory1Message.Builder, google.protobuf.python.internal.FactoryTest1.Factory1MessageOrBuilder> factory1MessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Message, google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Message.Builder, google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1MessageOrBuilder> nestedFactory1MessageBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2MessageOrBuilder> circularMessageBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped, google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped.Builder, google.protobuf.python.internal.FactoryTest2.Factory2Message.GroupedOrBuilder> groupedBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.LoopMessage, google.protobuf.python.internal.FactoryTest2.LoopMessage.Builder, google.protobuf.python.internal.FactoryTest2.LoopMessageOrBuilder> loopBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        nestedFactory2MessageBuilder_ = internalGetNestedFactory2MessageFieldBuilder(instance, nestedFactory2MessageBuilder_);
+        factory1MessageBuilder_ = internalGetFactory1MessageFieldBuilder(instance, factory1MessageBuilder_);
+        nestedFactory1MessageBuilder_ = internalGetNestedFactory1MessageFieldBuilder(instance, nestedFactory1MessageBuilder_);
+        circularMessageBuilder_ = internalGetCircularMessageFieldBuilder(instance, circularMessageBuilder_);
+        groupedBuilder_ = internalGetGroupedFieldBuilder(instance, groupedBuilder_);
+        loopBuilder_ = internalGetLoopFieldBuilder(instance, loopBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.mandatory_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              int tmpRaw = input.readEnum();
+              google.protobuf.python.internal.FactoryTest2.Factory2Enum tmpValue =
+                  google.protobuf.python.internal.FactoryTest2.Factory2Enum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 2, tmpRaw);
+              } else {
+                instance.factory2Enum_ = tmpRaw;
+                instance.bitField0_ |= 0x00000002;
+              }
+              break;
+            } // case 16
+            case 24: {
+              int tmpRaw = input.readEnum();
+              google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Enum tmpValue =
+                  google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Enum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 3, tmpRaw);
+              } else {
+                instance.nestedFactory2Enum_ = tmpRaw;
+                instance.bitField0_ |= 0x00000004;
+              }
+              break;
+            } // case 24
+            case 34: {
+              if (instance.nestedFactory2Message_ != null || nestedFactory2MessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseNestedFactory2MessageField(instance, input, extensionRegistry, nestedFactory2MessageBuilder_);
+              break;
+            } // case 34
+            case 42: {
+              if (instance.factory1Message_ != null || factory1MessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseFactory1MessageField(instance, input, extensionRegistry, factory1MessageBuilder_);
+              break;
+            } // case 42
+            case 48: {
+              int tmpRaw = input.readEnum();
+              google.protobuf.python.internal.FactoryTest1.Factory1Enum tmpValue =
+                  google.protobuf.python.internal.FactoryTest1.Factory1Enum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 6, tmpRaw);
+              } else {
+                instance.factory1Enum_ = tmpRaw;
+                instance.bitField0_ |= 0x00000020;
+              }
+              break;
+            } // case 48
+            case 56: {
+              int tmpRaw = input.readEnum();
+              google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Enum tmpValue =
+                  google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Enum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 7, tmpRaw);
+              } else {
+                instance.nestedFactory1Enum_ = tmpRaw;
+                instance.bitField0_ |= 0x00000040;
+              }
+              break;
+            } // case 56
+            case 66: {
+              if (instance.nestedFactory1Message_ != null || nestedFactory1MessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseNestedFactory1MessageField(instance, input, extensionRegistry, nestedFactory1MessageBuilder_);
+              break;
+            } // case 66
+            case 74: {
+              if (instance.circularMessage_ != null || circularMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseCircularMessageField(instance, input, extensionRegistry, circularMessageBuilder_);
+              break;
+            } // case 74
+            case 82: {
+              instance.scalarValue_ = input.readBytes();
+              instance.bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureListValueIsMutable(instance);
+              instance.listValue_.add(bs);
+              break;
+            } // case 90
+            case 99: {
+              google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped m =
+                  input.readGroup(12,
+                      google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped.parser(),
+                      extensionRegistry);
+              if (groupedBuilder_ == null) {
+                ensureGroupedIsMutable(instance);
+                instance.grouped_.add(m);
+              } else {
+                groupedBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00040000;
+
+              }
+              break;
+            } // case 99
+            case 122: {
+              if (instance.loop_ != null || loopBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseLoopField(instance, input, extensionRegistry, loopBuilder_);
+              break;
+            } // case 122
+            case 128: {
+              instance.intWithDefault_ = input.readInt32();
+              instance.bitField0_ |= 0x00000800;
+              break;
+            } // case 128
+            case 137: {
+              instance.doubleWithDefault_ = input.readDouble();
+              instance.bitField0_ |= 0x00001000;
+              break;
+            } // case 137
+            case 146: {
+              instance.stringWithDefault_ = input.readBytes();
+              instance.bitField0_ |= 0x00002000;
+              break;
+            } // case 146
+            case 152: {
+              instance.boolWithDefault_ = input.readBool();
+              instance.bitField0_ |= 0x00004000;
+              break;
+            } // case 152
+            case 160: {
+              int tmpRaw = input.readEnum();
+              google.protobuf.python.internal.FactoryTest2.Factory2Enum tmpValue =
+                  google.protobuf.python.internal.FactoryTest2.Factory2Enum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknown = com.google.protobuf.GeneratedMessageParser.mergeUnknownVarintField(unknown, 20, tmpRaw);
+              } else {
+                instance.enumWithDefault_ = tmpRaw;
+                instance.bitField0_ |= 0x00008000;
+              }
+              break;
+            } // case 160
+            case 170: {
+              instance.bytesWithDefault_ = input.readBytes();
+              instance.bitField0_ |= 0x00010000;
+              break;
+            } // case 170
+            case 176: {
+              parseOneofInt(instance, input);
+              break;
+            } // case 176
+            case 186: {
+              parseOneofString(instance, input);
+              break;
+            } // case 186
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {nestedFactory2MessageBuilder_, factory1MessageBuilder_, nestedFactory1MessageBuilder_, circularMessageBuilder_, groupedBuilder_, loopBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, nestedFactory2MessageBuilder_, factory1MessageBuilder_, nestedFactory1MessageBuilder_, circularMessageBuilder_, groupedBuilder_, loopBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional .google.protobuf.python.internal.Factory2Message.NestedFactory2Message nested_factory_2_message = 4;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2MessageOrBuilder> 
+        internalGetNestedFactory2MessageFieldBuilder(google.protobuf.python.internal.FactoryTest2.Factory2Message instance, com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2MessageOrBuilder> nestedFactory2MessageBuilder_) {
+      if (nestedFactory2MessageBuilder_ == null) {
+        nestedFactory2MessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2MessageOrBuilder>(
+                instance.getNestedFactory2Message(),
+                null,
+                false);
+        instance.nestedFactory2Message_ = null;
+      }
+      instance.bitField0_ |= 0x00000008;
+      return nestedFactory2MessageBuilder_;
+    }
+    private static void parseNestedFactory2MessageField(
+        google.protobuf.python.internal.FactoryTest2.Factory2Message instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2MessageOrBuilder> nestedFactory2MessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.nestedFactory2Message_ != null || nestedFactory2MessageBuilder_ != null) {
+        nestedFactory2MessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.nestedFactory2Message_ = google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000008;
+    }
+    /**
+     * <code>optional .google.protobuf.python.internal.Factory1Message factory_1_message = 5;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        google.protobuf.python.internal.FactoryTest1.Factory1Message, google.protobuf.python.internal.FactoryTest1.Factory1Message.Builder, google.protobuf.python.internal.FactoryTest1.Factory1MessageOrBuilder> 
+        internalGetFactory1MessageFieldBuilder(google.protobuf.python.internal.FactoryTest2.Factory2Message instance, com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest1.Factory1Message, google.protobuf.python.internal.FactoryTest1.Factory1Message.Builder, google.protobuf.python.internal.FactoryTest1.Factory1MessageOrBuilder> factory1MessageBuilder_) {
+      if (factory1MessageBuilder_ == null) {
+        factory1MessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            google.protobuf.python.internal.FactoryTest1.Factory1Message, google.protobuf.python.internal.FactoryTest1.Factory1Message.Builder, google.protobuf.python.internal.FactoryTest1.Factory1MessageOrBuilder>(
+                instance.getFactory1Message(),
+                null,
+                false);
+        instance.factory1Message_ = null;
+      }
+      instance.bitField0_ |= 0x00000010;
+      return factory1MessageBuilder_;
+    }
+    private static void parseFactory1MessageField(
+        google.protobuf.python.internal.FactoryTest2.Factory2Message instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest1.Factory1Message, google.protobuf.python.internal.FactoryTest1.Factory1Message.Builder, google.protobuf.python.internal.FactoryTest1.Factory1MessageOrBuilder> factory1MessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.factory1Message_ != null || factory1MessageBuilder_ != null) {
+        factory1MessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.factory1Message_ = google.protobuf.python.internal.FactoryTest1.Factory1Message.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000010;
+    }
+    /**
+     * <code>optional .google.protobuf.python.internal.Factory1Message.NestedFactory1Message nested_factory_1_message = 8;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Message, google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Message.Builder, google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1MessageOrBuilder> 
+        internalGetNestedFactory1MessageFieldBuilder(google.protobuf.python.internal.FactoryTest2.Factory2Message instance, com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Message, google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Message.Builder, google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1MessageOrBuilder> nestedFactory1MessageBuilder_) {
+      if (nestedFactory1MessageBuilder_ == null) {
+        nestedFactory1MessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Message, google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Message.Builder, google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1MessageOrBuilder>(
+                instance.getNestedFactory1Message(),
+                null,
+                false);
+        instance.nestedFactory1Message_ = null;
+      }
+      instance.bitField0_ |= 0x00000080;
+      return nestedFactory1MessageBuilder_;
+    }
+    private static void parseNestedFactory1MessageField(
+        google.protobuf.python.internal.FactoryTest2.Factory2Message instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Message, google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Message.Builder, google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1MessageOrBuilder> nestedFactory1MessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.nestedFactory1Message_ != null || nestedFactory1MessageBuilder_ != null) {
+        nestedFactory1MessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.nestedFactory1Message_ = google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Message.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000080;
+    }
+    /**
+     * <code>optional .google.protobuf.python.internal.Factory2Message circular_message = 9;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        google.protobuf.python.internal.FactoryTest2.Factory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2MessageOrBuilder> 
+        internalGetCircularMessageFieldBuilder(google.protobuf.python.internal.FactoryTest2.Factory2Message instance, com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2MessageOrBuilder> circularMessageBuilder_) {
+      if (circularMessageBuilder_ == null) {
+        circularMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            google.protobuf.python.internal.FactoryTest2.Factory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2MessageOrBuilder>(
+                instance.getCircularMessage(),
+                null,
+                false);
+        instance.circularMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00000100;
+      return circularMessageBuilder_;
+    }
+    private static void parseCircularMessageField(
+        google.protobuf.python.internal.FactoryTest2.Factory2Message instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2MessageOrBuilder> circularMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.circularMessage_ != null || circularMessageBuilder_ != null) {
+        circularMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.circularMessage_ = google.protobuf.python.internal.FactoryTest2.Factory2Message.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000100;
+    }
+    private static void ensureListValueIsMutable(google.protobuf.python.internal.FactoryTest2.Factory2Message instance) {
+      if (!instance.listValue_.isModifiable()) {
+        instance.listValue_ = new com.google.protobuf.LazyStringArrayList(instance.listValue_);
+      }
+      instance.bitField0_ |= 0x00020000;
+    }
+    private static void ensureGroupedIsMutable(google.protobuf.python.internal.FactoryTest2.Factory2Message instance) {
+      if (!instance.grouped_.isModifiable()) {
+        instance.grouped_ = makeMutableCopy(instance.grouped_);
+      }
+      instance.bitField0_ |= 0x00040000;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped, google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped.Builder, google.protobuf.python.internal.FactoryTest2.Factory2Message.GroupedOrBuilder> 
+        internalGetGroupedFieldBuilder(google.protobuf.python.internal.FactoryTest2.Factory2Message instance, com.google.protobuf.RepeatedFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped, google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped.Builder, google.protobuf.python.internal.FactoryTest2.Factory2Message.GroupedOrBuilder> groupedBuilder_) {
+      if (groupedBuilder_ == null) {
+        groupedBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped, google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped.Builder, google.protobuf.python.internal.FactoryTest2.Factory2Message.GroupedOrBuilder>(
+                instance.grouped_,
+                instance.grouped_.isModifiable(),
+                null,
+                false);
+        instance.grouped_ = null;
+      }
+      instance.bitField0_ |= 0x00040000;
+
+      return groupedBuilder_;
+    }
+    /**
+     * <code>optional .google.protobuf.python.internal.LoopMessage loop = 15;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        google.protobuf.python.internal.FactoryTest2.LoopMessage, google.protobuf.python.internal.FactoryTest2.LoopMessage.Builder, google.protobuf.python.internal.FactoryTest2.LoopMessageOrBuilder> 
+        internalGetLoopFieldBuilder(google.protobuf.python.internal.FactoryTest2.Factory2Message instance, com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.LoopMessage, google.protobuf.python.internal.FactoryTest2.LoopMessage.Builder, google.protobuf.python.internal.FactoryTest2.LoopMessageOrBuilder> loopBuilder_) {
+      if (loopBuilder_ == null) {
+        loopBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            google.protobuf.python.internal.FactoryTest2.LoopMessage, google.protobuf.python.internal.FactoryTest2.LoopMessage.Builder, google.protobuf.python.internal.FactoryTest2.LoopMessageOrBuilder>(
+                instance.getLoop(),
+                null,
+                false);
+        instance.loop_ = null;
+      }
+      instance.bitField0_ |= 0x00000400;
+      return loopBuilder_;
+    }
+    private static void parseLoopField(
+        google.protobuf.python.internal.FactoryTest2.Factory2Message instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.LoopMessage, google.protobuf.python.internal.FactoryTest2.LoopMessage.Builder, google.protobuf.python.internal.FactoryTest2.LoopMessageOrBuilder> loopBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.loop_ != null || loopBuilder_ != null) {
+        loopBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.loop_ = google.protobuf.python.internal.FactoryTest2.LoopMessage.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000400;
+    }
+    private static void parseOneofInt(
+        google.protobuf.python.internal.FactoryTest2.Factory2Message instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      instance.oneofField_ = input.readInt32();
+      switch (instance.oneofFieldCase_) {
+      default:
+        clearOneofFieldHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofFieldCase_ = 22;
+        instance.bitField0_ |= 0x00080000; // fallthrough
+      case 22:
+        break;
+      }
+    }
+    private static void parseOneofString(
+        google.protobuf.python.internal.FactoryTest2.Factory2Message instance, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      com.google.protobuf.ByteString bs = input.readBytes();
+      switch (instance.oneofFieldCase_) {
+      default:
+        clearOneofFieldHasBits(instance); // fallthrough
+      case 0:
+        instance.oneofFieldCase_ = 23;
+        instance.bitField0_ |= 0x00100000; // fallthrough
+      case 23:
+        break;
+      }
+      instance.oneofField_ = bs;
+    }
+
+    private static void clearOneofFieldHasBits(google.protobuf.python.internal.FactoryTest2.Factory2Message instance) {
+      instance.bitField0_ = (instance.bitField0_ & ~0x00180000);
+    }
+
+    private static void buildPartial_autosplit_0(google.protobuf.python.internal.FactoryTest2.Factory2Message instance,
+        com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2Message.NestedFactory2MessageOrBuilder> nestedFactory2MessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest1.Factory1Message, google.protobuf.python.internal.FactoryTest1.Factory1Message.Builder, google.protobuf.python.internal.FactoryTest1.Factory1MessageOrBuilder> factory1MessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Message, google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1Message.Builder, google.protobuf.python.internal.FactoryTest1.Factory1Message.NestedFactory1MessageOrBuilder> nestedFactory1MessageBuilder_,
+        com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2MessageOrBuilder> circularMessageBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped, google.protobuf.python.internal.FactoryTest2.Factory2Message.Grouped.Builder, google.protobuf.python.internal.FactoryTest2.Factory2Message.GroupedOrBuilder> groupedBuilder_,
+        com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.LoopMessage, google.protobuf.python.internal.FactoryTest2.LoopMessage.Builder, google.protobuf.python.internal.FactoryTest2.LoopMessageOrBuilder> loopBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000008) != 0)) instance.nestedFactory2Message_ = null;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.nestedFactory2Message_ = nestedFactory2MessageBuilder_ == null
+            ? instance.nestedFactory2Message_
+            : nestedFactory2MessageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000010) != 0)) instance.factory1Message_ = null;
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        instance.factory1Message_ = factory1MessageBuilder_ == null
+            ? instance.factory1Message_
+            : factory1MessageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000080) != 0)) instance.nestedFactory1Message_ = null;
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        instance.nestedFactory1Message_ = nestedFactory1MessageBuilder_ == null
+            ? instance.nestedFactory1Message_
+            : nestedFactory1MessageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000100) != 0)) instance.circularMessage_ = null;
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        instance.circularMessage_ = circularMessageBuilder_ == null
+            ? instance.circularMessage_
+            : circularMessageBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000400) != 0)) instance.loop_ = null;
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        instance.loop_ = loopBuilder_ == null
+            ? instance.loop_
+            : loopBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        instance.listValue_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+      if (groupedBuilder_ == null) {
+        instance.grouped_.makeImmutable();
+      } else {
+        instance.grouped_ = groupedBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<Factory2Message>
-        PARSER = new com.google.protobuf.AbstractParser<Factory2Message>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Factory2Message> {
+      MessageParser() {}
+
       @java.lang.Override
       public Factory2Message parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Factory2Message.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Factory2Message instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Factory2Message> parser() {
       return PARSER;
@@ -5676,15 +6423,28 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
                 google.protobuf.python.internal.FactoryTest2.LoopMessage.class, google.protobuf.python.internal.FactoryTest2.LoopMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.FactoryTest2.LoopMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(google.protobuf.python.internal.FactoryTest2.LoopMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -5734,7 +6494,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(google.protobuf.python.internal.FactoryTest2.LoopMessage result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.loop_ = loopBuilder_ == null
               ? loop_
@@ -5742,6 +6502,18 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(google.protobuf.python.internal.FactoryTest2.LoopMessage other, java.lang.Object[] parserLocals) {
+        loop_ = other.loop_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            loopBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2MessageOrBuilder>) parserLocals[0]);
+            loop_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -5806,6 +6578,18 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseLoopField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -5928,7 +6712,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (loop_ != null || loopBuilder_ != null) {
-          internalGetLoopFieldBuilder().getBuilder()
+          internalGetLoopFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           loop_ = google.protobuf.python.internal.FactoryTest2.Factory2Message.parser().parsePartialFrom(input, extensionRegistry);
@@ -5950,22 +6734,132 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static LoopMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      LoopMessage instance = new LoopMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2MessageOrBuilder> loopBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        loopBuilder_ = internalGetLoopFieldBuilder(instance, loopBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.loop_ != null || loopBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseLoopField(instance, input, extensionRegistry, loopBuilder_);
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {loopBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, loopBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional .google.protobuf.python.internal.Factory2Message loop = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        google.protobuf.python.internal.FactoryTest2.Factory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2MessageOrBuilder> 
+        internalGetLoopFieldBuilder(google.protobuf.python.internal.FactoryTest2.LoopMessage instance, com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2MessageOrBuilder> loopBuilder_) {
+      if (loopBuilder_ == null) {
+        loopBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            google.protobuf.python.internal.FactoryTest2.Factory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2MessageOrBuilder>(
+                instance.getLoop(),
+                null,
+                false);
+        instance.loop_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return loopBuilder_;
+    }
+    private static void parseLoopField(
+        google.protobuf.python.internal.FactoryTest2.LoopMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2MessageOrBuilder> loopBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.loop_ != null || loopBuilder_ != null) {
+        loopBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.loop_ = google.protobuf.python.internal.FactoryTest2.Factory2Message.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void buildPartial_autosplit_0(google.protobuf.python.internal.FactoryTest2.LoopMessage instance,
+        com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.FactoryTest2.Factory2Message, google.protobuf.python.internal.FactoryTest2.Factory2Message.Builder, google.protobuf.python.internal.FactoryTest2.Factory2MessageOrBuilder> loopBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.loop_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.loop_ = loopBuilder_ == null
+            ? instance.loop_
+            : loopBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<LoopMessage>
-        PARSER = new com.google.protobuf.AbstractParser<LoopMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<LoopMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public LoopMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return LoopMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(LoopMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<LoopMessage> parser() {
       return PARSER;
@@ -6290,15 +7184,26 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
                 google.protobuf.python.internal.FactoryTest2.MessageWithNestedEnumOnly.class, google.protobuf.python.internal.FactoryTest2.MessageWithNestedEnumOnly.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.FactoryTest2.MessageWithNestedEnumOnly.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(google.protobuf.python.internal.FactoryTest2.MessageWithNestedEnumOnly other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
       }
       @java.lang.Override
       public Builder clear() {
@@ -6398,22 +7303,62 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static MessageWithNestedEnumOnly parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MessageWithNestedEnumOnly instance = new MessageWithNestedEnumOnly((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<MessageWithNestedEnumOnly>
-        PARSER = new com.google.protobuf.AbstractParser<MessageWithNestedEnumOnly>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MessageWithNestedEnumOnly> {
+      MessageParser() {}
+
       @java.lang.Override
       public MessageWithNestedEnumOnly parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return MessageWithNestedEnumOnly.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(MessageWithNestedEnumOnly instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<MessageWithNestedEnumOnly> parser() {
       return PARSER;
@@ -6684,15 +7629,27 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
                 google.protobuf.python.internal.FactoryTest2.MessageWithOption.class, google.protobuf.python.internal.FactoryTest2.MessageWithOption.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.FactoryTest2.MessageWithOption.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(google.protobuf.python.internal.FactoryTest2.MessageWithOption other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -6732,12 +7689,17 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(google.protobuf.python.internal.FactoryTest2.MessageWithOption result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.field1_ = field1_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.python.internal.FactoryTest2.MessageWithOption other, java.lang.Object[] parserLocals) {
+        field1_ = other.getField1();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -6801,7 +7763,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int field1_ ;
+      private int field1_;
       /**
        * <code>optional int32 field1 = 1;</code>
        * @return Whether the field1 field is set.
@@ -6854,22 +7816,67 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static MessageWithOption parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      MessageWithOption instance = new MessageWithOption((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.field1_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<MessageWithOption>
-        PARSER = new com.google.protobuf.AbstractParser<MessageWithOption>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<MessageWithOption> {
+      MessageParser() {}
+
       @java.lang.Override
       public MessageWithOption parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return MessageWithOption.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(MessageWithOption instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<MessageWithOption> parser() {
       return PARSER;
@@ -7150,15 +8157,27 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
                 google.protobuf.python.internal.FactoryTest2.FactoryMessageExtension.class, google.protobuf.python.internal.FactoryTest2.FactoryMessageExtension.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.FactoryTest2.FactoryMessageExtension.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(google.protobuf.python.internal.FactoryTest2.FactoryMessageExtension other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -7198,12 +8217,17 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(google.protobuf.python.internal.FactoryTest2.FactoryMessageExtension result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.a_ = a_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(google.protobuf.python.internal.FactoryTest2.FactoryMessageExtension other, java.lang.Object[] parserLocals) {
+        a_ = other.getA();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -7267,7 +8291,7 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int a_ ;
+      private int a_;
       /**
        * <code>optional int32 a = 1;</code>
        * @return Whether the a field is set.
@@ -7320,22 +8344,67 @@ public final class FactoryTest2 extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static FactoryMessageExtension parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      FactoryMessageExtension instance = new FactoryMessageExtension((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.a_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<FactoryMessageExtension>
-        PARSER = new com.google.protobuf.AbstractParser<FactoryMessageExtension>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<FactoryMessageExtension> {
+      MessageParser() {}
+
       @java.lang.Override
       public FactoryMessageExtension parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return FactoryMessageExtension.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(FactoryMessageExtension instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<FactoryMessageExtension> parser() {
       return PARSER;

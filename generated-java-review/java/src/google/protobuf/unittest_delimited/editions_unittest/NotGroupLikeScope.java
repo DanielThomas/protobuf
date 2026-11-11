@@ -289,15 +289,27 @@ private static final long serialVersionUID = 0L;
               editions_unittest.NotGroupLikeScope.class, editions_unittest.NotGroupLikeScope.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using editions_unittest.NotGroupLikeScope.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+    }
+    private Builder(editions_unittest.NotGroupLikeScope other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -338,7 +350,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(editions_unittest.NotGroupLikeScope result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.a_ = a_;
         to_bitField0_ |= 0x00000001;
@@ -348,6 +360,12 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000002;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(editions_unittest.NotGroupLikeScope other, java.lang.Object[] parserLocals) {
+      a_ = other.getA();
+      b_ = other.getB();
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -419,7 +437,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int a_ ;
+    private int a_;
     /**
      * <code>int32 a = 1;</code>
      * @return Whether the a field is set.
@@ -459,7 +477,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int b_ ;
+    private int b_;
     /**
      * <code>int32 b = 2;</code>
      * @return Whether the b field is set.
@@ -512,22 +530,72 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static NotGroupLikeScope parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    NotGroupLikeScope instance = new NotGroupLikeScope((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
+            instance.a_ = input.readInt32();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 8
+          case 16: {
+            instance.b_ = input.readInt32();
+            instance.bitField0_ |= 0x00000002;
+            break;
+          } // case 16
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
   private static final com.google.protobuf.Parser<NotGroupLikeScope>
-      PARSER = new com.google.protobuf.AbstractParser<NotGroupLikeScope>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<NotGroupLikeScope> {
+    MessageParser() {}
+
     @java.lang.Override
     public NotGroupLikeScope parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return NotGroupLikeScope.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(NotGroupLikeScope instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<NotGroupLikeScope> parser() {
     return PARSER;

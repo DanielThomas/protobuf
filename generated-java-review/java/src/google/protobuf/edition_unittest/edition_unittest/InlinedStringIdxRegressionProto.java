@@ -478,15 +478,31 @@ private static final long serialVersionUID = 0L;
               edition_unittest.InlinedStringIdxRegressionProto.class, edition_unittest.InlinedStringIdxRegressionProto.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.InlinedStringIdxRegressionProto.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      str1_ = "";
+      str2_ = "";
+      str3_ = com.google.protobuf.ByteString.EMPTY;
       maybeForceBuilderInitialization();
+    }
+    private Builder(edition_unittest.InlinedStringIdxRegressionProto other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -539,7 +555,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(edition_unittest.InlinedStringIdxRegressionProto result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.str1_ = str1_;
         to_bitField0_ |= 0x00000001;
@@ -559,6 +575,21 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000008;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(edition_unittest.InlinedStringIdxRegressionProto other, java.lang.Object[] parserLocals) {
+      str1_ = other.str1_;
+      sub_ = other.sub_;
+      str2_ = other.str2_;
+      str3_ = other.getStr3();
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          subBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.InlinedStringIdxRegressionProto, edition_unittest.InlinedStringIdxRegressionProto.Builder, edition_unittest.InlinedStringIdxRegressionProtoOrBuilder>) parserLocals[0]);
+          sub_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -647,9 +678,21 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 18: {
+          parseSubField(input, extensionRegistry);
+          return true;
+        } // case 18
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
+    }
     private int bitField0_;
 
-    private java.lang.Object str1_ = "";
+    private java.lang.Object str1_;
     /**
      * <pre>
      * We mix data to make sure aux ids and inlined string idx do not match.
@@ -913,7 +956,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (sub_ != null || subBuilder_ != null) {
-        internalGetSubFieldBuilder().getBuilder()
+        internalGetSubFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         sub_ = edition_unittest.InlinedStringIdxRegressionProto.parser().parsePartialFrom(input, extensionRegistry);
@@ -922,7 +965,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000002;
     }
 
-    private java.lang.Object str2_ = "";
+    private java.lang.Object str2_;
     /**
      * <pre>
      * aux_idx == 3, inlined_string_idx == 2
@@ -1025,7 +1068,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.ByteString str3_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString str3_;
     /**
      * <pre>
      * aux_idx == 4, inlined_string_idx == 3
@@ -1094,22 +1137,151 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static InlinedStringIdxRegressionProto parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    InlinedStringIdxRegressionProto instance = new InlinedStringIdxRegressionProto((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.InlinedStringIdxRegressionProto, edition_unittest.InlinedStringIdxRegressionProto.Builder, edition_unittest.InlinedStringIdxRegressionProtoOrBuilder> subBuilder_ = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      subBuilder_ = internalGetSubFieldBuilder(instance, subBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            instance.str1_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 10
+          case 18: {
+            if (instance.sub_ != null || subBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseSubField(instance, input, extensionRegistry, subBuilder_);
+            break;
+          } // case 18
+          case 26: {
+            instance.str2_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000004;
+            break;
+          } // case 26
+          case 34: {
+            instance.str3_ = input.readBytes();
+            instance.bitField0_ |= 0x00000008;
+            break;
+          } // case 34
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {subBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, subBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <pre>
+   * aux_idx == 2
+   * </pre>
+   *
+   * <code>.edition_unittest.InlinedStringIdxRegressionProto sub = 2;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      edition_unittest.InlinedStringIdxRegressionProto, edition_unittest.InlinedStringIdxRegressionProto.Builder, edition_unittest.InlinedStringIdxRegressionProtoOrBuilder> 
+      internalGetSubFieldBuilder(edition_unittest.InlinedStringIdxRegressionProto instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.InlinedStringIdxRegressionProto, edition_unittest.InlinedStringIdxRegressionProto.Builder, edition_unittest.InlinedStringIdxRegressionProtoOrBuilder> subBuilder_) {
+    if (subBuilder_ == null) {
+      subBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          edition_unittest.InlinedStringIdxRegressionProto, edition_unittest.InlinedStringIdxRegressionProto.Builder, edition_unittest.InlinedStringIdxRegressionProtoOrBuilder>(
+              instance.getSub(),
+              null,
+              false);
+      instance.sub_ = null;
+    }
+    instance.bitField0_ |= 0x00000002;
+    return subBuilder_;
+  }
+  private static void parseSubField(
+      edition_unittest.InlinedStringIdxRegressionProto instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.InlinedStringIdxRegressionProto, edition_unittest.InlinedStringIdxRegressionProto.Builder, edition_unittest.InlinedStringIdxRegressionProtoOrBuilder> subBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.sub_ != null || subBuilder_ != null) {
+      subBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.sub_ = edition_unittest.InlinedStringIdxRegressionProto.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000002;
+  }
+  private static void buildPartial_autosplit_0(edition_unittest.InlinedStringIdxRegressionProto instance,
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.InlinedStringIdxRegressionProto, edition_unittest.InlinedStringIdxRegressionProto.Builder, edition_unittest.InlinedStringIdxRegressionProtoOrBuilder> subBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00000002) != 0)) instance.sub_ = null;
+    if (((from_bitField0_ & 0x00000002) != 0)) {
+      instance.sub_ = subBuilder_ == null
+          ? instance.sub_
+          : subBuilder_.build();
+    }
+  }
+
   private static final com.google.protobuf.Parser<InlinedStringIdxRegressionProto>
-      PARSER = new com.google.protobuf.AbstractParser<InlinedStringIdxRegressionProto>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<InlinedStringIdxRegressionProto> {
+    MessageParser() {}
+
     @java.lang.Override
     public InlinedStringIdxRegressionProto parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return InlinedStringIdxRegressionProto.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(InlinedStringIdxRegressionProto instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<InlinedStringIdxRegressionProto> parser() {
     return PARSER;

@@ -634,15 +634,28 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.class, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -693,7 +706,7 @@ private static final long serialVersionUID = 0L;
 
       private void buildPartial_autosplit_0(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.a_ = a_;
           to_bitField0_ |= 0x00000001;
@@ -705,6 +718,19 @@ private static final long serialVersionUID = 0L;
           to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage other, java.lang.Object[] parserLocals) {
+        a_ = other.getA();
+        corecursive_ = other.corecursive_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            corecursiveBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder>) parserLocals[0]);
+            corecursive_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -778,9 +804,21 @@ private static final long serialVersionUID = 0L;
         } // finally
         return this;
       }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 18: {
+            parseCorecursiveField(input, extensionRegistry);
+            return true;
+          } // case 18
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
       private int bitField0_;
 
-      private int a_ ;
+      private int a_;
       /**
        * <code>int32 a = 1;</code>
        * @return Whether the a field is set.
@@ -939,7 +977,7 @@ private static final long serialVersionUID = 0L;
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (corecursive_ != null || corecursiveBuilder_ != null) {
-          internalGetCorecursiveFieldBuilder().getBuilder()
+          internalGetCorecursiveFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           corecursive_ = com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.parser().parsePartialFrom(input, extensionRegistry);
@@ -961,22 +999,137 @@ private static final long serialVersionUID = 0L;
       return DEFAULT_INSTANCE;
     }
 
+    static NestedMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      NestedMessage instance = new NestedMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder> corecursiveBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        corecursiveBuilder_ = internalGetCorecursiveFieldBuilder(instance, corecursiveBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.a_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              if (instance.corecursive_ != null || corecursiveBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseCorecursiveField(instance, input, extensionRegistry, corecursiveBuilder_);
+              break;
+            } // case 18
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {corecursiveBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, corecursiveBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.protobuf_test_messages.editions.TestAllTypesEdition2023 corecursive = 2 [features = { ... }</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder> 
+        internalGetCorecursiveFieldBuilder(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder> corecursiveBuilder_) {
+      if (corecursiveBuilder_ == null) {
+        corecursiveBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder>(
+                instance.getCorecursive(),
+                null,
+                false);
+        instance.corecursive_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+      return corecursiveBuilder_;
+    }
+    private static void parseCorecursiveField(
+        com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder> corecursiveBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.corecursive_ != null || corecursiveBuilder_ != null) {
+        corecursiveBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.corecursive_ = com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage instance,
+        com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder> corecursiveBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000002) != 0)) instance.corecursive_ = null;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.corecursive_ = corecursiveBuilder_ == null
+            ? instance.corecursive_
+            : corecursiveBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<NestedMessage>
-        PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<NestedMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public NestedMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return NestedMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(NestedMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<NestedMessage> parser() {
       return PARSER;
@@ -1311,15 +1464,27 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.class, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -1360,7 +1525,7 @@ private static final long serialVersionUID = 0L;
 
       private void buildPartial_autosplit_0(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.groupInt32_ = groupInt32_;
           to_bitField0_ |= 0x00000001;
@@ -1370,6 +1535,12 @@ private static final long serialVersionUID = 0L;
           to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType other, java.lang.Object[] parserLocals) {
+        groupInt32_ = other.getGroupInt32();
+        groupUint32_ = other.getGroupUint32();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1441,7 +1612,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private int groupInt32_ ;
+      private int groupInt32_;
       /**
        * <code>int32 group_int32 = 202;</code>
        * @return Whether the groupInt32 field is set.
@@ -1481,7 +1652,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
-      private int groupUint32_ ;
+      private int groupUint32_;
       /**
        * <code>uint32 group_uint32 = 203;</code>
        * @return Whether the groupUint32 field is set.
@@ -1534,22 +1705,72 @@ private static final long serialVersionUID = 0L;
       return DEFAULT_INSTANCE;
     }
 
+    static GroupLikeType parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      GroupLikeType instance = new GroupLikeType((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 1616: {
+              instance.groupInt32_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 1616
+            case 1624: {
+              instance.groupUint32_ = input.readUInt32();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 1624
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<GroupLikeType>
-        PARSER = new com.google.protobuf.AbstractParser<GroupLikeType>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<GroupLikeType> {
+      MessageParser() {}
+
       @java.lang.Override
       public GroupLikeType parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return GroupLikeType.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(GroupLikeType instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<GroupLikeType> parser() {
       return PARSER;
@@ -8397,15 +8618,89 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
               com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.class, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      optionalString_ = "";
+      optionalBytes_ = com.google.protobuf.ByteString.EMPTY;
+      optionalNestedEnum_ = 0;
+      optionalForeignEnum_ = 0;
+      optionalStringPiece_ = "";
+      optionalCord_ = "";
+      repeatedInt32_ = emptyIntList();
+      repeatedInt64_ = emptyLongList();
+      repeatedUint32_ = emptyIntList();
+      repeatedUint64_ = emptyLongList();
+      repeatedSint32_ = emptyIntList();
+      repeatedSint64_ = emptyLongList();
+      repeatedFixed32_ = emptyIntList();
+      repeatedFixed64_ = emptyLongList();
+      repeatedSfixed32_ = emptyIntList();
+      repeatedSfixed64_ = emptyLongList();
+      repeatedFloat_ = emptyFloatList();
+      repeatedDouble_ = emptyDoubleList();
+      repeatedBool_ = emptyBooleanList();
+      repeatedString_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedBytes_ = emptyList(com.google.protobuf.ByteString.class);
+      repeatedNestedMessage_ = emptyList(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.class);
+      repeatedForeignMessage_ = emptyList(com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.class);
+      repeatedNestedEnum_ = emptyIntList();
+      repeatedForeignEnum_ = emptyIntList();
+      repeatedStringPiece_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedCord_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      packedInt32_ = emptyIntList();
+      packedInt64_ = emptyLongList();
+      packedUint32_ = emptyIntList();
+      packedUint64_ = emptyLongList();
+      packedSint32_ = emptyIntList();
+      packedSint64_ = emptyLongList();
+      packedFixed32_ = emptyIntList();
+      packedFixed64_ = emptyLongList();
+      packedSfixed32_ = emptyIntList();
+      packedSfixed64_ = emptyLongList();
+      packedFloat_ = emptyFloatList();
+      packedDouble_ = emptyDoubleList();
+      packedBool_ = emptyBooleanList();
+      packedNestedEnum_ = emptyIntList();
+      unpackedInt32_ = emptyIntList();
+      unpackedInt64_ = emptyLongList();
+      unpackedUint32_ = emptyIntList();
+      unpackedUint64_ = emptyLongList();
+      unpackedSint32_ = emptyIntList();
+      unpackedSint64_ = emptyLongList();
+      unpackedFixed32_ = emptyIntList();
+      unpackedFixed64_ = emptyLongList();
+      unpackedSfixed32_ = emptyIntList();
+      unpackedSfixed64_ = emptyLongList();
+      unpackedFloat_ = emptyFloatList();
+      unpackedDouble_ = emptyDoubleList();
+      unpackedBool_ = emptyBooleanList();
+      unpackedNestedEnum_ = emptyIntList();
       maybeForceBuilderInitialization();
+    }
+    private Builder(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
+      copyFrom_autosplit_1(other, parserLocals);
+      copyFrom_autosplit_2(other, parserLocals);
+      copyFrom_autosplit_3(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -8597,7 +8892,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
 
     private void buildPartial_autosplit_0(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.optionalInt32_ = optionalInt32_;
         to_bitField0_ |= 0x00000001;
@@ -8739,9 +9034,68 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       result.bitField0_ |= to_bitField0_;
     }
 
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 other, java.lang.Object[] parserLocals) {
+      optionalInt32_ = other.getOptionalInt32();
+      optionalInt64_ = other.getOptionalInt64();
+      optionalUint32_ = other.getOptionalUint32();
+      optionalUint64_ = other.getOptionalUint64();
+      optionalSint32_ = other.getOptionalSint32();
+      optionalSint64_ = other.getOptionalSint64();
+      optionalFixed32_ = other.getOptionalFixed32();
+      optionalFixed64_ = other.getOptionalFixed64();
+      optionalSfixed32_ = other.getOptionalSfixed32();
+      optionalSfixed64_ = other.getOptionalSfixed64();
+      optionalFloat_ = other.getOptionalFloat();
+      optionalDouble_ = other.getOptionalDouble();
+      optionalBool_ = other.getOptionalBool();
+      optionalString_ = other.optionalString_;
+      optionalBytes_ = other.getOptionalBytes();
+      optionalNestedMessage_ = other.optionalNestedMessage_;
+      optionalForeignMessage_ = other.optionalForeignMessage_;
+      optionalNestedEnum_ = other.getOptionalNestedEnumValue();
+      optionalForeignEnum_ = other.getOptionalForeignEnumValue();
+      optionalStringPiece_ = other.optionalStringPiece_;
+      optionalCord_ = other.optionalCord_;
+      recursiveMessage_ = other.recursiveMessage_;
+      groupLikeType_ = other.groupLikeType_;
+      delimitedField_ = other.delimitedField_;
+      repeatedInt32_ = other.repeatedInt32_;
+      repeatedInt64_ = other.repeatedInt64_;
+      repeatedUint32_ = other.repeatedUint32_;
+      repeatedUint64_ = other.repeatedUint64_;
+      repeatedSint32_ = other.repeatedSint32_;
+      repeatedSint64_ = other.repeatedSint64_;
+      repeatedFixed32_ = other.repeatedFixed32_;
+      repeatedFixed64_ = other.repeatedFixed64_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          optionalNestedMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder>) parserLocals[0]);
+          optionalNestedMessage_ = null;
+        }
+        if (parserLocals[1] != null) {
+          optionalForeignMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder>) parserLocals[1]);
+          optionalForeignMessage_ = null;
+        }
+        if (parserLocals[2] != null) {
+          recursiveMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder>) parserLocals[2]);
+          recursiveMessage_ = null;
+        }
+        if (parserLocals[8] != null) {
+          groupLikeTypeBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeTypeOrBuilder>) parserLocals[8]);
+          groupLikeType_ = null;
+        }
+        if (parserLocals[9] != null) {
+          delimitedFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeTypeOrBuilder>) parserLocals[9]);
+          delimitedField_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
+    }
+
     private void buildPartial_autosplit_1(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 result) {
       int from_bitField1_ = bitField1_;
-      int to_bitField1_ = 0;
+      int to_bitField1_ = from_bitField1_;
       if (((from_bitField1_ & 0x00000001) != 0)) {
         repeatedSfixed32_.makeImmutable();
         result.repeatedSfixed32_ = repeatedSfixed32_;
@@ -8881,9 +9235,56 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       result.bitField1_ |= to_bitField1_;
     }
 
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_1(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 other, java.lang.Object[] parserLocals) {
+      repeatedSfixed32_ = other.repeatedSfixed32_;
+      repeatedSfixed64_ = other.repeatedSfixed64_;
+      repeatedFloat_ = other.repeatedFloat_;
+      repeatedDouble_ = other.repeatedDouble_;
+      repeatedBool_ = other.repeatedBool_;
+      repeatedString_ = other.repeatedString_;
+      repeatedBytes_ = other.repeatedBytes_;
+      repeatedNestedMessage_ = other.repeatedNestedMessage_;
+      repeatedForeignMessage_ = other.repeatedForeignMessage_;
+      repeatedNestedEnum_ = other.repeatedNestedEnum_;
+      repeatedForeignEnum_ = other.repeatedForeignEnum_;
+      repeatedStringPiece_ = other.repeatedStringPiece_;
+      repeatedCord_ = other.repeatedCord_;
+      packedInt32_ = other.packedInt32_;
+      packedInt64_ = other.packedInt64_;
+      packedUint32_ = other.packedUint32_;
+      packedUint64_ = other.packedUint64_;
+      packedSint32_ = other.packedSint32_;
+      packedSint64_ = other.packedSint64_;
+      packedFixed32_ = other.packedFixed32_;
+      packedFixed64_ = other.packedFixed64_;
+      packedSfixed32_ = other.packedSfixed32_;
+      packedSfixed64_ = other.packedSfixed64_;
+      packedFloat_ = other.packedFloat_;
+      packedDouble_ = other.packedDouble_;
+      packedBool_ = other.packedBool_;
+      packedNestedEnum_ = other.packedNestedEnum_;
+      unpackedInt32_ = other.unpackedInt32_;
+      unpackedInt64_ = other.unpackedInt64_;
+      unpackedUint32_ = other.unpackedUint32_;
+      unpackedUint64_ = other.unpackedUint64_;
+      unpackedSint32_ = other.unpackedSint32_;
+      if (parserLocals != null) {
+        if (parserLocals[3] != null) {
+          repeatedNestedMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder>) parserLocals[3]);
+          repeatedNestedMessage_ = null;
+        }
+        if (parserLocals[4] != null) {
+          repeatedForeignMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder>) parserLocals[4]);
+          repeatedForeignMessage_ = null;
+        }
+      }
+      bitField1_ = other.bitField1_;
+    }
+
     private void buildPartial_autosplit_2(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 result) {
       int from_bitField2_ = bitField2_;
-      int to_bitField2_ = 0;
+      int to_bitField2_ = from_bitField2_;
       if (((from_bitField2_ & 0x00000001) != 0)) {
         unpackedSint64_.makeImmutable();
         result.unpackedSint64_ = unpackedSint64_;
@@ -9012,15 +9413,79 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       result.bitField2_ |= to_bitField2_;
     }
 
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_2(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 other, java.lang.Object[] parserLocals) {
+      unpackedSint64_ = other.unpackedSint64_;
+      unpackedFixed32_ = other.unpackedFixed32_;
+      unpackedFixed64_ = other.unpackedFixed64_;
+      unpackedSfixed32_ = other.unpackedSfixed32_;
+      unpackedSfixed64_ = other.unpackedSfixed64_;
+      unpackedFloat_ = other.unpackedFloat_;
+      unpackedDouble_ = other.unpackedDouble_;
+      unpackedBool_ = other.unpackedBool_;
+      unpackedNestedEnum_ = other.unpackedNestedEnum_;
+      mapInt32Int32_ = other.mapInt32Int32_;
+      mapInt64Int64_ = other.mapInt64Int64_;
+      mapUint32Uint32_ = other.mapUint32Uint32_;
+      mapUint64Uint64_ = other.mapUint64Uint64_;
+      mapSint32Sint32_ = other.mapSint32Sint32_;
+      mapSint64Sint64_ = other.mapSint64Sint64_;
+      mapFixed32Fixed32_ = other.mapFixed32Fixed32_;
+      mapFixed64Fixed64_ = other.mapFixed64Fixed64_;
+      mapSfixed32Sfixed32_ = other.mapSfixed32Sfixed32_;
+      mapSfixed64Sfixed64_ = other.mapSfixed64Sfixed64_;
+      mapInt32Float_ = other.mapInt32Float_;
+      mapInt32Double_ = other.mapInt32Double_;
+      mapBoolBool_ = other.mapBoolBool_;
+      mapStringString_ = other.mapStringString_;
+      mapStringBytes_ = other.mapStringBytes_;
+      if (parserLocals == null && other.mapStringNestedMessage_ != null) {
+        mapStringNestedMessage_ = new com.google.protobuf.MapFieldBuilder<>(mapStringNestedMessageConverter);
+        mapStringNestedMessage_.ensureBuilderMap().putAll(other.mapStringNestedMessage_.getMap());
+      }
+      if (parserLocals == null && other.mapStringForeignMessage_ != null) {
+        mapStringForeignMessage_ = new com.google.protobuf.MapFieldBuilder<>(mapStringForeignMessageConverter);
+        mapStringForeignMessage_.ensureBuilderMap().putAll(other.mapStringForeignMessage_.getMap());
+      }
+      mapStringNestedEnum_ = other.mapStringNestedEnum_;
+      mapStringForeignEnum_ = other.mapStringForeignEnum_;
+      if (parserLocals == null && other.mapRecursive_ != null) {
+        mapRecursive_ = new com.google.protobuf.MapFieldBuilder<>(mapRecursiveConverter);
+        mapRecursive_.ensureBuilderMap().putAll(other.mapRecursive_.getMap());
+      }
+      oneofFieldCase_ = other.oneofFieldCase_;
+      oneofField_ = other.oneofField_;
+      if (parserLocals != null) {
+        if (parserLocals[5] != null) {
+          mapStringNestedMessage_ = (com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder>) parserLocals[5];
+        }
+        if (parserLocals[6] != null) {
+          mapStringForeignMessage_ = (com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder>) parserLocals[6];
+        }
+        if (parserLocals[7] != null) {
+          oneofNestedMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder>) parserLocals[7]);
+          if (oneofFieldCase_ == 112) oneofField_ = null;
+        }
+        if (parserLocals[10] != null) {
+          mapRecursive_ = (com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder>) parserLocals[10];
+        }
+      }
+      bitField2_ = other.bitField2_;
+    }
+
     private void buildPartial_autosplit_3(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 result) {
       int from_bitField3_ = bitField3_;
-      int to_bitField3_ = 0;
+      int to_bitField3_ = from_bitField3_;
       to_bitField3_ |= (from_bitField3_ & 0x0000003f);
       if ((from_bitField3_ & 0x0000003f) != 0) {
         result.oneofFieldCase_ = oneofFieldCase_;
         result.oneofField_ = oneofField_;
       }
       result.bitField3_ |= to_bitField3_;
+    }
+
+    private void copyFrom_autosplit_3(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 other, java.lang.Object[] parserLocals) {
+      bitField3_ = other.bitField3_;
     }
 
     public <Type> Builder setExtension(
@@ -11053,7 +11518,39 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       } // finally
       return this;
     }
-    private int oneofFieldCase_ = 0;
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 146: {
+          parseOptionalNestedMessageField(input, extensionRegistry);
+          return true;
+        } // case 146
+        case 154: {
+          parseOptionalForeignMessageField(input, extensionRegistry);
+          return true;
+        } // case 154
+        case 218: {
+          parseRecursiveMessageField(input, extensionRegistry);
+          return true;
+        } // case 218
+        case 898: {
+          parseOneofNestedMessage(input, extensionRegistry);
+          return true;
+        } // case 898
+        case 1611: {
+          parseGroupLikeTypeField(input, extensionRegistry);
+          return true;
+        } // case 1611
+        case 1619: {
+          parseDelimitedFieldField(input, extensionRegistry);
+          return true;
+        } // case 1619
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
+    }
+    private int oneofFieldCase_;
     private java.lang.Object oneofField_;
     public OneofFieldCase
         getOneofFieldCase() {
@@ -11081,7 +11578,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
     private int bitField2_;
     private int bitField3_;
 
-    private int optionalInt32_ ;
+    private int optionalInt32_;
     /**
      * <pre>
      * Singular
@@ -11137,7 +11634,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private long optionalInt64_ ;
+    private long optionalInt64_;
     /**
      * <code>int64 optional_int64 = 2;</code>
      * @return Whether the optionalInt64 field is set.
@@ -11177,7 +11674,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private int optionalUint32_ ;
+    private int optionalUint32_;
     /**
      * <code>uint32 optional_uint32 = 3;</code>
      * @return Whether the optionalUint32 field is set.
@@ -11217,7 +11714,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private long optionalUint64_ ;
+    private long optionalUint64_;
     /**
      * <code>uint64 optional_uint64 = 4;</code>
      * @return Whether the optionalUint64 field is set.
@@ -11257,7 +11754,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private int optionalSint32_ ;
+    private int optionalSint32_;
     /**
      * <code>sint32 optional_sint32 = 5;</code>
      * @return Whether the optionalSint32 field is set.
@@ -11297,7 +11794,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private long optionalSint64_ ;
+    private long optionalSint64_;
     /**
      * <code>sint64 optional_sint64 = 6;</code>
      * @return Whether the optionalSint64 field is set.
@@ -11337,7 +11834,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private int optionalFixed32_ ;
+    private int optionalFixed32_;
     /**
      * <code>fixed32 optional_fixed32 = 7;</code>
      * @return Whether the optionalFixed32 field is set.
@@ -11377,7 +11874,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private long optionalFixed64_ ;
+    private long optionalFixed64_;
     /**
      * <code>fixed64 optional_fixed64 = 8;</code>
      * @return Whether the optionalFixed64 field is set.
@@ -11417,7 +11914,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private int optionalSfixed32_ ;
+    private int optionalSfixed32_;
     /**
      * <code>sfixed32 optional_sfixed32 = 9;</code>
      * @return Whether the optionalSfixed32 field is set.
@@ -11457,7 +11954,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private long optionalSfixed64_ ;
+    private long optionalSfixed64_;
     /**
      * <code>sfixed64 optional_sfixed64 = 10;</code>
      * @return Whether the optionalSfixed64 field is set.
@@ -11497,7 +11994,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private float optionalFloat_ ;
+    private float optionalFloat_;
     /**
      * <code>float optional_float = 11;</code>
      * @return Whether the optionalFloat field is set.
@@ -11537,7 +12034,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private double optionalDouble_ ;
+    private double optionalDouble_;
     /**
      * <code>double optional_double = 12;</code>
      * @return Whether the optionalDouble field is set.
@@ -11577,7 +12074,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private boolean optionalBool_ ;
+    private boolean optionalBool_;
     /**
      * <code>bool optional_bool = 13;</code>
      * @return Whether the optionalBool field is set.
@@ -11617,7 +12114,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private java.lang.Object optionalString_ = "";
+    private java.lang.Object optionalString_;
     /**
      * <code>string optional_string = 14;</code>
      * @return Whether the optionalString field is set.
@@ -11696,7 +12193,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.ByteString optionalBytes_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString optionalBytes_;
     /**
      * <code>bytes optional_bytes = 15;</code>
      * @return Whether the optionalBytes field is set.
@@ -11855,7 +12352,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (optionalNestedMessage_ != null || optionalNestedMessageBuilder_ != null) {
-        internalGetOptionalNestedMessageFieldBuilder().getBuilder()
+        internalGetOptionalNestedMessageFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         optionalNestedMessage_ = com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -11983,7 +12480,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (optionalForeignMessage_ != null || optionalForeignMessageBuilder_ != null) {
-        internalGetOptionalForeignMessageFieldBuilder().getBuilder()
+        internalGetOptionalForeignMessageFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         optionalForeignMessage_ = com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.parser().parsePartialFrom(input, extensionRegistry);
@@ -11992,7 +12489,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       bitField0_ |= 0x00010000;
     }
 
-    private int optionalNestedEnum_ = 0;
+    private int optionalNestedEnum_;
     /**
      * <code>.protobuf_test_messages.editions.TestAllTypesEdition2023.NestedEnum optional_nested_enum = 21;</code>
      * @return Whether the optionalNestedEnum field is set.
@@ -12051,7 +12548,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private int optionalForeignEnum_ = 0;
+    private int optionalForeignEnum_;
     /**
      * <code>.protobuf_test_messages.editions.ForeignEnumEdition2023 optional_foreign_enum = 22;</code>
      * @return Whether the optionalForeignEnum field is set.
@@ -12110,7 +12607,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private java.lang.Object optionalStringPiece_ = "";
+    private java.lang.Object optionalStringPiece_;
     /**
      * <code>string optional_string_piece = 24 [ctype = STRING_PIECE];</code>
      * @return Whether the optionalStringPiece field is set.
@@ -12189,7 +12686,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private java.lang.Object optionalCord_ = "";
+    private java.lang.Object optionalCord_;
     /**
      * <code>string optional_cord = 25 [ctype = CORD];</code>
      * @return Whether the optionalCord field is set.
@@ -12387,7 +12884,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (recursiveMessage_ != null || recursiveMessageBuilder_ != null) {
-        internalGetRecursiveMessageFieldBuilder().getBuilder()
+        internalGetRecursiveMessageFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         recursiveMessage_ = com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.parser().parsePartialFrom(input, extensionRegistry);
@@ -12396,7 +12893,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       bitField0_ |= 0x00200000;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedInt32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedInt32_;
     private void ensureRepeatedInt32IsMutable(int capacity) {
       if (!repeatedInt32_.isModifiable()) {
         repeatedInt32_ = makeMutableCopy(repeatedInt32_, capacity);
@@ -12508,7 +13005,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList repeatedInt64_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList repeatedInt64_;
     private void ensureRepeatedInt64IsMutable(int capacity) {
       if (!repeatedInt64_.isModifiable()) {
         repeatedInt64_ = makeMutableCopy(repeatedInt64_, capacity);
@@ -12592,7 +13089,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedUint32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedUint32_;
     private void ensureRepeatedUint32IsMutable(int capacity) {
       if (!repeatedUint32_.isModifiable()) {
         repeatedUint32_ = makeMutableCopy(repeatedUint32_, capacity);
@@ -12676,7 +13173,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList repeatedUint64_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList repeatedUint64_;
     private void ensureRepeatedUint64IsMutable(int capacity) {
       if (!repeatedUint64_.isModifiable()) {
         repeatedUint64_ = makeMutableCopy(repeatedUint64_, capacity);
@@ -12760,7 +13257,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedSint32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedSint32_;
     private void ensureRepeatedSint32IsMutable(int capacity) {
       if (!repeatedSint32_.isModifiable()) {
         repeatedSint32_ = makeMutableCopy(repeatedSint32_, capacity);
@@ -12844,7 +13341,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList repeatedSint64_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList repeatedSint64_;
     private void ensureRepeatedSint64IsMutable(int capacity) {
       if (!repeatedSint64_.isModifiable()) {
         repeatedSint64_ = makeMutableCopy(repeatedSint64_, capacity);
@@ -12928,7 +13425,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedFixed32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedFixed32_;
     private void ensureRepeatedFixed32IsMutable(int capacity) {
       if (!repeatedFixed32_.isModifiable()) {
         repeatedFixed32_ = makeMutableCopy(repeatedFixed32_, capacity);
@@ -13012,7 +13509,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList repeatedFixed64_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList repeatedFixed64_;
     private void ensureRepeatedFixed64IsMutable(int capacity) {
       if (!repeatedFixed64_.isModifiable()) {
         repeatedFixed64_ = makeMutableCopy(repeatedFixed64_, capacity);
@@ -13096,7 +13593,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedSfixed32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedSfixed32_;
     private void ensureRepeatedSfixed32IsMutable(int capacity) {
       if (!repeatedSfixed32_.isModifiable()) {
         repeatedSfixed32_ = makeMutableCopy(repeatedSfixed32_, capacity);
@@ -13180,7 +13677,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList repeatedSfixed64_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList repeatedSfixed64_;
     private void ensureRepeatedSfixed64IsMutable(int capacity) {
       if (!repeatedSfixed64_.isModifiable()) {
         repeatedSfixed64_ = makeMutableCopy(repeatedSfixed64_, capacity);
@@ -13264,7 +13761,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.FloatList repeatedFloat_ = emptyFloatList();
+    private com.google.protobuf.Internal.FloatList repeatedFloat_;
     private void ensureRepeatedFloatIsMutable(int capacity) {
       if (!repeatedFloat_.isModifiable()) {
         repeatedFloat_ = makeMutableCopy(repeatedFloat_, capacity);
@@ -13348,7 +13845,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.DoubleList repeatedDouble_ = emptyDoubleList();
+    private com.google.protobuf.Internal.DoubleList repeatedDouble_;
     private void ensureRepeatedDoubleIsMutable(int capacity) {
       if (!repeatedDouble_.isModifiable()) {
         repeatedDouble_ = makeMutableCopy(repeatedDouble_, capacity);
@@ -13432,7 +13929,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.BooleanList repeatedBool_ = emptyBooleanList();
+    private com.google.protobuf.Internal.BooleanList repeatedBool_;
     private void ensureRepeatedBoolIsMutable(int capacity) {
       if (!repeatedBool_.isModifiable()) {
         repeatedBool_ = makeMutableCopy(repeatedBool_, capacity);
@@ -13516,8 +14013,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedString_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedString_;
     private void ensureRepeatedStringIsMutable() {
       if (!repeatedString_.isModifiable()) {
         repeatedString_ = new com.google.protobuf.LazyStringArrayList(repeatedString_);
@@ -13627,7 +14123,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes_ = emptyList(com.google.protobuf.ByteString.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes_;
     private void ensureRepeatedBytesIsMutable(int capacity) {
       if (!repeatedBytes_.isModifiable()) {
         repeatedBytes_ = makeMutableCopy(repeatedBytes_, capacity);
@@ -13711,8 +14207,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage> repeatedNestedMessage_ =
-        emptyList(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage> repeatedNestedMessage_;
     private void ensureRepeatedNestedMessageIsMutable() {
       if (!repeatedNestedMessage_.isModifiable()) {
         repeatedNestedMessage_ = makeMutableCopy(repeatedNestedMessage_);
@@ -13945,8 +14440,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return repeatedNestedMessageBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023> repeatedForeignMessage_ =
-        emptyList(com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023> repeatedForeignMessage_;
     private void ensureRepeatedForeignMessageIsMutable() {
       if (!repeatedForeignMessage_.isModifiable()) {
         repeatedForeignMessage_ = makeMutableCopy(repeatedForeignMessage_);
@@ -14179,7 +14673,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return repeatedForeignMessageBuilder_;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedNestedEnum_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedNestedEnum_;
     private void ensureRepeatedNestedEnumIsMutable(int capacity) {
       if (!repeatedNestedEnum_.isModifiable()) {
         repeatedNestedEnum_ = makeMutableCopy(repeatedNestedEnum_, capacity);
@@ -14317,7 +14811,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedForeignEnum_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedForeignEnum_;
     private void ensureRepeatedForeignEnumIsMutable(int capacity) {
       if (!repeatedForeignEnum_.isModifiable()) {
         repeatedForeignEnum_ = makeMutableCopy(repeatedForeignEnum_, capacity);
@@ -14455,8 +14949,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedStringPiece_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedStringPiece_;
     private void ensureRepeatedStringPieceIsMutable() {
       if (!repeatedStringPiece_.isModifiable()) {
         repeatedStringPiece_ = new com.google.protobuf.LazyStringArrayList(repeatedStringPiece_);
@@ -14566,8 +15059,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedCord_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedCord_;
     private void ensureRepeatedCordIsMutable() {
       if (!repeatedCord_.isModifiable()) {
         repeatedCord_ = new com.google.protobuf.LazyStringArrayList(repeatedCord_);
@@ -14677,7 +15169,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedInt32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedInt32_;
     private void ensurePackedInt32IsMutable(int capacity) {
       if (!packedInt32_.isModifiable()) {
         packedInt32_ = makeMutableCopy(packedInt32_, capacity);
@@ -14789,7 +15281,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList packedInt64_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList packedInt64_;
     private void ensurePackedInt64IsMutable(int capacity) {
       if (!packedInt64_.isModifiable()) {
         packedInt64_ = makeMutableCopy(packedInt64_, capacity);
@@ -14873,7 +15365,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedUint32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedUint32_;
     private void ensurePackedUint32IsMutable(int capacity) {
       if (!packedUint32_.isModifiable()) {
         packedUint32_ = makeMutableCopy(packedUint32_, capacity);
@@ -14957,7 +15449,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList packedUint64_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList packedUint64_;
     private void ensurePackedUint64IsMutable(int capacity) {
       if (!packedUint64_.isModifiable()) {
         packedUint64_ = makeMutableCopy(packedUint64_, capacity);
@@ -15041,7 +15533,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedSint32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedSint32_;
     private void ensurePackedSint32IsMutable(int capacity) {
       if (!packedSint32_.isModifiable()) {
         packedSint32_ = makeMutableCopy(packedSint32_, capacity);
@@ -15125,7 +15617,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList packedSint64_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList packedSint64_;
     private void ensurePackedSint64IsMutable(int capacity) {
       if (!packedSint64_.isModifiable()) {
         packedSint64_ = makeMutableCopy(packedSint64_, capacity);
@@ -15209,7 +15701,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedFixed32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedFixed32_;
     private void ensurePackedFixed32IsMutable(int capacity) {
       if (!packedFixed32_.isModifiable()) {
         packedFixed32_ = makeMutableCopy(packedFixed32_, capacity);
@@ -15293,7 +15785,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList packedFixed64_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList packedFixed64_;
     private void ensurePackedFixed64IsMutable(int capacity) {
       if (!packedFixed64_.isModifiable()) {
         packedFixed64_ = makeMutableCopy(packedFixed64_, capacity);
@@ -15377,7 +15869,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedSfixed32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedSfixed32_;
     private void ensurePackedSfixed32IsMutable(int capacity) {
       if (!packedSfixed32_.isModifiable()) {
         packedSfixed32_ = makeMutableCopy(packedSfixed32_, capacity);
@@ -15461,7 +15953,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList packedSfixed64_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList packedSfixed64_;
     private void ensurePackedSfixed64IsMutable(int capacity) {
       if (!packedSfixed64_.isModifiable()) {
         packedSfixed64_ = makeMutableCopy(packedSfixed64_, capacity);
@@ -15545,7 +16037,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.FloatList packedFloat_ = emptyFloatList();
+    private com.google.protobuf.Internal.FloatList packedFloat_;
     private void ensurePackedFloatIsMutable(int capacity) {
       if (!packedFloat_.isModifiable()) {
         packedFloat_ = makeMutableCopy(packedFloat_, capacity);
@@ -15629,7 +16121,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.DoubleList packedDouble_ = emptyDoubleList();
+    private com.google.protobuf.Internal.DoubleList packedDouble_;
     private void ensurePackedDoubleIsMutable(int capacity) {
       if (!packedDouble_.isModifiable()) {
         packedDouble_ = makeMutableCopy(packedDouble_, capacity);
@@ -15713,7 +16205,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.BooleanList packedBool_ = emptyBooleanList();
+    private com.google.protobuf.Internal.BooleanList packedBool_;
     private void ensurePackedBoolIsMutable(int capacity) {
       if (!packedBool_.isModifiable()) {
         packedBool_ = makeMutableCopy(packedBool_, capacity);
@@ -15797,7 +16289,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList packedNestedEnum_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList packedNestedEnum_;
     private void ensurePackedNestedEnumIsMutable(int capacity) {
       if (!packedNestedEnum_.isModifiable()) {
         packedNestedEnum_ = makeMutableCopy(packedNestedEnum_, capacity);
@@ -15935,7 +16427,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList unpackedInt32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList unpackedInt32_;
     private void ensureUnpackedInt32IsMutable(int capacity) {
       if (!unpackedInt32_.isModifiable()) {
         unpackedInt32_ = makeMutableCopy(unpackedInt32_, capacity);
@@ -16047,7 +16539,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList unpackedInt64_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList unpackedInt64_;
     private void ensureUnpackedInt64IsMutable(int capacity) {
       if (!unpackedInt64_.isModifiable()) {
         unpackedInt64_ = makeMutableCopy(unpackedInt64_, capacity);
@@ -16131,7 +16623,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList unpackedUint32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList unpackedUint32_;
     private void ensureUnpackedUint32IsMutable(int capacity) {
       if (!unpackedUint32_.isModifiable()) {
         unpackedUint32_ = makeMutableCopy(unpackedUint32_, capacity);
@@ -16215,7 +16707,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList unpackedUint64_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList unpackedUint64_;
     private void ensureUnpackedUint64IsMutable(int capacity) {
       if (!unpackedUint64_.isModifiable()) {
         unpackedUint64_ = makeMutableCopy(unpackedUint64_, capacity);
@@ -16299,7 +16791,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList unpackedSint32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList unpackedSint32_;
     private void ensureUnpackedSint32IsMutable(int capacity) {
       if (!unpackedSint32_.isModifiable()) {
         unpackedSint32_ = makeMutableCopy(unpackedSint32_, capacity);
@@ -16383,7 +16875,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList unpackedSint64_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList unpackedSint64_;
     private void ensureUnpackedSint64IsMutable(int capacity) {
       if (!unpackedSint64_.isModifiable()) {
         unpackedSint64_ = makeMutableCopy(unpackedSint64_, capacity);
@@ -16467,7 +16959,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList unpackedFixed32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList unpackedFixed32_;
     private void ensureUnpackedFixed32IsMutable(int capacity) {
       if (!unpackedFixed32_.isModifiable()) {
         unpackedFixed32_ = makeMutableCopy(unpackedFixed32_, capacity);
@@ -16551,7 +17043,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList unpackedFixed64_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList unpackedFixed64_;
     private void ensureUnpackedFixed64IsMutable(int capacity) {
       if (!unpackedFixed64_.isModifiable()) {
         unpackedFixed64_ = makeMutableCopy(unpackedFixed64_, capacity);
@@ -16635,7 +17127,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList unpackedSfixed32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList unpackedSfixed32_;
     private void ensureUnpackedSfixed32IsMutable(int capacity) {
       if (!unpackedSfixed32_.isModifiable()) {
         unpackedSfixed32_ = makeMutableCopy(unpackedSfixed32_, capacity);
@@ -16719,7 +17211,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.LongList unpackedSfixed64_ = emptyLongList();
+    private com.google.protobuf.Internal.LongList unpackedSfixed64_;
     private void ensureUnpackedSfixed64IsMutable(int capacity) {
       if (!unpackedSfixed64_.isModifiable()) {
         unpackedSfixed64_ = makeMutableCopy(unpackedSfixed64_, capacity);
@@ -16803,7 +17295,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.FloatList unpackedFloat_ = emptyFloatList();
+    private com.google.protobuf.Internal.FloatList unpackedFloat_;
     private void ensureUnpackedFloatIsMutable(int capacity) {
       if (!unpackedFloat_.isModifiable()) {
         unpackedFloat_ = makeMutableCopy(unpackedFloat_, capacity);
@@ -16887,7 +17379,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.DoubleList unpackedDouble_ = emptyDoubleList();
+    private com.google.protobuf.Internal.DoubleList unpackedDouble_;
     private void ensureUnpackedDoubleIsMutable(int capacity) {
       if (!unpackedDouble_.isModifiable()) {
         unpackedDouble_ = makeMutableCopy(unpackedDouble_, capacity);
@@ -16971,7 +17463,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.BooleanList unpackedBool_ = emptyBooleanList();
+    private com.google.protobuf.Internal.BooleanList unpackedBool_;
     private void ensureUnpackedBoolIsMutable(int capacity) {
       if (!unpackedBool_.isModifiable()) {
         unpackedBool_ = makeMutableCopy(unpackedBool_, capacity);
@@ -17055,7 +17547,7 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList unpackedNestedEnum_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList unpackedNestedEnum_;
     private void ensureUnpackedNestedEnumIsMutable(int capacity) {
       if (!unpackedNestedEnum_.isModifiable()) {
         unpackedNestedEnum_ = makeMutableCopy(unpackedNestedEnum_, capacity);
@@ -20072,7 +20564,7 @@ com.google.protobuf_test_messages.edition2023.ForeignEnumEdition2023 defaultValu
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetOneofNestedMessageFieldBuilder().getBuilder(),
+          internalGetOneofNestedMessageFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (oneofFieldCase_) {
       default:
@@ -20750,7 +21242,7 @@ com.google.protobuf_test_messages.edition2023.ForeignEnumEdition2023 defaultValu
         throws java.io.IOException {
       if (groupLikeType_ != null || groupLikeTypeBuilder_ != null) {
         input.readGroup(201,
-            internalGetGroupLikeTypeFieldBuilder().getBuilder(),
+            internalGetGroupLikeTypeFieldBuilder().getBuilderForParsing(),
             extensionRegistry);
       } else {
         groupLikeType_ = input.readGroup(201, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.parser(),
@@ -20878,7 +21370,7 @@ com.google.protobuf_test_messages.edition2023.ForeignEnumEdition2023 defaultValu
         throws java.io.IOException {
       if (delimitedField_ != null || delimitedFieldBuilder_ != null) {
         input.readGroup(202,
-            internalGetDelimitedFieldFieldBuilder().getBuilder(),
+            internalGetDelimitedFieldFieldBuilder().getBuilderForParsing(),
             extensionRegistry);
       } else {
         delimitedField_ = input.readGroup(202, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.parser(),
@@ -21087,22 +21579,2411 @@ com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 defaultVal
     return DEFAULT_INSTANCE;
   }
 
+  static TestAllTypesEdition2023 parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    TestAllTypesEdition2023 instance = new TestAllTypesEdition2023((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder> optionalNestedMessageBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder> optionalForeignMessageBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder> recursiveMessageBuilder_ = null;
+    com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder> repeatedNestedMessageBuilder_ = null;
+    com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder> repeatedForeignMessageBuilder_ = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder> parsed_mapStringNestedMessage = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder> parsed_mapStringForeignMessage = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder> oneofNestedMessageBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeTypeOrBuilder> groupLikeTypeBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeTypeOrBuilder> delimitedFieldBuilder_ = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder> parsed_mapRecursive = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      optionalNestedMessageBuilder_ = internalGetOptionalNestedMessageFieldBuilder(instance, optionalNestedMessageBuilder_);
+      optionalForeignMessageBuilder_ = internalGetOptionalForeignMessageFieldBuilder(instance, optionalForeignMessageBuilder_);
+      recursiveMessageBuilder_ = internalGetRecursiveMessageFieldBuilder(instance, recursiveMessageBuilder_);
+      repeatedNestedMessageBuilder_ = internalGetRepeatedNestedMessageFieldBuilder(instance, repeatedNestedMessageBuilder_);
+      repeatedForeignMessageBuilder_ = internalGetRepeatedForeignMessageFieldBuilder(instance, repeatedForeignMessageBuilder_);
+      groupLikeTypeBuilder_ = internalGetGroupLikeTypeFieldBuilder(instance, groupLikeTypeBuilder_);
+      delimitedFieldBuilder_ = internalGetDelimitedFieldFieldBuilder(instance, delimitedFieldBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
+            instance.optionalInt32_ = input.readInt32();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 8
+          case 16: {
+            instance.optionalInt64_ = input.readInt64();
+            instance.bitField0_ |= 0x00000002;
+            break;
+          } // case 16
+          case 24: {
+            instance.optionalUint32_ = input.readUInt32();
+            instance.bitField0_ |= 0x00000004;
+            break;
+          } // case 24
+          case 32: {
+            instance.optionalUint64_ = input.readUInt64();
+            instance.bitField0_ |= 0x00000008;
+            break;
+          } // case 32
+          case 40: {
+            instance.optionalSint32_ = input.readSInt32();
+            instance.bitField0_ |= 0x00000010;
+            break;
+          } // case 40
+          case 48: {
+            instance.optionalSint64_ = input.readSInt64();
+            instance.bitField0_ |= 0x00000020;
+            break;
+          } // case 48
+          case 61: {
+            instance.optionalFixed32_ = input.readFixed32();
+            instance.bitField0_ |= 0x00000040;
+            break;
+          } // case 61
+          case 65: {
+            instance.optionalFixed64_ = input.readFixed64();
+            instance.bitField0_ |= 0x00000080;
+            break;
+          } // case 65
+          case 77: {
+            instance.optionalSfixed32_ = input.readSFixed32();
+            instance.bitField0_ |= 0x00000100;
+            break;
+          } // case 77
+          case 81: {
+            instance.optionalSfixed64_ = input.readSFixed64();
+            instance.bitField0_ |= 0x00000200;
+            break;
+          } // case 81
+          case 93: {
+            instance.optionalFloat_ = input.readFloat();
+            instance.bitField0_ |= 0x00000400;
+            break;
+          } // case 93
+          case 97: {
+            instance.optionalDouble_ = input.readDouble();
+            instance.bitField0_ |= 0x00000800;
+            break;
+          } // case 97
+          case 104: {
+            instance.optionalBool_ = input.readBool();
+            instance.bitField0_ |= 0x00001000;
+            break;
+          } // case 104
+          case 114: {
+            instance.optionalString_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00002000;
+            break;
+          } // case 114
+          case 122: {
+            instance.optionalBytes_ = input.readBytes();
+            instance.bitField0_ |= 0x00004000;
+            break;
+          } // case 122
+          case 146: {
+            if (instance.optionalNestedMessage_ != null || optionalNestedMessageBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseOptionalNestedMessageField(instance, input, extensionRegistry, optionalNestedMessageBuilder_);
+            break;
+          } // case 146
+          case 154: {
+            if (instance.optionalForeignMessage_ != null || optionalForeignMessageBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseOptionalForeignMessageField(instance, input, extensionRegistry, optionalForeignMessageBuilder_);
+            break;
+          } // case 154
+          case 168: {
+            instance.optionalNestedEnum_ = input.readEnum();
+            instance.bitField0_ |= 0x00020000;
+            break;
+          } // case 168
+          case 176: {
+            instance.optionalForeignEnum_ = input.readEnum();
+            instance.bitField0_ |= 0x00040000;
+            break;
+          } // case 176
+          case 194: {
+            instance.optionalStringPiece_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00080000;
+            break;
+          } // case 194
+          case 202: {
+            instance.optionalCord_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00100000;
+            break;
+          } // case 202
+          case 218: {
+            if (instance.recursiveMessage_ != null || recursiveMessageBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseRecursiveMessageField(instance, input, extensionRegistry, recursiveMessageBuilder_);
+            break;
+          } // case 218
+          case 248: {
+            int v = input.readInt32();
+            ensureRepeatedInt32IsMutable(instance, /* capacity= */ -1);
+            instance.repeatedInt32_.addInt(v);
+            break;
+          } // case 248
+          case 250: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureRepeatedInt32IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedInt32_.addInt(input.readInt32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 250
+          case 256: {
+            long v = input.readInt64();
+            ensureRepeatedInt64IsMutable(instance, /* capacity= */ -1);
+            instance.repeatedInt64_.addLong(v);
+            break;
+          } // case 256
+          case 258: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureRepeatedInt64IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedInt64_.addLong(input.readInt64());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 258
+          case 264: {
+            int v = input.readUInt32();
+            ensureRepeatedUint32IsMutable(instance, /* capacity= */ -1);
+            instance.repeatedUint32_.addInt(v);
+            break;
+          } // case 264
+          case 266: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureRepeatedUint32IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedUint32_.addInt(input.readUInt32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 266
+          case 272: {
+            long v = input.readUInt64();
+            ensureRepeatedUint64IsMutable(instance, /* capacity= */ -1);
+            instance.repeatedUint64_.addLong(v);
+            break;
+          } // case 272
+          case 274: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureRepeatedUint64IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedUint64_.addLong(input.readUInt64());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 274
+          case 280: {
+            int v = input.readSInt32();
+            ensureRepeatedSint32IsMutable(instance, /* capacity= */ -1);
+            instance.repeatedSint32_.addInt(v);
+            break;
+          } // case 280
+          case 282: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureRepeatedSint32IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedSint32_.addInt(input.readSInt32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 282
+          case 288: {
+            long v = input.readSInt64();
+            ensureRepeatedSint64IsMutable(instance, /* capacity= */ -1);
+            instance.repeatedSint64_.addLong(v);
+            break;
+          } // case 288
+          case 290: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureRepeatedSint64IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedSint64_.addLong(input.readSInt64());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 290
+          case 301: {
+            int v = input.readFixed32();
+            ensureRepeatedFixed32IsMutable(instance, /* capacity= */ -1);
+            instance.repeatedFixed32_.addInt(v);
+            break;
+          } // case 301
+          case 298: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureRepeatedFixed32IsMutable(instance, alloc / 4);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedFixed32_.addInt(input.readFixed32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 298
+          case 305: {
+            long v = input.readFixed64();
+            ensureRepeatedFixed64IsMutable(instance, /* capacity= */ -1);
+            instance.repeatedFixed64_.addLong(v);
+            break;
+          } // case 305
+          case 306: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureRepeatedFixed64IsMutable(instance, alloc / 8);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedFixed64_.addLong(input.readFixed64());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 306
+          case 317: {
+            int v = input.readSFixed32();
+            ensureRepeatedSfixed32IsMutable(instance, /* capacity= */ -1);
+            instance.repeatedSfixed32_.addInt(v);
+            break;
+          } // case 317
+          case 314: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureRepeatedSfixed32IsMutable(instance, alloc / 4);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedSfixed32_.addInt(input.readSFixed32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 314
+          case 321: {
+            long v = input.readSFixed64();
+            ensureRepeatedSfixed64IsMutable(instance, /* capacity= */ -1);
+            instance.repeatedSfixed64_.addLong(v);
+            break;
+          } // case 321
+          case 322: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureRepeatedSfixed64IsMutable(instance, alloc / 8);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedSfixed64_.addLong(input.readSFixed64());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 322
+          case 333: {
+            float v = input.readFloat();
+            ensureRepeatedFloatIsMutable(instance, /* capacity= */ -1);
+            instance.repeatedFloat_.addFloat(v);
+            break;
+          } // case 333
+          case 330: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureRepeatedFloatIsMutable(instance, alloc / 4);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedFloat_.addFloat(input.readFloat());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 330
+          case 337: {
+            double v = input.readDouble();
+            ensureRepeatedDoubleIsMutable(instance, /* capacity= */ -1);
+            instance.repeatedDouble_.addDouble(v);
+            break;
+          } // case 337
+          case 338: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureRepeatedDoubleIsMutable(instance, alloc / 8);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedDouble_.addDouble(input.readDouble());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 338
+          case 344: {
+            boolean v = input.readBool();
+            ensureRepeatedBoolIsMutable(instance, /* capacity= */ -1);
+            instance.repeatedBool_.addBoolean(v);
+            break;
+          } // case 344
+          case 346: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureRepeatedBoolIsMutable(instance, alloc / 1);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedBool_.addBoolean(input.readBool());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 346
+          case 354: {
+            ensureRepeatedStringIsMutable(instance);
+            instance.repeatedString_.add(input.readStringRequireUtf8());
+            break;
+          } // case 354
+          case 362: {
+            com.google.protobuf.ByteString v = input.readBytes();
+            ensureRepeatedBytesIsMutable(instance, /* capacity= */ -1);
+            instance.repeatedBytes_.add(v);
+            break;
+          } // case 362
+          case 386: {
+            final int oldLimit = input.pushLimitBeforeMessage();
+            com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage m = com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+            input.popLimitAfterMessage(oldLimit);
+            if (repeatedNestedMessageBuilder_ == null) {
+              ensureRepeatedNestedMessageIsMutable(instance);
+              instance.repeatedNestedMessage_.add(m);
+            } else {
+              repeatedNestedMessageBuilder_.addMessage(m);
+              instance.bitField1_ |= 0x00000080;
+
+            }
+            break;
+          } // case 386
+          case 394: {
+            final int oldLimit = input.pushLimitBeforeMessage();
+            com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023 m = com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.parser().parsePartialFrom(input, extensionRegistry);
+            input.popLimitAfterMessage(oldLimit);
+            if (repeatedForeignMessageBuilder_ == null) {
+              ensureRepeatedForeignMessageIsMutable(instance);
+              instance.repeatedForeignMessage_.add(m);
+            } else {
+              repeatedForeignMessageBuilder_.addMessage(m);
+              instance.bitField1_ |= 0x00000100;
+
+            }
+            break;
+          } // case 394
+          case 408: {
+            int tmpRaw = input.readEnum();
+            ensureRepeatedNestedEnumIsMutable(instance, /* capacity= */ -1);
+            instance.repeatedNestedEnum_.addInt(tmpRaw);
+            break;
+          } // case 408
+          case 410: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureRepeatedNestedEnumIsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedNestedEnum_.addInt(input.readEnum());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 410
+          case 416: {
+            int tmpRaw = input.readEnum();
+            ensureRepeatedForeignEnumIsMutable(instance, /* capacity= */ -1);
+            instance.repeatedForeignEnum_.addInt(tmpRaw);
+            break;
+          } // case 416
+          case 418: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureRepeatedForeignEnumIsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedForeignEnum_.addInt(input.readEnum());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 418
+          case 434: {
+            ensureRepeatedStringPieceIsMutable(instance);
+            instance.repeatedStringPiece_.add(input.readStringRequireUtf8());
+            break;
+          } // case 434
+          case 442: {
+            ensureRepeatedCordIsMutable(instance);
+            instance.repeatedCord_.add(input.readStringRequireUtf8());
+            break;
+          } // case 442
+          case 450: {
+            com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+            mapInt32Int32__ = input.readMessage(
+                MapInt32Int32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapInt32Int32(instance).getMutableMap().put(
+                mapInt32Int32__.getKey(), mapInt32Int32__.getValue());
+            instance.bitField2_ |= 0x00000200;
+            break;
+          } // case 450
+          case 458: {
+            com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+            mapInt64Int64__ = input.readMessage(
+                MapInt64Int64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapInt64Int64(instance).getMutableMap().put(
+                mapInt64Int64__.getKey(), mapInt64Int64__.getValue());
+            instance.bitField2_ |= 0x00000400;
+            break;
+          } // case 458
+          case 466: {
+            com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+            mapUint32Uint32__ = input.readMessage(
+                MapUint32Uint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapUint32Uint32(instance).getMutableMap().put(
+                mapUint32Uint32__.getKey(), mapUint32Uint32__.getValue());
+            instance.bitField2_ |= 0x00000800;
+            break;
+          } // case 466
+          case 474: {
+            com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+            mapUint64Uint64__ = input.readMessage(
+                MapUint64Uint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapUint64Uint64(instance).getMutableMap().put(
+                mapUint64Uint64__.getKey(), mapUint64Uint64__.getValue());
+            instance.bitField2_ |= 0x00001000;
+            break;
+          } // case 474
+          case 482: {
+            com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+            mapSint32Sint32__ = input.readMessage(
+                MapSint32Sint32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapSint32Sint32(instance).getMutableMap().put(
+                mapSint32Sint32__.getKey(), mapSint32Sint32__.getValue());
+            instance.bitField2_ |= 0x00002000;
+            break;
+          } // case 482
+          case 490: {
+            com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+            mapSint64Sint64__ = input.readMessage(
+                MapSint64Sint64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapSint64Sint64(instance).getMutableMap().put(
+                mapSint64Sint64__.getKey(), mapSint64Sint64__.getValue());
+            instance.bitField2_ |= 0x00004000;
+            break;
+          } // case 490
+          case 498: {
+            com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+            mapFixed32Fixed32__ = input.readMessage(
+                MapFixed32Fixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapFixed32Fixed32(instance).getMutableMap().put(
+                mapFixed32Fixed32__.getKey(), mapFixed32Fixed32__.getValue());
+            instance.bitField2_ |= 0x00008000;
+            break;
+          } // case 498
+          case 506: {
+            com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+            mapFixed64Fixed64__ = input.readMessage(
+                MapFixed64Fixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapFixed64Fixed64(instance).getMutableMap().put(
+                mapFixed64Fixed64__.getKey(), mapFixed64Fixed64__.getValue());
+            instance.bitField2_ |= 0x00010000;
+            break;
+          } // case 506
+          case 514: {
+            com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+            mapSfixed32Sfixed32__ = input.readMessage(
+                MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapSfixed32Sfixed32(instance).getMutableMap().put(
+                mapSfixed32Sfixed32__.getKey(), mapSfixed32Sfixed32__.getValue());
+            instance.bitField2_ |= 0x00020000;
+            break;
+          } // case 514
+          case 522: {
+            com.google.protobuf.MapEntry<java.lang.Long, java.lang.Long>
+            mapSfixed64Sfixed64__ = input.readMessage(
+                MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapSfixed64Sfixed64(instance).getMutableMap().put(
+                mapSfixed64Sfixed64__.getKey(), mapSfixed64Sfixed64__.getValue());
+            instance.bitField2_ |= 0x00040000;
+            break;
+          } // case 522
+          case 530: {
+            com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Float>
+            mapInt32Float__ = input.readMessage(
+                MapInt32FloatDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapInt32Float(instance).getMutableMap().put(
+                mapInt32Float__.getKey(), mapInt32Float__.getValue());
+            instance.bitField2_ |= 0x00080000;
+            break;
+          } // case 530
+          case 538: {
+            com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Double>
+            mapInt32Double__ = input.readMessage(
+                MapInt32DoubleDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapInt32Double(instance).getMutableMap().put(
+                mapInt32Double__.getKey(), mapInt32Double__.getValue());
+            instance.bitField2_ |= 0x00100000;
+            break;
+          } // case 538
+          case 546: {
+            com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.Boolean>
+            mapBoolBool__ = input.readMessage(
+                MapBoolBoolDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapBoolBool(instance).getMutableMap().put(
+                mapBoolBool__.getKey(), mapBoolBool__.getValue());
+            instance.bitField2_ |= 0x00200000;
+            break;
+          } // case 546
+          case 554: {
+            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+            mapStringString__ = input.readMessage(
+                MapStringStringDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapStringString(instance).getMutableMap().put(
+                mapStringString__.getKey(), mapStringString__.getValue());
+            instance.bitField2_ |= 0x00400000;
+            break;
+          } // case 554
+          case 562: {
+            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
+            mapStringBytes__ = input.readMessage(
+                MapStringBytesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapStringBytes(instance).getMutableMap().put(
+                mapStringBytes__.getKey(), mapStringBytes__.getValue());
+            instance.bitField2_ |= 0x00800000;
+            break;
+          } // case 562
+          case 570: {
+            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage>
+            mapStringNestedMessage__ = input.readMessage(
+                MapStringNestedMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_mapStringNestedMessage = internalGetMutableMapStringNestedMessage(instance, parsed_mapStringNestedMessage)).ensureBuilderMap().put(
+                mapStringNestedMessage__.getKey(), mapStringNestedMessage__.getValue());
+            instance.bitField2_ |= 0x01000000;
+            break;
+          } // case 570
+          case 578: {
+            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023>
+            mapStringForeignMessage__ = input.readMessage(
+                MapStringForeignMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_mapStringForeignMessage = internalGetMutableMapStringForeignMessage(instance, parsed_mapStringForeignMessage)).ensureBuilderMap().put(
+                mapStringForeignMessage__.getKey(), mapStringForeignMessage__.getValue());
+            instance.bitField2_ |= 0x02000000;
+            break;
+          } // case 578
+          case 586: {
+            com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+            mapStringNestedEnum__ = input.readMessage(
+                MapStringNestedEnumDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapStringNestedEnum(instance).getMutableMap().put(
+                mapStringNestedEnum__.getKey(), mapStringNestedEnum__.getValue());
+            instance.bitField2_ |= 0x04000000;
+            break;
+          } // case 586
+          case 594: {
+            com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+            mapStringForeignEnum__ = input.readMessage(
+                MapStringForeignEnumDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapStringForeignEnum(instance).getMutableMap().put(
+                mapStringForeignEnum__.getKey(), mapStringForeignEnum__.getValue());
+            instance.bitField2_ |= 0x08000000;
+            break;
+          } // case 594
+          case 600: {
+            int v = input.readInt32();
+            ensurePackedInt32IsMutable(instance, /* capacity= */ -1);
+            instance.packedInt32_.addInt(v);
+            break;
+          } // case 600
+          case 602: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensurePackedInt32IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.packedInt32_.addInt(input.readInt32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 602
+          case 608: {
+            long v = input.readInt64();
+            ensurePackedInt64IsMutable(instance, /* capacity= */ -1);
+            instance.packedInt64_.addLong(v);
+            break;
+          } // case 608
+          case 610: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensurePackedInt64IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.packedInt64_.addLong(input.readInt64());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 610
+          case 616: {
+            int v = input.readUInt32();
+            ensurePackedUint32IsMutable(instance, /* capacity= */ -1);
+            instance.packedUint32_.addInt(v);
+            break;
+          } // case 616
+          case 618: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensurePackedUint32IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.packedUint32_.addInt(input.readUInt32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 618
+          case 624: {
+            long v = input.readUInt64();
+            ensurePackedUint64IsMutable(instance, /* capacity= */ -1);
+            instance.packedUint64_.addLong(v);
+            break;
+          } // case 624
+          case 626: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensurePackedUint64IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.packedUint64_.addLong(input.readUInt64());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 626
+          case 632: {
+            int v = input.readSInt32();
+            ensurePackedSint32IsMutable(instance, /* capacity= */ -1);
+            instance.packedSint32_.addInt(v);
+            break;
+          } // case 632
+          case 634: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensurePackedSint32IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.packedSint32_.addInt(input.readSInt32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 634
+          case 640: {
+            long v = input.readSInt64();
+            ensurePackedSint64IsMutable(instance, /* capacity= */ -1);
+            instance.packedSint64_.addLong(v);
+            break;
+          } // case 640
+          case 642: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensurePackedSint64IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.packedSint64_.addLong(input.readSInt64());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 642
+          case 653: {
+            int v = input.readFixed32();
+            ensurePackedFixed32IsMutable(instance, /* capacity= */ -1);
+            instance.packedFixed32_.addInt(v);
+            break;
+          } // case 653
+          case 650: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensurePackedFixed32IsMutable(instance, alloc / 4);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.packedFixed32_.addInt(input.readFixed32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 650
+          case 657: {
+            long v = input.readFixed64();
+            ensurePackedFixed64IsMutable(instance, /* capacity= */ -1);
+            instance.packedFixed64_.addLong(v);
+            break;
+          } // case 657
+          case 658: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensurePackedFixed64IsMutable(instance, alloc / 8);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.packedFixed64_.addLong(input.readFixed64());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 658
+          case 669: {
+            int v = input.readSFixed32();
+            ensurePackedSfixed32IsMutable(instance, /* capacity= */ -1);
+            instance.packedSfixed32_.addInt(v);
+            break;
+          } // case 669
+          case 666: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensurePackedSfixed32IsMutable(instance, alloc / 4);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.packedSfixed32_.addInt(input.readSFixed32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 666
+          case 673: {
+            long v = input.readSFixed64();
+            ensurePackedSfixed64IsMutable(instance, /* capacity= */ -1);
+            instance.packedSfixed64_.addLong(v);
+            break;
+          } // case 673
+          case 674: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensurePackedSfixed64IsMutable(instance, alloc / 8);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.packedSfixed64_.addLong(input.readSFixed64());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 674
+          case 685: {
+            float v = input.readFloat();
+            ensurePackedFloatIsMutable(instance, /* capacity= */ -1);
+            instance.packedFloat_.addFloat(v);
+            break;
+          } // case 685
+          case 682: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensurePackedFloatIsMutable(instance, alloc / 4);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.packedFloat_.addFloat(input.readFloat());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 682
+          case 689: {
+            double v = input.readDouble();
+            ensurePackedDoubleIsMutable(instance, /* capacity= */ -1);
+            instance.packedDouble_.addDouble(v);
+            break;
+          } // case 689
+          case 690: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensurePackedDoubleIsMutable(instance, alloc / 8);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.packedDouble_.addDouble(input.readDouble());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 690
+          case 696: {
+            boolean v = input.readBool();
+            ensurePackedBoolIsMutable(instance, /* capacity= */ -1);
+            instance.packedBool_.addBoolean(v);
+            break;
+          } // case 696
+          case 698: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensurePackedBoolIsMutable(instance, alloc / 1);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.packedBool_.addBoolean(input.readBool());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 698
+          case 704: {
+            int tmpRaw = input.readEnum();
+            ensurePackedNestedEnumIsMutable(instance, /* capacity= */ -1);
+            instance.packedNestedEnum_.addInt(tmpRaw);
+            break;
+          } // case 704
+          case 706: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensurePackedNestedEnumIsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.packedNestedEnum_.addInt(input.readEnum());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 706
+          case 712: {
+            int v = input.readInt32();
+            ensureUnpackedInt32IsMutable(instance, /* capacity= */ -1);
+            instance.unpackedInt32_.addInt(v);
+            break;
+          } // case 712
+          case 714: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureUnpackedInt32IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.unpackedInt32_.addInt(input.readInt32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 714
+          case 720: {
+            long v = input.readInt64();
+            ensureUnpackedInt64IsMutable(instance, /* capacity= */ -1);
+            instance.unpackedInt64_.addLong(v);
+            break;
+          } // case 720
+          case 722: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureUnpackedInt64IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.unpackedInt64_.addLong(input.readInt64());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 722
+          case 728: {
+            int v = input.readUInt32();
+            ensureUnpackedUint32IsMutable(instance, /* capacity= */ -1);
+            instance.unpackedUint32_.addInt(v);
+            break;
+          } // case 728
+          case 730: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureUnpackedUint32IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.unpackedUint32_.addInt(input.readUInt32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 730
+          case 736: {
+            long v = input.readUInt64();
+            ensureUnpackedUint64IsMutable(instance, /* capacity= */ -1);
+            instance.unpackedUint64_.addLong(v);
+            break;
+          } // case 736
+          case 738: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureUnpackedUint64IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.unpackedUint64_.addLong(input.readUInt64());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 738
+          case 744: {
+            int v = input.readSInt32();
+            ensureUnpackedSint32IsMutable(instance, /* capacity= */ -1);
+            instance.unpackedSint32_.addInt(v);
+            break;
+          } // case 744
+          case 746: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureUnpackedSint32IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.unpackedSint32_.addInt(input.readSInt32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 746
+          case 752: {
+            long v = input.readSInt64();
+            ensureUnpackedSint64IsMutable(instance, /* capacity= */ -1);
+            instance.unpackedSint64_.addLong(v);
+            break;
+          } // case 752
+          case 754: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureUnpackedSint64IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.unpackedSint64_.addLong(input.readSInt64());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 754
+          case 765: {
+            int v = input.readFixed32();
+            ensureUnpackedFixed32IsMutable(instance, /* capacity= */ -1);
+            instance.unpackedFixed32_.addInt(v);
+            break;
+          } // case 765
+          case 762: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureUnpackedFixed32IsMutable(instance, alloc / 4);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.unpackedFixed32_.addInt(input.readFixed32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 762
+          case 769: {
+            long v = input.readFixed64();
+            ensureUnpackedFixed64IsMutable(instance, /* capacity= */ -1);
+            instance.unpackedFixed64_.addLong(v);
+            break;
+          } // case 769
+          case 770: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureUnpackedFixed64IsMutable(instance, alloc / 8);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.unpackedFixed64_.addLong(input.readFixed64());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 770
+          case 781: {
+            int v = input.readSFixed32();
+            ensureUnpackedSfixed32IsMutable(instance, /* capacity= */ -1);
+            instance.unpackedSfixed32_.addInt(v);
+            break;
+          } // case 781
+          case 778: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureUnpackedSfixed32IsMutable(instance, alloc / 4);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.unpackedSfixed32_.addInt(input.readSFixed32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 778
+          case 785: {
+            long v = input.readSFixed64();
+            ensureUnpackedSfixed64IsMutable(instance, /* capacity= */ -1);
+            instance.unpackedSfixed64_.addLong(v);
+            break;
+          } // case 785
+          case 786: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureUnpackedSfixed64IsMutable(instance, alloc / 8);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.unpackedSfixed64_.addLong(input.readSFixed64());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 786
+          case 797: {
+            float v = input.readFloat();
+            ensureUnpackedFloatIsMutable(instance, /* capacity= */ -1);
+            instance.unpackedFloat_.addFloat(v);
+            break;
+          } // case 797
+          case 794: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureUnpackedFloatIsMutable(instance, alloc / 4);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.unpackedFloat_.addFloat(input.readFloat());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 794
+          case 801: {
+            double v = input.readDouble();
+            ensureUnpackedDoubleIsMutable(instance, /* capacity= */ -1);
+            instance.unpackedDouble_.addDouble(v);
+            break;
+          } // case 801
+          case 802: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureUnpackedDoubleIsMutable(instance, alloc / 8);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.unpackedDouble_.addDouble(input.readDouble());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 802
+          case 808: {
+            boolean v = input.readBool();
+            ensureUnpackedBoolIsMutable(instance, /* capacity= */ -1);
+            instance.unpackedBool_.addBoolean(v);
+            break;
+          } // case 808
+          case 810: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureUnpackedBoolIsMutable(instance, alloc / 1);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.unpackedBool_.addBoolean(input.readBool());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 810
+          case 816: {
+            int tmpRaw = input.readEnum();
+            ensureUnpackedNestedEnumIsMutable(instance, /* capacity= */ -1);
+            instance.unpackedNestedEnum_.addInt(tmpRaw);
+            break;
+          } // case 816
+          case 818: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureUnpackedNestedEnumIsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.unpackedNestedEnum_.addInt(input.readEnum());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 818
+          case 888: {
+            parseOneofUint32(instance, input);
+            break;
+          } // case 888
+          case 898: {
+            if (oneofNestedMessageBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            oneofNestedMessageBuilder_ = internalGetOneofNestedMessageFieldBuilder(instance, oneofNestedMessageBuilder_);
+            parseOneofNestedMessage(instance, input, extensionRegistry, oneofNestedMessageBuilder_);
+            break;
+          } // case 898
+          case 906: {
+            parseOneofString(instance, input);
+            break;
+          } // case 906
+          case 914: {
+            parseOneofBytes(instance, input);
+            break;
+          } // case 914
+          case 920: {
+            parseOneofBool(instance, input);
+            break;
+          } // case 920
+          case 928: {
+            parseOneofUint64(instance, input);
+            break;
+          } // case 928
+          case 941: {
+            parseOneofFloat(instance, input);
+            break;
+          } // case 941
+          case 945: {
+            parseOneofDouble(instance, input);
+            break;
+          } // case 945
+          case 952: {
+            parseOneofEnum(instance, input);
+            break;
+          } // case 952
+          case 1611: {
+            if (instance.groupLikeType_ != null || groupLikeTypeBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseGroupLikeTypeField(instance, input, extensionRegistry, groupLikeTypeBuilder_);
+            break;
+          } // case 1611
+          case 1619: {
+            if (instance.delimitedField_ != null || delimitedFieldBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseDelimitedFieldField(instance, input, extensionRegistry, delimitedFieldBuilder_);
+            break;
+          } // case 1619
+          case 2410: {
+            com.google.protobuf.MapEntry<java.lang.Integer, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023>
+            mapRecursive__ = input.readMessage(
+                MapRecursiveDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_mapRecursive = internalGetMutableMapRecursive(instance, parsed_mapRecursive)).ensureBuilderMap().put(
+                mapRecursive__.getKey(), mapRecursive__.getValue());
+            instance.bitField2_ |= 0x10000000;
+            break;
+          } // case 2410
+          default: {
+            pendingTag = tag;
+            done = true;
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {optionalNestedMessageBuilder_, optionalForeignMessageBuilder_, recursiveMessageBuilder_, repeatedNestedMessageBuilder_, repeatedForeignMessageBuilder_, parsed_mapStringNestedMessage, parsed_mapStringForeignMessage, oneofNestedMessageBuilder_, groupLikeTypeBuilder_, delimitedFieldBuilder_, parsed_mapRecursive});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, optionalNestedMessageBuilder_, optionalForeignMessageBuilder_, recursiveMessageBuilder_, groupLikeTypeBuilder_, delimitedFieldBuilder_);
+    buildPartial_autosplit_1(instance, repeatedNestedMessageBuilder_, repeatedForeignMessageBuilder_);
+    buildPartial_autosplit_2(instance, parsed_mapStringNestedMessage, parsed_mapStringForeignMessage, oneofNestedMessageBuilder_, parsed_mapRecursive);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>.protobuf_test_messages.editions.TestAllTypesEdition2023.NestedMessage optional_nested_message = 18 [features = { ... }</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder> 
+      internalGetOptionalNestedMessageFieldBuilder(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder> optionalNestedMessageBuilder_) {
+    if (optionalNestedMessageBuilder_ == null) {
+      optionalNestedMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder>(
+              instance.getOptionalNestedMessage(),
+              null,
+              false);
+      instance.optionalNestedMessage_ = null;
+    }
+    instance.bitField0_ |= 0x00008000;
+    return optionalNestedMessageBuilder_;
+  }
+  private static void parseOptionalNestedMessageField(
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder> optionalNestedMessageBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.optionalNestedMessage_ != null || optionalNestedMessageBuilder_ != null) {
+      optionalNestedMessageBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.optionalNestedMessage_ = com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00008000;
+  }
+  /**
+   * <code>.protobuf_test_messages.editions.ForeignMessageEdition2023 optional_foreign_message = 19 [features = { ... }</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder> 
+      internalGetOptionalForeignMessageFieldBuilder(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder> optionalForeignMessageBuilder_) {
+    if (optionalForeignMessageBuilder_ == null) {
+      optionalForeignMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder>(
+              instance.getOptionalForeignMessage(),
+              null,
+              false);
+      instance.optionalForeignMessage_ = null;
+    }
+    instance.bitField0_ |= 0x00010000;
+    return optionalForeignMessageBuilder_;
+  }
+  private static void parseOptionalForeignMessageField(
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder> optionalForeignMessageBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.optionalForeignMessage_ != null || optionalForeignMessageBuilder_ != null) {
+      optionalForeignMessageBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.optionalForeignMessage_ = com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00010000;
+  }
+  /**
+   * <code>.protobuf_test_messages.editions.TestAllTypesEdition2023 recursive_message = 27 [features = { ... }</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder> 
+      internalGetRecursiveMessageFieldBuilder(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder> recursiveMessageBuilder_) {
+    if (recursiveMessageBuilder_ == null) {
+      recursiveMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder>(
+              instance.getRecursiveMessage(),
+              null,
+              false);
+      instance.recursiveMessage_ = null;
+    }
+    instance.bitField0_ |= 0x00200000;
+    return recursiveMessageBuilder_;
+  }
+  private static void parseRecursiveMessageField(
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder> recursiveMessageBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.recursiveMessage_ != null || recursiveMessageBuilder_ != null) {
+      recursiveMessageBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.recursiveMessage_ = com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00200000;
+  }
+  private static void ensureRepeatedInt32IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.repeatedInt32_.isModifiable()) {
+      instance.repeatedInt32_ = makeMutableCopy(instance.repeatedInt32_, capacity);
+    }
+    instance.bitField0_ |= 0x01000000;
+  }
+  private static void ensureRepeatedInt64IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.repeatedInt64_.isModifiable()) {
+      instance.repeatedInt64_ = makeMutableCopy(instance.repeatedInt64_, capacity);
+    }
+    instance.bitField0_ |= 0x02000000;
+  }
+  private static void ensureRepeatedUint32IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.repeatedUint32_.isModifiable()) {
+      instance.repeatedUint32_ = makeMutableCopy(instance.repeatedUint32_, capacity);
+    }
+    instance.bitField0_ |= 0x04000000;
+  }
+  private static void ensureRepeatedUint64IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.repeatedUint64_.isModifiable()) {
+      instance.repeatedUint64_ = makeMutableCopy(instance.repeatedUint64_, capacity);
+    }
+    instance.bitField0_ |= 0x08000000;
+  }
+  private static void ensureRepeatedSint32IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.repeatedSint32_.isModifiable()) {
+      instance.repeatedSint32_ = makeMutableCopy(instance.repeatedSint32_, capacity);
+    }
+    instance.bitField0_ |= 0x10000000;
+  }
+  private static void ensureRepeatedSint64IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.repeatedSint64_.isModifiable()) {
+      instance.repeatedSint64_ = makeMutableCopy(instance.repeatedSint64_, capacity);
+    }
+    instance.bitField0_ |= 0x20000000;
+  }
+  private static void ensureRepeatedFixed32IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.repeatedFixed32_.isModifiable()) {
+      instance.repeatedFixed32_ = makeMutableCopy(instance.repeatedFixed32_, capacity);
+    }
+    instance.bitField0_ |= 0x40000000;
+  }
+  private static void ensureRepeatedFixed64IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.repeatedFixed64_.isModifiable()) {
+      instance.repeatedFixed64_ = makeMutableCopy(instance.repeatedFixed64_, capacity);
+    }
+    instance.bitField0_ |= 0x80000000;
+  }
+  private static void ensureRepeatedSfixed32IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.repeatedSfixed32_.isModifiable()) {
+      instance.repeatedSfixed32_ = makeMutableCopy(instance.repeatedSfixed32_, capacity);
+    }
+    instance.bitField1_ |= 0x00000001;
+  }
+  private static void ensureRepeatedSfixed64IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.repeatedSfixed64_.isModifiable()) {
+      instance.repeatedSfixed64_ = makeMutableCopy(instance.repeatedSfixed64_, capacity);
+    }
+    instance.bitField1_ |= 0x00000002;
+  }
+  private static void ensureRepeatedFloatIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.repeatedFloat_.isModifiable()) {
+      instance.repeatedFloat_ = makeMutableCopy(instance.repeatedFloat_, capacity);
+    }
+    instance.bitField1_ |= 0x00000004;
+  }
+  private static void ensureRepeatedDoubleIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.repeatedDouble_.isModifiable()) {
+      instance.repeatedDouble_ = makeMutableCopy(instance.repeatedDouble_, capacity);
+    }
+    instance.bitField1_ |= 0x00000008;
+  }
+  private static void ensureRepeatedBoolIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.repeatedBool_.isModifiable()) {
+      instance.repeatedBool_ = makeMutableCopy(instance.repeatedBool_, capacity);
+    }
+    instance.bitField1_ |= 0x00000010;
+  }
+  private static void ensureRepeatedStringIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (!instance.repeatedString_.isModifiable()) {
+      instance.repeatedString_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedString_);
+    }
+    instance.bitField1_ |= 0x00000020;
+  }
+  private static void ensureRepeatedBytesIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.repeatedBytes_.isModifiable()) {
+      instance.repeatedBytes_ = makeMutableCopy(instance.repeatedBytes_, capacity);
+    }
+    instance.bitField1_ |= 0x00000040;
+  }
+  private static void ensureRepeatedNestedMessageIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (!instance.repeatedNestedMessage_.isModifiable()) {
+      instance.repeatedNestedMessage_ = makeMutableCopy(instance.repeatedNestedMessage_);
+    }
+    instance.bitField1_ |= 0x00000080;
+  }
+  private static com.google.protobuf.RepeatedFieldBuilder<
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder> 
+      internalGetRepeatedNestedMessageFieldBuilder(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder> repeatedNestedMessageBuilder_) {
+    if (repeatedNestedMessageBuilder_ == null) {
+      repeatedNestedMessageBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder>(
+              instance.repeatedNestedMessage_,
+              instance.repeatedNestedMessage_.isModifiable(),
+              null,
+              false);
+      instance.repeatedNestedMessage_ = null;
+    }
+    instance.bitField1_ |= 0x00000080;
+
+    return repeatedNestedMessageBuilder_;
+  }
+  private static void ensureRepeatedForeignMessageIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (!instance.repeatedForeignMessage_.isModifiable()) {
+      instance.repeatedForeignMessage_ = makeMutableCopy(instance.repeatedForeignMessage_);
+    }
+    instance.bitField1_ |= 0x00000100;
+  }
+  private static com.google.protobuf.RepeatedFieldBuilder<
+      com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder> 
+      internalGetRepeatedForeignMessageFieldBuilder(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder> repeatedForeignMessageBuilder_) {
+    if (repeatedForeignMessageBuilder_ == null) {
+      repeatedForeignMessageBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder>(
+              instance.repeatedForeignMessage_,
+              instance.repeatedForeignMessage_.isModifiable(),
+              null,
+              false);
+      instance.repeatedForeignMessage_ = null;
+    }
+    instance.bitField1_ |= 0x00000100;
+
+    return repeatedForeignMessageBuilder_;
+  }
+  private static void ensureRepeatedNestedEnumIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.repeatedNestedEnum_.isModifiable()) {
+      instance.repeatedNestedEnum_ = makeMutableCopy(instance.repeatedNestedEnum_, capacity);
+    }
+    instance.bitField1_ |= 0x00000200;
+  }
+  private static void ensureRepeatedForeignEnumIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.repeatedForeignEnum_.isModifiable()) {
+      instance.repeatedForeignEnum_ = makeMutableCopy(instance.repeatedForeignEnum_, capacity);
+    }
+    instance.bitField1_ |= 0x00000400;
+  }
+  private static void ensureRepeatedStringPieceIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (!instance.repeatedStringPiece_.isModifiable()) {
+      instance.repeatedStringPiece_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedStringPiece_);
+    }
+    instance.bitField1_ |= 0x00000800;
+  }
+  private static void ensureRepeatedCordIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (!instance.repeatedCord_.isModifiable()) {
+      instance.repeatedCord_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedCord_);
+    }
+    instance.bitField1_ |= 0x00001000;
+  }
+  private static void ensurePackedInt32IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.packedInt32_.isModifiable()) {
+      instance.packedInt32_ = makeMutableCopy(instance.packedInt32_, capacity);
+    }
+    instance.bitField1_ |= 0x00002000;
+  }
+  private static void ensurePackedInt64IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.packedInt64_.isModifiable()) {
+      instance.packedInt64_ = makeMutableCopy(instance.packedInt64_, capacity);
+    }
+    instance.bitField1_ |= 0x00004000;
+  }
+  private static void ensurePackedUint32IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.packedUint32_.isModifiable()) {
+      instance.packedUint32_ = makeMutableCopy(instance.packedUint32_, capacity);
+    }
+    instance.bitField1_ |= 0x00008000;
+  }
+  private static void ensurePackedUint64IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.packedUint64_.isModifiable()) {
+      instance.packedUint64_ = makeMutableCopy(instance.packedUint64_, capacity);
+    }
+    instance.bitField1_ |= 0x00010000;
+  }
+  private static void ensurePackedSint32IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.packedSint32_.isModifiable()) {
+      instance.packedSint32_ = makeMutableCopy(instance.packedSint32_, capacity);
+    }
+    instance.bitField1_ |= 0x00020000;
+  }
+  private static void ensurePackedSint64IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.packedSint64_.isModifiable()) {
+      instance.packedSint64_ = makeMutableCopy(instance.packedSint64_, capacity);
+    }
+    instance.bitField1_ |= 0x00040000;
+  }
+  private static void ensurePackedFixed32IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.packedFixed32_.isModifiable()) {
+      instance.packedFixed32_ = makeMutableCopy(instance.packedFixed32_, capacity);
+    }
+    instance.bitField1_ |= 0x00080000;
+  }
+  private static void ensurePackedFixed64IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.packedFixed64_.isModifiable()) {
+      instance.packedFixed64_ = makeMutableCopy(instance.packedFixed64_, capacity);
+    }
+    instance.bitField1_ |= 0x00100000;
+  }
+  private static void ensurePackedSfixed32IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.packedSfixed32_.isModifiable()) {
+      instance.packedSfixed32_ = makeMutableCopy(instance.packedSfixed32_, capacity);
+    }
+    instance.bitField1_ |= 0x00200000;
+  }
+  private static void ensurePackedSfixed64IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.packedSfixed64_.isModifiable()) {
+      instance.packedSfixed64_ = makeMutableCopy(instance.packedSfixed64_, capacity);
+    }
+    instance.bitField1_ |= 0x00400000;
+  }
+  private static void ensurePackedFloatIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.packedFloat_.isModifiable()) {
+      instance.packedFloat_ = makeMutableCopy(instance.packedFloat_, capacity);
+    }
+    instance.bitField1_ |= 0x00800000;
+  }
+  private static void ensurePackedDoubleIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.packedDouble_.isModifiable()) {
+      instance.packedDouble_ = makeMutableCopy(instance.packedDouble_, capacity);
+    }
+    instance.bitField1_ |= 0x01000000;
+  }
+  private static void ensurePackedBoolIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.packedBool_.isModifiable()) {
+      instance.packedBool_ = makeMutableCopy(instance.packedBool_, capacity);
+    }
+    instance.bitField1_ |= 0x02000000;
+  }
+  private static void ensurePackedNestedEnumIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.packedNestedEnum_.isModifiable()) {
+      instance.packedNestedEnum_ = makeMutableCopy(instance.packedNestedEnum_, capacity);
+    }
+    instance.bitField1_ |= 0x04000000;
+  }
+  private static void ensureUnpackedInt32IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.unpackedInt32_.isModifiable()) {
+      instance.unpackedInt32_ = makeMutableCopy(instance.unpackedInt32_, capacity);
+    }
+    instance.bitField1_ |= 0x08000000;
+  }
+  private static void ensureUnpackedInt64IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.unpackedInt64_.isModifiable()) {
+      instance.unpackedInt64_ = makeMutableCopy(instance.unpackedInt64_, capacity);
+    }
+    instance.bitField1_ |= 0x10000000;
+  }
+  private static void ensureUnpackedUint32IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.unpackedUint32_.isModifiable()) {
+      instance.unpackedUint32_ = makeMutableCopy(instance.unpackedUint32_, capacity);
+    }
+    instance.bitField1_ |= 0x20000000;
+  }
+  private static void ensureUnpackedUint64IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.unpackedUint64_.isModifiable()) {
+      instance.unpackedUint64_ = makeMutableCopy(instance.unpackedUint64_, capacity);
+    }
+    instance.bitField1_ |= 0x40000000;
+  }
+  private static void ensureUnpackedSint32IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.unpackedSint32_.isModifiable()) {
+      instance.unpackedSint32_ = makeMutableCopy(instance.unpackedSint32_, capacity);
+    }
+    instance.bitField1_ |= 0x80000000;
+  }
+  private static void ensureUnpackedSint64IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.unpackedSint64_.isModifiable()) {
+      instance.unpackedSint64_ = makeMutableCopy(instance.unpackedSint64_, capacity);
+    }
+    instance.bitField2_ |= 0x00000001;
+  }
+  private static void ensureUnpackedFixed32IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.unpackedFixed32_.isModifiable()) {
+      instance.unpackedFixed32_ = makeMutableCopy(instance.unpackedFixed32_, capacity);
+    }
+    instance.bitField2_ |= 0x00000002;
+  }
+  private static void ensureUnpackedFixed64IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.unpackedFixed64_.isModifiable()) {
+      instance.unpackedFixed64_ = makeMutableCopy(instance.unpackedFixed64_, capacity);
+    }
+    instance.bitField2_ |= 0x00000004;
+  }
+  private static void ensureUnpackedSfixed32IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.unpackedSfixed32_.isModifiable()) {
+      instance.unpackedSfixed32_ = makeMutableCopy(instance.unpackedSfixed32_, capacity);
+    }
+    instance.bitField2_ |= 0x00000008;
+  }
+  private static void ensureUnpackedSfixed64IsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.unpackedSfixed64_.isModifiable()) {
+      instance.unpackedSfixed64_ = makeMutableCopy(instance.unpackedSfixed64_, capacity);
+    }
+    instance.bitField2_ |= 0x00000010;
+  }
+  private static void ensureUnpackedFloatIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.unpackedFloat_.isModifiable()) {
+      instance.unpackedFloat_ = makeMutableCopy(instance.unpackedFloat_, capacity);
+    }
+    instance.bitField2_ |= 0x00000020;
+  }
+  private static void ensureUnpackedDoubleIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.unpackedDouble_.isModifiable()) {
+      instance.unpackedDouble_ = makeMutableCopy(instance.unpackedDouble_, capacity);
+    }
+    instance.bitField2_ |= 0x00000040;
+  }
+  private static void ensureUnpackedBoolIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.unpackedBool_.isModifiable()) {
+      instance.unpackedBool_ = makeMutableCopy(instance.unpackedBool_, capacity);
+    }
+    instance.bitField2_ |= 0x00000080;
+  }
+  private static void ensureUnpackedNestedEnumIsMutable(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, int capacity) {
+    if (!instance.unpackedNestedEnum_.isModifiable()) {
+      instance.unpackedNestedEnum_ = makeMutableCopy(instance.unpackedNestedEnum_, capacity);
+    }
+    instance.bitField2_ |= 0x00000100;
+  }
+  private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+      internalGetMutableMapInt32Int32(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (instance.mapInt32Int32_ == null) {
+      instance.mapInt32Int32_ = com.google.protobuf.MapField.newMapField(
+          MapInt32Int32DefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapInt32Int32_.isMutable()) {
+      instance.mapInt32Int32_ = instance.mapInt32Int32_.copy();
+    }
+    instance.bitField2_ |= 0x00000200;
+
+    return instance.mapInt32Int32_;
+  }
+  private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+      internalGetMutableMapInt64Int64(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (instance.mapInt64Int64_ == null) {
+      instance.mapInt64Int64_ = com.google.protobuf.MapField.newMapField(
+          MapInt64Int64DefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapInt64Int64_.isMutable()) {
+      instance.mapInt64Int64_ = instance.mapInt64Int64_.copy();
+    }
+    instance.bitField2_ |= 0x00000400;
+
+    return instance.mapInt64Int64_;
+  }
+  private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+      internalGetMutableMapUint32Uint32(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (instance.mapUint32Uint32_ == null) {
+      instance.mapUint32Uint32_ = com.google.protobuf.MapField.newMapField(
+          MapUint32Uint32DefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapUint32Uint32_.isMutable()) {
+      instance.mapUint32Uint32_ = instance.mapUint32Uint32_.copy();
+    }
+    instance.bitField2_ |= 0x00000800;
+
+    return instance.mapUint32Uint32_;
+  }
+  private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+      internalGetMutableMapUint64Uint64(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (instance.mapUint64Uint64_ == null) {
+      instance.mapUint64Uint64_ = com.google.protobuf.MapField.newMapField(
+          MapUint64Uint64DefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapUint64Uint64_.isMutable()) {
+      instance.mapUint64Uint64_ = instance.mapUint64Uint64_.copy();
+    }
+    instance.bitField2_ |= 0x00001000;
+
+    return instance.mapUint64Uint64_;
+  }
+  private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+      internalGetMutableMapSint32Sint32(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (instance.mapSint32Sint32_ == null) {
+      instance.mapSint32Sint32_ = com.google.protobuf.MapField.newMapField(
+          MapSint32Sint32DefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapSint32Sint32_.isMutable()) {
+      instance.mapSint32Sint32_ = instance.mapSint32Sint32_.copy();
+    }
+    instance.bitField2_ |= 0x00002000;
+
+    return instance.mapSint32Sint32_;
+  }
+  private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+      internalGetMutableMapSint64Sint64(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (instance.mapSint64Sint64_ == null) {
+      instance.mapSint64Sint64_ = com.google.protobuf.MapField.newMapField(
+          MapSint64Sint64DefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapSint64Sint64_.isMutable()) {
+      instance.mapSint64Sint64_ = instance.mapSint64Sint64_.copy();
+    }
+    instance.bitField2_ |= 0x00004000;
+
+    return instance.mapSint64Sint64_;
+  }
+  private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+      internalGetMutableMapFixed32Fixed32(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (instance.mapFixed32Fixed32_ == null) {
+      instance.mapFixed32Fixed32_ = com.google.protobuf.MapField.newMapField(
+          MapFixed32Fixed32DefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapFixed32Fixed32_.isMutable()) {
+      instance.mapFixed32Fixed32_ = instance.mapFixed32Fixed32_.copy();
+    }
+    instance.bitField2_ |= 0x00008000;
+
+    return instance.mapFixed32Fixed32_;
+  }
+  private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+      internalGetMutableMapFixed64Fixed64(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (instance.mapFixed64Fixed64_ == null) {
+      instance.mapFixed64Fixed64_ = com.google.protobuf.MapField.newMapField(
+          MapFixed64Fixed64DefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapFixed64Fixed64_.isMutable()) {
+      instance.mapFixed64Fixed64_ = instance.mapFixed64Fixed64_.copy();
+    }
+    instance.bitField2_ |= 0x00010000;
+
+    return instance.mapFixed64Fixed64_;
+  }
+  private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+      internalGetMutableMapSfixed32Sfixed32(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (instance.mapSfixed32Sfixed32_ == null) {
+      instance.mapSfixed32Sfixed32_ = com.google.protobuf.MapField.newMapField(
+          MapSfixed32Sfixed32DefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapSfixed32Sfixed32_.isMutable()) {
+      instance.mapSfixed32Sfixed32_ = instance.mapSfixed32Sfixed32_.copy();
+    }
+    instance.bitField2_ |= 0x00020000;
+
+    return instance.mapSfixed32Sfixed32_;
+  }
+  private static com.google.protobuf.MapField<java.lang.Long, java.lang.Long>
+      internalGetMutableMapSfixed64Sfixed64(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (instance.mapSfixed64Sfixed64_ == null) {
+      instance.mapSfixed64Sfixed64_ = com.google.protobuf.MapField.newMapField(
+          MapSfixed64Sfixed64DefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapSfixed64Sfixed64_.isMutable()) {
+      instance.mapSfixed64Sfixed64_ = instance.mapSfixed64Sfixed64_.copy();
+    }
+    instance.bitField2_ |= 0x00040000;
+
+    return instance.mapSfixed64Sfixed64_;
+  }
+  private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Float>
+      internalGetMutableMapInt32Float(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (instance.mapInt32Float_ == null) {
+      instance.mapInt32Float_ = com.google.protobuf.MapField.newMapField(
+          MapInt32FloatDefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapInt32Float_.isMutable()) {
+      instance.mapInt32Float_ = instance.mapInt32Float_.copy();
+    }
+    instance.bitField2_ |= 0x00080000;
+
+    return instance.mapInt32Float_;
+  }
+  private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Double>
+      internalGetMutableMapInt32Double(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (instance.mapInt32Double_ == null) {
+      instance.mapInt32Double_ = com.google.protobuf.MapField.newMapField(
+          MapInt32DoubleDefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapInt32Double_.isMutable()) {
+      instance.mapInt32Double_ = instance.mapInt32Double_.copy();
+    }
+    instance.bitField2_ |= 0x00100000;
+
+    return instance.mapInt32Double_;
+  }
+  private static com.google.protobuf.MapField<java.lang.Boolean, java.lang.Boolean>
+      internalGetMutableMapBoolBool(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (instance.mapBoolBool_ == null) {
+      instance.mapBoolBool_ = com.google.protobuf.MapField.newMapField(
+          MapBoolBoolDefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapBoolBool_.isMutable()) {
+      instance.mapBoolBool_ = instance.mapBoolBool_.copy();
+    }
+    instance.bitField2_ |= 0x00200000;
+
+    return instance.mapBoolBool_;
+  }
+  private static com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableMapStringString(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (instance.mapStringString_ == null) {
+      instance.mapStringString_ = com.google.protobuf.MapField.newMapField(
+          MapStringStringDefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapStringString_.isMutable()) {
+      instance.mapStringString_ = instance.mapStringString_.copy();
+    }
+    instance.bitField2_ |= 0x00400000;
+
+    return instance.mapStringString_;
+  }
+  private static com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
+      internalGetMutableMapStringBytes(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (instance.mapStringBytes_ == null) {
+      instance.mapStringBytes_ = com.google.protobuf.MapField.newMapField(
+          MapStringBytesDefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapStringBytes_.isMutable()) {
+      instance.mapStringBytes_ = instance.mapStringBytes_.copy();
+    }
+    instance.bitField2_ |= 0x00800000;
+
+    return instance.mapStringBytes_;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder>
+      internalGetMutableMapStringNestedMessage(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder> parsed_mapStringNestedMessage) {
+    if (parsed_mapStringNestedMessage == null) {
+      parsed_mapStringNestedMessage = new com.google.protobuf.MapFieldBuilder<>(Builder.mapStringNestedMessageConverter);
+    }
+    instance.bitField2_ |= 0x01000000;
+
+    return parsed_mapStringNestedMessage;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder>
+      internalGetMutableMapStringForeignMessage(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder> parsed_mapStringForeignMessage) {
+    if (parsed_mapStringForeignMessage == null) {
+      parsed_mapStringForeignMessage = new com.google.protobuf.MapFieldBuilder<>(Builder.mapStringForeignMessageConverter);
+    }
+    instance.bitField2_ |= 0x02000000;
+
+    return parsed_mapStringForeignMessage;
+  }
+  private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+      internalGetMutableMapStringNestedEnum(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (instance.mapStringNestedEnum_ == null) {
+      instance.mapStringNestedEnum_ = com.google.protobuf.MapField.newMapField(
+          MapStringNestedEnumDefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapStringNestedEnum_.isMutable()) {
+      instance.mapStringNestedEnum_ = instance.mapStringNestedEnum_.copy();
+    }
+    instance.bitField2_ |= 0x04000000;
+
+    return instance.mapStringNestedEnum_;
+  }
+  private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+      internalGetMutableMapStringForeignEnum(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    if (instance.mapStringForeignEnum_ == null) {
+      instance.mapStringForeignEnum_ = com.google.protobuf.MapField.newMapField(
+          MapStringForeignEnumDefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapStringForeignEnum_.isMutable()) {
+      instance.mapStringForeignEnum_ = instance.mapStringForeignEnum_.copy();
+    }
+    instance.bitField2_ |= 0x08000000;
+
+    return instance.mapStringForeignEnum_;
+  }
+  private static void parseOneofUint32(
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.oneofField_ = input.readUInt32();
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 111;
+      instance.bitField2_ |= 0x20000000; // fallthrough
+    case 111:
+      break;
+    }
+  }
+  /**
+   * <code>.protobuf_test_messages.editions.TestAllTypesEdition2023.NestedMessage oneof_nested_message = 112 [features = { ... }</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder> 
+      internalGetOneofNestedMessageFieldBuilder(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder> oneofNestedMessageBuilder_) {
+    if (oneofNestedMessageBuilder_ == null) {
+      if (!(instance.oneofFieldCase_ == 112)) {
+        instance.oneofField_ = com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.getDefaultInstance();
+      }
+      oneofNestedMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder>(
+              (com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage) instance.oneofField_,
+              null,
+              false);
+      instance.oneofField_ = null;
+    }
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 112;
+      instance.bitField2_ |= 0x40000000; // fallthrough
+    case 112:
+      break;
+    }
+
+    return oneofNestedMessageBuilder_;
+  }
+  private static void parseOneofNestedMessage(
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder> oneofNestedMessageBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        oneofNestedMessageBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 112;
+      instance.bitField2_ |= 0x40000000; // fallthrough
+    case 112:
+      break;
+    }
+  }
+  private static void parseOneofString(
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 113;
+      instance.bitField2_ |= 0x80000000; // fallthrough
+    case 113:
+      break;
+    }
+    instance.oneofField_ = input.readStringRequireUtf8();
+  }
+  private static void parseOneofBytes(
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.oneofField_ = input.readBytes();
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 114;
+      instance.bitField3_ |= 0x00000001; // fallthrough
+    case 114:
+      break;
+    }
+  }
+  private static void parseOneofBool(
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.oneofField_ = input.readBool();
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 115;
+      instance.bitField3_ |= 0x00000002; // fallthrough
+    case 115:
+      break;
+    }
+  }
+  private static void parseOneofUint64(
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.oneofField_ = input.readUInt64();
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 116;
+      instance.bitField3_ |= 0x00000004; // fallthrough
+    case 116:
+      break;
+    }
+  }
+  private static void parseOneofFloat(
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.oneofField_ = input.readFloat();
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 117;
+      instance.bitField3_ |= 0x00000008; // fallthrough
+    case 117:
+      break;
+    }
+  }
+  private static void parseOneofDouble(
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.oneofField_ = input.readDouble();
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 118;
+      instance.bitField3_ |= 0x00000010; // fallthrough
+    case 118:
+      break;
+    }
+  }
+  private static void parseOneofEnum(
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    int rawValue = input.readEnum();
+    switch (instance.oneofFieldCase_) {
+    default:
+      clearOneofFieldHasBits(instance); // fallthrough
+    case 0:
+      instance.oneofFieldCase_ = 119;
+      instance.bitField3_ |= 0x00000020; // fallthrough
+    case 119:
+      break;
+    }
+    instance.oneofField_ = rawValue;
+  }
+  /**
+   * <code>.protobuf_test_messages.editions.TestAllTypesEdition2023.GroupLikeType groupliketype = 201;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeTypeOrBuilder> 
+      internalGetGroupLikeTypeFieldBuilder(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeTypeOrBuilder> groupLikeTypeBuilder_) {
+    if (groupLikeTypeBuilder_ == null) {
+      groupLikeTypeBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeTypeOrBuilder>(
+              instance.getGroupLikeType(),
+              null,
+              false);
+      instance.groupLikeType_ = null;
+    }
+    instance.bitField0_ |= 0x00400000;
+    return groupLikeTypeBuilder_;
+  }
+  private static void parseGroupLikeTypeField(
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeTypeOrBuilder> groupLikeTypeBuilder_)
+      throws java.io.IOException {
+    if (instance.groupLikeType_ != null || groupLikeTypeBuilder_ != null) {
+      input.readGroup(201,
+          groupLikeTypeBuilder_.getBuilderForParsing(),
+          extensionRegistry);
+    } else {
+      instance.groupLikeType_ = input.readGroup(201, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.parser(),
+          extensionRegistry);
+    }
+    instance.bitField0_ |= 0x00400000;
+  }
+  /**
+   * <code>.protobuf_test_messages.editions.TestAllTypesEdition2023.GroupLikeType delimited_field = 202;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeTypeOrBuilder> 
+      internalGetDelimitedFieldFieldBuilder(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeTypeOrBuilder> delimitedFieldBuilder_) {
+    if (delimitedFieldBuilder_ == null) {
+      delimitedFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeTypeOrBuilder>(
+              instance.getDelimitedField(),
+              null,
+              false);
+      instance.delimitedField_ = null;
+    }
+    instance.bitField0_ |= 0x00800000;
+    return delimitedFieldBuilder_;
+  }
+  private static void parseDelimitedFieldField(
+      com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeTypeOrBuilder> delimitedFieldBuilder_)
+      throws java.io.IOException {
+    if (instance.delimitedField_ != null || delimitedFieldBuilder_ != null) {
+      input.readGroup(202,
+          delimitedFieldBuilder_.getBuilderForParsing(),
+          extensionRegistry);
+    } else {
+      instance.delimitedField_ = input.readGroup(202, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.parser(),
+          extensionRegistry);
+    }
+    instance.bitField0_ |= 0x00800000;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder>
+      internalGetMutableMapRecursive(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance, com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder> parsed_mapRecursive) {
+    if (parsed_mapRecursive == null) {
+      parsed_mapRecursive = new com.google.protobuf.MapFieldBuilder<>(Builder.mapRecursiveConverter);
+    }
+    instance.bitField2_ |= 0x10000000;
+
+    return parsed_mapRecursive;
+  }
+
+  private static void clearOneofFieldHasBits(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance) {
+    instance.bitField2_ = (instance.bitField2_ & ~0xe0000000);
+    instance.bitField3_ = (instance.bitField3_ & ~0x0000003f);
+  }
+
+  private static void buildPartial_autosplit_0(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder> optionalNestedMessageBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder> optionalForeignMessageBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder> recursiveMessageBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeTypeOrBuilder> groupLikeTypeBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeType.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.GroupLikeTypeOrBuilder> delimitedFieldBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00008000) != 0)) instance.optionalNestedMessage_ = null;
+    if (((from_bitField0_ & 0x00008000) != 0)) {
+      instance.optionalNestedMessage_ = optionalNestedMessageBuilder_ == null
+          ? instance.optionalNestedMessage_
+          : optionalNestedMessageBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00010000) != 0)) instance.optionalForeignMessage_ = null;
+    if (((from_bitField0_ & 0x00010000) != 0)) {
+      instance.optionalForeignMessage_ = optionalForeignMessageBuilder_ == null
+          ? instance.optionalForeignMessage_
+          : optionalForeignMessageBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00200000) != 0)) instance.recursiveMessage_ = null;
+    if (((from_bitField0_ & 0x00200000) != 0)) {
+      instance.recursiveMessage_ = recursiveMessageBuilder_ == null
+          ? instance.recursiveMessage_
+          : recursiveMessageBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00400000) != 0)) instance.groupLikeType_ = null;
+    if (((from_bitField0_ & 0x00400000) != 0)) {
+      instance.groupLikeType_ = groupLikeTypeBuilder_ == null
+          ? instance.groupLikeType_
+          : groupLikeTypeBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00800000) != 0)) instance.delimitedField_ = null;
+    if (((from_bitField0_ & 0x00800000) != 0)) {
+      instance.delimitedField_ = delimitedFieldBuilder_ == null
+          ? instance.delimitedField_
+          : delimitedFieldBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x01000000) != 0)) {
+      instance.repeatedInt32_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x02000000) != 0)) {
+      instance.repeatedInt64_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x04000000) != 0)) {
+      instance.repeatedUint32_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x08000000) != 0)) {
+      instance.repeatedUint64_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x10000000) != 0)) {
+      instance.repeatedSint32_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x20000000) != 0)) {
+      instance.repeatedSint64_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x40000000) != 0)) {
+      instance.repeatedFixed32_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x80000000) != 0)) {
+      instance.repeatedFixed64_.makeImmutable();
+    }
+  }
+
+  private static void buildPartial_autosplit_1(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance,
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder> repeatedNestedMessageBuilder_,
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder> repeatedForeignMessageBuilder_) {
+    int from_bitField1_ = instance.bitField1_;
+    if (((from_bitField1_ & 0x00000001) != 0)) {
+      instance.repeatedSfixed32_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00000002) != 0)) {
+      instance.repeatedSfixed64_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00000004) != 0)) {
+      instance.repeatedFloat_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00000008) != 0)) {
+      instance.repeatedDouble_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00000010) != 0)) {
+      instance.repeatedBool_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00000020) != 0)) {
+      instance.repeatedString_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00000040) != 0)) {
+      instance.repeatedBytes_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00000080) != 0)) {
+    if (repeatedNestedMessageBuilder_ == null) {
+      instance.repeatedNestedMessage_.makeImmutable();
+    } else {
+      instance.repeatedNestedMessage_ = repeatedNestedMessageBuilder_.buildProtobufList();
+    }
+    }
+    if (((from_bitField1_ & 0x00000100) != 0)) {
+    if (repeatedForeignMessageBuilder_ == null) {
+      instance.repeatedForeignMessage_.makeImmutable();
+    } else {
+      instance.repeatedForeignMessage_ = repeatedForeignMessageBuilder_.buildProtobufList();
+    }
+    }
+    if (((from_bitField1_ & 0x00000200) != 0)) {
+      instance.repeatedNestedEnum_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00000400) != 0)) {
+      instance.repeatedForeignEnum_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00000800) != 0)) {
+      instance.repeatedStringPiece_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00001000) != 0)) {
+      instance.repeatedCord_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00002000) != 0)) {
+      instance.packedInt32_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00004000) != 0)) {
+      instance.packedInt64_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00008000) != 0)) {
+      instance.packedUint32_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00010000) != 0)) {
+      instance.packedUint64_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00020000) != 0)) {
+      instance.packedSint32_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00040000) != 0)) {
+      instance.packedSint64_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00080000) != 0)) {
+      instance.packedFixed32_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00100000) != 0)) {
+      instance.packedFixed64_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00200000) != 0)) {
+      instance.packedSfixed32_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00400000) != 0)) {
+      instance.packedSfixed64_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x00800000) != 0)) {
+      instance.packedFloat_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x01000000) != 0)) {
+      instance.packedDouble_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x02000000) != 0)) {
+      instance.packedBool_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x04000000) != 0)) {
+      instance.packedNestedEnum_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x08000000) != 0)) {
+      instance.unpackedInt32_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x10000000) != 0)) {
+      instance.unpackedInt64_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x20000000) != 0)) {
+      instance.unpackedUint32_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x40000000) != 0)) {
+      instance.unpackedUint64_.makeImmutable();
+    }
+    if (((from_bitField1_ & 0x80000000) != 0)) {
+      instance.unpackedSint32_.makeImmutable();
+    }
+  }
+
+  private static void buildPartial_autosplit_2(com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023 instance,
+      com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder> parsed_mapStringNestedMessage,
+      com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023OrBuilder, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023, com.google.protobuf_test_messages.edition2023.ForeignMessageEdition2023.Builder> parsed_mapStringForeignMessage,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessage.Builder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.NestedMessageOrBuilder> oneofNestedMessageBuilder_,
+      com.google.protobuf.MapFieldBuilder<java.lang.Integer, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023OrBuilder, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023, com.google.protobuf_test_messages.edition2023.TestAllTypesEdition2023.Builder> parsed_mapRecursive) {
+    int from_bitField2_ = instance.bitField2_;
+    if (((from_bitField2_ & 0x00000001) != 0)) {
+      instance.unpackedSint64_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00000002) != 0)) {
+      instance.unpackedFixed32_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00000004) != 0)) {
+      instance.unpackedFixed64_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00000008) != 0)) {
+      instance.unpackedSfixed32_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00000010) != 0)) {
+      instance.unpackedSfixed64_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00000020) != 0)) {
+      instance.unpackedFloat_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00000040) != 0)) {
+      instance.unpackedDouble_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00000080) != 0)) {
+      instance.unpackedBool_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00000100) != 0)) {
+      instance.unpackedNestedEnum_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00000200) != 0)) {
+      instance.mapInt32Int32_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00000400) != 0)) {
+      instance.mapInt64Int64_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00000800) != 0)) {
+      instance.mapUint32Uint32_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00001000) != 0)) {
+      instance.mapUint64Uint64_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00002000) != 0)) {
+      instance.mapSint32Sint32_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00004000) != 0)) {
+      instance.mapSint64Sint64_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00008000) != 0)) {
+      instance.mapFixed32Fixed32_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00010000) != 0)) {
+      instance.mapFixed64Fixed64_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00020000) != 0)) {
+      instance.mapSfixed32Sfixed32_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00040000) != 0)) {
+      instance.mapSfixed64Sfixed64_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00080000) != 0)) {
+      instance.mapInt32Float_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00100000) != 0)) {
+      instance.mapInt32Double_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00200000) != 0)) {
+      instance.mapBoolBool_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00400000) != 0)) {
+      instance.mapStringString_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x00800000) != 0)) {
+      instance.mapStringBytes_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x01000000) != 0)) {
+      instance.mapStringNestedMessage_ = parsed_mapStringNestedMessage.build(MapStringNestedMessageDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField2_ & 0x02000000) != 0)) {
+      instance.mapStringForeignMessage_ = parsed_mapStringForeignMessage.build(MapStringForeignMessageDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField2_ & 0x04000000) != 0)) {
+      instance.mapStringNestedEnum_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x08000000) != 0)) {
+      instance.mapStringForeignEnum_.makeImmutable();
+    }
+    if (((from_bitField2_ & 0x10000000) != 0)) {
+      instance.mapRecursive_ = parsed_mapRecursive.build(MapRecursiveDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField2_ & 0x40000000) != 0)) {
+      instance.oneofField_ = oneofNestedMessageBuilder_ == null
+          ? instance.oneofField_
+          : oneofNestedMessageBuilder_.build();
+    }
+  }
+
   private static final com.google.protobuf.Parser<TestAllTypesEdition2023>
-      PARSER = new com.google.protobuf.AbstractParser<TestAllTypesEdition2023>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestAllTypesEdition2023> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestAllTypesEdition2023 parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return TestAllTypesEdition2023.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(TestAllTypesEdition2023 instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<TestAllTypesEdition2023> parser() {
     return PARSER;

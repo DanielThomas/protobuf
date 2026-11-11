@@ -661,15 +661,27 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.Value.class, com.google.protobuf.Value.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.Value.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+    }
+    private Builder(com.google.protobuf.Value other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -717,7 +729,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(com.google.protobuf.Value result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000010) != 0)) {
         result.kind_ = structValueBuilder_ == null
             ? kind_
@@ -738,6 +750,23 @@ private static final long serialVersionUID = 0L;
         result.kind_ = kind_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(com.google.protobuf.Value other, java.lang.Object[] parserLocals) {
+      kindCase_ = other.kindCase_;
+      kind_ = other.kind_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          structValueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>) parserLocals[0]);
+          if (kindCase_ == 5) kind_ = null;
+        }
+        if (parserLocals[1] != null) {
+          listValueBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder>) parserLocals[1]);
+          if (kindCase_ == 6) kind_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -854,7 +883,23 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int kindCase_ = 0;
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 42: {
+          parseStructValue(input, extensionRegistry);
+          return true;
+        } // case 42
+        case 50: {
+          parseListValue(input, extensionRegistry);
+          return true;
+        } // case 50
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
+    }
+    private int kindCase_;
     private java.lang.Object kind_;
     public KindCase
         getKindCase() {
@@ -1520,7 +1565,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetStructValueFieldBuilder().getBuilder(),
+          internalGetStructValueFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (kindCase_) {
       default:
@@ -1733,7 +1778,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetListValueFieldBuilder().getBuilder(),
+          internalGetListValueFieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (kindCase_) {
       default:
@@ -1759,22 +1804,293 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static Value parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    Value instance = new Value((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> structValueBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder> listValueBuilder_ = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
+            parseNullValue(instance, input);
+            break;
+          } // case 8
+          case 17: {
+            parseNumberValue(instance, input);
+            break;
+          } // case 17
+          case 26: {
+            parseStringValue(instance, input);
+            break;
+          } // case 26
+          case 32: {
+            parseBoolValue(instance, input);
+            break;
+          } // case 32
+          case 42: {
+            if (structValueBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            structValueBuilder_ = internalGetStructValueFieldBuilder(instance, structValueBuilder_);
+            parseStructValue(instance, input, extensionRegistry, structValueBuilder_);
+            break;
+          } // case 42
+          case 50: {
+            if (listValueBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            listValueBuilder_ = internalGetListValueFieldBuilder(instance, listValueBuilder_);
+            parseListValue(instance, input, extensionRegistry, listValueBuilder_);
+            break;
+          } // case 50
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {structValueBuilder_, listValueBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, structValueBuilder_, listValueBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static void parseNullValue(
+      com.google.protobuf.Value instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    int rawValue = input.readEnum();
+    switch (instance.kindCase_) {
+    default:
+      clearKindHasBits(instance); // fallthrough
+    case 0:
+      instance.kindCase_ = 1;
+      instance.bitField0_ |= 0x00000001; // fallthrough
+    case 1:
+      break;
+    }
+    instance.kind_ = rawValue;
+  }
+  private static void parseNumberValue(
+      com.google.protobuf.Value instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.kind_ = input.readDouble();
+    switch (instance.kindCase_) {
+    default:
+      clearKindHasBits(instance); // fallthrough
+    case 0:
+      instance.kindCase_ = 2;
+      instance.bitField0_ |= 0x00000002; // fallthrough
+    case 2:
+      break;
+    }
+  }
+  private static void parseStringValue(
+      com.google.protobuf.Value instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    switch (instance.kindCase_) {
+    default:
+      clearKindHasBits(instance); // fallthrough
+    case 0:
+      instance.kindCase_ = 3;
+      instance.bitField0_ |= 0x00000004; // fallthrough
+    case 3:
+      break;
+    }
+    instance.kind_ = input.readStringRequireUtf8();
+  }
+  private static void parseBoolValue(
+      com.google.protobuf.Value instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.kind_ = input.readBool();
+    switch (instance.kindCase_) {
+    default:
+      clearKindHasBits(instance); // fallthrough
+    case 0:
+      instance.kindCase_ = 4;
+      instance.bitField0_ |= 0x00000008; // fallthrough
+    case 4:
+      break;
+    }
+  }
+  /**
+   * <pre>
+   * Represents a JSON object.
+   * </pre>
+   *
+   * <code>.google.protobuf.Struct struct_value = 5;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> 
+      internalGetStructValueFieldBuilder(com.google.protobuf.Value instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> structValueBuilder_) {
+    if (structValueBuilder_ == null) {
+      if (!(instance.kindCase_ == 5)) {
+        instance.kind_ = com.google.protobuf.Struct.getDefaultInstance();
+      }
+      structValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder>(
+              (com.google.protobuf.Struct) instance.kind_,
+              null,
+              false);
+      instance.kind_ = null;
+    }
+    switch (instance.kindCase_) {
+    default:
+      clearKindHasBits(instance); // fallthrough
+    case 0:
+      instance.kindCase_ = 5;
+      instance.bitField0_ |= 0x00000010; // fallthrough
+    case 5:
+      break;
+    }
+
+    return structValueBuilder_;
+  }
+  private static void parseStructValue(
+      com.google.protobuf.Value instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> structValueBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        structValueBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.kindCase_) {
+    default:
+      clearKindHasBits(instance); // fallthrough
+    case 0:
+      instance.kindCase_ = 5;
+      instance.bitField0_ |= 0x00000010; // fallthrough
+    case 5:
+      break;
+    }
+  }
+  /**
+   * <pre>
+   * Represents a JSON array.
+   * </pre>
+   *
+   * <code>.google.protobuf.ListValue list_value = 6;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder> 
+      internalGetListValueFieldBuilder(com.google.protobuf.Value instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder> listValueBuilder_) {
+    if (listValueBuilder_ == null) {
+      if (!(instance.kindCase_ == 6)) {
+        instance.kind_ = com.google.protobuf.ListValue.getDefaultInstance();
+      }
+      listValueBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder>(
+              (com.google.protobuf.ListValue) instance.kind_,
+              null,
+              false);
+      instance.kind_ = null;
+    }
+    switch (instance.kindCase_) {
+    default:
+      clearKindHasBits(instance); // fallthrough
+    case 0:
+      instance.kindCase_ = 6;
+      instance.bitField0_ |= 0x00000020; // fallthrough
+    case 6:
+      break;
+    }
+
+    return listValueBuilder_;
+  }
+  private static void parseListValue(
+      com.google.protobuf.Value instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder> listValueBuilder_)
+      throws java.io.IOException {
+    input.readMessage(
+        listValueBuilder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.kindCase_) {
+    default:
+      clearKindHasBits(instance); // fallthrough
+    case 0:
+      instance.kindCase_ = 6;
+      instance.bitField0_ |= 0x00000020; // fallthrough
+    case 6:
+      break;
+    }
+  }
+
+  private static void clearKindHasBits(com.google.protobuf.Value instance) {
+    instance.bitField0_ = (instance.bitField0_ & ~0x0000003f);
+  }
+
+  private static void buildPartial_autosplit_0(com.google.protobuf.Value instance,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.Struct, com.google.protobuf.Struct.Builder, com.google.protobuf.StructOrBuilder> structValueBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.ListValue, com.google.protobuf.ListValue.Builder, com.google.protobuf.ListValueOrBuilder> listValueBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000010) != 0)) {
+      instance.kind_ = structValueBuilder_ == null
+          ? instance.kind_
+          : structValueBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000020) != 0)) {
+      instance.kind_ = listValueBuilder_ == null
+          ? instance.kind_
+          : listValueBuilder_.build();
+    }
+  }
+
   private static final com.google.protobuf.Parser<Value>
-      PARSER = new com.google.protobuf.AbstractParser<Value>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<Value> {
+    MessageParser() {}
+
     @java.lang.Override
     public Value parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Value.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(Value instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<Value> parser() {
     return PARSER;

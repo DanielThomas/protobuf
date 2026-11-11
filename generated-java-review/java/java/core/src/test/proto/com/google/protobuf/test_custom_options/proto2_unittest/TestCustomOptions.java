@@ -308,15 +308,28 @@ public final class TestCustomOptions extends com.google.protobuf.GeneratedFile {
                 proto2_unittest.TestCustomOptions.TestMessageWithCustomOptionsContainer.class, proto2_unittest.TestCustomOptions.TestMessageWithCustomOptionsContainer.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.TestCustomOptions.TestMessageWithCustomOptionsContainer.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(proto2_unittest.TestCustomOptions.TestMessageWithCustomOptionsContainer other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -366,7 +379,7 @@ public final class TestCustomOptions extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(proto2_unittest.TestCustomOptions.TestMessageWithCustomOptionsContainer result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.field_ = fieldBuilder_ == null
               ? field_
@@ -374,6 +387,18 @@ public final class TestCustomOptions extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(proto2_unittest.TestCustomOptions.TestMessageWithCustomOptionsContainer other, java.lang.Object[] parserLocals) {
+        field_ = other.field_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            fieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptions, proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptions.Builder, proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptionsOrBuilder>) parserLocals[0]);
+            field_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -433,6 +458,18 @@ public final class TestCustomOptions extends com.google.protobuf.GeneratedFile {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseFieldField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -555,7 +592,7 @@ public final class TestCustomOptions extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (field_ != null || fieldBuilder_ != null) {
-          internalGetFieldFieldBuilder().getBuilder()
+          internalGetFieldFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           field_ = proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptions.parser().parsePartialFrom(input, extensionRegistry);
@@ -577,22 +614,132 @@ public final class TestCustomOptions extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static TestMessageWithCustomOptionsContainer parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestMessageWithCustomOptionsContainer instance = new TestMessageWithCustomOptionsContainer((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptions, proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptions.Builder, proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptionsOrBuilder> fieldBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        fieldBuilder_ = internalGetFieldFieldBuilder(instance, fieldBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.field_ != null || fieldBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseFieldField(instance, input, extensionRegistry, fieldBuilder_);
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {fieldBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, fieldBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional .proto2_unittest.TestMessageWithCustomOptions field = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptions, proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptions.Builder, proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptionsOrBuilder> 
+        internalGetFieldFieldBuilder(proto2_unittest.TestCustomOptions.TestMessageWithCustomOptionsContainer instance, com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptions, proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptions.Builder, proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptionsOrBuilder> fieldBuilder_) {
+      if (fieldBuilder_ == null) {
+        fieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptions, proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptions.Builder, proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptionsOrBuilder>(
+                instance.getField(),
+                null,
+                false);
+        instance.field_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return fieldBuilder_;
+    }
+    private static void parseFieldField(
+        proto2_unittest.TestCustomOptions.TestMessageWithCustomOptionsContainer instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptions, proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptions.Builder, proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptionsOrBuilder> fieldBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.field_ != null || fieldBuilder_ != null) {
+        fieldBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.field_ = proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptions.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void buildPartial_autosplit_0(proto2_unittest.TestCustomOptions.TestMessageWithCustomOptionsContainer instance,
+        com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptions, proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptions.Builder, proto2_unittest.UnittestCustomOptions.TestMessageWithCustomOptionsOrBuilder> fieldBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.field_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.field_ = fieldBuilder_ == null
+            ? instance.field_
+            : fieldBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestMessageWithCustomOptionsContainer>
-        PARSER = new com.google.protobuf.AbstractParser<TestMessageWithCustomOptionsContainer>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestMessageWithCustomOptionsContainer> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestMessageWithCustomOptionsContainer parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestMessageWithCustomOptionsContainer.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestMessageWithCustomOptionsContainer instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestMessageWithCustomOptionsContainer> parser() {
       return PARSER;

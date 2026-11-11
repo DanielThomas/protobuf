@@ -306,15 +306,28 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
                 service_test_protos.ServiceTest.UnaryRequestType.class, service_test_protos.ServiceTest.UnaryRequestType.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using service_test_protos.ServiceTest.UnaryRequestType.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        ping_ = "";
+      }
+      private Builder(service_test_protos.ServiceTest.UnaryRequestType other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -354,12 +367,17 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(service_test_protos.ServiceTest.UnaryRequestType result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.ping_ = ping_;
           ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(service_test_protos.ServiceTest.UnaryRequestType other, java.lang.Object[] parserLocals) {
+        ping_ = other.ping_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -425,7 +443,7 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private java.lang.Object ping_ = "";
+      private java.lang.Object ping_;
       /**
        * <code>string ping = 1;</code>
        * @return The ping.
@@ -510,22 +528,67 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static UnaryRequestType parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      UnaryRequestType instance = new UnaryRequestType((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.ping_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<UnaryRequestType>
-        PARSER = new com.google.protobuf.AbstractParser<UnaryRequestType>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<UnaryRequestType> {
+      MessageParser() {}
+
       @java.lang.Override
       public UnaryRequestType parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return UnaryRequestType.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(UnaryRequestType instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<UnaryRequestType> parser() {
       return PARSER;
@@ -822,15 +885,28 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
                 service_test_protos.ServiceTest.UnaryResponseType.class, service_test_protos.ServiceTest.UnaryResponseType.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using service_test_protos.ServiceTest.UnaryResponseType.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        pong_ = "";
+      }
+      private Builder(service_test_protos.ServiceTest.UnaryResponseType other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -870,12 +946,17 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(service_test_protos.ServiceTest.UnaryResponseType result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.pong_ = pong_;
           ;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(service_test_protos.ServiceTest.UnaryResponseType other, java.lang.Object[] parserLocals) {
+        pong_ = other.pong_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -941,7 +1022,7 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private java.lang.Object pong_ = "";
+      private java.lang.Object pong_;
       /**
        * <code>string pong = 1;</code>
        * @return The pong.
@@ -1026,22 +1107,67 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static UnaryResponseType parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      UnaryResponseType instance = new UnaryResponseType((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.pong_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<UnaryResponseType>
-        PARSER = new com.google.protobuf.AbstractParser<UnaryResponseType>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<UnaryResponseType> {
+      MessageParser() {}
+
       @java.lang.Override
       public UnaryResponseType parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return UnaryResponseType.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(UnaryResponseType instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<UnaryResponseType> parser() {
       return PARSER;
@@ -1366,15 +1492,28 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
                 service_test_protos.ServiceTest.StreamRequestType.class, service_test_protos.ServiceTest.StreamRequestType.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using service_test_protos.ServiceTest.StreamRequestType.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        ping_ = "";
+      }
+      private Builder(service_test_protos.ServiceTest.StreamRequestType other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -1415,7 +1554,7 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(service_test_protos.ServiceTest.StreamRequestType result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.ping_ = ping_;
           ;
@@ -1425,6 +1564,12 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
           
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(service_test_protos.ServiceTest.StreamRequestType other, java.lang.Object[] parserLocals) {
+        ping_ = other.ping_;
+        sequence_ = other.getSequence();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1498,7 +1643,7 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private java.lang.Object ping_ = "";
+      private java.lang.Object ping_;
       /**
        * <code>string ping = 1;</code>
        * @return The ping.
@@ -1570,7 +1715,7 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int sequence_ ;
+      private int sequence_;
       /**
        * <code>uint32 sequence = 2;</code>
        * @return The sequence.
@@ -1615,22 +1760,72 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static StreamRequestType parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      StreamRequestType instance = new StreamRequestType((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.ping_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              instance.sequence_ = input.readUInt32();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<StreamRequestType>
-        PARSER = new com.google.protobuf.AbstractParser<StreamRequestType>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<StreamRequestType> {
+      MessageParser() {}
+
       @java.lang.Override
       public StreamRequestType parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return StreamRequestType.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(StreamRequestType instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<StreamRequestType> parser() {
       return PARSER;
@@ -1955,15 +2150,28 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
                 service_test_protos.ServiceTest.StreamResponseType.class, service_test_protos.ServiceTest.StreamResponseType.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using service_test_protos.ServiceTest.StreamResponseType.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        pong_ = "";
+      }
+      private Builder(service_test_protos.ServiceTest.StreamResponseType other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -2004,7 +2212,7 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(service_test_protos.ServiceTest.StreamResponseType result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.pong_ = pong_;
           ;
@@ -2014,6 +2222,12 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
           
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(service_test_protos.ServiceTest.StreamResponseType other, java.lang.Object[] parserLocals) {
+        pong_ = other.pong_;
+        sequence_ = other.getSequence();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -2087,7 +2301,7 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private java.lang.Object pong_ = "";
+      private java.lang.Object pong_;
       /**
        * <code>string pong = 1;</code>
        * @return The pong.
@@ -2159,7 +2373,7 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int sequence_ ;
+      private int sequence_;
       /**
        * <code>uint32 sequence = 2;</code>
        * @return The sequence.
@@ -2204,22 +2418,72 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static StreamResponseType parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      StreamResponseType instance = new StreamResponseType((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              instance.pong_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 16: {
+              instance.sequence_ = input.readUInt32();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<StreamResponseType>
-        PARSER = new com.google.protobuf.AbstractParser<StreamResponseType>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<StreamResponseType> {
+      MessageParser() {}
+
       @java.lang.Override
       public StreamResponseType parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return StreamResponseType.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(StreamResponseType instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<StreamResponseType> parser() {
       return PARSER;
@@ -2482,15 +2746,27 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
                 service_test_protos.ServiceTest.TestOptionsType.class, service_test_protos.ServiceTest.TestOptionsType.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using service_test_protos.ServiceTest.TestOptionsType.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(service_test_protos.ServiceTest.TestOptionsType other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -2530,12 +2806,17 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(service_test_protos.ServiceTest.TestOptionsType result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.intOptionValue_ = intOptionValue_;
           
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(service_test_protos.ServiceTest.TestOptionsType other, java.lang.Object[] parserLocals) {
+        intOptionValue_ = other.getIntOptionValue();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -2599,7 +2880,7 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int intOptionValue_ ;
+      private int intOptionValue_;
       /**
        * <code>uint32 int_option_value = 1;</code>
        * @return The intOptionValue.
@@ -2644,22 +2925,67 @@ public final class ServiceTest extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static TestOptionsType parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestOptionsType instance = new TestOptionsType((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.intOptionValue_ = input.readUInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<TestOptionsType>
-        PARSER = new com.google.protobuf.AbstractParser<TestOptionsType>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestOptionsType> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestOptionsType parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestOptionsType.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestOptionsType instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestOptionsType> parser() {
       return PARSER;

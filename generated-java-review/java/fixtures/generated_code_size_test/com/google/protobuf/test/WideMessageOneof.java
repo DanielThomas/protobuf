@@ -414,15 +414,29 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.test.WideMessageOneof.Child.class, com.google.protobuf.test.WideMessageOneof.Child.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.test.WideMessageOneof.Child.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        values_ = emptyIntList();
+        text_ = "";
+      }
+      private Builder(com.google.protobuf.test.WideMessageOneof.Child other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -463,7 +477,7 @@ private static final long serialVersionUID = 0L;
 
       private void buildPartial_autosplit_0(com.google.protobuf.test.WideMessageOneof.Child result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.text_ = text_;
           to_bitField0_ |= 0x00000001;
@@ -473,6 +487,12 @@ private static final long serialVersionUID = 0L;
           result.values_ = values_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.test.WideMessageOneof.Child other, java.lang.Object[] parserLocals) {
+        text_ = other.text_;
+        values_ = other.values_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -566,7 +586,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.IntList values_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList values_;
       private void ensureValuesIsMutable(int capacity) {
         if (!values_.isModifiable()) {
           values_ = makeMutableCopy(values_, capacity);
@@ -650,7 +670,7 @@ private static final long serialVersionUID = 0L;
         return this;
       }
 
-      private java.lang.Object text_ = "";
+      private java.lang.Object text_;
       /**
        * <code>optional string text = 2;</code>
        * @return Whether the text field is set.
@@ -743,22 +763,98 @@ private static final long serialVersionUID = 0L;
       return DEFAULT_INSTANCE;
     }
 
+    static Child parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Child instance = new Child((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int v = input.readInt32();
+              ensureValuesIsMutable(instance, /* capacity= */ -1);
+              instance.values_.addInt(v);
+              break;
+            } // case 8
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureValuesIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.values_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 10
+            case 18: {
+              instance.text_ = input.readBytes();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 18
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureValuesIsMutable(com.google.protobuf.test.WideMessageOneof.Child instance, int capacity) {
+      if (!instance.values_.isModifiable()) {
+        instance.values_ = makeMutableCopy(instance.values_, capacity);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static void buildPartial_autosplit_0(com.google.protobuf.test.WideMessageOneof.Child instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.values_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<Child>
-        PARSER = new com.google.protobuf.AbstractParser<Child>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Child> {
+      MessageParser() {}
+
       @java.lang.Override
       public Child parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Child.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Child instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Child> parser() {
       return PARSER;
@@ -8180,15 +8276,30 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.test.WideMessageOneof.class, com.google.protobuf.test.WideMessageOneof.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.test.WideMessageOneof.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+    }
+    private Builder(com.google.protobuf.test.WideMessageOneof other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
+      copyFrom_autosplit_1(other, parserLocals);
+      copyFrom_autosplit_2(other, parserLocals);
+      copyFrom_autosplit_3(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -8623,7 +8734,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(com.google.protobuf.test.WideMessageOneof result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.choice_ = value1Builder_ == null
             ? choice_
@@ -8851,9 +8962,146 @@ private static final long serialVersionUID = 0L;
       result.bitField0_ |= to_bitField0_;
     }
 
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(com.google.protobuf.test.WideMessageOneof other, java.lang.Object[] parserLocals) {
+      choiceCase_ = other.choiceCase_;
+      choice_ = other.choice_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          value1Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[0]);
+          if (choiceCase_ == 1) choice_ = null;
+        }
+        if (parserLocals[1] != null) {
+          value2Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[1]);
+          if (choiceCase_ == 2) choice_ = null;
+        }
+        if (parserLocals[2] != null) {
+          value3Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[2]);
+          if (choiceCase_ == 3) choice_ = null;
+        }
+        if (parserLocals[3] != null) {
+          value4Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[3]);
+          if (choiceCase_ == 4) choice_ = null;
+        }
+        if (parserLocals[4] != null) {
+          value5Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[4]);
+          if (choiceCase_ == 5) choice_ = null;
+        }
+        if (parserLocals[5] != null) {
+          value6Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[5]);
+          if (choiceCase_ == 6) choice_ = null;
+        }
+        if (parserLocals[6] != null) {
+          value7Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[6]);
+          if (choiceCase_ == 7) choice_ = null;
+        }
+        if (parserLocals[7] != null) {
+          value8Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[7]);
+          if (choiceCase_ == 8) choice_ = null;
+        }
+        if (parserLocals[8] != null) {
+          value9Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[8]);
+          if (choiceCase_ == 9) choice_ = null;
+        }
+        if (parserLocals[9] != null) {
+          value10Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[9]);
+          if (choiceCase_ == 10) choice_ = null;
+        }
+        if (parserLocals[10] != null) {
+          value11Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[10]);
+          if (choiceCase_ == 11) choice_ = null;
+        }
+        if (parserLocals[11] != null) {
+          value12Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[11]);
+          if (choiceCase_ == 12) choice_ = null;
+        }
+        if (parserLocals[12] != null) {
+          value13Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[12]);
+          if (choiceCase_ == 13) choice_ = null;
+        }
+        if (parserLocals[13] != null) {
+          value14Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[13]);
+          if (choiceCase_ == 14) choice_ = null;
+        }
+        if (parserLocals[14] != null) {
+          value15Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[14]);
+          if (choiceCase_ == 15) choice_ = null;
+        }
+        if (parserLocals[15] != null) {
+          value16Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[15]);
+          if (choiceCase_ == 16) choice_ = null;
+        }
+        if (parserLocals[16] != null) {
+          value17Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[16]);
+          if (choiceCase_ == 17) choice_ = null;
+        }
+        if (parserLocals[17] != null) {
+          value18Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[17]);
+          if (choiceCase_ == 18) choice_ = null;
+        }
+        if (parserLocals[18] != null) {
+          value19Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[18]);
+          if (choiceCase_ == 19) choice_ = null;
+        }
+        if (parserLocals[19] != null) {
+          value20Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[19]);
+          if (choiceCase_ == 20) choice_ = null;
+        }
+        if (parserLocals[20] != null) {
+          value21Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[20]);
+          if (choiceCase_ == 21) choice_ = null;
+        }
+        if (parserLocals[21] != null) {
+          value22Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[21]);
+          if (choiceCase_ == 22) choice_ = null;
+        }
+        if (parserLocals[22] != null) {
+          value23Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[22]);
+          if (choiceCase_ == 23) choice_ = null;
+        }
+        if (parserLocals[23] != null) {
+          value24Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[23]);
+          if (choiceCase_ == 24) choice_ = null;
+        }
+        if (parserLocals[24] != null) {
+          value25Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[24]);
+          if (choiceCase_ == 25) choice_ = null;
+        }
+        if (parserLocals[25] != null) {
+          value26Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[25]);
+          if (choiceCase_ == 26) choice_ = null;
+        }
+        if (parserLocals[26] != null) {
+          value27Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[26]);
+          if (choiceCase_ == 27) choice_ = null;
+        }
+        if (parserLocals[27] != null) {
+          value28Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[27]);
+          if (choiceCase_ == 28) choice_ = null;
+        }
+        if (parserLocals[28] != null) {
+          value29Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[28]);
+          if (choiceCase_ == 29) choice_ = null;
+        }
+        if (parserLocals[29] != null) {
+          value30Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[29]);
+          if (choiceCase_ == 30) choice_ = null;
+        }
+        if (parserLocals[30] != null) {
+          value31Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[30]);
+          if (choiceCase_ == 31) choice_ = null;
+        }
+        if (parserLocals[31] != null) {
+          value32Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[31]);
+          if (choiceCase_ == 32) choice_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
+    }
+
     private void buildPartial_autosplit_1(com.google.protobuf.test.WideMessageOneof result) {
       int from_bitField1_ = bitField1_;
-      int to_bitField1_ = 0;
+      int to_bitField1_ = from_bitField1_;
       if (((from_bitField1_ & 0x00000001) != 0)) {
         result.choice_ = value33Builder_ == null
             ? choice_
@@ -9081,9 +9329,144 @@ private static final long serialVersionUID = 0L;
       result.bitField1_ |= to_bitField1_;
     }
 
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_1(com.google.protobuf.test.WideMessageOneof other, java.lang.Object[] parserLocals) {
+      if (parserLocals != null) {
+        if (parserLocals[32] != null) {
+          value33Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[32]);
+          if (choiceCase_ == 33) choice_ = null;
+        }
+        if (parserLocals[33] != null) {
+          value34Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[33]);
+          if (choiceCase_ == 34) choice_ = null;
+        }
+        if (parserLocals[34] != null) {
+          value35Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[34]);
+          if (choiceCase_ == 35) choice_ = null;
+        }
+        if (parserLocals[35] != null) {
+          value36Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[35]);
+          if (choiceCase_ == 36) choice_ = null;
+        }
+        if (parserLocals[36] != null) {
+          value37Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[36]);
+          if (choiceCase_ == 37) choice_ = null;
+        }
+        if (parserLocals[37] != null) {
+          value38Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[37]);
+          if (choiceCase_ == 38) choice_ = null;
+        }
+        if (parserLocals[38] != null) {
+          value39Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[38]);
+          if (choiceCase_ == 39) choice_ = null;
+        }
+        if (parserLocals[39] != null) {
+          value40Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[39]);
+          if (choiceCase_ == 40) choice_ = null;
+        }
+        if (parserLocals[40] != null) {
+          value41Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[40]);
+          if (choiceCase_ == 41) choice_ = null;
+        }
+        if (parserLocals[41] != null) {
+          value42Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[41]);
+          if (choiceCase_ == 42) choice_ = null;
+        }
+        if (parserLocals[42] != null) {
+          value43Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[42]);
+          if (choiceCase_ == 43) choice_ = null;
+        }
+        if (parserLocals[43] != null) {
+          value44Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[43]);
+          if (choiceCase_ == 44) choice_ = null;
+        }
+        if (parserLocals[44] != null) {
+          value45Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[44]);
+          if (choiceCase_ == 45) choice_ = null;
+        }
+        if (parserLocals[45] != null) {
+          value46Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[45]);
+          if (choiceCase_ == 46) choice_ = null;
+        }
+        if (parserLocals[46] != null) {
+          value47Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[46]);
+          if (choiceCase_ == 47) choice_ = null;
+        }
+        if (parserLocals[47] != null) {
+          value48Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[47]);
+          if (choiceCase_ == 48) choice_ = null;
+        }
+        if (parserLocals[48] != null) {
+          value49Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[48]);
+          if (choiceCase_ == 49) choice_ = null;
+        }
+        if (parserLocals[49] != null) {
+          value50Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[49]);
+          if (choiceCase_ == 50) choice_ = null;
+        }
+        if (parserLocals[50] != null) {
+          value51Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[50]);
+          if (choiceCase_ == 51) choice_ = null;
+        }
+        if (parserLocals[51] != null) {
+          value52Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[51]);
+          if (choiceCase_ == 52) choice_ = null;
+        }
+        if (parserLocals[52] != null) {
+          value53Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[52]);
+          if (choiceCase_ == 53) choice_ = null;
+        }
+        if (parserLocals[53] != null) {
+          value54Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[53]);
+          if (choiceCase_ == 54) choice_ = null;
+        }
+        if (parserLocals[54] != null) {
+          value55Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[54]);
+          if (choiceCase_ == 55) choice_ = null;
+        }
+        if (parserLocals[55] != null) {
+          value56Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[55]);
+          if (choiceCase_ == 56) choice_ = null;
+        }
+        if (parserLocals[56] != null) {
+          value57Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[56]);
+          if (choiceCase_ == 57) choice_ = null;
+        }
+        if (parserLocals[57] != null) {
+          value58Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[57]);
+          if (choiceCase_ == 58) choice_ = null;
+        }
+        if (parserLocals[58] != null) {
+          value59Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[58]);
+          if (choiceCase_ == 59) choice_ = null;
+        }
+        if (parserLocals[59] != null) {
+          value60Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[59]);
+          if (choiceCase_ == 60) choice_ = null;
+        }
+        if (parserLocals[60] != null) {
+          value61Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[60]);
+          if (choiceCase_ == 61) choice_ = null;
+        }
+        if (parserLocals[61] != null) {
+          value62Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[61]);
+          if (choiceCase_ == 62) choice_ = null;
+        }
+        if (parserLocals[62] != null) {
+          value63Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[62]);
+          if (choiceCase_ == 63) choice_ = null;
+        }
+        if (parserLocals[63] != null) {
+          value64Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[63]);
+          if (choiceCase_ == 64) choice_ = null;
+        }
+      }
+      bitField1_ = other.bitField1_;
+    }
+
     private void buildPartial_autosplit_2(com.google.protobuf.test.WideMessageOneof result) {
       int from_bitField2_ = bitField2_;
-      int to_bitField2_ = 0;
+      int to_bitField2_ = from_bitField2_;
       if (((from_bitField2_ & 0x00000001) != 0)) {
         result.choice_ = value65Builder_ == null
             ? choice_
@@ -9311,9 +9694,144 @@ private static final long serialVersionUID = 0L;
       result.bitField2_ |= to_bitField2_;
     }
 
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_2(com.google.protobuf.test.WideMessageOneof other, java.lang.Object[] parserLocals) {
+      if (parserLocals != null) {
+        if (parserLocals[64] != null) {
+          value65Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[64]);
+          if (choiceCase_ == 65) choice_ = null;
+        }
+        if (parserLocals[65] != null) {
+          value66Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[65]);
+          if (choiceCase_ == 66) choice_ = null;
+        }
+        if (parserLocals[66] != null) {
+          value67Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[66]);
+          if (choiceCase_ == 67) choice_ = null;
+        }
+        if (parserLocals[67] != null) {
+          value68Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[67]);
+          if (choiceCase_ == 68) choice_ = null;
+        }
+        if (parserLocals[68] != null) {
+          value69Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[68]);
+          if (choiceCase_ == 69) choice_ = null;
+        }
+        if (parserLocals[69] != null) {
+          value70Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[69]);
+          if (choiceCase_ == 70) choice_ = null;
+        }
+        if (parserLocals[70] != null) {
+          value71Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[70]);
+          if (choiceCase_ == 71) choice_ = null;
+        }
+        if (parserLocals[71] != null) {
+          value72Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[71]);
+          if (choiceCase_ == 72) choice_ = null;
+        }
+        if (parserLocals[72] != null) {
+          value73Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[72]);
+          if (choiceCase_ == 73) choice_ = null;
+        }
+        if (parserLocals[73] != null) {
+          value74Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[73]);
+          if (choiceCase_ == 74) choice_ = null;
+        }
+        if (parserLocals[74] != null) {
+          value75Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[74]);
+          if (choiceCase_ == 75) choice_ = null;
+        }
+        if (parserLocals[75] != null) {
+          value76Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[75]);
+          if (choiceCase_ == 76) choice_ = null;
+        }
+        if (parserLocals[76] != null) {
+          value77Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[76]);
+          if (choiceCase_ == 77) choice_ = null;
+        }
+        if (parserLocals[77] != null) {
+          value78Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[77]);
+          if (choiceCase_ == 78) choice_ = null;
+        }
+        if (parserLocals[78] != null) {
+          value79Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[78]);
+          if (choiceCase_ == 79) choice_ = null;
+        }
+        if (parserLocals[79] != null) {
+          value80Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[79]);
+          if (choiceCase_ == 80) choice_ = null;
+        }
+        if (parserLocals[80] != null) {
+          value81Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[80]);
+          if (choiceCase_ == 81) choice_ = null;
+        }
+        if (parserLocals[81] != null) {
+          value82Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[81]);
+          if (choiceCase_ == 82) choice_ = null;
+        }
+        if (parserLocals[82] != null) {
+          value83Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[82]);
+          if (choiceCase_ == 83) choice_ = null;
+        }
+        if (parserLocals[83] != null) {
+          value84Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[83]);
+          if (choiceCase_ == 84) choice_ = null;
+        }
+        if (parserLocals[84] != null) {
+          value85Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[84]);
+          if (choiceCase_ == 85) choice_ = null;
+        }
+        if (parserLocals[85] != null) {
+          value86Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[85]);
+          if (choiceCase_ == 86) choice_ = null;
+        }
+        if (parserLocals[86] != null) {
+          value87Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[86]);
+          if (choiceCase_ == 87) choice_ = null;
+        }
+        if (parserLocals[87] != null) {
+          value88Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[87]);
+          if (choiceCase_ == 88) choice_ = null;
+        }
+        if (parserLocals[88] != null) {
+          value89Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[88]);
+          if (choiceCase_ == 89) choice_ = null;
+        }
+        if (parserLocals[89] != null) {
+          value90Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[89]);
+          if (choiceCase_ == 90) choice_ = null;
+        }
+        if (parserLocals[90] != null) {
+          value91Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[90]);
+          if (choiceCase_ == 91) choice_ = null;
+        }
+        if (parserLocals[91] != null) {
+          value92Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[91]);
+          if (choiceCase_ == 92) choice_ = null;
+        }
+        if (parserLocals[92] != null) {
+          value93Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[92]);
+          if (choiceCase_ == 93) choice_ = null;
+        }
+        if (parserLocals[93] != null) {
+          value94Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[93]);
+          if (choiceCase_ == 94) choice_ = null;
+        }
+        if (parserLocals[94] != null) {
+          value95Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[94]);
+          if (choiceCase_ == 95) choice_ = null;
+        }
+        if (parserLocals[95] != null) {
+          value96Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[95]);
+          if (choiceCase_ == 96) choice_ = null;
+        }
+      }
+      bitField2_ = other.bitField2_;
+    }
+
     private void buildPartial_autosplit_3(com.google.protobuf.test.WideMessageOneof result) {
       int from_bitField3_ = bitField3_;
-      int to_bitField3_ = 0;
+      int to_bitField3_ = from_bitField3_;
       if (((from_bitField3_ & 0x00000001) != 0)) {
         result.choice_ = value97Builder_ == null
             ? choice_
@@ -9539,6 +10057,141 @@ private static final long serialVersionUID = 0L;
         ;
       }
       result.bitField3_ |= to_bitField3_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_3(com.google.protobuf.test.WideMessageOneof other, java.lang.Object[] parserLocals) {
+      if (parserLocals != null) {
+        if (parserLocals[96] != null) {
+          value97Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[96]);
+          if (choiceCase_ == 97) choice_ = null;
+        }
+        if (parserLocals[97] != null) {
+          value98Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[97]);
+          if (choiceCase_ == 98) choice_ = null;
+        }
+        if (parserLocals[98] != null) {
+          value99Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[98]);
+          if (choiceCase_ == 99) choice_ = null;
+        }
+        if (parserLocals[99] != null) {
+          value100Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[99]);
+          if (choiceCase_ == 100) choice_ = null;
+        }
+        if (parserLocals[100] != null) {
+          value101Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[100]);
+          if (choiceCase_ == 101) choice_ = null;
+        }
+        if (parserLocals[101] != null) {
+          value102Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[101]);
+          if (choiceCase_ == 102) choice_ = null;
+        }
+        if (parserLocals[102] != null) {
+          value103Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[102]);
+          if (choiceCase_ == 103) choice_ = null;
+        }
+        if (parserLocals[103] != null) {
+          value104Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[103]);
+          if (choiceCase_ == 104) choice_ = null;
+        }
+        if (parserLocals[104] != null) {
+          value105Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[104]);
+          if (choiceCase_ == 105) choice_ = null;
+        }
+        if (parserLocals[105] != null) {
+          value106Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[105]);
+          if (choiceCase_ == 106) choice_ = null;
+        }
+        if (parserLocals[106] != null) {
+          value107Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[106]);
+          if (choiceCase_ == 107) choice_ = null;
+        }
+        if (parserLocals[107] != null) {
+          value108Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[107]);
+          if (choiceCase_ == 108) choice_ = null;
+        }
+        if (parserLocals[108] != null) {
+          value109Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[108]);
+          if (choiceCase_ == 109) choice_ = null;
+        }
+        if (parserLocals[109] != null) {
+          value110Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[109]);
+          if (choiceCase_ == 110) choice_ = null;
+        }
+        if (parserLocals[110] != null) {
+          value111Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[110]);
+          if (choiceCase_ == 111) choice_ = null;
+        }
+        if (parserLocals[111] != null) {
+          value112Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[111]);
+          if (choiceCase_ == 112) choice_ = null;
+        }
+        if (parserLocals[112] != null) {
+          value113Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[112]);
+          if (choiceCase_ == 113) choice_ = null;
+        }
+        if (parserLocals[113] != null) {
+          value114Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[113]);
+          if (choiceCase_ == 114) choice_ = null;
+        }
+        if (parserLocals[114] != null) {
+          value115Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[114]);
+          if (choiceCase_ == 115) choice_ = null;
+        }
+        if (parserLocals[115] != null) {
+          value116Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[115]);
+          if (choiceCase_ == 116) choice_ = null;
+        }
+        if (parserLocals[116] != null) {
+          value117Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[116]);
+          if (choiceCase_ == 117) choice_ = null;
+        }
+        if (parserLocals[117] != null) {
+          value118Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[117]);
+          if (choiceCase_ == 118) choice_ = null;
+        }
+        if (parserLocals[118] != null) {
+          value119Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[118]);
+          if (choiceCase_ == 119) choice_ = null;
+        }
+        if (parserLocals[119] != null) {
+          value120Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[119]);
+          if (choiceCase_ == 120) choice_ = null;
+        }
+        if (parserLocals[120] != null) {
+          value121Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[120]);
+          if (choiceCase_ == 121) choice_ = null;
+        }
+        if (parserLocals[121] != null) {
+          value122Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[121]);
+          if (choiceCase_ == 122) choice_ = null;
+        }
+        if (parserLocals[122] != null) {
+          value123Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[122]);
+          if (choiceCase_ == 123) choice_ = null;
+        }
+        if (parserLocals[123] != null) {
+          value124Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[123]);
+          if (choiceCase_ == 124) choice_ = null;
+        }
+        if (parserLocals[124] != null) {
+          value125Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[124]);
+          if (choiceCase_ == 125) choice_ = null;
+        }
+        if (parserLocals[125] != null) {
+          value126Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[125]);
+          if (choiceCase_ == 126) choice_ = null;
+        }
+        if (parserLocals[126] != null) {
+          value127Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[126]);
+          if (choiceCase_ == 127) choice_ = null;
+        }
+        if (parserLocals[127] != null) {
+          value128Builder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>) parserLocals[127]);
+          if (choiceCase_ == 128) choice_ = null;
+        }
+      }
+      bitField3_ = other.bitField3_;
     }
 
     @java.lang.Override
@@ -10621,7 +11274,527 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int choiceCase_ = 0;
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 10: {
+          parseValue1(input, extensionRegistry);
+          return true;
+        } // case 10
+        case 18: {
+          parseValue2(input, extensionRegistry);
+          return true;
+        } // case 18
+        case 26: {
+          parseValue3(input, extensionRegistry);
+          return true;
+        } // case 26
+        case 34: {
+          parseValue4(input, extensionRegistry);
+          return true;
+        } // case 34
+        case 42: {
+          parseValue5(input, extensionRegistry);
+          return true;
+        } // case 42
+        case 50: {
+          parseValue6(input, extensionRegistry);
+          return true;
+        } // case 50
+        case 58: {
+          parseValue7(input, extensionRegistry);
+          return true;
+        } // case 58
+        case 66: {
+          parseValue8(input, extensionRegistry);
+          return true;
+        } // case 66
+        case 74: {
+          parseValue9(input, extensionRegistry);
+          return true;
+        } // case 74
+        case 82: {
+          parseValue10(input, extensionRegistry);
+          return true;
+        } // case 82
+        case 90: {
+          parseValue11(input, extensionRegistry);
+          return true;
+        } // case 90
+        case 98: {
+          parseValue12(input, extensionRegistry);
+          return true;
+        } // case 98
+        case 106: {
+          parseValue13(input, extensionRegistry);
+          return true;
+        } // case 106
+        case 114: {
+          parseValue14(input, extensionRegistry);
+          return true;
+        } // case 114
+        case 122: {
+          parseValue15(input, extensionRegistry);
+          return true;
+        } // case 122
+        case 130: {
+          parseValue16(input, extensionRegistry);
+          return true;
+        } // case 130
+        case 138: {
+          parseValue17(input, extensionRegistry);
+          return true;
+        } // case 138
+        case 146: {
+          parseValue18(input, extensionRegistry);
+          return true;
+        } // case 146
+        case 154: {
+          parseValue19(input, extensionRegistry);
+          return true;
+        } // case 154
+        case 162: {
+          parseValue20(input, extensionRegistry);
+          return true;
+        } // case 162
+        case 170: {
+          parseValue21(input, extensionRegistry);
+          return true;
+        } // case 170
+        case 178: {
+          parseValue22(input, extensionRegistry);
+          return true;
+        } // case 178
+        case 186: {
+          parseValue23(input, extensionRegistry);
+          return true;
+        } // case 186
+        case 194: {
+          parseValue24(input, extensionRegistry);
+          return true;
+        } // case 194
+        case 202: {
+          parseValue25(input, extensionRegistry);
+          return true;
+        } // case 202
+        case 210: {
+          parseValue26(input, extensionRegistry);
+          return true;
+        } // case 210
+        case 218: {
+          parseValue27(input, extensionRegistry);
+          return true;
+        } // case 218
+        case 226: {
+          parseValue28(input, extensionRegistry);
+          return true;
+        } // case 226
+        case 234: {
+          parseValue29(input, extensionRegistry);
+          return true;
+        } // case 234
+        case 242: {
+          parseValue30(input, extensionRegistry);
+          return true;
+        } // case 242
+        case 250: {
+          parseValue31(input, extensionRegistry);
+          return true;
+        } // case 250
+        case 258: {
+          parseValue32(input, extensionRegistry);
+          return true;
+        } // case 258
+        case 266: {
+          parseValue33(input, extensionRegistry);
+          return true;
+        } // case 266
+        case 274: {
+          parseValue34(input, extensionRegistry);
+          return true;
+        } // case 274
+        case 282: {
+          parseValue35(input, extensionRegistry);
+          return true;
+        } // case 282
+        case 290: {
+          parseValue36(input, extensionRegistry);
+          return true;
+        } // case 290
+        case 298: {
+          parseValue37(input, extensionRegistry);
+          return true;
+        } // case 298
+        case 306: {
+          parseValue38(input, extensionRegistry);
+          return true;
+        } // case 306
+        case 314: {
+          parseValue39(input, extensionRegistry);
+          return true;
+        } // case 314
+        case 322: {
+          parseValue40(input, extensionRegistry);
+          return true;
+        } // case 322
+        case 330: {
+          parseValue41(input, extensionRegistry);
+          return true;
+        } // case 330
+        case 338: {
+          parseValue42(input, extensionRegistry);
+          return true;
+        } // case 338
+        case 346: {
+          parseValue43(input, extensionRegistry);
+          return true;
+        } // case 346
+        case 354: {
+          parseValue44(input, extensionRegistry);
+          return true;
+        } // case 354
+        case 362: {
+          parseValue45(input, extensionRegistry);
+          return true;
+        } // case 362
+        case 370: {
+          parseValue46(input, extensionRegistry);
+          return true;
+        } // case 370
+        case 378: {
+          parseValue47(input, extensionRegistry);
+          return true;
+        } // case 378
+        case 386: {
+          parseValue48(input, extensionRegistry);
+          return true;
+        } // case 386
+        case 394: {
+          parseValue49(input, extensionRegistry);
+          return true;
+        } // case 394
+        case 402: {
+          parseValue50(input, extensionRegistry);
+          return true;
+        } // case 402
+        case 410: {
+          parseValue51(input, extensionRegistry);
+          return true;
+        } // case 410
+        case 418: {
+          parseValue52(input, extensionRegistry);
+          return true;
+        } // case 418
+        case 426: {
+          parseValue53(input, extensionRegistry);
+          return true;
+        } // case 426
+        case 434: {
+          parseValue54(input, extensionRegistry);
+          return true;
+        } // case 434
+        case 442: {
+          parseValue55(input, extensionRegistry);
+          return true;
+        } // case 442
+        case 450: {
+          parseValue56(input, extensionRegistry);
+          return true;
+        } // case 450
+        case 458: {
+          parseValue57(input, extensionRegistry);
+          return true;
+        } // case 458
+        case 466: {
+          parseValue58(input, extensionRegistry);
+          return true;
+        } // case 466
+        case 474: {
+          parseValue59(input, extensionRegistry);
+          return true;
+        } // case 474
+        case 482: {
+          parseValue60(input, extensionRegistry);
+          return true;
+        } // case 482
+        case 490: {
+          parseValue61(input, extensionRegistry);
+          return true;
+        } // case 490
+        case 498: {
+          parseValue62(input, extensionRegistry);
+          return true;
+        } // case 498
+        case 506: {
+          parseValue63(input, extensionRegistry);
+          return true;
+        } // case 506
+        case 514: {
+          parseValue64(input, extensionRegistry);
+          return true;
+        } // case 514
+        case 522: {
+          parseValue65(input, extensionRegistry);
+          return true;
+        } // case 522
+        case 530: {
+          parseValue66(input, extensionRegistry);
+          return true;
+        } // case 530
+        case 538: {
+          parseValue67(input, extensionRegistry);
+          return true;
+        } // case 538
+        case 546: {
+          parseValue68(input, extensionRegistry);
+          return true;
+        } // case 546
+        case 554: {
+          parseValue69(input, extensionRegistry);
+          return true;
+        } // case 554
+        case 562: {
+          parseValue70(input, extensionRegistry);
+          return true;
+        } // case 562
+        case 570: {
+          parseValue71(input, extensionRegistry);
+          return true;
+        } // case 570
+        case 578: {
+          parseValue72(input, extensionRegistry);
+          return true;
+        } // case 578
+        case 586: {
+          parseValue73(input, extensionRegistry);
+          return true;
+        } // case 586
+        case 594: {
+          parseValue74(input, extensionRegistry);
+          return true;
+        } // case 594
+        case 602: {
+          parseValue75(input, extensionRegistry);
+          return true;
+        } // case 602
+        case 610: {
+          parseValue76(input, extensionRegistry);
+          return true;
+        } // case 610
+        case 618: {
+          parseValue77(input, extensionRegistry);
+          return true;
+        } // case 618
+        case 626: {
+          parseValue78(input, extensionRegistry);
+          return true;
+        } // case 626
+        case 634: {
+          parseValue79(input, extensionRegistry);
+          return true;
+        } // case 634
+        case 642: {
+          parseValue80(input, extensionRegistry);
+          return true;
+        } // case 642
+        case 650: {
+          parseValue81(input, extensionRegistry);
+          return true;
+        } // case 650
+        case 658: {
+          parseValue82(input, extensionRegistry);
+          return true;
+        } // case 658
+        case 666: {
+          parseValue83(input, extensionRegistry);
+          return true;
+        } // case 666
+        case 674: {
+          parseValue84(input, extensionRegistry);
+          return true;
+        } // case 674
+        case 682: {
+          parseValue85(input, extensionRegistry);
+          return true;
+        } // case 682
+        case 690: {
+          parseValue86(input, extensionRegistry);
+          return true;
+        } // case 690
+        case 698: {
+          parseValue87(input, extensionRegistry);
+          return true;
+        } // case 698
+        case 706: {
+          parseValue88(input, extensionRegistry);
+          return true;
+        } // case 706
+        case 714: {
+          parseValue89(input, extensionRegistry);
+          return true;
+        } // case 714
+        case 722: {
+          parseValue90(input, extensionRegistry);
+          return true;
+        } // case 722
+        case 730: {
+          parseValue91(input, extensionRegistry);
+          return true;
+        } // case 730
+        case 738: {
+          parseValue92(input, extensionRegistry);
+          return true;
+        } // case 738
+        case 746: {
+          parseValue93(input, extensionRegistry);
+          return true;
+        } // case 746
+        case 754: {
+          parseValue94(input, extensionRegistry);
+          return true;
+        } // case 754
+        case 762: {
+          parseValue95(input, extensionRegistry);
+          return true;
+        } // case 762
+        case 770: {
+          parseValue96(input, extensionRegistry);
+          return true;
+        } // case 770
+        case 778: {
+          parseValue97(input, extensionRegistry);
+          return true;
+        } // case 778
+        case 786: {
+          parseValue98(input, extensionRegistry);
+          return true;
+        } // case 786
+        case 794: {
+          parseValue99(input, extensionRegistry);
+          return true;
+        } // case 794
+        case 802: {
+          parseValue100(input, extensionRegistry);
+          return true;
+        } // case 802
+        case 810: {
+          parseValue101(input, extensionRegistry);
+          return true;
+        } // case 810
+        case 818: {
+          parseValue102(input, extensionRegistry);
+          return true;
+        } // case 818
+        case 826: {
+          parseValue103(input, extensionRegistry);
+          return true;
+        } // case 826
+        case 834: {
+          parseValue104(input, extensionRegistry);
+          return true;
+        } // case 834
+        case 842: {
+          parseValue105(input, extensionRegistry);
+          return true;
+        } // case 842
+        case 850: {
+          parseValue106(input, extensionRegistry);
+          return true;
+        } // case 850
+        case 858: {
+          parseValue107(input, extensionRegistry);
+          return true;
+        } // case 858
+        case 866: {
+          parseValue108(input, extensionRegistry);
+          return true;
+        } // case 866
+        case 874: {
+          parseValue109(input, extensionRegistry);
+          return true;
+        } // case 874
+        case 882: {
+          parseValue110(input, extensionRegistry);
+          return true;
+        } // case 882
+        case 890: {
+          parseValue111(input, extensionRegistry);
+          return true;
+        } // case 890
+        case 898: {
+          parseValue112(input, extensionRegistry);
+          return true;
+        } // case 898
+        case 906: {
+          parseValue113(input, extensionRegistry);
+          return true;
+        } // case 906
+        case 914: {
+          parseValue114(input, extensionRegistry);
+          return true;
+        } // case 914
+        case 922: {
+          parseValue115(input, extensionRegistry);
+          return true;
+        } // case 922
+        case 930: {
+          parseValue116(input, extensionRegistry);
+          return true;
+        } // case 930
+        case 938: {
+          parseValue117(input, extensionRegistry);
+          return true;
+        } // case 938
+        case 946: {
+          parseValue118(input, extensionRegistry);
+          return true;
+        } // case 946
+        case 954: {
+          parseValue119(input, extensionRegistry);
+          return true;
+        } // case 954
+        case 962: {
+          parseValue120(input, extensionRegistry);
+          return true;
+        } // case 962
+        case 970: {
+          parseValue121(input, extensionRegistry);
+          return true;
+        } // case 970
+        case 978: {
+          parseValue122(input, extensionRegistry);
+          return true;
+        } // case 978
+        case 986: {
+          parseValue123(input, extensionRegistry);
+          return true;
+        } // case 986
+        case 994: {
+          parseValue124(input, extensionRegistry);
+          return true;
+        } // case 994
+        case 1002: {
+          parseValue125(input, extensionRegistry);
+          return true;
+        } // case 1002
+        case 1010: {
+          parseValue126(input, extensionRegistry);
+          return true;
+        } // case 1010
+        case 1018: {
+          parseValue127(input, extensionRegistry);
+          return true;
+        } // case 1018
+        case 1026: {
+          parseValue128(input, extensionRegistry);
+          return true;
+        } // case 1026
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
+    }
+    private int choiceCase_;
     private java.lang.Object choice_;
     public ChoiceCase
         getChoiceCase() {
@@ -10817,7 +11990,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue1FieldBuilder().getBuilder(),
+          internalGetValue1FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -10994,7 +12167,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue2FieldBuilder().getBuilder(),
+          internalGetValue2FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -11171,7 +12344,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue3FieldBuilder().getBuilder(),
+          internalGetValue3FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -11348,7 +12521,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue4FieldBuilder().getBuilder(),
+          internalGetValue4FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -11525,7 +12698,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue5FieldBuilder().getBuilder(),
+          internalGetValue5FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -11702,7 +12875,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue6FieldBuilder().getBuilder(),
+          internalGetValue6FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -11879,7 +13052,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue7FieldBuilder().getBuilder(),
+          internalGetValue7FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -12056,7 +13229,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue8FieldBuilder().getBuilder(),
+          internalGetValue8FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -12233,7 +13406,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue9FieldBuilder().getBuilder(),
+          internalGetValue9FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -12410,7 +13583,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue10FieldBuilder().getBuilder(),
+          internalGetValue10FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -12587,7 +13760,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue11FieldBuilder().getBuilder(),
+          internalGetValue11FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -12764,7 +13937,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue12FieldBuilder().getBuilder(),
+          internalGetValue12FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -12941,7 +14114,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue13FieldBuilder().getBuilder(),
+          internalGetValue13FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -13118,7 +14291,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue14FieldBuilder().getBuilder(),
+          internalGetValue14FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -13295,7 +14468,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue15FieldBuilder().getBuilder(),
+          internalGetValue15FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -13472,7 +14645,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue16FieldBuilder().getBuilder(),
+          internalGetValue16FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -13649,7 +14822,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue17FieldBuilder().getBuilder(),
+          internalGetValue17FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -13826,7 +14999,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue18FieldBuilder().getBuilder(),
+          internalGetValue18FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -14003,7 +15176,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue19FieldBuilder().getBuilder(),
+          internalGetValue19FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -14180,7 +15353,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue20FieldBuilder().getBuilder(),
+          internalGetValue20FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -14357,7 +15530,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue21FieldBuilder().getBuilder(),
+          internalGetValue21FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -14534,7 +15707,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue22FieldBuilder().getBuilder(),
+          internalGetValue22FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -14711,7 +15884,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue23FieldBuilder().getBuilder(),
+          internalGetValue23FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -14888,7 +16061,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue24FieldBuilder().getBuilder(),
+          internalGetValue24FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -15065,7 +16238,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue25FieldBuilder().getBuilder(),
+          internalGetValue25FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -15242,7 +16415,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue26FieldBuilder().getBuilder(),
+          internalGetValue26FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -15419,7 +16592,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue27FieldBuilder().getBuilder(),
+          internalGetValue27FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -15596,7 +16769,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue28FieldBuilder().getBuilder(),
+          internalGetValue28FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -15773,7 +16946,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue29FieldBuilder().getBuilder(),
+          internalGetValue29FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -15950,7 +17123,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue30FieldBuilder().getBuilder(),
+          internalGetValue30FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -16127,7 +17300,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue31FieldBuilder().getBuilder(),
+          internalGetValue31FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -16304,7 +17477,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue32FieldBuilder().getBuilder(),
+          internalGetValue32FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -16481,7 +17654,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue33FieldBuilder().getBuilder(),
+          internalGetValue33FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -16658,7 +17831,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue34FieldBuilder().getBuilder(),
+          internalGetValue34FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -16835,7 +18008,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue35FieldBuilder().getBuilder(),
+          internalGetValue35FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -17012,7 +18185,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue36FieldBuilder().getBuilder(),
+          internalGetValue36FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -17189,7 +18362,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue37FieldBuilder().getBuilder(),
+          internalGetValue37FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -17366,7 +18539,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue38FieldBuilder().getBuilder(),
+          internalGetValue38FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -17543,7 +18716,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue39FieldBuilder().getBuilder(),
+          internalGetValue39FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -17720,7 +18893,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue40FieldBuilder().getBuilder(),
+          internalGetValue40FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -17897,7 +19070,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue41FieldBuilder().getBuilder(),
+          internalGetValue41FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -18074,7 +19247,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue42FieldBuilder().getBuilder(),
+          internalGetValue42FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -18251,7 +19424,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue43FieldBuilder().getBuilder(),
+          internalGetValue43FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -18428,7 +19601,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue44FieldBuilder().getBuilder(),
+          internalGetValue44FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -18605,7 +19778,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue45FieldBuilder().getBuilder(),
+          internalGetValue45FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -18782,7 +19955,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue46FieldBuilder().getBuilder(),
+          internalGetValue46FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -18959,7 +20132,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue47FieldBuilder().getBuilder(),
+          internalGetValue47FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -19136,7 +20309,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue48FieldBuilder().getBuilder(),
+          internalGetValue48FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -19313,7 +20486,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue49FieldBuilder().getBuilder(),
+          internalGetValue49FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -19490,7 +20663,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue50FieldBuilder().getBuilder(),
+          internalGetValue50FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -19667,7 +20840,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue51FieldBuilder().getBuilder(),
+          internalGetValue51FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -19844,7 +21017,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue52FieldBuilder().getBuilder(),
+          internalGetValue52FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -20021,7 +21194,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue53FieldBuilder().getBuilder(),
+          internalGetValue53FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -20198,7 +21371,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue54FieldBuilder().getBuilder(),
+          internalGetValue54FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -20375,7 +21548,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue55FieldBuilder().getBuilder(),
+          internalGetValue55FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -20552,7 +21725,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue56FieldBuilder().getBuilder(),
+          internalGetValue56FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -20729,7 +21902,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue57FieldBuilder().getBuilder(),
+          internalGetValue57FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -20906,7 +22079,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue58FieldBuilder().getBuilder(),
+          internalGetValue58FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -21083,7 +22256,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue59FieldBuilder().getBuilder(),
+          internalGetValue59FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -21260,7 +22433,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue60FieldBuilder().getBuilder(),
+          internalGetValue60FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -21437,7 +22610,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue61FieldBuilder().getBuilder(),
+          internalGetValue61FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -21614,7 +22787,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue62FieldBuilder().getBuilder(),
+          internalGetValue62FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -21791,7 +22964,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue63FieldBuilder().getBuilder(),
+          internalGetValue63FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -21968,7 +23141,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue64FieldBuilder().getBuilder(),
+          internalGetValue64FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -22145,7 +23318,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue65FieldBuilder().getBuilder(),
+          internalGetValue65FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -22322,7 +23495,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue66FieldBuilder().getBuilder(),
+          internalGetValue66FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -22499,7 +23672,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue67FieldBuilder().getBuilder(),
+          internalGetValue67FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -22676,7 +23849,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue68FieldBuilder().getBuilder(),
+          internalGetValue68FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -22853,7 +24026,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue69FieldBuilder().getBuilder(),
+          internalGetValue69FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -23030,7 +24203,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue70FieldBuilder().getBuilder(),
+          internalGetValue70FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -23207,7 +24380,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue71FieldBuilder().getBuilder(),
+          internalGetValue71FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -23384,7 +24557,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue72FieldBuilder().getBuilder(),
+          internalGetValue72FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -23561,7 +24734,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue73FieldBuilder().getBuilder(),
+          internalGetValue73FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -23738,7 +24911,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue74FieldBuilder().getBuilder(),
+          internalGetValue74FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -23915,7 +25088,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue75FieldBuilder().getBuilder(),
+          internalGetValue75FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -24092,7 +25265,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue76FieldBuilder().getBuilder(),
+          internalGetValue76FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -24269,7 +25442,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue77FieldBuilder().getBuilder(),
+          internalGetValue77FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -24446,7 +25619,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue78FieldBuilder().getBuilder(),
+          internalGetValue78FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -24623,7 +25796,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue79FieldBuilder().getBuilder(),
+          internalGetValue79FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -24800,7 +25973,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue80FieldBuilder().getBuilder(),
+          internalGetValue80FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -24977,7 +26150,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue81FieldBuilder().getBuilder(),
+          internalGetValue81FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -25154,7 +26327,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue82FieldBuilder().getBuilder(),
+          internalGetValue82FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -25331,7 +26504,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue83FieldBuilder().getBuilder(),
+          internalGetValue83FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -25508,7 +26681,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue84FieldBuilder().getBuilder(),
+          internalGetValue84FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -25685,7 +26858,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue85FieldBuilder().getBuilder(),
+          internalGetValue85FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -25862,7 +27035,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue86FieldBuilder().getBuilder(),
+          internalGetValue86FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -26039,7 +27212,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue87FieldBuilder().getBuilder(),
+          internalGetValue87FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -26216,7 +27389,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue88FieldBuilder().getBuilder(),
+          internalGetValue88FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -26393,7 +27566,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue89FieldBuilder().getBuilder(),
+          internalGetValue89FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -26570,7 +27743,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue90FieldBuilder().getBuilder(),
+          internalGetValue90FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -26747,7 +27920,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue91FieldBuilder().getBuilder(),
+          internalGetValue91FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -26924,7 +28097,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue92FieldBuilder().getBuilder(),
+          internalGetValue92FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -27101,7 +28274,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue93FieldBuilder().getBuilder(),
+          internalGetValue93FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -27278,7 +28451,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue94FieldBuilder().getBuilder(),
+          internalGetValue94FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -27455,7 +28628,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue95FieldBuilder().getBuilder(),
+          internalGetValue95FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -27632,7 +28805,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue96FieldBuilder().getBuilder(),
+          internalGetValue96FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -27809,7 +28982,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue97FieldBuilder().getBuilder(),
+          internalGetValue97FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -27986,7 +29159,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue98FieldBuilder().getBuilder(),
+          internalGetValue98FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -28163,7 +29336,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue99FieldBuilder().getBuilder(),
+          internalGetValue99FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -28340,7 +29513,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue100FieldBuilder().getBuilder(),
+          internalGetValue100FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -28517,7 +29690,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue101FieldBuilder().getBuilder(),
+          internalGetValue101FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -28694,7 +29867,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue102FieldBuilder().getBuilder(),
+          internalGetValue102FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -28871,7 +30044,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue103FieldBuilder().getBuilder(),
+          internalGetValue103FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -29048,7 +30221,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue104FieldBuilder().getBuilder(),
+          internalGetValue104FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -29225,7 +30398,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue105FieldBuilder().getBuilder(),
+          internalGetValue105FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -29402,7 +30575,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue106FieldBuilder().getBuilder(),
+          internalGetValue106FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -29579,7 +30752,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue107FieldBuilder().getBuilder(),
+          internalGetValue107FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -29756,7 +30929,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue108FieldBuilder().getBuilder(),
+          internalGetValue108FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -29933,7 +31106,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue109FieldBuilder().getBuilder(),
+          internalGetValue109FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -30110,7 +31283,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue110FieldBuilder().getBuilder(),
+          internalGetValue110FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -30287,7 +31460,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue111FieldBuilder().getBuilder(),
+          internalGetValue111FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -30464,7 +31637,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue112FieldBuilder().getBuilder(),
+          internalGetValue112FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -30641,7 +31814,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue113FieldBuilder().getBuilder(),
+          internalGetValue113FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -30818,7 +31991,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue114FieldBuilder().getBuilder(),
+          internalGetValue114FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -30995,7 +32168,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue115FieldBuilder().getBuilder(),
+          internalGetValue115FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -31172,7 +32345,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue116FieldBuilder().getBuilder(),
+          internalGetValue116FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -31349,7 +32522,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue117FieldBuilder().getBuilder(),
+          internalGetValue117FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -31526,7 +32699,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue118FieldBuilder().getBuilder(),
+          internalGetValue118FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -31703,7 +32876,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue119FieldBuilder().getBuilder(),
+          internalGetValue119FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -31880,7 +33053,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue120FieldBuilder().getBuilder(),
+          internalGetValue120FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -32057,7 +33230,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue121FieldBuilder().getBuilder(),
+          internalGetValue121FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -32234,7 +33407,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue122FieldBuilder().getBuilder(),
+          internalGetValue122FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -32411,7 +33584,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue123FieldBuilder().getBuilder(),
+          internalGetValue123FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -32588,7 +33761,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue124FieldBuilder().getBuilder(),
+          internalGetValue124FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -32765,7 +33938,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue125FieldBuilder().getBuilder(),
+          internalGetValue125FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -32942,7 +34115,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue126FieldBuilder().getBuilder(),
+          internalGetValue126FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -33119,7 +34292,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue127FieldBuilder().getBuilder(),
+          internalGetValue127FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -33296,7 +34469,7 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       input.readMessage(
-          internalGetValue128FieldBuilder().getBuilder(),
+          internalGetValue128FieldBuilder().getBuilderForParsing(),
           extensionRegistry);
       switch (choiceCase_) {
       default:
@@ -33322,22 +34495,8294 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static WideMessageOneof parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    WideMessageOneof instance = new WideMessageOneof((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value1Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value2Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value3Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value4Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value5Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value6Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value7Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value8Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value9Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value10Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value11Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value12Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value13Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value14Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value15Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value16Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value17Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value18Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value19Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value20Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value21Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value22Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value23Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value24Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value25Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value26Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value27Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value28Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value29Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value30Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value31Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value32Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value33Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value34Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value35Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value36Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value37Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value38Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value39Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value40Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value41Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value42Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value43Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value44Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value45Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value46Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value47Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value48Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value49Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value50Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value51Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value52Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value53Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value54Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value55Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value56Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value57Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value58Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value59Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value60Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value61Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value62Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value63Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value64Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value65Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value66Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value67Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value68Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value69Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value70Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value71Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value72Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value73Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value74Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value75Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value76Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value77Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value78Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value79Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value80Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value81Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value82Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value83Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value84Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value85Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value86Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value87Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value88Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value89Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value90Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value91Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value92Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value93Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value94Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value95Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value96Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value97Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value98Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value99Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value100Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value101Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value102Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value103Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value104Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value105Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value106Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value107Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value108Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value109Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value110Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value111Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value112Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value113Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value114Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value115Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value116Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value117Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value118Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value119Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value120Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value121Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value122Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value123Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value124Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value125Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value126Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value127Builder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value128Builder_ = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            if (value1Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value1Builder_ = internalGetValue1FieldBuilder(instance, value1Builder_);
+            parseValue1(instance, input, extensionRegistry, value1Builder_);
+            break;
+          } // case 10
+          case 18: {
+            if (value2Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value2Builder_ = internalGetValue2FieldBuilder(instance, value2Builder_);
+            parseValue2(instance, input, extensionRegistry, value2Builder_);
+            break;
+          } // case 18
+          case 26: {
+            if (value3Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value3Builder_ = internalGetValue3FieldBuilder(instance, value3Builder_);
+            parseValue3(instance, input, extensionRegistry, value3Builder_);
+            break;
+          } // case 26
+          case 34: {
+            if (value4Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value4Builder_ = internalGetValue4FieldBuilder(instance, value4Builder_);
+            parseValue4(instance, input, extensionRegistry, value4Builder_);
+            break;
+          } // case 34
+          case 42: {
+            if (value5Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value5Builder_ = internalGetValue5FieldBuilder(instance, value5Builder_);
+            parseValue5(instance, input, extensionRegistry, value5Builder_);
+            break;
+          } // case 42
+          case 50: {
+            if (value6Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value6Builder_ = internalGetValue6FieldBuilder(instance, value6Builder_);
+            parseValue6(instance, input, extensionRegistry, value6Builder_);
+            break;
+          } // case 50
+          case 58: {
+            if (value7Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value7Builder_ = internalGetValue7FieldBuilder(instance, value7Builder_);
+            parseValue7(instance, input, extensionRegistry, value7Builder_);
+            break;
+          } // case 58
+          case 66: {
+            if (value8Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value8Builder_ = internalGetValue8FieldBuilder(instance, value8Builder_);
+            parseValue8(instance, input, extensionRegistry, value8Builder_);
+            break;
+          } // case 66
+          case 74: {
+            if (value9Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value9Builder_ = internalGetValue9FieldBuilder(instance, value9Builder_);
+            parseValue9(instance, input, extensionRegistry, value9Builder_);
+            break;
+          } // case 74
+          case 82: {
+            if (value10Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value10Builder_ = internalGetValue10FieldBuilder(instance, value10Builder_);
+            parseValue10(instance, input, extensionRegistry, value10Builder_);
+            break;
+          } // case 82
+          case 90: {
+            if (value11Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value11Builder_ = internalGetValue11FieldBuilder(instance, value11Builder_);
+            parseValue11(instance, input, extensionRegistry, value11Builder_);
+            break;
+          } // case 90
+          case 98: {
+            if (value12Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value12Builder_ = internalGetValue12FieldBuilder(instance, value12Builder_);
+            parseValue12(instance, input, extensionRegistry, value12Builder_);
+            break;
+          } // case 98
+          case 106: {
+            if (value13Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value13Builder_ = internalGetValue13FieldBuilder(instance, value13Builder_);
+            parseValue13(instance, input, extensionRegistry, value13Builder_);
+            break;
+          } // case 106
+          case 114: {
+            if (value14Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value14Builder_ = internalGetValue14FieldBuilder(instance, value14Builder_);
+            parseValue14(instance, input, extensionRegistry, value14Builder_);
+            break;
+          } // case 114
+          case 122: {
+            if (value15Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value15Builder_ = internalGetValue15FieldBuilder(instance, value15Builder_);
+            parseValue15(instance, input, extensionRegistry, value15Builder_);
+            break;
+          } // case 122
+          case 130: {
+            if (value16Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value16Builder_ = internalGetValue16FieldBuilder(instance, value16Builder_);
+            parseValue16(instance, input, extensionRegistry, value16Builder_);
+            break;
+          } // case 130
+          case 138: {
+            if (value17Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value17Builder_ = internalGetValue17FieldBuilder(instance, value17Builder_);
+            parseValue17(instance, input, extensionRegistry, value17Builder_);
+            break;
+          } // case 138
+          case 146: {
+            if (value18Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value18Builder_ = internalGetValue18FieldBuilder(instance, value18Builder_);
+            parseValue18(instance, input, extensionRegistry, value18Builder_);
+            break;
+          } // case 146
+          case 154: {
+            if (value19Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value19Builder_ = internalGetValue19FieldBuilder(instance, value19Builder_);
+            parseValue19(instance, input, extensionRegistry, value19Builder_);
+            break;
+          } // case 154
+          case 162: {
+            if (value20Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value20Builder_ = internalGetValue20FieldBuilder(instance, value20Builder_);
+            parseValue20(instance, input, extensionRegistry, value20Builder_);
+            break;
+          } // case 162
+          case 170: {
+            if (value21Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value21Builder_ = internalGetValue21FieldBuilder(instance, value21Builder_);
+            parseValue21(instance, input, extensionRegistry, value21Builder_);
+            break;
+          } // case 170
+          case 178: {
+            if (value22Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value22Builder_ = internalGetValue22FieldBuilder(instance, value22Builder_);
+            parseValue22(instance, input, extensionRegistry, value22Builder_);
+            break;
+          } // case 178
+          case 186: {
+            if (value23Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value23Builder_ = internalGetValue23FieldBuilder(instance, value23Builder_);
+            parseValue23(instance, input, extensionRegistry, value23Builder_);
+            break;
+          } // case 186
+          case 194: {
+            if (value24Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value24Builder_ = internalGetValue24FieldBuilder(instance, value24Builder_);
+            parseValue24(instance, input, extensionRegistry, value24Builder_);
+            break;
+          } // case 194
+          case 202: {
+            if (value25Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value25Builder_ = internalGetValue25FieldBuilder(instance, value25Builder_);
+            parseValue25(instance, input, extensionRegistry, value25Builder_);
+            break;
+          } // case 202
+          case 210: {
+            if (value26Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value26Builder_ = internalGetValue26FieldBuilder(instance, value26Builder_);
+            parseValue26(instance, input, extensionRegistry, value26Builder_);
+            break;
+          } // case 210
+          case 218: {
+            if (value27Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value27Builder_ = internalGetValue27FieldBuilder(instance, value27Builder_);
+            parseValue27(instance, input, extensionRegistry, value27Builder_);
+            break;
+          } // case 218
+          case 226: {
+            if (value28Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value28Builder_ = internalGetValue28FieldBuilder(instance, value28Builder_);
+            parseValue28(instance, input, extensionRegistry, value28Builder_);
+            break;
+          } // case 226
+          case 234: {
+            if (value29Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value29Builder_ = internalGetValue29FieldBuilder(instance, value29Builder_);
+            parseValue29(instance, input, extensionRegistry, value29Builder_);
+            break;
+          } // case 234
+          case 242: {
+            if (value30Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value30Builder_ = internalGetValue30FieldBuilder(instance, value30Builder_);
+            parseValue30(instance, input, extensionRegistry, value30Builder_);
+            break;
+          } // case 242
+          case 250: {
+            if (value31Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value31Builder_ = internalGetValue31FieldBuilder(instance, value31Builder_);
+            parseValue31(instance, input, extensionRegistry, value31Builder_);
+            break;
+          } // case 250
+          case 258: {
+            if (value32Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value32Builder_ = internalGetValue32FieldBuilder(instance, value32Builder_);
+            parseValue32(instance, input, extensionRegistry, value32Builder_);
+            break;
+          } // case 258
+          case 266: {
+            if (value33Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value33Builder_ = internalGetValue33FieldBuilder(instance, value33Builder_);
+            parseValue33(instance, input, extensionRegistry, value33Builder_);
+            break;
+          } // case 266
+          case 274: {
+            if (value34Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value34Builder_ = internalGetValue34FieldBuilder(instance, value34Builder_);
+            parseValue34(instance, input, extensionRegistry, value34Builder_);
+            break;
+          } // case 274
+          case 282: {
+            if (value35Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value35Builder_ = internalGetValue35FieldBuilder(instance, value35Builder_);
+            parseValue35(instance, input, extensionRegistry, value35Builder_);
+            break;
+          } // case 282
+          case 290: {
+            if (value36Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value36Builder_ = internalGetValue36FieldBuilder(instance, value36Builder_);
+            parseValue36(instance, input, extensionRegistry, value36Builder_);
+            break;
+          } // case 290
+          case 298: {
+            if (value37Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value37Builder_ = internalGetValue37FieldBuilder(instance, value37Builder_);
+            parseValue37(instance, input, extensionRegistry, value37Builder_);
+            break;
+          } // case 298
+          case 306: {
+            if (value38Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value38Builder_ = internalGetValue38FieldBuilder(instance, value38Builder_);
+            parseValue38(instance, input, extensionRegistry, value38Builder_);
+            break;
+          } // case 306
+          case 314: {
+            if (value39Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value39Builder_ = internalGetValue39FieldBuilder(instance, value39Builder_);
+            parseValue39(instance, input, extensionRegistry, value39Builder_);
+            break;
+          } // case 314
+          case 322: {
+            if (value40Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value40Builder_ = internalGetValue40FieldBuilder(instance, value40Builder_);
+            parseValue40(instance, input, extensionRegistry, value40Builder_);
+            break;
+          } // case 322
+          case 330: {
+            if (value41Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value41Builder_ = internalGetValue41FieldBuilder(instance, value41Builder_);
+            parseValue41(instance, input, extensionRegistry, value41Builder_);
+            break;
+          } // case 330
+          case 338: {
+            if (value42Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value42Builder_ = internalGetValue42FieldBuilder(instance, value42Builder_);
+            parseValue42(instance, input, extensionRegistry, value42Builder_);
+            break;
+          } // case 338
+          case 346: {
+            if (value43Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value43Builder_ = internalGetValue43FieldBuilder(instance, value43Builder_);
+            parseValue43(instance, input, extensionRegistry, value43Builder_);
+            break;
+          } // case 346
+          case 354: {
+            if (value44Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value44Builder_ = internalGetValue44FieldBuilder(instance, value44Builder_);
+            parseValue44(instance, input, extensionRegistry, value44Builder_);
+            break;
+          } // case 354
+          case 362: {
+            if (value45Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value45Builder_ = internalGetValue45FieldBuilder(instance, value45Builder_);
+            parseValue45(instance, input, extensionRegistry, value45Builder_);
+            break;
+          } // case 362
+          case 370: {
+            if (value46Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value46Builder_ = internalGetValue46FieldBuilder(instance, value46Builder_);
+            parseValue46(instance, input, extensionRegistry, value46Builder_);
+            break;
+          } // case 370
+          case 378: {
+            if (value47Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value47Builder_ = internalGetValue47FieldBuilder(instance, value47Builder_);
+            parseValue47(instance, input, extensionRegistry, value47Builder_);
+            break;
+          } // case 378
+          case 386: {
+            if (value48Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value48Builder_ = internalGetValue48FieldBuilder(instance, value48Builder_);
+            parseValue48(instance, input, extensionRegistry, value48Builder_);
+            break;
+          } // case 386
+          case 394: {
+            if (value49Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value49Builder_ = internalGetValue49FieldBuilder(instance, value49Builder_);
+            parseValue49(instance, input, extensionRegistry, value49Builder_);
+            break;
+          } // case 394
+          case 402: {
+            if (value50Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value50Builder_ = internalGetValue50FieldBuilder(instance, value50Builder_);
+            parseValue50(instance, input, extensionRegistry, value50Builder_);
+            break;
+          } // case 402
+          case 410: {
+            if (value51Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value51Builder_ = internalGetValue51FieldBuilder(instance, value51Builder_);
+            parseValue51(instance, input, extensionRegistry, value51Builder_);
+            break;
+          } // case 410
+          case 418: {
+            if (value52Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value52Builder_ = internalGetValue52FieldBuilder(instance, value52Builder_);
+            parseValue52(instance, input, extensionRegistry, value52Builder_);
+            break;
+          } // case 418
+          case 426: {
+            if (value53Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value53Builder_ = internalGetValue53FieldBuilder(instance, value53Builder_);
+            parseValue53(instance, input, extensionRegistry, value53Builder_);
+            break;
+          } // case 426
+          case 434: {
+            if (value54Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value54Builder_ = internalGetValue54FieldBuilder(instance, value54Builder_);
+            parseValue54(instance, input, extensionRegistry, value54Builder_);
+            break;
+          } // case 434
+          case 442: {
+            if (value55Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value55Builder_ = internalGetValue55FieldBuilder(instance, value55Builder_);
+            parseValue55(instance, input, extensionRegistry, value55Builder_);
+            break;
+          } // case 442
+          case 450: {
+            if (value56Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value56Builder_ = internalGetValue56FieldBuilder(instance, value56Builder_);
+            parseValue56(instance, input, extensionRegistry, value56Builder_);
+            break;
+          } // case 450
+          case 458: {
+            if (value57Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value57Builder_ = internalGetValue57FieldBuilder(instance, value57Builder_);
+            parseValue57(instance, input, extensionRegistry, value57Builder_);
+            break;
+          } // case 458
+          case 466: {
+            if (value58Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value58Builder_ = internalGetValue58FieldBuilder(instance, value58Builder_);
+            parseValue58(instance, input, extensionRegistry, value58Builder_);
+            break;
+          } // case 466
+          case 474: {
+            if (value59Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value59Builder_ = internalGetValue59FieldBuilder(instance, value59Builder_);
+            parseValue59(instance, input, extensionRegistry, value59Builder_);
+            break;
+          } // case 474
+          case 482: {
+            if (value60Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value60Builder_ = internalGetValue60FieldBuilder(instance, value60Builder_);
+            parseValue60(instance, input, extensionRegistry, value60Builder_);
+            break;
+          } // case 482
+          case 490: {
+            if (value61Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value61Builder_ = internalGetValue61FieldBuilder(instance, value61Builder_);
+            parseValue61(instance, input, extensionRegistry, value61Builder_);
+            break;
+          } // case 490
+          case 498: {
+            if (value62Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value62Builder_ = internalGetValue62FieldBuilder(instance, value62Builder_);
+            parseValue62(instance, input, extensionRegistry, value62Builder_);
+            break;
+          } // case 498
+          case 506: {
+            if (value63Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value63Builder_ = internalGetValue63FieldBuilder(instance, value63Builder_);
+            parseValue63(instance, input, extensionRegistry, value63Builder_);
+            break;
+          } // case 506
+          case 514: {
+            if (value64Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value64Builder_ = internalGetValue64FieldBuilder(instance, value64Builder_);
+            parseValue64(instance, input, extensionRegistry, value64Builder_);
+            break;
+          } // case 514
+          case 522: {
+            if (value65Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value65Builder_ = internalGetValue65FieldBuilder(instance, value65Builder_);
+            parseValue65(instance, input, extensionRegistry, value65Builder_);
+            break;
+          } // case 522
+          case 530: {
+            if (value66Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value66Builder_ = internalGetValue66FieldBuilder(instance, value66Builder_);
+            parseValue66(instance, input, extensionRegistry, value66Builder_);
+            break;
+          } // case 530
+          case 538: {
+            if (value67Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value67Builder_ = internalGetValue67FieldBuilder(instance, value67Builder_);
+            parseValue67(instance, input, extensionRegistry, value67Builder_);
+            break;
+          } // case 538
+          case 546: {
+            if (value68Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value68Builder_ = internalGetValue68FieldBuilder(instance, value68Builder_);
+            parseValue68(instance, input, extensionRegistry, value68Builder_);
+            break;
+          } // case 546
+          case 554: {
+            if (value69Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value69Builder_ = internalGetValue69FieldBuilder(instance, value69Builder_);
+            parseValue69(instance, input, extensionRegistry, value69Builder_);
+            break;
+          } // case 554
+          case 562: {
+            if (value70Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value70Builder_ = internalGetValue70FieldBuilder(instance, value70Builder_);
+            parseValue70(instance, input, extensionRegistry, value70Builder_);
+            break;
+          } // case 562
+          case 570: {
+            if (value71Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value71Builder_ = internalGetValue71FieldBuilder(instance, value71Builder_);
+            parseValue71(instance, input, extensionRegistry, value71Builder_);
+            break;
+          } // case 570
+          case 578: {
+            if (value72Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value72Builder_ = internalGetValue72FieldBuilder(instance, value72Builder_);
+            parseValue72(instance, input, extensionRegistry, value72Builder_);
+            break;
+          } // case 578
+          case 586: {
+            if (value73Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value73Builder_ = internalGetValue73FieldBuilder(instance, value73Builder_);
+            parseValue73(instance, input, extensionRegistry, value73Builder_);
+            break;
+          } // case 586
+          case 594: {
+            if (value74Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value74Builder_ = internalGetValue74FieldBuilder(instance, value74Builder_);
+            parseValue74(instance, input, extensionRegistry, value74Builder_);
+            break;
+          } // case 594
+          case 602: {
+            if (value75Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value75Builder_ = internalGetValue75FieldBuilder(instance, value75Builder_);
+            parseValue75(instance, input, extensionRegistry, value75Builder_);
+            break;
+          } // case 602
+          case 610: {
+            if (value76Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value76Builder_ = internalGetValue76FieldBuilder(instance, value76Builder_);
+            parseValue76(instance, input, extensionRegistry, value76Builder_);
+            break;
+          } // case 610
+          case 618: {
+            if (value77Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value77Builder_ = internalGetValue77FieldBuilder(instance, value77Builder_);
+            parseValue77(instance, input, extensionRegistry, value77Builder_);
+            break;
+          } // case 618
+          case 626: {
+            if (value78Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value78Builder_ = internalGetValue78FieldBuilder(instance, value78Builder_);
+            parseValue78(instance, input, extensionRegistry, value78Builder_);
+            break;
+          } // case 626
+          case 634: {
+            if (value79Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value79Builder_ = internalGetValue79FieldBuilder(instance, value79Builder_);
+            parseValue79(instance, input, extensionRegistry, value79Builder_);
+            break;
+          } // case 634
+          case 642: {
+            if (value80Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value80Builder_ = internalGetValue80FieldBuilder(instance, value80Builder_);
+            parseValue80(instance, input, extensionRegistry, value80Builder_);
+            break;
+          } // case 642
+          case 650: {
+            if (value81Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value81Builder_ = internalGetValue81FieldBuilder(instance, value81Builder_);
+            parseValue81(instance, input, extensionRegistry, value81Builder_);
+            break;
+          } // case 650
+          case 658: {
+            if (value82Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value82Builder_ = internalGetValue82FieldBuilder(instance, value82Builder_);
+            parseValue82(instance, input, extensionRegistry, value82Builder_);
+            break;
+          } // case 658
+          case 666: {
+            if (value83Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value83Builder_ = internalGetValue83FieldBuilder(instance, value83Builder_);
+            parseValue83(instance, input, extensionRegistry, value83Builder_);
+            break;
+          } // case 666
+          case 674: {
+            if (value84Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value84Builder_ = internalGetValue84FieldBuilder(instance, value84Builder_);
+            parseValue84(instance, input, extensionRegistry, value84Builder_);
+            break;
+          } // case 674
+          case 682: {
+            if (value85Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value85Builder_ = internalGetValue85FieldBuilder(instance, value85Builder_);
+            parseValue85(instance, input, extensionRegistry, value85Builder_);
+            break;
+          } // case 682
+          case 690: {
+            if (value86Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value86Builder_ = internalGetValue86FieldBuilder(instance, value86Builder_);
+            parseValue86(instance, input, extensionRegistry, value86Builder_);
+            break;
+          } // case 690
+          case 698: {
+            if (value87Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value87Builder_ = internalGetValue87FieldBuilder(instance, value87Builder_);
+            parseValue87(instance, input, extensionRegistry, value87Builder_);
+            break;
+          } // case 698
+          case 706: {
+            if (value88Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value88Builder_ = internalGetValue88FieldBuilder(instance, value88Builder_);
+            parseValue88(instance, input, extensionRegistry, value88Builder_);
+            break;
+          } // case 706
+          case 714: {
+            if (value89Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value89Builder_ = internalGetValue89FieldBuilder(instance, value89Builder_);
+            parseValue89(instance, input, extensionRegistry, value89Builder_);
+            break;
+          } // case 714
+          case 722: {
+            if (value90Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value90Builder_ = internalGetValue90FieldBuilder(instance, value90Builder_);
+            parseValue90(instance, input, extensionRegistry, value90Builder_);
+            break;
+          } // case 722
+          case 730: {
+            if (value91Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value91Builder_ = internalGetValue91FieldBuilder(instance, value91Builder_);
+            parseValue91(instance, input, extensionRegistry, value91Builder_);
+            break;
+          } // case 730
+          case 738: {
+            if (value92Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value92Builder_ = internalGetValue92FieldBuilder(instance, value92Builder_);
+            parseValue92(instance, input, extensionRegistry, value92Builder_);
+            break;
+          } // case 738
+          case 746: {
+            if (value93Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value93Builder_ = internalGetValue93FieldBuilder(instance, value93Builder_);
+            parseValue93(instance, input, extensionRegistry, value93Builder_);
+            break;
+          } // case 746
+          case 754: {
+            if (value94Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value94Builder_ = internalGetValue94FieldBuilder(instance, value94Builder_);
+            parseValue94(instance, input, extensionRegistry, value94Builder_);
+            break;
+          } // case 754
+          case 762: {
+            if (value95Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value95Builder_ = internalGetValue95FieldBuilder(instance, value95Builder_);
+            parseValue95(instance, input, extensionRegistry, value95Builder_);
+            break;
+          } // case 762
+          case 770: {
+            if (value96Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value96Builder_ = internalGetValue96FieldBuilder(instance, value96Builder_);
+            parseValue96(instance, input, extensionRegistry, value96Builder_);
+            break;
+          } // case 770
+          case 778: {
+            if (value97Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value97Builder_ = internalGetValue97FieldBuilder(instance, value97Builder_);
+            parseValue97(instance, input, extensionRegistry, value97Builder_);
+            break;
+          } // case 778
+          case 786: {
+            if (value98Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value98Builder_ = internalGetValue98FieldBuilder(instance, value98Builder_);
+            parseValue98(instance, input, extensionRegistry, value98Builder_);
+            break;
+          } // case 786
+          case 794: {
+            if (value99Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value99Builder_ = internalGetValue99FieldBuilder(instance, value99Builder_);
+            parseValue99(instance, input, extensionRegistry, value99Builder_);
+            break;
+          } // case 794
+          case 802: {
+            if (value100Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value100Builder_ = internalGetValue100FieldBuilder(instance, value100Builder_);
+            parseValue100(instance, input, extensionRegistry, value100Builder_);
+            break;
+          } // case 802
+          case 810: {
+            if (value101Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value101Builder_ = internalGetValue101FieldBuilder(instance, value101Builder_);
+            parseValue101(instance, input, extensionRegistry, value101Builder_);
+            break;
+          } // case 810
+          case 818: {
+            if (value102Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value102Builder_ = internalGetValue102FieldBuilder(instance, value102Builder_);
+            parseValue102(instance, input, extensionRegistry, value102Builder_);
+            break;
+          } // case 818
+          case 826: {
+            if (value103Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value103Builder_ = internalGetValue103FieldBuilder(instance, value103Builder_);
+            parseValue103(instance, input, extensionRegistry, value103Builder_);
+            break;
+          } // case 826
+          case 834: {
+            if (value104Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value104Builder_ = internalGetValue104FieldBuilder(instance, value104Builder_);
+            parseValue104(instance, input, extensionRegistry, value104Builder_);
+            break;
+          } // case 834
+          case 842: {
+            if (value105Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value105Builder_ = internalGetValue105FieldBuilder(instance, value105Builder_);
+            parseValue105(instance, input, extensionRegistry, value105Builder_);
+            break;
+          } // case 842
+          case 850: {
+            if (value106Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value106Builder_ = internalGetValue106FieldBuilder(instance, value106Builder_);
+            parseValue106(instance, input, extensionRegistry, value106Builder_);
+            break;
+          } // case 850
+          case 858: {
+            if (value107Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value107Builder_ = internalGetValue107FieldBuilder(instance, value107Builder_);
+            parseValue107(instance, input, extensionRegistry, value107Builder_);
+            break;
+          } // case 858
+          case 866: {
+            if (value108Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value108Builder_ = internalGetValue108FieldBuilder(instance, value108Builder_);
+            parseValue108(instance, input, extensionRegistry, value108Builder_);
+            break;
+          } // case 866
+          case 874: {
+            if (value109Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value109Builder_ = internalGetValue109FieldBuilder(instance, value109Builder_);
+            parseValue109(instance, input, extensionRegistry, value109Builder_);
+            break;
+          } // case 874
+          case 882: {
+            if (value110Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value110Builder_ = internalGetValue110FieldBuilder(instance, value110Builder_);
+            parseValue110(instance, input, extensionRegistry, value110Builder_);
+            break;
+          } // case 882
+          case 890: {
+            if (value111Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value111Builder_ = internalGetValue111FieldBuilder(instance, value111Builder_);
+            parseValue111(instance, input, extensionRegistry, value111Builder_);
+            break;
+          } // case 890
+          case 898: {
+            if (value112Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value112Builder_ = internalGetValue112FieldBuilder(instance, value112Builder_);
+            parseValue112(instance, input, extensionRegistry, value112Builder_);
+            break;
+          } // case 898
+          case 906: {
+            if (value113Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value113Builder_ = internalGetValue113FieldBuilder(instance, value113Builder_);
+            parseValue113(instance, input, extensionRegistry, value113Builder_);
+            break;
+          } // case 906
+          case 914: {
+            if (value114Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value114Builder_ = internalGetValue114FieldBuilder(instance, value114Builder_);
+            parseValue114(instance, input, extensionRegistry, value114Builder_);
+            break;
+          } // case 914
+          case 922: {
+            if (value115Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value115Builder_ = internalGetValue115FieldBuilder(instance, value115Builder_);
+            parseValue115(instance, input, extensionRegistry, value115Builder_);
+            break;
+          } // case 922
+          case 930: {
+            if (value116Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value116Builder_ = internalGetValue116FieldBuilder(instance, value116Builder_);
+            parseValue116(instance, input, extensionRegistry, value116Builder_);
+            break;
+          } // case 930
+          case 938: {
+            if (value117Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value117Builder_ = internalGetValue117FieldBuilder(instance, value117Builder_);
+            parseValue117(instance, input, extensionRegistry, value117Builder_);
+            break;
+          } // case 938
+          case 946: {
+            if (value118Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value118Builder_ = internalGetValue118FieldBuilder(instance, value118Builder_);
+            parseValue118(instance, input, extensionRegistry, value118Builder_);
+            break;
+          } // case 946
+          case 954: {
+            if (value119Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value119Builder_ = internalGetValue119FieldBuilder(instance, value119Builder_);
+            parseValue119(instance, input, extensionRegistry, value119Builder_);
+            break;
+          } // case 954
+          case 962: {
+            if (value120Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value120Builder_ = internalGetValue120FieldBuilder(instance, value120Builder_);
+            parseValue120(instance, input, extensionRegistry, value120Builder_);
+            break;
+          } // case 962
+          case 970: {
+            if (value121Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value121Builder_ = internalGetValue121FieldBuilder(instance, value121Builder_);
+            parseValue121(instance, input, extensionRegistry, value121Builder_);
+            break;
+          } // case 970
+          case 978: {
+            if (value122Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value122Builder_ = internalGetValue122FieldBuilder(instance, value122Builder_);
+            parseValue122(instance, input, extensionRegistry, value122Builder_);
+            break;
+          } // case 978
+          case 986: {
+            if (value123Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value123Builder_ = internalGetValue123FieldBuilder(instance, value123Builder_);
+            parseValue123(instance, input, extensionRegistry, value123Builder_);
+            break;
+          } // case 986
+          case 994: {
+            if (value124Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value124Builder_ = internalGetValue124FieldBuilder(instance, value124Builder_);
+            parseValue124(instance, input, extensionRegistry, value124Builder_);
+            break;
+          } // case 994
+          case 1002: {
+            if (value125Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value125Builder_ = internalGetValue125FieldBuilder(instance, value125Builder_);
+            parseValue125(instance, input, extensionRegistry, value125Builder_);
+            break;
+          } // case 1002
+          case 1010: {
+            if (value126Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value126Builder_ = internalGetValue126FieldBuilder(instance, value126Builder_);
+            parseValue126(instance, input, extensionRegistry, value126Builder_);
+            break;
+          } // case 1010
+          case 1018: {
+            if (value127Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value127Builder_ = internalGetValue127FieldBuilder(instance, value127Builder_);
+            parseValue127(instance, input, extensionRegistry, value127Builder_);
+            break;
+          } // case 1018
+          case 1026: {
+            if (value128Builder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            value128Builder_ = internalGetValue128FieldBuilder(instance, value128Builder_);
+            parseValue128(instance, input, extensionRegistry, value128Builder_);
+            break;
+          } // case 1026
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {value1Builder_, value2Builder_, value3Builder_, value4Builder_, value5Builder_, value6Builder_, value7Builder_, value8Builder_, value9Builder_, value10Builder_, value11Builder_, value12Builder_, value13Builder_, value14Builder_, value15Builder_, value16Builder_, value17Builder_, value18Builder_, value19Builder_, value20Builder_, value21Builder_, value22Builder_, value23Builder_, value24Builder_, value25Builder_, value26Builder_, value27Builder_, value28Builder_, value29Builder_, value30Builder_, value31Builder_, value32Builder_, value33Builder_, value34Builder_, value35Builder_, value36Builder_, value37Builder_, value38Builder_, value39Builder_, value40Builder_, value41Builder_, value42Builder_, value43Builder_, value44Builder_, value45Builder_, value46Builder_, value47Builder_, value48Builder_, value49Builder_, value50Builder_, value51Builder_, value52Builder_, value53Builder_, value54Builder_, value55Builder_, value56Builder_, value57Builder_, value58Builder_, value59Builder_, value60Builder_, value61Builder_, value62Builder_, value63Builder_, value64Builder_, value65Builder_, value66Builder_, value67Builder_, value68Builder_, value69Builder_, value70Builder_, value71Builder_, value72Builder_, value73Builder_, value74Builder_, value75Builder_, value76Builder_, value77Builder_, value78Builder_, value79Builder_, value80Builder_, value81Builder_, value82Builder_, value83Builder_, value84Builder_, value85Builder_, value86Builder_, value87Builder_, value88Builder_, value89Builder_, value90Builder_, value91Builder_, value92Builder_, value93Builder_, value94Builder_, value95Builder_, value96Builder_, value97Builder_, value98Builder_, value99Builder_, value100Builder_, value101Builder_, value102Builder_, value103Builder_, value104Builder_, value105Builder_, value106Builder_, value107Builder_, value108Builder_, value109Builder_, value110Builder_, value111Builder_, value112Builder_, value113Builder_, value114Builder_, value115Builder_, value116Builder_, value117Builder_, value118Builder_, value119Builder_, value120Builder_, value121Builder_, value122Builder_, value123Builder_, value124Builder_, value125Builder_, value126Builder_, value127Builder_, value128Builder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, value1Builder_, value2Builder_, value3Builder_, value4Builder_, value5Builder_, value6Builder_, value7Builder_, value8Builder_, value9Builder_, value10Builder_, value11Builder_, value12Builder_, value13Builder_, value14Builder_, value15Builder_, value16Builder_, value17Builder_, value18Builder_, value19Builder_, value20Builder_, value21Builder_, value22Builder_, value23Builder_, value24Builder_, value25Builder_, value26Builder_, value27Builder_, value28Builder_, value29Builder_, value30Builder_, value31Builder_, value32Builder_);
+    buildPartial_autosplit_1(instance, value33Builder_, value34Builder_, value35Builder_, value36Builder_, value37Builder_, value38Builder_, value39Builder_, value40Builder_, value41Builder_, value42Builder_, value43Builder_, value44Builder_, value45Builder_, value46Builder_, value47Builder_, value48Builder_, value49Builder_, value50Builder_, value51Builder_, value52Builder_, value53Builder_, value54Builder_, value55Builder_, value56Builder_, value57Builder_, value58Builder_, value59Builder_, value60Builder_, value61Builder_, value62Builder_, value63Builder_, value64Builder_);
+    buildPartial_autosplit_2(instance, value65Builder_, value66Builder_, value67Builder_, value68Builder_, value69Builder_, value70Builder_, value71Builder_, value72Builder_, value73Builder_, value74Builder_, value75Builder_, value76Builder_, value77Builder_, value78Builder_, value79Builder_, value80Builder_, value81Builder_, value82Builder_, value83Builder_, value84Builder_, value85Builder_, value86Builder_, value87Builder_, value88Builder_, value89Builder_, value90Builder_, value91Builder_, value92Builder_, value93Builder_, value94Builder_, value95Builder_, value96Builder_);
+    buildPartial_autosplit_3(instance, value97Builder_, value98Builder_, value99Builder_, value100Builder_, value101Builder_, value102Builder_, value103Builder_, value104Builder_, value105Builder_, value106Builder_, value107Builder_, value108Builder_, value109Builder_, value110Builder_, value111Builder_, value112Builder_, value113Builder_, value114Builder_, value115Builder_, value116Builder_, value117Builder_, value118Builder_, value119Builder_, value120Builder_, value121Builder_, value122Builder_, value123Builder_, value124Builder_, value125Builder_, value126Builder_, value127Builder_, value128Builder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_1 = 1;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue1FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value1Builder_) {
+    if (value1Builder_ == null) {
+      if (!(instance.choiceCase_ == 1)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value1Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 1;
+      instance.bitField0_ |= 0x00000001; // fallthrough
+    case 1:
+      break;
+    }
+
+    return value1Builder_;
+  }
+  private static void parseValue1(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value1Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value1Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 1;
+      instance.bitField0_ |= 0x00000001; // fallthrough
+    case 1:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_2 = 2;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue2FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value2Builder_) {
+    if (value2Builder_ == null) {
+      if (!(instance.choiceCase_ == 2)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value2Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 2;
+      instance.bitField0_ |= 0x00000002; // fallthrough
+    case 2:
+      break;
+    }
+
+    return value2Builder_;
+  }
+  private static void parseValue2(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value2Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value2Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 2;
+      instance.bitField0_ |= 0x00000002; // fallthrough
+    case 2:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_3 = 3;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue3FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value3Builder_) {
+    if (value3Builder_ == null) {
+      if (!(instance.choiceCase_ == 3)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value3Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 3;
+      instance.bitField0_ |= 0x00000004; // fallthrough
+    case 3:
+      break;
+    }
+
+    return value3Builder_;
+  }
+  private static void parseValue3(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value3Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value3Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 3;
+      instance.bitField0_ |= 0x00000004; // fallthrough
+    case 3:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_4 = 4;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue4FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value4Builder_) {
+    if (value4Builder_ == null) {
+      if (!(instance.choiceCase_ == 4)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value4Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 4;
+      instance.bitField0_ |= 0x00000008; // fallthrough
+    case 4:
+      break;
+    }
+
+    return value4Builder_;
+  }
+  private static void parseValue4(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value4Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value4Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 4;
+      instance.bitField0_ |= 0x00000008; // fallthrough
+    case 4:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_5 = 5;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue5FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value5Builder_) {
+    if (value5Builder_ == null) {
+      if (!(instance.choiceCase_ == 5)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value5Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 5;
+      instance.bitField0_ |= 0x00000010; // fallthrough
+    case 5:
+      break;
+    }
+
+    return value5Builder_;
+  }
+  private static void parseValue5(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value5Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value5Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 5;
+      instance.bitField0_ |= 0x00000010; // fallthrough
+    case 5:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_6 = 6;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue6FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value6Builder_) {
+    if (value6Builder_ == null) {
+      if (!(instance.choiceCase_ == 6)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value6Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 6;
+      instance.bitField0_ |= 0x00000020; // fallthrough
+    case 6:
+      break;
+    }
+
+    return value6Builder_;
+  }
+  private static void parseValue6(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value6Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value6Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 6;
+      instance.bitField0_ |= 0x00000020; // fallthrough
+    case 6:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_7 = 7;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue7FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value7Builder_) {
+    if (value7Builder_ == null) {
+      if (!(instance.choiceCase_ == 7)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value7Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 7;
+      instance.bitField0_ |= 0x00000040; // fallthrough
+    case 7:
+      break;
+    }
+
+    return value7Builder_;
+  }
+  private static void parseValue7(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value7Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value7Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 7;
+      instance.bitField0_ |= 0x00000040; // fallthrough
+    case 7:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_8 = 8;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue8FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value8Builder_) {
+    if (value8Builder_ == null) {
+      if (!(instance.choiceCase_ == 8)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value8Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 8;
+      instance.bitField0_ |= 0x00000080; // fallthrough
+    case 8:
+      break;
+    }
+
+    return value8Builder_;
+  }
+  private static void parseValue8(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value8Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value8Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 8;
+      instance.bitField0_ |= 0x00000080; // fallthrough
+    case 8:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_9 = 9;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue9FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value9Builder_) {
+    if (value9Builder_ == null) {
+      if (!(instance.choiceCase_ == 9)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value9Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 9;
+      instance.bitField0_ |= 0x00000100; // fallthrough
+    case 9:
+      break;
+    }
+
+    return value9Builder_;
+  }
+  private static void parseValue9(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value9Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value9Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 9;
+      instance.bitField0_ |= 0x00000100; // fallthrough
+    case 9:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_10 = 10;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue10FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value10Builder_) {
+    if (value10Builder_ == null) {
+      if (!(instance.choiceCase_ == 10)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value10Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 10;
+      instance.bitField0_ |= 0x00000200; // fallthrough
+    case 10:
+      break;
+    }
+
+    return value10Builder_;
+  }
+  private static void parseValue10(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value10Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value10Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 10;
+      instance.bitField0_ |= 0x00000200; // fallthrough
+    case 10:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_11 = 11;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue11FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value11Builder_) {
+    if (value11Builder_ == null) {
+      if (!(instance.choiceCase_ == 11)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value11Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 11;
+      instance.bitField0_ |= 0x00000400; // fallthrough
+    case 11:
+      break;
+    }
+
+    return value11Builder_;
+  }
+  private static void parseValue11(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value11Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value11Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 11;
+      instance.bitField0_ |= 0x00000400; // fallthrough
+    case 11:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_12 = 12;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue12FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value12Builder_) {
+    if (value12Builder_ == null) {
+      if (!(instance.choiceCase_ == 12)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value12Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 12;
+      instance.bitField0_ |= 0x00000800; // fallthrough
+    case 12:
+      break;
+    }
+
+    return value12Builder_;
+  }
+  private static void parseValue12(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value12Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value12Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 12;
+      instance.bitField0_ |= 0x00000800; // fallthrough
+    case 12:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_13 = 13;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue13FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value13Builder_) {
+    if (value13Builder_ == null) {
+      if (!(instance.choiceCase_ == 13)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value13Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 13;
+      instance.bitField0_ |= 0x00001000; // fallthrough
+    case 13:
+      break;
+    }
+
+    return value13Builder_;
+  }
+  private static void parseValue13(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value13Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value13Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 13;
+      instance.bitField0_ |= 0x00001000; // fallthrough
+    case 13:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_14 = 14;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue14FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value14Builder_) {
+    if (value14Builder_ == null) {
+      if (!(instance.choiceCase_ == 14)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value14Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 14;
+      instance.bitField0_ |= 0x00002000; // fallthrough
+    case 14:
+      break;
+    }
+
+    return value14Builder_;
+  }
+  private static void parseValue14(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value14Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value14Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 14;
+      instance.bitField0_ |= 0x00002000; // fallthrough
+    case 14:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_15 = 15;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue15FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value15Builder_) {
+    if (value15Builder_ == null) {
+      if (!(instance.choiceCase_ == 15)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value15Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 15;
+      instance.bitField0_ |= 0x00004000; // fallthrough
+    case 15:
+      break;
+    }
+
+    return value15Builder_;
+  }
+  private static void parseValue15(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value15Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value15Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 15;
+      instance.bitField0_ |= 0x00004000; // fallthrough
+    case 15:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_16 = 16;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue16FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value16Builder_) {
+    if (value16Builder_ == null) {
+      if (!(instance.choiceCase_ == 16)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value16Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 16;
+      instance.bitField0_ |= 0x00008000; // fallthrough
+    case 16:
+      break;
+    }
+
+    return value16Builder_;
+  }
+  private static void parseValue16(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value16Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value16Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 16;
+      instance.bitField0_ |= 0x00008000; // fallthrough
+    case 16:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_17 = 17;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue17FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value17Builder_) {
+    if (value17Builder_ == null) {
+      if (!(instance.choiceCase_ == 17)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value17Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 17;
+      instance.bitField0_ |= 0x00010000; // fallthrough
+    case 17:
+      break;
+    }
+
+    return value17Builder_;
+  }
+  private static void parseValue17(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value17Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value17Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 17;
+      instance.bitField0_ |= 0x00010000; // fallthrough
+    case 17:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_18 = 18;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue18FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value18Builder_) {
+    if (value18Builder_ == null) {
+      if (!(instance.choiceCase_ == 18)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value18Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 18;
+      instance.bitField0_ |= 0x00020000; // fallthrough
+    case 18:
+      break;
+    }
+
+    return value18Builder_;
+  }
+  private static void parseValue18(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value18Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value18Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 18;
+      instance.bitField0_ |= 0x00020000; // fallthrough
+    case 18:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_19 = 19;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue19FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value19Builder_) {
+    if (value19Builder_ == null) {
+      if (!(instance.choiceCase_ == 19)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value19Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 19;
+      instance.bitField0_ |= 0x00040000; // fallthrough
+    case 19:
+      break;
+    }
+
+    return value19Builder_;
+  }
+  private static void parseValue19(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value19Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value19Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 19;
+      instance.bitField0_ |= 0x00040000; // fallthrough
+    case 19:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_20 = 20;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue20FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value20Builder_) {
+    if (value20Builder_ == null) {
+      if (!(instance.choiceCase_ == 20)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value20Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 20;
+      instance.bitField0_ |= 0x00080000; // fallthrough
+    case 20:
+      break;
+    }
+
+    return value20Builder_;
+  }
+  private static void parseValue20(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value20Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value20Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 20;
+      instance.bitField0_ |= 0x00080000; // fallthrough
+    case 20:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_21 = 21;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue21FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value21Builder_) {
+    if (value21Builder_ == null) {
+      if (!(instance.choiceCase_ == 21)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value21Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 21;
+      instance.bitField0_ |= 0x00100000; // fallthrough
+    case 21:
+      break;
+    }
+
+    return value21Builder_;
+  }
+  private static void parseValue21(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value21Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value21Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 21;
+      instance.bitField0_ |= 0x00100000; // fallthrough
+    case 21:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_22 = 22;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue22FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value22Builder_) {
+    if (value22Builder_ == null) {
+      if (!(instance.choiceCase_ == 22)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value22Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 22;
+      instance.bitField0_ |= 0x00200000; // fallthrough
+    case 22:
+      break;
+    }
+
+    return value22Builder_;
+  }
+  private static void parseValue22(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value22Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value22Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 22;
+      instance.bitField0_ |= 0x00200000; // fallthrough
+    case 22:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_23 = 23;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue23FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value23Builder_) {
+    if (value23Builder_ == null) {
+      if (!(instance.choiceCase_ == 23)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value23Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 23;
+      instance.bitField0_ |= 0x00400000; // fallthrough
+    case 23:
+      break;
+    }
+
+    return value23Builder_;
+  }
+  private static void parseValue23(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value23Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value23Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 23;
+      instance.bitField0_ |= 0x00400000; // fallthrough
+    case 23:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_24 = 24;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue24FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value24Builder_) {
+    if (value24Builder_ == null) {
+      if (!(instance.choiceCase_ == 24)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value24Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 24;
+      instance.bitField0_ |= 0x00800000; // fallthrough
+    case 24:
+      break;
+    }
+
+    return value24Builder_;
+  }
+  private static void parseValue24(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value24Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value24Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 24;
+      instance.bitField0_ |= 0x00800000; // fallthrough
+    case 24:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_25 = 25;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue25FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value25Builder_) {
+    if (value25Builder_ == null) {
+      if (!(instance.choiceCase_ == 25)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value25Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 25;
+      instance.bitField0_ |= 0x01000000; // fallthrough
+    case 25:
+      break;
+    }
+
+    return value25Builder_;
+  }
+  private static void parseValue25(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value25Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value25Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 25;
+      instance.bitField0_ |= 0x01000000; // fallthrough
+    case 25:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_26 = 26;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue26FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value26Builder_) {
+    if (value26Builder_ == null) {
+      if (!(instance.choiceCase_ == 26)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value26Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 26;
+      instance.bitField0_ |= 0x02000000; // fallthrough
+    case 26:
+      break;
+    }
+
+    return value26Builder_;
+  }
+  private static void parseValue26(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value26Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value26Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 26;
+      instance.bitField0_ |= 0x02000000; // fallthrough
+    case 26:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_27 = 27;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue27FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value27Builder_) {
+    if (value27Builder_ == null) {
+      if (!(instance.choiceCase_ == 27)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value27Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 27;
+      instance.bitField0_ |= 0x04000000; // fallthrough
+    case 27:
+      break;
+    }
+
+    return value27Builder_;
+  }
+  private static void parseValue27(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value27Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value27Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 27;
+      instance.bitField0_ |= 0x04000000; // fallthrough
+    case 27:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_28 = 28;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue28FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value28Builder_) {
+    if (value28Builder_ == null) {
+      if (!(instance.choiceCase_ == 28)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value28Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 28;
+      instance.bitField0_ |= 0x08000000; // fallthrough
+    case 28:
+      break;
+    }
+
+    return value28Builder_;
+  }
+  private static void parseValue28(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value28Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value28Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 28;
+      instance.bitField0_ |= 0x08000000; // fallthrough
+    case 28:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_29 = 29;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue29FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value29Builder_) {
+    if (value29Builder_ == null) {
+      if (!(instance.choiceCase_ == 29)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value29Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 29;
+      instance.bitField0_ |= 0x10000000; // fallthrough
+    case 29:
+      break;
+    }
+
+    return value29Builder_;
+  }
+  private static void parseValue29(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value29Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value29Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 29;
+      instance.bitField0_ |= 0x10000000; // fallthrough
+    case 29:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_30 = 30;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue30FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value30Builder_) {
+    if (value30Builder_ == null) {
+      if (!(instance.choiceCase_ == 30)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value30Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 30;
+      instance.bitField0_ |= 0x20000000; // fallthrough
+    case 30:
+      break;
+    }
+
+    return value30Builder_;
+  }
+  private static void parseValue30(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value30Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value30Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 30;
+      instance.bitField0_ |= 0x20000000; // fallthrough
+    case 30:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_31 = 31;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue31FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value31Builder_) {
+    if (value31Builder_ == null) {
+      if (!(instance.choiceCase_ == 31)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value31Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 31;
+      instance.bitField0_ |= 0x40000000; // fallthrough
+    case 31:
+      break;
+    }
+
+    return value31Builder_;
+  }
+  private static void parseValue31(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value31Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value31Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 31;
+      instance.bitField0_ |= 0x40000000; // fallthrough
+    case 31:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_32 = 32;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue32FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value32Builder_) {
+    if (value32Builder_ == null) {
+      if (!(instance.choiceCase_ == 32)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value32Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 32;
+      instance.bitField0_ |= 0x80000000; // fallthrough
+    case 32:
+      break;
+    }
+
+    return value32Builder_;
+  }
+  private static void parseValue32(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value32Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value32Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 32;
+      instance.bitField0_ |= 0x80000000; // fallthrough
+    case 32:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_33 = 33;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue33FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value33Builder_) {
+    if (value33Builder_ == null) {
+      if (!(instance.choiceCase_ == 33)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value33Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 33;
+      instance.bitField1_ |= 0x00000001; // fallthrough
+    case 33:
+      break;
+    }
+
+    return value33Builder_;
+  }
+  private static void parseValue33(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value33Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value33Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 33;
+      instance.bitField1_ |= 0x00000001; // fallthrough
+    case 33:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_34 = 34;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue34FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value34Builder_) {
+    if (value34Builder_ == null) {
+      if (!(instance.choiceCase_ == 34)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value34Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 34;
+      instance.bitField1_ |= 0x00000002; // fallthrough
+    case 34:
+      break;
+    }
+
+    return value34Builder_;
+  }
+  private static void parseValue34(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value34Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value34Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 34;
+      instance.bitField1_ |= 0x00000002; // fallthrough
+    case 34:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_35 = 35;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue35FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value35Builder_) {
+    if (value35Builder_ == null) {
+      if (!(instance.choiceCase_ == 35)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value35Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 35;
+      instance.bitField1_ |= 0x00000004; // fallthrough
+    case 35:
+      break;
+    }
+
+    return value35Builder_;
+  }
+  private static void parseValue35(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value35Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value35Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 35;
+      instance.bitField1_ |= 0x00000004; // fallthrough
+    case 35:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_36 = 36;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue36FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value36Builder_) {
+    if (value36Builder_ == null) {
+      if (!(instance.choiceCase_ == 36)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value36Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 36;
+      instance.bitField1_ |= 0x00000008; // fallthrough
+    case 36:
+      break;
+    }
+
+    return value36Builder_;
+  }
+  private static void parseValue36(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value36Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value36Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 36;
+      instance.bitField1_ |= 0x00000008; // fallthrough
+    case 36:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_37 = 37;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue37FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value37Builder_) {
+    if (value37Builder_ == null) {
+      if (!(instance.choiceCase_ == 37)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value37Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 37;
+      instance.bitField1_ |= 0x00000010; // fallthrough
+    case 37:
+      break;
+    }
+
+    return value37Builder_;
+  }
+  private static void parseValue37(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value37Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value37Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 37;
+      instance.bitField1_ |= 0x00000010; // fallthrough
+    case 37:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_38 = 38;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue38FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value38Builder_) {
+    if (value38Builder_ == null) {
+      if (!(instance.choiceCase_ == 38)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value38Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 38;
+      instance.bitField1_ |= 0x00000020; // fallthrough
+    case 38:
+      break;
+    }
+
+    return value38Builder_;
+  }
+  private static void parseValue38(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value38Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value38Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 38;
+      instance.bitField1_ |= 0x00000020; // fallthrough
+    case 38:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_39 = 39;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue39FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value39Builder_) {
+    if (value39Builder_ == null) {
+      if (!(instance.choiceCase_ == 39)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value39Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 39;
+      instance.bitField1_ |= 0x00000040; // fallthrough
+    case 39:
+      break;
+    }
+
+    return value39Builder_;
+  }
+  private static void parseValue39(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value39Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value39Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 39;
+      instance.bitField1_ |= 0x00000040; // fallthrough
+    case 39:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_40 = 40;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue40FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value40Builder_) {
+    if (value40Builder_ == null) {
+      if (!(instance.choiceCase_ == 40)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value40Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 40;
+      instance.bitField1_ |= 0x00000080; // fallthrough
+    case 40:
+      break;
+    }
+
+    return value40Builder_;
+  }
+  private static void parseValue40(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value40Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value40Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 40;
+      instance.bitField1_ |= 0x00000080; // fallthrough
+    case 40:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_41 = 41;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue41FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value41Builder_) {
+    if (value41Builder_ == null) {
+      if (!(instance.choiceCase_ == 41)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value41Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 41;
+      instance.bitField1_ |= 0x00000100; // fallthrough
+    case 41:
+      break;
+    }
+
+    return value41Builder_;
+  }
+  private static void parseValue41(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value41Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value41Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 41;
+      instance.bitField1_ |= 0x00000100; // fallthrough
+    case 41:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_42 = 42;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue42FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value42Builder_) {
+    if (value42Builder_ == null) {
+      if (!(instance.choiceCase_ == 42)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value42Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 42;
+      instance.bitField1_ |= 0x00000200; // fallthrough
+    case 42:
+      break;
+    }
+
+    return value42Builder_;
+  }
+  private static void parseValue42(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value42Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value42Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 42;
+      instance.bitField1_ |= 0x00000200; // fallthrough
+    case 42:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_43 = 43;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue43FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value43Builder_) {
+    if (value43Builder_ == null) {
+      if (!(instance.choiceCase_ == 43)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value43Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 43;
+      instance.bitField1_ |= 0x00000400; // fallthrough
+    case 43:
+      break;
+    }
+
+    return value43Builder_;
+  }
+  private static void parseValue43(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value43Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value43Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 43;
+      instance.bitField1_ |= 0x00000400; // fallthrough
+    case 43:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_44 = 44;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue44FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value44Builder_) {
+    if (value44Builder_ == null) {
+      if (!(instance.choiceCase_ == 44)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value44Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 44;
+      instance.bitField1_ |= 0x00000800; // fallthrough
+    case 44:
+      break;
+    }
+
+    return value44Builder_;
+  }
+  private static void parseValue44(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value44Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value44Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 44;
+      instance.bitField1_ |= 0x00000800; // fallthrough
+    case 44:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_45 = 45;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue45FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value45Builder_) {
+    if (value45Builder_ == null) {
+      if (!(instance.choiceCase_ == 45)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value45Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 45;
+      instance.bitField1_ |= 0x00001000; // fallthrough
+    case 45:
+      break;
+    }
+
+    return value45Builder_;
+  }
+  private static void parseValue45(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value45Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value45Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 45;
+      instance.bitField1_ |= 0x00001000; // fallthrough
+    case 45:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_46 = 46;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue46FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value46Builder_) {
+    if (value46Builder_ == null) {
+      if (!(instance.choiceCase_ == 46)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value46Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 46;
+      instance.bitField1_ |= 0x00002000; // fallthrough
+    case 46:
+      break;
+    }
+
+    return value46Builder_;
+  }
+  private static void parseValue46(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value46Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value46Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 46;
+      instance.bitField1_ |= 0x00002000; // fallthrough
+    case 46:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_47 = 47;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue47FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value47Builder_) {
+    if (value47Builder_ == null) {
+      if (!(instance.choiceCase_ == 47)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value47Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 47;
+      instance.bitField1_ |= 0x00004000; // fallthrough
+    case 47:
+      break;
+    }
+
+    return value47Builder_;
+  }
+  private static void parseValue47(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value47Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value47Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 47;
+      instance.bitField1_ |= 0x00004000; // fallthrough
+    case 47:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_48 = 48;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue48FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value48Builder_) {
+    if (value48Builder_ == null) {
+      if (!(instance.choiceCase_ == 48)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value48Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 48;
+      instance.bitField1_ |= 0x00008000; // fallthrough
+    case 48:
+      break;
+    }
+
+    return value48Builder_;
+  }
+  private static void parseValue48(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value48Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value48Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 48;
+      instance.bitField1_ |= 0x00008000; // fallthrough
+    case 48:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_49 = 49;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue49FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value49Builder_) {
+    if (value49Builder_ == null) {
+      if (!(instance.choiceCase_ == 49)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value49Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 49;
+      instance.bitField1_ |= 0x00010000; // fallthrough
+    case 49:
+      break;
+    }
+
+    return value49Builder_;
+  }
+  private static void parseValue49(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value49Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value49Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 49;
+      instance.bitField1_ |= 0x00010000; // fallthrough
+    case 49:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_50 = 50;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue50FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value50Builder_) {
+    if (value50Builder_ == null) {
+      if (!(instance.choiceCase_ == 50)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value50Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 50;
+      instance.bitField1_ |= 0x00020000; // fallthrough
+    case 50:
+      break;
+    }
+
+    return value50Builder_;
+  }
+  private static void parseValue50(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value50Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value50Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 50;
+      instance.bitField1_ |= 0x00020000; // fallthrough
+    case 50:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_51 = 51;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue51FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value51Builder_) {
+    if (value51Builder_ == null) {
+      if (!(instance.choiceCase_ == 51)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value51Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 51;
+      instance.bitField1_ |= 0x00040000; // fallthrough
+    case 51:
+      break;
+    }
+
+    return value51Builder_;
+  }
+  private static void parseValue51(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value51Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value51Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 51;
+      instance.bitField1_ |= 0x00040000; // fallthrough
+    case 51:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_52 = 52;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue52FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value52Builder_) {
+    if (value52Builder_ == null) {
+      if (!(instance.choiceCase_ == 52)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value52Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 52;
+      instance.bitField1_ |= 0x00080000; // fallthrough
+    case 52:
+      break;
+    }
+
+    return value52Builder_;
+  }
+  private static void parseValue52(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value52Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value52Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 52;
+      instance.bitField1_ |= 0x00080000; // fallthrough
+    case 52:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_53 = 53;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue53FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value53Builder_) {
+    if (value53Builder_ == null) {
+      if (!(instance.choiceCase_ == 53)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value53Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 53;
+      instance.bitField1_ |= 0x00100000; // fallthrough
+    case 53:
+      break;
+    }
+
+    return value53Builder_;
+  }
+  private static void parseValue53(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value53Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value53Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 53;
+      instance.bitField1_ |= 0x00100000; // fallthrough
+    case 53:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_54 = 54;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue54FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value54Builder_) {
+    if (value54Builder_ == null) {
+      if (!(instance.choiceCase_ == 54)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value54Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 54;
+      instance.bitField1_ |= 0x00200000; // fallthrough
+    case 54:
+      break;
+    }
+
+    return value54Builder_;
+  }
+  private static void parseValue54(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value54Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value54Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 54;
+      instance.bitField1_ |= 0x00200000; // fallthrough
+    case 54:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_55 = 55;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue55FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value55Builder_) {
+    if (value55Builder_ == null) {
+      if (!(instance.choiceCase_ == 55)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value55Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 55;
+      instance.bitField1_ |= 0x00400000; // fallthrough
+    case 55:
+      break;
+    }
+
+    return value55Builder_;
+  }
+  private static void parseValue55(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value55Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value55Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 55;
+      instance.bitField1_ |= 0x00400000; // fallthrough
+    case 55:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_56 = 56;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue56FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value56Builder_) {
+    if (value56Builder_ == null) {
+      if (!(instance.choiceCase_ == 56)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value56Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 56;
+      instance.bitField1_ |= 0x00800000; // fallthrough
+    case 56:
+      break;
+    }
+
+    return value56Builder_;
+  }
+  private static void parseValue56(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value56Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value56Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 56;
+      instance.bitField1_ |= 0x00800000; // fallthrough
+    case 56:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_57 = 57;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue57FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value57Builder_) {
+    if (value57Builder_ == null) {
+      if (!(instance.choiceCase_ == 57)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value57Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 57;
+      instance.bitField1_ |= 0x01000000; // fallthrough
+    case 57:
+      break;
+    }
+
+    return value57Builder_;
+  }
+  private static void parseValue57(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value57Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value57Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 57;
+      instance.bitField1_ |= 0x01000000; // fallthrough
+    case 57:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_58 = 58;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue58FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value58Builder_) {
+    if (value58Builder_ == null) {
+      if (!(instance.choiceCase_ == 58)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value58Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 58;
+      instance.bitField1_ |= 0x02000000; // fallthrough
+    case 58:
+      break;
+    }
+
+    return value58Builder_;
+  }
+  private static void parseValue58(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value58Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value58Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 58;
+      instance.bitField1_ |= 0x02000000; // fallthrough
+    case 58:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_59 = 59;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue59FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value59Builder_) {
+    if (value59Builder_ == null) {
+      if (!(instance.choiceCase_ == 59)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value59Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 59;
+      instance.bitField1_ |= 0x04000000; // fallthrough
+    case 59:
+      break;
+    }
+
+    return value59Builder_;
+  }
+  private static void parseValue59(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value59Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value59Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 59;
+      instance.bitField1_ |= 0x04000000; // fallthrough
+    case 59:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_60 = 60;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue60FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value60Builder_) {
+    if (value60Builder_ == null) {
+      if (!(instance.choiceCase_ == 60)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value60Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 60;
+      instance.bitField1_ |= 0x08000000; // fallthrough
+    case 60:
+      break;
+    }
+
+    return value60Builder_;
+  }
+  private static void parseValue60(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value60Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value60Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 60;
+      instance.bitField1_ |= 0x08000000; // fallthrough
+    case 60:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_61 = 61;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue61FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value61Builder_) {
+    if (value61Builder_ == null) {
+      if (!(instance.choiceCase_ == 61)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value61Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 61;
+      instance.bitField1_ |= 0x10000000; // fallthrough
+    case 61:
+      break;
+    }
+
+    return value61Builder_;
+  }
+  private static void parseValue61(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value61Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value61Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 61;
+      instance.bitField1_ |= 0x10000000; // fallthrough
+    case 61:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_62 = 62;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue62FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value62Builder_) {
+    if (value62Builder_ == null) {
+      if (!(instance.choiceCase_ == 62)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value62Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 62;
+      instance.bitField1_ |= 0x20000000; // fallthrough
+    case 62:
+      break;
+    }
+
+    return value62Builder_;
+  }
+  private static void parseValue62(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value62Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value62Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 62;
+      instance.bitField1_ |= 0x20000000; // fallthrough
+    case 62:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_63 = 63;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue63FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value63Builder_) {
+    if (value63Builder_ == null) {
+      if (!(instance.choiceCase_ == 63)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value63Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 63;
+      instance.bitField1_ |= 0x40000000; // fallthrough
+    case 63:
+      break;
+    }
+
+    return value63Builder_;
+  }
+  private static void parseValue63(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value63Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value63Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 63;
+      instance.bitField1_ |= 0x40000000; // fallthrough
+    case 63:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_64 = 64;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue64FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value64Builder_) {
+    if (value64Builder_ == null) {
+      if (!(instance.choiceCase_ == 64)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value64Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 64;
+      instance.bitField1_ |= 0x80000000; // fallthrough
+    case 64:
+      break;
+    }
+
+    return value64Builder_;
+  }
+  private static void parseValue64(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value64Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value64Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 64;
+      instance.bitField1_ |= 0x80000000; // fallthrough
+    case 64:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_65 = 65;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue65FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value65Builder_) {
+    if (value65Builder_ == null) {
+      if (!(instance.choiceCase_ == 65)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value65Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 65;
+      instance.bitField2_ |= 0x00000001; // fallthrough
+    case 65:
+      break;
+    }
+
+    return value65Builder_;
+  }
+  private static void parseValue65(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value65Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value65Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 65;
+      instance.bitField2_ |= 0x00000001; // fallthrough
+    case 65:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_66 = 66;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue66FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value66Builder_) {
+    if (value66Builder_ == null) {
+      if (!(instance.choiceCase_ == 66)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value66Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 66;
+      instance.bitField2_ |= 0x00000002; // fallthrough
+    case 66:
+      break;
+    }
+
+    return value66Builder_;
+  }
+  private static void parseValue66(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value66Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value66Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 66;
+      instance.bitField2_ |= 0x00000002; // fallthrough
+    case 66:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_67 = 67;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue67FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value67Builder_) {
+    if (value67Builder_ == null) {
+      if (!(instance.choiceCase_ == 67)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value67Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 67;
+      instance.bitField2_ |= 0x00000004; // fallthrough
+    case 67:
+      break;
+    }
+
+    return value67Builder_;
+  }
+  private static void parseValue67(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value67Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value67Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 67;
+      instance.bitField2_ |= 0x00000004; // fallthrough
+    case 67:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_68 = 68;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue68FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value68Builder_) {
+    if (value68Builder_ == null) {
+      if (!(instance.choiceCase_ == 68)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value68Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 68;
+      instance.bitField2_ |= 0x00000008; // fallthrough
+    case 68:
+      break;
+    }
+
+    return value68Builder_;
+  }
+  private static void parseValue68(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value68Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value68Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 68;
+      instance.bitField2_ |= 0x00000008; // fallthrough
+    case 68:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_69 = 69;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue69FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value69Builder_) {
+    if (value69Builder_ == null) {
+      if (!(instance.choiceCase_ == 69)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value69Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 69;
+      instance.bitField2_ |= 0x00000010; // fallthrough
+    case 69:
+      break;
+    }
+
+    return value69Builder_;
+  }
+  private static void parseValue69(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value69Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value69Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 69;
+      instance.bitField2_ |= 0x00000010; // fallthrough
+    case 69:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_70 = 70;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue70FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value70Builder_) {
+    if (value70Builder_ == null) {
+      if (!(instance.choiceCase_ == 70)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value70Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 70;
+      instance.bitField2_ |= 0x00000020; // fallthrough
+    case 70:
+      break;
+    }
+
+    return value70Builder_;
+  }
+  private static void parseValue70(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value70Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value70Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 70;
+      instance.bitField2_ |= 0x00000020; // fallthrough
+    case 70:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_71 = 71;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue71FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value71Builder_) {
+    if (value71Builder_ == null) {
+      if (!(instance.choiceCase_ == 71)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value71Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 71;
+      instance.bitField2_ |= 0x00000040; // fallthrough
+    case 71:
+      break;
+    }
+
+    return value71Builder_;
+  }
+  private static void parseValue71(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value71Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value71Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 71;
+      instance.bitField2_ |= 0x00000040; // fallthrough
+    case 71:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_72 = 72;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue72FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value72Builder_) {
+    if (value72Builder_ == null) {
+      if (!(instance.choiceCase_ == 72)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value72Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 72;
+      instance.bitField2_ |= 0x00000080; // fallthrough
+    case 72:
+      break;
+    }
+
+    return value72Builder_;
+  }
+  private static void parseValue72(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value72Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value72Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 72;
+      instance.bitField2_ |= 0x00000080; // fallthrough
+    case 72:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_73 = 73;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue73FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value73Builder_) {
+    if (value73Builder_ == null) {
+      if (!(instance.choiceCase_ == 73)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value73Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 73;
+      instance.bitField2_ |= 0x00000100; // fallthrough
+    case 73:
+      break;
+    }
+
+    return value73Builder_;
+  }
+  private static void parseValue73(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value73Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value73Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 73;
+      instance.bitField2_ |= 0x00000100; // fallthrough
+    case 73:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_74 = 74;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue74FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value74Builder_) {
+    if (value74Builder_ == null) {
+      if (!(instance.choiceCase_ == 74)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value74Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 74;
+      instance.bitField2_ |= 0x00000200; // fallthrough
+    case 74:
+      break;
+    }
+
+    return value74Builder_;
+  }
+  private static void parseValue74(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value74Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value74Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 74;
+      instance.bitField2_ |= 0x00000200; // fallthrough
+    case 74:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_75 = 75;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue75FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value75Builder_) {
+    if (value75Builder_ == null) {
+      if (!(instance.choiceCase_ == 75)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value75Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 75;
+      instance.bitField2_ |= 0x00000400; // fallthrough
+    case 75:
+      break;
+    }
+
+    return value75Builder_;
+  }
+  private static void parseValue75(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value75Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value75Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 75;
+      instance.bitField2_ |= 0x00000400; // fallthrough
+    case 75:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_76 = 76;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue76FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value76Builder_) {
+    if (value76Builder_ == null) {
+      if (!(instance.choiceCase_ == 76)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value76Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 76;
+      instance.bitField2_ |= 0x00000800; // fallthrough
+    case 76:
+      break;
+    }
+
+    return value76Builder_;
+  }
+  private static void parseValue76(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value76Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value76Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 76;
+      instance.bitField2_ |= 0x00000800; // fallthrough
+    case 76:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_77 = 77;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue77FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value77Builder_) {
+    if (value77Builder_ == null) {
+      if (!(instance.choiceCase_ == 77)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value77Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 77;
+      instance.bitField2_ |= 0x00001000; // fallthrough
+    case 77:
+      break;
+    }
+
+    return value77Builder_;
+  }
+  private static void parseValue77(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value77Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value77Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 77;
+      instance.bitField2_ |= 0x00001000; // fallthrough
+    case 77:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_78 = 78;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue78FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value78Builder_) {
+    if (value78Builder_ == null) {
+      if (!(instance.choiceCase_ == 78)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value78Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 78;
+      instance.bitField2_ |= 0x00002000; // fallthrough
+    case 78:
+      break;
+    }
+
+    return value78Builder_;
+  }
+  private static void parseValue78(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value78Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value78Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 78;
+      instance.bitField2_ |= 0x00002000; // fallthrough
+    case 78:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_79 = 79;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue79FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value79Builder_) {
+    if (value79Builder_ == null) {
+      if (!(instance.choiceCase_ == 79)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value79Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 79;
+      instance.bitField2_ |= 0x00004000; // fallthrough
+    case 79:
+      break;
+    }
+
+    return value79Builder_;
+  }
+  private static void parseValue79(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value79Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value79Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 79;
+      instance.bitField2_ |= 0x00004000; // fallthrough
+    case 79:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_80 = 80;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue80FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value80Builder_) {
+    if (value80Builder_ == null) {
+      if (!(instance.choiceCase_ == 80)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value80Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 80;
+      instance.bitField2_ |= 0x00008000; // fallthrough
+    case 80:
+      break;
+    }
+
+    return value80Builder_;
+  }
+  private static void parseValue80(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value80Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value80Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 80;
+      instance.bitField2_ |= 0x00008000; // fallthrough
+    case 80:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_81 = 81;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue81FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value81Builder_) {
+    if (value81Builder_ == null) {
+      if (!(instance.choiceCase_ == 81)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value81Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 81;
+      instance.bitField2_ |= 0x00010000; // fallthrough
+    case 81:
+      break;
+    }
+
+    return value81Builder_;
+  }
+  private static void parseValue81(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value81Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value81Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 81;
+      instance.bitField2_ |= 0x00010000; // fallthrough
+    case 81:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_82 = 82;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue82FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value82Builder_) {
+    if (value82Builder_ == null) {
+      if (!(instance.choiceCase_ == 82)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value82Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 82;
+      instance.bitField2_ |= 0x00020000; // fallthrough
+    case 82:
+      break;
+    }
+
+    return value82Builder_;
+  }
+  private static void parseValue82(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value82Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value82Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 82;
+      instance.bitField2_ |= 0x00020000; // fallthrough
+    case 82:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_83 = 83;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue83FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value83Builder_) {
+    if (value83Builder_ == null) {
+      if (!(instance.choiceCase_ == 83)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value83Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 83;
+      instance.bitField2_ |= 0x00040000; // fallthrough
+    case 83:
+      break;
+    }
+
+    return value83Builder_;
+  }
+  private static void parseValue83(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value83Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value83Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 83;
+      instance.bitField2_ |= 0x00040000; // fallthrough
+    case 83:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_84 = 84;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue84FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value84Builder_) {
+    if (value84Builder_ == null) {
+      if (!(instance.choiceCase_ == 84)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value84Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 84;
+      instance.bitField2_ |= 0x00080000; // fallthrough
+    case 84:
+      break;
+    }
+
+    return value84Builder_;
+  }
+  private static void parseValue84(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value84Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value84Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 84;
+      instance.bitField2_ |= 0x00080000; // fallthrough
+    case 84:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_85 = 85;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue85FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value85Builder_) {
+    if (value85Builder_ == null) {
+      if (!(instance.choiceCase_ == 85)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value85Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 85;
+      instance.bitField2_ |= 0x00100000; // fallthrough
+    case 85:
+      break;
+    }
+
+    return value85Builder_;
+  }
+  private static void parseValue85(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value85Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value85Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 85;
+      instance.bitField2_ |= 0x00100000; // fallthrough
+    case 85:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_86 = 86;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue86FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value86Builder_) {
+    if (value86Builder_ == null) {
+      if (!(instance.choiceCase_ == 86)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value86Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 86;
+      instance.bitField2_ |= 0x00200000; // fallthrough
+    case 86:
+      break;
+    }
+
+    return value86Builder_;
+  }
+  private static void parseValue86(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value86Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value86Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 86;
+      instance.bitField2_ |= 0x00200000; // fallthrough
+    case 86:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_87 = 87;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue87FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value87Builder_) {
+    if (value87Builder_ == null) {
+      if (!(instance.choiceCase_ == 87)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value87Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 87;
+      instance.bitField2_ |= 0x00400000; // fallthrough
+    case 87:
+      break;
+    }
+
+    return value87Builder_;
+  }
+  private static void parseValue87(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value87Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value87Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 87;
+      instance.bitField2_ |= 0x00400000; // fallthrough
+    case 87:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_88 = 88;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue88FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value88Builder_) {
+    if (value88Builder_ == null) {
+      if (!(instance.choiceCase_ == 88)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value88Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 88;
+      instance.bitField2_ |= 0x00800000; // fallthrough
+    case 88:
+      break;
+    }
+
+    return value88Builder_;
+  }
+  private static void parseValue88(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value88Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value88Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 88;
+      instance.bitField2_ |= 0x00800000; // fallthrough
+    case 88:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_89 = 89;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue89FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value89Builder_) {
+    if (value89Builder_ == null) {
+      if (!(instance.choiceCase_ == 89)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value89Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 89;
+      instance.bitField2_ |= 0x01000000; // fallthrough
+    case 89:
+      break;
+    }
+
+    return value89Builder_;
+  }
+  private static void parseValue89(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value89Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value89Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 89;
+      instance.bitField2_ |= 0x01000000; // fallthrough
+    case 89:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_90 = 90;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue90FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value90Builder_) {
+    if (value90Builder_ == null) {
+      if (!(instance.choiceCase_ == 90)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value90Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 90;
+      instance.bitField2_ |= 0x02000000; // fallthrough
+    case 90:
+      break;
+    }
+
+    return value90Builder_;
+  }
+  private static void parseValue90(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value90Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value90Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 90;
+      instance.bitField2_ |= 0x02000000; // fallthrough
+    case 90:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_91 = 91;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue91FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value91Builder_) {
+    if (value91Builder_ == null) {
+      if (!(instance.choiceCase_ == 91)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value91Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 91;
+      instance.bitField2_ |= 0x04000000; // fallthrough
+    case 91:
+      break;
+    }
+
+    return value91Builder_;
+  }
+  private static void parseValue91(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value91Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value91Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 91;
+      instance.bitField2_ |= 0x04000000; // fallthrough
+    case 91:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_92 = 92;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue92FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value92Builder_) {
+    if (value92Builder_ == null) {
+      if (!(instance.choiceCase_ == 92)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value92Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 92;
+      instance.bitField2_ |= 0x08000000; // fallthrough
+    case 92:
+      break;
+    }
+
+    return value92Builder_;
+  }
+  private static void parseValue92(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value92Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value92Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 92;
+      instance.bitField2_ |= 0x08000000; // fallthrough
+    case 92:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_93 = 93;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue93FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value93Builder_) {
+    if (value93Builder_ == null) {
+      if (!(instance.choiceCase_ == 93)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value93Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 93;
+      instance.bitField2_ |= 0x10000000; // fallthrough
+    case 93:
+      break;
+    }
+
+    return value93Builder_;
+  }
+  private static void parseValue93(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value93Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value93Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 93;
+      instance.bitField2_ |= 0x10000000; // fallthrough
+    case 93:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_94 = 94;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue94FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value94Builder_) {
+    if (value94Builder_ == null) {
+      if (!(instance.choiceCase_ == 94)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value94Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 94;
+      instance.bitField2_ |= 0x20000000; // fallthrough
+    case 94:
+      break;
+    }
+
+    return value94Builder_;
+  }
+  private static void parseValue94(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value94Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value94Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 94;
+      instance.bitField2_ |= 0x20000000; // fallthrough
+    case 94:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_95 = 95;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue95FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value95Builder_) {
+    if (value95Builder_ == null) {
+      if (!(instance.choiceCase_ == 95)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value95Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 95;
+      instance.bitField2_ |= 0x40000000; // fallthrough
+    case 95:
+      break;
+    }
+
+    return value95Builder_;
+  }
+  private static void parseValue95(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value95Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value95Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 95;
+      instance.bitField2_ |= 0x40000000; // fallthrough
+    case 95:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_96 = 96;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue96FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value96Builder_) {
+    if (value96Builder_ == null) {
+      if (!(instance.choiceCase_ == 96)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value96Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 96;
+      instance.bitField2_ |= 0x80000000; // fallthrough
+    case 96:
+      break;
+    }
+
+    return value96Builder_;
+  }
+  private static void parseValue96(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value96Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value96Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 96;
+      instance.bitField2_ |= 0x80000000; // fallthrough
+    case 96:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_97 = 97;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue97FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value97Builder_) {
+    if (value97Builder_ == null) {
+      if (!(instance.choiceCase_ == 97)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value97Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 97;
+      instance.bitField3_ |= 0x00000001; // fallthrough
+    case 97:
+      break;
+    }
+
+    return value97Builder_;
+  }
+  private static void parseValue97(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value97Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value97Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 97;
+      instance.bitField3_ |= 0x00000001; // fallthrough
+    case 97:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_98 = 98;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue98FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value98Builder_) {
+    if (value98Builder_ == null) {
+      if (!(instance.choiceCase_ == 98)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value98Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 98;
+      instance.bitField3_ |= 0x00000002; // fallthrough
+    case 98:
+      break;
+    }
+
+    return value98Builder_;
+  }
+  private static void parseValue98(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value98Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value98Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 98;
+      instance.bitField3_ |= 0x00000002; // fallthrough
+    case 98:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_99 = 99;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue99FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value99Builder_) {
+    if (value99Builder_ == null) {
+      if (!(instance.choiceCase_ == 99)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value99Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 99;
+      instance.bitField3_ |= 0x00000004; // fallthrough
+    case 99:
+      break;
+    }
+
+    return value99Builder_;
+  }
+  private static void parseValue99(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value99Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value99Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 99;
+      instance.bitField3_ |= 0x00000004; // fallthrough
+    case 99:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_100 = 100;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue100FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value100Builder_) {
+    if (value100Builder_ == null) {
+      if (!(instance.choiceCase_ == 100)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value100Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 100;
+      instance.bitField3_ |= 0x00000008; // fallthrough
+    case 100:
+      break;
+    }
+
+    return value100Builder_;
+  }
+  private static void parseValue100(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value100Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value100Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 100;
+      instance.bitField3_ |= 0x00000008; // fallthrough
+    case 100:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_101 = 101;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue101FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value101Builder_) {
+    if (value101Builder_ == null) {
+      if (!(instance.choiceCase_ == 101)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value101Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 101;
+      instance.bitField3_ |= 0x00000010; // fallthrough
+    case 101:
+      break;
+    }
+
+    return value101Builder_;
+  }
+  private static void parseValue101(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value101Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value101Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 101;
+      instance.bitField3_ |= 0x00000010; // fallthrough
+    case 101:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_102 = 102;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue102FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value102Builder_) {
+    if (value102Builder_ == null) {
+      if (!(instance.choiceCase_ == 102)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value102Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 102;
+      instance.bitField3_ |= 0x00000020; // fallthrough
+    case 102:
+      break;
+    }
+
+    return value102Builder_;
+  }
+  private static void parseValue102(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value102Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value102Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 102;
+      instance.bitField3_ |= 0x00000020; // fallthrough
+    case 102:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_103 = 103;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue103FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value103Builder_) {
+    if (value103Builder_ == null) {
+      if (!(instance.choiceCase_ == 103)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value103Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 103;
+      instance.bitField3_ |= 0x00000040; // fallthrough
+    case 103:
+      break;
+    }
+
+    return value103Builder_;
+  }
+  private static void parseValue103(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value103Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value103Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 103;
+      instance.bitField3_ |= 0x00000040; // fallthrough
+    case 103:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_104 = 104;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue104FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value104Builder_) {
+    if (value104Builder_ == null) {
+      if (!(instance.choiceCase_ == 104)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value104Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 104;
+      instance.bitField3_ |= 0x00000080; // fallthrough
+    case 104:
+      break;
+    }
+
+    return value104Builder_;
+  }
+  private static void parseValue104(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value104Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value104Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 104;
+      instance.bitField3_ |= 0x00000080; // fallthrough
+    case 104:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_105 = 105;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue105FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value105Builder_) {
+    if (value105Builder_ == null) {
+      if (!(instance.choiceCase_ == 105)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value105Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 105;
+      instance.bitField3_ |= 0x00000100; // fallthrough
+    case 105:
+      break;
+    }
+
+    return value105Builder_;
+  }
+  private static void parseValue105(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value105Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value105Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 105;
+      instance.bitField3_ |= 0x00000100; // fallthrough
+    case 105:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_106 = 106;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue106FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value106Builder_) {
+    if (value106Builder_ == null) {
+      if (!(instance.choiceCase_ == 106)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value106Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 106;
+      instance.bitField3_ |= 0x00000200; // fallthrough
+    case 106:
+      break;
+    }
+
+    return value106Builder_;
+  }
+  private static void parseValue106(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value106Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value106Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 106;
+      instance.bitField3_ |= 0x00000200; // fallthrough
+    case 106:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_107 = 107;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue107FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value107Builder_) {
+    if (value107Builder_ == null) {
+      if (!(instance.choiceCase_ == 107)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value107Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 107;
+      instance.bitField3_ |= 0x00000400; // fallthrough
+    case 107:
+      break;
+    }
+
+    return value107Builder_;
+  }
+  private static void parseValue107(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value107Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value107Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 107;
+      instance.bitField3_ |= 0x00000400; // fallthrough
+    case 107:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_108 = 108;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue108FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value108Builder_) {
+    if (value108Builder_ == null) {
+      if (!(instance.choiceCase_ == 108)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value108Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 108;
+      instance.bitField3_ |= 0x00000800; // fallthrough
+    case 108:
+      break;
+    }
+
+    return value108Builder_;
+  }
+  private static void parseValue108(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value108Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value108Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 108;
+      instance.bitField3_ |= 0x00000800; // fallthrough
+    case 108:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_109 = 109;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue109FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value109Builder_) {
+    if (value109Builder_ == null) {
+      if (!(instance.choiceCase_ == 109)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value109Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 109;
+      instance.bitField3_ |= 0x00001000; // fallthrough
+    case 109:
+      break;
+    }
+
+    return value109Builder_;
+  }
+  private static void parseValue109(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value109Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value109Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 109;
+      instance.bitField3_ |= 0x00001000; // fallthrough
+    case 109:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_110 = 110;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue110FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value110Builder_) {
+    if (value110Builder_ == null) {
+      if (!(instance.choiceCase_ == 110)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value110Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 110;
+      instance.bitField3_ |= 0x00002000; // fallthrough
+    case 110:
+      break;
+    }
+
+    return value110Builder_;
+  }
+  private static void parseValue110(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value110Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value110Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 110;
+      instance.bitField3_ |= 0x00002000; // fallthrough
+    case 110:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_111 = 111;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue111FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value111Builder_) {
+    if (value111Builder_ == null) {
+      if (!(instance.choiceCase_ == 111)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value111Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 111;
+      instance.bitField3_ |= 0x00004000; // fallthrough
+    case 111:
+      break;
+    }
+
+    return value111Builder_;
+  }
+  private static void parseValue111(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value111Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value111Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 111;
+      instance.bitField3_ |= 0x00004000; // fallthrough
+    case 111:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_112 = 112;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue112FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value112Builder_) {
+    if (value112Builder_ == null) {
+      if (!(instance.choiceCase_ == 112)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value112Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 112;
+      instance.bitField3_ |= 0x00008000; // fallthrough
+    case 112:
+      break;
+    }
+
+    return value112Builder_;
+  }
+  private static void parseValue112(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value112Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value112Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 112;
+      instance.bitField3_ |= 0x00008000; // fallthrough
+    case 112:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_113 = 113;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue113FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value113Builder_) {
+    if (value113Builder_ == null) {
+      if (!(instance.choiceCase_ == 113)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value113Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 113;
+      instance.bitField3_ |= 0x00010000; // fallthrough
+    case 113:
+      break;
+    }
+
+    return value113Builder_;
+  }
+  private static void parseValue113(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value113Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value113Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 113;
+      instance.bitField3_ |= 0x00010000; // fallthrough
+    case 113:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_114 = 114;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue114FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value114Builder_) {
+    if (value114Builder_ == null) {
+      if (!(instance.choiceCase_ == 114)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value114Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 114;
+      instance.bitField3_ |= 0x00020000; // fallthrough
+    case 114:
+      break;
+    }
+
+    return value114Builder_;
+  }
+  private static void parseValue114(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value114Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value114Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 114;
+      instance.bitField3_ |= 0x00020000; // fallthrough
+    case 114:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_115 = 115;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue115FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value115Builder_) {
+    if (value115Builder_ == null) {
+      if (!(instance.choiceCase_ == 115)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value115Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 115;
+      instance.bitField3_ |= 0x00040000; // fallthrough
+    case 115:
+      break;
+    }
+
+    return value115Builder_;
+  }
+  private static void parseValue115(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value115Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value115Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 115;
+      instance.bitField3_ |= 0x00040000; // fallthrough
+    case 115:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_116 = 116;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue116FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value116Builder_) {
+    if (value116Builder_ == null) {
+      if (!(instance.choiceCase_ == 116)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value116Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 116;
+      instance.bitField3_ |= 0x00080000; // fallthrough
+    case 116:
+      break;
+    }
+
+    return value116Builder_;
+  }
+  private static void parseValue116(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value116Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value116Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 116;
+      instance.bitField3_ |= 0x00080000; // fallthrough
+    case 116:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_117 = 117;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue117FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value117Builder_) {
+    if (value117Builder_ == null) {
+      if (!(instance.choiceCase_ == 117)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value117Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 117;
+      instance.bitField3_ |= 0x00100000; // fallthrough
+    case 117:
+      break;
+    }
+
+    return value117Builder_;
+  }
+  private static void parseValue117(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value117Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value117Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 117;
+      instance.bitField3_ |= 0x00100000; // fallthrough
+    case 117:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_118 = 118;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue118FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value118Builder_) {
+    if (value118Builder_ == null) {
+      if (!(instance.choiceCase_ == 118)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value118Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 118;
+      instance.bitField3_ |= 0x00200000; // fallthrough
+    case 118:
+      break;
+    }
+
+    return value118Builder_;
+  }
+  private static void parseValue118(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value118Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value118Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 118;
+      instance.bitField3_ |= 0x00200000; // fallthrough
+    case 118:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_119 = 119;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue119FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value119Builder_) {
+    if (value119Builder_ == null) {
+      if (!(instance.choiceCase_ == 119)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value119Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 119;
+      instance.bitField3_ |= 0x00400000; // fallthrough
+    case 119:
+      break;
+    }
+
+    return value119Builder_;
+  }
+  private static void parseValue119(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value119Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value119Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 119;
+      instance.bitField3_ |= 0x00400000; // fallthrough
+    case 119:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_120 = 120;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue120FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value120Builder_) {
+    if (value120Builder_ == null) {
+      if (!(instance.choiceCase_ == 120)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value120Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 120;
+      instance.bitField3_ |= 0x00800000; // fallthrough
+    case 120:
+      break;
+    }
+
+    return value120Builder_;
+  }
+  private static void parseValue120(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value120Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value120Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 120;
+      instance.bitField3_ |= 0x00800000; // fallthrough
+    case 120:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_121 = 121;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue121FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value121Builder_) {
+    if (value121Builder_ == null) {
+      if (!(instance.choiceCase_ == 121)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value121Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 121;
+      instance.bitField3_ |= 0x01000000; // fallthrough
+    case 121:
+      break;
+    }
+
+    return value121Builder_;
+  }
+  private static void parseValue121(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value121Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value121Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 121;
+      instance.bitField3_ |= 0x01000000; // fallthrough
+    case 121:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_122 = 122;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue122FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value122Builder_) {
+    if (value122Builder_ == null) {
+      if (!(instance.choiceCase_ == 122)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value122Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 122;
+      instance.bitField3_ |= 0x02000000; // fallthrough
+    case 122:
+      break;
+    }
+
+    return value122Builder_;
+  }
+  private static void parseValue122(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value122Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value122Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 122;
+      instance.bitField3_ |= 0x02000000; // fallthrough
+    case 122:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_123 = 123;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue123FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value123Builder_) {
+    if (value123Builder_ == null) {
+      if (!(instance.choiceCase_ == 123)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value123Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 123;
+      instance.bitField3_ |= 0x04000000; // fallthrough
+    case 123:
+      break;
+    }
+
+    return value123Builder_;
+  }
+  private static void parseValue123(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value123Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value123Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 123;
+      instance.bitField3_ |= 0x04000000; // fallthrough
+    case 123:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_124 = 124;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue124FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value124Builder_) {
+    if (value124Builder_ == null) {
+      if (!(instance.choiceCase_ == 124)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value124Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 124;
+      instance.bitField3_ |= 0x08000000; // fallthrough
+    case 124:
+      break;
+    }
+
+    return value124Builder_;
+  }
+  private static void parseValue124(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value124Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value124Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 124;
+      instance.bitField3_ |= 0x08000000; // fallthrough
+    case 124:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_125 = 125;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue125FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value125Builder_) {
+    if (value125Builder_ == null) {
+      if (!(instance.choiceCase_ == 125)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value125Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 125;
+      instance.bitField3_ |= 0x10000000; // fallthrough
+    case 125:
+      break;
+    }
+
+    return value125Builder_;
+  }
+  private static void parseValue125(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value125Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value125Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 125;
+      instance.bitField3_ |= 0x10000000; // fallthrough
+    case 125:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_126 = 126;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue126FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value126Builder_) {
+    if (value126Builder_ == null) {
+      if (!(instance.choiceCase_ == 126)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value126Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 126;
+      instance.bitField3_ |= 0x20000000; // fallthrough
+    case 126:
+      break;
+    }
+
+    return value126Builder_;
+  }
+  private static void parseValue126(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value126Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value126Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 126;
+      instance.bitField3_ |= 0x20000000; // fallthrough
+    case 126:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_127 = 127;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue127FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value127Builder_) {
+    if (value127Builder_ == null) {
+      if (!(instance.choiceCase_ == 127)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value127Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 127;
+      instance.bitField3_ |= 0x40000000; // fallthrough
+    case 127:
+      break;
+    }
+
+    return value127Builder_;
+  }
+  private static void parseValue127(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value127Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value127Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 127;
+      instance.bitField3_ |= 0x40000000; // fallthrough
+    case 127:
+      break;
+    }
+  }
+  /**
+   * <code>.generated_code_size_test.WideMessageOneof.Child value_128 = 128;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> 
+      internalGetValue128FieldBuilder(com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value128Builder_) {
+    if (value128Builder_ == null) {
+      if (!(instance.choiceCase_ == 128)) {
+        instance.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      }
+      value128Builder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder>(
+              (com.google.protobuf.test.WideMessageOneof.Child) instance.choice_,
+              null,
+              false);
+      instance.choice_ = null;
+    }
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 128;
+      instance.bitField3_ |= 0x80000000; // fallthrough
+    case 128:
+      break;
+    }
+
+    return value128Builder_;
+  }
+  private static void parseValue128(
+      com.google.protobuf.test.WideMessageOneof instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value128Builder_)
+      throws java.io.IOException {
+    input.readMessage(
+        value128Builder_.getBuilderForParsing(),
+        extensionRegistry);
+    switch (instance.choiceCase_) {
+    default:
+      clearChoiceHasBits(instance); // fallthrough
+    case 0:
+      instance.choiceCase_ = 128;
+      instance.bitField3_ |= 0x80000000; // fallthrough
+    case 128:
+      break;
+    }
+  }
+
+  private static void clearChoiceHasBits(com.google.protobuf.test.WideMessageOneof instance) {
+    instance.bitField0_ = (instance.bitField0_ & ~0xffffffff);
+    instance.bitField1_ = (instance.bitField1_ & ~0xffffffff);
+    instance.bitField2_ = (instance.bitField2_ & ~0xffffffff);
+    instance.bitField3_ = (instance.bitField3_ & ~0xffffffff);
+  }
+
+  private static void buildPartial_autosplit_0(com.google.protobuf.test.WideMessageOneof instance,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value1Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value2Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value3Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value4Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value5Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value6Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value7Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value8Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value9Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value10Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value11Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value12Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value13Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value14Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value15Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value16Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value17Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value18Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value19Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value20Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value21Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value22Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value23Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value24Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value25Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value26Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value27Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value28Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value29Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value30Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value31Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value32Builder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.choice_ = value1Builder_ == null
+          ? instance.choice_
+          : value1Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00000002) != 0)) {
+      instance.choice_ = value2Builder_ == null
+          ? instance.choice_
+          : value2Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00000004) != 0)) {
+      instance.choice_ = value3Builder_ == null
+          ? instance.choice_
+          : value3Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00000008) != 0)) {
+      instance.choice_ = value4Builder_ == null
+          ? instance.choice_
+          : value4Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00000010) != 0)) {
+      instance.choice_ = value5Builder_ == null
+          ? instance.choice_
+          : value5Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00000020) != 0)) {
+      instance.choice_ = value6Builder_ == null
+          ? instance.choice_
+          : value6Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00000040) != 0)) {
+      instance.choice_ = value7Builder_ == null
+          ? instance.choice_
+          : value7Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00000080) != 0)) {
+      instance.choice_ = value8Builder_ == null
+          ? instance.choice_
+          : value8Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00000100) != 0)) {
+      instance.choice_ = value9Builder_ == null
+          ? instance.choice_
+          : value9Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00000200) != 0)) {
+      instance.choice_ = value10Builder_ == null
+          ? instance.choice_
+          : value10Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00000400) != 0)) {
+      instance.choice_ = value11Builder_ == null
+          ? instance.choice_
+          : value11Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00000800) != 0)) {
+      instance.choice_ = value12Builder_ == null
+          ? instance.choice_
+          : value12Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00001000) != 0)) {
+      instance.choice_ = value13Builder_ == null
+          ? instance.choice_
+          : value13Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00002000) != 0)) {
+      instance.choice_ = value14Builder_ == null
+          ? instance.choice_
+          : value14Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00004000) != 0)) {
+      instance.choice_ = value15Builder_ == null
+          ? instance.choice_
+          : value15Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00008000) != 0)) {
+      instance.choice_ = value16Builder_ == null
+          ? instance.choice_
+          : value16Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00010000) != 0)) {
+      instance.choice_ = value17Builder_ == null
+          ? instance.choice_
+          : value17Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00020000) != 0)) {
+      instance.choice_ = value18Builder_ == null
+          ? instance.choice_
+          : value18Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00040000) != 0)) {
+      instance.choice_ = value19Builder_ == null
+          ? instance.choice_
+          : value19Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00080000) != 0)) {
+      instance.choice_ = value20Builder_ == null
+          ? instance.choice_
+          : value20Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00100000) != 0)) {
+      instance.choice_ = value21Builder_ == null
+          ? instance.choice_
+          : value21Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00200000) != 0)) {
+      instance.choice_ = value22Builder_ == null
+          ? instance.choice_
+          : value22Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00400000) != 0)) {
+      instance.choice_ = value23Builder_ == null
+          ? instance.choice_
+          : value23Builder_.build();
+    }
+    if (((from_bitField0_ & 0x00800000) != 0)) {
+      instance.choice_ = value24Builder_ == null
+          ? instance.choice_
+          : value24Builder_.build();
+    }
+    if (((from_bitField0_ & 0x01000000) != 0)) {
+      instance.choice_ = value25Builder_ == null
+          ? instance.choice_
+          : value25Builder_.build();
+    }
+    if (((from_bitField0_ & 0x02000000) != 0)) {
+      instance.choice_ = value26Builder_ == null
+          ? instance.choice_
+          : value26Builder_.build();
+    }
+    if (((from_bitField0_ & 0x04000000) != 0)) {
+      instance.choice_ = value27Builder_ == null
+          ? instance.choice_
+          : value27Builder_.build();
+    }
+    if (((from_bitField0_ & 0x08000000) != 0)) {
+      instance.choice_ = value28Builder_ == null
+          ? instance.choice_
+          : value28Builder_.build();
+    }
+    if (((from_bitField0_ & 0x10000000) != 0)) {
+      instance.choice_ = value29Builder_ == null
+          ? instance.choice_
+          : value29Builder_.build();
+    }
+    if (((from_bitField0_ & 0x20000000) != 0)) {
+      instance.choice_ = value30Builder_ == null
+          ? instance.choice_
+          : value30Builder_.build();
+    }
+    if (((from_bitField0_ & 0x40000000) != 0)) {
+      instance.choice_ = value31Builder_ == null
+          ? instance.choice_
+          : value31Builder_.build();
+    }
+    if (((from_bitField0_ & 0x80000000) != 0)) {
+      instance.choice_ = value32Builder_ == null
+          ? instance.choice_
+          : value32Builder_.build();
+    }
+  }
+
+  private static void buildPartial_autosplit_1(com.google.protobuf.test.WideMessageOneof instance,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value33Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value34Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value35Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value36Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value37Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value38Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value39Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value40Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value41Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value42Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value43Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value44Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value45Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value46Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value47Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value48Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value49Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value50Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value51Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value52Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value53Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value54Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value55Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value56Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value57Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value58Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value59Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value60Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value61Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value62Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value63Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value64Builder_) {
+    int from_bitField1_ = instance.bitField1_;
+    if (((from_bitField1_ & 0x00000001) != 0)) {
+      instance.choice_ = value33Builder_ == null
+          ? instance.choice_
+          : value33Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00000002) != 0)) {
+      instance.choice_ = value34Builder_ == null
+          ? instance.choice_
+          : value34Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00000004) != 0)) {
+      instance.choice_ = value35Builder_ == null
+          ? instance.choice_
+          : value35Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00000008) != 0)) {
+      instance.choice_ = value36Builder_ == null
+          ? instance.choice_
+          : value36Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00000010) != 0)) {
+      instance.choice_ = value37Builder_ == null
+          ? instance.choice_
+          : value37Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00000020) != 0)) {
+      instance.choice_ = value38Builder_ == null
+          ? instance.choice_
+          : value38Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00000040) != 0)) {
+      instance.choice_ = value39Builder_ == null
+          ? instance.choice_
+          : value39Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00000080) != 0)) {
+      instance.choice_ = value40Builder_ == null
+          ? instance.choice_
+          : value40Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00000100) != 0)) {
+      instance.choice_ = value41Builder_ == null
+          ? instance.choice_
+          : value41Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00000200) != 0)) {
+      instance.choice_ = value42Builder_ == null
+          ? instance.choice_
+          : value42Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00000400) != 0)) {
+      instance.choice_ = value43Builder_ == null
+          ? instance.choice_
+          : value43Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00000800) != 0)) {
+      instance.choice_ = value44Builder_ == null
+          ? instance.choice_
+          : value44Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00001000) != 0)) {
+      instance.choice_ = value45Builder_ == null
+          ? instance.choice_
+          : value45Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00002000) != 0)) {
+      instance.choice_ = value46Builder_ == null
+          ? instance.choice_
+          : value46Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00004000) != 0)) {
+      instance.choice_ = value47Builder_ == null
+          ? instance.choice_
+          : value47Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00008000) != 0)) {
+      instance.choice_ = value48Builder_ == null
+          ? instance.choice_
+          : value48Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00010000) != 0)) {
+      instance.choice_ = value49Builder_ == null
+          ? instance.choice_
+          : value49Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00020000) != 0)) {
+      instance.choice_ = value50Builder_ == null
+          ? instance.choice_
+          : value50Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00040000) != 0)) {
+      instance.choice_ = value51Builder_ == null
+          ? instance.choice_
+          : value51Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00080000) != 0)) {
+      instance.choice_ = value52Builder_ == null
+          ? instance.choice_
+          : value52Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00100000) != 0)) {
+      instance.choice_ = value53Builder_ == null
+          ? instance.choice_
+          : value53Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00200000) != 0)) {
+      instance.choice_ = value54Builder_ == null
+          ? instance.choice_
+          : value54Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00400000) != 0)) {
+      instance.choice_ = value55Builder_ == null
+          ? instance.choice_
+          : value55Builder_.build();
+    }
+    if (((from_bitField1_ & 0x00800000) != 0)) {
+      instance.choice_ = value56Builder_ == null
+          ? instance.choice_
+          : value56Builder_.build();
+    }
+    if (((from_bitField1_ & 0x01000000) != 0)) {
+      instance.choice_ = value57Builder_ == null
+          ? instance.choice_
+          : value57Builder_.build();
+    }
+    if (((from_bitField1_ & 0x02000000) != 0)) {
+      instance.choice_ = value58Builder_ == null
+          ? instance.choice_
+          : value58Builder_.build();
+    }
+    if (((from_bitField1_ & 0x04000000) != 0)) {
+      instance.choice_ = value59Builder_ == null
+          ? instance.choice_
+          : value59Builder_.build();
+    }
+    if (((from_bitField1_ & 0x08000000) != 0)) {
+      instance.choice_ = value60Builder_ == null
+          ? instance.choice_
+          : value60Builder_.build();
+    }
+    if (((from_bitField1_ & 0x10000000) != 0)) {
+      instance.choice_ = value61Builder_ == null
+          ? instance.choice_
+          : value61Builder_.build();
+    }
+    if (((from_bitField1_ & 0x20000000) != 0)) {
+      instance.choice_ = value62Builder_ == null
+          ? instance.choice_
+          : value62Builder_.build();
+    }
+    if (((from_bitField1_ & 0x40000000) != 0)) {
+      instance.choice_ = value63Builder_ == null
+          ? instance.choice_
+          : value63Builder_.build();
+    }
+    if (((from_bitField1_ & 0x80000000) != 0)) {
+      instance.choice_ = value64Builder_ == null
+          ? instance.choice_
+          : value64Builder_.build();
+    }
+  }
+
+  private static void buildPartial_autosplit_2(com.google.protobuf.test.WideMessageOneof instance,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value65Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value66Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value67Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value68Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value69Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value70Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value71Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value72Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value73Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value74Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value75Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value76Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value77Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value78Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value79Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value80Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value81Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value82Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value83Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value84Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value85Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value86Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value87Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value88Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value89Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value90Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value91Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value92Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value93Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value94Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value95Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value96Builder_) {
+    int from_bitField2_ = instance.bitField2_;
+    if (((from_bitField2_ & 0x00000001) != 0)) {
+      instance.choice_ = value65Builder_ == null
+          ? instance.choice_
+          : value65Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00000002) != 0)) {
+      instance.choice_ = value66Builder_ == null
+          ? instance.choice_
+          : value66Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00000004) != 0)) {
+      instance.choice_ = value67Builder_ == null
+          ? instance.choice_
+          : value67Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00000008) != 0)) {
+      instance.choice_ = value68Builder_ == null
+          ? instance.choice_
+          : value68Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00000010) != 0)) {
+      instance.choice_ = value69Builder_ == null
+          ? instance.choice_
+          : value69Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00000020) != 0)) {
+      instance.choice_ = value70Builder_ == null
+          ? instance.choice_
+          : value70Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00000040) != 0)) {
+      instance.choice_ = value71Builder_ == null
+          ? instance.choice_
+          : value71Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00000080) != 0)) {
+      instance.choice_ = value72Builder_ == null
+          ? instance.choice_
+          : value72Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00000100) != 0)) {
+      instance.choice_ = value73Builder_ == null
+          ? instance.choice_
+          : value73Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00000200) != 0)) {
+      instance.choice_ = value74Builder_ == null
+          ? instance.choice_
+          : value74Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00000400) != 0)) {
+      instance.choice_ = value75Builder_ == null
+          ? instance.choice_
+          : value75Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00000800) != 0)) {
+      instance.choice_ = value76Builder_ == null
+          ? instance.choice_
+          : value76Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00001000) != 0)) {
+      instance.choice_ = value77Builder_ == null
+          ? instance.choice_
+          : value77Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00002000) != 0)) {
+      instance.choice_ = value78Builder_ == null
+          ? instance.choice_
+          : value78Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00004000) != 0)) {
+      instance.choice_ = value79Builder_ == null
+          ? instance.choice_
+          : value79Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00008000) != 0)) {
+      instance.choice_ = value80Builder_ == null
+          ? instance.choice_
+          : value80Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00010000) != 0)) {
+      instance.choice_ = value81Builder_ == null
+          ? instance.choice_
+          : value81Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00020000) != 0)) {
+      instance.choice_ = value82Builder_ == null
+          ? instance.choice_
+          : value82Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00040000) != 0)) {
+      instance.choice_ = value83Builder_ == null
+          ? instance.choice_
+          : value83Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00080000) != 0)) {
+      instance.choice_ = value84Builder_ == null
+          ? instance.choice_
+          : value84Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00100000) != 0)) {
+      instance.choice_ = value85Builder_ == null
+          ? instance.choice_
+          : value85Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00200000) != 0)) {
+      instance.choice_ = value86Builder_ == null
+          ? instance.choice_
+          : value86Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00400000) != 0)) {
+      instance.choice_ = value87Builder_ == null
+          ? instance.choice_
+          : value87Builder_.build();
+    }
+    if (((from_bitField2_ & 0x00800000) != 0)) {
+      instance.choice_ = value88Builder_ == null
+          ? instance.choice_
+          : value88Builder_.build();
+    }
+    if (((from_bitField2_ & 0x01000000) != 0)) {
+      instance.choice_ = value89Builder_ == null
+          ? instance.choice_
+          : value89Builder_.build();
+    }
+    if (((from_bitField2_ & 0x02000000) != 0)) {
+      instance.choice_ = value90Builder_ == null
+          ? instance.choice_
+          : value90Builder_.build();
+    }
+    if (((from_bitField2_ & 0x04000000) != 0)) {
+      instance.choice_ = value91Builder_ == null
+          ? instance.choice_
+          : value91Builder_.build();
+    }
+    if (((from_bitField2_ & 0x08000000) != 0)) {
+      instance.choice_ = value92Builder_ == null
+          ? instance.choice_
+          : value92Builder_.build();
+    }
+    if (((from_bitField2_ & 0x10000000) != 0)) {
+      instance.choice_ = value93Builder_ == null
+          ? instance.choice_
+          : value93Builder_.build();
+    }
+    if (((from_bitField2_ & 0x20000000) != 0)) {
+      instance.choice_ = value94Builder_ == null
+          ? instance.choice_
+          : value94Builder_.build();
+    }
+    if (((from_bitField2_ & 0x40000000) != 0)) {
+      instance.choice_ = value95Builder_ == null
+          ? instance.choice_
+          : value95Builder_.build();
+    }
+    if (((from_bitField2_ & 0x80000000) != 0)) {
+      instance.choice_ = value96Builder_ == null
+          ? instance.choice_
+          : value96Builder_.build();
+    }
+  }
+
+  private static void buildPartial_autosplit_3(com.google.protobuf.test.WideMessageOneof instance,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value97Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value98Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value99Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value100Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value101Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value102Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value103Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value104Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value105Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value106Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value107Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value108Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value109Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value110Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value111Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value112Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value113Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value114Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value115Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value116Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value117Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value118Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value119Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value120Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value121Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value122Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value123Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value124Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value125Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value126Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value127Builder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.test.WideMessageOneof.Child, com.google.protobuf.test.WideMessageOneof.Child.Builder, com.google.protobuf.test.WideMessageOneof.ChildOrBuilder> value128Builder_) {
+    int from_bitField3_ = instance.bitField3_;
+    if (((from_bitField3_ & 0x00000001) != 0)) {
+      instance.choice_ = value97Builder_ == null
+          ? instance.choice_
+          : value97Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00000002) != 0)) {
+      instance.choice_ = value98Builder_ == null
+          ? instance.choice_
+          : value98Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00000004) != 0)) {
+      instance.choice_ = value99Builder_ == null
+          ? instance.choice_
+          : value99Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00000008) != 0)) {
+      instance.choice_ = value100Builder_ == null
+          ? instance.choice_
+          : value100Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00000010) != 0)) {
+      instance.choice_ = value101Builder_ == null
+          ? instance.choice_
+          : value101Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00000020) != 0)) {
+      instance.choice_ = value102Builder_ == null
+          ? instance.choice_
+          : value102Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00000040) != 0)) {
+      instance.choice_ = value103Builder_ == null
+          ? instance.choice_
+          : value103Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00000080) != 0)) {
+      instance.choice_ = value104Builder_ == null
+          ? instance.choice_
+          : value104Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00000100) != 0)) {
+      instance.choice_ = value105Builder_ == null
+          ? instance.choice_
+          : value105Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00000200) != 0)) {
+      instance.choice_ = value106Builder_ == null
+          ? instance.choice_
+          : value106Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00000400) != 0)) {
+      instance.choice_ = value107Builder_ == null
+          ? instance.choice_
+          : value107Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00000800) != 0)) {
+      instance.choice_ = value108Builder_ == null
+          ? instance.choice_
+          : value108Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00001000) != 0)) {
+      instance.choice_ = value109Builder_ == null
+          ? instance.choice_
+          : value109Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00002000) != 0)) {
+      instance.choice_ = value110Builder_ == null
+          ? instance.choice_
+          : value110Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00004000) != 0)) {
+      instance.choice_ = value111Builder_ == null
+          ? instance.choice_
+          : value111Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00008000) != 0)) {
+      instance.choice_ = value112Builder_ == null
+          ? instance.choice_
+          : value112Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00010000) != 0)) {
+      instance.choice_ = value113Builder_ == null
+          ? instance.choice_
+          : value113Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00020000) != 0)) {
+      instance.choice_ = value114Builder_ == null
+          ? instance.choice_
+          : value114Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00040000) != 0)) {
+      instance.choice_ = value115Builder_ == null
+          ? instance.choice_
+          : value115Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00080000) != 0)) {
+      instance.choice_ = value116Builder_ == null
+          ? instance.choice_
+          : value116Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00100000) != 0)) {
+      instance.choice_ = value117Builder_ == null
+          ? instance.choice_
+          : value117Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00200000) != 0)) {
+      instance.choice_ = value118Builder_ == null
+          ? instance.choice_
+          : value118Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00400000) != 0)) {
+      instance.choice_ = value119Builder_ == null
+          ? instance.choice_
+          : value119Builder_.build();
+    }
+    if (((from_bitField3_ & 0x00800000) != 0)) {
+      instance.choice_ = value120Builder_ == null
+          ? instance.choice_
+          : value120Builder_.build();
+    }
+    if (((from_bitField3_ & 0x01000000) != 0)) {
+      instance.choice_ = value121Builder_ == null
+          ? instance.choice_
+          : value121Builder_.build();
+    }
+    if (((from_bitField3_ & 0x02000000) != 0)) {
+      instance.choice_ = value122Builder_ == null
+          ? instance.choice_
+          : value122Builder_.build();
+    }
+    if (((from_bitField3_ & 0x04000000) != 0)) {
+      instance.choice_ = value123Builder_ == null
+          ? instance.choice_
+          : value123Builder_.build();
+    }
+    if (((from_bitField3_ & 0x08000000) != 0)) {
+      instance.choice_ = value124Builder_ == null
+          ? instance.choice_
+          : value124Builder_.build();
+    }
+    if (((from_bitField3_ & 0x10000000) != 0)) {
+      instance.choice_ = value125Builder_ == null
+          ? instance.choice_
+          : value125Builder_.build();
+    }
+    if (((from_bitField3_ & 0x20000000) != 0)) {
+      instance.choice_ = value126Builder_ == null
+          ? instance.choice_
+          : value126Builder_.build();
+    }
+    if (((from_bitField3_ & 0x40000000) != 0)) {
+      instance.choice_ = value127Builder_ == null
+          ? instance.choice_
+          : value127Builder_.build();
+    }
+    if (((from_bitField3_ & 0x80000000) != 0)) {
+      instance.choice_ = value128Builder_ == null
+          ? instance.choice_
+          : value128Builder_.build();
+    }
+  }
+
   private static final com.google.protobuf.Parser<WideMessageOneof>
-      PARSER = new com.google.protobuf.AbstractParser<WideMessageOneof>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<WideMessageOneof> {
+    MessageParser() {}
+
     @java.lang.Override
     public WideMessageOneof parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return WideMessageOneof.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(WideMessageOneof instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<WideMessageOneof> parser() {
     return PARSER;

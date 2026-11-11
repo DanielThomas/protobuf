@@ -606,15 +606,30 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
                 proto2_unittest.MessageDifferencerUnittest.TestField.class, proto2_unittest.MessageDifferencerUnittest.TestField.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.MessageDifferencerUnittest.TestField.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        rc_ = emptyIntList();
+        rm_ = emptyList(proto2_unittest.MessageDifferencerUnittest.TestField.class);
         maybeForceBuilderInitialization();
+      }
+      private Builder(proto2_unittest.MessageDifferencerUnittest.TestField other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -676,7 +691,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
 
       private void buildPartial_autosplit_0(proto2_unittest.MessageDifferencerUnittest.TestField result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.a_ = a_;
           to_bitField0_ |= 0x00000001;
@@ -708,6 +723,27 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(proto2_unittest.MessageDifferencerUnittest.TestField other, java.lang.Object[] parserLocals) {
+        a_ = other.getA();
+        b_ = other.getB();
+        c_ = other.getC();
+        m_ = other.m_;
+        rc_ = other.rc_;
+        rm_ = other.rm_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            mBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder>) parserLocals[0]);
+            m_ = null;
+          }
+          if (parserLocals[1] != null) {
+            rmBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder>) parserLocals[1]);
+            rm_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -862,9 +898,21 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
         } // finally
         return this;
       }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 42: {
+            parseMField(input, extensionRegistry);
+            return true;
+          } // case 42
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
       private int bitField0_;
 
-      private int a_ ;
+      private int a_;
       /**
        * <code>optional int32 a = 3;</code>
        * @return Whether the a field is set.
@@ -904,7 +952,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
         return this;
       }
 
-      private int b_ ;
+      private int b_;
       /**
        * <code>optional int32 b = 4;</code>
        * @return Whether the b field is set.
@@ -944,7 +992,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
         return this;
       }
 
-      private int c_ ;
+      private int c_;
       /**
        * <code>optional int32 c = 1;</code>
        * @return Whether the c field is set.
@@ -984,7 +1032,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
         return this;
       }
 
-      private com.google.protobuf.Internal.IntList rc_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList rc_;
       private void ensureRcIsMutable(int capacity) {
         if (!rc_.isModifiable()) {
           rc_ = makeMutableCopy(rc_, capacity);
@@ -1187,7 +1235,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (m_ != null || mBuilder_ != null) {
-          internalGetMFieldBuilder().getBuilder()
+          internalGetMFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           m_ = proto2_unittest.MessageDifferencerUnittest.TestField.parser().parsePartialFrom(input, extensionRegistry);
@@ -1196,8 +1244,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
         bitField0_ |= 0x00000008;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<proto2_unittest.MessageDifferencerUnittest.TestField> rm_ =
-          emptyList(proto2_unittest.MessageDifferencerUnittest.TestField.class);
+      private com.google.protobuf.Internal.ProtobufList<proto2_unittest.MessageDifferencerUnittest.TestField> rm_;
       private void ensureRmIsMutable() {
         if (!rm_.isModifiable()) {
           rm_ = makeMutableCopy(rm_);
@@ -1443,22 +1490,219 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
       return DEFAULT_INSTANCE;
     }
 
+    static TestField parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestField instance = new TestField((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> mBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> rmBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        mBuilder_ = internalGetMFieldBuilder(instance, mBuilder_);
+        rmBuilder_ = internalGetRmFieldBuilder(instance, rmBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.c_ = input.readInt32();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 8
+            case 16: {
+              int v = input.readInt32();
+              ensureRcIsMutable(instance, /* capacity= */ -1);
+              instance.rc_.addInt(v);
+              break;
+            } // case 16
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRcIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.rc_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 18
+            case 24: {
+              instance.a_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 24
+            case 32: {
+              instance.b_ = input.readInt32();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 32
+            case 42: {
+              if (instance.m_ != null || mBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseMField(instance, input, extensionRegistry, mBuilder_);
+              break;
+            } // case 42
+            case 50: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              proto2_unittest.MessageDifferencerUnittest.TestField m = proto2_unittest.MessageDifferencerUnittest.TestField.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (rmBuilder_ == null) {
+                ensureRmIsMutable(instance);
+                instance.rm_.add(m);
+              } else {
+                rmBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000020;
+
+              }
+              break;
+            } // case 50
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {mBuilder_, rmBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, mBuilder_, rmBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureRcIsMutable(proto2_unittest.MessageDifferencerUnittest.TestField instance, int capacity) {
+      if (!instance.rc_.isModifiable()) {
+        instance.rc_ = makeMutableCopy(instance.rc_, capacity);
+      }
+      instance.bitField0_ |= 0x00000010;
+    }
+    /**
+     * <code>optional .proto2_unittest.TestField m = 5;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> 
+        internalGetMFieldBuilder(proto2_unittest.MessageDifferencerUnittest.TestField instance, com.google.protobuf.SingleFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> mBuilder_) {
+      if (mBuilder_ == null) {
+        mBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder>(
+                instance.getM(),
+                null,
+                false);
+        instance.m_ = null;
+      }
+      instance.bitField0_ |= 0x00000008;
+      return mBuilder_;
+    }
+    private static void parseMField(
+        proto2_unittest.MessageDifferencerUnittest.TestField instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> mBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.m_ != null || mBuilder_ != null) {
+        mBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.m_ = proto2_unittest.MessageDifferencerUnittest.TestField.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000008;
+    }
+    private static void ensureRmIsMutable(proto2_unittest.MessageDifferencerUnittest.TestField instance) {
+      if (!instance.rm_.isModifiable()) {
+        instance.rm_ = makeMutableCopy(instance.rm_);
+      }
+      instance.bitField0_ |= 0x00000020;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> 
+        internalGetRmFieldBuilder(proto2_unittest.MessageDifferencerUnittest.TestField instance, com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> rmBuilder_) {
+      if (rmBuilder_ == null) {
+        rmBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder>(
+                instance.rm_,
+                instance.rm_.isModifiable(),
+                null,
+                false);
+        instance.rm_ = null;
+      }
+      instance.bitField0_ |= 0x00000020;
+
+      return rmBuilder_;
+    }
+    private static void buildPartial_autosplit_0(proto2_unittest.MessageDifferencerUnittest.TestField instance,
+        com.google.protobuf.SingleFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> mBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> rmBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000008) != 0)) instance.m_ = null;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.m_ = mBuilder_ == null
+            ? instance.m_
+            : mBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        instance.rc_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+      if (rmBuilder_ == null) {
+        instance.rm_.makeImmutable();
+      } else {
+        instance.rm_ = rmBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestField>
-        PARSER = new com.google.protobuf.AbstractParser<TestField>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestField> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestField parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestField.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestField instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestField> parser() {
       return PARSER;
@@ -2789,15 +3033,33 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
                   proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item.class, proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
+          b_ = "";
+          ra_ = emptyIntList();
+          rb_ =
+              com.google.protobuf.LazyStringArrayList.emptyList();
+          rm_ = emptyList(proto2_unittest.MessageDifferencerUnittest.TestField.class);
           maybeForceBuilderInitialization();
+        }
+        private Builder(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         private void maybeForceBuilderInitialization() {
           if (com.google.protobuf.GeneratedMessage
@@ -2861,7 +3123,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
 
         private void buildPartial_autosplit_0(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.a_ = a_;
             to_bitField0_ |= 0x00000001;
@@ -2897,6 +3159,28 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
             result.mp_.makeImmutable();
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        @java.lang.SuppressWarnings("unchecked")
+        private void copyFrom_autosplit_0(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item other, java.lang.Object[] parserLocals) {
+          a_ = other.getA();
+          b_ = other.b_;
+          m_ = other.m_;
+          ra_ = other.ra_;
+          rb_ = other.rb_;
+          rm_ = other.rm_;
+          mp_ = other.mp_;
+          if (parserLocals != null) {
+            if (parserLocals[0] != null) {
+              mBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder>) parserLocals[0]);
+              m_ = null;
+            }
+            if (parserLocals[1] != null) {
+              rmBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder>) parserLocals[1]);
+              rm_ = null;
+            }
+          }
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -3075,9 +3359,21 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
           } // finally
           return this;
         }
+        private boolean mergeFromPendingField(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+            throws java.io.IOException {
+          switch (tag) {
+            case 50: {
+              parseMField(input, extensionRegistry);
+              return true;
+            } // case 50
+            default: return super.parseUnknownField(input, extensionRegistry, tag);
+          }
+        }
         private int bitField0_;
 
-        private int a_ ;
+        private int a_;
         /**
          * <pre>
          * Test basic repeated field comparison.
@@ -3133,7 +3429,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
           return this;
         }
 
-        private java.lang.Object b_ = "";
+        private java.lang.Object b_;
         /**
          * <pre>
          * Test basic repeated field comparison.
@@ -3237,7 +3533,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
           return this;
         }
 
-        private com.google.protobuf.Internal.IntList ra_ = emptyIntList();
+        private com.google.protobuf.Internal.IntList ra_;
         private void ensureRaIsMutable(int capacity) {
           if (!ra_.isModifiable()) {
             ra_ = makeMutableCopy(ra_, capacity);
@@ -3349,8 +3645,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
           return this;
         }
 
-        private com.google.protobuf.LazyStringArrayList rb_ =
-            com.google.protobuf.LazyStringArrayList.emptyList();
+        private com.google.protobuf.LazyStringArrayList rb_;
         private void ensureRbIsMutable() {
           if (!rb_.isModifiable()) {
             rb_ = new com.google.protobuf.LazyStringArrayList(rb_);
@@ -3650,7 +3945,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
             throws java.io.IOException {
           final int oldLimit = input.pushLimitBeforeMessage();
           if (m_ != null || mBuilder_ != null) {
-            internalGetMFieldBuilder().getBuilder()
+            internalGetMFieldBuilder().getBuilderForParsing()
                 .mergeFrom(input, extensionRegistry);
           } else {
             m_ = proto2_unittest.MessageDifferencerUnittest.TestField.parser().parsePartialFrom(input, extensionRegistry);
@@ -3659,8 +3954,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
           bitField0_ |= 0x00000004;
         }
 
-        private com.google.protobuf.Internal.ProtobufList<proto2_unittest.MessageDifferencerUnittest.TestField> rm_ =
-            emptyList(proto2_unittest.MessageDifferencerUnittest.TestField.class);
+        private com.google.protobuf.Internal.ProtobufList<proto2_unittest.MessageDifferencerUnittest.TestField> rm_;
         private void ensureRmIsMutable() {
           if (!rm_.isModifiable()) {
             rm_ = makeMutableCopy(rm_);
@@ -4132,22 +4426,258 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
         return DEFAULT_INSTANCE;
       }
 
+      static Item parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        Item instance = new Item((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        int pendingTag = 0;
+        com.google.protobuf.SingleFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> mBuilder_ = null;
+        com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> rmBuilder_ = null;
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          mBuilder_ = internalGetMFieldBuilder(instance, mBuilder_);
+          rmBuilder_ = internalGetRmFieldBuilder(instance, rmBuilder_);
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 16: {
+                instance.a_ = input.readInt32();
+                instance.bitField0_ |= 0x00000001;
+                break;
+              } // case 16
+              case 24: {
+                int v = input.readInt32();
+                ensureRaIsMutable(instance, /* capacity= */ -1);
+                instance.ra_.addInt(v);
+                break;
+              } // case 24
+              case 26: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                ensureRaIsMutable(instance, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  instance.ra_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 26
+              case 34: {
+                instance.b_ = input.readBytes();
+                instance.bitField0_ |= 0x00000002;
+                break;
+              } // case 34
+              case 42: {
+                com.google.protobuf.ByteString bs = input.readBytes();
+                ensureRbIsMutable(instance);
+                instance.rb_.add(bs);
+                break;
+              } // case 42
+              case 50: {
+                if (instance.m_ != null || mBuilder_ != null) {
+                  pendingTag = tag;
+                  done = true;
+                  break;
+                }
+                parseMField(instance, input, extensionRegistry, mBuilder_);
+                break;
+              } // case 50
+              case 58: {
+                final int oldLimit = input.pushLimitBeforeMessage();
+                proto2_unittest.MessageDifferencerUnittest.TestField m = proto2_unittest.MessageDifferencerUnittest.TestField.parser().parsePartialFrom(input, extensionRegistry);
+                input.popLimitAfterMessage(oldLimit);
+                if (rmBuilder_ == null) {
+                  ensureRmIsMutable(instance);
+                  instance.rm_.add(m);
+                } else {
+                  rmBuilder_.addMessage(m);
+                  instance.bitField0_ |= 0x00000020;
+
+                }
+                break;
+              } // case 58
+              case 66: {
+                com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+                mp__ = input.readMessage(
+                    MpDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMp(instance).getMutableMap().put(
+                    mp__.getKey(), mp__.getValue());
+                instance.bitField0_ |= 0x00000040;
+                break;
+              } // case 66
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (parseFailure == null && pendingTag != 0) {
+          Builder builder = new Builder(instance, unknown, new java.lang.Object[] {mBuilder_, rmBuilder_});
+          try {
+            if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+              builder.mergeFrom(input, extensionRegistry);
+            }
+          } catch (java.io.IOException e) {
+            com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+          }
+          return builder.buildPartial();
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        buildPartial_autosplit_0(instance, mBuilder_, rmBuilder_);
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
+      private static void ensureRaIsMutable(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item instance, int capacity) {
+        if (!instance.ra_.isModifiable()) {
+          instance.ra_ = makeMutableCopy(instance.ra_, capacity);
+        }
+        instance.bitField0_ |= 0x00000008;
+      }
+      private static void ensureRbIsMutable(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item instance) {
+        if (!instance.rb_.isModifiable()) {
+          instance.rb_ = new com.google.protobuf.LazyStringArrayList(instance.rb_);
+        }
+        instance.bitField0_ |= 0x00000010;
+      }
+      /**
+       * <pre>
+       * Test TreatAsMap when key is a message
+       * </pre>
+       *
+       * <code>optional .proto2_unittest.TestField m = 6;</code>
+       */
+      private static com.google.protobuf.SingleFieldBuilder<
+          proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> 
+          internalGetMFieldBuilder(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item instance, com.google.protobuf.SingleFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> mBuilder_) {
+        if (mBuilder_ == null) {
+          mBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder>(
+                  instance.getM(),
+                  null,
+                  false);
+          instance.m_ = null;
+        }
+        instance.bitField0_ |= 0x00000004;
+        return mBuilder_;
+      }
+      private static void parseMField(
+          proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item instance, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> mBuilder_)
+          throws java.io.IOException {
+        final int oldLimit = input.pushLimitBeforeMessage();
+        if (instance.m_ != null || mBuilder_ != null) {
+          mBuilder_.getBuilderForParsing()
+              .mergeFrom(input, extensionRegistry);
+        } else {
+          instance.m_ = proto2_unittest.MessageDifferencerUnittest.TestField.parser().parsePartialFrom(input, extensionRegistry);
+        }
+        input.popLimitAfterMessage(oldLimit);
+        instance.bitField0_ |= 0x00000004;
+      }
+      private static void ensureRmIsMutable(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item instance) {
+        if (!instance.rm_.isModifiable()) {
+          instance.rm_ = makeMutableCopy(instance.rm_);
+        }
+        instance.bitField0_ |= 0x00000020;
+      }
+      private static com.google.protobuf.RepeatedFieldBuilder<
+          proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> 
+          internalGetRmFieldBuilder(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item instance, com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> rmBuilder_) {
+        if (rmBuilder_ == null) {
+          rmBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+              proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder>(
+                  instance.rm_,
+                  instance.rm_.isModifiable(),
+                  null,
+                  false);
+          instance.rm_ = null;
+        }
+        instance.bitField0_ |= 0x00000020;
+
+        return rmBuilder_;
+      }
+      private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+          internalGetMutableMp(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item instance) {
+        if (instance.mp_ == null) {
+          instance.mp_ = com.google.protobuf.MapField.newMapField(
+              MpDefaultEntryHolder.defaultEntry);
+        }
+        if (!instance.mp_.isMutable()) {
+          instance.mp_ = instance.mp_.copy();
+        }
+        instance.bitField0_ |= 0x00000040;
+
+        return instance.mp_;
+      }
+      private static void buildPartial_autosplit_0(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item instance,
+          com.google.protobuf.SingleFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> mBuilder_,
+          com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> rmBuilder_) {
+        int from_bitField0_ = instance.bitField0_;
+        if (!((from_bitField0_ & 0x00000004) != 0)) instance.m_ = null;
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          instance.m_ = mBuilder_ == null
+              ? instance.m_
+              : mBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          instance.ra_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          instance.rb_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+        if (rmBuilder_ == null) {
+          instance.rm_.makeImmutable();
+        } else {
+          instance.rm_ = rmBuilder_.buildProtobufList();
+        }
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          instance.mp_.makeImmutable();
+        }
+      }
+
       private static final com.google.protobuf.Parser<Item>
-          PARSER = new com.google.protobuf.AbstractParser<Item>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<Item> {
+        MessageParser() {}
+
         @java.lang.Override
         public Item parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return Item.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(Item instance) {
+          Builder builder = new Builder(instance, null, null);
+          builder.maybeForceBuilderInitialization();
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<Item> parser() {
         return PARSER;
@@ -4870,15 +5400,35 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
                 proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.class, proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        item_ = emptyList(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item.class);
+        w_ = "";
+        rv_ = emptyIntList();
+        rw_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        rm_ = emptyList(proto2_unittest.MessageDifferencerUnittest.TestField.class);
+        rany_ = emptyList(com.google.protobuf.Any.class);
         maybeForceBuilderInitialization();
+      }
+      private Builder(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -4957,7 +5507,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
 
       private void buildPartial_autosplit_0(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.v_ = v_;
           to_bitField0_ |= 0x00000001;
@@ -5005,6 +5555,37 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage other, java.lang.Object[] parserLocals) {
+        v_ = other.getV();
+        w_ = other.w_;
+        m_ = other.m_;
+        item_ = other.item_;
+        rv_ = other.rv_;
+        rw_ = other.rw_;
+        rm_ = other.rm_;
+        rany_ = other.rany_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            itemBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item, proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item.Builder, proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.ItemOrBuilder>) parserLocals[0]);
+            item_ = null;
+          }
+          if (parserLocals[1] != null) {
+            mBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder>) parserLocals[1]);
+            m_ = null;
+          }
+          if (parserLocals[2] != null) {
+            rmBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder>) parserLocals[2]);
+            rm_ = null;
+          }
+          if (parserLocals[3] != null) {
+            ranyBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>) parserLocals[3]);
+            rany_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       public <Type> Builder setExtension(
@@ -5281,10 +5862,21 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
         } // finally
         return this;
       }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 122: {
+            parseMField(input, extensionRegistry);
+            return true;
+          } // case 122
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
       private int bitField0_;
 
-      private com.google.protobuf.Internal.ProtobufList<proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item> item_ =
-          emptyList(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item.class);
+      private com.google.protobuf.Internal.ProtobufList<proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item> item_;
       private void ensureItemIsMutable() {
         if (!item_.isModifiable()) {
           item_ = makeMutableCopy(item_);
@@ -5517,7 +6109,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
         return itemBuilder_;
       }
 
-      private int v_ ;
+      private int v_;
       /**
        * <code>optional int32 v = 13 [deprecated = true];</code>
        * @deprecated proto2_unittest.TestDiffMessage.v is deprecated.
@@ -5565,7 +6157,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
         return this;
       }
 
-      private java.lang.Object w_ = "";
+      private java.lang.Object w_;
       /**
        * <code>optional string w = 14;</code>
        * @return Whether the w field is set.
@@ -5764,7 +6356,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (m_ != null || mBuilder_ != null) {
-          internalGetMFieldBuilder().getBuilder()
+          internalGetMFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           m_ = proto2_unittest.MessageDifferencerUnittest.TestField.parser().parsePartialFrom(input, extensionRegistry);
@@ -5773,7 +6365,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
         bitField0_ |= 0x00000004;
       }
 
-      private com.google.protobuf.Internal.IntList rv_ = emptyIntList();
+      private com.google.protobuf.Internal.IntList rv_;
       private void ensureRvIsMutable(int capacity) {
         if (!rv_.isModifiable()) {
           rv_ = makeMutableCopy(rv_, capacity);
@@ -5885,8 +6477,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList rw_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList rw_;
       private void ensureRwIsMutable() {
         if (!rw_.isModifiable()) {
           rw_ = new com.google.protobuf.LazyStringArrayList(rw_);
@@ -6031,8 +6622,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
         return this;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<proto2_unittest.MessageDifferencerUnittest.TestField> rm_ =
-          emptyList(proto2_unittest.MessageDifferencerUnittest.TestField.class);
+      private com.google.protobuf.Internal.ProtobufList<proto2_unittest.MessageDifferencerUnittest.TestField> rm_;
       private void ensureRmIsMutable() {
         if (!rm_.isModifiable()) {
           rm_ = makeMutableCopy(rm_);
@@ -6337,8 +6927,7 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
         return rmBuilder_;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Any> rany_ =
-          emptyList(com.google.protobuf.Any.class);
+      private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.Any> rany_;
       private void ensureRanyIsMutable() {
         if (!rany_.isModifiable()) {
           rany_ = makeMutableCopy(rany_);
@@ -6656,22 +7245,320 @@ public final class MessageDifferencerUnittest extends com.google.protobuf.Genera
       return DEFAULT_INSTANCE;
     }
 
+    static TestDiffMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestDiffMessage instance = new TestDiffMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item, proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item.Builder, proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.ItemOrBuilder> itemBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> mBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> rmBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> ranyBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        itemBuilder_ = internalGetItemFieldBuilder(instance, itemBuilder_);
+        mBuilder_ = internalGetMFieldBuilder(instance, mBuilder_);
+        rmBuilder_ = internalGetRmFieldBuilder(instance, rmBuilder_);
+        ranyBuilder_ = internalGetRanyFieldBuilder(instance, ranyBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 11: {
+              proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item m =
+                  input.readGroup(1,
+                      proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item.parser(),
+                      extensionRegistry);
+              if (itemBuilder_ == null) {
+                ensureItemIsMutable(instance);
+                instance.item_.add(m);
+              } else {
+                itemBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000008;
+
+              }
+              break;
+            } // case 11
+            case 82: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              ensureRwIsMutable(instance);
+              instance.rw_.add(bs);
+              break;
+            } // case 82
+            case 88: {
+              int v = input.readInt32();
+              ensureRvIsMutable(instance, /* capacity= */ -1);
+              instance.rv_.addInt(v);
+              break;
+            } // case 88
+            case 90: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              ensureRvIsMutable(instance, count);
+              while (input.getBytesUntilLimit() > 0) {
+                instance.rv_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 90
+            case 98: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              proto2_unittest.MessageDifferencerUnittest.TestField m = proto2_unittest.MessageDifferencerUnittest.TestField.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (rmBuilder_ == null) {
+                ensureRmIsMutable(instance);
+                instance.rm_.add(m);
+              } else {
+                rmBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000040;
+
+              }
+              break;
+            } // case 98
+            case 104: {
+              instance.v_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 104
+            case 114: {
+              instance.w_ = input.readBytes();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 114
+            case 122: {
+              if (instance.m_ != null || mBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseMField(instance, input, extensionRegistry, mBuilder_);
+              break;
+            } // case 122
+            case 130: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              com.google.protobuf.Any m = com.google.protobuf.Any.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (ranyBuilder_ == null) {
+                ensureRanyIsMutable(instance);
+                instance.rany_.add(m);
+              } else {
+                ranyBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000080;
+
+              }
+              break;
+            } // case 130
+            default: {
+              pendingTag = tag;
+              done = true;
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {itemBuilder_, mBuilder_, rmBuilder_, ranyBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, itemBuilder_, mBuilder_, rmBuilder_, ranyBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureItemIsMutable(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage instance) {
+      if (!instance.item_.isModifiable()) {
+        instance.item_ = makeMutableCopy(instance.item_);
+      }
+      instance.bitField0_ |= 0x00000008;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item, proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item.Builder, proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.ItemOrBuilder> 
+        internalGetItemFieldBuilder(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage instance, com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item, proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item.Builder, proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.ItemOrBuilder> itemBuilder_) {
+      if (itemBuilder_ == null) {
+        itemBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item, proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item.Builder, proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.ItemOrBuilder>(
+                instance.item_,
+                instance.item_.isModifiable(),
+                null,
+                false);
+        instance.item_ = null;
+      }
+      instance.bitField0_ |= 0x00000008;
+
+      return itemBuilder_;
+    }
+    /**
+     * <code>optional .proto2_unittest.TestField m = 15;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> 
+        internalGetMFieldBuilder(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage instance, com.google.protobuf.SingleFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> mBuilder_) {
+      if (mBuilder_ == null) {
+        mBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder>(
+                instance.getM(),
+                null,
+                false);
+        instance.m_ = null;
+      }
+      instance.bitField0_ |= 0x00000004;
+      return mBuilder_;
+    }
+    private static void parseMField(
+        proto2_unittest.MessageDifferencerUnittest.TestDiffMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> mBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.m_ != null || mBuilder_ != null) {
+        mBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.m_ = proto2_unittest.MessageDifferencerUnittest.TestField.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000004;
+    }
+    private static void ensureRvIsMutable(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage instance, int capacity) {
+      if (!instance.rv_.isModifiable()) {
+        instance.rv_ = makeMutableCopy(instance.rv_, capacity);
+      }
+      instance.bitField0_ |= 0x00000010;
+    }
+    private static void ensureRwIsMutable(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage instance) {
+      if (!instance.rw_.isModifiable()) {
+        instance.rw_ = new com.google.protobuf.LazyStringArrayList(instance.rw_);
+      }
+      instance.bitField0_ |= 0x00000020;
+    }
+    private static void ensureRmIsMutable(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage instance) {
+      if (!instance.rm_.isModifiable()) {
+        instance.rm_ = makeMutableCopy(instance.rm_);
+      }
+      instance.bitField0_ |= 0x00000040;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> 
+        internalGetRmFieldBuilder(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage instance, com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> rmBuilder_) {
+      if (rmBuilder_ == null) {
+        rmBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder>(
+                instance.rm_,
+                instance.rm_.isModifiable(),
+                null,
+                false);
+        instance.rm_ = null;
+      }
+      instance.bitField0_ |= 0x00000040;
+
+      return rmBuilder_;
+    }
+    private static void ensureRanyIsMutable(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage instance) {
+      if (!instance.rany_.isModifiable()) {
+        instance.rany_ = makeMutableCopy(instance.rany_);
+      }
+      instance.bitField0_ |= 0x00000080;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> 
+        internalGetRanyFieldBuilder(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> ranyBuilder_) {
+      if (ranyBuilder_ == null) {
+        ranyBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder>(
+                instance.rany_,
+                instance.rany_.isModifiable(),
+                null,
+                false);
+        instance.rany_ = null;
+      }
+      instance.bitField0_ |= 0x00000080;
+
+      return ranyBuilder_;
+    }
+    private static void buildPartial_autosplit_0(proto2_unittest.MessageDifferencerUnittest.TestDiffMessage instance,
+        com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item, proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.Item.Builder, proto2_unittest.MessageDifferencerUnittest.TestDiffMessage.ItemOrBuilder> itemBuilder_,
+        com.google.protobuf.SingleFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> mBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.MessageDifferencerUnittest.TestField, proto2_unittest.MessageDifferencerUnittest.TestField.Builder, proto2_unittest.MessageDifferencerUnittest.TestFieldOrBuilder> rmBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf.Any, com.google.protobuf.Any.Builder, com.google.protobuf.AnyOrBuilder> ranyBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000004) != 0)) instance.m_ = null;
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        instance.m_ = mBuilder_ == null
+            ? instance.m_
+            : mBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+      if (itemBuilder_ == null) {
+        instance.item_.makeImmutable();
+      } else {
+        instance.item_ = itemBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        instance.rv_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        instance.rw_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+      if (rmBuilder_ == null) {
+        instance.rm_.makeImmutable();
+      } else {
+        instance.rm_ = rmBuilder_.buildProtobufList();
+      }
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+      if (ranyBuilder_ == null) {
+        instance.rany_.makeImmutable();
+      } else {
+        instance.rany_ = ranyBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestDiffMessage>
-        PARSER = new com.google.protobuf.AbstractParser<TestDiffMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestDiffMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestDiffMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestDiffMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestDiffMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestDiffMessage> parser() {
       return PARSER;

@@ -20356,15 +20356,42 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.LargeButSafeOneof.class, com.google.protobuf.LargeButSafeOneof.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.LargeButSafeOneof.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+    }
+    private Builder(com.google.protobuf.LargeButSafeOneof other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
+      copyFrom_autosplit_1(other, parserLocals);
+      copyFrom_autosplit_2(other, parserLocals);
+      copyFrom_autosplit_3(other, parserLocals);
+      copyFrom_autosplit_4(other, parserLocals);
+      copyFrom_autosplit_5(other, parserLocals);
+      copyFrom_autosplit_6(other, parserLocals);
+      copyFrom_autosplit_7(other, parserLocals);
+      copyFrom_autosplit_8(other, parserLocals);
+      copyFrom_autosplit_9(other, parserLocals);
+      copyFrom_autosplit_10(other, parserLocals);
+      copyFrom_autosplit_11(other, parserLocals);
+      copyFrom_autosplit_12(other, parserLocals);
+      copyFrom_autosplit_13(other, parserLocals);
+      copyFrom_autosplit_14(other, parserLocals);
+      copyFrom_autosplit_15(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -20451,7 +20478,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       to_bitField0_ |= (from_bitField0_ & 0xffffffff);
       if ((from_bitField0_ & 0xffffffff) != 0) {
         result.safeOneofCase_ = safeOneofCase_;
@@ -20460,9 +20487,15 @@ private static final long serialVersionUID = 0L;
       result.bitField0_ |= to_bitField0_;
     }
 
+    private void copyFrom_autosplit_0(com.google.protobuf.LargeButSafeOneof other, java.lang.Object[] parserLocals) {
+      safeOneofCase_ = other.safeOneofCase_;
+      safeOneof_ = other.safeOneof_;
+      bitField0_ = other.bitField0_;
+    }
+
     private void buildPartial_autosplit_1(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField1_ = bitField1_;
-      int to_bitField1_ = 0;
+      int to_bitField1_ = from_bitField1_;
       to_bitField1_ |= (from_bitField1_ & 0xffffffff);
       if ((from_bitField1_ & 0xffffffff) != 0) {
         result.safeOneofCase_ = safeOneofCase_;
@@ -20471,9 +20504,13 @@ private static final long serialVersionUID = 0L;
       result.bitField1_ |= to_bitField1_;
     }
 
+    private void copyFrom_autosplit_1(com.google.protobuf.LargeButSafeOneof other, java.lang.Object[] parserLocals) {
+      bitField1_ = other.bitField1_;
+    }
+
     private void buildPartial_autosplit_2(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField2_ = bitField2_;
-      int to_bitField2_ = 0;
+      int to_bitField2_ = from_bitField2_;
       to_bitField2_ |= (from_bitField2_ & 0xffffffff);
       if ((from_bitField2_ & 0xffffffff) != 0) {
         result.safeOneofCase_ = safeOneofCase_;
@@ -20482,9 +20519,13 @@ private static final long serialVersionUID = 0L;
       result.bitField2_ |= to_bitField2_;
     }
 
+    private void copyFrom_autosplit_2(com.google.protobuf.LargeButSafeOneof other, java.lang.Object[] parserLocals) {
+      bitField2_ = other.bitField2_;
+    }
+
     private void buildPartial_autosplit_3(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField3_ = bitField3_;
-      int to_bitField3_ = 0;
+      int to_bitField3_ = from_bitField3_;
       to_bitField3_ |= (from_bitField3_ & 0xffffffff);
       if ((from_bitField3_ & 0xffffffff) != 0) {
         result.safeOneofCase_ = safeOneofCase_;
@@ -20493,9 +20534,13 @@ private static final long serialVersionUID = 0L;
       result.bitField3_ |= to_bitField3_;
     }
 
+    private void copyFrom_autosplit_3(com.google.protobuf.LargeButSafeOneof other, java.lang.Object[] parserLocals) {
+      bitField3_ = other.bitField3_;
+    }
+
     private void buildPartial_autosplit_4(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField4_ = bitField4_;
-      int to_bitField4_ = 0;
+      int to_bitField4_ = from_bitField4_;
       to_bitField4_ |= (from_bitField4_ & 0xffffffff);
       if ((from_bitField4_ & 0xffffffff) != 0) {
         result.safeOneofCase_ = safeOneofCase_;
@@ -20504,9 +20549,13 @@ private static final long serialVersionUID = 0L;
       result.bitField4_ |= to_bitField4_;
     }
 
+    private void copyFrom_autosplit_4(com.google.protobuf.LargeButSafeOneof other, java.lang.Object[] parserLocals) {
+      bitField4_ = other.bitField4_;
+    }
+
     private void buildPartial_autosplit_5(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField5_ = bitField5_;
-      int to_bitField5_ = 0;
+      int to_bitField5_ = from_bitField5_;
       to_bitField5_ |= (from_bitField5_ & 0xffffffff);
       if ((from_bitField5_ & 0xffffffff) != 0) {
         result.safeOneofCase_ = safeOneofCase_;
@@ -20515,9 +20564,13 @@ private static final long serialVersionUID = 0L;
       result.bitField5_ |= to_bitField5_;
     }
 
+    private void copyFrom_autosplit_5(com.google.protobuf.LargeButSafeOneof other, java.lang.Object[] parserLocals) {
+      bitField5_ = other.bitField5_;
+    }
+
     private void buildPartial_autosplit_6(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField6_ = bitField6_;
-      int to_bitField6_ = 0;
+      int to_bitField6_ = from_bitField6_;
       to_bitField6_ |= (from_bitField6_ & 0xffffffff);
       if ((from_bitField6_ & 0xffffffff) != 0) {
         result.safeOneofCase_ = safeOneofCase_;
@@ -20526,9 +20579,13 @@ private static final long serialVersionUID = 0L;
       result.bitField6_ |= to_bitField6_;
     }
 
+    private void copyFrom_autosplit_6(com.google.protobuf.LargeButSafeOneof other, java.lang.Object[] parserLocals) {
+      bitField6_ = other.bitField6_;
+    }
+
     private void buildPartial_autosplit_7(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField7_ = bitField7_;
-      int to_bitField7_ = 0;
+      int to_bitField7_ = from_bitField7_;
       to_bitField7_ |= (from_bitField7_ & 0xffffffff);
       if ((from_bitField7_ & 0xffffffff) != 0) {
         result.safeOneofCase_ = safeOneofCase_;
@@ -20537,9 +20594,13 @@ private static final long serialVersionUID = 0L;
       result.bitField7_ |= to_bitField7_;
     }
 
+    private void copyFrom_autosplit_7(com.google.protobuf.LargeButSafeOneof other, java.lang.Object[] parserLocals) {
+      bitField7_ = other.bitField7_;
+    }
+
     private void buildPartial_autosplit_8(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField8_ = bitField8_;
-      int to_bitField8_ = 0;
+      int to_bitField8_ = from_bitField8_;
       to_bitField8_ |= (from_bitField8_ & 0xffffffff);
       if ((from_bitField8_ & 0xffffffff) != 0) {
         result.safeOneofCase_ = safeOneofCase_;
@@ -20548,9 +20609,13 @@ private static final long serialVersionUID = 0L;
       result.bitField8_ |= to_bitField8_;
     }
 
+    private void copyFrom_autosplit_8(com.google.protobuf.LargeButSafeOneof other, java.lang.Object[] parserLocals) {
+      bitField8_ = other.bitField8_;
+    }
+
     private void buildPartial_autosplit_9(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField9_ = bitField9_;
-      int to_bitField9_ = 0;
+      int to_bitField9_ = from_bitField9_;
       to_bitField9_ |= (from_bitField9_ & 0xffffffff);
       if ((from_bitField9_ & 0xffffffff) != 0) {
         result.safeOneofCase_ = safeOneofCase_;
@@ -20559,9 +20624,13 @@ private static final long serialVersionUID = 0L;
       result.bitField9_ |= to_bitField9_;
     }
 
+    private void copyFrom_autosplit_9(com.google.protobuf.LargeButSafeOneof other, java.lang.Object[] parserLocals) {
+      bitField9_ = other.bitField9_;
+    }
+
     private void buildPartial_autosplit_10(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField10_ = bitField10_;
-      int to_bitField10_ = 0;
+      int to_bitField10_ = from_bitField10_;
       to_bitField10_ |= (from_bitField10_ & 0xffffffff);
       if ((from_bitField10_ & 0xffffffff) != 0) {
         result.safeOneofCase_ = safeOneofCase_;
@@ -20570,9 +20639,13 @@ private static final long serialVersionUID = 0L;
       result.bitField10_ |= to_bitField10_;
     }
 
+    private void copyFrom_autosplit_10(com.google.protobuf.LargeButSafeOneof other, java.lang.Object[] parserLocals) {
+      bitField10_ = other.bitField10_;
+    }
+
     private void buildPartial_autosplit_11(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField11_ = bitField11_;
-      int to_bitField11_ = 0;
+      int to_bitField11_ = from_bitField11_;
       to_bitField11_ |= (from_bitField11_ & 0xffffffff);
       if ((from_bitField11_ & 0xffffffff) != 0) {
         result.safeOneofCase_ = safeOneofCase_;
@@ -20581,9 +20654,13 @@ private static final long serialVersionUID = 0L;
       result.bitField11_ |= to_bitField11_;
     }
 
+    private void copyFrom_autosplit_11(com.google.protobuf.LargeButSafeOneof other, java.lang.Object[] parserLocals) {
+      bitField11_ = other.bitField11_;
+    }
+
     private void buildPartial_autosplit_12(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField12_ = bitField12_;
-      int to_bitField12_ = 0;
+      int to_bitField12_ = from_bitField12_;
       to_bitField12_ |= (from_bitField12_ & 0xffffffff);
       if ((from_bitField12_ & 0xffffffff) != 0) {
         result.safeOneofCase_ = safeOneofCase_;
@@ -20592,9 +20669,13 @@ private static final long serialVersionUID = 0L;
       result.bitField12_ |= to_bitField12_;
     }
 
+    private void copyFrom_autosplit_12(com.google.protobuf.LargeButSafeOneof other, java.lang.Object[] parserLocals) {
+      bitField12_ = other.bitField12_;
+    }
+
     private void buildPartial_autosplit_13(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField13_ = bitField13_;
-      int to_bitField13_ = 0;
+      int to_bitField13_ = from_bitField13_;
       to_bitField13_ |= (from_bitField13_ & 0xffffffff);
       if ((from_bitField13_ & 0xffffffff) != 0) {
         result.safeOneofCase_ = safeOneofCase_;
@@ -20603,9 +20684,13 @@ private static final long serialVersionUID = 0L;
       result.bitField13_ |= to_bitField13_;
     }
 
+    private void copyFrom_autosplit_13(com.google.protobuf.LargeButSafeOneof other, java.lang.Object[] parserLocals) {
+      bitField13_ = other.bitField13_;
+    }
+
     private void buildPartial_autosplit_14(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField14_ = bitField14_;
-      int to_bitField14_ = 0;
+      int to_bitField14_ = from_bitField14_;
       to_bitField14_ |= (from_bitField14_ & 0xffffffff);
       if ((from_bitField14_ & 0xffffffff) != 0) {
         result.safeOneofCase_ = safeOneofCase_;
@@ -20614,15 +20699,23 @@ private static final long serialVersionUID = 0L;
       result.bitField14_ |= to_bitField14_;
     }
 
+    private void copyFrom_autosplit_14(com.google.protobuf.LargeButSafeOneof other, java.lang.Object[] parserLocals) {
+      bitField14_ = other.bitField14_;
+    }
+
     private void buildPartial_autosplit_15(com.google.protobuf.LargeButSafeOneof result) {
       int from_bitField15_ = bitField15_;
-      int to_bitField15_ = 0;
+      int to_bitField15_ = from_bitField15_;
       to_bitField15_ |= (from_bitField15_ & 0x000fffff);
       if ((from_bitField15_ & 0x000fffff) != 0) {
         result.safeOneofCase_ = safeOneofCase_;
         result.safeOneof_ = safeOneof_;
       }
       result.bitField15_ |= to_bitField15_;
+    }
+
+    private void copyFrom_autosplit_15(com.google.protobuf.LargeButSafeOneof other, java.lang.Object[] parserLocals) {
+      bitField15_ = other.bitField15_;
     }
 
     @java.lang.Override
@@ -24681,7 +24774,7 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
-    private int safeOneofCase_ = 0;
+    private int safeOneofCase_;
     private java.lang.Object safeOneof_;
     public SafeOneofCase
         getSafeOneofCase() {
@@ -57262,22 +57355,9082 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static LargeButSafeOneof parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    LargeButSafeOneof instance = new LargeButSafeOneof((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
+            parseField1(instance, input);
+            break;
+          } // case 8
+          case 16: {
+            parseField2(instance, input);
+            break;
+          } // case 16
+          case 24: {
+            parseField3(instance, input);
+            break;
+          } // case 24
+          case 32: {
+            parseField4(instance, input);
+            break;
+          } // case 32
+          case 40: {
+            parseField5(instance, input);
+            break;
+          } // case 40
+          case 48: {
+            parseField6(instance, input);
+            break;
+          } // case 48
+          case 56: {
+            parseField7(instance, input);
+            break;
+          } // case 56
+          case 64: {
+            parseField8(instance, input);
+            break;
+          } // case 64
+          case 72: {
+            parseField9(instance, input);
+            break;
+          } // case 72
+          case 80: {
+            parseField10(instance, input);
+            break;
+          } // case 80
+          case 88: {
+            parseField11(instance, input);
+            break;
+          } // case 88
+          case 96: {
+            parseField12(instance, input);
+            break;
+          } // case 96
+          case 104: {
+            parseField13(instance, input);
+            break;
+          } // case 104
+          case 112: {
+            parseField14(instance, input);
+            break;
+          } // case 112
+          case 120: {
+            parseField15(instance, input);
+            break;
+          } // case 120
+          case 128: {
+            parseField16(instance, input);
+            break;
+          } // case 128
+          case 136: {
+            parseField17(instance, input);
+            break;
+          } // case 136
+          case 144: {
+            parseField18(instance, input);
+            break;
+          } // case 144
+          case 152: {
+            parseField19(instance, input);
+            break;
+          } // case 152
+          case 160: {
+            parseField20(instance, input);
+            break;
+          } // case 160
+          case 168: {
+            parseField21(instance, input);
+            break;
+          } // case 168
+          case 176: {
+            parseField22(instance, input);
+            break;
+          } // case 176
+          case 184: {
+            parseField23(instance, input);
+            break;
+          } // case 184
+          case 192: {
+            parseField24(instance, input);
+            break;
+          } // case 192
+          case 200: {
+            parseField25(instance, input);
+            break;
+          } // case 200
+          case 208: {
+            parseField26(instance, input);
+            break;
+          } // case 208
+          case 216: {
+            parseField27(instance, input);
+            break;
+          } // case 216
+          case 224: {
+            parseField28(instance, input);
+            break;
+          } // case 224
+          case 232: {
+            parseField29(instance, input);
+            break;
+          } // case 232
+          case 240: {
+            parseField30(instance, input);
+            break;
+          } // case 240
+          case 248: {
+            parseField31(instance, input);
+            break;
+          } // case 248
+          case 256: {
+            parseField32(instance, input);
+            break;
+          } // case 256
+          case 264: {
+            parseField33(instance, input);
+            break;
+          } // case 264
+          case 272: {
+            parseField34(instance, input);
+            break;
+          } // case 272
+          case 280: {
+            parseField35(instance, input);
+            break;
+          } // case 280
+          case 288: {
+            parseField36(instance, input);
+            break;
+          } // case 288
+          case 296: {
+            parseField37(instance, input);
+            break;
+          } // case 296
+          case 304: {
+            parseField38(instance, input);
+            break;
+          } // case 304
+          case 312: {
+            parseField39(instance, input);
+            break;
+          } // case 312
+          case 320: {
+            parseField40(instance, input);
+            break;
+          } // case 320
+          case 328: {
+            parseField41(instance, input);
+            break;
+          } // case 328
+          case 336: {
+            parseField42(instance, input);
+            break;
+          } // case 336
+          case 344: {
+            parseField43(instance, input);
+            break;
+          } // case 344
+          case 352: {
+            parseField44(instance, input);
+            break;
+          } // case 352
+          case 360: {
+            parseField45(instance, input);
+            break;
+          } // case 360
+          case 368: {
+            parseField46(instance, input);
+            break;
+          } // case 368
+          case 376: {
+            parseField47(instance, input);
+            break;
+          } // case 376
+          case 384: {
+            parseField48(instance, input);
+            break;
+          } // case 384
+          case 392: {
+            parseField49(instance, input);
+            break;
+          } // case 392
+          case 400: {
+            parseField50(instance, input);
+            break;
+          } // case 400
+          case 408: {
+            parseField51(instance, input);
+            break;
+          } // case 408
+          case 416: {
+            parseField52(instance, input);
+            break;
+          } // case 416
+          case 424: {
+            parseField53(instance, input);
+            break;
+          } // case 424
+          case 432: {
+            parseField54(instance, input);
+            break;
+          } // case 432
+          case 440: {
+            parseField55(instance, input);
+            break;
+          } // case 440
+          case 448: {
+            parseField56(instance, input);
+            break;
+          } // case 448
+          case 456: {
+            parseField57(instance, input);
+            break;
+          } // case 456
+          case 464: {
+            parseField58(instance, input);
+            break;
+          } // case 464
+          case 472: {
+            parseField59(instance, input);
+            break;
+          } // case 472
+          case 480: {
+            parseField60(instance, input);
+            break;
+          } // case 480
+          case 488: {
+            parseField61(instance, input);
+            break;
+          } // case 488
+          case 496: {
+            parseField62(instance, input);
+            break;
+          } // case 496
+          case 504: {
+            parseField63(instance, input);
+            break;
+          } // case 504
+          case 512: {
+            parseField64(instance, input);
+            break;
+          } // case 512
+          case 520: {
+            parseField65(instance, input);
+            break;
+          } // case 520
+          case 528: {
+            parseField66(instance, input);
+            break;
+          } // case 528
+          case 536: {
+            parseField67(instance, input);
+            break;
+          } // case 536
+          case 544: {
+            parseField68(instance, input);
+            break;
+          } // case 544
+          case 552: {
+            parseField69(instance, input);
+            break;
+          } // case 552
+          case 560: {
+            parseField70(instance, input);
+            break;
+          } // case 560
+          case 568: {
+            parseField71(instance, input);
+            break;
+          } // case 568
+          case 576: {
+            parseField72(instance, input);
+            break;
+          } // case 576
+          case 584: {
+            parseField73(instance, input);
+            break;
+          } // case 584
+          case 592: {
+            parseField74(instance, input);
+            break;
+          } // case 592
+          case 600: {
+            parseField75(instance, input);
+            break;
+          } // case 600
+          case 608: {
+            parseField76(instance, input);
+            break;
+          } // case 608
+          case 616: {
+            parseField77(instance, input);
+            break;
+          } // case 616
+          case 624: {
+            parseField78(instance, input);
+            break;
+          } // case 624
+          case 632: {
+            parseField79(instance, input);
+            break;
+          } // case 632
+          case 640: {
+            parseField80(instance, input);
+            break;
+          } // case 640
+          case 648: {
+            parseField81(instance, input);
+            break;
+          } // case 648
+          case 656: {
+            parseField82(instance, input);
+            break;
+          } // case 656
+          case 664: {
+            parseField83(instance, input);
+            break;
+          } // case 664
+          case 672: {
+            parseField84(instance, input);
+            break;
+          } // case 672
+          case 680: {
+            parseField85(instance, input);
+            break;
+          } // case 680
+          case 688: {
+            parseField86(instance, input);
+            break;
+          } // case 688
+          case 696: {
+            parseField87(instance, input);
+            break;
+          } // case 696
+          case 704: {
+            parseField88(instance, input);
+            break;
+          } // case 704
+          case 712: {
+            parseField89(instance, input);
+            break;
+          } // case 712
+          case 720: {
+            parseField90(instance, input);
+            break;
+          } // case 720
+          case 728: {
+            parseField91(instance, input);
+            break;
+          } // case 728
+          case 736: {
+            parseField92(instance, input);
+            break;
+          } // case 736
+          case 744: {
+            parseField93(instance, input);
+            break;
+          } // case 744
+          case 752: {
+            parseField94(instance, input);
+            break;
+          } // case 752
+          case 760: {
+            parseField95(instance, input);
+            break;
+          } // case 760
+          case 768: {
+            parseField96(instance, input);
+            break;
+          } // case 768
+          case 776: {
+            parseField97(instance, input);
+            break;
+          } // case 776
+          case 784: {
+            parseField98(instance, input);
+            break;
+          } // case 784
+          case 792: {
+            parseField99(instance, input);
+            break;
+          } // case 792
+          case 800: {
+            parseField100(instance, input);
+            break;
+          } // case 800
+          case 808: {
+            parseField101(instance, input);
+            break;
+          } // case 808
+          case 816: {
+            parseField102(instance, input);
+            break;
+          } // case 816
+          case 824: {
+            parseField103(instance, input);
+            break;
+          } // case 824
+          case 832: {
+            parseField104(instance, input);
+            break;
+          } // case 832
+          case 840: {
+            parseField105(instance, input);
+            break;
+          } // case 840
+          case 848: {
+            parseField106(instance, input);
+            break;
+          } // case 848
+          case 856: {
+            parseField107(instance, input);
+            break;
+          } // case 856
+          case 864: {
+            parseField108(instance, input);
+            break;
+          } // case 864
+          case 872: {
+            parseField109(instance, input);
+            break;
+          } // case 872
+          case 880: {
+            parseField110(instance, input);
+            break;
+          } // case 880
+          case 888: {
+            parseField111(instance, input);
+            break;
+          } // case 888
+          case 896: {
+            parseField112(instance, input);
+            break;
+          } // case 896
+          case 904: {
+            parseField113(instance, input);
+            break;
+          } // case 904
+          case 912: {
+            parseField114(instance, input);
+            break;
+          } // case 912
+          case 920: {
+            parseField115(instance, input);
+            break;
+          } // case 920
+          case 928: {
+            parseField116(instance, input);
+            break;
+          } // case 928
+          case 936: {
+            parseField117(instance, input);
+            break;
+          } // case 936
+          case 944: {
+            parseField118(instance, input);
+            break;
+          } // case 944
+          case 952: {
+            parseField119(instance, input);
+            break;
+          } // case 952
+          case 960: {
+            parseField120(instance, input);
+            break;
+          } // case 960
+          case 968: {
+            parseField121(instance, input);
+            break;
+          } // case 968
+          case 976: {
+            parseField122(instance, input);
+            break;
+          } // case 976
+          case 984: {
+            parseField123(instance, input);
+            break;
+          } // case 984
+          case 992: {
+            parseField124(instance, input);
+            break;
+          } // case 992
+          case 1000: {
+            parseField125(instance, input);
+            break;
+          } // case 1000
+          case 1008: {
+            parseField126(instance, input);
+            break;
+          } // case 1008
+          case 1016: {
+            parseField127(instance, input);
+            break;
+          } // case 1016
+          case 1024: {
+            parseField128(instance, input);
+            break;
+          } // case 1024
+          case 1032: {
+            parseField129(instance, input);
+            break;
+          } // case 1032
+          case 1040: {
+            parseField130(instance, input);
+            break;
+          } // case 1040
+          case 1048: {
+            parseField131(instance, input);
+            break;
+          } // case 1048
+          case 1056: {
+            parseField132(instance, input);
+            break;
+          } // case 1056
+          case 1064: {
+            parseField133(instance, input);
+            break;
+          } // case 1064
+          case 1072: {
+            parseField134(instance, input);
+            break;
+          } // case 1072
+          case 1080: {
+            parseField135(instance, input);
+            break;
+          } // case 1080
+          case 1088: {
+            parseField136(instance, input);
+            break;
+          } // case 1088
+          case 1096: {
+            parseField137(instance, input);
+            break;
+          } // case 1096
+          case 1104: {
+            parseField138(instance, input);
+            break;
+          } // case 1104
+          case 1112: {
+            parseField139(instance, input);
+            break;
+          } // case 1112
+          case 1120: {
+            parseField140(instance, input);
+            break;
+          } // case 1120
+          case 1128: {
+            parseField141(instance, input);
+            break;
+          } // case 1128
+          case 1136: {
+            parseField142(instance, input);
+            break;
+          } // case 1136
+          case 1144: {
+            parseField143(instance, input);
+            break;
+          } // case 1144
+          case 1152: {
+            parseField144(instance, input);
+            break;
+          } // case 1152
+          case 1160: {
+            parseField145(instance, input);
+            break;
+          } // case 1160
+          case 1168: {
+            parseField146(instance, input);
+            break;
+          } // case 1168
+          case 1176: {
+            parseField147(instance, input);
+            break;
+          } // case 1176
+          case 1184: {
+            parseField148(instance, input);
+            break;
+          } // case 1184
+          case 1192: {
+            parseField149(instance, input);
+            break;
+          } // case 1192
+          case 1200: {
+            parseField150(instance, input);
+            break;
+          } // case 1200
+          case 1208: {
+            parseField151(instance, input);
+            break;
+          } // case 1208
+          case 1216: {
+            parseField152(instance, input);
+            break;
+          } // case 1216
+          case 1224: {
+            parseField153(instance, input);
+            break;
+          } // case 1224
+          case 1232: {
+            parseField154(instance, input);
+            break;
+          } // case 1232
+          case 1240: {
+            parseField155(instance, input);
+            break;
+          } // case 1240
+          case 1248: {
+            parseField156(instance, input);
+            break;
+          } // case 1248
+          case 1256: {
+            parseField157(instance, input);
+            break;
+          } // case 1256
+          case 1264: {
+            parseField158(instance, input);
+            break;
+          } // case 1264
+          case 1272: {
+            parseField159(instance, input);
+            break;
+          } // case 1272
+          case 1280: {
+            parseField160(instance, input);
+            break;
+          } // case 1280
+          case 1288: {
+            parseField161(instance, input);
+            break;
+          } // case 1288
+          case 1296: {
+            parseField162(instance, input);
+            break;
+          } // case 1296
+          case 1304: {
+            parseField163(instance, input);
+            break;
+          } // case 1304
+          case 1312: {
+            parseField164(instance, input);
+            break;
+          } // case 1312
+          case 1320: {
+            parseField165(instance, input);
+            break;
+          } // case 1320
+          case 1328: {
+            parseField166(instance, input);
+            break;
+          } // case 1328
+          case 1336: {
+            parseField167(instance, input);
+            break;
+          } // case 1336
+          case 1344: {
+            parseField168(instance, input);
+            break;
+          } // case 1344
+          case 1352: {
+            parseField169(instance, input);
+            break;
+          } // case 1352
+          case 1360: {
+            parseField170(instance, input);
+            break;
+          } // case 1360
+          case 1368: {
+            parseField171(instance, input);
+            break;
+          } // case 1368
+          case 1376: {
+            parseField172(instance, input);
+            break;
+          } // case 1376
+          case 1384: {
+            parseField173(instance, input);
+            break;
+          } // case 1384
+          case 1392: {
+            parseField174(instance, input);
+            break;
+          } // case 1392
+          case 1400: {
+            parseField175(instance, input);
+            break;
+          } // case 1400
+          case 1408: {
+            parseField176(instance, input);
+            break;
+          } // case 1408
+          case 1416: {
+            parseField177(instance, input);
+            break;
+          } // case 1416
+          case 1424: {
+            parseField178(instance, input);
+            break;
+          } // case 1424
+          case 1432: {
+            parseField179(instance, input);
+            break;
+          } // case 1432
+          case 1440: {
+            parseField180(instance, input);
+            break;
+          } // case 1440
+          case 1448: {
+            parseField181(instance, input);
+            break;
+          } // case 1448
+          case 1456: {
+            parseField182(instance, input);
+            break;
+          } // case 1456
+          case 1464: {
+            parseField183(instance, input);
+            break;
+          } // case 1464
+          case 1472: {
+            parseField184(instance, input);
+            break;
+          } // case 1472
+          case 1480: {
+            parseField185(instance, input);
+            break;
+          } // case 1480
+          case 1488: {
+            parseField186(instance, input);
+            break;
+          } // case 1488
+          case 1496: {
+            parseField187(instance, input);
+            break;
+          } // case 1496
+          case 1504: {
+            parseField188(instance, input);
+            break;
+          } // case 1504
+          case 1512: {
+            parseField189(instance, input);
+            break;
+          } // case 1512
+          case 1520: {
+            parseField190(instance, input);
+            break;
+          } // case 1520
+          case 1528: {
+            parseField191(instance, input);
+            break;
+          } // case 1528
+          case 1536: {
+            parseField192(instance, input);
+            break;
+          } // case 1536
+          case 1544: {
+            parseField193(instance, input);
+            break;
+          } // case 1544
+          case 1552: {
+            parseField194(instance, input);
+            break;
+          } // case 1552
+          case 1560: {
+            parseField195(instance, input);
+            break;
+          } // case 1560
+          case 1568: {
+            parseField196(instance, input);
+            break;
+          } // case 1568
+          case 1576: {
+            parseField197(instance, input);
+            break;
+          } // case 1576
+          case 1584: {
+            parseField198(instance, input);
+            break;
+          } // case 1584
+          case 1592: {
+            parseField199(instance, input);
+            break;
+          } // case 1592
+          case 1600: {
+            parseField200(instance, input);
+            break;
+          } // case 1600
+          case 1608: {
+            parseField201(instance, input);
+            break;
+          } // case 1608
+          case 1616: {
+            parseField202(instance, input);
+            break;
+          } // case 1616
+          case 1624: {
+            parseField203(instance, input);
+            break;
+          } // case 1624
+          case 1632: {
+            parseField204(instance, input);
+            break;
+          } // case 1632
+          case 1640: {
+            parseField205(instance, input);
+            break;
+          } // case 1640
+          case 1648: {
+            parseField206(instance, input);
+            break;
+          } // case 1648
+          case 1656: {
+            parseField207(instance, input);
+            break;
+          } // case 1656
+          case 1664: {
+            parseField208(instance, input);
+            break;
+          } // case 1664
+          case 1672: {
+            parseField209(instance, input);
+            break;
+          } // case 1672
+          case 1680: {
+            parseField210(instance, input);
+            break;
+          } // case 1680
+          case 1688: {
+            parseField211(instance, input);
+            break;
+          } // case 1688
+          case 1696: {
+            parseField212(instance, input);
+            break;
+          } // case 1696
+          case 1704: {
+            parseField213(instance, input);
+            break;
+          } // case 1704
+          case 1712: {
+            parseField214(instance, input);
+            break;
+          } // case 1712
+          case 1720: {
+            parseField215(instance, input);
+            break;
+          } // case 1720
+          case 1728: {
+            parseField216(instance, input);
+            break;
+          } // case 1728
+          case 1736: {
+            parseField217(instance, input);
+            break;
+          } // case 1736
+          case 1744: {
+            parseField218(instance, input);
+            break;
+          } // case 1744
+          case 1752: {
+            parseField219(instance, input);
+            break;
+          } // case 1752
+          case 1760: {
+            parseField220(instance, input);
+            break;
+          } // case 1760
+          case 1768: {
+            parseField221(instance, input);
+            break;
+          } // case 1768
+          case 1776: {
+            parseField222(instance, input);
+            break;
+          } // case 1776
+          case 1784: {
+            parseField223(instance, input);
+            break;
+          } // case 1784
+          case 1792: {
+            parseField224(instance, input);
+            break;
+          } // case 1792
+          case 1800: {
+            parseField225(instance, input);
+            break;
+          } // case 1800
+          case 1808: {
+            parseField226(instance, input);
+            break;
+          } // case 1808
+          case 1816: {
+            parseField227(instance, input);
+            break;
+          } // case 1816
+          case 1824: {
+            parseField228(instance, input);
+            break;
+          } // case 1824
+          case 1832: {
+            parseField229(instance, input);
+            break;
+          } // case 1832
+          case 1840: {
+            parseField230(instance, input);
+            break;
+          } // case 1840
+          case 1848: {
+            parseField231(instance, input);
+            break;
+          } // case 1848
+          case 1856: {
+            parseField232(instance, input);
+            break;
+          } // case 1856
+          case 1864: {
+            parseField233(instance, input);
+            break;
+          } // case 1864
+          case 1872: {
+            parseField234(instance, input);
+            break;
+          } // case 1872
+          case 1880: {
+            parseField235(instance, input);
+            break;
+          } // case 1880
+          case 1888: {
+            parseField236(instance, input);
+            break;
+          } // case 1888
+          case 1896: {
+            parseField237(instance, input);
+            break;
+          } // case 1896
+          case 1904: {
+            parseField238(instance, input);
+            break;
+          } // case 1904
+          case 1912: {
+            parseField239(instance, input);
+            break;
+          } // case 1912
+          case 1920: {
+            parseField240(instance, input);
+            break;
+          } // case 1920
+          case 1928: {
+            parseField241(instance, input);
+            break;
+          } // case 1928
+          case 1936: {
+            parseField242(instance, input);
+            break;
+          } // case 1936
+          case 1944: {
+            parseField243(instance, input);
+            break;
+          } // case 1944
+          case 1952: {
+            parseField244(instance, input);
+            break;
+          } // case 1952
+          case 1960: {
+            parseField245(instance, input);
+            break;
+          } // case 1960
+          case 1968: {
+            parseField246(instance, input);
+            break;
+          } // case 1968
+          case 1976: {
+            parseField247(instance, input);
+            break;
+          } // case 1976
+          case 1984: {
+            parseField248(instance, input);
+            break;
+          } // case 1984
+          case 1992: {
+            parseField249(instance, input);
+            break;
+          } // case 1992
+          case 2000: {
+            parseField250(instance, input);
+            break;
+          } // case 2000
+          case 2008: {
+            parseField251(instance, input);
+            break;
+          } // case 2008
+          case 2016: {
+            parseField252(instance, input);
+            break;
+          } // case 2016
+          case 2024: {
+            parseField253(instance, input);
+            break;
+          } // case 2024
+          case 2032: {
+            parseField254(instance, input);
+            break;
+          } // case 2032
+          case 2040: {
+            parseField255(instance, input);
+            break;
+          } // case 2040
+          case 2048: {
+            parseField256(instance, input);
+            break;
+          } // case 2048
+          case 2056: {
+            parseField257(instance, input);
+            break;
+          } // case 2056
+          case 2064: {
+            parseField258(instance, input);
+            break;
+          } // case 2064
+          case 2072: {
+            parseField259(instance, input);
+            break;
+          } // case 2072
+          case 2080: {
+            parseField260(instance, input);
+            break;
+          } // case 2080
+          case 2088: {
+            parseField261(instance, input);
+            break;
+          } // case 2088
+          case 2096: {
+            parseField262(instance, input);
+            break;
+          } // case 2096
+          case 2104: {
+            parseField263(instance, input);
+            break;
+          } // case 2104
+          case 2112: {
+            parseField264(instance, input);
+            break;
+          } // case 2112
+          case 2120: {
+            parseField265(instance, input);
+            break;
+          } // case 2120
+          case 2128: {
+            parseField266(instance, input);
+            break;
+          } // case 2128
+          case 2136: {
+            parseField267(instance, input);
+            break;
+          } // case 2136
+          case 2144: {
+            parseField268(instance, input);
+            break;
+          } // case 2144
+          case 2152: {
+            parseField269(instance, input);
+            break;
+          } // case 2152
+          case 2160: {
+            parseField270(instance, input);
+            break;
+          } // case 2160
+          case 2168: {
+            parseField271(instance, input);
+            break;
+          } // case 2168
+          case 2176: {
+            parseField272(instance, input);
+            break;
+          } // case 2176
+          case 2184: {
+            parseField273(instance, input);
+            break;
+          } // case 2184
+          case 2192: {
+            parseField274(instance, input);
+            break;
+          } // case 2192
+          case 2200: {
+            parseField275(instance, input);
+            break;
+          } // case 2200
+          case 2208: {
+            parseField276(instance, input);
+            break;
+          } // case 2208
+          case 2216: {
+            parseField277(instance, input);
+            break;
+          } // case 2216
+          case 2224: {
+            parseField278(instance, input);
+            break;
+          } // case 2224
+          case 2232: {
+            parseField279(instance, input);
+            break;
+          } // case 2232
+          case 2240: {
+            parseField280(instance, input);
+            break;
+          } // case 2240
+          case 2248: {
+            parseField281(instance, input);
+            break;
+          } // case 2248
+          case 2256: {
+            parseField282(instance, input);
+            break;
+          } // case 2256
+          case 2264: {
+            parseField283(instance, input);
+            break;
+          } // case 2264
+          case 2272: {
+            parseField284(instance, input);
+            break;
+          } // case 2272
+          case 2280: {
+            parseField285(instance, input);
+            break;
+          } // case 2280
+          case 2288: {
+            parseField286(instance, input);
+            break;
+          } // case 2288
+          case 2296: {
+            parseField287(instance, input);
+            break;
+          } // case 2296
+          case 2304: {
+            parseField288(instance, input);
+            break;
+          } // case 2304
+          case 2312: {
+            parseField289(instance, input);
+            break;
+          } // case 2312
+          case 2320: {
+            parseField290(instance, input);
+            break;
+          } // case 2320
+          case 2328: {
+            parseField291(instance, input);
+            break;
+          } // case 2328
+          case 2336: {
+            parseField292(instance, input);
+            break;
+          } // case 2336
+          case 2344: {
+            parseField293(instance, input);
+            break;
+          } // case 2344
+          case 2352: {
+            parseField294(instance, input);
+            break;
+          } // case 2352
+          case 2360: {
+            parseField295(instance, input);
+            break;
+          } // case 2360
+          case 2368: {
+            parseField296(instance, input);
+            break;
+          } // case 2368
+          case 2376: {
+            parseField297(instance, input);
+            break;
+          } // case 2376
+          case 2384: {
+            parseField298(instance, input);
+            break;
+          } // case 2384
+          case 2392: {
+            parseField299(instance, input);
+            break;
+          } // case 2392
+          case 2400: {
+            parseField300(instance, input);
+            break;
+          } // case 2400
+          case 2408: {
+            parseField301(instance, input);
+            break;
+          } // case 2408
+          case 2416: {
+            parseField302(instance, input);
+            break;
+          } // case 2416
+          case 2424: {
+            parseField303(instance, input);
+            break;
+          } // case 2424
+          case 2432: {
+            parseField304(instance, input);
+            break;
+          } // case 2432
+          case 2440: {
+            parseField305(instance, input);
+            break;
+          } // case 2440
+          case 2448: {
+            parseField306(instance, input);
+            break;
+          } // case 2448
+          case 2456: {
+            parseField307(instance, input);
+            break;
+          } // case 2456
+          case 2464: {
+            parseField308(instance, input);
+            break;
+          } // case 2464
+          case 2472: {
+            parseField309(instance, input);
+            break;
+          } // case 2472
+          case 2480: {
+            parseField310(instance, input);
+            break;
+          } // case 2480
+          case 2488: {
+            parseField311(instance, input);
+            break;
+          } // case 2488
+          case 2496: {
+            parseField312(instance, input);
+            break;
+          } // case 2496
+          case 2504: {
+            parseField313(instance, input);
+            break;
+          } // case 2504
+          case 2512: {
+            parseField314(instance, input);
+            break;
+          } // case 2512
+          case 2520: {
+            parseField315(instance, input);
+            break;
+          } // case 2520
+          case 2528: {
+            parseField316(instance, input);
+            break;
+          } // case 2528
+          case 2536: {
+            parseField317(instance, input);
+            break;
+          } // case 2536
+          case 2544: {
+            parseField318(instance, input);
+            break;
+          } // case 2544
+          case 2552: {
+            parseField319(instance, input);
+            break;
+          } // case 2552
+          case 2560: {
+            parseField320(instance, input);
+            break;
+          } // case 2560
+          case 2568: {
+            parseField321(instance, input);
+            break;
+          } // case 2568
+          case 2576: {
+            parseField322(instance, input);
+            break;
+          } // case 2576
+          case 2584: {
+            parseField323(instance, input);
+            break;
+          } // case 2584
+          case 2592: {
+            parseField324(instance, input);
+            break;
+          } // case 2592
+          case 2600: {
+            parseField325(instance, input);
+            break;
+          } // case 2600
+          case 2608: {
+            parseField326(instance, input);
+            break;
+          } // case 2608
+          case 2616: {
+            parseField327(instance, input);
+            break;
+          } // case 2616
+          case 2624: {
+            parseField328(instance, input);
+            break;
+          } // case 2624
+          case 2632: {
+            parseField329(instance, input);
+            break;
+          } // case 2632
+          case 2640: {
+            parseField330(instance, input);
+            break;
+          } // case 2640
+          case 2648: {
+            parseField331(instance, input);
+            break;
+          } // case 2648
+          case 2656: {
+            parseField332(instance, input);
+            break;
+          } // case 2656
+          case 2664: {
+            parseField333(instance, input);
+            break;
+          } // case 2664
+          case 2672: {
+            parseField334(instance, input);
+            break;
+          } // case 2672
+          case 2680: {
+            parseField335(instance, input);
+            break;
+          } // case 2680
+          case 2688: {
+            parseField336(instance, input);
+            break;
+          } // case 2688
+          case 2696: {
+            parseField337(instance, input);
+            break;
+          } // case 2696
+          case 2704: {
+            parseField338(instance, input);
+            break;
+          } // case 2704
+          case 2712: {
+            parseField339(instance, input);
+            break;
+          } // case 2712
+          case 2720: {
+            parseField340(instance, input);
+            break;
+          } // case 2720
+          case 2728: {
+            parseField341(instance, input);
+            break;
+          } // case 2728
+          case 2736: {
+            parseField342(instance, input);
+            break;
+          } // case 2736
+          case 2744: {
+            parseField343(instance, input);
+            break;
+          } // case 2744
+          case 2752: {
+            parseField344(instance, input);
+            break;
+          } // case 2752
+          case 2760: {
+            parseField345(instance, input);
+            break;
+          } // case 2760
+          case 2768: {
+            parseField346(instance, input);
+            break;
+          } // case 2768
+          case 2776: {
+            parseField347(instance, input);
+            break;
+          } // case 2776
+          case 2784: {
+            parseField348(instance, input);
+            break;
+          } // case 2784
+          case 2792: {
+            parseField349(instance, input);
+            break;
+          } // case 2792
+          case 2800: {
+            parseField350(instance, input);
+            break;
+          } // case 2800
+          case 2808: {
+            parseField351(instance, input);
+            break;
+          } // case 2808
+          case 2816: {
+            parseField352(instance, input);
+            break;
+          } // case 2816
+          case 2824: {
+            parseField353(instance, input);
+            break;
+          } // case 2824
+          case 2832: {
+            parseField354(instance, input);
+            break;
+          } // case 2832
+          case 2840: {
+            parseField355(instance, input);
+            break;
+          } // case 2840
+          case 2848: {
+            parseField356(instance, input);
+            break;
+          } // case 2848
+          case 2856: {
+            parseField357(instance, input);
+            break;
+          } // case 2856
+          case 2864: {
+            parseField358(instance, input);
+            break;
+          } // case 2864
+          case 2872: {
+            parseField359(instance, input);
+            break;
+          } // case 2872
+          case 2880: {
+            parseField360(instance, input);
+            break;
+          } // case 2880
+          case 2888: {
+            parseField361(instance, input);
+            break;
+          } // case 2888
+          case 2896: {
+            parseField362(instance, input);
+            break;
+          } // case 2896
+          case 2904: {
+            parseField363(instance, input);
+            break;
+          } // case 2904
+          case 2912: {
+            parseField364(instance, input);
+            break;
+          } // case 2912
+          case 2920: {
+            parseField365(instance, input);
+            break;
+          } // case 2920
+          case 2928: {
+            parseField366(instance, input);
+            break;
+          } // case 2928
+          case 2936: {
+            parseField367(instance, input);
+            break;
+          } // case 2936
+          case 2944: {
+            parseField368(instance, input);
+            break;
+          } // case 2944
+          case 2952: {
+            parseField369(instance, input);
+            break;
+          } // case 2952
+          case 2960: {
+            parseField370(instance, input);
+            break;
+          } // case 2960
+          case 2968: {
+            parseField371(instance, input);
+            break;
+          } // case 2968
+          case 2976: {
+            parseField372(instance, input);
+            break;
+          } // case 2976
+          case 2984: {
+            parseField373(instance, input);
+            break;
+          } // case 2984
+          case 2992: {
+            parseField374(instance, input);
+            break;
+          } // case 2992
+          case 3000: {
+            parseField375(instance, input);
+            break;
+          } // case 3000
+          case 3008: {
+            parseField376(instance, input);
+            break;
+          } // case 3008
+          case 3016: {
+            parseField377(instance, input);
+            break;
+          } // case 3016
+          case 3024: {
+            parseField378(instance, input);
+            break;
+          } // case 3024
+          case 3032: {
+            parseField379(instance, input);
+            break;
+          } // case 3032
+          case 3040: {
+            parseField380(instance, input);
+            break;
+          } // case 3040
+          case 3048: {
+            parseField381(instance, input);
+            break;
+          } // case 3048
+          case 3056: {
+            parseField382(instance, input);
+            break;
+          } // case 3056
+          case 3064: {
+            parseField383(instance, input);
+            break;
+          } // case 3064
+          case 3072: {
+            parseField384(instance, input);
+            break;
+          } // case 3072
+          case 3080: {
+            parseField385(instance, input);
+            break;
+          } // case 3080
+          case 3088: {
+            parseField386(instance, input);
+            break;
+          } // case 3088
+          case 3096: {
+            parseField387(instance, input);
+            break;
+          } // case 3096
+          case 3104: {
+            parseField388(instance, input);
+            break;
+          } // case 3104
+          case 3112: {
+            parseField389(instance, input);
+            break;
+          } // case 3112
+          case 3120: {
+            parseField390(instance, input);
+            break;
+          } // case 3120
+          case 3128: {
+            parseField391(instance, input);
+            break;
+          } // case 3128
+          case 3136: {
+            parseField392(instance, input);
+            break;
+          } // case 3136
+          case 3144: {
+            parseField393(instance, input);
+            break;
+          } // case 3144
+          case 3152: {
+            parseField394(instance, input);
+            break;
+          } // case 3152
+          case 3160: {
+            parseField395(instance, input);
+            break;
+          } // case 3160
+          case 3168: {
+            parseField396(instance, input);
+            break;
+          } // case 3168
+          case 3176: {
+            parseField397(instance, input);
+            break;
+          } // case 3176
+          case 3184: {
+            parseField398(instance, input);
+            break;
+          } // case 3184
+          case 3192: {
+            parseField399(instance, input);
+            break;
+          } // case 3192
+          case 3200: {
+            parseField400(instance, input);
+            break;
+          } // case 3200
+          case 3208: {
+            parseField401(instance, input);
+            break;
+          } // case 3208
+          case 3216: {
+            parseField402(instance, input);
+            break;
+          } // case 3216
+          case 3224: {
+            parseField403(instance, input);
+            break;
+          } // case 3224
+          case 3232: {
+            parseField404(instance, input);
+            break;
+          } // case 3232
+          case 3240: {
+            parseField405(instance, input);
+            break;
+          } // case 3240
+          case 3248: {
+            parseField406(instance, input);
+            break;
+          } // case 3248
+          case 3256: {
+            parseField407(instance, input);
+            break;
+          } // case 3256
+          case 3264: {
+            parseField408(instance, input);
+            break;
+          } // case 3264
+          case 3272: {
+            parseField409(instance, input);
+            break;
+          } // case 3272
+          case 3280: {
+            parseField410(instance, input);
+            break;
+          } // case 3280
+          case 3288: {
+            parseField411(instance, input);
+            break;
+          } // case 3288
+          case 3296: {
+            parseField412(instance, input);
+            break;
+          } // case 3296
+          case 3304: {
+            parseField413(instance, input);
+            break;
+          } // case 3304
+          case 3312: {
+            parseField414(instance, input);
+            break;
+          } // case 3312
+          case 3320: {
+            parseField415(instance, input);
+            break;
+          } // case 3320
+          case 3328: {
+            parseField416(instance, input);
+            break;
+          } // case 3328
+          case 3336: {
+            parseField417(instance, input);
+            break;
+          } // case 3336
+          case 3344: {
+            parseField418(instance, input);
+            break;
+          } // case 3344
+          case 3352: {
+            parseField419(instance, input);
+            break;
+          } // case 3352
+          case 3360: {
+            parseField420(instance, input);
+            break;
+          } // case 3360
+          case 3368: {
+            parseField421(instance, input);
+            break;
+          } // case 3368
+          case 3376: {
+            parseField422(instance, input);
+            break;
+          } // case 3376
+          case 3384: {
+            parseField423(instance, input);
+            break;
+          } // case 3384
+          case 3392: {
+            parseField424(instance, input);
+            break;
+          } // case 3392
+          case 3400: {
+            parseField425(instance, input);
+            break;
+          } // case 3400
+          case 3408: {
+            parseField426(instance, input);
+            break;
+          } // case 3408
+          case 3416: {
+            parseField427(instance, input);
+            break;
+          } // case 3416
+          case 3424: {
+            parseField428(instance, input);
+            break;
+          } // case 3424
+          case 3432: {
+            parseField429(instance, input);
+            break;
+          } // case 3432
+          case 3440: {
+            parseField430(instance, input);
+            break;
+          } // case 3440
+          case 3448: {
+            parseField431(instance, input);
+            break;
+          } // case 3448
+          case 3456: {
+            parseField432(instance, input);
+            break;
+          } // case 3456
+          case 3464: {
+            parseField433(instance, input);
+            break;
+          } // case 3464
+          case 3472: {
+            parseField434(instance, input);
+            break;
+          } // case 3472
+          case 3480: {
+            parseField435(instance, input);
+            break;
+          } // case 3480
+          case 3488: {
+            parseField436(instance, input);
+            break;
+          } // case 3488
+          case 3496: {
+            parseField437(instance, input);
+            break;
+          } // case 3496
+          case 3504: {
+            parseField438(instance, input);
+            break;
+          } // case 3504
+          case 3512: {
+            parseField439(instance, input);
+            break;
+          } // case 3512
+          case 3520: {
+            parseField440(instance, input);
+            break;
+          } // case 3520
+          case 3528: {
+            parseField441(instance, input);
+            break;
+          } // case 3528
+          case 3536: {
+            parseField442(instance, input);
+            break;
+          } // case 3536
+          case 3544: {
+            parseField443(instance, input);
+            break;
+          } // case 3544
+          case 3552: {
+            parseField444(instance, input);
+            break;
+          } // case 3552
+          case 3560: {
+            parseField445(instance, input);
+            break;
+          } // case 3560
+          case 3568: {
+            parseField446(instance, input);
+            break;
+          } // case 3568
+          case 3576: {
+            parseField447(instance, input);
+            break;
+          } // case 3576
+          case 3584: {
+            parseField448(instance, input);
+            break;
+          } // case 3584
+          case 3592: {
+            parseField449(instance, input);
+            break;
+          } // case 3592
+          case 3600: {
+            parseField450(instance, input);
+            break;
+          } // case 3600
+          case 3608: {
+            parseField451(instance, input);
+            break;
+          } // case 3608
+          case 3616: {
+            parseField452(instance, input);
+            break;
+          } // case 3616
+          case 3624: {
+            parseField453(instance, input);
+            break;
+          } // case 3624
+          case 3632: {
+            parseField454(instance, input);
+            break;
+          } // case 3632
+          case 3640: {
+            parseField455(instance, input);
+            break;
+          } // case 3640
+          case 3648: {
+            parseField456(instance, input);
+            break;
+          } // case 3648
+          case 3656: {
+            parseField457(instance, input);
+            break;
+          } // case 3656
+          case 3664: {
+            parseField458(instance, input);
+            break;
+          } // case 3664
+          case 3672: {
+            parseField459(instance, input);
+            break;
+          } // case 3672
+          case 3680: {
+            parseField460(instance, input);
+            break;
+          } // case 3680
+          case 3688: {
+            parseField461(instance, input);
+            break;
+          } // case 3688
+          case 3696: {
+            parseField462(instance, input);
+            break;
+          } // case 3696
+          case 3704: {
+            parseField463(instance, input);
+            break;
+          } // case 3704
+          case 3712: {
+            parseField464(instance, input);
+            break;
+          } // case 3712
+          case 3720: {
+            parseField465(instance, input);
+            break;
+          } // case 3720
+          case 3728: {
+            parseField466(instance, input);
+            break;
+          } // case 3728
+          case 3736: {
+            parseField467(instance, input);
+            break;
+          } // case 3736
+          case 3744: {
+            parseField468(instance, input);
+            break;
+          } // case 3744
+          case 3752: {
+            parseField469(instance, input);
+            break;
+          } // case 3752
+          case 3760: {
+            parseField470(instance, input);
+            break;
+          } // case 3760
+          case 3768: {
+            parseField471(instance, input);
+            break;
+          } // case 3768
+          case 3776: {
+            parseField472(instance, input);
+            break;
+          } // case 3776
+          case 3784: {
+            parseField473(instance, input);
+            break;
+          } // case 3784
+          case 3792: {
+            parseField474(instance, input);
+            break;
+          } // case 3792
+          case 3800: {
+            parseField475(instance, input);
+            break;
+          } // case 3800
+          case 3808: {
+            parseField476(instance, input);
+            break;
+          } // case 3808
+          case 3816: {
+            parseField477(instance, input);
+            break;
+          } // case 3816
+          case 3824: {
+            parseField478(instance, input);
+            break;
+          } // case 3824
+          case 3832: {
+            parseField479(instance, input);
+            break;
+          } // case 3832
+          case 3840: {
+            parseField480(instance, input);
+            break;
+          } // case 3840
+          case 3848: {
+            parseField481(instance, input);
+            break;
+          } // case 3848
+          case 3856: {
+            parseField482(instance, input);
+            break;
+          } // case 3856
+          case 3864: {
+            parseField483(instance, input);
+            break;
+          } // case 3864
+          case 3872: {
+            parseField484(instance, input);
+            break;
+          } // case 3872
+          case 3880: {
+            parseField485(instance, input);
+            break;
+          } // case 3880
+          case 3888: {
+            parseField486(instance, input);
+            break;
+          } // case 3888
+          case 3896: {
+            parseField487(instance, input);
+            break;
+          } // case 3896
+          case 3904: {
+            parseField488(instance, input);
+            break;
+          } // case 3904
+          case 3912: {
+            parseField489(instance, input);
+            break;
+          } // case 3912
+          case 3920: {
+            parseField490(instance, input);
+            break;
+          } // case 3920
+          case 3928: {
+            parseField491(instance, input);
+            break;
+          } // case 3928
+          case 3936: {
+            parseField492(instance, input);
+            break;
+          } // case 3936
+          case 3944: {
+            parseField493(instance, input);
+            break;
+          } // case 3944
+          case 3952: {
+            parseField494(instance, input);
+            break;
+          } // case 3952
+          case 3960: {
+            parseField495(instance, input);
+            break;
+          } // case 3960
+          case 3968: {
+            parseField496(instance, input);
+            break;
+          } // case 3968
+          case 3976: {
+            parseField497(instance, input);
+            break;
+          } // case 3976
+          case 3984: {
+            parseField498(instance, input);
+            break;
+          } // case 3984
+          case 3992: {
+            parseField499(instance, input);
+            break;
+          } // case 3992
+          case 4000: {
+            parseField500(instance, input);
+            break;
+          } // case 4000
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static void parseField1(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 1;
+      instance.bitField0_ |= 0x00000001; // fallthrough
+    case 1:
+      break;
+    }
+  }
+  private static void parseField2(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 2;
+      instance.bitField0_ |= 0x00000002; // fallthrough
+    case 2:
+      break;
+    }
+  }
+  private static void parseField3(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 3;
+      instance.bitField0_ |= 0x00000004; // fallthrough
+    case 3:
+      break;
+    }
+  }
+  private static void parseField4(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 4;
+      instance.bitField0_ |= 0x00000008; // fallthrough
+    case 4:
+      break;
+    }
+  }
+  private static void parseField5(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 5;
+      instance.bitField0_ |= 0x00000010; // fallthrough
+    case 5:
+      break;
+    }
+  }
+  private static void parseField6(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 6;
+      instance.bitField0_ |= 0x00000020; // fallthrough
+    case 6:
+      break;
+    }
+  }
+  private static void parseField7(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 7;
+      instance.bitField0_ |= 0x00000040; // fallthrough
+    case 7:
+      break;
+    }
+  }
+  private static void parseField8(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 8;
+      instance.bitField0_ |= 0x00000080; // fallthrough
+    case 8:
+      break;
+    }
+  }
+  private static void parseField9(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 9;
+      instance.bitField0_ |= 0x00000100; // fallthrough
+    case 9:
+      break;
+    }
+  }
+  private static void parseField10(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 10;
+      instance.bitField0_ |= 0x00000200; // fallthrough
+    case 10:
+      break;
+    }
+  }
+  private static void parseField11(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 11;
+      instance.bitField0_ |= 0x00000400; // fallthrough
+    case 11:
+      break;
+    }
+  }
+  private static void parseField12(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 12;
+      instance.bitField0_ |= 0x00000800; // fallthrough
+    case 12:
+      break;
+    }
+  }
+  private static void parseField13(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 13;
+      instance.bitField0_ |= 0x00001000; // fallthrough
+    case 13:
+      break;
+    }
+  }
+  private static void parseField14(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 14;
+      instance.bitField0_ |= 0x00002000; // fallthrough
+    case 14:
+      break;
+    }
+  }
+  private static void parseField15(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 15;
+      instance.bitField0_ |= 0x00004000; // fallthrough
+    case 15:
+      break;
+    }
+  }
+  private static void parseField16(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 16;
+      instance.bitField0_ |= 0x00008000; // fallthrough
+    case 16:
+      break;
+    }
+  }
+  private static void parseField17(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 17;
+      instance.bitField0_ |= 0x00010000; // fallthrough
+    case 17:
+      break;
+    }
+  }
+  private static void parseField18(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 18;
+      instance.bitField0_ |= 0x00020000; // fallthrough
+    case 18:
+      break;
+    }
+  }
+  private static void parseField19(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 19;
+      instance.bitField0_ |= 0x00040000; // fallthrough
+    case 19:
+      break;
+    }
+  }
+  private static void parseField20(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 20;
+      instance.bitField0_ |= 0x00080000; // fallthrough
+    case 20:
+      break;
+    }
+  }
+  private static void parseField21(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 21;
+      instance.bitField0_ |= 0x00100000; // fallthrough
+    case 21:
+      break;
+    }
+  }
+  private static void parseField22(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 22;
+      instance.bitField0_ |= 0x00200000; // fallthrough
+    case 22:
+      break;
+    }
+  }
+  private static void parseField23(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 23;
+      instance.bitField0_ |= 0x00400000; // fallthrough
+    case 23:
+      break;
+    }
+  }
+  private static void parseField24(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 24;
+      instance.bitField0_ |= 0x00800000; // fallthrough
+    case 24:
+      break;
+    }
+  }
+  private static void parseField25(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 25;
+      instance.bitField0_ |= 0x01000000; // fallthrough
+    case 25:
+      break;
+    }
+  }
+  private static void parseField26(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 26;
+      instance.bitField0_ |= 0x02000000; // fallthrough
+    case 26:
+      break;
+    }
+  }
+  private static void parseField27(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 27;
+      instance.bitField0_ |= 0x04000000; // fallthrough
+    case 27:
+      break;
+    }
+  }
+  private static void parseField28(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 28;
+      instance.bitField0_ |= 0x08000000; // fallthrough
+    case 28:
+      break;
+    }
+  }
+  private static void parseField29(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 29;
+      instance.bitField0_ |= 0x10000000; // fallthrough
+    case 29:
+      break;
+    }
+  }
+  private static void parseField30(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 30;
+      instance.bitField0_ |= 0x20000000; // fallthrough
+    case 30:
+      break;
+    }
+  }
+  private static void parseField31(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 31;
+      instance.bitField0_ |= 0x40000000; // fallthrough
+    case 31:
+      break;
+    }
+  }
+  private static void parseField32(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 32;
+      instance.bitField0_ |= 0x80000000; // fallthrough
+    case 32:
+      break;
+    }
+  }
+  private static void parseField33(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 33;
+      instance.bitField1_ |= 0x00000001; // fallthrough
+    case 33:
+      break;
+    }
+  }
+  private static void parseField34(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 34;
+      instance.bitField1_ |= 0x00000002; // fallthrough
+    case 34:
+      break;
+    }
+  }
+  private static void parseField35(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 35;
+      instance.bitField1_ |= 0x00000004; // fallthrough
+    case 35:
+      break;
+    }
+  }
+  private static void parseField36(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 36;
+      instance.bitField1_ |= 0x00000008; // fallthrough
+    case 36:
+      break;
+    }
+  }
+  private static void parseField37(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 37;
+      instance.bitField1_ |= 0x00000010; // fallthrough
+    case 37:
+      break;
+    }
+  }
+  private static void parseField38(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 38;
+      instance.bitField1_ |= 0x00000020; // fallthrough
+    case 38:
+      break;
+    }
+  }
+  private static void parseField39(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 39;
+      instance.bitField1_ |= 0x00000040; // fallthrough
+    case 39:
+      break;
+    }
+  }
+  private static void parseField40(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 40;
+      instance.bitField1_ |= 0x00000080; // fallthrough
+    case 40:
+      break;
+    }
+  }
+  private static void parseField41(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 41;
+      instance.bitField1_ |= 0x00000100; // fallthrough
+    case 41:
+      break;
+    }
+  }
+  private static void parseField42(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 42;
+      instance.bitField1_ |= 0x00000200; // fallthrough
+    case 42:
+      break;
+    }
+  }
+  private static void parseField43(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 43;
+      instance.bitField1_ |= 0x00000400; // fallthrough
+    case 43:
+      break;
+    }
+  }
+  private static void parseField44(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 44;
+      instance.bitField1_ |= 0x00000800; // fallthrough
+    case 44:
+      break;
+    }
+  }
+  private static void parseField45(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 45;
+      instance.bitField1_ |= 0x00001000; // fallthrough
+    case 45:
+      break;
+    }
+  }
+  private static void parseField46(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 46;
+      instance.bitField1_ |= 0x00002000; // fallthrough
+    case 46:
+      break;
+    }
+  }
+  private static void parseField47(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 47;
+      instance.bitField1_ |= 0x00004000; // fallthrough
+    case 47:
+      break;
+    }
+  }
+  private static void parseField48(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 48;
+      instance.bitField1_ |= 0x00008000; // fallthrough
+    case 48:
+      break;
+    }
+  }
+  private static void parseField49(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 49;
+      instance.bitField1_ |= 0x00010000; // fallthrough
+    case 49:
+      break;
+    }
+  }
+  private static void parseField50(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 50;
+      instance.bitField1_ |= 0x00020000; // fallthrough
+    case 50:
+      break;
+    }
+  }
+  private static void parseField51(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 51;
+      instance.bitField1_ |= 0x00040000; // fallthrough
+    case 51:
+      break;
+    }
+  }
+  private static void parseField52(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 52;
+      instance.bitField1_ |= 0x00080000; // fallthrough
+    case 52:
+      break;
+    }
+  }
+  private static void parseField53(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 53;
+      instance.bitField1_ |= 0x00100000; // fallthrough
+    case 53:
+      break;
+    }
+  }
+  private static void parseField54(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 54;
+      instance.bitField1_ |= 0x00200000; // fallthrough
+    case 54:
+      break;
+    }
+  }
+  private static void parseField55(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 55;
+      instance.bitField1_ |= 0x00400000; // fallthrough
+    case 55:
+      break;
+    }
+  }
+  private static void parseField56(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 56;
+      instance.bitField1_ |= 0x00800000; // fallthrough
+    case 56:
+      break;
+    }
+  }
+  private static void parseField57(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 57;
+      instance.bitField1_ |= 0x01000000; // fallthrough
+    case 57:
+      break;
+    }
+  }
+  private static void parseField58(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 58;
+      instance.bitField1_ |= 0x02000000; // fallthrough
+    case 58:
+      break;
+    }
+  }
+  private static void parseField59(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 59;
+      instance.bitField1_ |= 0x04000000; // fallthrough
+    case 59:
+      break;
+    }
+  }
+  private static void parseField60(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 60;
+      instance.bitField1_ |= 0x08000000; // fallthrough
+    case 60:
+      break;
+    }
+  }
+  private static void parseField61(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 61;
+      instance.bitField1_ |= 0x10000000; // fallthrough
+    case 61:
+      break;
+    }
+  }
+  private static void parseField62(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 62;
+      instance.bitField1_ |= 0x20000000; // fallthrough
+    case 62:
+      break;
+    }
+  }
+  private static void parseField63(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 63;
+      instance.bitField1_ |= 0x40000000; // fallthrough
+    case 63:
+      break;
+    }
+  }
+  private static void parseField64(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 64;
+      instance.bitField1_ |= 0x80000000; // fallthrough
+    case 64:
+      break;
+    }
+  }
+  private static void parseField65(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 65;
+      instance.bitField2_ |= 0x00000001; // fallthrough
+    case 65:
+      break;
+    }
+  }
+  private static void parseField66(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 66;
+      instance.bitField2_ |= 0x00000002; // fallthrough
+    case 66:
+      break;
+    }
+  }
+  private static void parseField67(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 67;
+      instance.bitField2_ |= 0x00000004; // fallthrough
+    case 67:
+      break;
+    }
+  }
+  private static void parseField68(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 68;
+      instance.bitField2_ |= 0x00000008; // fallthrough
+    case 68:
+      break;
+    }
+  }
+  private static void parseField69(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 69;
+      instance.bitField2_ |= 0x00000010; // fallthrough
+    case 69:
+      break;
+    }
+  }
+  private static void parseField70(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 70;
+      instance.bitField2_ |= 0x00000020; // fallthrough
+    case 70:
+      break;
+    }
+  }
+  private static void parseField71(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 71;
+      instance.bitField2_ |= 0x00000040; // fallthrough
+    case 71:
+      break;
+    }
+  }
+  private static void parseField72(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 72;
+      instance.bitField2_ |= 0x00000080; // fallthrough
+    case 72:
+      break;
+    }
+  }
+  private static void parseField73(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 73;
+      instance.bitField2_ |= 0x00000100; // fallthrough
+    case 73:
+      break;
+    }
+  }
+  private static void parseField74(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 74;
+      instance.bitField2_ |= 0x00000200; // fallthrough
+    case 74:
+      break;
+    }
+  }
+  private static void parseField75(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 75;
+      instance.bitField2_ |= 0x00000400; // fallthrough
+    case 75:
+      break;
+    }
+  }
+  private static void parseField76(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 76;
+      instance.bitField2_ |= 0x00000800; // fallthrough
+    case 76:
+      break;
+    }
+  }
+  private static void parseField77(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 77;
+      instance.bitField2_ |= 0x00001000; // fallthrough
+    case 77:
+      break;
+    }
+  }
+  private static void parseField78(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 78;
+      instance.bitField2_ |= 0x00002000; // fallthrough
+    case 78:
+      break;
+    }
+  }
+  private static void parseField79(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 79;
+      instance.bitField2_ |= 0x00004000; // fallthrough
+    case 79:
+      break;
+    }
+  }
+  private static void parseField80(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 80;
+      instance.bitField2_ |= 0x00008000; // fallthrough
+    case 80:
+      break;
+    }
+  }
+  private static void parseField81(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 81;
+      instance.bitField2_ |= 0x00010000; // fallthrough
+    case 81:
+      break;
+    }
+  }
+  private static void parseField82(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 82;
+      instance.bitField2_ |= 0x00020000; // fallthrough
+    case 82:
+      break;
+    }
+  }
+  private static void parseField83(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 83;
+      instance.bitField2_ |= 0x00040000; // fallthrough
+    case 83:
+      break;
+    }
+  }
+  private static void parseField84(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 84;
+      instance.bitField2_ |= 0x00080000; // fallthrough
+    case 84:
+      break;
+    }
+  }
+  private static void parseField85(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 85;
+      instance.bitField2_ |= 0x00100000; // fallthrough
+    case 85:
+      break;
+    }
+  }
+  private static void parseField86(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 86;
+      instance.bitField2_ |= 0x00200000; // fallthrough
+    case 86:
+      break;
+    }
+  }
+  private static void parseField87(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 87;
+      instance.bitField2_ |= 0x00400000; // fallthrough
+    case 87:
+      break;
+    }
+  }
+  private static void parseField88(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 88;
+      instance.bitField2_ |= 0x00800000; // fallthrough
+    case 88:
+      break;
+    }
+  }
+  private static void parseField89(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 89;
+      instance.bitField2_ |= 0x01000000; // fallthrough
+    case 89:
+      break;
+    }
+  }
+  private static void parseField90(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 90;
+      instance.bitField2_ |= 0x02000000; // fallthrough
+    case 90:
+      break;
+    }
+  }
+  private static void parseField91(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 91;
+      instance.bitField2_ |= 0x04000000; // fallthrough
+    case 91:
+      break;
+    }
+  }
+  private static void parseField92(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 92;
+      instance.bitField2_ |= 0x08000000; // fallthrough
+    case 92:
+      break;
+    }
+  }
+  private static void parseField93(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 93;
+      instance.bitField2_ |= 0x10000000; // fallthrough
+    case 93:
+      break;
+    }
+  }
+  private static void parseField94(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 94;
+      instance.bitField2_ |= 0x20000000; // fallthrough
+    case 94:
+      break;
+    }
+  }
+  private static void parseField95(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 95;
+      instance.bitField2_ |= 0x40000000; // fallthrough
+    case 95:
+      break;
+    }
+  }
+  private static void parseField96(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 96;
+      instance.bitField2_ |= 0x80000000; // fallthrough
+    case 96:
+      break;
+    }
+  }
+  private static void parseField97(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 97;
+      instance.bitField3_ |= 0x00000001; // fallthrough
+    case 97:
+      break;
+    }
+  }
+  private static void parseField98(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 98;
+      instance.bitField3_ |= 0x00000002; // fallthrough
+    case 98:
+      break;
+    }
+  }
+  private static void parseField99(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 99;
+      instance.bitField3_ |= 0x00000004; // fallthrough
+    case 99:
+      break;
+    }
+  }
+  private static void parseField100(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 100;
+      instance.bitField3_ |= 0x00000008; // fallthrough
+    case 100:
+      break;
+    }
+  }
+  private static void parseField101(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 101;
+      instance.bitField3_ |= 0x00000010; // fallthrough
+    case 101:
+      break;
+    }
+  }
+  private static void parseField102(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 102;
+      instance.bitField3_ |= 0x00000020; // fallthrough
+    case 102:
+      break;
+    }
+  }
+  private static void parseField103(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 103;
+      instance.bitField3_ |= 0x00000040; // fallthrough
+    case 103:
+      break;
+    }
+  }
+  private static void parseField104(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 104;
+      instance.bitField3_ |= 0x00000080; // fallthrough
+    case 104:
+      break;
+    }
+  }
+  private static void parseField105(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 105;
+      instance.bitField3_ |= 0x00000100; // fallthrough
+    case 105:
+      break;
+    }
+  }
+  private static void parseField106(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 106;
+      instance.bitField3_ |= 0x00000200; // fallthrough
+    case 106:
+      break;
+    }
+  }
+  private static void parseField107(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 107;
+      instance.bitField3_ |= 0x00000400; // fallthrough
+    case 107:
+      break;
+    }
+  }
+  private static void parseField108(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 108;
+      instance.bitField3_ |= 0x00000800; // fallthrough
+    case 108:
+      break;
+    }
+  }
+  private static void parseField109(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 109;
+      instance.bitField3_ |= 0x00001000; // fallthrough
+    case 109:
+      break;
+    }
+  }
+  private static void parseField110(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 110;
+      instance.bitField3_ |= 0x00002000; // fallthrough
+    case 110:
+      break;
+    }
+  }
+  private static void parseField111(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 111;
+      instance.bitField3_ |= 0x00004000; // fallthrough
+    case 111:
+      break;
+    }
+  }
+  private static void parseField112(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 112;
+      instance.bitField3_ |= 0x00008000; // fallthrough
+    case 112:
+      break;
+    }
+  }
+  private static void parseField113(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 113;
+      instance.bitField3_ |= 0x00010000; // fallthrough
+    case 113:
+      break;
+    }
+  }
+  private static void parseField114(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 114;
+      instance.bitField3_ |= 0x00020000; // fallthrough
+    case 114:
+      break;
+    }
+  }
+  private static void parseField115(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 115;
+      instance.bitField3_ |= 0x00040000; // fallthrough
+    case 115:
+      break;
+    }
+  }
+  private static void parseField116(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 116;
+      instance.bitField3_ |= 0x00080000; // fallthrough
+    case 116:
+      break;
+    }
+  }
+  private static void parseField117(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 117;
+      instance.bitField3_ |= 0x00100000; // fallthrough
+    case 117:
+      break;
+    }
+  }
+  private static void parseField118(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 118;
+      instance.bitField3_ |= 0x00200000; // fallthrough
+    case 118:
+      break;
+    }
+  }
+  private static void parseField119(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 119;
+      instance.bitField3_ |= 0x00400000; // fallthrough
+    case 119:
+      break;
+    }
+  }
+  private static void parseField120(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 120;
+      instance.bitField3_ |= 0x00800000; // fallthrough
+    case 120:
+      break;
+    }
+  }
+  private static void parseField121(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 121;
+      instance.bitField3_ |= 0x01000000; // fallthrough
+    case 121:
+      break;
+    }
+  }
+  private static void parseField122(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 122;
+      instance.bitField3_ |= 0x02000000; // fallthrough
+    case 122:
+      break;
+    }
+  }
+  private static void parseField123(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 123;
+      instance.bitField3_ |= 0x04000000; // fallthrough
+    case 123:
+      break;
+    }
+  }
+  private static void parseField124(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 124;
+      instance.bitField3_ |= 0x08000000; // fallthrough
+    case 124:
+      break;
+    }
+  }
+  private static void parseField125(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 125;
+      instance.bitField3_ |= 0x10000000; // fallthrough
+    case 125:
+      break;
+    }
+  }
+  private static void parseField126(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 126;
+      instance.bitField3_ |= 0x20000000; // fallthrough
+    case 126:
+      break;
+    }
+  }
+  private static void parseField127(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 127;
+      instance.bitField3_ |= 0x40000000; // fallthrough
+    case 127:
+      break;
+    }
+  }
+  private static void parseField128(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 128;
+      instance.bitField3_ |= 0x80000000; // fallthrough
+    case 128:
+      break;
+    }
+  }
+  private static void parseField129(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 129;
+      instance.bitField4_ |= 0x00000001; // fallthrough
+    case 129:
+      break;
+    }
+  }
+  private static void parseField130(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 130;
+      instance.bitField4_ |= 0x00000002; // fallthrough
+    case 130:
+      break;
+    }
+  }
+  private static void parseField131(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 131;
+      instance.bitField4_ |= 0x00000004; // fallthrough
+    case 131:
+      break;
+    }
+  }
+  private static void parseField132(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 132;
+      instance.bitField4_ |= 0x00000008; // fallthrough
+    case 132:
+      break;
+    }
+  }
+  private static void parseField133(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 133;
+      instance.bitField4_ |= 0x00000010; // fallthrough
+    case 133:
+      break;
+    }
+  }
+  private static void parseField134(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 134;
+      instance.bitField4_ |= 0x00000020; // fallthrough
+    case 134:
+      break;
+    }
+  }
+  private static void parseField135(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 135;
+      instance.bitField4_ |= 0x00000040; // fallthrough
+    case 135:
+      break;
+    }
+  }
+  private static void parseField136(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 136;
+      instance.bitField4_ |= 0x00000080; // fallthrough
+    case 136:
+      break;
+    }
+  }
+  private static void parseField137(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 137;
+      instance.bitField4_ |= 0x00000100; // fallthrough
+    case 137:
+      break;
+    }
+  }
+  private static void parseField138(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 138;
+      instance.bitField4_ |= 0x00000200; // fallthrough
+    case 138:
+      break;
+    }
+  }
+  private static void parseField139(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 139;
+      instance.bitField4_ |= 0x00000400; // fallthrough
+    case 139:
+      break;
+    }
+  }
+  private static void parseField140(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 140;
+      instance.bitField4_ |= 0x00000800; // fallthrough
+    case 140:
+      break;
+    }
+  }
+  private static void parseField141(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 141;
+      instance.bitField4_ |= 0x00001000; // fallthrough
+    case 141:
+      break;
+    }
+  }
+  private static void parseField142(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 142;
+      instance.bitField4_ |= 0x00002000; // fallthrough
+    case 142:
+      break;
+    }
+  }
+  private static void parseField143(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 143;
+      instance.bitField4_ |= 0x00004000; // fallthrough
+    case 143:
+      break;
+    }
+  }
+  private static void parseField144(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 144;
+      instance.bitField4_ |= 0x00008000; // fallthrough
+    case 144:
+      break;
+    }
+  }
+  private static void parseField145(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 145;
+      instance.bitField4_ |= 0x00010000; // fallthrough
+    case 145:
+      break;
+    }
+  }
+  private static void parseField146(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 146;
+      instance.bitField4_ |= 0x00020000; // fallthrough
+    case 146:
+      break;
+    }
+  }
+  private static void parseField147(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 147;
+      instance.bitField4_ |= 0x00040000; // fallthrough
+    case 147:
+      break;
+    }
+  }
+  private static void parseField148(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 148;
+      instance.bitField4_ |= 0x00080000; // fallthrough
+    case 148:
+      break;
+    }
+  }
+  private static void parseField149(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 149;
+      instance.bitField4_ |= 0x00100000; // fallthrough
+    case 149:
+      break;
+    }
+  }
+  private static void parseField150(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 150;
+      instance.bitField4_ |= 0x00200000; // fallthrough
+    case 150:
+      break;
+    }
+  }
+  private static void parseField151(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 151;
+      instance.bitField4_ |= 0x00400000; // fallthrough
+    case 151:
+      break;
+    }
+  }
+  private static void parseField152(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 152;
+      instance.bitField4_ |= 0x00800000; // fallthrough
+    case 152:
+      break;
+    }
+  }
+  private static void parseField153(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 153;
+      instance.bitField4_ |= 0x01000000; // fallthrough
+    case 153:
+      break;
+    }
+  }
+  private static void parseField154(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 154;
+      instance.bitField4_ |= 0x02000000; // fallthrough
+    case 154:
+      break;
+    }
+  }
+  private static void parseField155(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 155;
+      instance.bitField4_ |= 0x04000000; // fallthrough
+    case 155:
+      break;
+    }
+  }
+  private static void parseField156(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 156;
+      instance.bitField4_ |= 0x08000000; // fallthrough
+    case 156:
+      break;
+    }
+  }
+  private static void parseField157(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 157;
+      instance.bitField4_ |= 0x10000000; // fallthrough
+    case 157:
+      break;
+    }
+  }
+  private static void parseField158(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 158;
+      instance.bitField4_ |= 0x20000000; // fallthrough
+    case 158:
+      break;
+    }
+  }
+  private static void parseField159(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 159;
+      instance.bitField4_ |= 0x40000000; // fallthrough
+    case 159:
+      break;
+    }
+  }
+  private static void parseField160(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 160;
+      instance.bitField4_ |= 0x80000000; // fallthrough
+    case 160:
+      break;
+    }
+  }
+  private static void parseField161(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 161;
+      instance.bitField5_ |= 0x00000001; // fallthrough
+    case 161:
+      break;
+    }
+  }
+  private static void parseField162(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 162;
+      instance.bitField5_ |= 0x00000002; // fallthrough
+    case 162:
+      break;
+    }
+  }
+  private static void parseField163(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 163;
+      instance.bitField5_ |= 0x00000004; // fallthrough
+    case 163:
+      break;
+    }
+  }
+  private static void parseField164(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 164;
+      instance.bitField5_ |= 0x00000008; // fallthrough
+    case 164:
+      break;
+    }
+  }
+  private static void parseField165(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 165;
+      instance.bitField5_ |= 0x00000010; // fallthrough
+    case 165:
+      break;
+    }
+  }
+  private static void parseField166(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 166;
+      instance.bitField5_ |= 0x00000020; // fallthrough
+    case 166:
+      break;
+    }
+  }
+  private static void parseField167(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 167;
+      instance.bitField5_ |= 0x00000040; // fallthrough
+    case 167:
+      break;
+    }
+  }
+  private static void parseField168(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 168;
+      instance.bitField5_ |= 0x00000080; // fallthrough
+    case 168:
+      break;
+    }
+  }
+  private static void parseField169(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 169;
+      instance.bitField5_ |= 0x00000100; // fallthrough
+    case 169:
+      break;
+    }
+  }
+  private static void parseField170(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 170;
+      instance.bitField5_ |= 0x00000200; // fallthrough
+    case 170:
+      break;
+    }
+  }
+  private static void parseField171(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 171;
+      instance.bitField5_ |= 0x00000400; // fallthrough
+    case 171:
+      break;
+    }
+  }
+  private static void parseField172(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 172;
+      instance.bitField5_ |= 0x00000800; // fallthrough
+    case 172:
+      break;
+    }
+  }
+  private static void parseField173(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 173;
+      instance.bitField5_ |= 0x00001000; // fallthrough
+    case 173:
+      break;
+    }
+  }
+  private static void parseField174(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 174;
+      instance.bitField5_ |= 0x00002000; // fallthrough
+    case 174:
+      break;
+    }
+  }
+  private static void parseField175(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 175;
+      instance.bitField5_ |= 0x00004000; // fallthrough
+    case 175:
+      break;
+    }
+  }
+  private static void parseField176(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 176;
+      instance.bitField5_ |= 0x00008000; // fallthrough
+    case 176:
+      break;
+    }
+  }
+  private static void parseField177(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 177;
+      instance.bitField5_ |= 0x00010000; // fallthrough
+    case 177:
+      break;
+    }
+  }
+  private static void parseField178(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 178;
+      instance.bitField5_ |= 0x00020000; // fallthrough
+    case 178:
+      break;
+    }
+  }
+  private static void parseField179(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 179;
+      instance.bitField5_ |= 0x00040000; // fallthrough
+    case 179:
+      break;
+    }
+  }
+  private static void parseField180(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 180;
+      instance.bitField5_ |= 0x00080000; // fallthrough
+    case 180:
+      break;
+    }
+  }
+  private static void parseField181(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 181;
+      instance.bitField5_ |= 0x00100000; // fallthrough
+    case 181:
+      break;
+    }
+  }
+  private static void parseField182(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 182;
+      instance.bitField5_ |= 0x00200000; // fallthrough
+    case 182:
+      break;
+    }
+  }
+  private static void parseField183(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 183;
+      instance.bitField5_ |= 0x00400000; // fallthrough
+    case 183:
+      break;
+    }
+  }
+  private static void parseField184(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 184;
+      instance.bitField5_ |= 0x00800000; // fallthrough
+    case 184:
+      break;
+    }
+  }
+  private static void parseField185(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 185;
+      instance.bitField5_ |= 0x01000000; // fallthrough
+    case 185:
+      break;
+    }
+  }
+  private static void parseField186(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 186;
+      instance.bitField5_ |= 0x02000000; // fallthrough
+    case 186:
+      break;
+    }
+  }
+  private static void parseField187(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 187;
+      instance.bitField5_ |= 0x04000000; // fallthrough
+    case 187:
+      break;
+    }
+  }
+  private static void parseField188(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 188;
+      instance.bitField5_ |= 0x08000000; // fallthrough
+    case 188:
+      break;
+    }
+  }
+  private static void parseField189(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 189;
+      instance.bitField5_ |= 0x10000000; // fallthrough
+    case 189:
+      break;
+    }
+  }
+  private static void parseField190(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 190;
+      instance.bitField5_ |= 0x20000000; // fallthrough
+    case 190:
+      break;
+    }
+  }
+  private static void parseField191(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 191;
+      instance.bitField5_ |= 0x40000000; // fallthrough
+    case 191:
+      break;
+    }
+  }
+  private static void parseField192(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 192;
+      instance.bitField5_ |= 0x80000000; // fallthrough
+    case 192:
+      break;
+    }
+  }
+  private static void parseField193(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 193;
+      instance.bitField6_ |= 0x00000001; // fallthrough
+    case 193:
+      break;
+    }
+  }
+  private static void parseField194(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 194;
+      instance.bitField6_ |= 0x00000002; // fallthrough
+    case 194:
+      break;
+    }
+  }
+  private static void parseField195(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 195;
+      instance.bitField6_ |= 0x00000004; // fallthrough
+    case 195:
+      break;
+    }
+  }
+  private static void parseField196(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 196;
+      instance.bitField6_ |= 0x00000008; // fallthrough
+    case 196:
+      break;
+    }
+  }
+  private static void parseField197(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 197;
+      instance.bitField6_ |= 0x00000010; // fallthrough
+    case 197:
+      break;
+    }
+  }
+  private static void parseField198(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 198;
+      instance.bitField6_ |= 0x00000020; // fallthrough
+    case 198:
+      break;
+    }
+  }
+  private static void parseField199(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 199;
+      instance.bitField6_ |= 0x00000040; // fallthrough
+    case 199:
+      break;
+    }
+  }
+  private static void parseField200(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 200;
+      instance.bitField6_ |= 0x00000080; // fallthrough
+    case 200:
+      break;
+    }
+  }
+  private static void parseField201(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 201;
+      instance.bitField6_ |= 0x00000100; // fallthrough
+    case 201:
+      break;
+    }
+  }
+  private static void parseField202(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 202;
+      instance.bitField6_ |= 0x00000200; // fallthrough
+    case 202:
+      break;
+    }
+  }
+  private static void parseField203(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 203;
+      instance.bitField6_ |= 0x00000400; // fallthrough
+    case 203:
+      break;
+    }
+  }
+  private static void parseField204(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 204;
+      instance.bitField6_ |= 0x00000800; // fallthrough
+    case 204:
+      break;
+    }
+  }
+  private static void parseField205(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 205;
+      instance.bitField6_ |= 0x00001000; // fallthrough
+    case 205:
+      break;
+    }
+  }
+  private static void parseField206(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 206;
+      instance.bitField6_ |= 0x00002000; // fallthrough
+    case 206:
+      break;
+    }
+  }
+  private static void parseField207(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 207;
+      instance.bitField6_ |= 0x00004000; // fallthrough
+    case 207:
+      break;
+    }
+  }
+  private static void parseField208(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 208;
+      instance.bitField6_ |= 0x00008000; // fallthrough
+    case 208:
+      break;
+    }
+  }
+  private static void parseField209(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 209;
+      instance.bitField6_ |= 0x00010000; // fallthrough
+    case 209:
+      break;
+    }
+  }
+  private static void parseField210(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 210;
+      instance.bitField6_ |= 0x00020000; // fallthrough
+    case 210:
+      break;
+    }
+  }
+  private static void parseField211(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 211;
+      instance.bitField6_ |= 0x00040000; // fallthrough
+    case 211:
+      break;
+    }
+  }
+  private static void parseField212(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 212;
+      instance.bitField6_ |= 0x00080000; // fallthrough
+    case 212:
+      break;
+    }
+  }
+  private static void parseField213(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 213;
+      instance.bitField6_ |= 0x00100000; // fallthrough
+    case 213:
+      break;
+    }
+  }
+  private static void parseField214(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 214;
+      instance.bitField6_ |= 0x00200000; // fallthrough
+    case 214:
+      break;
+    }
+  }
+  private static void parseField215(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 215;
+      instance.bitField6_ |= 0x00400000; // fallthrough
+    case 215:
+      break;
+    }
+  }
+  private static void parseField216(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 216;
+      instance.bitField6_ |= 0x00800000; // fallthrough
+    case 216:
+      break;
+    }
+  }
+  private static void parseField217(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 217;
+      instance.bitField6_ |= 0x01000000; // fallthrough
+    case 217:
+      break;
+    }
+  }
+  private static void parseField218(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 218;
+      instance.bitField6_ |= 0x02000000; // fallthrough
+    case 218:
+      break;
+    }
+  }
+  private static void parseField219(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 219;
+      instance.bitField6_ |= 0x04000000; // fallthrough
+    case 219:
+      break;
+    }
+  }
+  private static void parseField220(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 220;
+      instance.bitField6_ |= 0x08000000; // fallthrough
+    case 220:
+      break;
+    }
+  }
+  private static void parseField221(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 221;
+      instance.bitField6_ |= 0x10000000; // fallthrough
+    case 221:
+      break;
+    }
+  }
+  private static void parseField222(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 222;
+      instance.bitField6_ |= 0x20000000; // fallthrough
+    case 222:
+      break;
+    }
+  }
+  private static void parseField223(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 223;
+      instance.bitField6_ |= 0x40000000; // fallthrough
+    case 223:
+      break;
+    }
+  }
+  private static void parseField224(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 224;
+      instance.bitField6_ |= 0x80000000; // fallthrough
+    case 224:
+      break;
+    }
+  }
+  private static void parseField225(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 225;
+      instance.bitField7_ |= 0x00000001; // fallthrough
+    case 225:
+      break;
+    }
+  }
+  private static void parseField226(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 226;
+      instance.bitField7_ |= 0x00000002; // fallthrough
+    case 226:
+      break;
+    }
+  }
+  private static void parseField227(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 227;
+      instance.bitField7_ |= 0x00000004; // fallthrough
+    case 227:
+      break;
+    }
+  }
+  private static void parseField228(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 228;
+      instance.bitField7_ |= 0x00000008; // fallthrough
+    case 228:
+      break;
+    }
+  }
+  private static void parseField229(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 229;
+      instance.bitField7_ |= 0x00000010; // fallthrough
+    case 229:
+      break;
+    }
+  }
+  private static void parseField230(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 230;
+      instance.bitField7_ |= 0x00000020; // fallthrough
+    case 230:
+      break;
+    }
+  }
+  private static void parseField231(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 231;
+      instance.bitField7_ |= 0x00000040; // fallthrough
+    case 231:
+      break;
+    }
+  }
+  private static void parseField232(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 232;
+      instance.bitField7_ |= 0x00000080; // fallthrough
+    case 232:
+      break;
+    }
+  }
+  private static void parseField233(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 233;
+      instance.bitField7_ |= 0x00000100; // fallthrough
+    case 233:
+      break;
+    }
+  }
+  private static void parseField234(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 234;
+      instance.bitField7_ |= 0x00000200; // fallthrough
+    case 234:
+      break;
+    }
+  }
+  private static void parseField235(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 235;
+      instance.bitField7_ |= 0x00000400; // fallthrough
+    case 235:
+      break;
+    }
+  }
+  private static void parseField236(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 236;
+      instance.bitField7_ |= 0x00000800; // fallthrough
+    case 236:
+      break;
+    }
+  }
+  private static void parseField237(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 237;
+      instance.bitField7_ |= 0x00001000; // fallthrough
+    case 237:
+      break;
+    }
+  }
+  private static void parseField238(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 238;
+      instance.bitField7_ |= 0x00002000; // fallthrough
+    case 238:
+      break;
+    }
+  }
+  private static void parseField239(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 239;
+      instance.bitField7_ |= 0x00004000; // fallthrough
+    case 239:
+      break;
+    }
+  }
+  private static void parseField240(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 240;
+      instance.bitField7_ |= 0x00008000; // fallthrough
+    case 240:
+      break;
+    }
+  }
+  private static void parseField241(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 241;
+      instance.bitField7_ |= 0x00010000; // fallthrough
+    case 241:
+      break;
+    }
+  }
+  private static void parseField242(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 242;
+      instance.bitField7_ |= 0x00020000; // fallthrough
+    case 242:
+      break;
+    }
+  }
+  private static void parseField243(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 243;
+      instance.bitField7_ |= 0x00040000; // fallthrough
+    case 243:
+      break;
+    }
+  }
+  private static void parseField244(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 244;
+      instance.bitField7_ |= 0x00080000; // fallthrough
+    case 244:
+      break;
+    }
+  }
+  private static void parseField245(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 245;
+      instance.bitField7_ |= 0x00100000; // fallthrough
+    case 245:
+      break;
+    }
+  }
+  private static void parseField246(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 246;
+      instance.bitField7_ |= 0x00200000; // fallthrough
+    case 246:
+      break;
+    }
+  }
+  private static void parseField247(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 247;
+      instance.bitField7_ |= 0x00400000; // fallthrough
+    case 247:
+      break;
+    }
+  }
+  private static void parseField248(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 248;
+      instance.bitField7_ |= 0x00800000; // fallthrough
+    case 248:
+      break;
+    }
+  }
+  private static void parseField249(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 249;
+      instance.bitField7_ |= 0x01000000; // fallthrough
+    case 249:
+      break;
+    }
+  }
+  private static void parseField250(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 250;
+      instance.bitField7_ |= 0x02000000; // fallthrough
+    case 250:
+      break;
+    }
+  }
+  private static void parseField251(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 251;
+      instance.bitField7_ |= 0x04000000; // fallthrough
+    case 251:
+      break;
+    }
+  }
+  private static void parseField252(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 252;
+      instance.bitField7_ |= 0x08000000; // fallthrough
+    case 252:
+      break;
+    }
+  }
+  private static void parseField253(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 253;
+      instance.bitField7_ |= 0x10000000; // fallthrough
+    case 253:
+      break;
+    }
+  }
+  private static void parseField254(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 254;
+      instance.bitField7_ |= 0x20000000; // fallthrough
+    case 254:
+      break;
+    }
+  }
+  private static void parseField255(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 255;
+      instance.bitField7_ |= 0x40000000; // fallthrough
+    case 255:
+      break;
+    }
+  }
+  private static void parseField256(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 256;
+      instance.bitField7_ |= 0x80000000; // fallthrough
+    case 256:
+      break;
+    }
+  }
+  private static void parseField257(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 257;
+      instance.bitField8_ |= 0x00000001; // fallthrough
+    case 257:
+      break;
+    }
+  }
+  private static void parseField258(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 258;
+      instance.bitField8_ |= 0x00000002; // fallthrough
+    case 258:
+      break;
+    }
+  }
+  private static void parseField259(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 259;
+      instance.bitField8_ |= 0x00000004; // fallthrough
+    case 259:
+      break;
+    }
+  }
+  private static void parseField260(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 260;
+      instance.bitField8_ |= 0x00000008; // fallthrough
+    case 260:
+      break;
+    }
+  }
+  private static void parseField261(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 261;
+      instance.bitField8_ |= 0x00000010; // fallthrough
+    case 261:
+      break;
+    }
+  }
+  private static void parseField262(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 262;
+      instance.bitField8_ |= 0x00000020; // fallthrough
+    case 262:
+      break;
+    }
+  }
+  private static void parseField263(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 263;
+      instance.bitField8_ |= 0x00000040; // fallthrough
+    case 263:
+      break;
+    }
+  }
+  private static void parseField264(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 264;
+      instance.bitField8_ |= 0x00000080; // fallthrough
+    case 264:
+      break;
+    }
+  }
+  private static void parseField265(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 265;
+      instance.bitField8_ |= 0x00000100; // fallthrough
+    case 265:
+      break;
+    }
+  }
+  private static void parseField266(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 266;
+      instance.bitField8_ |= 0x00000200; // fallthrough
+    case 266:
+      break;
+    }
+  }
+  private static void parseField267(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 267;
+      instance.bitField8_ |= 0x00000400; // fallthrough
+    case 267:
+      break;
+    }
+  }
+  private static void parseField268(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 268;
+      instance.bitField8_ |= 0x00000800; // fallthrough
+    case 268:
+      break;
+    }
+  }
+  private static void parseField269(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 269;
+      instance.bitField8_ |= 0x00001000; // fallthrough
+    case 269:
+      break;
+    }
+  }
+  private static void parseField270(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 270;
+      instance.bitField8_ |= 0x00002000; // fallthrough
+    case 270:
+      break;
+    }
+  }
+  private static void parseField271(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 271;
+      instance.bitField8_ |= 0x00004000; // fallthrough
+    case 271:
+      break;
+    }
+  }
+  private static void parseField272(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 272;
+      instance.bitField8_ |= 0x00008000; // fallthrough
+    case 272:
+      break;
+    }
+  }
+  private static void parseField273(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 273;
+      instance.bitField8_ |= 0x00010000; // fallthrough
+    case 273:
+      break;
+    }
+  }
+  private static void parseField274(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 274;
+      instance.bitField8_ |= 0x00020000; // fallthrough
+    case 274:
+      break;
+    }
+  }
+  private static void parseField275(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 275;
+      instance.bitField8_ |= 0x00040000; // fallthrough
+    case 275:
+      break;
+    }
+  }
+  private static void parseField276(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 276;
+      instance.bitField8_ |= 0x00080000; // fallthrough
+    case 276:
+      break;
+    }
+  }
+  private static void parseField277(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 277;
+      instance.bitField8_ |= 0x00100000; // fallthrough
+    case 277:
+      break;
+    }
+  }
+  private static void parseField278(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 278;
+      instance.bitField8_ |= 0x00200000; // fallthrough
+    case 278:
+      break;
+    }
+  }
+  private static void parseField279(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 279;
+      instance.bitField8_ |= 0x00400000; // fallthrough
+    case 279:
+      break;
+    }
+  }
+  private static void parseField280(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 280;
+      instance.bitField8_ |= 0x00800000; // fallthrough
+    case 280:
+      break;
+    }
+  }
+  private static void parseField281(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 281;
+      instance.bitField8_ |= 0x01000000; // fallthrough
+    case 281:
+      break;
+    }
+  }
+  private static void parseField282(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 282;
+      instance.bitField8_ |= 0x02000000; // fallthrough
+    case 282:
+      break;
+    }
+  }
+  private static void parseField283(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 283;
+      instance.bitField8_ |= 0x04000000; // fallthrough
+    case 283:
+      break;
+    }
+  }
+  private static void parseField284(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 284;
+      instance.bitField8_ |= 0x08000000; // fallthrough
+    case 284:
+      break;
+    }
+  }
+  private static void parseField285(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 285;
+      instance.bitField8_ |= 0x10000000; // fallthrough
+    case 285:
+      break;
+    }
+  }
+  private static void parseField286(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 286;
+      instance.bitField8_ |= 0x20000000; // fallthrough
+    case 286:
+      break;
+    }
+  }
+  private static void parseField287(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 287;
+      instance.bitField8_ |= 0x40000000; // fallthrough
+    case 287:
+      break;
+    }
+  }
+  private static void parseField288(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 288;
+      instance.bitField8_ |= 0x80000000; // fallthrough
+    case 288:
+      break;
+    }
+  }
+  private static void parseField289(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 289;
+      instance.bitField9_ |= 0x00000001; // fallthrough
+    case 289:
+      break;
+    }
+  }
+  private static void parseField290(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 290;
+      instance.bitField9_ |= 0x00000002; // fallthrough
+    case 290:
+      break;
+    }
+  }
+  private static void parseField291(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 291;
+      instance.bitField9_ |= 0x00000004; // fallthrough
+    case 291:
+      break;
+    }
+  }
+  private static void parseField292(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 292;
+      instance.bitField9_ |= 0x00000008; // fallthrough
+    case 292:
+      break;
+    }
+  }
+  private static void parseField293(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 293;
+      instance.bitField9_ |= 0x00000010; // fallthrough
+    case 293:
+      break;
+    }
+  }
+  private static void parseField294(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 294;
+      instance.bitField9_ |= 0x00000020; // fallthrough
+    case 294:
+      break;
+    }
+  }
+  private static void parseField295(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 295;
+      instance.bitField9_ |= 0x00000040; // fallthrough
+    case 295:
+      break;
+    }
+  }
+  private static void parseField296(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 296;
+      instance.bitField9_ |= 0x00000080; // fallthrough
+    case 296:
+      break;
+    }
+  }
+  private static void parseField297(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 297;
+      instance.bitField9_ |= 0x00000100; // fallthrough
+    case 297:
+      break;
+    }
+  }
+  private static void parseField298(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 298;
+      instance.bitField9_ |= 0x00000200; // fallthrough
+    case 298:
+      break;
+    }
+  }
+  private static void parseField299(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 299;
+      instance.bitField9_ |= 0x00000400; // fallthrough
+    case 299:
+      break;
+    }
+  }
+  private static void parseField300(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 300;
+      instance.bitField9_ |= 0x00000800; // fallthrough
+    case 300:
+      break;
+    }
+  }
+  private static void parseField301(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 301;
+      instance.bitField9_ |= 0x00001000; // fallthrough
+    case 301:
+      break;
+    }
+  }
+  private static void parseField302(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 302;
+      instance.bitField9_ |= 0x00002000; // fallthrough
+    case 302:
+      break;
+    }
+  }
+  private static void parseField303(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 303;
+      instance.bitField9_ |= 0x00004000; // fallthrough
+    case 303:
+      break;
+    }
+  }
+  private static void parseField304(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 304;
+      instance.bitField9_ |= 0x00008000; // fallthrough
+    case 304:
+      break;
+    }
+  }
+  private static void parseField305(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 305;
+      instance.bitField9_ |= 0x00010000; // fallthrough
+    case 305:
+      break;
+    }
+  }
+  private static void parseField306(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 306;
+      instance.bitField9_ |= 0x00020000; // fallthrough
+    case 306:
+      break;
+    }
+  }
+  private static void parseField307(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 307;
+      instance.bitField9_ |= 0x00040000; // fallthrough
+    case 307:
+      break;
+    }
+  }
+  private static void parseField308(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 308;
+      instance.bitField9_ |= 0x00080000; // fallthrough
+    case 308:
+      break;
+    }
+  }
+  private static void parseField309(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 309;
+      instance.bitField9_ |= 0x00100000; // fallthrough
+    case 309:
+      break;
+    }
+  }
+  private static void parseField310(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 310;
+      instance.bitField9_ |= 0x00200000; // fallthrough
+    case 310:
+      break;
+    }
+  }
+  private static void parseField311(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 311;
+      instance.bitField9_ |= 0x00400000; // fallthrough
+    case 311:
+      break;
+    }
+  }
+  private static void parseField312(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 312;
+      instance.bitField9_ |= 0x00800000; // fallthrough
+    case 312:
+      break;
+    }
+  }
+  private static void parseField313(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 313;
+      instance.bitField9_ |= 0x01000000; // fallthrough
+    case 313:
+      break;
+    }
+  }
+  private static void parseField314(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 314;
+      instance.bitField9_ |= 0x02000000; // fallthrough
+    case 314:
+      break;
+    }
+  }
+  private static void parseField315(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 315;
+      instance.bitField9_ |= 0x04000000; // fallthrough
+    case 315:
+      break;
+    }
+  }
+  private static void parseField316(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 316;
+      instance.bitField9_ |= 0x08000000; // fallthrough
+    case 316:
+      break;
+    }
+  }
+  private static void parseField317(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 317;
+      instance.bitField9_ |= 0x10000000; // fallthrough
+    case 317:
+      break;
+    }
+  }
+  private static void parseField318(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 318;
+      instance.bitField9_ |= 0x20000000; // fallthrough
+    case 318:
+      break;
+    }
+  }
+  private static void parseField319(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 319;
+      instance.bitField9_ |= 0x40000000; // fallthrough
+    case 319:
+      break;
+    }
+  }
+  private static void parseField320(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 320;
+      instance.bitField9_ |= 0x80000000; // fallthrough
+    case 320:
+      break;
+    }
+  }
+  private static void parseField321(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 321;
+      instance.bitField10_ |= 0x00000001; // fallthrough
+    case 321:
+      break;
+    }
+  }
+  private static void parseField322(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 322;
+      instance.bitField10_ |= 0x00000002; // fallthrough
+    case 322:
+      break;
+    }
+  }
+  private static void parseField323(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 323;
+      instance.bitField10_ |= 0x00000004; // fallthrough
+    case 323:
+      break;
+    }
+  }
+  private static void parseField324(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 324;
+      instance.bitField10_ |= 0x00000008; // fallthrough
+    case 324:
+      break;
+    }
+  }
+  private static void parseField325(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 325;
+      instance.bitField10_ |= 0x00000010; // fallthrough
+    case 325:
+      break;
+    }
+  }
+  private static void parseField326(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 326;
+      instance.bitField10_ |= 0x00000020; // fallthrough
+    case 326:
+      break;
+    }
+  }
+  private static void parseField327(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 327;
+      instance.bitField10_ |= 0x00000040; // fallthrough
+    case 327:
+      break;
+    }
+  }
+  private static void parseField328(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 328;
+      instance.bitField10_ |= 0x00000080; // fallthrough
+    case 328:
+      break;
+    }
+  }
+  private static void parseField329(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 329;
+      instance.bitField10_ |= 0x00000100; // fallthrough
+    case 329:
+      break;
+    }
+  }
+  private static void parseField330(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 330;
+      instance.bitField10_ |= 0x00000200; // fallthrough
+    case 330:
+      break;
+    }
+  }
+  private static void parseField331(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 331;
+      instance.bitField10_ |= 0x00000400; // fallthrough
+    case 331:
+      break;
+    }
+  }
+  private static void parseField332(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 332;
+      instance.bitField10_ |= 0x00000800; // fallthrough
+    case 332:
+      break;
+    }
+  }
+  private static void parseField333(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 333;
+      instance.bitField10_ |= 0x00001000; // fallthrough
+    case 333:
+      break;
+    }
+  }
+  private static void parseField334(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 334;
+      instance.bitField10_ |= 0x00002000; // fallthrough
+    case 334:
+      break;
+    }
+  }
+  private static void parseField335(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 335;
+      instance.bitField10_ |= 0x00004000; // fallthrough
+    case 335:
+      break;
+    }
+  }
+  private static void parseField336(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 336;
+      instance.bitField10_ |= 0x00008000; // fallthrough
+    case 336:
+      break;
+    }
+  }
+  private static void parseField337(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 337;
+      instance.bitField10_ |= 0x00010000; // fallthrough
+    case 337:
+      break;
+    }
+  }
+  private static void parseField338(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 338;
+      instance.bitField10_ |= 0x00020000; // fallthrough
+    case 338:
+      break;
+    }
+  }
+  private static void parseField339(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 339;
+      instance.bitField10_ |= 0x00040000; // fallthrough
+    case 339:
+      break;
+    }
+  }
+  private static void parseField340(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 340;
+      instance.bitField10_ |= 0x00080000; // fallthrough
+    case 340:
+      break;
+    }
+  }
+  private static void parseField341(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 341;
+      instance.bitField10_ |= 0x00100000; // fallthrough
+    case 341:
+      break;
+    }
+  }
+  private static void parseField342(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 342;
+      instance.bitField10_ |= 0x00200000; // fallthrough
+    case 342:
+      break;
+    }
+  }
+  private static void parseField343(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 343;
+      instance.bitField10_ |= 0x00400000; // fallthrough
+    case 343:
+      break;
+    }
+  }
+  private static void parseField344(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 344;
+      instance.bitField10_ |= 0x00800000; // fallthrough
+    case 344:
+      break;
+    }
+  }
+  private static void parseField345(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 345;
+      instance.bitField10_ |= 0x01000000; // fallthrough
+    case 345:
+      break;
+    }
+  }
+  private static void parseField346(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 346;
+      instance.bitField10_ |= 0x02000000; // fallthrough
+    case 346:
+      break;
+    }
+  }
+  private static void parseField347(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 347;
+      instance.bitField10_ |= 0x04000000; // fallthrough
+    case 347:
+      break;
+    }
+  }
+  private static void parseField348(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 348;
+      instance.bitField10_ |= 0x08000000; // fallthrough
+    case 348:
+      break;
+    }
+  }
+  private static void parseField349(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 349;
+      instance.bitField10_ |= 0x10000000; // fallthrough
+    case 349:
+      break;
+    }
+  }
+  private static void parseField350(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 350;
+      instance.bitField10_ |= 0x20000000; // fallthrough
+    case 350:
+      break;
+    }
+  }
+  private static void parseField351(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 351;
+      instance.bitField10_ |= 0x40000000; // fallthrough
+    case 351:
+      break;
+    }
+  }
+  private static void parseField352(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 352;
+      instance.bitField10_ |= 0x80000000; // fallthrough
+    case 352:
+      break;
+    }
+  }
+  private static void parseField353(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 353;
+      instance.bitField11_ |= 0x00000001; // fallthrough
+    case 353:
+      break;
+    }
+  }
+  private static void parseField354(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 354;
+      instance.bitField11_ |= 0x00000002; // fallthrough
+    case 354:
+      break;
+    }
+  }
+  private static void parseField355(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 355;
+      instance.bitField11_ |= 0x00000004; // fallthrough
+    case 355:
+      break;
+    }
+  }
+  private static void parseField356(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 356;
+      instance.bitField11_ |= 0x00000008; // fallthrough
+    case 356:
+      break;
+    }
+  }
+  private static void parseField357(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 357;
+      instance.bitField11_ |= 0x00000010; // fallthrough
+    case 357:
+      break;
+    }
+  }
+  private static void parseField358(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 358;
+      instance.bitField11_ |= 0x00000020; // fallthrough
+    case 358:
+      break;
+    }
+  }
+  private static void parseField359(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 359;
+      instance.bitField11_ |= 0x00000040; // fallthrough
+    case 359:
+      break;
+    }
+  }
+  private static void parseField360(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 360;
+      instance.bitField11_ |= 0x00000080; // fallthrough
+    case 360:
+      break;
+    }
+  }
+  private static void parseField361(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 361;
+      instance.bitField11_ |= 0x00000100; // fallthrough
+    case 361:
+      break;
+    }
+  }
+  private static void parseField362(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 362;
+      instance.bitField11_ |= 0x00000200; // fallthrough
+    case 362:
+      break;
+    }
+  }
+  private static void parseField363(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 363;
+      instance.bitField11_ |= 0x00000400; // fallthrough
+    case 363:
+      break;
+    }
+  }
+  private static void parseField364(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 364;
+      instance.bitField11_ |= 0x00000800; // fallthrough
+    case 364:
+      break;
+    }
+  }
+  private static void parseField365(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 365;
+      instance.bitField11_ |= 0x00001000; // fallthrough
+    case 365:
+      break;
+    }
+  }
+  private static void parseField366(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 366;
+      instance.bitField11_ |= 0x00002000; // fallthrough
+    case 366:
+      break;
+    }
+  }
+  private static void parseField367(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 367;
+      instance.bitField11_ |= 0x00004000; // fallthrough
+    case 367:
+      break;
+    }
+  }
+  private static void parseField368(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 368;
+      instance.bitField11_ |= 0x00008000; // fallthrough
+    case 368:
+      break;
+    }
+  }
+  private static void parseField369(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 369;
+      instance.bitField11_ |= 0x00010000; // fallthrough
+    case 369:
+      break;
+    }
+  }
+  private static void parseField370(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 370;
+      instance.bitField11_ |= 0x00020000; // fallthrough
+    case 370:
+      break;
+    }
+  }
+  private static void parseField371(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 371;
+      instance.bitField11_ |= 0x00040000; // fallthrough
+    case 371:
+      break;
+    }
+  }
+  private static void parseField372(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 372;
+      instance.bitField11_ |= 0x00080000; // fallthrough
+    case 372:
+      break;
+    }
+  }
+  private static void parseField373(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 373;
+      instance.bitField11_ |= 0x00100000; // fallthrough
+    case 373:
+      break;
+    }
+  }
+  private static void parseField374(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 374;
+      instance.bitField11_ |= 0x00200000; // fallthrough
+    case 374:
+      break;
+    }
+  }
+  private static void parseField375(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 375;
+      instance.bitField11_ |= 0x00400000; // fallthrough
+    case 375:
+      break;
+    }
+  }
+  private static void parseField376(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 376;
+      instance.bitField11_ |= 0x00800000; // fallthrough
+    case 376:
+      break;
+    }
+  }
+  private static void parseField377(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 377;
+      instance.bitField11_ |= 0x01000000; // fallthrough
+    case 377:
+      break;
+    }
+  }
+  private static void parseField378(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 378;
+      instance.bitField11_ |= 0x02000000; // fallthrough
+    case 378:
+      break;
+    }
+  }
+  private static void parseField379(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 379;
+      instance.bitField11_ |= 0x04000000; // fallthrough
+    case 379:
+      break;
+    }
+  }
+  private static void parseField380(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 380;
+      instance.bitField11_ |= 0x08000000; // fallthrough
+    case 380:
+      break;
+    }
+  }
+  private static void parseField381(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 381;
+      instance.bitField11_ |= 0x10000000; // fallthrough
+    case 381:
+      break;
+    }
+  }
+  private static void parseField382(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 382;
+      instance.bitField11_ |= 0x20000000; // fallthrough
+    case 382:
+      break;
+    }
+  }
+  private static void parseField383(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 383;
+      instance.bitField11_ |= 0x40000000; // fallthrough
+    case 383:
+      break;
+    }
+  }
+  private static void parseField384(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 384;
+      instance.bitField11_ |= 0x80000000; // fallthrough
+    case 384:
+      break;
+    }
+  }
+  private static void parseField385(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 385;
+      instance.bitField12_ |= 0x00000001; // fallthrough
+    case 385:
+      break;
+    }
+  }
+  private static void parseField386(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 386;
+      instance.bitField12_ |= 0x00000002; // fallthrough
+    case 386:
+      break;
+    }
+  }
+  private static void parseField387(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 387;
+      instance.bitField12_ |= 0x00000004; // fallthrough
+    case 387:
+      break;
+    }
+  }
+  private static void parseField388(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 388;
+      instance.bitField12_ |= 0x00000008; // fallthrough
+    case 388:
+      break;
+    }
+  }
+  private static void parseField389(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 389;
+      instance.bitField12_ |= 0x00000010; // fallthrough
+    case 389:
+      break;
+    }
+  }
+  private static void parseField390(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 390;
+      instance.bitField12_ |= 0x00000020; // fallthrough
+    case 390:
+      break;
+    }
+  }
+  private static void parseField391(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 391;
+      instance.bitField12_ |= 0x00000040; // fallthrough
+    case 391:
+      break;
+    }
+  }
+  private static void parseField392(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 392;
+      instance.bitField12_ |= 0x00000080; // fallthrough
+    case 392:
+      break;
+    }
+  }
+  private static void parseField393(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 393;
+      instance.bitField12_ |= 0x00000100; // fallthrough
+    case 393:
+      break;
+    }
+  }
+  private static void parseField394(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 394;
+      instance.bitField12_ |= 0x00000200; // fallthrough
+    case 394:
+      break;
+    }
+  }
+  private static void parseField395(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 395;
+      instance.bitField12_ |= 0x00000400; // fallthrough
+    case 395:
+      break;
+    }
+  }
+  private static void parseField396(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 396;
+      instance.bitField12_ |= 0x00000800; // fallthrough
+    case 396:
+      break;
+    }
+  }
+  private static void parseField397(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 397;
+      instance.bitField12_ |= 0x00001000; // fallthrough
+    case 397:
+      break;
+    }
+  }
+  private static void parseField398(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 398;
+      instance.bitField12_ |= 0x00002000; // fallthrough
+    case 398:
+      break;
+    }
+  }
+  private static void parseField399(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 399;
+      instance.bitField12_ |= 0x00004000; // fallthrough
+    case 399:
+      break;
+    }
+  }
+  private static void parseField400(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 400;
+      instance.bitField12_ |= 0x00008000; // fallthrough
+    case 400:
+      break;
+    }
+  }
+  private static void parseField401(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 401;
+      instance.bitField12_ |= 0x00010000; // fallthrough
+    case 401:
+      break;
+    }
+  }
+  private static void parseField402(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 402;
+      instance.bitField12_ |= 0x00020000; // fallthrough
+    case 402:
+      break;
+    }
+  }
+  private static void parseField403(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 403;
+      instance.bitField12_ |= 0x00040000; // fallthrough
+    case 403:
+      break;
+    }
+  }
+  private static void parseField404(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 404;
+      instance.bitField12_ |= 0x00080000; // fallthrough
+    case 404:
+      break;
+    }
+  }
+  private static void parseField405(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 405;
+      instance.bitField12_ |= 0x00100000; // fallthrough
+    case 405:
+      break;
+    }
+  }
+  private static void parseField406(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 406;
+      instance.bitField12_ |= 0x00200000; // fallthrough
+    case 406:
+      break;
+    }
+  }
+  private static void parseField407(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 407;
+      instance.bitField12_ |= 0x00400000; // fallthrough
+    case 407:
+      break;
+    }
+  }
+  private static void parseField408(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 408;
+      instance.bitField12_ |= 0x00800000; // fallthrough
+    case 408:
+      break;
+    }
+  }
+  private static void parseField409(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 409;
+      instance.bitField12_ |= 0x01000000; // fallthrough
+    case 409:
+      break;
+    }
+  }
+  private static void parseField410(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 410;
+      instance.bitField12_ |= 0x02000000; // fallthrough
+    case 410:
+      break;
+    }
+  }
+  private static void parseField411(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 411;
+      instance.bitField12_ |= 0x04000000; // fallthrough
+    case 411:
+      break;
+    }
+  }
+  private static void parseField412(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 412;
+      instance.bitField12_ |= 0x08000000; // fallthrough
+    case 412:
+      break;
+    }
+  }
+  private static void parseField413(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 413;
+      instance.bitField12_ |= 0x10000000; // fallthrough
+    case 413:
+      break;
+    }
+  }
+  private static void parseField414(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 414;
+      instance.bitField12_ |= 0x20000000; // fallthrough
+    case 414:
+      break;
+    }
+  }
+  private static void parseField415(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 415;
+      instance.bitField12_ |= 0x40000000; // fallthrough
+    case 415:
+      break;
+    }
+  }
+  private static void parseField416(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 416;
+      instance.bitField12_ |= 0x80000000; // fallthrough
+    case 416:
+      break;
+    }
+  }
+  private static void parseField417(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 417;
+      instance.bitField13_ |= 0x00000001; // fallthrough
+    case 417:
+      break;
+    }
+  }
+  private static void parseField418(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 418;
+      instance.bitField13_ |= 0x00000002; // fallthrough
+    case 418:
+      break;
+    }
+  }
+  private static void parseField419(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 419;
+      instance.bitField13_ |= 0x00000004; // fallthrough
+    case 419:
+      break;
+    }
+  }
+  private static void parseField420(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 420;
+      instance.bitField13_ |= 0x00000008; // fallthrough
+    case 420:
+      break;
+    }
+  }
+  private static void parseField421(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 421;
+      instance.bitField13_ |= 0x00000010; // fallthrough
+    case 421:
+      break;
+    }
+  }
+  private static void parseField422(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 422;
+      instance.bitField13_ |= 0x00000020; // fallthrough
+    case 422:
+      break;
+    }
+  }
+  private static void parseField423(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 423;
+      instance.bitField13_ |= 0x00000040; // fallthrough
+    case 423:
+      break;
+    }
+  }
+  private static void parseField424(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 424;
+      instance.bitField13_ |= 0x00000080; // fallthrough
+    case 424:
+      break;
+    }
+  }
+  private static void parseField425(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 425;
+      instance.bitField13_ |= 0x00000100; // fallthrough
+    case 425:
+      break;
+    }
+  }
+  private static void parseField426(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 426;
+      instance.bitField13_ |= 0x00000200; // fallthrough
+    case 426:
+      break;
+    }
+  }
+  private static void parseField427(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 427;
+      instance.bitField13_ |= 0x00000400; // fallthrough
+    case 427:
+      break;
+    }
+  }
+  private static void parseField428(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 428;
+      instance.bitField13_ |= 0x00000800; // fallthrough
+    case 428:
+      break;
+    }
+  }
+  private static void parseField429(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 429;
+      instance.bitField13_ |= 0x00001000; // fallthrough
+    case 429:
+      break;
+    }
+  }
+  private static void parseField430(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 430;
+      instance.bitField13_ |= 0x00002000; // fallthrough
+    case 430:
+      break;
+    }
+  }
+  private static void parseField431(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 431;
+      instance.bitField13_ |= 0x00004000; // fallthrough
+    case 431:
+      break;
+    }
+  }
+  private static void parseField432(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 432;
+      instance.bitField13_ |= 0x00008000; // fallthrough
+    case 432:
+      break;
+    }
+  }
+  private static void parseField433(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 433;
+      instance.bitField13_ |= 0x00010000; // fallthrough
+    case 433:
+      break;
+    }
+  }
+  private static void parseField434(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 434;
+      instance.bitField13_ |= 0x00020000; // fallthrough
+    case 434:
+      break;
+    }
+  }
+  private static void parseField435(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 435;
+      instance.bitField13_ |= 0x00040000; // fallthrough
+    case 435:
+      break;
+    }
+  }
+  private static void parseField436(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 436;
+      instance.bitField13_ |= 0x00080000; // fallthrough
+    case 436:
+      break;
+    }
+  }
+  private static void parseField437(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 437;
+      instance.bitField13_ |= 0x00100000; // fallthrough
+    case 437:
+      break;
+    }
+  }
+  private static void parseField438(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 438;
+      instance.bitField13_ |= 0x00200000; // fallthrough
+    case 438:
+      break;
+    }
+  }
+  private static void parseField439(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 439;
+      instance.bitField13_ |= 0x00400000; // fallthrough
+    case 439:
+      break;
+    }
+  }
+  private static void parseField440(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 440;
+      instance.bitField13_ |= 0x00800000; // fallthrough
+    case 440:
+      break;
+    }
+  }
+  private static void parseField441(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 441;
+      instance.bitField13_ |= 0x01000000; // fallthrough
+    case 441:
+      break;
+    }
+  }
+  private static void parseField442(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 442;
+      instance.bitField13_ |= 0x02000000; // fallthrough
+    case 442:
+      break;
+    }
+  }
+  private static void parseField443(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 443;
+      instance.bitField13_ |= 0x04000000; // fallthrough
+    case 443:
+      break;
+    }
+  }
+  private static void parseField444(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 444;
+      instance.bitField13_ |= 0x08000000; // fallthrough
+    case 444:
+      break;
+    }
+  }
+  private static void parseField445(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 445;
+      instance.bitField13_ |= 0x10000000; // fallthrough
+    case 445:
+      break;
+    }
+  }
+  private static void parseField446(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 446;
+      instance.bitField13_ |= 0x20000000; // fallthrough
+    case 446:
+      break;
+    }
+  }
+  private static void parseField447(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 447;
+      instance.bitField13_ |= 0x40000000; // fallthrough
+    case 447:
+      break;
+    }
+  }
+  private static void parseField448(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 448;
+      instance.bitField13_ |= 0x80000000; // fallthrough
+    case 448:
+      break;
+    }
+  }
+  private static void parseField449(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 449;
+      instance.bitField14_ |= 0x00000001; // fallthrough
+    case 449:
+      break;
+    }
+  }
+  private static void parseField450(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 450;
+      instance.bitField14_ |= 0x00000002; // fallthrough
+    case 450:
+      break;
+    }
+  }
+  private static void parseField451(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 451;
+      instance.bitField14_ |= 0x00000004; // fallthrough
+    case 451:
+      break;
+    }
+  }
+  private static void parseField452(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 452;
+      instance.bitField14_ |= 0x00000008; // fallthrough
+    case 452:
+      break;
+    }
+  }
+  private static void parseField453(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 453;
+      instance.bitField14_ |= 0x00000010; // fallthrough
+    case 453:
+      break;
+    }
+  }
+  private static void parseField454(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 454;
+      instance.bitField14_ |= 0x00000020; // fallthrough
+    case 454:
+      break;
+    }
+  }
+  private static void parseField455(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 455;
+      instance.bitField14_ |= 0x00000040; // fallthrough
+    case 455:
+      break;
+    }
+  }
+  private static void parseField456(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 456;
+      instance.bitField14_ |= 0x00000080; // fallthrough
+    case 456:
+      break;
+    }
+  }
+  private static void parseField457(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 457;
+      instance.bitField14_ |= 0x00000100; // fallthrough
+    case 457:
+      break;
+    }
+  }
+  private static void parseField458(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 458;
+      instance.bitField14_ |= 0x00000200; // fallthrough
+    case 458:
+      break;
+    }
+  }
+  private static void parseField459(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 459;
+      instance.bitField14_ |= 0x00000400; // fallthrough
+    case 459:
+      break;
+    }
+  }
+  private static void parseField460(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 460;
+      instance.bitField14_ |= 0x00000800; // fallthrough
+    case 460:
+      break;
+    }
+  }
+  private static void parseField461(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 461;
+      instance.bitField14_ |= 0x00001000; // fallthrough
+    case 461:
+      break;
+    }
+  }
+  private static void parseField462(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 462;
+      instance.bitField14_ |= 0x00002000; // fallthrough
+    case 462:
+      break;
+    }
+  }
+  private static void parseField463(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 463;
+      instance.bitField14_ |= 0x00004000; // fallthrough
+    case 463:
+      break;
+    }
+  }
+  private static void parseField464(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 464;
+      instance.bitField14_ |= 0x00008000; // fallthrough
+    case 464:
+      break;
+    }
+  }
+  private static void parseField465(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 465;
+      instance.bitField14_ |= 0x00010000; // fallthrough
+    case 465:
+      break;
+    }
+  }
+  private static void parseField466(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 466;
+      instance.bitField14_ |= 0x00020000; // fallthrough
+    case 466:
+      break;
+    }
+  }
+  private static void parseField467(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 467;
+      instance.bitField14_ |= 0x00040000; // fallthrough
+    case 467:
+      break;
+    }
+  }
+  private static void parseField468(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 468;
+      instance.bitField14_ |= 0x00080000; // fallthrough
+    case 468:
+      break;
+    }
+  }
+  private static void parseField469(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 469;
+      instance.bitField14_ |= 0x00100000; // fallthrough
+    case 469:
+      break;
+    }
+  }
+  private static void parseField470(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 470;
+      instance.bitField14_ |= 0x00200000; // fallthrough
+    case 470:
+      break;
+    }
+  }
+  private static void parseField471(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 471;
+      instance.bitField14_ |= 0x00400000; // fallthrough
+    case 471:
+      break;
+    }
+  }
+  private static void parseField472(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 472;
+      instance.bitField14_ |= 0x00800000; // fallthrough
+    case 472:
+      break;
+    }
+  }
+  private static void parseField473(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 473;
+      instance.bitField14_ |= 0x01000000; // fallthrough
+    case 473:
+      break;
+    }
+  }
+  private static void parseField474(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 474;
+      instance.bitField14_ |= 0x02000000; // fallthrough
+    case 474:
+      break;
+    }
+  }
+  private static void parseField475(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 475;
+      instance.bitField14_ |= 0x04000000; // fallthrough
+    case 475:
+      break;
+    }
+  }
+  private static void parseField476(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 476;
+      instance.bitField14_ |= 0x08000000; // fallthrough
+    case 476:
+      break;
+    }
+  }
+  private static void parseField477(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 477;
+      instance.bitField14_ |= 0x10000000; // fallthrough
+    case 477:
+      break;
+    }
+  }
+  private static void parseField478(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 478;
+      instance.bitField14_ |= 0x20000000; // fallthrough
+    case 478:
+      break;
+    }
+  }
+  private static void parseField479(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 479;
+      instance.bitField14_ |= 0x40000000; // fallthrough
+    case 479:
+      break;
+    }
+  }
+  private static void parseField480(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 480;
+      instance.bitField14_ |= 0x80000000; // fallthrough
+    case 480:
+      break;
+    }
+  }
+  private static void parseField481(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 481;
+      instance.bitField15_ |= 0x00000001; // fallthrough
+    case 481:
+      break;
+    }
+  }
+  private static void parseField482(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 482;
+      instance.bitField15_ |= 0x00000002; // fallthrough
+    case 482:
+      break;
+    }
+  }
+  private static void parseField483(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 483;
+      instance.bitField15_ |= 0x00000004; // fallthrough
+    case 483:
+      break;
+    }
+  }
+  private static void parseField484(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 484;
+      instance.bitField15_ |= 0x00000008; // fallthrough
+    case 484:
+      break;
+    }
+  }
+  private static void parseField485(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 485;
+      instance.bitField15_ |= 0x00000010; // fallthrough
+    case 485:
+      break;
+    }
+  }
+  private static void parseField486(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 486;
+      instance.bitField15_ |= 0x00000020; // fallthrough
+    case 486:
+      break;
+    }
+  }
+  private static void parseField487(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 487;
+      instance.bitField15_ |= 0x00000040; // fallthrough
+    case 487:
+      break;
+    }
+  }
+  private static void parseField488(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 488;
+      instance.bitField15_ |= 0x00000080; // fallthrough
+    case 488:
+      break;
+    }
+  }
+  private static void parseField489(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 489;
+      instance.bitField15_ |= 0x00000100; // fallthrough
+    case 489:
+      break;
+    }
+  }
+  private static void parseField490(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 490;
+      instance.bitField15_ |= 0x00000200; // fallthrough
+    case 490:
+      break;
+    }
+  }
+  private static void parseField491(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 491;
+      instance.bitField15_ |= 0x00000400; // fallthrough
+    case 491:
+      break;
+    }
+  }
+  private static void parseField492(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 492;
+      instance.bitField15_ |= 0x00000800; // fallthrough
+    case 492:
+      break;
+    }
+  }
+  private static void parseField493(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 493;
+      instance.bitField15_ |= 0x00001000; // fallthrough
+    case 493:
+      break;
+    }
+  }
+  private static void parseField494(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 494;
+      instance.bitField15_ |= 0x00002000; // fallthrough
+    case 494:
+      break;
+    }
+  }
+  private static void parseField495(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 495;
+      instance.bitField15_ |= 0x00004000; // fallthrough
+    case 495:
+      break;
+    }
+  }
+  private static void parseField496(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 496;
+      instance.bitField15_ |= 0x00008000; // fallthrough
+    case 496:
+      break;
+    }
+  }
+  private static void parseField497(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 497;
+      instance.bitField15_ |= 0x00010000; // fallthrough
+    case 497:
+      break;
+    }
+  }
+  private static void parseField498(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 498;
+      instance.bitField15_ |= 0x00020000; // fallthrough
+    case 498:
+      break;
+    }
+  }
+  private static void parseField499(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 499;
+      instance.bitField15_ |= 0x00040000; // fallthrough
+    case 499:
+      break;
+    }
+  }
+  private static void parseField500(
+      com.google.protobuf.LargeButSafeOneof instance, com.google.protobuf.CodedInputStream input)
+      throws java.io.IOException {
+    instance.safeOneof_ = input.readInt32();
+    switch (instance.safeOneofCase_) {
+    default:
+      clearSafeOneofHasBits(instance); // fallthrough
+    case 0:
+      instance.safeOneofCase_ = 500;
+      instance.bitField15_ |= 0x00080000; // fallthrough
+    case 500:
+      break;
+    }
+  }
+
+  private static void clearSafeOneofHasBits(com.google.protobuf.LargeButSafeOneof instance) {
+    instance.bitField0_ = (instance.bitField0_ & ~0xffffffff);
+    instance.bitField1_ = (instance.bitField1_ & ~0xffffffff);
+    instance.bitField2_ = (instance.bitField2_ & ~0xffffffff);
+    instance.bitField3_ = (instance.bitField3_ & ~0xffffffff);
+    instance.bitField4_ = (instance.bitField4_ & ~0xffffffff);
+    instance.bitField5_ = (instance.bitField5_ & ~0xffffffff);
+    instance.bitField6_ = (instance.bitField6_ & ~0xffffffff);
+    instance.bitField7_ = (instance.bitField7_ & ~0xffffffff);
+    instance.bitField8_ = (instance.bitField8_ & ~0xffffffff);
+    instance.bitField9_ = (instance.bitField9_ & ~0xffffffff);
+    instance.bitField10_ = (instance.bitField10_ & ~0xffffffff);
+    instance.bitField11_ = (instance.bitField11_ & ~0xffffffff);
+    instance.bitField12_ = (instance.bitField12_ & ~0xffffffff);
+    instance.bitField13_ = (instance.bitField13_ & ~0xffffffff);
+    instance.bitField14_ = (instance.bitField14_ & ~0xffffffff);
+    instance.bitField15_ = (instance.bitField15_ & ~0x000fffff);
+  }
+
   private static final com.google.protobuf.Parser<LargeButSafeOneof>
-      PARSER = new com.google.protobuf.AbstractParser<LargeButSafeOneof>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<LargeButSafeOneof> {
+    MessageParser() {}
+
     @java.lang.Override
     public LargeButSafeOneof parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return LargeButSafeOneof.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(LargeButSafeOneof instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<LargeButSafeOneof> parser() {
     return PARSER;

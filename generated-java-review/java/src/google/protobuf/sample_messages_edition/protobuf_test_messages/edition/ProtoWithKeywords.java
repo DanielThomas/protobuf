@@ -373,15 +373,30 @@ private static final long serialVersionUID = 0L;
               protobuf_test_messages.edition.ProtoWithKeywords.class, protobuf_test_messages.edition.ProtoWithKeywords.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using protobuf_test_messages.edition.ProtoWithKeywords.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      concept_ = "";
+      requires_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+    }
+    private Builder(protobuf_test_messages.edition.ProtoWithKeywords other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -424,7 +439,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(protobuf_test_messages.edition.ProtoWithKeywords result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.inline_ = inline_;
         to_bitField0_ |= 0x00000001;
@@ -438,6 +453,13 @@ private static final long serialVersionUID = 0L;
         result.requires_ = requires_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(protobuf_test_messages.edition.ProtoWithKeywords other, java.lang.Object[] parserLocals) {
+      inline_ = other.getInline();
+      concept_ = other.concept_;
+      requires_ = other.requires_;
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -526,7 +548,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private int inline_ ;
+    private int inline_;
     /**
      * <code>int32 inline = 1;</code>
      * @return Whether the inline field is set.
@@ -566,7 +588,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object concept_ = "";
+    private java.lang.Object concept_;
     /**
      * <code>string concept = 2;</code>
      * @return Whether the concept field is set.
@@ -645,8 +667,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList requires_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList requires_;
     private void ensureRequiresIsMutable() {
       if (!requires_.isModifiable()) {
         requires_ = new com.google.protobuf.LazyStringArrayList(requires_);
@@ -769,22 +790,91 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static ProtoWithKeywords parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    ProtoWithKeywords instance = new ProtoWithKeywords((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
+            instance.inline_ = input.readInt32();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 8
+          case 18: {
+            instance.concept_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000002;
+            break;
+          } // case 18
+          case 26: {
+            ensureRequiresIsMutable(instance);
+            instance.requires_.add(input.readStringRequireUtf8());
+            break;
+          } // case 26
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static void ensureRequiresIsMutable(protobuf_test_messages.edition.ProtoWithKeywords instance) {
+    if (!instance.requires_.isModifiable()) {
+      instance.requires_ = new com.google.protobuf.LazyStringArrayList(instance.requires_);
+    }
+    instance.bitField0_ |= 0x00000004;
+  }
+  private static void buildPartial_autosplit_0(protobuf_test_messages.edition.ProtoWithKeywords instance) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000004) != 0)) {
+      instance.requires_.makeImmutable();
+    }
+  }
+
   private static final com.google.protobuf.Parser<ProtoWithKeywords>
-      PARSER = new com.google.protobuf.AbstractParser<ProtoWithKeywords>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<ProtoWithKeywords> {
+    MessageParser() {}
+
     @java.lang.Override
     public ProtoWithKeywords parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return ProtoWithKeywords.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(ProtoWithKeywords instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<ProtoWithKeywords> parser() {
     return PARSER;

@@ -491,15 +491,27 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.class, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -539,12 +551,17 @@ private static final long serialVersionUID = 0L;
 
       private void buildPartial_autosplit_0(com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.bb_ = bb_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage other, java.lang.Object[] parserLocals) {
+        bb_ = other.getBb();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -608,7 +625,7 @@ private static final long serialVersionUID = 0L;
       }
       private int bitField0_;
 
-      private int bb_ ;
+      private int bb_;
       /**
        * <pre>
        * The field name "b" fails to compile in proto1 because it conflicts with
@@ -685,22 +702,67 @@ private static final long serialVersionUID = 0L;
       return DEFAULT_INSTANCE;
     }
 
+    static NestedMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      NestedMessage instance = new NestedMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.bb_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<NestedMessage>
-        PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<NestedMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public NestedMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return NestedMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(NestedMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<NestedMessage> parser() {
       return PARSER;
@@ -1710,15 +1772,32 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.testing.proto.TestProto3Optional.class, com.google.protobuf.testing.proto.TestProto3Optional.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.testing.proto.TestProto3Optional.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      optionalString_ = "";
+      optionalBytes_ = com.google.protobuf.ByteString.EMPTY;
+      optionalCord_ = "";
+      optionalNestedEnum_ = 0;
       maybeForceBuilderInitialization();
+    }
+    private Builder(com.google.protobuf.testing.proto.TestProto3Optional other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -1793,7 +1872,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(com.google.protobuf.testing.proto.TestProto3Optional result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.optionalInt32_ = optionalInt32_;
         to_bitField0_ |= 0x00000001;
@@ -1883,6 +1962,42 @@ private static final long serialVersionUID = 0L;
         
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(com.google.protobuf.testing.proto.TestProto3Optional other, java.lang.Object[] parserLocals) {
+      optionalInt32_ = other.getOptionalInt32();
+      optionalInt64_ = other.getOptionalInt64();
+      optionalUint32_ = other.getOptionalUint32();
+      optionalUint64_ = other.getOptionalUint64();
+      optionalSint32_ = other.getOptionalSint32();
+      optionalSint64_ = other.getOptionalSint64();
+      optionalFixed32_ = other.getOptionalFixed32();
+      optionalFixed64_ = other.getOptionalFixed64();
+      optionalSfixed32_ = other.getOptionalSfixed32();
+      optionalSfixed64_ = other.getOptionalSfixed64();
+      optionalFloat_ = other.getOptionalFloat();
+      optionalDouble_ = other.getOptionalDouble();
+      optionalBool_ = other.getOptionalBool();
+      optionalString_ = other.optionalString_;
+      optionalBytes_ = other.getOptionalBytes();
+      optionalCord_ = other.optionalCord_;
+      optionalNestedMessage_ = other.optionalNestedMessage_;
+      lazyNestedMessage_ = other.lazyNestedMessage_;
+      optionalNestedEnum_ = other.getOptionalNestedEnumValue();
+      singularInt32_ = other.getSingularInt32();
+      singularInt64_ = other.getSingularInt64();
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          optionalNestedMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.Builder, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessageOrBuilder>) parserLocals[0]);
+          optionalNestedMessage_ = null;
+        }
+        if (parserLocals[1] != null) {
+          lazyNestedMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.Builder, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessageOrBuilder>) parserLocals[1]);
+          lazyNestedMessage_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -2106,9 +2221,25 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 146: {
+          parseOptionalNestedMessageField(input, extensionRegistry);
+          return true;
+        } // case 146
+        case 154: {
+          parseLazyNestedMessageField(input, extensionRegistry);
+          return true;
+        } // case 154
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
+    }
     private int bitField0_;
 
-    private int optionalInt32_ ;
+    private int optionalInt32_;
     /**
      * <pre>
      * Singular
@@ -2164,7 +2295,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long optionalInt64_ ;
+    private long optionalInt64_;
     /**
      * <code>optional int64 optional_int64 = 2;</code>
      * @return Whether the optionalInt64 field is set.
@@ -2204,7 +2335,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalUint32_ ;
+    private int optionalUint32_;
     /**
      * <code>optional uint32 optional_uint32 = 3;</code>
      * @return Whether the optionalUint32 field is set.
@@ -2244,7 +2375,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long optionalUint64_ ;
+    private long optionalUint64_;
     /**
      * <code>optional uint64 optional_uint64 = 4;</code>
      * @return Whether the optionalUint64 field is set.
@@ -2284,7 +2415,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalSint32_ ;
+    private int optionalSint32_;
     /**
      * <code>optional sint32 optional_sint32 = 5;</code>
      * @return Whether the optionalSint32 field is set.
@@ -2324,7 +2455,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long optionalSint64_ ;
+    private long optionalSint64_;
     /**
      * <code>optional sint64 optional_sint64 = 6;</code>
      * @return Whether the optionalSint64 field is set.
@@ -2364,7 +2495,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalFixed32_ ;
+    private int optionalFixed32_;
     /**
      * <code>optional fixed32 optional_fixed32 = 7;</code>
      * @return Whether the optionalFixed32 field is set.
@@ -2404,7 +2535,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long optionalFixed64_ ;
+    private long optionalFixed64_;
     /**
      * <code>optional fixed64 optional_fixed64 = 8;</code>
      * @return Whether the optionalFixed64 field is set.
@@ -2444,7 +2575,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalSfixed32_ ;
+    private int optionalSfixed32_;
     /**
      * <code>optional sfixed32 optional_sfixed32 = 9;</code>
      * @return Whether the optionalSfixed32 field is set.
@@ -2484,7 +2615,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long optionalSfixed64_ ;
+    private long optionalSfixed64_;
     /**
      * <code>optional sfixed64 optional_sfixed64 = 10;</code>
      * @return Whether the optionalSfixed64 field is set.
@@ -2524,7 +2655,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private float optionalFloat_ ;
+    private float optionalFloat_;
     /**
      * <code>optional float optional_float = 11;</code>
      * @return Whether the optionalFloat field is set.
@@ -2564,7 +2695,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private double optionalDouble_ ;
+    private double optionalDouble_;
     /**
      * <code>optional double optional_double = 12;</code>
      * @return Whether the optionalDouble field is set.
@@ -2604,7 +2735,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private boolean optionalBool_ ;
+    private boolean optionalBool_;
     /**
      * <code>optional bool optional_bool = 13;</code>
      * @return Whether the optionalBool field is set.
@@ -2644,7 +2775,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object optionalString_ = "";
+    private java.lang.Object optionalString_;
     /**
      * <code>optional string optional_string = 14;</code>
      * @return Whether the optionalString field is set.
@@ -2723,7 +2854,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.ByteString optionalBytes_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString optionalBytes_;
     /**
      * <code>optional bytes optional_bytes = 15;</code>
      * @return Whether the optionalBytes field is set.
@@ -2763,7 +2894,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object optionalCord_ = "";
+    private java.lang.Object optionalCord_;
     /**
      * <code>optional string optional_cord = 16 [ctype = CORD];</code>
      * @return Whether the optionalCord field is set.
@@ -2961,7 +3092,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (optionalNestedMessage_ != null || optionalNestedMessageBuilder_ != null) {
-        internalGetOptionalNestedMessageFieldBuilder().getBuilder()
+        internalGetOptionalNestedMessageFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         optionalNestedMessage_ = com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -3089,7 +3220,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (lazyNestedMessage_ != null || lazyNestedMessageBuilder_ != null) {
-        internalGetLazyNestedMessageFieldBuilder().getBuilder()
+        internalGetLazyNestedMessageFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         lazyNestedMessage_ = com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -3098,7 +3229,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00020000;
     }
 
-    private int optionalNestedEnum_ = 0;
+    private int optionalNestedEnum_;
     /**
      * <code>optional .proto2_unittest.TestProto3Optional.NestedEnum optional_nested_enum = 21;</code>
      * @return Whether the optionalNestedEnum field is set.
@@ -3157,7 +3288,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int singularInt32_ ;
+    private int singularInt32_;
     /**
      * <pre>
      * Add some non-optional fields to verify we can mix them.
@@ -3201,7 +3332,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private long singularInt64_ ;
+    private long singularInt64_;
     /**
      * <code>int64 singular_int64 = 23;</code>
      * @return The singularInt64.
@@ -3246,22 +3377,277 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static TestProto3Optional parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    TestProto3Optional instance = new TestProto3Optional((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.Builder, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessageOrBuilder> optionalNestedMessageBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.Builder, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessageOrBuilder> lazyNestedMessageBuilder_ = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      optionalNestedMessageBuilder_ = internalGetOptionalNestedMessageFieldBuilder(instance, optionalNestedMessageBuilder_);
+      lazyNestedMessageBuilder_ = internalGetLazyNestedMessageFieldBuilder(instance, lazyNestedMessageBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
+            instance.optionalInt32_ = input.readInt32();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 8
+          case 16: {
+            instance.optionalInt64_ = input.readInt64();
+            instance.bitField0_ |= 0x00000002;
+            break;
+          } // case 16
+          case 24: {
+            instance.optionalUint32_ = input.readUInt32();
+            instance.bitField0_ |= 0x00000004;
+            break;
+          } // case 24
+          case 32: {
+            instance.optionalUint64_ = input.readUInt64();
+            instance.bitField0_ |= 0x00000008;
+            break;
+          } // case 32
+          case 40: {
+            instance.optionalSint32_ = input.readSInt32();
+            instance.bitField0_ |= 0x00000010;
+            break;
+          } // case 40
+          case 48: {
+            instance.optionalSint64_ = input.readSInt64();
+            instance.bitField0_ |= 0x00000020;
+            break;
+          } // case 48
+          case 61: {
+            instance.optionalFixed32_ = input.readFixed32();
+            instance.bitField0_ |= 0x00000040;
+            break;
+          } // case 61
+          case 65: {
+            instance.optionalFixed64_ = input.readFixed64();
+            instance.bitField0_ |= 0x00000080;
+            break;
+          } // case 65
+          case 77: {
+            instance.optionalSfixed32_ = input.readSFixed32();
+            instance.bitField0_ |= 0x00000100;
+            break;
+          } // case 77
+          case 81: {
+            instance.optionalSfixed64_ = input.readSFixed64();
+            instance.bitField0_ |= 0x00000200;
+            break;
+          } // case 81
+          case 93: {
+            instance.optionalFloat_ = input.readFloat();
+            instance.bitField0_ |= 0x00000400;
+            break;
+          } // case 93
+          case 97: {
+            instance.optionalDouble_ = input.readDouble();
+            instance.bitField0_ |= 0x00000800;
+            break;
+          } // case 97
+          case 104: {
+            instance.optionalBool_ = input.readBool();
+            instance.bitField0_ |= 0x00001000;
+            break;
+          } // case 104
+          case 114: {
+            instance.optionalString_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00002000;
+            break;
+          } // case 114
+          case 122: {
+            instance.optionalBytes_ = input.readBytes();
+            instance.bitField0_ |= 0x00004000;
+            break;
+          } // case 122
+          case 130: {
+            instance.optionalCord_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00008000;
+            break;
+          } // case 130
+          case 146: {
+            if (instance.optionalNestedMessage_ != null || optionalNestedMessageBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseOptionalNestedMessageField(instance, input, extensionRegistry, optionalNestedMessageBuilder_);
+            break;
+          } // case 146
+          case 154: {
+            if (instance.lazyNestedMessage_ != null || lazyNestedMessageBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseLazyNestedMessageField(instance, input, extensionRegistry, lazyNestedMessageBuilder_);
+            break;
+          } // case 154
+          case 168: {
+            instance.optionalNestedEnum_ = input.readEnum();
+            instance.bitField0_ |= 0x00040000;
+            break;
+          } // case 168
+          case 176: {
+            instance.singularInt32_ = input.readInt32();
+            instance.bitField0_ |= 0x00080000;
+            break;
+          } // case 176
+          case 184: {
+            instance.singularInt64_ = input.readInt64();
+            instance.bitField0_ |= 0x00100000;
+            break;
+          } // case 184
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {optionalNestedMessageBuilder_, lazyNestedMessageBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, optionalNestedMessageBuilder_, lazyNestedMessageBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>optional .proto2_unittest.TestProto3Optional.NestedMessage optional_nested_message = 18;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.Builder, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessageOrBuilder> 
+      internalGetOptionalNestedMessageFieldBuilder(com.google.protobuf.testing.proto.TestProto3Optional instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.Builder, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessageOrBuilder> optionalNestedMessageBuilder_) {
+    if (optionalNestedMessageBuilder_ == null) {
+      optionalNestedMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.Builder, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessageOrBuilder>(
+              instance.getOptionalNestedMessage(),
+              null,
+              false);
+      instance.optionalNestedMessage_ = null;
+    }
+    instance.bitField0_ |= 0x00010000;
+    return optionalNestedMessageBuilder_;
+  }
+  private static void parseOptionalNestedMessageField(
+      com.google.protobuf.testing.proto.TestProto3Optional instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.Builder, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessageOrBuilder> optionalNestedMessageBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.optionalNestedMessage_ != null || optionalNestedMessageBuilder_ != null) {
+      optionalNestedMessageBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.optionalNestedMessage_ = com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00010000;
+  }
+  /**
+   * <code>optional .proto2_unittest.TestProto3Optional.NestedMessage lazy_nested_message = 19 [lazy = true];</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.Builder, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessageOrBuilder> 
+      internalGetLazyNestedMessageFieldBuilder(com.google.protobuf.testing.proto.TestProto3Optional instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.Builder, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessageOrBuilder> lazyNestedMessageBuilder_) {
+    if (lazyNestedMessageBuilder_ == null) {
+      lazyNestedMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.Builder, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessageOrBuilder>(
+              instance.getLazyNestedMessage(),
+              null,
+              false);
+      instance.lazyNestedMessage_ = null;
+    }
+    instance.bitField0_ |= 0x00020000;
+    return lazyNestedMessageBuilder_;
+  }
+  private static void parseLazyNestedMessageField(
+      com.google.protobuf.testing.proto.TestProto3Optional instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.Builder, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessageOrBuilder> lazyNestedMessageBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.lazyNestedMessage_ != null || lazyNestedMessageBuilder_ != null) {
+      lazyNestedMessageBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.lazyNestedMessage_ = com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00020000;
+  }
+  private static void buildPartial_autosplit_0(com.google.protobuf.testing.proto.TestProto3Optional instance,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.Builder, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessageOrBuilder> optionalNestedMessageBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessage.Builder, com.google.protobuf.testing.proto.TestProto3Optional.NestedMessageOrBuilder> lazyNestedMessageBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00010000) != 0)) instance.optionalNestedMessage_ = null;
+    if (((from_bitField0_ & 0x00010000) != 0)) {
+      instance.optionalNestedMessage_ = optionalNestedMessageBuilder_ == null
+          ? instance.optionalNestedMessage_
+          : optionalNestedMessageBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00020000) != 0)) instance.lazyNestedMessage_ = null;
+    if (((from_bitField0_ & 0x00020000) != 0)) {
+      instance.lazyNestedMessage_ = lazyNestedMessageBuilder_ == null
+          ? instance.lazyNestedMessage_
+          : lazyNestedMessageBuilder_.build();
+    }
+  }
+
   private static final com.google.protobuf.Parser<TestProto3Optional>
-      PARSER = new com.google.protobuf.AbstractParser<TestProto3Optional>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestProto3Optional> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestProto3Optional parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return TestProto3Optional.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(TestProto3Optional instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<TestProto3Optional> parser() {
     return PARSER;

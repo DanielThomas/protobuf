@@ -395,15 +395,28 @@ com.google.protobuf.ByteString defaultValue) {
               proto2_unittest.EntryProto.class, proto2_unittest.EntryProto.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using proto2_unittest.EntryProto.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      value_ = com.google.protobuf.ByteString.EMPTY;
+    }
+    private Builder(proto2_unittest.EntryProto other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -444,7 +457,7 @@ com.google.protobuf.ByteString defaultValue) {
 
     private void buildPartial_autosplit_0(proto2_unittest.EntryProto result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.value_ = value_;
         to_bitField0_ |= 0x00000001;
@@ -454,6 +467,12 @@ com.google.protobuf.ByteString defaultValue) {
         result.values_.makeImmutable();
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(proto2_unittest.EntryProto other, java.lang.Object[] parserLocals) {
+      value_ = other.getValue();
+      values_ = other.values_;
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -531,7 +550,7 @@ com.google.protobuf.ByteString defaultValue) {
     }
     private int bitField0_;
 
-    private com.google.protobuf.ByteString value_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString value_;
     /**
      * <code>bytes value = 3 [features = { ... }</code>
      * @return Whether the value field is set.
@@ -712,22 +731,97 @@ com.google.protobuf.ByteString defaultValue) {
     return DEFAULT_INSTANCE;
   }
 
+  static EntryProto parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    EntryProto instance = new EntryProto((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 26: {
+            instance.value_ = input.readBytes();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 26
+          case 34: {
+            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
+            values__ = input.readMessage(
+                ValuesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableValues(instance).getMutableMap().put(
+                values__.getKey(), values__.getValue());
+            instance.bitField0_ |= 0x00000002;
+            break;
+          } // case 34
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
+      internalGetMutableValues(proto2_unittest.EntryProto instance) {
+    if (instance.values_ == null) {
+      instance.values_ = com.google.protobuf.MapField.newMapField(
+          ValuesDefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.values_.isMutable()) {
+      instance.values_ = instance.values_.copy();
+    }
+    instance.bitField0_ |= 0x00000002;
+
+    return instance.values_;
+  }
+  private static void buildPartial_autosplit_0(proto2_unittest.EntryProto instance) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000002) != 0)) {
+      instance.values_.makeImmutable();
+    }
+  }
+
   private static final com.google.protobuf.Parser<EntryProto>
-      PARSER = new com.google.protobuf.AbstractParser<EntryProto>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<EntryProto> {
+    MessageParser() {}
+
     @java.lang.Override
     public EntryProto parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return EntryProto.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(EntryProto instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<EntryProto> parser() {
     return PARSER;

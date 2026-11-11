@@ -559,15 +559,32 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
                 test.Edition2023.EditionsMessage.class, test.Edition2023.EditionsMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using test.Edition2023.EditionsMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+        strView_ = "";
+        repeatedStrView_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+        repeatedStr_ =
+            com.google.protobuf.LazyStringArrayList.emptyList();
+      }
+      private Builder(test.Edition2023.EditionsMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -613,7 +630,7 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(test.Edition2023.EditionsMessage result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.plainField_ = plainField_;
           to_bitField0_ |= 0x00000001;
@@ -635,6 +652,15 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
           result.repeatedStr_ = repeatedStr_;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(test.Edition2023.EditionsMessage other, java.lang.Object[] parserLocals) {
+        plainField_ = other.getPlainField();
+        strView_ = other.strView_;
+        implicitPresenceField_ = other.getImplicitPresenceField();
+        repeatedStrView_ = other.repeatedStrView_;
+        repeatedStr_ = other.repeatedStr_;
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -746,7 +772,7 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
       }
       private int bitField0_;
 
-      private int plainField_ ;
+      private int plainField_;
       /**
        * <code>int32 plain_field = 1;</code>
        * @return Whether the plainField field is set.
@@ -786,7 +812,7 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private int implicitPresenceField_ ;
+      private int implicitPresenceField_;
       /**
        * <code>int32 implicit_presence_field = 2 [features = { ... }</code>
        * @return The implicitPresenceField.
@@ -818,7 +844,7 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private java.lang.Object strView_ = "";
+      private java.lang.Object strView_;
       /**
        * <code>string str_view = 3 [features = { ... }</code>
        * @return Whether the strView field is set.
@@ -897,8 +923,7 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList repeatedStrView_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList repeatedStrView_;
       private void ensureRepeatedStrViewIsMutable() {
         if (!repeatedStrView_.isModifiable()) {
           repeatedStrView_ = new com.google.protobuf.LazyStringArrayList(repeatedStrView_);
@@ -1008,8 +1033,7 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
-      private com.google.protobuf.LazyStringArrayList repeatedStr_ =
-          com.google.protobuf.LazyStringArrayList.emptyList();
+      private com.google.protobuf.LazyStringArrayList repeatedStr_;
       private void ensureRepeatedStrIsMutable() {
         if (!repeatedStr_.isModifiable()) {
           repeatedStr_ = new com.google.protobuf.LazyStringArrayList(repeatedStr_);
@@ -1132,22 +1156,110 @@ public final class Edition2023 extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static EditionsMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      EditionsMessage instance = new EditionsMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.plainField_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.implicitPresenceField_ = input.readInt32();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 16
+            case 26: {
+              instance.strView_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 26
+            case 34: {
+              ensureRepeatedStrViewIsMutable(instance);
+              instance.repeatedStrView_.add(input.readStringRequireUtf8());
+              break;
+            } // case 34
+            case 42: {
+              ensureRepeatedStrIsMutable(instance);
+              instance.repeatedStr_.add(input.readStringRequireUtf8());
+              break;
+            } // case 42
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    private static void ensureRepeatedStrViewIsMutable(test.Edition2023.EditionsMessage instance) {
+      if (!instance.repeatedStrView_.isModifiable()) {
+        instance.repeatedStrView_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedStrView_);
+      }
+      instance.bitField0_ |= 0x00000008;
+    }
+    private static void ensureRepeatedStrIsMutable(test.Edition2023.EditionsMessage instance) {
+      if (!instance.repeatedStr_.isModifiable()) {
+        instance.repeatedStr_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedStr_);
+      }
+      instance.bitField0_ |= 0x00000010;
+    }
+    private static void buildPartial_autosplit_0(test.Edition2023.EditionsMessage instance) {
+      int from_bitField0_ = instance.bitField0_;
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        instance.repeatedStrView_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        instance.repeatedStr_.makeImmutable();
+      }
+    }
+
     private static final com.google.protobuf.Parser<EditionsMessage>
-        PARSER = new com.google.protobuf.AbstractParser<EditionsMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<EditionsMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public EditionsMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return EditionsMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(EditionsMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<EditionsMessage> parser() {
       return PARSER;

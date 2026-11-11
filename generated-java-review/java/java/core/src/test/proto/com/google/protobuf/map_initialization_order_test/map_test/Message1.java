@@ -370,15 +370,27 @@ private static final long serialVersionUID = 0L;
               map_test.Message1.class, map_test.Message1.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using map_test.Message1.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+    }
+    private Builder(map_test.Message1 other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -418,12 +430,17 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(map_test.Message1 result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.mapField_ = internalGetMapField();
         result.mapField_.makeImmutable();
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(map_test.Message1 other, java.lang.Object[] parserLocals) {
+      mapField_ = other.mapField_;
+      bitField0_ = other.bitField0_;
     }
 
     public <Type> Builder setExtension(
@@ -517,6 +534,14 @@ private static final long serialVersionUID = 0L;
         onChanged();
       } // finally
       return this;
+    }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
     }
     private int bitField0_;
 
@@ -659,22 +684,102 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static Message1 parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    Message1 instance = new Message1((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            com.google.protobuf.MapEntry<java.lang.String, java.lang.Boolean>
+            mapField__ = input.readMessage(
+                MapFieldDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapField(instance).getMutableMap().put(
+                mapField__.getKey(), mapField__.getValue());
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 10
+          default: {
+            pendingTag = tag;
+            done = true;
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, null);
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static com.google.protobuf.MapField<java.lang.String, java.lang.Boolean>
+      internalGetMutableMapField(map_test.Message1 instance) {
+    if (instance.mapField_ == null) {
+      instance.mapField_ = com.google.protobuf.MapField.newMapField(
+          MapFieldDefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapField_.isMutable()) {
+      instance.mapField_ = instance.mapField_.copy();
+    }
+    instance.bitField0_ |= 0x00000001;
+
+    return instance.mapField_;
+  }
+  private static void buildPartial_autosplit_0(map_test.Message1 instance) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.mapField_.makeImmutable();
+    }
+  }
+
   private static final com.google.protobuf.Parser<Message1>
-      PARSER = new com.google.protobuf.AbstractParser<Message1>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<Message1> {
+    MessageParser() {}
+
     @java.lang.Override
     public Message1 parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Message1.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(Message1 instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<Message1> parser() {
     return PARSER;

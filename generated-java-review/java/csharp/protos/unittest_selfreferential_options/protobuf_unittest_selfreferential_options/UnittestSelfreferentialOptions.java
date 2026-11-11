@@ -385,15 +385,27 @@ public final class UnittestSelfreferentialOptions extends com.google.protobuf.Ge
                 protobuf_unittest_selfreferential_options.UnittestSelfreferentialOptions.FooOptions.class, protobuf_unittest_selfreferential_options.UnittestSelfreferentialOptions.FooOptions.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_unittest_selfreferential_options.UnittestSelfreferentialOptions.FooOptions.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(protobuf_unittest_selfreferential_options.UnittestSelfreferentialOptions.FooOptions other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -434,7 +446,7 @@ public final class UnittestSelfreferentialOptions extends com.google.protobuf.Ge
 
       private void buildPartial_autosplit_0(protobuf_unittest_selfreferential_options.UnittestSelfreferentialOptions.FooOptions result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.intOpt_ = intOpt_;
           to_bitField0_ |= 0x00000001;
@@ -444,6 +456,12 @@ public final class UnittestSelfreferentialOptions extends com.google.protobuf.Ge
           to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(protobuf_unittest_selfreferential_options.UnittestSelfreferentialOptions.FooOptions other, java.lang.Object[] parserLocals) {
+        intOpt_ = other.getIntOpt();
+        foo_ = other.getFoo();
+        bitField0_ = other.bitField0_;
       }
 
       public <Type> Builder setExtension(
@@ -540,9 +558,17 @@ public final class UnittestSelfreferentialOptions extends com.google.protobuf.Ge
         } // finally
         return this;
       }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
       private int bitField0_;
 
-      private int intOpt_ ;
+      private int intOpt_;
       /**
        * <pre>
        * Custom field option used in definition of the extension message.
@@ -598,7 +624,7 @@ public final class UnittestSelfreferentialOptions extends com.google.protobuf.Ge
         return this;
       }
 
-      private int foo_ ;
+      private int foo_;
       /**
        * <pre>
        * Custom field option used in definition of the custom option's message.
@@ -667,22 +693,82 @@ public final class UnittestSelfreferentialOptions extends com.google.protobuf.Ge
       return DEFAULT_INSTANCE;
     }
 
+    static FooOptions parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      FooOptions instance = new FooOptions((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.intOpt_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              instance.foo_ = input.readInt32();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            default: {
+              pendingTag = tag;
+              done = true;
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, null);
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<FooOptions>
-        PARSER = new com.google.protobuf.AbstractParser<FooOptions>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<FooOptions> {
+      MessageParser() {}
+
       @java.lang.Override
       public FooOptions parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return FooOptions.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(FooOptions instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<FooOptions> parser() {
       return PARSER;

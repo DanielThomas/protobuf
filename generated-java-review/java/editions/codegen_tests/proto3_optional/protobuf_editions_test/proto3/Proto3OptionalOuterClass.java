@@ -1212,15 +1212,29 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
                   protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage.class, protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
             com.google.protobuf.GeneratedMessage.BuilderParent parent) {
           super(parent);
-
+          stringField_ = "";
+          bytesField_ = com.google.protobuf.ByteString.EMPTY;
+        }
+        private Builder(protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage other,
+            com.google.protobuf.UnknownFieldSet.Builder unknown,
+            java.lang.Object[] parserLocals) {
+          super(other, unknown);
+          copyFrom_autosplit_0(other, parserLocals);
         }
         @java.lang.Override
         public Builder clear() {
@@ -1274,7 +1288,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
 
         private void buildPartial_autosplit_0(protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage result) {
           int from_bitField0_ = bitField0_;
-          int to_bitField0_ = 0;
+          int to_bitField0_ = from_bitField0_;
           if (((from_bitField0_ & 0x00000001) != 0)) {
             result.int32Field_ = int32Field_;
             to_bitField0_ |= 0x00000001;
@@ -1336,6 +1350,25 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
             to_bitField0_ |= 0x00004000;
           }
           result.bitField0_ |= to_bitField0_;
+        }
+
+        private void copyFrom_autosplit_0(protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage other, java.lang.Object[] parserLocals) {
+          int32Field_ = other.getInt32Field();
+          floatField_ = other.getFloatField();
+          doubleField_ = other.getDoubleField();
+          int64Field_ = other.getInt64Field();
+          uint32Field_ = other.getUint32Field();
+          uint64Field_ = other.getUint64Field();
+          sint32Field_ = other.getSint32Field();
+          sint64Field_ = other.getSint64Field();
+          fixed32Field_ = other.getFixed32Field();
+          fixed64Field_ = other.getFixed64Field();
+          sfixed32Field_ = other.getSfixed32Field();
+          sfixed64Field_ = other.getSfixed64Field();
+          boolField_ = other.getBoolField();
+          stringField_ = other.stringField_;
+          bytesField_ = other.getBytesField();
+          bitField0_ = other.bitField0_;
         }
 
         @java.lang.Override
@@ -1513,7 +1546,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
         }
         private int bitField0_;
 
-        private int int32Field_ ;
+        private int int32Field_;
         /**
          * <code>optional int32 int32_field = 17;</code>
          * @return Whether the int32Field field is set.
@@ -1553,7 +1586,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
           return this;
         }
 
-        private float floatField_ ;
+        private float floatField_;
         /**
          * <code>optional float float_field = 18;</code>
          * @return Whether the floatField field is set.
@@ -1593,7 +1626,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
           return this;
         }
 
-        private double doubleField_ ;
+        private double doubleField_;
         /**
          * <code>optional double double_field = 19;</code>
          * @return Whether the doubleField field is set.
@@ -1633,7 +1666,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
           return this;
         }
 
-        private long int64Field_ ;
+        private long int64Field_;
         /**
          * <code>optional int64 int64_field = 20;</code>
          * @return Whether the int64Field field is set.
@@ -1673,7 +1706,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
           return this;
         }
 
-        private int uint32Field_ ;
+        private int uint32Field_;
         /**
          * <code>optional uint32 uint32_field = 21;</code>
          * @return Whether the uint32Field field is set.
@@ -1713,7 +1746,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
           return this;
         }
 
-        private long uint64Field_ ;
+        private long uint64Field_;
         /**
          * <code>optional uint64 uint64_field = 22;</code>
          * @return Whether the uint64Field field is set.
@@ -1753,7 +1786,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
           return this;
         }
 
-        private int sint32Field_ ;
+        private int sint32Field_;
         /**
          * <code>optional sint32 sint32_field = 23;</code>
          * @return Whether the sint32Field field is set.
@@ -1793,7 +1826,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
           return this;
         }
 
-        private long sint64Field_ ;
+        private long sint64Field_;
         /**
          * <code>optional sint64 sint64_field = 24;</code>
          * @return Whether the sint64Field field is set.
@@ -1833,7 +1866,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
           return this;
         }
 
-        private int fixed32Field_ ;
+        private int fixed32Field_;
         /**
          * <code>optional fixed32 fixed32_field = 25;</code>
          * @return Whether the fixed32Field field is set.
@@ -1873,7 +1906,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
           return this;
         }
 
-        private long fixed64Field_ ;
+        private long fixed64Field_;
         /**
          * <code>optional fixed64 fixed64_field = 26;</code>
          * @return Whether the fixed64Field field is set.
@@ -1913,7 +1946,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
           return this;
         }
 
-        private int sfixed32Field_ ;
+        private int sfixed32Field_;
         /**
          * <code>optional sfixed32 sfixed32_field = 27;</code>
          * @return Whether the sfixed32Field field is set.
@@ -1953,7 +1986,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
           return this;
         }
 
-        private long sfixed64Field_ ;
+        private long sfixed64Field_;
         /**
          * <code>optional sfixed64 sfixed64_field = 28;</code>
          * @return Whether the sfixed64Field field is set.
@@ -1993,7 +2026,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
           return this;
         }
 
-        private boolean boolField_ ;
+        private boolean boolField_;
         /**
          * <code>optional bool bool_field = 29;</code>
          * @return Whether the boolField field is set.
@@ -2033,7 +2066,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
           return this;
         }
 
-        private java.lang.Object stringField_ = "";
+        private java.lang.Object stringField_;
         /**
          * <code>optional string string_field = 30;</code>
          * @return Whether the stringField field is set.
@@ -2112,7 +2145,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
           return this;
         }
 
-        private com.google.protobuf.ByteString bytesField_ = com.google.protobuf.ByteString.EMPTY;
+        private com.google.protobuf.ByteString bytesField_;
         /**
          * <code>optional bytes bytes_field = 31;</code>
          * @return Whether the bytesField field is set.
@@ -2165,22 +2198,137 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
         return DEFAULT_INSTANCE;
       }
 
+      static SubMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        SubMessage instance = new SubMessage((Builder) null);
+        com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+        java.io.IOException parseFailure = null;
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 136: {
+                instance.int32Field_ = input.readInt32();
+                instance.bitField0_ |= 0x00000001;
+                break;
+              } // case 136
+              case 149: {
+                instance.floatField_ = input.readFloat();
+                instance.bitField0_ |= 0x00000002;
+                break;
+              } // case 149
+              case 153: {
+                instance.doubleField_ = input.readDouble();
+                instance.bitField0_ |= 0x00000004;
+                break;
+              } // case 153
+              case 160: {
+                instance.int64Field_ = input.readInt64();
+                instance.bitField0_ |= 0x00000008;
+                break;
+              } // case 160
+              case 168: {
+                instance.uint32Field_ = input.readUInt32();
+                instance.bitField0_ |= 0x00000010;
+                break;
+              } // case 168
+              case 176: {
+                instance.uint64Field_ = input.readUInt64();
+                instance.bitField0_ |= 0x00000020;
+                break;
+              } // case 176
+              case 184: {
+                instance.sint32Field_ = input.readSInt32();
+                instance.bitField0_ |= 0x00000040;
+                break;
+              } // case 184
+              case 192: {
+                instance.sint64Field_ = input.readSInt64();
+                instance.bitField0_ |= 0x00000080;
+                break;
+              } // case 192
+              case 205: {
+                instance.fixed32Field_ = input.readFixed32();
+                instance.bitField0_ |= 0x00000100;
+                break;
+              } // case 205
+              case 209: {
+                instance.fixed64Field_ = input.readFixed64();
+                instance.bitField0_ |= 0x00000200;
+                break;
+              } // case 209
+              case 221: {
+                instance.sfixed32Field_ = input.readSFixed32();
+                instance.bitField0_ |= 0x00000400;
+                break;
+              } // case 221
+              case 225: {
+                instance.sfixed64Field_ = input.readSFixed64();
+                instance.bitField0_ |= 0x00000800;
+                break;
+              } // case 225
+              case 232: {
+                instance.boolField_ = input.readBool();
+                instance.bitField0_ |= 0x00001000;
+                break;
+              } // case 232
+              case 242: {
+                instance.stringField_ = input.readStringRequireUtf8();
+                instance.bitField0_ |= 0x00002000;
+                break;
+              } // case 242
+              case 250: {
+                instance.bytesField_ = input.readBytes();
+                instance.bitField0_ |= 0x00004000;
+                break;
+              } // case 250
+              default: {
+                unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+                if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (java.io.IOException e) {
+          parseFailure = e;
+        }
+        if (unknown != null) {
+          instance.unknownFields = unknown.build();
+        }
+        if (parseFailure != null) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+        }
+        return instance;
+      }
       private static final com.google.protobuf.Parser<SubMessage>
-          PARSER = new com.google.protobuf.AbstractParser<SubMessage>() {
+          PARSER = new MessageParser();
+
+      private static final class MessageParser
+          extends com.google.protobuf.GeneratedMessageParser<SubMessage> {
+        MessageParser() {}
+
         @java.lang.Override
         public SubMessage parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return SubMessage.parsePartialFrom(input, extensionRegistry);
         }
-      };
+        @java.lang.Override
+        protected Builder newBuilderForParsing(SubMessage instance) {
+          Builder builder = new Builder(instance, null, null);
+          return builder;
+        }
+      }
 
       public static com.google.protobuf.Parser<SubMessage> parser() {
         return PARSER;
@@ -2981,15 +3129,30 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
                 protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.class, protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        stringField_ = "";
+        bytesField_ = com.google.protobuf.ByteString.EMPTY;
         maybeForceBuilderInitialization();
+      }
+      private Builder(protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -3054,7 +3217,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
 
       private void buildPartial_autosplit_0(protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.int32Field_ = int32Field_;
           to_bitField0_ |= 0x00000001;
@@ -3122,6 +3285,33 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
           to_bitField0_ |= 0x00008000;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional other, java.lang.Object[] parserLocals) {
+        int32Field_ = other.getInt32Field();
+        floatField_ = other.getFloatField();
+        doubleField_ = other.getDoubleField();
+        int64Field_ = other.getInt64Field();
+        uint32Field_ = other.getUint32Field();
+        uint64Field_ = other.getUint64Field();
+        sint32Field_ = other.getSint32Field();
+        sint64Field_ = other.getSint64Field();
+        fixed32Field_ = other.getFixed32Field();
+        fixed64Field_ = other.getFixed64Field();
+        sfixed32Field_ = other.getSfixed32Field();
+        sfixed64Field_ = other.getSfixed64Field();
+        boolField_ = other.getBoolField();
+        stringField_ = other.stringField_;
+        bytesField_ = other.getBytesField();
+        optionalMessage_ = other.optionalMessage_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            optionalMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage, protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage.Builder, protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessageOrBuilder>) parserLocals[0]);
+            optionalMessage_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -3304,9 +3494,21 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
         } // finally
         return this;
       }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 18: {
+            parseOptionalMessageField(input, extensionRegistry);
+            return true;
+          } // case 18
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
+      }
       private int bitField0_;
 
-      private int int32Field_ ;
+      private int int32Field_;
       /**
        * <code>optional int32 int32_field = 17;</code>
        * @return Whether the int32Field field is set.
@@ -3346,7 +3548,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
         return this;
       }
 
-      private float floatField_ ;
+      private float floatField_;
       /**
        * <code>optional float float_field = 18;</code>
        * @return Whether the floatField field is set.
@@ -3386,7 +3588,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
         return this;
       }
 
-      private double doubleField_ ;
+      private double doubleField_;
       /**
        * <code>optional double double_field = 19;</code>
        * @return Whether the doubleField field is set.
@@ -3426,7 +3628,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
         return this;
       }
 
-      private long int64Field_ ;
+      private long int64Field_;
       /**
        * <code>optional int64 int64_field = 20;</code>
        * @return Whether the int64Field field is set.
@@ -3466,7 +3668,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
         return this;
       }
 
-      private int uint32Field_ ;
+      private int uint32Field_;
       /**
        * <code>optional uint32 uint32_field = 21;</code>
        * @return Whether the uint32Field field is set.
@@ -3506,7 +3708,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
         return this;
       }
 
-      private long uint64Field_ ;
+      private long uint64Field_;
       /**
        * <code>optional uint64 uint64_field = 22;</code>
        * @return Whether the uint64Field field is set.
@@ -3546,7 +3748,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
         return this;
       }
 
-      private int sint32Field_ ;
+      private int sint32Field_;
       /**
        * <code>optional sint32 sint32_field = 23;</code>
        * @return Whether the sint32Field field is set.
@@ -3586,7 +3788,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
         return this;
       }
 
-      private long sint64Field_ ;
+      private long sint64Field_;
       /**
        * <code>optional sint64 sint64_field = 24;</code>
        * @return Whether the sint64Field field is set.
@@ -3626,7 +3828,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
         return this;
       }
 
-      private int fixed32Field_ ;
+      private int fixed32Field_;
       /**
        * <code>optional fixed32 fixed32_field = 25;</code>
        * @return Whether the fixed32Field field is set.
@@ -3666,7 +3868,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
         return this;
       }
 
-      private long fixed64Field_ ;
+      private long fixed64Field_;
       /**
        * <code>optional fixed64 fixed64_field = 26;</code>
        * @return Whether the fixed64Field field is set.
@@ -3706,7 +3908,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
         return this;
       }
 
-      private int sfixed32Field_ ;
+      private int sfixed32Field_;
       /**
        * <code>optional sfixed32 sfixed32_field = 27;</code>
        * @return Whether the sfixed32Field field is set.
@@ -3746,7 +3948,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
         return this;
       }
 
-      private long sfixed64Field_ ;
+      private long sfixed64Field_;
       /**
        * <code>optional sfixed64 sfixed64_field = 28;</code>
        * @return Whether the sfixed64Field field is set.
@@ -3786,7 +3988,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
         return this;
       }
 
-      private boolean boolField_ ;
+      private boolean boolField_;
       /**
        * <code>optional bool bool_field = 29;</code>
        * @return Whether the boolField field is set.
@@ -3826,7 +4028,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
         return this;
       }
 
-      private java.lang.Object stringField_ = "";
+      private java.lang.Object stringField_;
       /**
        * <code>optional string string_field = 30;</code>
        * @return Whether the stringField field is set.
@@ -3905,7 +4107,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
         return this;
       }
 
-      private com.google.protobuf.ByteString bytesField_ = com.google.protobuf.ByteString.EMPTY;
+      private com.google.protobuf.ByteString bytesField_;
       /**
        * <code>optional bytes bytes_field = 31;</code>
        * @return Whether the bytesField field is set.
@@ -4064,7 +4266,7 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (optionalMessage_ != null || optionalMessageBuilder_ != null) {
-          internalGetOptionalMessageFieldBuilder().getBuilder()
+          internalGetOptionalMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           optionalMessage_ = protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -4086,22 +4288,207 @@ public final class Proto3OptionalOuterClass extends com.google.protobuf.Generate
       return DEFAULT_INSTANCE;
     }
 
+    static Proto3Optional parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Proto3Optional instance = new Proto3Optional((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage, protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage.Builder, protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessageOrBuilder> optionalMessageBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        optionalMessageBuilder_ = internalGetOptionalMessageFieldBuilder(instance, optionalMessageBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              if (instance.optionalMessage_ != null || optionalMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseOptionalMessageField(instance, input, extensionRegistry, optionalMessageBuilder_);
+              break;
+            } // case 18
+            case 136: {
+              instance.int32Field_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 136
+            case 149: {
+              instance.floatField_ = input.readFloat();
+              instance.bitField0_ |= 0x00000002;
+              break;
+            } // case 149
+            case 153: {
+              instance.doubleField_ = input.readDouble();
+              instance.bitField0_ |= 0x00000004;
+              break;
+            } // case 153
+            case 160: {
+              instance.int64Field_ = input.readInt64();
+              instance.bitField0_ |= 0x00000008;
+              break;
+            } // case 160
+            case 168: {
+              instance.uint32Field_ = input.readUInt32();
+              instance.bitField0_ |= 0x00000010;
+              break;
+            } // case 168
+            case 176: {
+              instance.uint64Field_ = input.readUInt64();
+              instance.bitField0_ |= 0x00000020;
+              break;
+            } // case 176
+            case 184: {
+              instance.sint32Field_ = input.readSInt32();
+              instance.bitField0_ |= 0x00000040;
+              break;
+            } // case 184
+            case 192: {
+              instance.sint64Field_ = input.readSInt64();
+              instance.bitField0_ |= 0x00000080;
+              break;
+            } // case 192
+            case 205: {
+              instance.fixed32Field_ = input.readFixed32();
+              instance.bitField0_ |= 0x00000100;
+              break;
+            } // case 205
+            case 209: {
+              instance.fixed64Field_ = input.readFixed64();
+              instance.bitField0_ |= 0x00000200;
+              break;
+            } // case 209
+            case 221: {
+              instance.sfixed32Field_ = input.readSFixed32();
+              instance.bitField0_ |= 0x00000400;
+              break;
+            } // case 221
+            case 225: {
+              instance.sfixed64Field_ = input.readSFixed64();
+              instance.bitField0_ |= 0x00000800;
+              break;
+            } // case 225
+            case 232: {
+              instance.boolField_ = input.readBool();
+              instance.bitField0_ |= 0x00001000;
+              break;
+            } // case 232
+            case 242: {
+              instance.stringField_ = input.readStringRequireUtf8();
+              instance.bitField0_ |= 0x00002000;
+              break;
+            } // case 242
+            case 250: {
+              instance.bytesField_ = input.readBytes();
+              instance.bitField0_ |= 0x00004000;
+              break;
+            } // case 250
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {optionalMessageBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, optionalMessageBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional .protobuf_editions_test.proto3.Proto3Optional.SubMessage optional_message = 2;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage, protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage.Builder, protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessageOrBuilder> 
+        internalGetOptionalMessageFieldBuilder(protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional instance, com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage, protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage.Builder, protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessageOrBuilder> optionalMessageBuilder_) {
+      if (optionalMessageBuilder_ == null) {
+        optionalMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage, protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage.Builder, protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessageOrBuilder>(
+                instance.getOptionalMessage(),
+                null,
+                false);
+        instance.optionalMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00008000;
+      return optionalMessageBuilder_;
+    }
+    private static void parseOptionalMessageField(
+        protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage, protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage.Builder, protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessageOrBuilder> optionalMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.optionalMessage_ != null || optionalMessageBuilder_ != null) {
+        optionalMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.optionalMessage_ = protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00008000;
+    }
+    private static void buildPartial_autosplit_0(protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional instance,
+        com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage, protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessage.Builder, protobuf_editions_test.proto3.Proto3OptionalOuterClass.Proto3Optional.SubMessageOrBuilder> optionalMessageBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00008000) != 0)) instance.optionalMessage_ = null;
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        instance.optionalMessage_ = optionalMessageBuilder_ == null
+            ? instance.optionalMessage_
+            : optionalMessageBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<Proto3Optional>
-        PARSER = new com.google.protobuf.AbstractParser<Proto3Optional>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Proto3Optional> {
+      MessageParser() {}
+
       @java.lang.Override
       public Proto3Optional parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Proto3Optional.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Proto3Optional instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Proto3Optional> parser() {
       return PARSER;

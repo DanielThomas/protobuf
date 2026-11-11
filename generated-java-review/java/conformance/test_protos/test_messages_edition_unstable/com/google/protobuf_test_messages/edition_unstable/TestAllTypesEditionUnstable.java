@@ -1510,15 +1510,34 @@ com.google.protobuf.ByteString defaultValue) {
               com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.class, com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      optionalForeignEnum_ = 0;
+      repeatedInt32_ = emptyIntList();
+      repeatedForeignMessage_ = emptyList(com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.class);
+      repeatedForeignEnum_ = emptyIntList();
+      optionalBytes_ = com.google.protobuf.ByteString.EMPTY;
+      repeatedBytes_ = emptyList(com.google.protobuf.ByteString.class);
       maybeForceBuilderInitialization();
+    }
+    private Builder(com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -1594,7 +1613,7 @@ com.google.protobuf.ByteString defaultValue) {
 
     private void buildPartial_autosplit_0(com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.optionalInt32_ = optionalInt32_;
         to_bitField0_ |= 0x00000001;
@@ -1663,6 +1682,46 @@ com.google.protobuf.ByteString defaultValue) {
         result.mapStringBytes_.makeImmutable();
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable other, java.lang.Object[] parserLocals) {
+      optionalInt32_ = other.getOptionalInt32();
+      optionalForeignMessage_ = other.optionalForeignMessage_;
+      optionalForeignEnum_ = other.getOptionalForeignEnumValue();
+      recursiveMessage_ = other.recursiveMessage_;
+      optionalBytes_ = other.getOptionalBytes();
+      repeatedInt32_ = other.repeatedInt32_;
+      repeatedForeignMessage_ = other.repeatedForeignMessage_;
+      repeatedForeignEnum_ = other.repeatedForeignEnum_;
+      mapInt32Int32_ = other.mapInt32Int32_;
+      mapBoolBool_ = other.mapBoolBool_;
+      mapStringString_ = other.mapStringString_;
+      if (parserLocals == null && other.mapStringForeignMessage_ != null) {
+        mapStringForeignMessage_ = new com.google.protobuf.MapFieldBuilder<>(mapStringForeignMessageConverter);
+        mapStringForeignMessage_.ensureBuilderMap().putAll(other.mapStringForeignMessage_.getMap());
+      }
+      mapStringForeignEnum_ = other.mapStringForeignEnum_;
+      repeatedBytes_ = other.repeatedBytes_;
+      mapStringBytes_ = other.mapStringBytes_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          optionalForeignMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder>) parserLocals[0]);
+          optionalForeignMessage_ = null;
+        }
+        if (parserLocals[1] != null) {
+          recursiveMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable, com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstableOrBuilder>) parserLocals[1]);
+          recursiveMessage_ = null;
+        }
+        if (parserLocals[2] != null) {
+          repeatedForeignMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder>) parserLocals[2]);
+          repeatedForeignMessage_ = null;
+        }
+        if (parserLocals[3] != null) {
+          mapStringForeignMessage_ = (com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder>) parserLocals[3];
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     public <Type> Builder setExtension(
@@ -1985,9 +2044,25 @@ com.google.protobuf.ByteString defaultValue) {
       } // finally
       return this;
     }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 18: {
+          parseOptionalForeignMessageField(input, extensionRegistry);
+          return true;
+        } // case 18
+        case 34: {
+          parseRecursiveMessageField(input, extensionRegistry);
+          return true;
+        } // case 34
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
+    }
     private int bitField0_;
 
-    private int optionalInt32_ ;
+    private int optionalInt32_;
     /**
      * <pre>
      * Singular
@@ -2162,7 +2237,7 @@ com.google.protobuf.ByteString defaultValue) {
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (optionalForeignMessage_ != null || optionalForeignMessageBuilder_ != null) {
-        internalGetOptionalForeignMessageFieldBuilder().getBuilder()
+        internalGetOptionalForeignMessageFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         optionalForeignMessage_ = com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.parser().parsePartialFrom(input, extensionRegistry);
@@ -2171,7 +2246,7 @@ com.google.protobuf.ByteString defaultValue) {
       bitField0_ |= 0x00000002;
     }
 
-    private int optionalForeignEnum_ = 0;
+    private int optionalForeignEnum_;
     /**
      * <code>.protobuf_test_messages.edition_unstable.ForeignEnumEditionUnstable optional_foreign_enum = 3;</code>
      * @return Whether the optionalForeignEnum field is set.
@@ -2349,7 +2424,7 @@ com.google.protobuf.ByteString defaultValue) {
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (recursiveMessage_ != null || recursiveMessageBuilder_ != null) {
-        internalGetRecursiveMessageFieldBuilder().getBuilder()
+        internalGetRecursiveMessageFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         recursiveMessage_ = com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.parser().parsePartialFrom(input, extensionRegistry);
@@ -2358,7 +2433,7 @@ com.google.protobuf.ByteString defaultValue) {
       bitField0_ |= 0x00000008;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedInt32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedInt32_;
     private void ensureRepeatedInt32IsMutable(int capacity) {
       if (!repeatedInt32_.isModifiable()) {
         repeatedInt32_ = makeMutableCopy(repeatedInt32_, capacity);
@@ -2470,8 +2545,7 @@ com.google.protobuf.ByteString defaultValue) {
       return this;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable> repeatedForeignMessage_ =
-        emptyList(com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable> repeatedForeignMessage_;
     private void ensureRepeatedForeignMessageIsMutable() {
       if (!repeatedForeignMessage_.isModifiable()) {
         repeatedForeignMessage_ = makeMutableCopy(repeatedForeignMessage_);
@@ -2704,7 +2778,7 @@ com.google.protobuf.ByteString defaultValue) {
       return repeatedForeignMessageBuilder_;
     }
 
-    private com.google.protobuf.Internal.IntList repeatedForeignEnum_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList repeatedForeignEnum_;
     private void ensureRepeatedForeignEnumIsMutable(int capacity) {
       if (!repeatedForeignEnum_.isModifiable()) {
         repeatedForeignEnum_ = makeMutableCopy(repeatedForeignEnum_, capacity);
@@ -3614,7 +3688,7 @@ com.google.protobuf_test_messages.edition_unstable.ForeignEnumEditionUnstable de
       return this;
     }
 
-    private com.google.protobuf.ByteString optionalBytes_ = com.google.protobuf.ByteString.EMPTY;
+    private com.google.protobuf.ByteString optionalBytes_;
     /**
      * <pre>
      * bytes
@@ -3670,7 +3744,7 @@ com.google.protobuf_test_messages.edition_unstable.ForeignEnumEditionUnstable de
       return this;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes_ = emptyList(com.google.protobuf.ByteString.class);
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> repeatedBytes_;
     private void ensureRepeatedBytesIsMutable(int capacity) {
       if (!repeatedBytes_.isModifiable()) {
         repeatedBytes_ = makeMutableCopy(repeatedBytes_, capacity);
@@ -3895,22 +3969,456 @@ com.google.protobuf.ByteString defaultValue) {
     return DEFAULT_INSTANCE;
   }
 
+  static TestAllTypesEditionUnstable parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    TestAllTypesEditionUnstable instance = new TestAllTypesEditionUnstable((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder> optionalForeignMessageBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable, com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstableOrBuilder> recursiveMessageBuilder_ = null;
+    com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder> repeatedForeignMessageBuilder_ = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder> parsed_mapStringForeignMessage = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      optionalForeignMessageBuilder_ = internalGetOptionalForeignMessageFieldBuilder(instance, optionalForeignMessageBuilder_);
+      recursiveMessageBuilder_ = internalGetRecursiveMessageFieldBuilder(instance, recursiveMessageBuilder_);
+      repeatedForeignMessageBuilder_ = internalGetRepeatedForeignMessageFieldBuilder(instance, repeatedForeignMessageBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 13: {
+            instance.optionalInt32_ = input.readSFixed32();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 13
+          case 18: {
+            if (instance.optionalForeignMessage_ != null || optionalForeignMessageBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseOptionalForeignMessageField(instance, input, extensionRegistry, optionalForeignMessageBuilder_);
+            break;
+          } // case 18
+          case 24: {
+            instance.optionalForeignEnum_ = input.readEnum();
+            instance.bitField0_ |= 0x00000004;
+            break;
+          } // case 24
+          case 34: {
+            if (instance.recursiveMessage_ != null || recursiveMessageBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseRecursiveMessageField(instance, input, extensionRegistry, recursiveMessageBuilder_);
+            break;
+          } // case 34
+          case 45: {
+            int v = input.readSFixed32();
+            ensureRepeatedInt32IsMutable(instance, /* capacity= */ -1);
+            instance.repeatedInt32_.addInt(v);
+            break;
+          } // case 45
+          case 42: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureRepeatedInt32IsMutable(instance, alloc / 4);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedInt32_.addInt(input.readSFixed32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 42
+          case 50: {
+            final int oldLimit = input.pushLimitBeforeMessage();
+            com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable m = com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.parser().parsePartialFrom(input, extensionRegistry);
+            input.popLimitAfterMessage(oldLimit);
+            if (repeatedForeignMessageBuilder_ == null) {
+              ensureRepeatedForeignMessageIsMutable(instance);
+              instance.repeatedForeignMessage_.add(m);
+            } else {
+              repeatedForeignMessageBuilder_.addMessage(m);
+              instance.bitField0_ |= 0x00000040;
+
+            }
+            break;
+          } // case 50
+          case 56: {
+            int tmpRaw = input.readEnum();
+            ensureRepeatedForeignEnumIsMutable(instance, /* capacity= */ -1);
+            instance.repeatedForeignEnum_.addInt(tmpRaw);
+            break;
+          } // case 56
+          case 58: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureRepeatedForeignEnumIsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.repeatedForeignEnum_.addInt(input.readEnum());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 58
+          case 66: {
+            com.google.protobuf.MapEntry<java.lang.Integer, java.lang.Integer>
+            mapInt32Int32__ = input.readMessage(
+                MapInt32Int32DefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapInt32Int32(instance).getMutableMap().put(
+                mapInt32Int32__.getKey(), mapInt32Int32__.getValue());
+            instance.bitField0_ |= 0x00000100;
+            break;
+          } // case 66
+          case 74: {
+            com.google.protobuf.MapEntry<java.lang.Boolean, java.lang.Boolean>
+            mapBoolBool__ = input.readMessage(
+                MapBoolBoolDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapBoolBool(instance).getMutableMap().put(
+                mapBoolBool__.getKey(), mapBoolBool__.getValue());
+            instance.bitField0_ |= 0x00000200;
+            break;
+          } // case 74
+          case 82: {
+            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+            mapStringString__ = input.readMessage(
+                MapStringStringDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapStringString(instance).getMutableMap().put(
+                mapStringString__.getKey(), mapStringString__.getValue());
+            instance.bitField0_ |= 0x00000400;
+            break;
+          } // case 82
+          case 90: {
+            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable>
+            mapStringForeignMessage__ = input.readMessage(
+                MapStringForeignMessageDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_mapStringForeignMessage = internalGetMutableMapStringForeignMessage(instance, parsed_mapStringForeignMessage)).ensureBuilderMap().put(
+                mapStringForeignMessage__.getKey(), mapStringForeignMessage__.getValue());
+            instance.bitField0_ |= 0x00000800;
+            break;
+          } // case 90
+          case 98: {
+            com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+            mapStringForeignEnum__ = input.readMessage(
+                MapStringForeignEnumDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapStringForeignEnum(instance).getMutableMap().put(
+                mapStringForeignEnum__.getKey(), mapStringForeignEnum__.getValue());
+            instance.bitField0_ |= 0x00001000;
+            break;
+          } // case 98
+          case 106: {
+            instance.optionalBytes_ = input.readBytes();
+            instance.bitField0_ |= 0x00000010;
+            break;
+          } // case 106
+          case 114: {
+            com.google.protobuf.ByteString v = input.readBytes();
+            ensureRepeatedBytesIsMutable(instance, /* capacity= */ -1);
+            instance.repeatedBytes_.add(v);
+            break;
+          } // case 114
+          case 122: {
+            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.ByteString>
+            mapStringBytes__ = input.readMessage(
+                MapStringBytesDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapStringBytes(instance).getMutableMap().put(
+                mapStringBytes__.getKey(), mapStringBytes__.getValue());
+            instance.bitField0_ |= 0x00004000;
+            break;
+          } // case 122
+          default: {
+            pendingTag = tag;
+            done = true;
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {optionalForeignMessageBuilder_, recursiveMessageBuilder_, repeatedForeignMessageBuilder_, parsed_mapStringForeignMessage});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, optionalForeignMessageBuilder_, recursiveMessageBuilder_, repeatedForeignMessageBuilder_, parsed_mapStringForeignMessage);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable optional_foreign_message = 2 [features = { ... }</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder> 
+      internalGetOptionalForeignMessageFieldBuilder(com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder> optionalForeignMessageBuilder_) {
+    if (optionalForeignMessageBuilder_ == null) {
+      optionalForeignMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder>(
+              instance.getOptionalForeignMessage(),
+              null,
+              false);
+      instance.optionalForeignMessage_ = null;
+    }
+    instance.bitField0_ |= 0x00000002;
+    return optionalForeignMessageBuilder_;
+  }
+  private static void parseOptionalForeignMessageField(
+      com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder> optionalForeignMessageBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.optionalForeignMessage_ != null || optionalForeignMessageBuilder_ != null) {
+      optionalForeignMessageBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.optionalForeignMessage_ = com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000002;
+  }
+  /**
+   * <code>.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable recursive_message = 4 [features = { ... }</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable, com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstableOrBuilder> 
+      internalGetRecursiveMessageFieldBuilder(com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable instance, com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable, com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstableOrBuilder> recursiveMessageBuilder_) {
+    if (recursiveMessageBuilder_ == null) {
+      recursiveMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable, com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstableOrBuilder>(
+              instance.getRecursiveMessage(),
+              null,
+              false);
+      instance.recursiveMessage_ = null;
+    }
+    instance.bitField0_ |= 0x00000008;
+    return recursiveMessageBuilder_;
+  }
+  private static void parseRecursiveMessageField(
+      com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable, com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstableOrBuilder> recursiveMessageBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.recursiveMessage_ != null || recursiveMessageBuilder_ != null) {
+      recursiveMessageBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.recursiveMessage_ = com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000008;
+  }
+  private static void ensureRepeatedInt32IsMutable(com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable instance, int capacity) {
+    if (!instance.repeatedInt32_.isModifiable()) {
+      instance.repeatedInt32_ = makeMutableCopy(instance.repeatedInt32_, capacity);
+    }
+    instance.bitField0_ |= 0x00000020;
+  }
+  private static void ensureRepeatedForeignMessageIsMutable(com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable instance) {
+    if (!instance.repeatedForeignMessage_.isModifiable()) {
+      instance.repeatedForeignMessage_ = makeMutableCopy(instance.repeatedForeignMessage_);
+    }
+    instance.bitField0_ |= 0x00000040;
+  }
+  private static com.google.protobuf.RepeatedFieldBuilder<
+      com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder> 
+      internalGetRepeatedForeignMessageFieldBuilder(com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable instance, com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder> repeatedForeignMessageBuilder_) {
+    if (repeatedForeignMessageBuilder_ == null) {
+      repeatedForeignMessageBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder>(
+              instance.repeatedForeignMessage_,
+              instance.repeatedForeignMessage_.isModifiable(),
+              null,
+              false);
+      instance.repeatedForeignMessage_ = null;
+    }
+    instance.bitField0_ |= 0x00000040;
+
+    return repeatedForeignMessageBuilder_;
+  }
+  private static void ensureRepeatedForeignEnumIsMutable(com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable instance, int capacity) {
+    if (!instance.repeatedForeignEnum_.isModifiable()) {
+      instance.repeatedForeignEnum_ = makeMutableCopy(instance.repeatedForeignEnum_, capacity);
+    }
+    instance.bitField0_ |= 0x00000080;
+  }
+  private static com.google.protobuf.MapField<java.lang.Integer, java.lang.Integer>
+      internalGetMutableMapInt32Int32(com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable instance) {
+    if (instance.mapInt32Int32_ == null) {
+      instance.mapInt32Int32_ = com.google.protobuf.MapField.newMapField(
+          MapInt32Int32DefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapInt32Int32_.isMutable()) {
+      instance.mapInt32Int32_ = instance.mapInt32Int32_.copy();
+    }
+    instance.bitField0_ |= 0x00000100;
+
+    return instance.mapInt32Int32_;
+  }
+  private static com.google.protobuf.MapField<java.lang.Boolean, java.lang.Boolean>
+      internalGetMutableMapBoolBool(com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable instance) {
+    if (instance.mapBoolBool_ == null) {
+      instance.mapBoolBool_ = com.google.protobuf.MapField.newMapField(
+          MapBoolBoolDefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapBoolBool_.isMutable()) {
+      instance.mapBoolBool_ = instance.mapBoolBool_.copy();
+    }
+    instance.bitField0_ |= 0x00000200;
+
+    return instance.mapBoolBool_;
+  }
+  private static com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableMapStringString(com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable instance) {
+    if (instance.mapStringString_ == null) {
+      instance.mapStringString_ = com.google.protobuf.MapField.newMapField(
+          MapStringStringDefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapStringString_.isMutable()) {
+      instance.mapStringString_ = instance.mapStringString_.copy();
+    }
+    instance.bitField0_ |= 0x00000400;
+
+    return instance.mapStringString_;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder>
+      internalGetMutableMapStringForeignMessage(com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable instance, com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder> parsed_mapStringForeignMessage) {
+    if (parsed_mapStringForeignMessage == null) {
+      parsed_mapStringForeignMessage = new com.google.protobuf.MapFieldBuilder<>(Builder.mapStringForeignMessageConverter);
+    }
+    instance.bitField0_ |= 0x00000800;
+
+    return parsed_mapStringForeignMessage;
+  }
+  private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+      internalGetMutableMapStringForeignEnum(com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable instance) {
+    if (instance.mapStringForeignEnum_ == null) {
+      instance.mapStringForeignEnum_ = com.google.protobuf.MapField.newMapField(
+          MapStringForeignEnumDefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapStringForeignEnum_.isMutable()) {
+      instance.mapStringForeignEnum_ = instance.mapStringForeignEnum_.copy();
+    }
+    instance.bitField0_ |= 0x00001000;
+
+    return instance.mapStringForeignEnum_;
+  }
+  private static void ensureRepeatedBytesIsMutable(com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable instance, int capacity) {
+    if (!instance.repeatedBytes_.isModifiable()) {
+      instance.repeatedBytes_ = makeMutableCopy(instance.repeatedBytes_, capacity);
+    }
+    instance.bitField0_ |= 0x00002000;
+  }
+  private static com.google.protobuf.MapField<java.lang.String, com.google.protobuf.ByteString>
+      internalGetMutableMapStringBytes(com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable instance) {
+    if (instance.mapStringBytes_ == null) {
+      instance.mapStringBytes_ = com.google.protobuf.MapField.newMapField(
+          MapStringBytesDefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapStringBytes_.isMutable()) {
+      instance.mapStringBytes_ = instance.mapStringBytes_.copy();
+    }
+    instance.bitField0_ |= 0x00004000;
+
+    return instance.mapStringBytes_;
+  }
+  private static void buildPartial_autosplit_0(com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable instance,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder> optionalForeignMessageBuilder_,
+      com.google.protobuf.SingleFieldBuilder<com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable, com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstableOrBuilder> recursiveMessageBuilder_,
+      com.google.protobuf.RepeatedFieldBuilder<com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder> repeatedForeignMessageBuilder_,
+      com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstableOrBuilder, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable, com.google.protobuf_test_messages.edition_unstable.ForeignMessageEditionUnstable.Builder> parsed_mapStringForeignMessage) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00000002) != 0)) instance.optionalForeignMessage_ = null;
+    if (((from_bitField0_ & 0x00000002) != 0)) {
+      instance.optionalForeignMessage_ = optionalForeignMessageBuilder_ == null
+          ? instance.optionalForeignMessage_
+          : optionalForeignMessageBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000008) != 0)) instance.recursiveMessage_ = null;
+    if (((from_bitField0_ & 0x00000008) != 0)) {
+      instance.recursiveMessage_ = recursiveMessageBuilder_ == null
+          ? instance.recursiveMessage_
+          : recursiveMessageBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000020) != 0)) {
+      instance.repeatedInt32_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000040) != 0)) {
+    if (repeatedForeignMessageBuilder_ == null) {
+      instance.repeatedForeignMessage_.makeImmutable();
+    } else {
+      instance.repeatedForeignMessage_ = repeatedForeignMessageBuilder_.buildProtobufList();
+    }
+    }
+    if (((from_bitField0_ & 0x00000080) != 0)) {
+      instance.repeatedForeignEnum_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000100) != 0)) {
+      instance.mapInt32Int32_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000200) != 0)) {
+      instance.mapBoolBool_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000400) != 0)) {
+      instance.mapStringString_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000800) != 0)) {
+      instance.mapStringForeignMessage_ = parsed_mapStringForeignMessage.build(MapStringForeignMessageDefaultEntryHolder.defaultEntry);
+    }
+    if (((from_bitField0_ & 0x00001000) != 0)) {
+      instance.mapStringForeignEnum_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00002000) != 0)) {
+      instance.repeatedBytes_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00004000) != 0)) {
+      instance.mapStringBytes_.makeImmutable();
+    }
+  }
+
   private static final com.google.protobuf.Parser<TestAllTypesEditionUnstable>
-      PARSER = new com.google.protobuf.AbstractParser<TestAllTypesEditionUnstable>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestAllTypesEditionUnstable> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestAllTypesEditionUnstable parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return TestAllTypesEditionUnstable.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(TestAllTypesEditionUnstable instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<TestAllTypesEditionUnstable> parser() {
     return PARSER;

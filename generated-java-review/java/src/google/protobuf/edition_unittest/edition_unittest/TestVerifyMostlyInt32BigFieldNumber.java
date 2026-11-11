@@ -618,15 +618,29 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestVerifyMostlyInt32BigFieldNumber.class, edition_unittest.TestVerifyMostlyInt32BigFieldNumber.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestVerifyMostlyInt32BigFieldNumber.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      repeatedAllTypes_ = emptyList(edition_unittest.TestAllTypes.class);
       maybeForceBuilderInitialization();
+    }
+    private Builder(edition_unittest.TestVerifyMostlyInt32BigFieldNumber other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -692,7 +706,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(edition_unittest.TestVerifyMostlyInt32BigFieldNumber result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.optionalInt6430_ = optionalInt6430_;
         to_bitField0_ |= 0x00000001;
@@ -740,6 +754,31 @@ private static final long serialVersionUID = 0L;
       }
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(edition_unittest.TestVerifyMostlyInt32BigFieldNumber other, java.lang.Object[] parserLocals) {
+      optionalInt6430_ = other.getOptionalInt6430();
+      optionalInt32300_ = other.getOptionalInt32300();
+      optionalInt321_ = other.getOptionalInt321();
+      optionalInt322_ = other.getOptionalInt322();
+      optionalInt323_ = other.getOptionalInt323();
+      optionalInt324_ = other.getOptionalInt324();
+      optionalInt3263_ = other.getOptionalInt3263();
+      optionalInt3264_ = other.getOptionalInt3264();
+      optionalAllTypes_ = other.optionalAllTypes_;
+      repeatedAllTypes_ = other.repeatedAllTypes_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          optionalAllTypesBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder>) parserLocals[0]);
+          optionalAllTypes_ = null;
+        }
+        if (parserLocals[1] != null) {
+          repeatedAllTypesBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder>) parserLocals[1]);
+          repeatedAllTypes_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -906,9 +945,21 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 74: {
+          parseOptionalAllTypesField(input, extensionRegistry);
+          return true;
+        } // case 74
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
+    }
     private int bitField0_;
 
-    private long optionalInt6430_ ;
+    private long optionalInt6430_;
     /**
      * <code>int64 optional_int64_30 = 30;</code>
      * @return Whether the optionalInt6430 field is set.
@@ -948,7 +999,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalInt32300_ ;
+    private int optionalInt32300_;
     /**
      * <code>int32 optional_int32_300 = 300;</code>
      * @return Whether the optionalInt32300 field is set.
@@ -988,7 +1039,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalInt321_ ;
+    private int optionalInt321_;
     /**
      * <code>int32 optional_int32_1 = 1;</code>
      * @return Whether the optionalInt321 field is set.
@@ -1028,7 +1079,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalInt322_ ;
+    private int optionalInt322_;
     /**
      * <code>int32 optional_int32_2 = 2;</code>
      * @return Whether the optionalInt322 field is set.
@@ -1068,7 +1119,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalInt323_ ;
+    private int optionalInt323_;
     /**
      * <code>int32 optional_int32_3 = 3;</code>
      * @return Whether the optionalInt323 field is set.
@@ -1108,7 +1159,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalInt324_ ;
+    private int optionalInt324_;
     /**
      * <code>int32 optional_int32_4 = 4;</code>
      * @return Whether the optionalInt324 field is set.
@@ -1148,7 +1199,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalInt3263_ ;
+    private int optionalInt3263_;
     /**
      * <code>int32 optional_int32_63 = 63;</code>
      * @return Whether the optionalInt3263 field is set.
@@ -1188,7 +1239,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private int optionalInt3264_ ;
+    private int optionalInt3264_;
     /**
      * <code>int32 optional_int32_64 = 64;</code>
      * @return Whether the optionalInt3264 field is set.
@@ -1347,7 +1398,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (optionalAllTypes_ != null || optionalAllTypesBuilder_ != null) {
-        internalGetOptionalAllTypesFieldBuilder().getBuilder()
+        internalGetOptionalAllTypesFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         optionalAllTypes_ = edition_unittest.TestAllTypes.parser().parsePartialFrom(input, extensionRegistry);
@@ -1356,8 +1407,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000100;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<edition_unittest.TestAllTypes> repeatedAllTypes_ =
-        emptyList(edition_unittest.TestAllTypes.class);
+    private com.google.protobuf.Internal.ProtobufList<edition_unittest.TestAllTypes> repeatedAllTypes_;
     private void ensureRepeatedAllTypesIsMutable() {
       if (!repeatedAllTypes_.isModifiable()) {
         repeatedAllTypes_ = makeMutableCopy(repeatedAllTypes_);
@@ -1603,22 +1653,218 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static TestVerifyMostlyInt32BigFieldNumber parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    TestVerifyMostlyInt32BigFieldNumber instance = new TestVerifyMostlyInt32BigFieldNumber((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> optionalAllTypesBuilder_ = null;
+    com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> repeatedAllTypesBuilder_ = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      optionalAllTypesBuilder_ = internalGetOptionalAllTypesFieldBuilder(instance, optionalAllTypesBuilder_);
+      repeatedAllTypesBuilder_ = internalGetRepeatedAllTypesFieldBuilder(instance, repeatedAllTypesBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8: {
+            instance.optionalInt321_ = input.readInt32();
+            instance.bitField0_ |= 0x00000004;
+            break;
+          } // case 8
+          case 16: {
+            instance.optionalInt322_ = input.readInt32();
+            instance.bitField0_ |= 0x00000008;
+            break;
+          } // case 16
+          case 24: {
+            instance.optionalInt323_ = input.readInt32();
+            instance.bitField0_ |= 0x00000010;
+            break;
+          } // case 24
+          case 32: {
+            instance.optionalInt324_ = input.readInt32();
+            instance.bitField0_ |= 0x00000020;
+            break;
+          } // case 32
+          case 74: {
+            if (instance.optionalAllTypes_ != null || optionalAllTypesBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseOptionalAllTypesField(instance, input, extensionRegistry, optionalAllTypesBuilder_);
+            break;
+          } // case 74
+          case 82: {
+            final int oldLimit = input.pushLimitBeforeMessage();
+            edition_unittest.TestAllTypes m = edition_unittest.TestAllTypes.parser().parsePartialFrom(input, extensionRegistry);
+            input.popLimitAfterMessage(oldLimit);
+            if (repeatedAllTypesBuilder_ == null) {
+              ensureRepeatedAllTypesIsMutable(instance);
+              instance.repeatedAllTypes_.add(m);
+            } else {
+              repeatedAllTypesBuilder_.addMessage(m);
+              instance.bitField0_ |= 0x00000200;
+
+            }
+            break;
+          } // case 82
+          case 240: {
+            instance.optionalInt6430_ = input.readInt64();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 240
+          case 504: {
+            instance.optionalInt3263_ = input.readInt32();
+            instance.bitField0_ |= 0x00000040;
+            break;
+          } // case 504
+          case 512: {
+            instance.optionalInt3264_ = input.readInt32();
+            instance.bitField0_ |= 0x00000080;
+            break;
+          } // case 512
+          case 2400: {
+            instance.optionalInt32300_ = input.readInt32();
+            instance.bitField0_ |= 0x00000002;
+            break;
+          } // case 2400
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {optionalAllTypesBuilder_, repeatedAllTypesBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, optionalAllTypesBuilder_, repeatedAllTypesBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>.edition_unittest.TestAllTypes optional_all_types = 9;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> 
+      internalGetOptionalAllTypesFieldBuilder(edition_unittest.TestVerifyMostlyInt32BigFieldNumber instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> optionalAllTypesBuilder_) {
+    if (optionalAllTypesBuilder_ == null) {
+      optionalAllTypesBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder>(
+              instance.getOptionalAllTypes(),
+              null,
+              false);
+      instance.optionalAllTypes_ = null;
+    }
+    instance.bitField0_ |= 0x00000100;
+    return optionalAllTypesBuilder_;
+  }
+  private static void parseOptionalAllTypesField(
+      edition_unittest.TestVerifyMostlyInt32BigFieldNumber instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> optionalAllTypesBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.optionalAllTypes_ != null || optionalAllTypesBuilder_ != null) {
+      optionalAllTypesBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.optionalAllTypes_ = edition_unittest.TestAllTypes.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000100;
+  }
+  private static void ensureRepeatedAllTypesIsMutable(edition_unittest.TestVerifyMostlyInt32BigFieldNumber instance) {
+    if (!instance.repeatedAllTypes_.isModifiable()) {
+      instance.repeatedAllTypes_ = makeMutableCopy(instance.repeatedAllTypes_);
+    }
+    instance.bitField0_ |= 0x00000200;
+  }
+  private static com.google.protobuf.RepeatedFieldBuilder<
+      edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> 
+      internalGetRepeatedAllTypesFieldBuilder(edition_unittest.TestVerifyMostlyInt32BigFieldNumber instance, com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> repeatedAllTypesBuilder_) {
+    if (repeatedAllTypesBuilder_ == null) {
+      repeatedAllTypesBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder>(
+              instance.repeatedAllTypes_,
+              instance.repeatedAllTypes_.isModifiable(),
+              null,
+              false);
+      instance.repeatedAllTypes_ = null;
+    }
+    instance.bitField0_ |= 0x00000200;
+
+    return repeatedAllTypesBuilder_;
+  }
+  private static void buildPartial_autosplit_0(edition_unittest.TestVerifyMostlyInt32BigFieldNumber instance,
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> optionalAllTypesBuilder_,
+      com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestAllTypes, edition_unittest.TestAllTypes.Builder, edition_unittest.TestAllTypesOrBuilder> repeatedAllTypesBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00000100) != 0)) instance.optionalAllTypes_ = null;
+    if (((from_bitField0_ & 0x00000100) != 0)) {
+      instance.optionalAllTypes_ = optionalAllTypesBuilder_ == null
+          ? instance.optionalAllTypes_
+          : optionalAllTypesBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000200) != 0)) {
+    if (repeatedAllTypesBuilder_ == null) {
+      instance.repeatedAllTypes_.makeImmutable();
+    } else {
+      instance.repeatedAllTypes_ = repeatedAllTypesBuilder_.buildProtobufList();
+    }
+    }
+  }
+
   private static final com.google.protobuf.Parser<TestVerifyMostlyInt32BigFieldNumber>
-      PARSER = new com.google.protobuf.AbstractParser<TestVerifyMostlyInt32BigFieldNumber>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestVerifyMostlyInt32BigFieldNumber> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestVerifyMostlyInt32BigFieldNumber parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return TestVerifyMostlyInt32BigFieldNumber.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(TestVerifyMostlyInt32BigFieldNumber instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<TestVerifyMostlyInt32BigFieldNumber> parser() {
     return PARSER;

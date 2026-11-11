@@ -269,15 +269,28 @@ private static final long serialVersionUID = 0L;
               pb.InternalFieldOptions.class, pb.InternalFieldOptions.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using pb.InternalFieldOptions.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
+    }
+    private Builder(pb.InternalFieldOptions other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -327,7 +340,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(pb.InternalFieldOptions result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.cpp_ = cppBuilder_ == null
             ? cpp_
@@ -335,6 +348,18 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000001;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(pb.InternalFieldOptions other, java.lang.Object[] parserLocals) {
+      cpp_ = other.cpp_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          cppBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<pb.InternalFieldOptionsCpp, pb.InternalFieldOptionsCpp.Builder, pb.InternalFieldOptionsCppOrBuilder>) parserLocals[0]);
+          cpp_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -394,6 +419,18 @@ private static final long serialVersionUID = 0L;
         onChanged();
       } // finally
       return this;
+    }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 10: {
+          parseCppField(input, extensionRegistry);
+          return true;
+        } // case 10
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
     }
     private int bitField0_;
 
@@ -516,7 +553,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (cpp_ != null || cppBuilder_ != null) {
-        internalGetCppFieldBuilder().getBuilder()
+        internalGetCppFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         cpp_ = pb.InternalFieldOptionsCpp.parser().parsePartialFrom(input, extensionRegistry);
@@ -538,22 +575,132 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static InternalFieldOptions parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    InternalFieldOptions instance = new InternalFieldOptions((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<pb.InternalFieldOptionsCpp, pb.InternalFieldOptionsCpp.Builder, pb.InternalFieldOptionsCppOrBuilder> cppBuilder_ = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      cppBuilder_ = internalGetCppFieldBuilder(instance, cppBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            if (instance.cpp_ != null || cppBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseCppField(instance, input, extensionRegistry, cppBuilder_);
+            break;
+          } // case 10
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {cppBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, cppBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>.pb.InternalFieldOptionsCpp cpp = 1;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      pb.InternalFieldOptionsCpp, pb.InternalFieldOptionsCpp.Builder, pb.InternalFieldOptionsCppOrBuilder> 
+      internalGetCppFieldBuilder(pb.InternalFieldOptions instance, com.google.protobuf.SingleFieldBuilder<pb.InternalFieldOptionsCpp, pb.InternalFieldOptionsCpp.Builder, pb.InternalFieldOptionsCppOrBuilder> cppBuilder_) {
+    if (cppBuilder_ == null) {
+      cppBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          pb.InternalFieldOptionsCpp, pb.InternalFieldOptionsCpp.Builder, pb.InternalFieldOptionsCppOrBuilder>(
+              instance.getCpp(),
+              null,
+              false);
+      instance.cpp_ = null;
+    }
+    instance.bitField0_ |= 0x00000001;
+    return cppBuilder_;
+  }
+  private static void parseCppField(
+      pb.InternalFieldOptions instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<pb.InternalFieldOptionsCpp, pb.InternalFieldOptionsCpp.Builder, pb.InternalFieldOptionsCppOrBuilder> cppBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.cpp_ != null || cppBuilder_ != null) {
+      cppBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.cpp_ = pb.InternalFieldOptionsCpp.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000001;
+  }
+  private static void buildPartial_autosplit_0(pb.InternalFieldOptions instance,
+      com.google.protobuf.SingleFieldBuilder<pb.InternalFieldOptionsCpp, pb.InternalFieldOptionsCpp.Builder, pb.InternalFieldOptionsCppOrBuilder> cppBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00000001) != 0)) instance.cpp_ = null;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.cpp_ = cppBuilder_ == null
+          ? instance.cpp_
+          : cppBuilder_.build();
+    }
+  }
+
   private static final com.google.protobuf.Parser<InternalFieldOptions>
-      PARSER = new com.google.protobuf.AbstractParser<InternalFieldOptions>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<InternalFieldOptions> {
+    MessageParser() {}
+
     @java.lang.Override
     public InternalFieldOptions parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return InternalFieldOptions.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(InternalFieldOptions instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<InternalFieldOptions> parser() {
     return PARSER;

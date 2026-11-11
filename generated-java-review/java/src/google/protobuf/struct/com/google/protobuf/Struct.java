@@ -407,15 +407,27 @@ com.google.protobuf.Value defaultValue) {
               com.google.protobuf.Struct.class, com.google.protobuf.Struct.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.Struct.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+    }
+    private Builder(com.google.protobuf.Struct other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -455,11 +467,25 @@ com.google.protobuf.Value defaultValue) {
 
     private void buildPartial_autosplit_0(com.google.protobuf.Struct result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.fields_ = internalGetFields().build(FieldsDefaultEntryHolder.defaultEntry);
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(com.google.protobuf.Struct other, java.lang.Object[] parserLocals) {
+      if (parserLocals == null && other.fields_ != null) {
+        fields_ = new com.google.protobuf.MapFieldBuilder<>(fieldsConverter);
+        fields_.ensureBuilderMap().putAll(other.fields_.getMap());
+      }
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          fields_ = (com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.ValueOrBuilder, com.google.protobuf.Value, com.google.protobuf.Value.Builder>) parserLocals[0];
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -729,22 +755,90 @@ com.google.protobuf.Value defaultValue) {
     return DEFAULT_INSTANCE;
   }
 
+  static Struct parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    Struct instance = new Struct((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.ValueOrBuilder, com.google.protobuf.Value, com.google.protobuf.Value.Builder> parsed_fields = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.Value>
+            fields__ = input.readMessage(
+                FieldsDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            (parsed_fields = internalGetMutableFields(instance, parsed_fields)).ensureBuilderMap().put(
+                fields__.getKey(), fields__.getValue());
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 10
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, parsed_fields);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.ValueOrBuilder, com.google.protobuf.Value, com.google.protobuf.Value.Builder>
+      internalGetMutableFields(com.google.protobuf.Struct instance, com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.ValueOrBuilder, com.google.protobuf.Value, com.google.protobuf.Value.Builder> parsed_fields) {
+    if (parsed_fields == null) {
+      parsed_fields = new com.google.protobuf.MapFieldBuilder<>(Builder.fieldsConverter);
+    }
+    instance.bitField0_ |= 0x00000001;
+
+    return parsed_fields;
+  }
+  private static void buildPartial_autosplit_0(com.google.protobuf.Struct instance,
+      com.google.protobuf.MapFieldBuilder<java.lang.String, com.google.protobuf.ValueOrBuilder, com.google.protobuf.Value, com.google.protobuf.Value.Builder> parsed_fields) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.fields_ = parsed_fields.build(FieldsDefaultEntryHolder.defaultEntry);
+    }
+  }
+
   private static final com.google.protobuf.Parser<Struct>
-      PARSER = new com.google.protobuf.AbstractParser<Struct>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<Struct> {
+    MessageParser() {}
+
     @java.lang.Override
     public Struct parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Struct.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(Struct instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<Struct> parser() {
     return PARSER;

@@ -945,15 +945,36 @@ java.lang.String defaultValue) {
               edition_unittest.RedactedFields.class, edition_unittest.RedactedFields.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.RedactedFields.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
+      optionalRedactedString_ = "";
+      optionalUnredactedString_ = "";
+      repeatedRedactedString_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedUnredactedString_ =
+          com.google.protobuf.LazyStringArrayList.emptyList();
+      repeatedRedactedMessage_ = emptyList(edition_unittest.TestNestedMessageRedaction.class);
+      repeatedUnredactedMessage_ = emptyList(edition_unittest.TestNestedMessageRedaction.class);
       maybeForceBuilderInitialization();
+    }
+    private Builder(edition_unittest.RedactedFields other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -1033,7 +1054,7 @@ java.lang.String defaultValue) {
 
     private void buildPartial_autosplit_0(edition_unittest.RedactedFields result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.optionalRedactedString_ = optionalRedactedString_;
         to_bitField0_ |= 0x00000001;
@@ -1087,6 +1108,39 @@ java.lang.String defaultValue) {
         result.mapUnredactedString_.makeImmutable();
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(edition_unittest.RedactedFields other, java.lang.Object[] parserLocals) {
+      optionalRedactedString_ = other.optionalRedactedString_;
+      optionalUnredactedString_ = other.optionalUnredactedString_;
+      optionalRedactedMessage_ = other.optionalRedactedMessage_;
+      optionalUnredactedMessage_ = other.optionalUnredactedMessage_;
+      repeatedRedactedString_ = other.repeatedRedactedString_;
+      repeatedUnredactedString_ = other.repeatedUnredactedString_;
+      repeatedRedactedMessage_ = other.repeatedRedactedMessage_;
+      repeatedUnredactedMessage_ = other.repeatedUnredactedMessage_;
+      mapRedactedString_ = other.mapRedactedString_;
+      mapUnredactedString_ = other.mapUnredactedString_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          optionalRedactedMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder>) parserLocals[0]);
+          optionalRedactedMessage_ = null;
+        }
+        if (parserLocals[1] != null) {
+          optionalUnredactedMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder>) parserLocals[1]);
+          optionalUnredactedMessage_ = null;
+        }
+        if (parserLocals[2] != null) {
+          repeatedRedactedMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder>) parserLocals[2]);
+          repeatedRedactedMessage_ = null;
+        }
+        if (parserLocals[3] != null) {
+          repeatedUnredactedMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder>) parserLocals[3]);
+          repeatedUnredactedMessage_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -1316,9 +1370,25 @@ java.lang.String defaultValue) {
       } // finally
       return this;
     }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 42: {
+          parseOptionalRedactedMessageField(input, extensionRegistry);
+          return true;
+        } // case 42
+        case 50: {
+          parseOptionalUnredactedMessageField(input, extensionRegistry);
+          return true;
+        } // case 50
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
+    }
     private int bitField0_;
 
-    private java.lang.Object optionalRedactedString_ = "";
+    private java.lang.Object optionalRedactedString_;
     /**
      * <code>string optional_redacted_string = 1 [debug_redact = true];</code>
      * @return Whether the optionalRedactedString field is set.
@@ -1397,7 +1467,7 @@ java.lang.String defaultValue) {
       return this;
     }
 
-    private java.lang.Object optionalUnredactedString_ = "";
+    private java.lang.Object optionalUnredactedString_;
     /**
      * <code>string optional_unredacted_string = 2;</code>
      * @return Whether the optionalUnredactedString field is set.
@@ -1476,8 +1546,7 @@ java.lang.String defaultValue) {
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedRedactedString_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedRedactedString_;
     private void ensureRepeatedRedactedStringIsMutable() {
       if (!repeatedRedactedString_.isModifiable()) {
         repeatedRedactedString_ = new com.google.protobuf.LazyStringArrayList(repeatedRedactedString_);
@@ -1587,8 +1656,7 @@ java.lang.String defaultValue) {
       return this;
     }
 
-    private com.google.protobuf.LazyStringArrayList repeatedUnredactedString_ =
-        com.google.protobuf.LazyStringArrayList.emptyList();
+    private com.google.protobuf.LazyStringArrayList repeatedUnredactedString_;
     private void ensureRepeatedUnredactedStringIsMutable() {
       if (!repeatedUnredactedString_.isModifiable()) {
         repeatedUnredactedString_ = new com.google.protobuf.LazyStringArrayList(repeatedUnredactedString_);
@@ -1817,7 +1885,7 @@ java.lang.String defaultValue) {
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (optionalRedactedMessage_ != null || optionalRedactedMessageBuilder_ != null) {
-        internalGetOptionalRedactedMessageFieldBuilder().getBuilder()
+        internalGetOptionalRedactedMessageFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         optionalRedactedMessage_ = edition_unittest.TestNestedMessageRedaction.parser().parsePartialFrom(input, extensionRegistry);
@@ -1945,7 +2013,7 @@ java.lang.String defaultValue) {
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (optionalUnredactedMessage_ != null || optionalUnredactedMessageBuilder_ != null) {
-        internalGetOptionalUnredactedMessageFieldBuilder().getBuilder()
+        internalGetOptionalUnredactedMessageFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         optionalUnredactedMessage_ = edition_unittest.TestNestedMessageRedaction.parser().parsePartialFrom(input, extensionRegistry);
@@ -1954,8 +2022,7 @@ java.lang.String defaultValue) {
       bitField0_ |= 0x00000008;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<edition_unittest.TestNestedMessageRedaction> repeatedRedactedMessage_ =
-        emptyList(edition_unittest.TestNestedMessageRedaction.class);
+    private com.google.protobuf.Internal.ProtobufList<edition_unittest.TestNestedMessageRedaction> repeatedRedactedMessage_;
     private void ensureRepeatedRedactedMessageIsMutable() {
       if (!repeatedRedactedMessage_.isModifiable()) {
         repeatedRedactedMessage_ = makeMutableCopy(repeatedRedactedMessage_);
@@ -2188,8 +2255,7 @@ java.lang.String defaultValue) {
       return repeatedRedactedMessageBuilder_;
     }
 
-    private com.google.protobuf.Internal.ProtobufList<edition_unittest.TestNestedMessageRedaction> repeatedUnredactedMessage_ =
-        emptyList(edition_unittest.TestNestedMessageRedaction.class);
+    private com.google.protobuf.Internal.ProtobufList<edition_unittest.TestNestedMessageRedaction> repeatedUnredactedMessage_;
     private void ensureRepeatedUnredactedMessageIsMutable() {
       if (!repeatedUnredactedMessage_.isModifiable()) {
         repeatedUnredactedMessage_ = makeMutableCopy(repeatedUnredactedMessage_);
@@ -2691,22 +2757,362 @@ java.lang.String defaultValue) {
     return DEFAULT_INSTANCE;
   }
 
+  static RedactedFields parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    RedactedFields instance = new RedactedFields((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> optionalRedactedMessageBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> optionalUnredactedMessageBuilder_ = null;
+    com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> repeatedRedactedMessageBuilder_ = null;
+    com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> repeatedUnredactedMessageBuilder_ = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      optionalRedactedMessageBuilder_ = internalGetOptionalRedactedMessageFieldBuilder(instance, optionalRedactedMessageBuilder_);
+      optionalUnredactedMessageBuilder_ = internalGetOptionalUnredactedMessageFieldBuilder(instance, optionalUnredactedMessageBuilder_);
+      repeatedRedactedMessageBuilder_ = internalGetRepeatedRedactedMessageFieldBuilder(instance, repeatedRedactedMessageBuilder_);
+      repeatedUnredactedMessageBuilder_ = internalGetRepeatedUnredactedMessageFieldBuilder(instance, repeatedUnredactedMessageBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            instance.optionalRedactedString_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000001;
+            break;
+          } // case 10
+          case 18: {
+            instance.optionalUnredactedString_ = input.readStringRequireUtf8();
+            instance.bitField0_ |= 0x00000002;
+            break;
+          } // case 18
+          case 26: {
+            ensureRepeatedRedactedStringIsMutable(instance);
+            instance.repeatedRedactedString_.add(input.readStringRequireUtf8());
+            break;
+          } // case 26
+          case 34: {
+            ensureRepeatedUnredactedStringIsMutable(instance);
+            instance.repeatedUnredactedString_.add(input.readStringRequireUtf8());
+            break;
+          } // case 34
+          case 42: {
+            if (instance.optionalRedactedMessage_ != null || optionalRedactedMessageBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseOptionalRedactedMessageField(instance, input, extensionRegistry, optionalRedactedMessageBuilder_);
+            break;
+          } // case 42
+          case 50: {
+            if (instance.optionalUnredactedMessage_ != null || optionalUnredactedMessageBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseOptionalUnredactedMessageField(instance, input, extensionRegistry, optionalUnredactedMessageBuilder_);
+            break;
+          } // case 50
+          case 58: {
+            final int oldLimit = input.pushLimitBeforeMessage();
+            edition_unittest.TestNestedMessageRedaction m = edition_unittest.TestNestedMessageRedaction.parser().parsePartialFrom(input, extensionRegistry);
+            input.popLimitAfterMessage(oldLimit);
+            if (repeatedRedactedMessageBuilder_ == null) {
+              ensureRepeatedRedactedMessageIsMutable(instance);
+              instance.repeatedRedactedMessage_.add(m);
+            } else {
+              repeatedRedactedMessageBuilder_.addMessage(m);
+              instance.bitField0_ |= 0x00000040;
+
+            }
+            break;
+          } // case 58
+          case 66: {
+            final int oldLimit = input.pushLimitBeforeMessage();
+            edition_unittest.TestNestedMessageRedaction m = edition_unittest.TestNestedMessageRedaction.parser().parsePartialFrom(input, extensionRegistry);
+            input.popLimitAfterMessage(oldLimit);
+            if (repeatedUnredactedMessageBuilder_ == null) {
+              ensureRepeatedUnredactedMessageIsMutable(instance);
+              instance.repeatedUnredactedMessage_.add(m);
+            } else {
+              repeatedUnredactedMessageBuilder_.addMessage(m);
+              instance.bitField0_ |= 0x00000080;
+
+            }
+            break;
+          } // case 66
+          case 74: {
+            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+            mapRedactedString__ = input.readMessage(
+                MapRedactedStringDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapRedactedString(instance).getMutableMap().put(
+                mapRedactedString__.getKey(), mapRedactedString__.getValue());
+            instance.bitField0_ |= 0x00000100;
+            break;
+          } // case 74
+          case 82: {
+            com.google.protobuf.MapEntry<java.lang.String, java.lang.String>
+            mapUnredactedString__ = input.readMessage(
+                MapUnredactedStringDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+            internalGetMutableMapUnredactedString(instance).getMutableMap().put(
+                mapUnredactedString__.getKey(), mapUnredactedString__.getValue());
+            instance.bitField0_ |= 0x00000200;
+            break;
+          } // case 82
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {optionalRedactedMessageBuilder_, optionalUnredactedMessageBuilder_, repeatedRedactedMessageBuilder_, repeatedUnredactedMessageBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, optionalRedactedMessageBuilder_, optionalUnredactedMessageBuilder_, repeatedRedactedMessageBuilder_, repeatedUnredactedMessageBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static void ensureRepeatedRedactedStringIsMutable(edition_unittest.RedactedFields instance) {
+    if (!instance.repeatedRedactedString_.isModifiable()) {
+      instance.repeatedRedactedString_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedRedactedString_);
+    }
+    instance.bitField0_ |= 0x00000010;
+  }
+  private static void ensureRepeatedUnredactedStringIsMutable(edition_unittest.RedactedFields instance) {
+    if (!instance.repeatedUnredactedString_.isModifiable()) {
+      instance.repeatedUnredactedString_ = new com.google.protobuf.LazyStringArrayList(instance.repeatedUnredactedString_);
+    }
+    instance.bitField0_ |= 0x00000020;
+  }
+  /**
+   * <code>.edition_unittest.TestNestedMessageRedaction optional_redacted_message = 5 [debug_redact = true];</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> 
+      internalGetOptionalRedactedMessageFieldBuilder(edition_unittest.RedactedFields instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> optionalRedactedMessageBuilder_) {
+    if (optionalRedactedMessageBuilder_ == null) {
+      optionalRedactedMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder>(
+              instance.getOptionalRedactedMessage(),
+              null,
+              false);
+      instance.optionalRedactedMessage_ = null;
+    }
+    instance.bitField0_ |= 0x00000004;
+    return optionalRedactedMessageBuilder_;
+  }
+  private static void parseOptionalRedactedMessageField(
+      edition_unittest.RedactedFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> optionalRedactedMessageBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.optionalRedactedMessage_ != null || optionalRedactedMessageBuilder_ != null) {
+      optionalRedactedMessageBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.optionalRedactedMessage_ = edition_unittest.TestNestedMessageRedaction.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000004;
+  }
+  /**
+   * <code>.edition_unittest.TestNestedMessageRedaction optional_unredacted_message = 6;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> 
+      internalGetOptionalUnredactedMessageFieldBuilder(edition_unittest.RedactedFields instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> optionalUnredactedMessageBuilder_) {
+    if (optionalUnredactedMessageBuilder_ == null) {
+      optionalUnredactedMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder>(
+              instance.getOptionalUnredactedMessage(),
+              null,
+              false);
+      instance.optionalUnredactedMessage_ = null;
+    }
+    instance.bitField0_ |= 0x00000008;
+    return optionalUnredactedMessageBuilder_;
+  }
+  private static void parseOptionalUnredactedMessageField(
+      edition_unittest.RedactedFields instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> optionalUnredactedMessageBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.optionalUnredactedMessage_ != null || optionalUnredactedMessageBuilder_ != null) {
+      optionalUnredactedMessageBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.optionalUnredactedMessage_ = edition_unittest.TestNestedMessageRedaction.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000008;
+  }
+  private static void ensureRepeatedRedactedMessageIsMutable(edition_unittest.RedactedFields instance) {
+    if (!instance.repeatedRedactedMessage_.isModifiable()) {
+      instance.repeatedRedactedMessage_ = makeMutableCopy(instance.repeatedRedactedMessage_);
+    }
+    instance.bitField0_ |= 0x00000040;
+  }
+  private static com.google.protobuf.RepeatedFieldBuilder<
+      edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> 
+      internalGetRepeatedRedactedMessageFieldBuilder(edition_unittest.RedactedFields instance, com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> repeatedRedactedMessageBuilder_) {
+    if (repeatedRedactedMessageBuilder_ == null) {
+      repeatedRedactedMessageBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder>(
+              instance.repeatedRedactedMessage_,
+              instance.repeatedRedactedMessage_.isModifiable(),
+              null,
+              false);
+      instance.repeatedRedactedMessage_ = null;
+    }
+    instance.bitField0_ |= 0x00000040;
+
+    return repeatedRedactedMessageBuilder_;
+  }
+  private static void ensureRepeatedUnredactedMessageIsMutable(edition_unittest.RedactedFields instance) {
+    if (!instance.repeatedUnredactedMessage_.isModifiable()) {
+      instance.repeatedUnredactedMessage_ = makeMutableCopy(instance.repeatedUnredactedMessage_);
+    }
+    instance.bitField0_ |= 0x00000080;
+  }
+  private static com.google.protobuf.RepeatedFieldBuilder<
+      edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> 
+      internalGetRepeatedUnredactedMessageFieldBuilder(edition_unittest.RedactedFields instance, com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> repeatedUnredactedMessageBuilder_) {
+    if (repeatedUnredactedMessageBuilder_ == null) {
+      repeatedUnredactedMessageBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+          edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder>(
+              instance.repeatedUnredactedMessage_,
+              instance.repeatedUnredactedMessage_.isModifiable(),
+              null,
+              false);
+      instance.repeatedUnredactedMessage_ = null;
+    }
+    instance.bitField0_ |= 0x00000080;
+
+    return repeatedUnredactedMessageBuilder_;
+  }
+  private static com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableMapRedactedString(edition_unittest.RedactedFields instance) {
+    if (instance.mapRedactedString_ == null) {
+      instance.mapRedactedString_ = com.google.protobuf.MapField.newMapField(
+          MapRedactedStringDefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapRedactedString_.isMutable()) {
+      instance.mapRedactedString_ = instance.mapRedactedString_.copy();
+    }
+    instance.bitField0_ |= 0x00000100;
+
+    return instance.mapRedactedString_;
+  }
+  private static com.google.protobuf.MapField<java.lang.String, java.lang.String>
+      internalGetMutableMapUnredactedString(edition_unittest.RedactedFields instance) {
+    if (instance.mapUnredactedString_ == null) {
+      instance.mapUnredactedString_ = com.google.protobuf.MapField.newMapField(
+          MapUnredactedStringDefaultEntryHolder.defaultEntry);
+    }
+    if (!instance.mapUnredactedString_.isMutable()) {
+      instance.mapUnredactedString_ = instance.mapUnredactedString_.copy();
+    }
+    instance.bitField0_ |= 0x00000200;
+
+    return instance.mapUnredactedString_;
+  }
+  private static void buildPartial_autosplit_0(edition_unittest.RedactedFields instance,
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> optionalRedactedMessageBuilder_,
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> optionalUnredactedMessageBuilder_,
+      com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> repeatedRedactedMessageBuilder_,
+      com.google.protobuf.RepeatedFieldBuilder<edition_unittest.TestNestedMessageRedaction, edition_unittest.TestNestedMessageRedaction.Builder, edition_unittest.TestNestedMessageRedactionOrBuilder> repeatedUnredactedMessageBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00000004) != 0)) instance.optionalRedactedMessage_ = null;
+    if (((from_bitField0_ & 0x00000004) != 0)) {
+      instance.optionalRedactedMessage_ = optionalRedactedMessageBuilder_ == null
+          ? instance.optionalRedactedMessage_
+          : optionalRedactedMessageBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000008) != 0)) instance.optionalUnredactedMessage_ = null;
+    if (((from_bitField0_ & 0x00000008) != 0)) {
+      instance.optionalUnredactedMessage_ = optionalUnredactedMessageBuilder_ == null
+          ? instance.optionalUnredactedMessage_
+          : optionalUnredactedMessageBuilder_.build();
+    }
+    if (((from_bitField0_ & 0x00000010) != 0)) {
+      instance.repeatedRedactedString_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000020) != 0)) {
+      instance.repeatedUnredactedString_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000040) != 0)) {
+    if (repeatedRedactedMessageBuilder_ == null) {
+      instance.repeatedRedactedMessage_.makeImmutable();
+    } else {
+      instance.repeatedRedactedMessage_ = repeatedRedactedMessageBuilder_.buildProtobufList();
+    }
+    }
+    if (((from_bitField0_ & 0x00000080) != 0)) {
+    if (repeatedUnredactedMessageBuilder_ == null) {
+      instance.repeatedUnredactedMessage_.makeImmutable();
+    } else {
+      instance.repeatedUnredactedMessage_ = repeatedUnredactedMessageBuilder_.buildProtobufList();
+    }
+    }
+    if (((from_bitField0_ & 0x00000100) != 0)) {
+      instance.mapRedactedString_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000200) != 0)) {
+      instance.mapUnredactedString_.makeImmutable();
+    }
+  }
+
   private static final com.google.protobuf.Parser<RedactedFields>
-      PARSER = new com.google.protobuf.AbstractParser<RedactedFields>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<RedactedFields> {
+    MessageParser() {}
+
     @java.lang.Override
     public RedactedFields parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return RedactedFields.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(RedactedFields instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<RedactedFields> parser() {
     return PARSER;

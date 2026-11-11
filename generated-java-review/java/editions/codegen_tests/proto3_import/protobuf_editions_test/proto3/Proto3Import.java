@@ -308,15 +308,28 @@ public final class Proto3Import extends com.google.protobuf.GeneratedFile {
                 protobuf_editions_test.proto3.Proto3Import.Proto3ImportMessage.class, protobuf_editions_test.proto3.Proto3Import.Proto3ImportMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.proto3.Proto3Import.Proto3ImportMessage.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(protobuf_editions_test.proto3.Proto3Import.Proto3ImportMessage other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -366,7 +379,7 @@ public final class Proto3Import extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(protobuf_editions_test.proto3.Proto3Import.Proto3ImportMessage result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.subMessageField_ = subMessageFieldBuilder_ == null
               ? subMessageField_
@@ -374,6 +387,18 @@ public final class Proto3Import extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(protobuf_editions_test.proto3.Proto3Import.Proto3ImportMessage other, java.lang.Object[] parserLocals) {
+        subMessageField_ = other.subMessageField_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            subMessageFieldBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3Implicit, protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3Implicit.Builder, protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3ImplicitOrBuilder>) parserLocals[0]);
+            subMessageField_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -433,6 +458,18 @@ public final class Proto3Import extends com.google.protobuf.GeneratedFile {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseSubMessageFieldField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -555,7 +592,7 @@ public final class Proto3Import extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (subMessageField_ != null || subMessageFieldBuilder_ != null) {
-          internalGetSubMessageFieldFieldBuilder().getBuilder()
+          internalGetSubMessageFieldFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           subMessageField_ = protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3Implicit.parser().parsePartialFrom(input, extensionRegistry);
@@ -577,22 +614,132 @@ public final class Proto3Import extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static Proto3ImportMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Proto3ImportMessage instance = new Proto3ImportMessage((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3Implicit, protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3Implicit.Builder, protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3ImplicitOrBuilder> subMessageFieldBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        subMessageFieldBuilder_ = internalGetSubMessageFieldFieldBuilder(instance, subMessageFieldBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.subMessageField_ != null || subMessageFieldBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseSubMessageFieldField(instance, input, extensionRegistry, subMessageFieldBuilder_);
+              break;
+            } // case 10
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {subMessageFieldBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, subMessageFieldBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>.protobuf_editions_test.proto3.Proto3Implicit sub_message_field = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3Implicit, protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3Implicit.Builder, protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3ImplicitOrBuilder> 
+        internalGetSubMessageFieldFieldBuilder(protobuf_editions_test.proto3.Proto3Import.Proto3ImportMessage instance, com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3Implicit, protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3Implicit.Builder, protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3ImplicitOrBuilder> subMessageFieldBuilder_) {
+      if (subMessageFieldBuilder_ == null) {
+        subMessageFieldBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3Implicit, protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3Implicit.Builder, protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3ImplicitOrBuilder>(
+                instance.getSubMessageField(),
+                null,
+                false);
+        instance.subMessageField_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return subMessageFieldBuilder_;
+    }
+    private static void parseSubMessageFieldField(
+        protobuf_editions_test.proto3.Proto3Import.Proto3ImportMessage instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3Implicit, protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3Implicit.Builder, protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3ImplicitOrBuilder> subMessageFieldBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.subMessageField_ != null || subMessageFieldBuilder_ != null) {
+        subMessageFieldBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.subMessageField_ = protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3Implicit.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void buildPartial_autosplit_0(protobuf_editions_test.proto3.Proto3Import.Proto3ImportMessage instance,
+        com.google.protobuf.SingleFieldBuilder<protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3Implicit, protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3Implicit.Builder, protobuf_editions_test.proto3.Proto3ImplicitOuterClass.Proto3ImplicitOrBuilder> subMessageFieldBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.subMessageField_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.subMessageField_ = subMessageFieldBuilder_ == null
+            ? instance.subMessageField_
+            : subMessageFieldBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<Proto3ImportMessage>
-        PARSER = new com.google.protobuf.AbstractParser<Proto3ImportMessage>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Proto3ImportMessage> {
+      MessageParser() {}
+
       @java.lang.Override
       public Proto3ImportMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Proto3ImportMessage.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Proto3ImportMessage instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Proto3ImportMessage> parser() {
       return PARSER;

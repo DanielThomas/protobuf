@@ -602,15 +602,28 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestNestedRequiredForeign.class, edition_unittest.TestNestedRequiredForeign.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestNestedRequiredForeign.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
       maybeForceBuilderInitialization();
+    }
+    private Builder(edition_unittest.TestNestedRequiredForeign other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     private void maybeForceBuilderInitialization() {
       if (com.google.protobuf.GeneratedMessage
@@ -691,7 +704,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(edition_unittest.TestNestedRequiredForeign result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         result.child_ = childBuilder_ == null
             ? child_
@@ -733,6 +746,44 @@ private static final long serialVersionUID = 0L;
         to_bitField0_ |= 0x00000040;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    @java.lang.SuppressWarnings("unchecked")
+    private void copyFrom_autosplit_0(edition_unittest.TestNestedRequiredForeign other, java.lang.Object[] parserLocals) {
+      child_ = other.child_;
+      payload_ = other.payload_;
+      dummy_ = other.getDummy();
+      requiredEnum_ = other.requiredEnum_;
+      requiredEnumNoMask_ = other.requiredEnumNoMask_;
+      requiredEnumMulti_ = other.requiredEnumMulti_;
+      requiredNoMask_ = other.requiredNoMask_;
+      if (parserLocals != null) {
+        if (parserLocals[0] != null) {
+          childBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedRequiredForeign, edition_unittest.TestNestedRequiredForeign.Builder, edition_unittest.TestNestedRequiredForeignOrBuilder>) parserLocals[0]);
+          child_ = null;
+        }
+        if (parserLocals[1] != null) {
+          payloadBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredForeign, edition_unittest.TestRequiredForeign.Builder, edition_unittest.TestRequiredForeignOrBuilder>) parserLocals[1]);
+          payload_ = null;
+        }
+        if (parserLocals[2] != null) {
+          requiredEnumBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredEnum, edition_unittest.TestRequiredEnum.Builder, edition_unittest.TestRequiredEnumOrBuilder>) parserLocals[2]);
+          requiredEnum_ = null;
+        }
+        if (parserLocals[3] != null) {
+          requiredEnumNoMaskBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredEnumNoMask, edition_unittest.TestRequiredEnumNoMask.Builder, edition_unittest.TestRequiredEnumNoMaskOrBuilder>) parserLocals[3]);
+          requiredEnumNoMask_ = null;
+        }
+        if (parserLocals[4] != null) {
+          requiredEnumMultiBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredEnumMulti, edition_unittest.TestRequiredEnumMulti.Builder, edition_unittest.TestRequiredEnumMultiOrBuilder>) parserLocals[4]);
+          requiredEnumMulti_ = null;
+        }
+        if (parserLocals[5] != null) {
+          requiredNoMaskBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredNoMaskMulti, edition_unittest.TestRequiredNoMaskMulti.Builder, edition_unittest.TestRequiredNoMaskMultiOrBuilder>) parserLocals[5]);
+          requiredNoMask_ = null;
+        }
+      }
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -866,6 +917,38 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+    private boolean mergeFromPendingField(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+        throws java.io.IOException {
+      switch (tag) {
+        case 10: {
+          parseChildField(input, extensionRegistry);
+          return true;
+        } // case 10
+        case 18: {
+          parsePayloadField(input, extensionRegistry);
+          return true;
+        } // case 18
+        case 42: {
+          parseRequiredEnumField(input, extensionRegistry);
+          return true;
+        } // case 42
+        case 50: {
+          parseRequiredEnumNoMaskField(input, extensionRegistry);
+          return true;
+        } // case 50
+        case 58: {
+          parseRequiredEnumMultiField(input, extensionRegistry);
+          return true;
+        } // case 58
+        case 74: {
+          parseRequiredNoMaskField(input, extensionRegistry);
+          return true;
+        } // case 74
+        default: return super.parseUnknownField(input, extensionRegistry, tag);
+      }
+    }
     private int bitField0_;
 
     private edition_unittest.TestNestedRequiredForeign child_;
@@ -987,7 +1070,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (child_ != null || childBuilder_ != null) {
-        internalGetChildFieldBuilder().getBuilder()
+        internalGetChildFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         child_ = edition_unittest.TestNestedRequiredForeign.parser().parsePartialFrom(input, extensionRegistry);
@@ -1115,7 +1198,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (payload_ != null || payloadBuilder_ != null) {
-        internalGetPayloadFieldBuilder().getBuilder()
+        internalGetPayloadFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         payload_ = edition_unittest.TestRequiredForeign.parser().parsePartialFrom(input, extensionRegistry);
@@ -1124,7 +1207,7 @@ private static final long serialVersionUID = 0L;
       bitField0_ |= 0x00000002;
     }
 
-    private int dummy_ ;
+    private int dummy_;
     /**
      * <code>int32 dummy = 3;</code>
      * @return Whether the dummy field is set.
@@ -1319,7 +1402,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (requiredEnum_ != null || requiredEnumBuilder_ != null) {
-        internalGetRequiredEnumFieldBuilder().getBuilder()
+        internalGetRequiredEnumFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         requiredEnum_ = edition_unittest.TestRequiredEnum.parser().parsePartialFrom(input, extensionRegistry);
@@ -1447,7 +1530,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (requiredEnumNoMask_ != null || requiredEnumNoMaskBuilder_ != null) {
-        internalGetRequiredEnumNoMaskFieldBuilder().getBuilder()
+        internalGetRequiredEnumNoMaskFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         requiredEnumNoMask_ = edition_unittest.TestRequiredEnumNoMask.parser().parsePartialFrom(input, extensionRegistry);
@@ -1575,7 +1658,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (requiredEnumMulti_ != null || requiredEnumMultiBuilder_ != null) {
-        internalGetRequiredEnumMultiFieldBuilder().getBuilder()
+        internalGetRequiredEnumMultiFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         requiredEnumMulti_ = edition_unittest.TestRequiredEnumMulti.parser().parsePartialFrom(input, extensionRegistry);
@@ -1703,7 +1786,7 @@ private static final long serialVersionUID = 0L;
         throws java.io.IOException {
       final int oldLimit = input.pushLimitBeforeMessage();
       if (requiredNoMask_ != null || requiredNoMaskBuilder_ != null) {
-        internalGetRequiredNoMaskFieldBuilder().getBuilder()
+        internalGetRequiredNoMaskFieldBuilder().getBuilderForParsing()
             .mergeFrom(input, extensionRegistry);
       } else {
         requiredNoMask_ = edition_unittest.TestRequiredNoMaskMulti.parser().parsePartialFrom(input, extensionRegistry);
@@ -1725,22 +1808,391 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static TestNestedRequiredForeign parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    TestNestedRequiredForeign instance = new TestNestedRequiredForeign((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    int pendingTag = 0;
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedRequiredForeign, edition_unittest.TestNestedRequiredForeign.Builder, edition_unittest.TestNestedRequiredForeignOrBuilder> childBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredForeign, edition_unittest.TestRequiredForeign.Builder, edition_unittest.TestRequiredForeignOrBuilder> payloadBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredEnum, edition_unittest.TestRequiredEnum.Builder, edition_unittest.TestRequiredEnumOrBuilder> requiredEnumBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredEnumNoMask, edition_unittest.TestRequiredEnumNoMask.Builder, edition_unittest.TestRequiredEnumNoMaskOrBuilder> requiredEnumNoMaskBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredEnumMulti, edition_unittest.TestRequiredEnumMulti.Builder, edition_unittest.TestRequiredEnumMultiOrBuilder> requiredEnumMultiBuilder_ = null;
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredNoMaskMulti, edition_unittest.TestRequiredNoMaskMulti.Builder, edition_unittest.TestRequiredNoMaskMultiOrBuilder> requiredNoMaskBuilder_ = null;
+    if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+      childBuilder_ = internalGetChildFieldBuilder(instance, childBuilder_);
+      payloadBuilder_ = internalGetPayloadFieldBuilder(instance, payloadBuilder_);
+      requiredEnumBuilder_ = internalGetRequiredEnumFieldBuilder(instance, requiredEnumBuilder_);
+      requiredEnumNoMaskBuilder_ = internalGetRequiredEnumNoMaskFieldBuilder(instance, requiredEnumNoMaskBuilder_);
+      requiredEnumMultiBuilder_ = internalGetRequiredEnumMultiFieldBuilder(instance, requiredEnumMultiBuilder_);
+      requiredNoMaskBuilder_ = internalGetRequiredNoMaskFieldBuilder(instance, requiredNoMaskBuilder_);
+    }
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 10: {
+            if (instance.child_ != null || childBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseChildField(instance, input, extensionRegistry, childBuilder_);
+            break;
+          } // case 10
+          case 18: {
+            if (instance.payload_ != null || payloadBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parsePayloadField(instance, input, extensionRegistry, payloadBuilder_);
+            break;
+          } // case 18
+          case 24: {
+            instance.dummy_ = input.readInt32();
+            instance.bitField0_ |= 0x00000004;
+            break;
+          } // case 24
+          case 42: {
+            if (instance.requiredEnum_ != null || requiredEnumBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseRequiredEnumField(instance, input, extensionRegistry, requiredEnumBuilder_);
+            break;
+          } // case 42
+          case 50: {
+            if (instance.requiredEnumNoMask_ != null || requiredEnumNoMaskBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseRequiredEnumNoMaskField(instance, input, extensionRegistry, requiredEnumNoMaskBuilder_);
+            break;
+          } // case 50
+          case 58: {
+            if (instance.requiredEnumMulti_ != null || requiredEnumMultiBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseRequiredEnumMultiField(instance, input, extensionRegistry, requiredEnumMultiBuilder_);
+            break;
+          } // case 58
+          case 74: {
+            if (instance.requiredNoMask_ != null || requiredNoMaskBuilder_ != null) {
+              pendingTag = tag;
+              done = true;
+              break;
+            }
+            parseRequiredNoMaskField(instance, input, extensionRegistry, requiredNoMaskBuilder_);
+            break;
+          } // case 74
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (parseFailure == null && pendingTag != 0) {
+      Builder builder = new Builder(instance, unknown, new java.lang.Object[] {childBuilder_, payloadBuilder_, requiredEnumBuilder_, requiredEnumNoMaskBuilder_, requiredEnumMultiBuilder_, requiredNoMaskBuilder_});
+      try {
+        if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+          builder.mergeFrom(input, extensionRegistry);
+        }
+      } catch (java.io.IOException e) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+      }
+      return builder.buildPartial();
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance, childBuilder_, payloadBuilder_, requiredEnumBuilder_, requiredEnumNoMaskBuilder_, requiredEnumMultiBuilder_, requiredNoMaskBuilder_);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  /**
+   * <code>.edition_unittest.TestNestedRequiredForeign child = 1;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      edition_unittest.TestNestedRequiredForeign, edition_unittest.TestNestedRequiredForeign.Builder, edition_unittest.TestNestedRequiredForeignOrBuilder> 
+      internalGetChildFieldBuilder(edition_unittest.TestNestedRequiredForeign instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedRequiredForeign, edition_unittest.TestNestedRequiredForeign.Builder, edition_unittest.TestNestedRequiredForeignOrBuilder> childBuilder_) {
+    if (childBuilder_ == null) {
+      childBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          edition_unittest.TestNestedRequiredForeign, edition_unittest.TestNestedRequiredForeign.Builder, edition_unittest.TestNestedRequiredForeignOrBuilder>(
+              instance.getChild(),
+              null,
+              false);
+      instance.child_ = null;
+    }
+    instance.bitField0_ |= 0x00000001;
+    return childBuilder_;
+  }
+  private static void parseChildField(
+      edition_unittest.TestNestedRequiredForeign instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedRequiredForeign, edition_unittest.TestNestedRequiredForeign.Builder, edition_unittest.TestNestedRequiredForeignOrBuilder> childBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.child_ != null || childBuilder_ != null) {
+      childBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.child_ = edition_unittest.TestNestedRequiredForeign.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000001;
+  }
+  /**
+   * <code>.edition_unittest.TestRequiredForeign payload = 2;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      edition_unittest.TestRequiredForeign, edition_unittest.TestRequiredForeign.Builder, edition_unittest.TestRequiredForeignOrBuilder> 
+      internalGetPayloadFieldBuilder(edition_unittest.TestNestedRequiredForeign instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredForeign, edition_unittest.TestRequiredForeign.Builder, edition_unittest.TestRequiredForeignOrBuilder> payloadBuilder_) {
+    if (payloadBuilder_ == null) {
+      payloadBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          edition_unittest.TestRequiredForeign, edition_unittest.TestRequiredForeign.Builder, edition_unittest.TestRequiredForeignOrBuilder>(
+              instance.getPayload(),
+              null,
+              false);
+      instance.payload_ = null;
+    }
+    instance.bitField0_ |= 0x00000002;
+    return payloadBuilder_;
+  }
+  private static void parsePayloadField(
+      edition_unittest.TestNestedRequiredForeign instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredForeign, edition_unittest.TestRequiredForeign.Builder, edition_unittest.TestRequiredForeignOrBuilder> payloadBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.payload_ != null || payloadBuilder_ != null) {
+      payloadBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.payload_ = edition_unittest.TestRequiredForeign.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000002;
+  }
+  /**
+   * <pre>
+   * optional message to test closed enum.
+   * </pre>
+   *
+   * <code>.edition_unittest.TestRequiredEnum required_enum = 5;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      edition_unittest.TestRequiredEnum, edition_unittest.TestRequiredEnum.Builder, edition_unittest.TestRequiredEnumOrBuilder> 
+      internalGetRequiredEnumFieldBuilder(edition_unittest.TestNestedRequiredForeign instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredEnum, edition_unittest.TestRequiredEnum.Builder, edition_unittest.TestRequiredEnumOrBuilder> requiredEnumBuilder_) {
+    if (requiredEnumBuilder_ == null) {
+      requiredEnumBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          edition_unittest.TestRequiredEnum, edition_unittest.TestRequiredEnum.Builder, edition_unittest.TestRequiredEnumOrBuilder>(
+              instance.getRequiredEnum(),
+              null,
+              false);
+      instance.requiredEnum_ = null;
+    }
+    instance.bitField0_ |= 0x00000008;
+    return requiredEnumBuilder_;
+  }
+  private static void parseRequiredEnumField(
+      edition_unittest.TestNestedRequiredForeign instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredEnum, edition_unittest.TestRequiredEnum.Builder, edition_unittest.TestRequiredEnumOrBuilder> requiredEnumBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.requiredEnum_ != null || requiredEnumBuilder_ != null) {
+      requiredEnumBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.requiredEnum_ = edition_unittest.TestRequiredEnum.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000008;
+  }
+  /**
+   * <code>.edition_unittest.TestRequiredEnumNoMask required_enum_no_mask = 6;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      edition_unittest.TestRequiredEnumNoMask, edition_unittest.TestRequiredEnumNoMask.Builder, edition_unittest.TestRequiredEnumNoMaskOrBuilder> 
+      internalGetRequiredEnumNoMaskFieldBuilder(edition_unittest.TestNestedRequiredForeign instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredEnumNoMask, edition_unittest.TestRequiredEnumNoMask.Builder, edition_unittest.TestRequiredEnumNoMaskOrBuilder> requiredEnumNoMaskBuilder_) {
+    if (requiredEnumNoMaskBuilder_ == null) {
+      requiredEnumNoMaskBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          edition_unittest.TestRequiredEnumNoMask, edition_unittest.TestRequiredEnumNoMask.Builder, edition_unittest.TestRequiredEnumNoMaskOrBuilder>(
+              instance.getRequiredEnumNoMask(),
+              null,
+              false);
+      instance.requiredEnumNoMask_ = null;
+    }
+    instance.bitField0_ |= 0x00000010;
+    return requiredEnumNoMaskBuilder_;
+  }
+  private static void parseRequiredEnumNoMaskField(
+      edition_unittest.TestNestedRequiredForeign instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredEnumNoMask, edition_unittest.TestRequiredEnumNoMask.Builder, edition_unittest.TestRequiredEnumNoMaskOrBuilder> requiredEnumNoMaskBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.requiredEnumNoMask_ != null || requiredEnumNoMaskBuilder_ != null) {
+      requiredEnumNoMaskBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.requiredEnumNoMask_ = edition_unittest.TestRequiredEnumNoMask.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000010;
+  }
+  /**
+   * <code>.edition_unittest.TestRequiredEnumMulti required_enum_multi = 7;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      edition_unittest.TestRequiredEnumMulti, edition_unittest.TestRequiredEnumMulti.Builder, edition_unittest.TestRequiredEnumMultiOrBuilder> 
+      internalGetRequiredEnumMultiFieldBuilder(edition_unittest.TestNestedRequiredForeign instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredEnumMulti, edition_unittest.TestRequiredEnumMulti.Builder, edition_unittest.TestRequiredEnumMultiOrBuilder> requiredEnumMultiBuilder_) {
+    if (requiredEnumMultiBuilder_ == null) {
+      requiredEnumMultiBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          edition_unittest.TestRequiredEnumMulti, edition_unittest.TestRequiredEnumMulti.Builder, edition_unittest.TestRequiredEnumMultiOrBuilder>(
+              instance.getRequiredEnumMulti(),
+              null,
+              false);
+      instance.requiredEnumMulti_ = null;
+    }
+    instance.bitField0_ |= 0x00000020;
+    return requiredEnumMultiBuilder_;
+  }
+  private static void parseRequiredEnumMultiField(
+      edition_unittest.TestNestedRequiredForeign instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredEnumMulti, edition_unittest.TestRequiredEnumMulti.Builder, edition_unittest.TestRequiredEnumMultiOrBuilder> requiredEnumMultiBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.requiredEnumMulti_ != null || requiredEnumMultiBuilder_ != null) {
+      requiredEnumMultiBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.requiredEnumMulti_ = edition_unittest.TestRequiredEnumMulti.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000020;
+  }
+  /**
+   * <code>.edition_unittest.TestRequiredNoMaskMulti required_no_mask = 9;</code>
+   */
+  private static com.google.protobuf.SingleFieldBuilder<
+      edition_unittest.TestRequiredNoMaskMulti, edition_unittest.TestRequiredNoMaskMulti.Builder, edition_unittest.TestRequiredNoMaskMultiOrBuilder> 
+      internalGetRequiredNoMaskFieldBuilder(edition_unittest.TestNestedRequiredForeign instance, com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredNoMaskMulti, edition_unittest.TestRequiredNoMaskMulti.Builder, edition_unittest.TestRequiredNoMaskMultiOrBuilder> requiredNoMaskBuilder_) {
+    if (requiredNoMaskBuilder_ == null) {
+      requiredNoMaskBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+          edition_unittest.TestRequiredNoMaskMulti, edition_unittest.TestRequiredNoMaskMulti.Builder, edition_unittest.TestRequiredNoMaskMultiOrBuilder>(
+              instance.getRequiredNoMask(),
+              null,
+              false);
+      instance.requiredNoMask_ = null;
+    }
+    instance.bitField0_ |= 0x00000040;
+    return requiredNoMaskBuilder_;
+  }
+  private static void parseRequiredNoMaskField(
+      edition_unittest.TestNestedRequiredForeign instance, com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredNoMaskMulti, edition_unittest.TestRequiredNoMaskMulti.Builder, edition_unittest.TestRequiredNoMaskMultiOrBuilder> requiredNoMaskBuilder_)
+      throws java.io.IOException {
+    final int oldLimit = input.pushLimitBeforeMessage();
+    if (instance.requiredNoMask_ != null || requiredNoMaskBuilder_ != null) {
+      requiredNoMaskBuilder_.getBuilderForParsing()
+          .mergeFrom(input, extensionRegistry);
+    } else {
+      instance.requiredNoMask_ = edition_unittest.TestRequiredNoMaskMulti.parser().parsePartialFrom(input, extensionRegistry);
+    }
+    input.popLimitAfterMessage(oldLimit);
+    instance.bitField0_ |= 0x00000040;
+  }
+  private static void buildPartial_autosplit_0(edition_unittest.TestNestedRequiredForeign instance,
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestNestedRequiredForeign, edition_unittest.TestNestedRequiredForeign.Builder, edition_unittest.TestNestedRequiredForeignOrBuilder> childBuilder_,
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredForeign, edition_unittest.TestRequiredForeign.Builder, edition_unittest.TestRequiredForeignOrBuilder> payloadBuilder_,
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredEnum, edition_unittest.TestRequiredEnum.Builder, edition_unittest.TestRequiredEnumOrBuilder> requiredEnumBuilder_,
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredEnumNoMask, edition_unittest.TestRequiredEnumNoMask.Builder, edition_unittest.TestRequiredEnumNoMaskOrBuilder> requiredEnumNoMaskBuilder_,
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredEnumMulti, edition_unittest.TestRequiredEnumMulti.Builder, edition_unittest.TestRequiredEnumMultiOrBuilder> requiredEnumMultiBuilder_,
+      com.google.protobuf.SingleFieldBuilder<edition_unittest.TestRequiredNoMaskMulti, edition_unittest.TestRequiredNoMaskMulti.Builder, edition_unittest.TestRequiredNoMaskMultiOrBuilder> requiredNoMaskBuilder_) {
+    int from_bitField0_ = instance.bitField0_;
+    if (!((from_bitField0_ & 0x00000001) != 0)) instance.child_ = null;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.child_ = childBuilder_ == null
+          ? instance.child_
+          : childBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000002) != 0)) instance.payload_ = null;
+    if (((from_bitField0_ & 0x00000002) != 0)) {
+      instance.payload_ = payloadBuilder_ == null
+          ? instance.payload_
+          : payloadBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000008) != 0)) instance.requiredEnum_ = null;
+    if (((from_bitField0_ & 0x00000008) != 0)) {
+      instance.requiredEnum_ = requiredEnumBuilder_ == null
+          ? instance.requiredEnum_
+          : requiredEnumBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000010) != 0)) instance.requiredEnumNoMask_ = null;
+    if (((from_bitField0_ & 0x00000010) != 0)) {
+      instance.requiredEnumNoMask_ = requiredEnumNoMaskBuilder_ == null
+          ? instance.requiredEnumNoMask_
+          : requiredEnumNoMaskBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000020) != 0)) instance.requiredEnumMulti_ = null;
+    if (((from_bitField0_ & 0x00000020) != 0)) {
+      instance.requiredEnumMulti_ = requiredEnumMultiBuilder_ == null
+          ? instance.requiredEnumMulti_
+          : requiredEnumMultiBuilder_.build();
+    }
+    if (!((from_bitField0_ & 0x00000040) != 0)) instance.requiredNoMask_ = null;
+    if (((from_bitField0_ & 0x00000040) != 0)) {
+      instance.requiredNoMask_ = requiredNoMaskBuilder_ == null
+          ? instance.requiredNoMask_
+          : requiredNoMaskBuilder_.build();
+    }
+  }
+
   private static final com.google.protobuf.Parser<TestNestedRequiredForeign>
-      PARSER = new com.google.protobuf.AbstractParser<TestNestedRequiredForeign>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestNestedRequiredForeign> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestNestedRequiredForeign parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return TestNestedRequiredForeign.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(TestNestedRequiredForeign instance) {
+      Builder builder = new Builder(instance, null, null);
+      builder.maybeForceBuilderInitialization();
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<TestNestedRequiredForeign> parser() {
     return PARSER;

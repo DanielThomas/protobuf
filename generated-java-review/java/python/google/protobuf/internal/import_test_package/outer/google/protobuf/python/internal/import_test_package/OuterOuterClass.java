@@ -373,15 +373,28 @@ public final class OuterOuterClass extends com.google.protobuf.GeneratedFile {
                 google.protobuf.python.internal.import_test_package.OuterOuterClass.Outer.class, google.protobuf.python.internal.import_test_package.OuterOuterClass.Outer.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.import_test_package.OuterOuterClass.Outer.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
+      }
+      private Builder(google.protobuf.python.internal.import_test_package.OuterOuterClass.Outer other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -437,7 +450,7 @@ public final class OuterOuterClass extends com.google.protobuf.GeneratedFile {
 
       private void buildPartial_autosplit_0(google.protobuf.python.internal.import_test_package.OuterOuterClass.Outer result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.inner_ = innerBuilder_ == null
               ? inner_
@@ -451,6 +464,23 @@ public final class OuterOuterClass extends com.google.protobuf.GeneratedFile {
           to_bitField0_ |= 0x00000002;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(google.protobuf.python.internal.import_test_package.OuterOuterClass.Outer other, java.lang.Object[] parserLocals) {
+        inner_ = other.inner_;
+        importPublicNested_ = other.importPublicNested_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            innerBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.import_test_package.InnerOuterClass.Inner, google.protobuf.python.internal.import_test_package.InnerOuterClass.Inner.Builder, google.protobuf.python.internal.import_test_package.InnerOuterClass.InnerOrBuilder>) parserLocals[0]);
+            inner_ = null;
+          }
+          if (parserLocals[1] != null) {
+            importPublicNestedBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage, google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage.Builder, google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessageOrBuilder>) parserLocals[1]);
+            importPublicNested_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -517,6 +547,22 @@ public final class OuterOuterClass extends com.google.protobuf.GeneratedFile {
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseInnerField(input, extensionRegistry);
+            return true;
+          } // case 10
+          case 18: {
+            parseImportPublicNestedField(input, extensionRegistry);
+            return true;
+          } // case 18
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -639,7 +685,7 @@ public final class OuterOuterClass extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (inner_ != null || innerBuilder_ != null) {
-          internalGetInnerFieldBuilder().getBuilder()
+          internalGetInnerFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           inner_ = google.protobuf.python.internal.import_test_package.InnerOuterClass.Inner.parser().parsePartialFrom(input, extensionRegistry);
@@ -767,7 +813,7 @@ public final class OuterOuterClass extends com.google.protobuf.GeneratedFile {
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (importPublicNested_ != null || importPublicNestedBuilder_ != null) {
-          internalGetImportPublicNestedFieldBuilder().getBuilder()
+          internalGetImportPublicNestedFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           importPublicNested_ = google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage.parser().parsePartialFrom(input, extensionRegistry);
@@ -789,22 +835,182 @@ public final class OuterOuterClass extends com.google.protobuf.GeneratedFile {
       return DEFAULT_INSTANCE;
     }
 
+    static Outer parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Outer instance = new Outer((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.import_test_package.InnerOuterClass.Inner, google.protobuf.python.internal.import_test_package.InnerOuterClass.Inner.Builder, google.protobuf.python.internal.import_test_package.InnerOuterClass.InnerOrBuilder> innerBuilder_ = null;
+      com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage, google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage.Builder, google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessageOrBuilder> importPublicNestedBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        innerBuilder_ = internalGetInnerFieldBuilder(instance, innerBuilder_);
+        importPublicNestedBuilder_ = internalGetImportPublicNestedFieldBuilder(instance, importPublicNestedBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.inner_ != null || innerBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseInnerField(instance, input, extensionRegistry, innerBuilder_);
+              break;
+            } // case 10
+            case 18: {
+              if (instance.importPublicNested_ != null || importPublicNestedBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseImportPublicNestedField(instance, input, extensionRegistry, importPublicNestedBuilder_);
+              break;
+            } // case 18
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {innerBuilder_, importPublicNestedBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, innerBuilder_, importPublicNestedBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <code>optional .google.protobuf.python.internal.import_test_package.Inner inner = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        google.protobuf.python.internal.import_test_package.InnerOuterClass.Inner, google.protobuf.python.internal.import_test_package.InnerOuterClass.Inner.Builder, google.protobuf.python.internal.import_test_package.InnerOuterClass.InnerOrBuilder> 
+        internalGetInnerFieldBuilder(google.protobuf.python.internal.import_test_package.OuterOuterClass.Outer instance, com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.import_test_package.InnerOuterClass.Inner, google.protobuf.python.internal.import_test_package.InnerOuterClass.Inner.Builder, google.protobuf.python.internal.import_test_package.InnerOuterClass.InnerOrBuilder> innerBuilder_) {
+      if (innerBuilder_ == null) {
+        innerBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            google.protobuf.python.internal.import_test_package.InnerOuterClass.Inner, google.protobuf.python.internal.import_test_package.InnerOuterClass.Inner.Builder, google.protobuf.python.internal.import_test_package.InnerOuterClass.InnerOrBuilder>(
+                instance.getInner(),
+                null,
+                false);
+        instance.inner_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return innerBuilder_;
+    }
+    private static void parseInnerField(
+        google.protobuf.python.internal.import_test_package.OuterOuterClass.Outer instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.import_test_package.InnerOuterClass.Inner, google.protobuf.python.internal.import_test_package.InnerOuterClass.Inner.Builder, google.protobuf.python.internal.import_test_package.InnerOuterClass.InnerOrBuilder> innerBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.inner_ != null || innerBuilder_ != null) {
+        innerBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.inner_ = google.protobuf.python.internal.import_test_package.InnerOuterClass.Inner.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    /**
+     * <code>optional .google.protobuf.python.internal.import_test_package.ImportPublicNestedMessage import_public_nested = 2;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage, google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage.Builder, google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessageOrBuilder> 
+        internalGetImportPublicNestedFieldBuilder(google.protobuf.python.internal.import_test_package.OuterOuterClass.Outer instance, com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage, google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage.Builder, google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessageOrBuilder> importPublicNestedBuilder_) {
+      if (importPublicNestedBuilder_ == null) {
+        importPublicNestedBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage, google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage.Builder, google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessageOrBuilder>(
+                instance.getImportPublicNested(),
+                null,
+                false);
+        instance.importPublicNested_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+      return importPublicNestedBuilder_;
+    }
+    private static void parseImportPublicNestedField(
+        google.protobuf.python.internal.import_test_package.OuterOuterClass.Outer instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage, google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage.Builder, google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessageOrBuilder> importPublicNestedBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.importPublicNested_ != null || importPublicNestedBuilder_ != null) {
+        importPublicNestedBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.importPublicNested_ = google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static void buildPartial_autosplit_0(google.protobuf.python.internal.import_test_package.OuterOuterClass.Outer instance,
+        com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.import_test_package.InnerOuterClass.Inner, google.protobuf.python.internal.import_test_package.InnerOuterClass.Inner.Builder, google.protobuf.python.internal.import_test_package.InnerOuterClass.InnerOrBuilder> innerBuilder_,
+        com.google.protobuf.SingleFieldBuilder<google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage, google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessage.Builder, google.protobuf.python.internal.import_test_package.ImportPublicNested.ImportPublicNestedMessageOrBuilder> importPublicNestedBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.inner_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.inner_ = innerBuilder_ == null
+            ? instance.inner_
+            : innerBuilder_.build();
+      }
+      if (!((from_bitField0_ & 0x00000002) != 0)) instance.importPublicNested_ = null;
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        instance.importPublicNested_ = importPublicNestedBuilder_ == null
+            ? instance.importPublicNested_
+            : importPublicNestedBuilder_.build();
+      }
+    }
+
     private static final com.google.protobuf.Parser<Outer>
-        PARSER = new com.google.protobuf.AbstractParser<Outer>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Outer> {
+      MessageParser() {}
+
       @java.lang.Override
       public Outer parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Outer.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Outer instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Outer> parser() {
       return PARSER;

@@ -289,15 +289,27 @@ public final class Edition2023GoApiLevel extends com.google.protobuf.GeneratedFi
                 protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelInherit.class, protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelInherit.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelInherit.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelInherit other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -337,12 +349,17 @@ public final class Edition2023GoApiLevel extends com.google.protobuf.GeneratedFi
 
       private void buildPartial_autosplit_0(protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelInherit result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.foo_ = foo_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelInherit other, java.lang.Object[] parserLocals) {
+        foo_ = other.getFoo();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -406,7 +423,7 @@ public final class Edition2023GoApiLevel extends com.google.protobuf.GeneratedFi
       }
       private int bitField0_;
 
-      private int foo_ ;
+      private int foo_;
       /**
        * <code>int32 foo = 1;</code>
        * @return Whether the foo field is set.
@@ -459,22 +476,67 @@ public final class Edition2023GoApiLevel extends com.google.protobuf.GeneratedFi
       return DEFAULT_INSTANCE;
     }
 
+    static Edition2023GoApiLevelInherit parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Edition2023GoApiLevelInherit instance = new Edition2023GoApiLevelInherit((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.foo_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<Edition2023GoApiLevelInherit>
-        PARSER = new com.google.protobuf.AbstractParser<Edition2023GoApiLevelInherit>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Edition2023GoApiLevelInherit> {
+      MessageParser() {}
+
       @java.lang.Override
       public Edition2023GoApiLevelInherit parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Edition2023GoApiLevelInherit.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Edition2023GoApiLevelInherit instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Edition2023GoApiLevelInherit> parser() {
       return PARSER;
@@ -755,15 +817,27 @@ public final class Edition2023GoApiLevel extends com.google.protobuf.GeneratedFi
                 protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelOpen.class, protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelOpen.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelOpen.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelOpen other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -803,12 +877,17 @@ public final class Edition2023GoApiLevel extends com.google.protobuf.GeneratedFi
 
       private void buildPartial_autosplit_0(protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelOpen result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.foo_ = foo_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelOpen other, java.lang.Object[] parserLocals) {
+        foo_ = other.getFoo();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -872,7 +951,7 @@ public final class Edition2023GoApiLevel extends com.google.protobuf.GeneratedFi
       }
       private int bitField0_;
 
-      private int foo_ ;
+      private int foo_;
       /**
        * <code>int32 foo = 1;</code>
        * @return Whether the foo field is set.
@@ -925,22 +1004,67 @@ public final class Edition2023GoApiLevel extends com.google.protobuf.GeneratedFi
       return DEFAULT_INSTANCE;
     }
 
+    static Edition2023GoApiLevelOpen parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Edition2023GoApiLevelOpen instance = new Edition2023GoApiLevelOpen((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.foo_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<Edition2023GoApiLevelOpen>
-        PARSER = new com.google.protobuf.AbstractParser<Edition2023GoApiLevelOpen>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Edition2023GoApiLevelOpen> {
+      MessageParser() {}
+
       @java.lang.Override
       public Edition2023GoApiLevelOpen parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Edition2023GoApiLevelOpen.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Edition2023GoApiLevelOpen instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Edition2023GoApiLevelOpen> parser() {
       return PARSER;
@@ -1221,15 +1345,27 @@ public final class Edition2023GoApiLevel extends com.google.protobuf.GeneratedFi
                 protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelOpaque.class, protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelOpaque.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelOpaque.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
-
+      }
+      private Builder(protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelOpaque other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       @java.lang.Override
       public Builder clear() {
@@ -1269,12 +1405,17 @@ public final class Edition2023GoApiLevel extends com.google.protobuf.GeneratedFi
 
       private void buildPartial_autosplit_0(protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelOpaque result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.foo_ = foo_;
           to_bitField0_ |= 0x00000001;
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      private void copyFrom_autosplit_0(protobuf_editions_test.edition2023.Edition2023GoApiLevel.Edition2023GoApiLevelOpaque other, java.lang.Object[] parserLocals) {
+        foo_ = other.getFoo();
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -1338,7 +1479,7 @@ public final class Edition2023GoApiLevel extends com.google.protobuf.GeneratedFi
       }
       private int bitField0_;
 
-      private int foo_ ;
+      private int foo_;
       /**
        * <code>int32 foo = 1;</code>
        * @return Whether the foo field is set.
@@ -1391,22 +1532,67 @@ public final class Edition2023GoApiLevel extends com.google.protobuf.GeneratedFi
       return DEFAULT_INSTANCE;
     }
 
+    static Edition2023GoApiLevelOpaque parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      Edition2023GoApiLevelOpaque instance = new Edition2023GoApiLevelOpaque((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              instance.foo_ = input.readInt32();
+              instance.bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
     private static final com.google.protobuf.Parser<Edition2023GoApiLevelOpaque>
-        PARSER = new com.google.protobuf.AbstractParser<Edition2023GoApiLevelOpaque>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<Edition2023GoApiLevelOpaque> {
+      MessageParser() {}
+
       @java.lang.Override
       public Edition2023GoApiLevelOpaque parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Edition2023GoApiLevelOpaque.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(Edition2023GoApiLevelOpaque instance) {
+        Builder builder = new Builder(instance, null, null);
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<Edition2023GoApiLevelOpaque> parser() {
       return PARSER;

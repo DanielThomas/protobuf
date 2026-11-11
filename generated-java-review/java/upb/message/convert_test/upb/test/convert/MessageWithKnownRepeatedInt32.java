@@ -269,15 +269,28 @@ private static final long serialVersionUID = 0L;
               upb.test.convert.MessageWithKnownRepeatedInt32.class, upb.test.convert.MessageWithKnownRepeatedInt32.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using upb.test.convert.MessageWithKnownRepeatedInt32.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      knownRepeatedInt32_ = emptyIntList();
+    }
+    private Builder(upb.test.convert.MessageWithKnownRepeatedInt32 other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -317,12 +330,17 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(upb.test.convert.MessageWithKnownRepeatedInt32 result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         knownRepeatedInt32_.makeImmutable();
         result.knownRepeatedInt32_ = knownRepeatedInt32_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(upb.test.convert.MessageWithKnownRepeatedInt32 other, java.lang.Object[] parserLocals) {
+      knownRepeatedInt32_ = other.knownRepeatedInt32_;
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -406,7 +424,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.Internal.IntList knownRepeatedInt32_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList knownRepeatedInt32_;
     private void ensureKnownRepeatedInt32IsMutable(int capacity) {
       if (!knownRepeatedInt32_.isModifiable()) {
         knownRepeatedInt32_ = makeMutableCopy(knownRepeatedInt32_, capacity);
@@ -503,22 +521,93 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static MessageWithKnownRepeatedInt32 parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    MessageWithKnownRepeatedInt32 instance = new MessageWithKnownRepeatedInt32((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 8024: {
+            int v = input.readInt32();
+            ensureKnownRepeatedInt32IsMutable(instance, /* capacity= */ -1);
+            instance.knownRepeatedInt32_.addInt(v);
+            break;
+          } // case 8024
+          case 8026: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int count = input.countPackedVarints(length);
+            ensureKnownRepeatedInt32IsMutable(instance, count);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.knownRepeatedInt32_.addInt(input.readInt32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 8026
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static void ensureKnownRepeatedInt32IsMutable(upb.test.convert.MessageWithKnownRepeatedInt32 instance, int capacity) {
+    if (!instance.knownRepeatedInt32_.isModifiable()) {
+      instance.knownRepeatedInt32_ = makeMutableCopy(instance.knownRepeatedInt32_, capacity);
+    }
+    instance.bitField0_ |= 0x00000001;
+  }
+  private static void buildPartial_autosplit_0(upb.test.convert.MessageWithKnownRepeatedInt32 instance) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.knownRepeatedInt32_.makeImmutable();
+    }
+  }
+
   private static final com.google.protobuf.Parser<MessageWithKnownRepeatedInt32>
-      PARSER = new com.google.protobuf.AbstractParser<MessageWithKnownRepeatedInt32>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<MessageWithKnownRepeatedInt32> {
+    MessageParser() {}
+
     @java.lang.Override
     public MessageWithKnownRepeatedInt32 parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return MessageWithKnownRepeatedInt32.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(MessageWithKnownRepeatedInt32 instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<MessageWithKnownRepeatedInt32> parser() {
     return PARSER;

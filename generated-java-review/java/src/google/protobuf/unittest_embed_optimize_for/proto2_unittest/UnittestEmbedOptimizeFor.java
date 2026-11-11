@@ -442,15 +442,29 @@ public final class UnittestEmbedOptimizeFor extends com.google.protobuf.Generate
                 proto2_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize.class, proto2_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        repeatedMessage_ = emptyList(proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.class);
         maybeForceBuilderInitialization();
+      }
+      private Builder(proto2_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize other,
+          com.google.protobuf.UnknownFieldSet.Builder unknown,
+          java.lang.Object[] parserLocals) {
+        super(other, unknown);
+        copyFrom_autosplit_0(other, parserLocals);
       }
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessage
@@ -508,7 +522,7 @@ public final class UnittestEmbedOptimizeFor extends com.google.protobuf.Generate
 
       private void buildPartial_autosplit_0(proto2_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize result) {
         int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        int to_bitField0_ = from_bitField0_;
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.optionalMessage_ = optionalMessageBuilder_ == null
               ? optionalMessage_
@@ -524,6 +538,23 @@ public final class UnittestEmbedOptimizeFor extends com.google.protobuf.Generate
         }
         }
         result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.SuppressWarnings("unchecked")
+      private void copyFrom_autosplit_0(proto2_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize other, java.lang.Object[] parserLocals) {
+        optionalMessage_ = other.optionalMessage_;
+        repeatedMessage_ = other.repeatedMessage_;
+        if (parserLocals != null) {
+          if (parserLocals[0] != null) {
+            optionalMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.Builder, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSizeOrBuilder>) parserLocals[0]);
+            optionalMessage_ = null;
+          }
+          if (parserLocals[1] != null) {
+            repeatedMessageBuilder_ = adoptFieldBuilder((com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.Builder, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSizeOrBuilder>) parserLocals[1]);
+            repeatedMessage_ = null;
+          }
+        }
+        bitField0_ = other.bitField0_;
       }
 
       @java.lang.Override
@@ -635,6 +666,18 @@ public final class UnittestEmbedOptimizeFor extends com.google.protobuf.Generate
           onChanged();
         } // finally
         return this;
+      }
+      private boolean mergeFromPendingField(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry, int tag)
+          throws java.io.IOException {
+        switch (tag) {
+          case 10: {
+            parseOptionalMessageField(input, extensionRegistry);
+            return true;
+          } // case 10
+          default: return super.parseUnknownField(input, extensionRegistry, tag);
+        }
       }
       private int bitField0_;
 
@@ -802,7 +845,7 @@ public final class UnittestEmbedOptimizeFor extends com.google.protobuf.Generate
           throws java.io.IOException {
         final int oldLimit = input.pushLimitBeforeMessage();
         if (optionalMessage_ != null || optionalMessageBuilder_ != null) {
-          internalGetOptionalMessageFieldBuilder().getBuilder()
+          internalGetOptionalMessageFieldBuilder().getBuilderForParsing()
               .mergeFrom(input, extensionRegistry);
         } else {
           optionalMessage_ = proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.parser().parsePartialFrom(input, extensionRegistry);
@@ -811,8 +854,7 @@ public final class UnittestEmbedOptimizeFor extends com.google.protobuf.Generate
         bitField0_ |= 0x00000001;
       }
 
-      private com.google.protobuf.Internal.ProtobufList<proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize> repeatedMessage_ =
-          emptyList(proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.class);
+      private com.google.protobuf.Internal.ProtobufList<proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize> repeatedMessage_;
       private void ensureRepeatedMessageIsMutable() {
         if (!repeatedMessage_.isModifiable()) {
           repeatedMessage_ = makeMutableCopy(repeatedMessage_);
@@ -1058,22 +1100,183 @@ public final class UnittestEmbedOptimizeFor extends com.google.protobuf.Generate
       return DEFAULT_INSTANCE;
     }
 
+    static TestEmbedOptimizedForSize parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      TestEmbedOptimizedForSize instance = new TestEmbedOptimizedForSize((Builder) null);
+      com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+      java.io.IOException parseFailure = null;
+      int pendingTag = 0;
+      com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.Builder, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSizeOrBuilder> optionalMessageBuilder_ = null;
+      com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.Builder, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSizeOrBuilder> repeatedMessageBuilder_ = null;
+      if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+        optionalMessageBuilder_ = internalGetOptionalMessageFieldBuilder(instance, optionalMessageBuilder_);
+        repeatedMessageBuilder_ = internalGetRepeatedMessageFieldBuilder(instance, repeatedMessageBuilder_);
+      }
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (instance.optionalMessage_ != null || optionalMessageBuilder_ != null) {
+                pendingTag = tag;
+                done = true;
+                break;
+              }
+              parseOptionalMessageField(instance, input, extensionRegistry, optionalMessageBuilder_);
+              break;
+            } // case 10
+            case 18: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize m = proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              if (repeatedMessageBuilder_ == null) {
+                ensureRepeatedMessageIsMutable(instance);
+                instance.repeatedMessage_.add(m);
+              } else {
+                repeatedMessageBuilder_.addMessage(m);
+                instance.bitField0_ |= 0x00000002;
+
+              }
+              break;
+            } // case 18
+            default: {
+              unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+              if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+                done = true; // was an endgroup tag
+              }
+              break;
+            } // default:
+          } // switch (tag)
+        } // while (!done)
+      } catch (java.io.IOException e) {
+        parseFailure = e;
+      }
+      if (parseFailure == null && pendingTag != 0) {
+        Builder builder = new Builder(instance, unknown, new java.lang.Object[] {optionalMessageBuilder_, repeatedMessageBuilder_});
+        try {
+          if (builder.mergeFromPendingField(input, extensionRegistry, pendingTag)) {
+            builder.mergeFrom(input, extensionRegistry);
+          }
+        } catch (java.io.IOException e) {
+          com.google.protobuf.GeneratedMessageParser.throwParseException(e, builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+      if (unknown != null) {
+        instance.unknownFields = unknown.build();
+      }
+      buildPartial_autosplit_0(instance, optionalMessageBuilder_, repeatedMessageBuilder_);
+      if (parseFailure != null) {
+        com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+      }
+      return instance;
+    }
+    /**
+     * <pre>
+     * Test that embedding a message which has optimize_for = CODE_SIZE into
+     * one optimized for speed works.
+     * </pre>
+     *
+     * <code>optional .proto2_unittest.TestOptimizedForSize optional_message = 1;</code>
+     */
+    private static com.google.protobuf.SingleFieldBuilder<
+        proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.Builder, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSizeOrBuilder> 
+        internalGetOptionalMessageFieldBuilder(proto2_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize instance, com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.Builder, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSizeOrBuilder> optionalMessageBuilder_) {
+      if (optionalMessageBuilder_ == null) {
+        optionalMessageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+            proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.Builder, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSizeOrBuilder>(
+                instance.getOptionalMessage(),
+                null,
+                false);
+        instance.optionalMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00000001;
+      return optionalMessageBuilder_;
+    }
+    private static void parseOptionalMessageField(
+        proto2_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize instance, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.Builder, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSizeOrBuilder> optionalMessageBuilder_)
+        throws java.io.IOException {
+      final int oldLimit = input.pushLimitBeforeMessage();
+      if (instance.optionalMessage_ != null || optionalMessageBuilder_ != null) {
+        optionalMessageBuilder_.getBuilderForParsing()
+            .mergeFrom(input, extensionRegistry);
+      } else {
+        instance.optionalMessage_ = proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.parser().parsePartialFrom(input, extensionRegistry);
+      }
+      input.popLimitAfterMessage(oldLimit);
+      instance.bitField0_ |= 0x00000001;
+    }
+    private static void ensureRepeatedMessageIsMutable(proto2_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize instance) {
+      if (!instance.repeatedMessage_.isModifiable()) {
+        instance.repeatedMessage_ = makeMutableCopy(instance.repeatedMessage_);
+      }
+      instance.bitField0_ |= 0x00000002;
+    }
+    private static com.google.protobuf.RepeatedFieldBuilder<
+        proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.Builder, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSizeOrBuilder> 
+        internalGetRepeatedMessageFieldBuilder(proto2_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize instance, com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.Builder, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSizeOrBuilder> repeatedMessageBuilder_) {
+      if (repeatedMessageBuilder_ == null) {
+        repeatedMessageBuilder_ = new com.google.protobuf.RepeatedFieldBuilder<
+            proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.Builder, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSizeOrBuilder>(
+                instance.repeatedMessage_,
+                instance.repeatedMessage_.isModifiable(),
+                null,
+                false);
+        instance.repeatedMessage_ = null;
+      }
+      instance.bitField0_ |= 0x00000002;
+
+      return repeatedMessageBuilder_;
+    }
+    private static void buildPartial_autosplit_0(proto2_unittest.UnittestEmbedOptimizeFor.TestEmbedOptimizedForSize instance,
+        com.google.protobuf.SingleFieldBuilder<proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.Builder, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSizeOrBuilder> optionalMessageBuilder_,
+        com.google.protobuf.RepeatedFieldBuilder<proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.Builder, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSizeOrBuilder> repeatedMessageBuilder_) {
+      int from_bitField0_ = instance.bitField0_;
+      if (!((from_bitField0_ & 0x00000001) != 0)) instance.optionalMessage_ = null;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        instance.optionalMessage_ = optionalMessageBuilder_ == null
+            ? instance.optionalMessage_
+            : optionalMessageBuilder_.build();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+      if (repeatedMessageBuilder_ == null) {
+        instance.repeatedMessage_.makeImmutable();
+      } else {
+        instance.repeatedMessage_ = repeatedMessageBuilder_.buildProtobufList();
+      }
+      }
+    }
+
     private static final com.google.protobuf.Parser<TestEmbedOptimizedForSize>
-        PARSER = new com.google.protobuf.AbstractParser<TestEmbedOptimizedForSize>() {
+        PARSER = new MessageParser();
+
+    private static final class MessageParser
+        extends com.google.protobuf.GeneratedMessageParser<TestEmbedOptimizedForSize> {
+      MessageParser() {}
+
       @java.lang.Override
       public TestEmbedOptimizedForSize parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return TestEmbedOptimizedForSize.parsePartialFrom(input, extensionRegistry);
       }
-    };
+      @java.lang.Override
+      protected Builder newBuilderForParsing(TestEmbedOptimizedForSize instance) {
+        Builder builder = new Builder(instance, null, null);
+        builder.maybeForceBuilderInitialization();
+        return builder;
+      }
+    }
 
     public static com.google.protobuf.Parser<TestEmbedOptimizedForSize> parser() {
       return PARSER;

@@ -330,15 +330,29 @@ private static final long serialVersionUID = 0L;
               proto2_unittest.TestRepeatedIntProxy.class, proto2_unittest.TestRepeatedIntProxy.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using proto2_unittest.TestRepeatedIntProxy.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
         com.google.protobuf.GeneratedMessage.BuilderParent parent) {
       super(parent);
-
+      ints_ = emptyIntList();
+      intsProxy_ = emptyIntList();
+    }
+    private Builder(proto2_unittest.TestRepeatedIntProxy other,
+        com.google.protobuf.UnknownFieldSet.Builder unknown,
+        java.lang.Object[] parserLocals) {
+      super(other, unknown);
+      copyFrom_autosplit_0(other, parserLocals);
     }
     @java.lang.Override
     public Builder clear() {
@@ -379,7 +393,7 @@ private static final long serialVersionUID = 0L;
 
     private void buildPartial_autosplit_0(proto2_unittest.TestRepeatedIntProxy result) {
       int from_bitField0_ = bitField0_;
-      int to_bitField0_ = 0;
+      int to_bitField0_ = from_bitField0_;
       if (((from_bitField0_ & 0x00000001) != 0)) {
         ints_.makeImmutable();
         result.ints_ = ints_;
@@ -389,6 +403,12 @@ private static final long serialVersionUID = 0L;
         result.intsProxy_ = intsProxy_;
       }
       result.bitField0_ |= to_bitField0_;
+    }
+
+    private void copyFrom_autosplit_0(proto2_unittest.TestRepeatedIntProxy other, java.lang.Object[] parserLocals) {
+      ints_ = other.ints_;
+      intsProxy_ = other.intsProxy_;
+      bitField0_ = other.bitField0_;
     }
 
     @java.lang.Override
@@ -500,7 +520,7 @@ private static final long serialVersionUID = 0L;
     }
     private int bitField0_;
 
-    private com.google.protobuf.Internal.IntList ints_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList ints_;
     private void ensureIntsIsMutable(int capacity) {
       if (!ints_.isModifiable()) {
         ints_ = makeMutableCopy(ints_, capacity);
@@ -584,7 +604,7 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private com.google.protobuf.Internal.IntList intsProxy_ = emptyIntList();
+    private com.google.protobuf.Internal.IntList intsProxy_;
     private void ensureIntsProxyIsMutable(int capacity) {
       if (!intsProxy_.isModifiable()) {
         intsProxy_ = makeMutableCopy(intsProxy_, capacity);
@@ -681,22 +701,119 @@ private static final long serialVersionUID = 0L;
     return DEFAULT_INSTANCE;
   }
 
+  static TestRepeatedIntProxy parsePartialFrom(
+      com.google.protobuf.CodedInputStream input,
+      com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+      throws com.google.protobuf.InvalidProtocolBufferException {
+    java.util.Objects.requireNonNull(extensionRegistry);
+    TestRepeatedIntProxy instance = new TestRepeatedIntProxy((Builder) null);
+    com.google.protobuf.UnknownFieldSet.Builder unknown = null;
+    java.io.IOException parseFailure = null;
+    try {
+      boolean done = false;
+      while (!done) {
+        int tag = input.readTag();
+        switch (tag) {
+          case 0:
+            done = true;
+            break;
+          case 13: {
+            int v = input.readSFixed32();
+            ensureIntsIsMutable(instance, /* capacity= */ -1);
+            instance.ints_.addInt(v);
+            break;
+          } // case 13
+          case 10: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureIntsIsMutable(instance, alloc / 4);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.ints_.addInt(input.readSFixed32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 10
+          case 21: {
+            int v = input.readSFixed32();
+            ensureIntsProxyIsMutable(instance, /* capacity= */ -1);
+            instance.intsProxy_.addInt(v);
+            break;
+          } // case 21
+          case 18: {
+            int length = input.readRawVarint32();
+            int limit = input.pushLimit(length);
+            int alloc = length > 4096 ? 4096 : length;
+            ensureIntsProxyIsMutable(instance, alloc / 4);
+            while (input.getBytesUntilLimit() > 0) {
+              instance.intsProxy_.addInt(input.readSFixed32());
+            }
+            input.popLimit(limit);
+            break;
+          } // case 18
+          default: {
+            unknown = com.google.protobuf.GeneratedMessageParser.prepareUnknownFields(unknown, input);
+            if (!instance.parseUnknownField(input, unknown, extensionRegistry, tag)) {
+              done = true; // was an endgroup tag
+            }
+            break;
+          } // default:
+        } // switch (tag)
+      } // while (!done)
+    } catch (java.io.IOException e) {
+      parseFailure = e;
+    }
+    if (unknown != null) {
+      instance.unknownFields = unknown.build();
+    }
+    buildPartial_autosplit_0(instance);
+    if (parseFailure != null) {
+      com.google.protobuf.GeneratedMessageParser.throwParseException(parseFailure, instance);
+    }
+    return instance;
+  }
+  private static void ensureIntsIsMutable(proto2_unittest.TestRepeatedIntProxy instance, int capacity) {
+    if (!instance.ints_.isModifiable()) {
+      instance.ints_ = makeMutableCopy(instance.ints_, capacity);
+    }
+    instance.bitField0_ |= 0x00000001;
+  }
+  private static void ensureIntsProxyIsMutable(proto2_unittest.TestRepeatedIntProxy instance, int capacity) {
+    if (!instance.intsProxy_.isModifiable()) {
+      instance.intsProxy_ = makeMutableCopy(instance.intsProxy_, capacity);
+    }
+    instance.bitField0_ |= 0x00000002;
+  }
+  private static void buildPartial_autosplit_0(proto2_unittest.TestRepeatedIntProxy instance) {
+    int from_bitField0_ = instance.bitField0_;
+    if (((from_bitField0_ & 0x00000001) != 0)) {
+      instance.ints_.makeImmutable();
+    }
+    if (((from_bitField0_ & 0x00000002) != 0)) {
+      instance.intsProxy_.makeImmutable();
+    }
+  }
+
   private static final com.google.protobuf.Parser<TestRepeatedIntProxy>
-      PARSER = new com.google.protobuf.AbstractParser<TestRepeatedIntProxy>() {
+      PARSER = new MessageParser();
+
+  private static final class MessageParser
+      extends com.google.protobuf.GeneratedMessageParser<TestRepeatedIntProxy> {
+    MessageParser() {}
+
     @java.lang.Override
     public TestRepeatedIntProxy parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return TestRepeatedIntProxy.parsePartialFrom(input, extensionRegistry);
     }
-  };
+    @java.lang.Override
+    protected Builder newBuilderForParsing(TestRepeatedIntProxy instance) {
+      Builder builder = new Builder(instance, null, null);
+      return builder;
+    }
+  }
 
   public static com.google.protobuf.Parser<TestRepeatedIntProxy> parser() {
     return PARSER;
