@@ -23,6 +23,20 @@ import org.junit.runners.JUnit4;
 public class SingleFieldBuilderTest {
 
   @Test
+  public void testReparentedFieldBuilderInvalidatesCachedMessage() {
+    SingleFieldBuilder<TestAllTypes, TestAllTypes.Builder, TestAllTypesOrBuilder> field =
+        new SingleFieldBuilder<>(TestAllTypes.getDefaultInstance(), null, false);
+    TestAllTypes.Builder child = field.getBuilder().setOptionalInt32(1);
+    TestAllTypes first = field.build();
+    TestUtil.MockBuilderParent parent = new TestUtil.MockBuilderParent();
+    field.setParent(parent);
+    child.setOptionalInt32(2);
+    assertThat(field.getMessage().getOptionalInt32()).isEqualTo(2);
+    assertThat(first.getOptionalInt32()).isEqualTo(1);
+    assertThat(parent.getInvalidationCount()).isEqualTo(1);
+  }
+
+  @Test
   public void testBasicUseAndInvalidations() {
     TestUtil.MockBuilderParent mockParent = new TestUtil.MockBuilderParent();
     SingleFieldBuilder<TestAllTypes, TestAllTypes.Builder, TestAllTypesOrBuilder> builder =
