@@ -23,6 +23,13 @@ ImmutableFieldGenerator::ImmutableFieldGenerator(
       context_(context),
       name_resolver_(context->GetNameResolver()) {}
 
+void ImmutableFieldGenerator::GenerateBuilderInitializationCode(
+    io::Printer* printer) const {
+  if (printer->LookupVar("static_parser") == "true") {
+    GenerateInitializationCode(printer);
+  }
+}
+
 bool ImmutableFieldGenerator::HasHasbit() const {
   return ::google::protobuf::compiler::java::HasHasbit(descriptor_);
 }

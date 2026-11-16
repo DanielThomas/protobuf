@@ -68,6 +68,13 @@ struct MergeCodeChunk {
   std::string method_suffix;
 };
 
+bool HasOnlyMessageFields(const OneofDescriptor* oneof) {
+  for (int i = 0; i < oneof->field_count(); ++i) {
+    if (GetType(oneof->field(i)) != FieldDescriptor::TYPE_MESSAGE) return false;
+  }
+  return true;
+}
+
 std::string MapValueImmutableClassdName(const Descriptor* descriptor,
                                         ClassNameResolver* name_resolver) {
   const FieldDescriptor* value_field = descriptor->map_value();
@@ -92,7 +99,26 @@ MessageBuilderGenerator::MessageBuilderGenerator(
 
 MessageBuilderGenerator::~MessageBuilderGenerator() = default;
 
+bool HasBuilderStaticParser(const Descriptor* descriptor,
+                            const Context* context) {
+  if (!context->HasGeneratedMethods(descriptor) ||
+      descriptor->extension_range_count() != 0)
+    return false;
+  for (int i = 0; i < descriptor->field_count(); ++i) {
+    if (descriptor->field(i)->is_repeated() &&
+        !google::protobuf::internal::IsOss())
+      return false;
+  }
+  return true;
+}
 void MessageBuilderGenerator::Generate(io::Printer* printer) {
+  auto vars = printer->WithVars(
+      {{"static_parser",
+        HasBuilderStaticParser(descriptor_, context_) ? "true" : "false"},
+       {"parse_locals", "false"},
+       {"field_access", "private "},
+       {"unknown_receiver", ""},
+       {"unknown_argument", ""}});
   WriteMessageDocComment(printer, descriptor_, context_->options());
   if (descriptor_->extension_range_count() > 0) {
     printer->Print(
@@ -121,6 +147,10 @@ void MessageBuilderGenerator::Generate(io::Printer* printer) {
   if (context_->HasGeneratedMethods(descriptor_)) {
     GenerateIsInitialized(printer);
     GenerateBuilderParsingMethods(printer);
+    if (HasBuilderStaticParser(descriptor_, context_)) {
+      GenerateBuilderParsingState(printer);
+      GenerateBuilderParsingMethods(printer, /*for_parse=*/true);
+    }
   }
 
   // oneof
@@ -558,12 +588,18 @@ void MessageBuilderGenerator::GenerateBuilderMergeFromSubfunction(
   printer->Print("}\n\n");
 }
 
-void MessageBuilderGenerator::GenerateBuildPartial(io::Printer* printer) {
-  printer->Print(
-      "@java.lang.Override\n"
-      "public $classname$ buildPartial() {\n"
-      "  $classname$ result = new $classname$(this);\n",
-      "classname", name_resolver_->GetImmutableClassName(descriptor_));
+void MessageBuilderGenerator::GenerateBuildPartial(io::Printer* printer,
+                                                   bool for_parse) {
+  if (!for_parse) {
+    printer->Print(
+        "@java.lang.Override\n"
+        "public $classname$ buildPartial() {\n",
+        "classname", name_resolver_->GetImmutableClassName(descriptor_));
+  }
+  printer->Print("  $classname$ result = new $classname$($builder$);\n",
+                 "classname",
+                 name_resolver_->GetImmutableClassName(descriptor_), "builder",
+                 for_parse ? "null" : "this");
 
   printer->Indent();
 
@@ -573,18 +609,32 @@ void MessageBuilderGenerator::GenerateBuildPartial(io::Printer* printer) {
     for (int i = 0; i < totalInts; ++i) {
       printer->Print(
           "if ($bit_field_name$ != 0) { "
-          "buildPartial_autosplit_$shard$(result); }\n",
+          "buildPartial_autosplit_$shard$(result",
           "bit_field_name", GetBitFieldName(i), "shard", absl::StrCat(i));
+      if (HasBuilderStaticParser(descriptor_, context_)) {
+        GenerateBuilderParsingArguments(printer, i);
+      }
+      printer->Print("); }\n");
     }
   }
 
   printer->Outdent();
+  if (for_parse) {
+    printer->Print(
+        "  setUnknownFieldsForParsing(result, unknownFields == null\n"
+        "      ? com.google.protobuf.UnknownFieldSet.getDefaultInstance()\n"
+        "      : unknownFields.build());\n"
+        "  if (failure != null) {\n"
+        "    throw failure.setUnfinishedMessage(result);\n"
+        "  }\n"
+        "  return result;\n");
+    return;
+  }
   printer->Print(
       "  onBuilt();\n"
       "  return result;\n"
       "}\n"
-      "\n",
-      "classname", name_resolver_->GetImmutableClassName(descriptor_));
+      "\n");
 
   // Build all fields in shards organized by bitfield membership.
   for (int i = 0; i < totalInts; i++) {
@@ -594,12 +644,20 @@ void MessageBuilderGenerator::GenerateBuildPartial(io::Printer* printer) {
 
 void MessageBuilderGenerator::GenerateBuildPartialShard(io::Printer* printer,
                                                         int shard) {
+  bool is_static = HasBuilderStaticParser(descriptor_, context_);
   printer->Print(
-      "private void buildPartial_autosplit_$shard$($classname$ result) {\n"
+      "private $static$void buildPartial_autosplit_$shard$($classname$ result",
+      "static", is_static ? "static " : "", "classname",
+      name_resolver_->GetImmutableClassName(descriptor_), "shard",
+      absl::StrCat(shard));
+  if (is_static) {
+    GenerateBuilderParsingParameters(printer, shard);
+  }
+  printer->Print(
+      ") {\n"
       "  int from_$bit_field_name$ = $bit_field_name$;\n"
       "  int to_$bit_field_name$ = 0;\n",
-      "classname", name_resolver_->GetImmutableClassName(descriptor_), "shard",
-      absl::StrCat(shard), "bit_field_name", GetBitFieldName(shard));
+      "bit_field_name", GetBitFieldName(shard));
   printer->Indent();
 
   int i = shard * 32;
@@ -629,19 +687,279 @@ void MessageBuilderGenerator::GenerateBuildPartialShard(io::Printer* printer,
 
 // ===================================================================
 
-void MessageBuilderGenerator::GenerateBuilderParsingMethods(
+void MessageBuilderGenerator::GenerateBuilderParsingArguments(
+    io::Printer* printer, int shard) {
+  printer->Print(", $bit_field$", "bit_field", GetBitFieldName(shard));
+  int end = std::min((shard + 1) * 32, descriptor_->field_count());
+  for (int i = shard * 32; i < end; ++i) {
+    const auto& field = field_generators_.getInInsertOrder(i);
+    if (!field.IsRealOneof()) {
+      printer->Print(", $name$_", "name", field.GetName());
+    }
+    if (GetJavaType(field.descriptor()) == JAVATYPE_MESSAGE &&
+        !field.descriptor()->is_map()) {
+      printer->Print(", $name$Builder_", "name", field.GetName());
+    }
+  }
+  for (const auto& kv : oneof_generators_) {
+    if (kv.second->HasFieldsInShard(shard)) {
+      printer->Print(", $name$Case_, $name$_", "name", kv.second->GetName());
+    }
+  }
+}
+
+void MessageBuilderGenerator::GenerateBuilderParsingParameters(
+    io::Printer* printer, int shard) {
+  auto vars =
+      printer->WithVars({{"parse_locals", "true"}, {"field_access", ""}});
+  printer->Print(", int $bit_field$", "bit_field", GetBitFieldName(shard));
+  int end = std::min((shard + 1) * 32, descriptor_->field_count());
+  printer->Indent();
+  printer->Indent();
+  for (int i = shard * 32; i < end; ++i) {
+    const auto& field = field_generators_.getInInsertOrder(i);
+    if (field.IsRealOneof() &&
+        GetJavaType(field.descriptor()) != JAVATYPE_MESSAGE)
+      continue;
+    printer->Print(",\n");
+    field.GenerateBuilderMembers(printer, /*initialize=*/false);
+  }
+  for (const auto& kv : oneof_generators_) {
+    if (kv.second->HasFieldsInShard(shard)) {
+      printer->Print(",\n");
+      kv.second->GenerateCommonBuilderMethods(printer, /*initialize=*/false);
+    }
+  }
+  printer->Outdent();
+  printer->Outdent();
+}
+
+void MessageBuilderGenerator::GenerateBuilderParsingState(
     io::Printer* printer) {
+  auto vars = printer->WithVars(
+      {{"classname", name_resolver_->GetImmutableClassName(descriptor_)}});
   printer->Print(
-      "@java.lang.Override\n"
-      "public Builder mergeFrom(\n"
+      "private Builder(java.lang.Object unknownState) {\n"
+      "  super(null, unknownState);\n"
+      "}\n"
+      "static Builder restoreState($classname$ other, boolean retained) {\n"
+      "  Builder target = new Builder((java.lang.Object) other.getUnknownFields());\n");
+  int shards = (descriptor_->field_count() + 31) / 32;
+  bool has_children = false;
+  for (int i = 0; i < descriptor_->field_count(); ++i) {
+    has_children |= GetJavaType(descriptor_->field(i)) == JAVATYPE_MESSAGE;
+  }
+  for (int i = 0; i < shards; ++i) {
+    printer->Print("  target.restorePublishedState_$shard$(other, retained);\n",
+                   "shard", absl::StrCat(i));
+  }
+  printer->Print("  return target;\n}\n");
+  for (int shard = 0; shard < shards; ++shard) {
+    auto shard_vars =
+        printer->WithVars({{"shard", absl::StrCat(shard)},
+                           {"bit_field", GetBitFieldName(shard)}});
+    int end = std::min((shard + 1) * 32, descriptor_->field_count());
+    printer->Print(
+        "private void restorePublishedState_$shard$(\n"
+        "    $classname$ other, boolean retained) {\n");
+    printer->Indent();
+    for (const auto& kv : oneof_generators_) {
+      if (kv.second->HasFieldsInShard(shard)) {
+        kv.second->GenerateBuilderRestoreFromMessage(printer);
+      }
+    }
+    for (int i = shard * 32; i < end; ++i) {
+      field_generators_.getInInsertOrder(i).GenerateBuilderRestoreFromMessage(
+          printer);
+    }
+    printer->Outdent();
+    printer->Print("}\n");
+    if (!has_children && oneof_generators_.empty()) continue;
+    printer->Print(
+        "private static void installParsingState_$shard$(Builder target");
+    GenerateBuilderParsingParameters(printer, shard);
+    printer->Print(") {\n  target.$bit_field$ = $bit_field$;\n");
+    for (int i = shard * 32; i < end; ++i) {
+      const auto& field = field_generators_.getInInsertOrder(i);
+      if (!field.IsRealOneof()) {
+        printer->Print("  target.$name$_ = $name$_;\n", "name",
+                       field.GetName());
+      }
+      if (GetJavaType(field.descriptor()) == JAVATYPE_MESSAGE &&
+          !field.descriptor()->is_map()) {
+        printer->Print("  target.$name$Builder_ = $name$Builder_;\n", "name",
+                       field.GetName());
+      }
+    }
+    for (const auto& kv : oneof_generators_) {
+      if (kv.second->HasFieldsInShard(shard)) {
+        printer->Print(
+            "  target.$name$Case_ = $name$Case_;\n"
+            "  target.$name$_ = $name$_;\n",
+            "name", kv.second->GetName());
+      }
+    }
+    printer->Print("}\n");
+  }
+  int children = 0;
+  for (int i = 0; i < descriptor_->field_count(); ++i) {
+    const auto* field = descriptor_->field(i);
+    if (!IsRealOneof(field) || GetJavaType(field) != JAVATYPE_MESSAGE) continue;
+    if (children % 32 == 0) {
+      if (children != 0) printer->Print("}\n");
+      printer->Print("private void attachParsingChildren_$shard$() {\n",
+                     "shard", absl::StrCat(children / 32));
+    }
+    printer->Indent();
+    field_generators_.get(field).GenerateBuilderParsingChildAttachment(printer);
+    printer->Outdent();
+    ++children;
+  }
+  if (children != 0) printer->Print("}\n");
+}
+
+void MessageBuilderGenerator::GenerateBuilderParsingMethods(
+    io::Printer* printer, bool for_parse) {
+  auto vars = printer->WithVars(
+      {{"parse_locals", for_parse ? "true" : "false"},
+       {"field_access", for_parse ? "" : "private "},
+       {"unknown_receiver", for_parse ? "unknownFields = " : ""},
+       {"unknown_argument", for_parse ? "unknownFields, " : ""}});
+  bool has_children = false;
+  int oneof_children = 0;
+  std::vector<const OneofDescriptor*> message_oneofs;
+  for (int i = 0; i < descriptor_->field_count(); ++i) {
+    const auto* field = descriptor_->field(i);
+    if (GetJavaType(field) == JAVATYPE_MESSAGE) {
+      has_children = true;
+      if (IsRealOneof(field)) ++oneof_children;
+    }
+  }
+  for (const auto& kv : oneof_generators_) {
+    const auto* oneof = descriptor_->oneof_decl(kv.first);
+    for (int i = 0; i < oneof->field_count(); ++i) {
+      if (GetJavaType(oneof->field(i)) == JAVATYPE_MESSAGE) {
+        message_oneofs.push_back(oneof);
+        break;
+      }
+    }
+  }
+  bool continuation = HasBuilderStaticParser(descriptor_, context_) &&
+                      (has_children || !oneof_generators_.empty());
+  if (for_parse) {
+    printer->Print(
+        "private static $classname$ parsePartialFrom_(\n"
+        "    com.google.protobuf.CodedInputStream input,\n"
+        "    com.google.protobuf.ExtensionRegistryLite extensionRegistry)\n"
+        "    throws com.google.protobuf.InvalidProtocolBufferException {\n",
+        "classname", name_resolver_->GetImmutableClassName(descriptor_));
+    if (continuation) {
+      printer->Print(
+          "  java.lang.Object state = parseState_(input, extensionRegistry);\n"
+          "  return state instanceof $classname$ ? ($classname$) state\n"
+          "      : ((Builder) state).buildPartial();\n",
+          "classname", name_resolver_->GetImmutableClassName(descriptor_));
+    } else {
+      printer->Print(
+          "  return ($classname$) parseState_(input, extensionRegistry);\n",
+          "classname", name_resolver_->GetImmutableClassName(descriptor_));
+    }
+    printer->Print("}\n");
+  }
+  if (!for_parse && continuation) {
+    printer->Print(
+        "@java.lang.Override\n"
+        "public Builder mergeFrom(\n"
+        "    com.google.protobuf.CodedInputStream input,\n"
+        "    com.google.protobuf.ExtensionRegistryLite extensionRegistry)\n"
+        "    throws java.io.IOException {\n"
+        "  return mergeFrom(input, extensionRegistry, 0);\n"
+        "}\n");
+  }
+  if (for_parse && !message_oneofs.empty()) {
+    printer->Print("@java.lang.SuppressWarnings(\"unchecked\")\n");
+  }
+  printer->Print(
+      for_parse      ? "static java.lang.Object parseState_(\n"
+      : continuation ? "private Builder mergeFrom(\n"
+                     : "@java.lang.Override\npublic Builder mergeFrom(\n",
+      "classname", name_resolver_->GetImmutableClassName(descriptor_));
+  printer->Print(
       "    com.google.protobuf.CodedInputStream input,\n"
-      "    com.google.protobuf.ExtensionRegistryLite extensionRegistry)\n"
-      "    throws java.io.IOException {\n"
-      "  java.util.Objects.requireNonNull(extensionRegistry);\n"
-      "  try {\n"
-      "    boolean done = false;\n"
-      "    while (!done) {\n"
-      "      int tag = input.readTag();\n"
+      "    com.google.protobuf.ExtensionRegistryLite extensionRegistry");
+  if (!for_parse && continuation) {
+    printer->Print(",\n    int pendingTag");
+  }
+  printer->Print(
+      ")\n"
+      "    throws $exception$ {\n"
+      "  java.util.Objects.requireNonNull(extensionRegistry);\n",
+      "exception",
+      for_parse ? "com.google.protobuf.InvalidProtocolBufferException"
+                : "java.io.IOException");
+  if (for_parse) {
+    printer->Indent();
+    int total_ints = (descriptor_->field_count() + 31) / 32;
+    for (int i = 0; i < total_ints; ++i) {
+      printer->Print("int $bit_field$ = 0;\n", "bit_field", GetBitFieldName(i));
+    }
+    for (int i = 0; i < descriptor_->field_count(); ++i) {
+      field_generators_.getInInsertOrder(i).GenerateBuilderMembers(
+          printer, /*initialize=*/true);
+    }
+    for (const auto& kv : oneof_generators_) {
+      kv.second->GenerateCommonBuilderMethods(printer, /*initialize=*/true);
+    }
+    printer->Print(
+        "com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;\n"
+        "com.google.protobuf.InvalidProtocolBufferException failure = null;\n");
+    if (!message_oneofs.empty()) printer->Print("int tag = 0;\n");
+    if (continuation) {
+      printer->Print("Builder continuation = null;\nint pendingTag = 0;\n");
+    }
+    printer->Outdent();
+  }
+  printer->Print("  try {\n");
+  if (for_parse && continuation) {
+    printer->Print(
+        "    if (useFieldBuildersForParsing()) {\n"
+        "      continuation = newBuilder();\n"
+        "      continuation.mergeFrom(input, extensionRegistry);\n"
+        "    }\n"
+        "    boolean done = continuation != null;\n"
+        "    parsing:\n");
+  } else {
+    printer->Print("    boolean done = false;\n");
+  }
+  printer->Print("    while (!done) {\n");
+  if (!for_parse && continuation) {
+    printer->Print(
+        "      int tag;\n"
+        "      if (pendingTag != 0) {\n"
+        "        tag = pendingTag;\n"
+        "        pendingTag = 0;\n"
+        "      } else {\n"
+        "        tag = input.readTag();\n"
+        "      }\n");
+  } else {
+    printer->Print(for_parse && !message_oneofs.empty()
+                       ? "      tag = 0;\n      tag = input.readTag();\n"
+                       : "      int tag = input.readTag();\n");
+  }
+  if (for_parse) {
+    for (const auto* oneof : message_oneofs) {
+      if (!HasOnlyMessageFields(oneof)) continue;
+      const auto* info = context_->GetOneofGeneratorInfo(oneof);
+      printer->Print(
+          "      if ($name$Case_ != 0 && (tag & 7) == 2\n"
+          "          && $capitalized_name$Case.forNumber(tag >>> 3) != null) {\n"
+          "        pendingTag = tag;\n"
+          "        break parsing;\n"
+          "      }\n",
+          "name", info->name, "capitalized_name", info->capitalized_name);
+    }
+  }
+  printer->Print(
       "      switch (tag) {\n"
       "        case 0:\n"  // zero signals EOF / limit reached
       "          done = true;\n"
@@ -655,23 +973,116 @@ void MessageBuilderGenerator::GenerateBuilderParsingMethods(
   printer->Outdent();  // while
   printer->Outdent();  // try
   printer->Outdent();  // method
+  printer->Print("        default: {\n");
+  if (for_parse) {
+    printer->Print(
+        "          if (unknownFields == null) {\n"
+        "            unknownFields = "
+        "com.google.protobuf.UnknownFieldSet.newBuilder();\n"
+        "          }\n");
+  }
   printer->Print(
-      "        default: {\n"
-      "          if (!super.parseUnknownField(input, extensionRegistry, tag)) "
-      "{\n"
+      "          if (!$unknown_field_decoder$) {\n", "unknown_field_decoder",
+      for_parse ? "parseUnknownField(getDefaultInstance(),\n"
+                  "              input, unknownFields, extensionRegistry, tag)"
+                : "super.parseUnknownField(input, extensionRegistry, tag)");
+  printer->Print(
       "            done = true; // was an endgroup tag\n"
       "          }\n"
       "          break;\n"
       "        } // default:\n"
-      "      } // switch (tag)\n"
-      "    } // while (!done)\n"
-      "  } catch (com.google.protobuf.InvalidProtocolBufferException e) {\n"
-      "    throw e.unwrapIOException();\n"
-      "  } finally {\n"
-      "    onChanged();\n"
-      "  } // finally\n"
-      "  return this;\n"
-      "}\n");
+      "      } // switch (tag)\n");
+  if (for_parse) {
+    for (const auto* oneof : message_oneofs) {
+      printer->Print(
+          "      if ($name$_ instanceof com.google.protobuf.SingleFieldBuilder) $name$_ = null;\n",
+          "name", context_->GetOneofGeneratorInfo(oneof)->name);
+    }
+  }
+  printer->Print("    } // while (!done)\n");
+  if (for_parse && continuation) {
+    printer->Indent();
+    printer->Indent();
+    printer->Print("if (pendingTag != 0");
+    for (const auto* oneof : message_oneofs) {
+      if (HasOnlyMessageFields(oneof)) {
+        // Case changes leave the local phase before consuming the next child.
+        printer->Print(" || ($name$Case_ != 0 && $name$_ == null)", "name",
+                       context_->GetOneofGeneratorInfo(oneof)->name);
+      } else {
+        // Mixed oneofs can retain inactive message children after scalar cases.
+        for (int i = 0; i < oneof->field_count(); ++i) {
+          const auto* field = oneof->field(i);
+          if (GetJavaType(field) == JAVATYPE_MESSAGE) {
+            printer->Print(" || $name$Builder_ != null", "name",
+                           context_->GetFieldGeneratorInfo(field)->name);
+          }
+        }
+      }
+    }
+    printer->Print(
+        ") {\n"
+        "  continuation = new Builder((java.lang.Object) unknownFields);\n");
+    int shards = (descriptor_->field_count() + 31) / 32;
+    for (int i = 0; i < shards; ++i) {
+      printer->Print("  installParsingState_$shard$(continuation", "shard",
+                     absl::StrCat(i));
+      GenerateBuilderParsingArguments(printer, i);
+      printer->Print(");\n");
+    }
+    for (int i = 0; i < (oneof_children + 31) / 32; ++i) {
+      printer->Print("  continuation.attachParsingChildren_$shard$();\n",
+                     "shard", absl::StrCat(i));
+    }
+    printer->Print(
+        "}\n"
+        "if (pendingTag != 0) {\n"
+        "  continuation.mergeFrom(input, extensionRegistry, pendingTag);\n"
+        "}\n");
+    printer->Outdent();
+    printer->Outdent();
+  }
+  printer->Print(
+      "  } catch (com.google.protobuf.InvalidProtocolBufferException e) {\n");
+  if (for_parse) {
+    for (const auto* oneof : message_oneofs) {
+      printer->Print(
+          "    if ((tag >>> 3) == $name$Case_\n"
+          "        && $name$_ instanceof com.google.protobuf.MessageLite\n"
+          "        && e.getUnfinishedMessage() != null) {\n"
+          "      $name$_ = e.getUnfinishedMessage();\n"
+          "    }\n",
+          "name", context_->GetOneofGeneratorInfo(oneof)->name);
+    }
+    printer->Print(
+        "    java.io.IOException cause = e.unwrapIOException();\n"
+        "    failure = cause == e ? e\n"
+        "        : new "
+        "com.google.protobuf.InvalidProtocolBufferException(cause);\n"
+        "  } catch (java.io.IOException e) {\n"
+        "    failure = new "
+        "com.google.protobuf.InvalidProtocolBufferException(e);\n"
+        "  }\n");
+    if (continuation) {
+      printer->Print(
+          "  if (continuation != null) {\n"
+          "    if (failure != null) {\n"
+          "      throw failure.setUnfinishedMessage(continuation.buildPartial());\n"
+          "    }\n"
+          "    return continuation;\n"
+          "  }\n");
+    }
+    GenerateBuildPartial(printer, /*for_parse=*/true);
+    printer->Print("}\n");
+  } else {
+    printer->Print(
+        "    throw e.unwrapIOException();\n"
+        "  } finally {\n"
+        "    onChanged();\n"
+        "  } // finally\n"
+        "  return this;\n"
+        "}\n");
+  }
 }
 
 void MessageBuilderGenerator::GenerateBuilderFieldParsingCases(
@@ -695,7 +1106,49 @@ void MessageBuilderGenerator::GenerateBuilderFieldParsingCase(
   printer->Print("case $tag$: {\n", "tag", tagString);
   printer->Indent();
 
-  field_generators_.get(field).GenerateBuilderParsingCode(printer);
+  if (printer->LookupVar("parse_locals") == "true") {
+    std::string condition;
+    if (IsRealOneof(field)) {
+      if (!HasOnlyMessageFields(field->containing_oneof()) &&
+          !(GetJavaType(field) == JAVATYPE_ENUM &&
+            !SupportUnknownEnumValue(field))) {
+        const auto& name =
+            context_->GetOneofGeneratorInfo(field->containing_oneof())->name;
+        condition = absl::StrCat(name, "Case_ != 0");
+        if (GetJavaType(field) != JAVATYPE_MESSAGE) {
+          absl::StrAppend(&condition, " && ", name, "Case_ != ", field->number());
+        }
+      }
+    } else if (GetJavaType(field) == JAVATYPE_MESSAGE &&
+               !field->is_repeated()) {
+      const auto& name = context_->GetFieldGeneratorInfo(field)->name;
+      condition = absl::StrCat(name, "_ != null || ", name, "Builder_ != null");
+    }
+    if (!condition.empty()) {
+      printer->Print(
+          "if ($condition$) {\n"
+          "  pendingTag = tag;\n"
+          "  break parsing;\n"
+          "}\n",
+          "condition", condition);
+    }
+  }
+  printer->Emit(
+      {{"clear_oneof_has_bits",
+        [&] {
+          oneof_generators_.at(field->containing_oneof()->index())
+              ->GenerateBuilderClearOneofHasBits(
+                  printer, true,
+                  GetJavaType(field) == JAVATYPE_ENUM &&
+                          !SupportUnknownEnumValue(field)
+                      ? &field_generators_
+                      : nullptr);
+        }},
+       {"parse_field",
+        [&] {
+          field_generators_.get(field).GenerateBuilderParsingCode(printer);
+        }}},
+      "$parse_field$");
 
   printer->Outdent();
   printer->Print(

@@ -171,6 +171,18 @@ void ImmutableMapFieldGenerator::SetMessageVariables(
       absl::StrCat(GenerateClearBit(bit_index_), ";");
 }
 
+void ImmutableMapFieldGenerator::GenerateBuilderRestoreFromMessage(
+    io::Printer* printer) const {
+  printer->Print(variables_,
+                 "if (other.get$capitalized_name$Count() != 0) {\n");
+  printer->Print(
+      variables_,
+      GetJavaType(MapValueField(descriptor_)) == JAVATYPE_MESSAGE
+          ? "  $name$_ = new com.google.protobuf.MapFieldBuilder<>($name$Converter, other.internalGet$capitalized_name$());\n"
+          : "  $name$_ = other.internalGet$capitalized_name$();\n");
+  printer->Print(variables_, "  $set_has_field_bit$\n}\n");
+}
+
 void ImmutableMapFieldGenerator::GenerateInterfaceGetCountMethod(
     io::Printer* printer) const {
   WriteFieldDocComment(printer, descriptor_, context_->options());
@@ -555,43 +567,62 @@ void ImmutableMapFieldGenerator::GenerateBuilderPutAllValueMethod(
   }
 }
 
-void ImmutableMapFieldGenerator::GenerateBuilderMembers(
-    io::Printer* printer) const {
-  if (GetJavaType(MapValueField(descriptor_)) == JAVATYPE_MESSAGE) {
-    return GenerateMessageMapBuilderMembers(printer);
-  }
+void ImmutableMapFieldGenerator::GenerateBuilderMembers(io::Printer* printer,
+                                                        bool initialize) const {
+  bool for_parse = printer->LookupVar("parse_locals") == "true";
   printer->Print(
       variables_,
-      "private com.google.protobuf.MapField<\n"
-      "    $type_parameters$> $name$_;\n"
-      "$deprecation$private com.google.protobuf.MapField<$type_parameters$>\n"
-      "    internalGet$capitalized_name$() {\n"
-      "  if ($name$_ == null) {\n"
-      "    return com.google.protobuf.MapField.emptyMapField(\n"
-      "        $map_field_parameter$);\n"
-      "  }\n"
-      "  return $name$_;\n"
-      "}\n"
-      "$deprecation$private com.google.protobuf.MapField<$type_parameters$>\n"
-      "    internalGetMutable$capitalized_name$() {\n"
-      "  if ($name$_ == null) {\n"
-      "    $name$_ = com.google.protobuf.MapField.newMapField(\n"
-      "        $map_field_parameter$);\n"
-      "  }\n"
-      "  if (!$name$_.isMutable()) {\n"
-      "    $name$_ = $name$_.copy();\n"
-      "  }\n"
-      "  $set_has_field_bit$\n"
-      "  $on_changed$\n"
-      "  return $name$_;\n"
-      "}\n");
-  GenerateMapGetters(printer);
-  GenerateBuilderClearMethod(printer);
-  GenerateBuilderRemoveMethod(printer);
-  GenerateBuilderPutMethod(printer);
-  GenerateBuilderPutAllMethod(printer);
-  GenerateBuilderPutValueMethod(printer);
-  GenerateBuilderPutAllValueMethod(printer);
+      GetJavaType(MapValueField(descriptor_)) == JAVATYPE_MESSAGE
+          ? "$field_access$com.google.protobuf.MapFieldBuilder<$builder_type_parameters$> $name$_"
+          : "$field_access$com.google.protobuf.MapField<$type_parameters$> $name$_");
+  if (for_parse) {
+    if (initialize) printer->Print(" = null;\n");
+    return;
+  }
+  printer->Print(";\n");
+  GenerateMapBuilderMembers(printer, false);
+}
+
+void ImmutableMapFieldGenerator::GenerateMapBuilderMembers(
+    io::Printer* printer, bool for_parse) const {
+  if (GetJavaType(MapValueField(descriptor_)) == JAVATYPE_MESSAGE) {
+    return GenerateMessageMapBuilderMembers(printer, for_parse);
+  }
+  if (!for_parse)
+    printer->Print(
+        variables_,
+        "$deprecation$private com.google.protobuf.MapField<$type_parameters$>\n"
+        "    internalGet$capitalized_name$() {\n"
+        "  if ($name$_ == null) {\n"
+        "    return com.google.protobuf.MapField.emptyMapField(\n"
+        "        $map_field_parameter$);\n"
+        "  }\n"
+        "  return $name$_;\n"
+        "}\n"
+        "$deprecation$private com.google.protobuf.MapField<$type_parameters$>\n"
+        "    internalGetMutable$capitalized_name$() {\n");
+  printer->Print(variables_,
+                 "  if ($name$_ == null) {\n"
+                 "    $name$_ = com.google.protobuf.MapField.newMapField(\n"
+                 "        $map_field_parameter$);\n"
+                 "  }\n"
+                 "  if (!$name$_.isMutable()) {\n"
+                 "    $name$_ = $name$_.copy();\n"
+                 "  }\n"
+                 "  $set_has_field_bit$\n");
+  if (!for_parse) {
+    printer->Print(variables_,
+                   "  $on_changed$\n"
+                   "  return $name$_;\n"
+                   "}\n");
+    GenerateMapGetters(printer);
+    GenerateBuilderClearMethod(printer);
+    GenerateBuilderRemoveMethod(printer);
+    GenerateBuilderPutMethod(printer);
+    GenerateBuilderPutAllMethod(printer);
+    GenerateBuilderPutValueMethod(printer);
+    GenerateBuilderPutAllValueMethod(printer);
+  }
 }
 
 void ImmutableMapFieldGenerator::GenerateMapGetters(
@@ -887,75 +918,79 @@ void ImmutableMapFieldGenerator::
 }
 
 void ImmutableMapFieldGenerator::GenerateMessageMapBuilderMembers(
-    io::Printer* printer) const {
-  printer->Print(
-      variables_,
-      "private static final class $capitalized_name$Converter implements "
-      "com.google.protobuf.MapFieldBuilder.Converter<$boxed_key_type$, "
-      "$value_interface_type$, $boxed_value_type$> "
-      "{\n");
-  {
-    auto i1 = printer->WithIndent();
-    printer->Print("@java.lang.Override\n");
+    io::Printer* printer, bool for_parse) const {
+  if (!for_parse) {
     printer->Print(
         variables_,
-        "public $boxed_value_type$ build($value_interface_type$ val) {\n");
+        "private static final class $capitalized_name$Converter implements "
+        "com.google.protobuf.MapFieldBuilder.Converter<$boxed_key_type$, "
+        "$value_interface_type$, $boxed_value_type$> "
+        "{\n");
     {
-      auto i2 = printer->WithIndent();
-      printer->Print(variables_,
-                     "if (val instanceof $boxed_value_type$) {"
-                     " return ($boxed_value_type$) val; }\n");
-      printer->Print(variables_,
-                     "return (($value_builder_type$) val).build();\n");
-    }
-    printer->Print("}\n\n");
-
-    printer->Print("@java.lang.Override\n");
-    printer->Print(variables_,
-                   "public com.google.protobuf.MapEntry<$boxed_key_type$, "
-                   "$boxed_value_type$> defaultEntry() {\n");
-    {
-      auto i2 = printer->WithIndent();
+      auto i1 = printer->WithIndent();
+      printer->Print("@java.lang.Override\n");
       printer->Print(
           variables_,
-          "return $capitalized_name$DefaultEntryHolder.defaultEntry;\n");
-    }
-    printer->Print("}\n");
-  }
-  printer->Print("};\n");
-  printer->Print(variables_,
-                 "private static final $capitalized_name$Converter "
-                 "$name$Converter = new $capitalized_name$Converter();\n\n");
+          "public $boxed_value_type$ build($value_interface_type$ val) {\n");
+      {
+        auto i2 = printer->WithIndent();
+        printer->Print(variables_,
+                       "if (val instanceof $boxed_value_type$) {"
+                       " return ($boxed_value_type$) val; }\n");
+        printer->Print(variables_,
+                       "return (($value_builder_type$) val).build();\n");
+      }
+      printer->Print("}\n\n");
 
-  printer->Print(
-      variables_,
-      "private com.google.protobuf.MapFieldBuilder<\n"
-      "    $builder_type_parameters$> $name$_;\n"
-      "$deprecation$private "
-      "com.google.protobuf.MapFieldBuilder<$builder_type_parameters$>\n"
-      "    internalGet$capitalized_name$() {\n"
-      "  if ($name$_ == null) {\n"
-      "    return new com.google.protobuf.MapFieldBuilder<>($name$Converter);\n"
-      "  }\n"
-      "  return $name$_;\n"
-      "}\n"
-      "$deprecation$private "
-      "com.google.protobuf.MapFieldBuilder<$builder_type_parameters$>\n"
-      "    internalGetMutable$capitalized_name$() {\n"
-      "  if ($name$_ == null) {\n"
-      "    $name$_ = new "
-      "com.google.protobuf.MapFieldBuilder<>($name$Converter);\n"
-      "  }\n"
-      "  $set_has_field_bit$\n"
-      "  $on_changed$\n"
-      "  return $name$_;\n"
-      "}\n");
-  GenerateMessageMapGetters(printer);
-  GenerateMessageMapBuilderClearMethod(printer);
-  GenerateMessageMapBuilderRemoveMethod(printer);
-  GenerateMessageMapBuilderPutMethod(printer);
-  GenerateMessageMapBuilderPutAllMethod(printer);
-  GenerateMessageMapBuilderPutBuilderIfAbsentMethod(printer);
+      printer->Print("@java.lang.Override\n");
+      printer->Print(variables_,
+                     "public com.google.protobuf.MapEntry<$boxed_key_type$, "
+                     "$boxed_value_type$> defaultEntry() {\n");
+      {
+        auto i2 = printer->WithIndent();
+        printer->Print(
+            variables_,
+            "return $capitalized_name$DefaultEntryHolder.defaultEntry;\n");
+      }
+      printer->Print("}\n");
+    }
+    printer->Print("};\n");
+    printer->Print(variables_,
+                   "private static final $capitalized_name$Converter "
+                   "$name$Converter = new $capitalized_name$Converter();\n\n");
+
+    printer->Print(
+        variables_,
+        "$deprecation$private "
+        "com.google.protobuf.MapFieldBuilder<$builder_type_parameters$>\n"
+        "    internalGet$capitalized_name$() {\n"
+        "  if ($name$_ == null) {\n"
+        "    return new com.google.protobuf.MapFieldBuilder<>($name$Converter);\n"
+        "  }\n"
+        "  return $name$_;\n"
+        "}\n"
+        "$deprecation$private "
+        "com.google.protobuf.MapFieldBuilder<$builder_type_parameters$>\n"
+        "    internalGetMutable$capitalized_name$() {\n");
+  }
+  printer->Print(variables_,
+                 "  if ($name$_ == null) {\n"
+                 "    $name$_ = new "
+                 "com.google.protobuf.MapFieldBuilder<>($name$Converter);\n"
+                 "  }\n"
+                 "  $set_has_field_bit$\n");
+  if (!for_parse) {
+    printer->Print(variables_,
+                   "  $on_changed$\n"
+                   "  return $name$_;\n"
+                   "}\n");
+    GenerateMessageMapGetters(printer);
+    GenerateMessageMapBuilderClearMethod(printer);
+    GenerateMessageMapBuilderRemoveMethod(printer);
+    GenerateMessageMapBuilderPutMethod(printer);
+    GenerateMessageMapBuilderPutAllMethod(printer);
+    GenerateMessageMapBuilderPutBuilderIfAbsentMethod(printer);
+  }
 }
 
 void ImmutableMapFieldGenerator::GenerateMessageMapGetters(
@@ -1061,24 +1096,35 @@ void ImmutableMapFieldGenerator::GenerateMergingCode(
 
 void ImmutableMapFieldGenerator::GenerateBuildingCode(
     io::Printer* printer) const {
+  auto vars = printer->WithVars(
+      {{"map_value",
+        printer->LookupVar("static_parser") == "true"
+            ? absl::StrCat(variables_.at("name"), "_")
+            : absl::StrCat("internalGet", variables_.at("capitalized_name"),
+                           "()")}});
   if (GetJavaType(MapValueField(descriptor_)) == JAVATYPE_MESSAGE) {
-    printer->Print(
-        variables_,
-        "if ($get_has_field_bit_from_local$) {\n"
-        "  result.$name$_ = "
-        "internalGet$capitalized_name$().build($map_field_parameter$);\n"
-        "}\n");
+    printer->Print(variables_,
+                   "if ($get_has_field_bit_from_local$) {\n"
+                   "  result.$name$_ = "
+                   "$map_value$.build($map_field_parameter$);\n"
+                   "}\n");
     return;
   }
   printer->Print(variables_,
                  "if ($get_has_field_bit_from_local$) {\n"
-                 "  result.$name$_ = internalGet$capitalized_name$();\n"
+                 "  result.$name$_ = $map_value$;\n"
                  "  result.$name$_.makeImmutable();\n"
                  "}\n");
 }
 
 void ImmutableMapFieldGenerator::GenerateBuilderParsingCode(
     io::Printer* printer) const {
+  bool for_parse = printer->LookupVar("parse_locals") == "true";
+  auto vars = printer->WithVars(
+      {{"mutable_map",
+        for_parse ? absl::StrCat(variables_.at("name"), "_")
+                  : absl::StrCat("internalGetMutable",
+                                 variables_.at("capitalized_name"), "()")}});
   const FieldDescriptor* value = MapValueField(descriptor_);
   const JavaType type = GetJavaType(value);
   if (type == JAVATYPE_MESSAGE) {
@@ -1086,10 +1132,15 @@ void ImmutableMapFieldGenerator::GenerateBuilderParsingCode(
         variables_,
         "com.google.protobuf.MapEntry<$type_parameters$>\n"
         "$name$__ = input.readMessage(\n"
-        "    $default_entry$.getParserForType(), extensionRegistry);\n"
-        "internalGetMutable$capitalized_name$().ensureBuilderMap().put(\n"
-        "    $name$__.getKey(), $name$__.getValue());\n"
-        "$set_has_field_bit$\n");
+        "    $default_entry$.getParserForType(), extensionRegistry);\n");
+    if (for_parse) {
+      auto indent = printer->WithIndent();
+      GenerateMapBuilderMembers(printer, true);
+    }
+    printer->Print(variables_,
+                   "$mutable_map$.ensureBuilderMap().put(\n"
+                   "    $name$__.getKey(), $name$__.getValue());\n"
+                   "$set_has_field_bit$\n");
     return;
   }
   if (!SupportUnknownEnumValue(value) && type == JAVATYPE_ENUM) {
@@ -1099,19 +1150,30 @@ void ImmutableMapFieldGenerator::GenerateBuilderParsingCode(
         "com.google.protobuf.MapEntry<$type_parameters$>\n"
         "$name$__ = $default_entry$.getParserForType().parseFrom(bytes);\n"
         "if ($value_enum_type$.forNumber($name$__.getValue()) == null) {\n"
-        "  mergeUnknownLengthDelimitedField($number$, bytes);\n"
-        "} else {\n"
-        "  internalGetMutable$capitalized_name$().getMutableMap().put(\n"
-        "      $name$__.getKey(), $name$__.getValue());\n"
-        "  $set_has_field_bit$\n"
-        "}\n");
+        "  $unknown_receiver$mergeUnknownLengthDelimitedField($unknown_argument$$number$, bytes);\n"
+        "} else {\n");
+    if (for_parse) {
+      auto indent = printer->WithIndent();
+      GenerateMapBuilderMembers(printer, true);
+    }
+    printer->Print(variables_,
+                   "  $mutable_map$.getMutableMap().put(\n"
+                   "      $name$__.getKey(), $name$__.getValue());\n"
+                   "  $set_has_field_bit$\n"
+                   "}\n");
     return;
   }
+  printer->Print(
+      variables_,
+      "com.google.protobuf.MapEntry<$type_parameters$>\n"
+      "$name$__ = input.readMessage(\n"
+      "    $default_entry$.getParserForType(), extensionRegistry);\n");
+  if (for_parse) {
+    auto indent = printer->WithIndent();
+    GenerateMapBuilderMembers(printer, true);
+  }
   printer->Print(variables_,
-                 "com.google.protobuf.MapEntry<$type_parameters$>\n"
-                 "$name$__ = input.readMessage(\n"
-                 "    $default_entry$.getParserForType(), extensionRegistry);\n"
-                 "internalGetMutable$capitalized_name$().getMutableMap().put(\n"
+                 "$mutable_map$.getMutableMap().put(\n"
                  "    $name$__.getKey(), $name$__.getValue());\n"
                  "$set_has_field_bit$\n");
 }

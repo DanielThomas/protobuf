@@ -44,12 +44,15 @@ class ImmutableMessageFieldGenerator : public ImmutableFieldGenerator {
       const ImmutableMessageFieldGenerator&) = delete;
   ~ImmutableMessageFieldGenerator() override;
 
+  void GenerateBuilderRestoreFromMessage(io::Printer* printer) const override;
+
   // implements ImmutableFieldGenerator
   // ---------------------------------------
 
   void GenerateInterfaceMembers(io::Printer* printer) const override;
   void GenerateMembers(io::Printer* printer) const override;
-  void GenerateBuilderMembers(io::Printer* printer) const override;
+  void GenerateBuilderMembers(io::Printer* printer,
+                              bool initialize) const override;
   void GenerateInitializationCode(io::Printer* printer) const override;
   void GenerateBuilderClearCode(io::Printer* printer) const override;
   void GenerateMergingCode(io::Printer* printer) const override;
@@ -65,9 +68,10 @@ class ImmutableMessageFieldGenerator : public ImmutableFieldGenerator {
   std::string GetBoxedType() const override;
 
  protected:
-  virtual void PrintNestedBuilderCondition(
-      io::Printer* printer, const char* regular_case,
-      const char* nested_builder_case) const;
+  virtual void PrintNestedBuilderCondition(io::Printer* printer,
+                                           const char* regular_case,
+                                           const char* nested_builder_case,
+                                           bool for_parse = false) const;
   virtual void PrintNestedBuilderFunction(
       io::Printer* printer, const char* method_prototype,
       const char* regular_case, const char* nested_builder_case,
@@ -94,7 +98,8 @@ class ImmutableMessageFieldGenerator : public ImmutableFieldGenerator {
   void GenerateBuilderGetBuilderMethod(io::Printer* printer) const;
   void GenerateBuilderGetOrBuilderMethod(io::Printer* printer) const;
   void GenerateBuilderInternalGetFieldBuilderMethod(io::Printer* printer) const;
-  void GenerateBuilderParseMethod(io::Printer* printer) const;
+  void GenerateBuilderParseMethod(io::Printer* printer,
+                                  bool for_parse = false) const;
 };
 
 class ImmutableMessageOneofFieldGenerator
@@ -108,8 +113,15 @@ class ImmutableMessageOneofFieldGenerator
       const ImmutableMessageOneofFieldGenerator&) = delete;
   ~ImmutableMessageOneofFieldGenerator() override;
 
+  void GenerateBuilderRestoreFromMessage(io::Printer* printer) const override;
+  void GenerateBuilderParsingChildAttachment(
+      io::Printer* printer) const override;
+  void GenerateBuilderParsingChildRetention(
+      io::Printer* printer) const override;
+
   void GenerateMembers(io::Printer* printer) const override;
-  void GenerateBuilderMembers(io::Printer* printer) const override;
+  void GenerateBuilderMembers(io::Printer* printer,
+                              bool initialize) const override;
   void GenerateBuilderClearCode(io::Printer* printer) const override;
 
   void GenerateMergingCode(io::Printer* printer) const override;
@@ -132,8 +144,10 @@ class ImmutableMessageOneofFieldGenerator
   void GenerateBuilderClearMethod(io::Printer* printer) const;
   void GenerateBuilderGetBuilderMethod(io::Printer* printer) const;
   void GenerateBuilderGetOrBuilderMethod(io::Printer* printer) const;
-  void GenerateBuilderInternalGetFieldBuilderMethod(io::Printer* printer) const;
-  void GenerateBuilderParseMethod(io::Printer* printer) const;
+  void GenerateBuilderInternalGetFieldBuilderMethod(
+      io::Printer* printer, bool for_parse = false) const;
+  void GenerateBuilderParseMethod(io::Printer* printer,
+                                  bool for_parse = false) const;
 };
 
 class RepeatedImmutableMessageFieldGenerator
@@ -147,10 +161,13 @@ class RepeatedImmutableMessageFieldGenerator
       const RepeatedImmutableMessageFieldGenerator&) = delete;
   ~RepeatedImmutableMessageFieldGenerator() override;
 
+  void GenerateBuilderRestoreFromMessage(io::Printer* printer) const override;
+
   // implements ImmutableFieldGenerator ---------------------------------------
   void GenerateInterfaceMembers(io::Printer* printer) const override;
   void GenerateMembers(io::Printer* printer) const override;
-  void GenerateBuilderMembers(io::Printer* printer) const override;
+  void GenerateBuilderMembers(io::Printer* printer,
+                              bool initialize) const override;
   void GenerateInitializationCode(io::Printer* printer) const override;
   void GenerateBuilderClearCode(io::Printer* printer) const override;
   void GenerateMergingCode(io::Printer* printer) const override;
@@ -179,7 +196,8 @@ class RepeatedImmutableMessageFieldGenerator
   void GenerateGetOrBuilderMethod(io::Printer* printer) const;
   void GenerateWriteFieldMethod(io::Printer* printer) const;
 
-  void GenerateEnsureIsMutableMethod(io::Printer* printer) const;
+  void GenerateEnsureIsMutableMethod(io::Printer* printer,
+                                     bool for_parse = false) const;
   void GenerateBuilderGetListMethod(io::Printer* printer) const;
   void GenerateBuilderGetCountMethod(io::Printer* printer) const;
   void GenerateBuilderGetMethod(io::Printer* printer) const;

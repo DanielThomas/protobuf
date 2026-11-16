@@ -24,11 +24,14 @@ class ImmutableMapFieldGenerator : public ImmutableFieldGenerator {
                                       int bit_index, Context* context);
   ~ImmutableMapFieldGenerator() override = default;
 
+  void GenerateBuilderRestoreFromMessage(io::Printer* printer) const override;
+
   // implements ImmutableFieldGenerator ---------------------------------------
 
   void GenerateInterfaceMembers(io::Printer* printer) const override;
   void GenerateMembers(io::Printer* printer) const override;
-  void GenerateBuilderMembers(io::Printer* printer) const override;
+  void GenerateBuilderMembers(io::Printer* printer,
+                              bool initialize) const override;
   void GenerateInitializationCode(io::Printer* printer) const override;
   void GenerateBuilderClearCode(io::Printer* printer) const override;
   void GenerateMergingCode(io::Printer* printer) const override;
@@ -46,7 +49,9 @@ class ImmutableMapFieldGenerator : public ImmutableFieldGenerator {
  private:
   void SetMessageVariables(const FieldGeneratorInfo* info);
   void GenerateMapGetters(io::Printer* printer) const;
-  void GenerateMessageMapBuilderMembers(io::Printer* printer) const;
+  void GenerateMapBuilderMembers(io::Printer* printer, bool for_parse) const;
+  void GenerateMessageMapBuilderMembers(io::Printer* printer,
+                                        bool for_parse = false) const;
   void GenerateMessageMapGetters(io::Printer* printer) const;
 
   void GenerateInterfaceGetCountMethod(io::Printer* printer) const;

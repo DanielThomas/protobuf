@@ -609,6 +609,16 @@ public abstract class CodedInputStream {
   @CanIgnoreReturnValue
   public abstract int pushLimit(int byteLimit) throws InvalidProtocolBufferException;
 
+  public final void pushLimitBeforeGroup() throws IOException {
+    checkRecursionLimit();
+    ++groupDepth;
+  }
+
+  public final void popLimitAfterGroup(int fieldNumber) throws IOException {
+    checkLastTagWas(WireFormat.makeTag(fieldNumber, WireFormat.WIRETYPE_END_GROUP));
+    --groupDepth;
+  }
+
   public final int pushLimitBeforeMessage() throws IOException {
     final int length = readRawVarint32();
     checkRecursionLimit();

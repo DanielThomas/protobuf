@@ -78,7 +78,8 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
   }
 
   protected GeneratedMessage(Builder<?> builder) {
-    unknownFields = builder.getUnknownFields();
+    unknownFields =
+        builder == null ? UnknownFieldSet.getDefaultInstance() : builder.getUnknownFields();
   }
 
   /** TODO: Remove this unnecessary intermediate implementation of this method. */
@@ -524,6 +525,51 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
       return GeneratedMessage.emptyList(elementType);
     }
 
+    protected static IntList emptyIntList() {
+      return GeneratedMessage.emptyIntList();
+    }
+
+    protected static boolean parseUnknownField(
+        GeneratedMessage message,
+        CodedInputStream input,
+        UnknownFieldSet.Builder unknownFields,
+        ExtensionRegistryLite extensionRegistry,
+        int tag)
+        throws IOException {
+      return message.parseUnknownField(input, unknownFields, extensionRegistry, tag);
+    }
+
+    protected static void setUnknownFieldsForParsing(
+        GeneratedMessage message, UnknownFieldSet unknownFields) {
+      message.setUnknownFields(unknownFields);
+    }
+
+    protected static boolean useFieldBuildersForParsing() {
+      return alwaysUseFieldBuilders;
+    }
+
+    protected static Object parseStateForParsing(
+        MessageLite defaultInstance, CodedInputStream input, ExtensionRegistryLite registry)
+        throws InvalidProtocolBufferException {
+      return AbstractParser.parseStateForParsing(defaultInstance, input, registry);
+    }
+
+    protected static UnknownFieldSet.Builder mergeUnknownVarintField(
+        UnknownFieldSet.Builder unknownFields, int number, int value) {
+      if (unknownFields == null) {
+        unknownFields = UnknownFieldSet.newBuilder();
+      }
+      return unknownFields.mergeVarintField(number, value);
+    }
+
+    protected static UnknownFieldSet.Builder mergeUnknownLengthDelimitedField(
+        UnknownFieldSet.Builder unknownFields, int number, ByteString value) {
+      if (unknownFields == null) {
+        unknownFields = UnknownFieldSet.newBuilder();
+      }
+      return unknownFields.mergeLengthDelimitedField(number, value);
+    }
+
     private BuilderParent builderParent;
 
     private BuilderParentImpl meAsParent;
@@ -543,12 +589,27 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
      * UnknownFieldSet} will be converted to a {@link UnknownFieldSet.Builder} and left that way
      * until either {@link #setUnknownFields} or {@link #buildPartial} or {@link #build} is called.
      */
-    private Object unknownFieldsOrBuilder = UnknownFieldSet.getDefaultInstance();
+    private Object unknownFieldsOrBuilder;
 
-    protected Builder() {}
+    protected Builder() {
+      this(null);
+    }
 
     protected Builder(BuilderParent builderParent) {
+      this(builderParent, null);
+    }
+
+    protected Builder(BuilderParent builderParent, Object unknownState) {
       this.builderParent = builderParent;
+      unknownFieldsOrBuilder =
+          unknownState == null ? UnknownFieldSet.getDefaultInstance() : unknownState;
+    }
+
+    void setParentForParsing(BuilderParent parent) {
+      if (builderParent != null) {
+        throw new IllegalStateException("Builder already has a parent");
+      }
+      builderParent = parent;
     }
 
     @Override

@@ -34,13 +34,23 @@ class ImmutableFieldGenerator : public FieldGenerator {
   bool IsRealOneof() const;
 
   int GetBitIndex() const { return bit_index_; }
+  const std::string& GetName() const { return variables_.at("name"); }
+  const FieldDescriptor* descriptor() const { return descriptor_; }
   constexpr int GetNumBits() const { return 1; }
   virtual void GenerateInterfaceMembers(io::Printer* printer) const = 0;
   virtual void GenerateMembers(io::Printer* printer) const = 0;
-  virtual void GenerateBuilderMembers(io::Printer* printer) const = 0;
+  // With parse_locals, emit declarations only; initialize distinguishes locals
+  // from parameters.
+  virtual void GenerateBuilderMembers(io::Printer* printer,
+                                      bool initialize = false) const = 0;
+  virtual void GenerateBuilderRestoreFromMessage(io::Printer* printer) const = 0;
+  virtual void GenerateBuilderParsingChildAttachment(
+      io::Printer* printer) const {}
+  virtual void GenerateBuilderParsingChildRetention(
+      io::Printer* printer) const {}
   virtual void GenerateInitializationCode(io::Printer* printer) const = 0;
   virtual void GenerateConstructorInitializationCode(io::Printer* printer) const {}
-  virtual void GenerateBuilderInitializationCode(io::Printer* printer) const {}
+  virtual void GenerateBuilderInitializationCode(io::Printer* printer) const;
   virtual void GenerateBuilderClearCode(io::Printer* printer) const = 0;
   virtual void GenerateMergingCode(io::Printer* printer) const = 0;
   virtual void GenerateBuildingCode(io::Printer* printer) const = 0;

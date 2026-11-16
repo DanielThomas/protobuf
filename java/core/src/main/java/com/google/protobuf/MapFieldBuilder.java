@@ -30,7 +30,7 @@ public class MapFieldBuilder<
 
   // Only one of the three fields may be non-null at any time.
   /** nullable */
-  Map<KeyT, MessageOrBuilderT> builderMap = new LinkedHashMap<>();
+  Map<KeyT, MessageOrBuilderT> builderMap;
 
   /** nullable */
   Map<KeyT, MessageT> messageMap = null;
@@ -54,6 +54,13 @@ public class MapFieldBuilder<
 
   public MapFieldBuilder(Converter<KeyT, MessageOrBuilderT, MessageT> converter) {
     this.converter = converter;
+    builderMap = new LinkedHashMap<>();
+  }
+
+  public MapFieldBuilder(
+      Converter<KeyT, MessageOrBuilderT, MessageT> converter, MapField<KeyT, MessageT> snapshot) {
+    this.converter = converter;
+    messageMap = snapshot.getMap();
   }
 
   @SuppressWarnings("unchecked")

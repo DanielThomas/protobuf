@@ -35,6 +35,10 @@ public class SingleFieldBuilder<
         IType extends MessageOrBuilder>
     implements GeneratedMessage.BuilderParent {
 
+  private static final byte LEGACY = 0;
+  private static final byte PUBLISHED = 1;
+  private static final byte RETAINED = 2;
+
   // Parent to send changes to.
   private GeneratedMessage.BuilderParent parent;
 
@@ -53,10 +57,43 @@ public class SingleFieldBuilder<
   // to dispatch dirty invalidations. See GeneratedMessage.BuilderListener.
   private boolean isClean;
 
+  // Restoration applies only to the initial snapshot, not later replacements.
+  private byte restorationMode;
+
+  public SingleFieldBuilder(
+      MType message, GeneratedMessage.BuilderParent parent, boolean isClean, boolean retained) {
+    this(message, parent, isClean);
+    restorationMode = retained ? RETAINED : PUBLISHED;
+  }
+
   public SingleFieldBuilder(MType message, GeneratedMessage.BuilderParent parent, boolean isClean) {
     this.message = checkNotNull(message);
     this.parent = parent;
     this.isClean = isClean;
+  }
+
+  private SingleFieldBuilder(
+      BType builder, GeneratedMessage.BuilderParent parent, boolean isClean) {
+    this.builder = checkNotNull(builder);
+    this.parent = parent;
+    this.isClean = isClean;
+    builder.setParentForParsing(this);
+  }
+
+  public static <
+          MType extends GeneratedMessage,
+          BType extends GeneratedMessage.Builder,
+          IType extends MessageOrBuilder>
+      SingleFieldBuilder<MType, BType, IType> fromBuilder(
+          BType builder, GeneratedMessage.BuilderParent parent, boolean isClean) {
+    return new SingleFieldBuilder<>(builder, parent, isClean);
+  }
+
+  public void setParentForParsing(GeneratedMessage.BuilderParent parent) {
+    if (this.parent != null) {
+      throw new IllegalStateException("Field builder already has a parent");
+    }
+    this.parent = parent;
   }
 
   public void dispose() {
@@ -111,8 +148,16 @@ public class SingleFieldBuilder<
       // does not create any sub-objects with independent clean/dirty states,
       // therefore setting the builder itself to clean without actually calling
       // build() cannot break any invariants.
-      this.builder = builder = (BType) message.newBuilderForType(this);
-      builder.mergeFrom(message); // no-op if message is the default message
+      if (restorationMode == LEGACY || GeneratedMessage.alwaysUseFieldBuilders) {
+        builder = (BType) message.newBuilderForType(this);
+        builder.mergeFrom(message); // no-op if message is the default message
+      } else {
+        builder =
+            (BType) AbstractParser.restoreStateForParsing(message, restorationMode == RETAINED);
+        builder.setParentForParsing(this);
+      }
+      this.builder = builder;
+      restorationMode = LEGACY;
       builder.markClean();
     }
     return builder;
@@ -142,6 +187,7 @@ public class SingleFieldBuilder<
   @CanIgnoreReturnValue
   public SingleFieldBuilder<MType, BType, IType> setMessage(MType message) {
     this.message = checkNotNull(message);
+    restorationMode = LEGACY;
     if (builder != null) {
       builder.dispose();
       builder = null;
@@ -160,6 +206,7 @@ public class SingleFieldBuilder<
   public SingleFieldBuilder<MType, BType, IType> mergeFrom(MType value) {
     if (builder == null && message == message.getDefaultInstanceForType()) {
       message = value;
+      restorationMode = LEGACY;
     } else {
       getBuilder().mergeFrom(value);
     }
@@ -175,6 +222,7 @@ public class SingleFieldBuilder<
   @SuppressWarnings("unchecked")
   @CanIgnoreReturnValue
   public SingleFieldBuilder<MType, BType, IType> clear() {
+    restorationMode = LEGACY;
     message =
         (MType)
             (message != null

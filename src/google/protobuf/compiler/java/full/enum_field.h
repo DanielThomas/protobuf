@@ -44,12 +44,15 @@ class ImmutableEnumFieldGenerator : public ImmutableFieldGenerator {
       delete;
   ~ImmutableEnumFieldGenerator() override;
 
+  void GenerateBuilderRestoreFromMessage(io::Printer* printer) const override;
+
   // implements ImmutableFieldGenerator
   // ---------------------------------------
 
   void GenerateInterfaceMembers(io::Printer* printer) const override;
   void GenerateMembers(io::Printer* printer) const override;
-  void GenerateBuilderMembers(io::Printer* printer) const override;
+  void GenerateBuilderMembers(io::Printer* printer,
+                              bool initialize) const override;
   void GenerateInitializationCode(io::Printer* printer) const override;
   void GenerateBuilderClearCode(io::Printer* printer) const override;
   void GenerateBuilderParsingCode(io::Printer* printer) const override;
@@ -91,8 +94,11 @@ class ImmutableEnumOneofFieldGenerator : public ImmutableEnumFieldGenerator {
       const ImmutableEnumOneofFieldGenerator&) = delete;
   ~ImmutableEnumOneofFieldGenerator() override;
 
+  void GenerateBuilderRestoreFromMessage(io::Printer* printer) const override;
+
   void GenerateMembers(io::Printer* printer) const override;
-  void GenerateBuilderMembers(io::Printer* printer) const override;
+  void GenerateBuilderMembers(io::Printer* printer,
+                              bool initialize) const override;
   void GenerateBuilderClearCode(io::Printer* printer) const override;
   void GenerateMergingCode(io::Printer* printer) const override;
   void GenerateBuildingCode(io::Printer* printer) const override;
@@ -113,7 +119,8 @@ class ImmutableEnumOneofFieldGenerator : public ImmutableEnumFieldGenerator {
   void GenerateBuilderGetMethod(io::Printer* printer) const;
   void GenerateBuilderSetMethod(io::Printer* printer) const;
   void GenerateBuilderClearMethod(io::Printer* printer) const;
-  void GenerateBuilderParseMethod(io::Printer* printer) const;
+  void GenerateBuilderParseMethod(io::Printer* printer,
+                                  bool for_parse = false) const;
 };
 
 class RepeatedImmutableEnumFieldGenerator : public ImmutableEnumFieldGenerator {
@@ -126,10 +133,13 @@ class RepeatedImmutableEnumFieldGenerator : public ImmutableEnumFieldGenerator {
       const RepeatedImmutableEnumFieldGenerator&) = delete;
   ~RepeatedImmutableEnumFieldGenerator() override;
 
+  void GenerateBuilderRestoreFromMessage(io::Printer* printer) const override;
+
   // implements ImmutableFieldGenerator ---------------------------------------
   void GenerateInterfaceMembers(io::Printer* printer) const override;
   void GenerateMembers(io::Printer* printer) const override;
-  void GenerateBuilderMembers(io::Printer* printer) const override;
+  void GenerateBuilderMembers(io::Printer* printer,
+                              bool initialize) const override;
   void GenerateInitializationCode(io::Printer* printer) const override;
   void GenerateBuilderClearCode(io::Printer* printer) const override;
   void GenerateMergingCode(io::Printer* printer) const override;
@@ -159,7 +169,10 @@ class RepeatedImmutableEnumFieldGenerator : public ImmutableEnumFieldGenerator {
   void GenerateGetValueListMethod(io::Printer* printer) const;
   void GenerateGetValueMethod(io::Printer* printer) const;
 
-  void GenerateEnsureIsMutableMethod(io::Printer* printer) const;
+  void GenerateEnsureIsMutableMethod(io::Printer* printer,
+                                     absl::string_view capacity = "") const;
+  void GenerateEnsureIsMutableCode(io::Printer* printer,
+                                   absl::string_view capacity) const;
   void GenerateBuilderGetListMethod(io::Printer* printer) const;
   void GenerateBuilderGetCountMethod(io::Printer* printer) const;
   void GenerateBuilderGetMethod(io::Printer* printer) const;

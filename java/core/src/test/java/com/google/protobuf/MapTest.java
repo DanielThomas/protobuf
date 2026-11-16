@@ -41,6 +41,54 @@ import org.junit.runners.JUnit4;
 @RunWith(JUnit4.class)
 public class MapTest {
 
+  @Test
+  public void testParsingSnapshotMapSharesUntilMutation() {
+    MapEntry<Integer, MessageValue> entry =
+        MapEntry.newDefaultInstance(
+            TestMap.getDescriptor().findFieldByName("int32_to_message_field").getMessageType(),
+            WireFormat.FieldType.INT32,
+            0,
+            WireFormat.FieldType.MESSAGE,
+            MessageValue.getDefaultInstance());
+    MapFieldBuilder.Converter<Integer, TestMap.MessageValueOrBuilder, MessageValue> converter =
+        new MapFieldBuilder.Converter<Integer, TestMap.MessageValueOrBuilder, MessageValue>() {
+          @Override
+          public MessageValue build(TestMap.MessageValueOrBuilder value) {
+            return value instanceof MessageValue
+                ? (MessageValue) value
+                : ((MessageValue.Builder) value).buildPartial();
+          }
+
+          @Override
+          public MapEntry<Integer, MessageValue> defaultEntry() {
+            return entry;
+          }
+        };
+    MessageValue original = MessageValue.newBuilder().setValue(7).build();
+    MapField<Integer, MessageValue> snapshot = MapField.newMapField(entry);
+    snapshot.getMutableMap().put(1, original);
+    snapshot.makeImmutable();
+    MapFieldBuilder<Integer, TestMap.MessageValueOrBuilder, MessageValue, MessageValue.Builder>
+        restored = new MapFieldBuilder<>(converter, snapshot);
+    assertThat(restored.builderMap).isNull();
+    assertThat(restored.messageMap.get(1)).isSameInstanceAs(original);
+    assertThrows(UnsupportedOperationException.class, () -> restored.messageMap.put(2, original));
+    assertThat(restored.getImmutableMap().get(1)).isSameInstanceAs(original);
+    assertThrows(
+        UnsupportedOperationException.class, () -> restored.getImmutableMap().put(2, original));
+
+    restored.ensureBuilderMap().put(1, MessageValue.newBuilder().setValue(9));
+    assertThat(restored.messageMap).isNull();
+    assertThat(snapshot.getMap().get(1)).isSameInstanceAs(original);
+    MapField<Integer, MessageValue> changed = restored.build(entry);
+    assertThat(changed.getMap().get(1).getValue()).isEqualTo(9);
+    assertThat(changed.isMutable()).isFalse();
+    restored.clear();
+    assertThat(restored.ensureBuilderMap()).isEmpty();
+    assertThat(changed.getMap().get(1).getValue()).isEqualTo(9);
+    assertThat(snapshot.getMap().get(1).getValue()).isEqualTo(7);
+  }
+
   private void setMapValuesUsingMutableMap(TestMap.Builder builder) {
     builder.getMutableInt32ToInt32Field().put(1, 11);
     builder.getMutableInt32ToInt32Field().put(2, 22);

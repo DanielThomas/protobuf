@@ -57,19 +57,26 @@ class OneofGenerator {
       io::Printer* printer,
       const FieldGeneratorMap<ImmutableFieldGenerator>& field_generators) const;
 
-  void GenerateCommonBuilderMethods(io::Printer* printer) const;
+  void GenerateCommonBuilderMethods(io::Printer* printer,
+                                    bool initialize = false) const;
+  void GenerateBuilderClearOneofHasBits(
+      io::Printer* printer, bool for_parse = false,
+      const FieldGeneratorMap<ImmutableFieldGenerator>* retained_fields =
+          nullptr) const;
   void GenerateBuilderClearMethod(io::Printer* printer) const;
 
   void GenerateMergingCode(
       io::Printer* printer,
       const FieldGeneratorMap<ImmutableFieldGenerator>& field_generators) const;
+  const std::string& GetName() const { return variables_.at("oneof_name"); }
+  bool HasFieldsInShard(int shard) const;
+  void GenerateBuilderRestoreFromMessage(io::Printer* printer) const;
   bool HasScalarFields(int shard) const;
   void GenerateBuildingCode(io::Printer* printer, int shard) const;
 
  private:
   void GenerateBuilderGetOneofCase(io::Printer* printer) const;
   void GenerateBuilderClearOneof(io::Printer* printer) const;
-  void GenerateBuilderClearOneofHasBits(io::Printer* printer) const;
 
   const OneofDescriptor* descriptor_;
   absl::flat_hash_map<absl::string_view, std::string> variables_;

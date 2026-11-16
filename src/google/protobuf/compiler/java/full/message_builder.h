@@ -42,6 +42,9 @@ namespace protobuf {
 namespace compiler {
 namespace java {
 
+bool HasBuilderStaticParser(const Descriptor* descriptor,
+                            const Context* context);
+
 class MessageBuilderGenerator {
  public:
   MessageBuilderGenerator(
@@ -66,10 +69,14 @@ class MessageBuilderGenerator {
   void GenerateBuilderMergeFromSubfunction(
       io::Printer* printer, absl::Span<const std::string> merging_code_blocks,
       absl::string_view method_suffix);
-  void GenerateBuildPartial(io::Printer* printer);
+  void GenerateBuildPartial(io::Printer* printer, bool for_parse = false);
   void GenerateBuildPartialShard(io::Printer* printer, int shard);
   void GenerateDescriptorMethods(io::Printer* printer);
-  void GenerateBuilderParsingMethods(io::Printer* printer);
+  void GenerateBuilderParsingMethods(io::Printer* printer,
+                                     bool for_parse = false);
+  void GenerateBuilderParsingState(io::Printer* printer);
+  void GenerateBuilderParsingArguments(io::Printer* printer, int shard);
+  void GenerateBuilderParsingParameters(io::Printer* printer, int shard);
   void GenerateBuilderFieldParsingCases(io::Printer* printer);
   void GenerateBuilderFieldParsingCase(io::Printer* printer,
                                        const FieldDescriptor* field);

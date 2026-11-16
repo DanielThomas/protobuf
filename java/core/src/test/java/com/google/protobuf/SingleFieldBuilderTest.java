@@ -8,12 +8,13 @@
 package com.google.protobuf;
 
 import static com.google.common.truth.Truth.assertThat;
+import static org.junit.Assert.assertThrows;
 
-import proto2_unittest.UnittestProto.TestAllTypes;
-import proto2_unittest.UnittestProto.TestAllTypesOrBuilder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+import proto2_unittest.UnittestProto.TestAllTypes;
+import proto2_unittest.UnittestProto.TestAllTypesOrBuilder;
 
 /**
  * Tests for {@link SingleFieldBuilder}. This tests basic functionality. More extensive testing is
@@ -44,6 +45,124 @@ public class SingleFieldBuilderTest {
     // Test that we don't keep getting invalidations on every change
     builder.getBuilder().setOptionalInt32(30);
     assertThat(mockParent.getInvalidationCount()).isEqualTo(1);
+  }
+
+  @Test
+  public void testSnapshotRestorationIsLazyAndParentsTheBuilder() {
+    TestUtil.MockBuilderParent parent = new TestUtil.MockBuilderParent();
+    TestAllTypes initial = TestAllTypes.newBuilder().setOptionalInt32(7).build();
+    SingleFieldBuilder<TestAllTypes, TestAllTypes.Builder, TestAllTypesOrBuilder> field =
+        new SingleFieldBuilder<>(initial, parent, true, /* retained= */ true);
+    assertThat(field.getMessage()).isSameInstanceAs(initial);
+    assertThat(field.getMessageOrBuilder()).isSameInstanceAs(initial);
+    TestAllTypes.Builder child = field.getBuilder();
+    assertThat(field.getBuilder()).isSameInstanceAs(child);
+    child.setOptionalInt32(8);
+    assertThat(parent.getInvalidationCount()).isEqualTo(1);
+    TestAllTypes snapshot = field.build();
+    child.setOptionalInt32(9);
+    assertThat(parent.getInvalidationCount()).isEqualTo(2);
+    assertThat(field.getMessage().getOptionalInt32()).isEqualTo(9);
+    assertThat(snapshot.getOptionalInt32()).isEqualTo(8);
+  }
+
+  @Test
+  public void testRetainedSnapshotRestorationDoesNotApplyToReplacements() throws Exception {
+    for (int operation = 0; operation < 3; operation++) {
+      TestAllTypes initial =
+          operation == 2
+              ? TestAllTypes.getDefaultInstance()
+              : TestAllTypes.newBuilder()
+                  .setOneofNestedMessage(TestAllTypes.NestedMessage.newBuilder().setBb(7))
+                  .build();
+      SingleFieldBuilder<TestAllTypes, TestAllTypes.Builder, TestAllTypesOrBuilder> field =
+          new SingleFieldBuilder<>(initial, null, false, /* retained= */ true);
+      TestAllTypes replacement =
+          TestAllTypes.newBuilder()
+              .setOneofNestedMessage(TestAllTypes.NestedMessage.newBuilder().setBb(11))
+              .build();
+      if (operation == 0) {
+        field.setMessage(replacement);
+      } else if (operation == 1) {
+        field.clear();
+      } else {
+        field.mergeFrom(replacement);
+      }
+      TestAllTypes.Builder child = field.getBuilder();
+      child.mergeFrom(oneofContinuation());
+      assertThat(child.getOneofNestedMessage().getBb()).isEqualTo(0);
+    }
+  }
+
+  @Test
+  public void testSnapshotRestorationPreservesTheSelectedChildLifetime() throws Exception {
+    TestAllTypes initial =
+        TestAllTypes.newBuilder()
+            .setOneofNestedMessage(TestAllTypes.NestedMessage.newBuilder().setBb(7))
+            .build();
+    // Precompiled legacy parsers do not expose retained-snapshot restoration.
+    boolean supportsRetained =
+        ((AbstractParser<?>) initial.getParserForType()).newBuilderForParsing(initial, true) != null;
+    for (boolean retained : new boolean[] {false, true}) {
+      SingleFieldBuilder<TestAllTypes, TestAllTypes.Builder, TestAllTypesOrBuilder> field =
+          new SingleFieldBuilder<>(initial, null, false, retained);
+      TestAllTypes.Builder child = field.getBuilder();
+      child.mergeFrom(oneofContinuation());
+      assertThat(child.getOneofNestedMessage().getBb())
+          .isEqualTo(retained && supportsRetained ? 7 : 0);
+      assertThat(initial.getOneofNestedMessage().getBb()).isEqualTo(7);
+    }
+  }
+
+  private static ByteString oneofContinuation() {
+    return TestAllTypes.newBuilder()
+        .setOneofUint32(9)
+        .build()
+        .toByteString()
+        .concat(
+            TestAllTypes.newBuilder()
+                .setOneofNestedMessage(TestAllTypes.NestedMessage.getDefaultInstance())
+                .build()
+                .toByteString());
+  }
+
+  @Test
+  public void testSnapshotRestorationHonorsForcedFieldBuilders() throws Exception {
+    boolean previous = GeneratedMessage.alwaysUseFieldBuilders;
+    try {
+      GeneratedMessage.alwaysUseFieldBuilders = true;
+      TestAllTypes initial =
+          TestAllTypes.newBuilder()
+              .setOneofNestedMessage(TestAllTypes.NestedMessage.newBuilder().setBb(7))
+              .build();
+      SingleFieldBuilder<TestAllTypes, TestAllTypes.Builder, TestAllTypesOrBuilder> field =
+          new SingleFieldBuilder<>(initial, null, false, /* retained= */ true);
+      TestAllTypes.Builder child = field.getBuilder();
+      child.mergeFrom(oneofContinuation());
+      assertThat(child.getOneofNestedMessage().getBb()).isEqualTo(0);
+    } finally {
+      GeneratedMessage.alwaysUseFieldBuilders = previous;
+    }
+  }
+
+  @Test
+  public void testAdoptBuilderWithoutPublishingIt() {
+    TestAllTypes.Builder child = TestAllTypes.newBuilder().setOptionalInt32(7);
+    SingleFieldBuilder<TestAllTypes, TestAllTypes.Builder, TestAllTypesOrBuilder> field =
+        SingleFieldBuilder.fromBuilder(child, null, false);
+    assertThat(field.getBuilder()).isSameInstanceAs(child);
+    TestUtil.MockBuilderParent parent = new TestUtil.MockBuilderParent();
+    field.setParentForParsing(parent);
+    assertThrows(IllegalStateException.class, () -> field.setParentForParsing(parent));
+    TestAllTypes snapshot = field.build();
+    child.setOptionalInt32(8);
+    assertThat(parent.getInvalidationCount()).isEqualTo(1);
+    assertThat(field.getMessage().getOptionalInt32()).isEqualTo(8);
+    assertThat(snapshot.getOptionalInt32()).isEqualTo(7);
+    SingleFieldBuilder<TestAllTypes, TestAllTypes.Builder, TestAllTypesOrBuilder> original = field;
+    assertThrows(
+        IllegalStateException.class,
+        () -> SingleFieldBuilder.fromBuilder(original.getBuilder(), null, false));
   }
 
   @Test

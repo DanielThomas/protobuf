@@ -1101,14 +1101,35 @@ void ImmutableMessageGenerator::GenerateParser(io::Printer* printer) {
       "  public $classname$ parsePartialFrom(\n"
       "      com.google.protobuf.CodedInputStream input,\n"
       "      com.google.protobuf.ExtensionRegistryLite extensionRegistry)\n"
-      "      throws com.google.protobuf.InvalidProtocolBufferException {\n"
-      "    Builder builder = newBuilder();\n"
-      "    try {\n"
-      "      builder.mergeFrom(input, extensionRegistry);\n"
-      "    } catch (java.lang.Exception e) {\n"
-      "      wrapAndThrowParseException(e, builder);\n"
-      "    }\n"
-      "    return builder.buildPartial();\n"
+      "      throws com.google.protobuf.InvalidProtocolBufferException {\n",
+      "classname", descriptor_->name());
+  if (HasBuilderStaticParser(descriptor_, context_)) {
+    printer->Print(
+        "    return Builder.parsePartialFrom_(input, extensionRegistry);\n"
+        "  }\n"
+        "  @java.lang.Override\n"
+        "  protected java.lang.Object parsePartialState(\n"
+        "      com.google.protobuf.CodedInputStream input,\n"
+        "      com.google.protobuf.ExtensionRegistryLite extensionRegistry)\n"
+        "      throws com.google.protobuf.InvalidProtocolBufferException {\n"
+        "    return Builder.parseState_(input, extensionRegistry);\n"
+        "  }\n"
+        "  @java.lang.Override\n"
+        "  protected com.google.protobuf.MessageLite.Builder newBuilderForParsing(\n"
+        "      com.google.protobuf.MessageLite message, boolean retained) {\n"
+        "    return Builder.restoreState(($classname$) message, retained);\n",
+        "classname", descriptor_->name());
+  } else {
+    printer->Print(
+        "    Builder builder = newBuilder();\n"
+        "    try {\n"
+        "      builder.mergeFrom(input, extensionRegistry);\n"
+        "    } catch (java.lang.Exception e) {\n"
+        "      wrapAndThrowParseException(e, builder);\n"
+        "    }\n"
+        "    return builder.buildPartial();\n");
+  }
+  printer->Print(
       "  }\n"
       "};\n"
       "\n"

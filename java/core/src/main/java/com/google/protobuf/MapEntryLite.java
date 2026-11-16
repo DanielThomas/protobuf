@@ -153,7 +153,7 @@ public class MapEntryLite<K, V> {
       throws IOException {
     K key = metadata.defaultKey;
     V value = metadata.defaultValue;
-    MessageLite.Builder valueBuilder = null;
+    Object valueState = null;
     while (true) {
       int tag = input.readTag();
       if (tag == 0) {
@@ -163,10 +163,9 @@ public class MapEntryLite<K, V> {
         key = parseField(input, extensionRegistry, metadata.keyType, key);
       } else if (tag == WireFormat.makeTag(VALUE_FIELD_NUMBER, metadata.valueType.getWireType())) {
         if (metadata.valueType == WireFormat.FieldType.MESSAGE) {
-          if (valueBuilder == null) {
-            valueBuilder = ((MessageLite) value).toBuilder();
-          }
-          input.readMessage(valueBuilder, extensionRegistry);
+          valueState =
+              AbstractParser.mergeMessageForParsing(
+                  valueState, (MessageLite) metadata.defaultValue, input, extensionRegistry);
         } else {
           value = parseField(input, extensionRegistry, metadata.valueType, value);
         }
@@ -176,8 +175,12 @@ public class MapEntryLite<K, V> {
         }
       }
     }
-    if (valueBuilder != null) {
-      value = (V) valueBuilder.buildPartial();
+    if (valueState != null) {
+      value =
+          (V)
+              (valueState instanceof MessageLite.Builder
+                  ? ((MessageLite.Builder) valueState).buildPartial()
+                  : valueState);
     }
     return new AbstractMap.SimpleImmutableEntry<K, V>(key, value);
   }
@@ -195,7 +198,7 @@ public class MapEntryLite<K, V> {
     K key = metadata.defaultKey;
     V value = metadata.defaultValue;
 
-    MessageLite.Builder valueBuilder = null;
+    Object valueState = null;
     while (true) {
       int tag = input.readTag();
       if (tag == 0) {
@@ -205,10 +208,9 @@ public class MapEntryLite<K, V> {
         key = parseField(input, extensionRegistry, metadata.keyType, key);
       } else if (tag == WireFormat.makeTag(VALUE_FIELD_NUMBER, metadata.valueType.getWireType())) {
         if (metadata.valueType == WireFormat.FieldType.MESSAGE) {
-          if (valueBuilder == null) {
-            valueBuilder = ((MessageLite) value).toBuilder();
-          }
-          input.readMessage(valueBuilder, extensionRegistry);
+          valueState =
+              AbstractParser.mergeMessageForParsing(
+                  valueState, (MessageLite) metadata.defaultValue, input, extensionRegistry);
         } else {
           value = parseField(input, extensionRegistry, metadata.valueType, value);
         }
@@ -221,8 +223,12 @@ public class MapEntryLite<K, V> {
 
     input.checkLastTagWas(0);
     input.popLimit(oldLimit);
-    if (valueBuilder != null) {
-      value = (V) valueBuilder.buildPartial();
+    if (valueState != null) {
+      value =
+          (V)
+              (valueState instanceof MessageLite.Builder
+                  ? ((MessageLite.Builder) valueState).buildPartial()
+                  : valueState);
     }
     map.put(key, value);
   }

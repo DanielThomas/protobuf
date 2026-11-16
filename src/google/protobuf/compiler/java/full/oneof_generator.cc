@@ -73,11 +73,25 @@ OneofGenerator::OneofGenerator(
 
 OneofGenerator::~OneofGenerator() = default;
 
-void OneofGenerator::GenerateCommonBuilderMethods(io::Printer* printer) const {
+void OneofGenerator::GenerateCommonBuilderMethods(io::Printer* printer,
+                                                  bool initialize) const {
   // oneofCase_ and oneof_
-  printer->Print(variables_,
-                 "private int $oneof_name$Case_ = 0;\n"
-                 "private java.lang.Object $oneof_name$_;\n");
+  bool for_parse = printer->LookupVar("parse_locals") == "true";
+  auto vars = printer->WithVars(
+      {{"case_initializer",
+        (for_parse ? initialize : printer->LookupVar("static_parser") != "true")
+            ? " = 0"
+            : ""},
+       {"separator", for_parse && !initialize ? ", " : ";\n"}});
+  printer->Print(
+      variables_,
+      "$field_access$int $oneof_name$Case_$case_initializer$$separator$"
+      "$field_access$java.lang.Object $oneof_name$_");
+  if (for_parse) {
+    if (initialize) printer->Print(" = null;\n");
+    return;
+  }
+  printer->Print(";\n");
   GenerateBuilderGetOneofCase(printer);
   GenerateBuilderClearOneof(printer);
   GenerateBuilderClearOneofHasBits(printer);
@@ -150,17 +164,36 @@ void OneofGenerator::GenerateMergingCode(
 }
 
 void OneofGenerator::GenerateBuilderClearOneofHasBits(
-    io::Printer* printer) const {
-  printer->Print(
-      variables_,
-      "\n"
-      "private void ${$clear$oneof_capitalized_name$HasBits$}$() {\n");
+    io::Printer* printer, bool for_parse,
+    const FieldGeneratorMap<ImmutableFieldGenerator>* retained_fields) const {
+  if (!for_parse)
+    printer->Print(
+        variables_,
+        "\n"
+        "private void ${$clear$oneof_capitalized_name$HasBits$}$() {\n");
+  if (retained_fields != nullptr) {
+    for (int i = 0; i < descriptor_->field_count(); ++i) {
+      retained_fields->get(descriptor_->field(i))
+          .GenerateBuilderParsingChildRetention(printer);
+    }
+  }
   for (const auto& kv : clear_masks_) {
     printer->Print("  $bit_field_name$ = ($bit_field_name$ & ~$mask$);\n",
                    "bit_field_name", GetBitFieldName(kv.first), "mask",
                    absl::StrCat("0x", absl::Hex(kv.second, absl::kZeroPad8)));
   }
-  printer->Print(variables_, "}\n\n");
+  if (!for_parse) printer->Print(variables_, "}\n\n");
+}
+
+bool OneofGenerator::HasFieldsInShard(int shard) const {
+  return clear_masks_.find(shard) != clear_masks_.end();
+}
+
+void OneofGenerator::GenerateBuilderRestoreFromMessage(
+    io::Printer* printer) const {
+  printer->Print(
+      variables_,
+      "$oneof_name$Case_ = other.get$oneof_capitalized_name$Case().getNumber();\n");
 }
 
 bool OneofGenerator::HasScalarFields(int shard) const {

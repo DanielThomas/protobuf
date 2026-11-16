@@ -74,6 +74,294 @@ TEST_F(JavaGeneratorTest, Basic) {
   ExpectNoErrors();
 }
 
+TEST_F(JavaGeneratorTest, BuilderStaticPrimitiveParser) {
+  CreateTempFile("static_parser.proto", R"schema(
+    syntax = "proto2";
+    option java_multiple_files = true;
+    message Scalars {
+      optional int32 count = 1 [default = 17];
+      optional int64 total = 2;
+      optional bytes data = 3 [default = "abc"];
+    }
+    message Empty {}
+  )schema");
+
+  RunProtoc(
+      "protocol_compiler --proto_path=$tmpdir --java_out=$tmpdir "
+      "static_parser.proto");
+
+  ExpectNoErrors();
+  EXPECT_TRUE(FileContainsSubstring("Scalars.java",
+                                    "return Builder.parsePartialFrom_(input, "
+                                    "extensionRegistry);"));
+  EXPECT_TRUE(FileContainsSubstring(
+      "Scalars.java", "private static Scalars parsePartialFrom_("));
+  EXPECT_TRUE(FileContainsSubstring("Scalars.java", "int count_ = 17;"));
+  EXPECT_TRUE(FileContainsSubstring(
+      "Scalars.java",
+      "com.google.protobuf.ByteString data_ = getDefaultInstance().getData();"));
+  EXPECT_TRUE(FileContainsSubstring(
+      "Scalars.java", "private static void buildPartial_autosplit_0("));
+  EXPECT_TRUE(FileContainsSubstring("Scalars.java",
+                                    "Scalars result = new Scalars(null);"));
+  EXPECT_TRUE(FileContainsSubstring("Empty.java",
+                                    "return Builder.parsePartialFrom_(input, "
+                                    "extensionRegistry);"));
+  EXPECT_TRUE(FileContainsSubstring("Scalars.java", "super(builder);"));
+  EXPECT_TRUE(FileContainsSubstring("Scalars.java",
+                                    "setUnknownFieldsForParsing(result,"));
+  EXPECT_TRUE(FileContainsSubstring("Scalars.java",
+                                    "parseUnknownField(getDefaultInstance(),"));
+}
+
+TEST_F(JavaGeneratorTest, BuilderStaticRepeatedPrimitiveParser) {
+  CreateTempFile("repeated_parser.proto", R"schema(
+    syntax = "proto2";
+    option java_multiple_files = true;
+    message Repeated {
+      repeated int32 values = 1;
+      repeated fixed64 wide = 2 [packed = true];
+      repeated bytes data = 3;
+      optional int32 marker = 4;
+    }
+  )schema");
+
+  RunProtoc(
+      "protocol_compiler --proto_path=$tmpdir --java_out=$tmpdir "
+      "repeated_parser.proto");
+
+  ExpectNoErrors();
+  EXPECT_TRUE(FileContainsSubstring("Repeated.java",
+                                    "return Builder.parsePartialFrom_(input,"));
+  EXPECT_TRUE(
+      FileContainsSubstring("Repeated.java",
+                            "com.google.protobuf.Internal.IntList values_ = "
+                            "(com.google.protobuf.Internal.IntList) "
+                            "getDefaultInstance().getValuesList();"));
+  EXPECT_TRUE(FileContainsSubstring(
+      "Repeated.java", "makeMutableCopy(values_, /* capacity= */ -1)"));
+  EXPECT_TRUE(FileContainsSubstring("Repeated.java",
+                                    "makeMutableCopy(values_, count)"));
+  EXPECT_TRUE(FileContainsSubstring("Repeated.java",
+                                    "makeMutableCopy(wide_, alloc / 8)"));
+  EXPECT_TRUE(
+      FileContainsSubstring("Repeated.java",
+                            "com.google.protobuf.Internal.ProtobufList<"
+                            "com.google.protobuf.ByteString> data_ = "));
+  EXPECT_TRUE(
+      FileContainsSubstring("Repeated.java",
+                            "buildPartial_autosplit_0(result, bitField0_, "
+                            "marker_, values_, wide_, data_)"));
+}
+
+TEST_F(JavaGeneratorTest, BuilderStaticChildParser) {
+  CreateTempFile("child_parser.proto", R"schema(
+    syntax = "proto2";
+    option java_multiple_files = true;
+    message Leaf {
+      optional int32 value = 1 [default = 17];
+      repeated int32 values = 2;
+    }
+    message Parent {
+      repeated int64 values = 1;
+      optional Leaf child = 2;
+      optional int32 marker = 3;
+    }
+    message Recursive { optional Recursive child = 1; }
+    message MutualA { optional MutualB child = 1; }
+    message MutualB { optional MutualA child = 1; }
+  )schema");
+
+  RunProtoc(
+      "protocol_compiler --proto_path=$tmpdir --java_out=$tmpdir "
+      "child_parser.proto");
+
+  ExpectNoErrors();
+  for (absl::string_view filename :
+       {"Parent.java", "Recursive.java", "MutualA.java", "MutualB.java"}) {
+    EXPECT_TRUE(FileContainsSubstring(
+        filename, "return Builder.parsePartialFrom_(input,"));
+    EXPECT_TRUE(FileContainsSubstring(filename, "int pendingTag)\n"));
+    EXPECT_TRUE(FileContainsSubstring(
+        filename, "new Builder((java.lang.Object) unknownFields)"));
+    EXPECT_TRUE(FileContainsSubstring(
+        filename,
+        "continuation.mergeFrom(input, extensionRegistry, pendingTag);"));
+    EXPECT_TRUE(FileContainsSubstring(filename, "installParsingState_0("));
+  }
+  EXPECT_TRUE(FileContainsSubstring("Parent.java", ", /* retained= */ false"));
+  EXPECT_TRUE(FileContainsSubstring("Leaf.java", "super(null, unknownState);"));
+  EXPECT_TRUE(FileContainsSubstring("Leaf.java", "value_ = other.getValue();"));
+  EXPECT_TRUE(FileContainsSubstring("Leaf.java",
+                                    "private void restorePublishedState_0("));
+}
+
+TEST_F(JavaGeneratorTest, BuilderStaticRetainedChildParser) {
+  CreateTempFile("oneof_parser.proto", R"schema(
+    syntax = "proto2";
+    option java_multiple_files = true;
+    message Leaf { optional int32 value = 1; repeated int32 values = 2; }
+    message Choice {
+      oneof choice { Leaf first = 1; Leaf second = 2; int32 value = 3; }
+    }
+    message Envelope { oneof choice { Choice child = 1; int32 value = 2; } }
+    message Ordinary { optional Choice child = 1; }
+    message Closed {
+      enum Kind { ZERO = 0; }
+      oneof choice { Leaf child = 1; Kind kind = 2; }
+    }
+  )schema");
+  RunProtoc(
+      "protocol_compiler --proto_path=$tmpdir --java_out=annotate_code:$tmpdir "
+      "oneof_parser.proto");
+  ExpectNoErrors();
+  for (absl::string_view filename :
+       {"Choice.java", "Envelope.java", "Ordinary.java"}) {
+    EXPECT_TRUE(FileContainsSubstring(
+        filename, "return Builder.parsePartialFrom_(input,"));
+    EXPECT_TRUE(
+        FileContainsSubstring(filename, "static java.lang.Object parseState_("));
+    EXPECT_TRUE(FileContainsSubstring(filename, "return continuation;"));
+  }
+  EXPECT_TRUE(FileContainsSubstring(
+      "Envelope.java", "Choice.getDefaultInstance(), input, extensionRegistry);"));
+  EXPECT_TRUE(FileContainsSubstring("Choice.java", "/* retained= */ true"));
+  EXPECT_TRUE(
+      FileContainsSubstring("Choice.java", "SingleFieldBuilder.fromBuilder("));
+  EXPECT_TRUE(FileContainsSubstring(
+      "Choice.java",
+      "return Builder.restoreState((Choice) message, retained);"));
+  EXPECT_TRUE(FileContainsSubstring("Choice.java", "boolean retained"));
+  EXPECT_FALSE(FileContainsSubstring("Choice.java", "Builder::restore"));
+  EXPECT_FALSE(FileContainsSubstring("Ordinary.java", "Builder::restore"));
+  EXPECT_TRUE(FileContainsSubstring("Choice.java", ".setParentForParsing("));
+  EXPECT_TRUE(FileContainsSubstring("Choice.java", "choiceCase_ != 0"));
+  EXPECT_TRUE(FileContainsSubstring("Ordinary.java",
+                                    "Choice.parser().parsePartialFrom(input,"));
+  EXPECT_TRUE(
+      FileContainsSubstring("Closed.java", "Builder.parsePartialFrom_(input,"));
+}
+
+TEST_F(JavaGeneratorTest, BuilderStaticAllFieldShapes) {
+  CreateTempFile("all_fields.proto", R"schema(
+    syntax = "proto2";
+    option java_multiple_files = true;
+    enum Kind { ZERO = 0; ONE = 1; }
+    message Child { optional int32 value = 1; }
+    message AllFields {
+      optional string text = 1 [default = "default"];
+      repeated string texts = 2;
+      optional Kind kind = 3 [default = ONE];
+      repeated Kind kinds = 4 [packed = true];
+      repeated Child children = 5;
+      map<string, Child> messages = 6;
+      map<int32, Kind> enums = 7;
+      map<int32, string> strings = 8;
+      optional group Legacy = 9 { optional int32 value = 1; }
+      repeated group Legacies = 10 { optional int32 value = 1; }
+      oneof choice { Child child = 11; Kind selected = 12; string name = 13; }
+    }
+  )schema");
+  CreateTempFile("delimited.proto", R"schema(
+    edition = "2023";
+    option java_multiple_files = true;
+    message Delimited {
+      oneof choice {
+        Delimited child = 1 [features.message_encoding = DELIMITED];
+        int32 value = 2;
+      }
+    }
+  )schema");
+  RunProtoc(
+      "protocol_compiler --proto_path=$tmpdir --java_out=annotate_code:$tmpdir "
+      "all_fields.proto delimited.proto");
+  ExpectNoErrors();
+  EXPECT_TRUE(FileContainsSubstring(
+      "AllFields.java", "private static AllFields parsePartialFrom_("));
+  EXPECT_TRUE(
+      FileContainsSubstring("AllFields.java", "java.lang.Object text_ ="));
+  EXPECT_TRUE(
+      FileContainsSubstring("AllFields.java", "installParsingState_0("));
+  EXPECT_TRUE(
+      FileContainsSubstring("AllFields.java", "legacy_ = input.readGroup(9,"));
+  EXPECT_TRUE(
+      FileContainsSubstring("Delimited.java", "input.pushLimitBeforeGroup();"));
+  EXPECT_TRUE(
+      FileContainsSubstring("Delimited.java", "input.popLimitAfterGroup(1);"));
+}
+
+TEST_F(JavaGeneratorTest, BuilderStaticParserOutlining) {
+  CreateTempFile("outlined.proto", R"schema(
+    syntax = "proto2";
+    option java_multiple_files = true;
+    message Child { optional int32 value = 1; }
+    message Messages {
+      oneof choice { Child first = 1; Child second = 2; }
+    }
+    message Mixed {
+      oneof choice { Child first = 1; int32 second = 2; }
+    }
+    message Names {
+      oneof choice {
+        Child state = 1;
+        Child partial_from = 2;
+        Child first = 3;
+        Child first_state = 4;
+      }
+    }
+  )schema");
+  RunProtoc("protocol_compiler --proto_path=$tmpdir --java_out=$tmpdir "
+            "outlined.proto");
+  ExpectNoErrors();
+  EXPECT_TRUE(FileContainsSubstring(
+      "Messages.java", "private static java.lang.Object parseField_1("));
+  EXPECT_TRUE(FileContainsSubstring(
+      "Messages.java", "choice_ = parseField_1(input, extensionRegistry);"));
+  EXPECT_TRUE(FileContainsSubstring(
+      "Messages.java", "ChoiceCase.forNumber(tag >>> 3) != null"));
+  EXPECT_FALSE(FileContainsSubstring(
+      "Mixed.java", "ChoiceCase.forNumber(tag >>> 3) != null"));
+  EXPECT_TRUE(FileContainsSubstring(
+      "Messages.java", "continuation.attachParsingChildren_0();"));
+  EXPECT_TRUE(FileContainsSubstring(
+      "Messages.java", "private void attachParsingChildren_0()"));
+  EXPECT_TRUE(FileContainsSubstring(
+      "Messages.java", "(choiceCase_ != 0 && choice_ == null)"));
+  EXPECT_TRUE(FileContainsSubstring("Mixed.java", "firstBuilder_ != null"));
+  EXPECT_TRUE(FileContainsSubstring("Names.java", "void parseState("));
+  EXPECT_TRUE(FileContainsSubstring("Names.java", "void parsePartialFrom("));
+  EXPECT_TRUE(FileContainsSubstring("Names.java", "Object parseState_("));
+  EXPECT_TRUE(FileContainsSubstring("Names.java", "Names parsePartialFrom_("));
+}
+
+TEST_F(JavaGeneratorTest, BuilderStaticParserFallbacks) {
+  CreateTempFile("fallback.proto", R"schema(
+    syntax = "proto2";
+    option java_multiple_files = true;
+    message WithChild { optional WithList child = 1; }
+    message WithList { repeated string values = 1; }
+    message WithExtension { extensions 100 to max; }
+  )schema");
+  CreateTempFile("code_size.proto", R"schema(
+    syntax = "proto2";
+    option java_multiple_files = true;
+    option optimize_for = CODE_SIZE;
+    message CodeSize { optional int32 value = 1; }
+  )schema");
+
+  RunProtoc(
+      "protocol_compiler --proto_path=$tmpdir --java_out=$tmpdir "
+      "fallback.proto code_size.proto");
+
+  ExpectNoErrors();
+  for (absl::string_view filename : {"WithExtension.java", "CodeSize.java"}) {
+    EXPECT_FALSE(
+        FileContainsSubstring(filename, "Builder.parsePartialFrom_(input,"));
+    EXPECT_TRUE(
+        FileContainsSubstring(filename, "Builder builder = newBuilder();"));
+  }
+}
+
 TEST_F(JavaGeneratorTest, BasicError) {
   CreateTempFile("foo.proto",
                  R"schema(

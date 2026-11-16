@@ -78,6 +78,73 @@ public abstract class AbstractParser<MessageType extends MessageLite>
     return message;
   }
 
+  static Object parseStateForParsing(
+      MessageLite defaultInstance, CodedInputStream input, ExtensionRegistryLite registry)
+      throws InvalidProtocolBufferException {
+    Parser<?> parser = defaultInstance.getParserForType();
+    if (parser instanceof AbstractParser) {
+      Object state = ((AbstractParser<?>) parser).parsePartialState(input, registry);
+      if (state != null) {
+        return state;
+      }
+    }
+    MessageLite.Builder builder = defaultInstance.newBuilderForType();
+    try {
+      builder.mergeFrom(input, registry);
+    } catch (IOException e) {
+      throw (e instanceof InvalidProtocolBufferException
+              ? (InvalidProtocolBufferException) e
+              : new InvalidProtocolBufferException(e))
+          .setUnfinishedMessage(builder.buildPartial());
+    }
+    return builder;
+  }
+
+  static MessageLite.Builder restoreStateForParsing(MessageLite message, boolean retained) {
+    Parser<?> parser = message.getParserForType();
+    if (parser instanceof AbstractParser) {
+      MessageLite.Builder builder =
+          ((AbstractParser<?>) parser).newBuilderForParsing(message, retained);
+      if (builder != null) {
+        return builder;
+      }
+    }
+    return message.newBuilderForType().mergeFrom(message);
+  }
+
+  static Object mergeMessageForParsing(
+      Object state,
+      MessageLite defaultInstance,
+      CodedInputStream input,
+      ExtensionRegistryLite registry)
+      throws IOException {
+    int oldLimit = input.pushLimitBeforeMessage();
+    if (state == null) {
+      state = parseStateForParsing(defaultInstance, input, registry);
+    } else {
+      MessageLite.Builder builder =
+          state instanceof MessageLite.Builder
+              ? (MessageLite.Builder) state
+              : restoreStateForParsing((MessageLite) state, true);
+      builder.mergeFrom(input, registry);
+      state = builder;
+    }
+    input.popLimitAfterMessage(oldLimit);
+    return state;
+  }
+
+  /** For generated static decoders; null leaves the input untouched for legacy fallback. */
+  protected Object parsePartialState(
+      CodedInputStream input, ExtensionRegistryLite extensionRegistry)
+      throws InvalidProtocolBufferException {
+    return null;
+  }
+
+  /** Restores a clean snapshot; retained snapshots preserve active parsing child lifetimes. */
+  protected MessageLite.Builder newBuilderForParsing(MessageLite message, boolean retained) {
+    return null;
+  }
+
   private static final ExtensionRegistryLite EMPTY_REGISTRY =
       ExtensionRegistryLite.getEmptyRegistry();
 
