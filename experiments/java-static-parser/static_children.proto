@@ -1,0 +1,32 @@
+syntax = "proto2";
+package static_children;
+option java_multiple_files = true;
+
+message Leaf {
+  optional int32 value = 1 [default = 17];
+  repeated int32 values = 2;
+  optional bytes data = 3 [default = "abc\000\377"];
+}
+
+message Parent {
+  repeated int32 values = 1;
+  optional Leaf child = 2;
+  optional int32 marker = 3 [default = 23];
+  optional bytes data = 4 [default = "parent"];
+}
+
+message Recursive {
+  optional Recursive child = 1;
+  repeated int64 values = 2;
+  optional int32 marker = 3 [default = 31];
+}
+
+message MutualA {
+  optional MutualB child = 1;
+  optional Leaf leaf = 2;
+}
+
+message MutualB {
+  optional MutualA child = 1;
+  repeated int32 values = 2;
+}

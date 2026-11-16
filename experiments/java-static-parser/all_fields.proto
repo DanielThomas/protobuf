@@ -1,0 +1,52 @@
+syntax = "proto2";
+package full_shapes;
+option java_multiple_files = true;
+import "retained_children.proto";
+import "code_size.proto";
+
+enum Kind { ZERO = 0; ONE = 1; FIVE = 5; }
+message RequiredChild { required int32 value = 1; }
+message Rich {
+  optional string text = 1 [default = "default"];
+  repeated string texts = 2;
+  optional Kind kind = 3 [default = FIVE];
+  repeated Kind kinds = 4 [packed = true];
+  repeated builder_probe.RepeatedChoices children = 5;
+  map<string, builder_probe.RepeatedChoices> messages = 6;
+  map<int32, Kind> enums = 7;
+  map<int32, string> strings = 8;
+  optional builder_probe.RepeatedChoices child = 9;
+  repeated Kind unpacked = 10 [packed = false];
+  oneof choice {
+    builder_probe.RepeatedChoices selected = 11;
+    Kind selected_kind = 12;
+    string name = 13;
+  }
+  map<bool, bytes> bools = 14;
+  map<int64, sint64> longs = 15;
+  optional RequiredChild required_child = 16;
+}
+message Groups {
+  optional group Legacy = 1 {
+    optional builder_probe.RepeatedChoices child = 1;
+    oneof choice { builder_probe.RepeatedChoices selected = 2; int32 value = 3; }
+  }
+  repeated group Legacies = 2 { optional builder_probe.RepeatedChoices child = 1; }
+  repeated int32 values = 3;
+}
+message Extensible { optional int32 value = 1; extensions 100 to max; }
+extend Extensible {
+  optional int32 number = 100;
+  optional builder_probe.RepeatedChoices extension_child = 101;
+  repeated Kind extension_kinds = 102 [packed = true];
+}
+message MessageSet {
+  option message_set_wire_format = true;
+  extensions 4 to max;
+}
+extend MessageSet { optional builder_probe.RepeatedChoices message_set_child = 100; }
+message CompatibilityParent {
+  optional Extensible child = 1;
+  oneof choice { Extensible selected = 2; int32 value = 3; }
+  optional compatibility.CodeSize legacy = 4;
+}

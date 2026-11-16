@@ -1,0 +1,17 @@
+syntax = "proto3";
+package open_shapes;
+option java_multiple_files = true;
+import "all_fields.proto";
+
+enum OpenKind { ZERO = 0; ONE = 1; }
+message OpenRich {
+  string text = 1;
+  repeated string texts = 2;
+  OpenKind kind = 3;
+  repeated OpenKind kinds = 4;
+  map<string, OpenKind> enums = 5;
+  full_shapes.Rich child = 6;
+  repeated full_shapes.Rich children = 7;
+  oneof choice { full_shapes.Rich selected = 8; OpenKind selected_kind = 9; string name = 10; }
+  optional string present = 11;
+}

@@ -1,0 +1,15 @@
+edition = "2023";
+package edition_shapes;
+option java_multiple_files = true;
+import "all_fields.proto";
+
+message Delimited {
+  Delimited child = 1 [features.message_encoding = DELIMITED];
+  full_shapes.Rich rich = 2 [features.message_encoding = DELIMITED];
+  repeated full_shapes.Rich children = 3 [features.message_encoding = DELIMITED];
+  oneof choice {
+    Delimited selected = 4 [features.message_encoding = DELIMITED];
+    int32 value = 5;
+  }
+  string text = 6;
+}

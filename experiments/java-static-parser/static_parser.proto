@@ -1,0 +1,41 @@
+syntax = "proto2";
+package static_parser;
+option java_multiple_files = true;
+
+message Scalars {
+  optional int32 int_value = 1 [default = 17];
+  optional int64 long_value = 2 [default = -23];
+  optional uint32 uint_value = 3;
+  optional uint64 ulong_value = 4;
+  optional sint32 sint_value = 5;
+  optional sint64 slong_value = 6;
+  optional fixed32 fixed_value = 7;
+  optional fixed64 fixed_long_value = 8;
+  optional sfixed32 sfixed_value = 9;
+  optional sfixed64 sfixed_long_value = 10;
+  optional bool bool_value = 11 [default = true];
+  optional float float_value = 12 [default = nan];
+  optional double double_value = 13 [default = -inf];
+  optional bytes bytes_value = 14 [default = "abc\000\377"];
+  required int32 required_value = 15;
+}
+
+message Empty {}
+
+message Repeated {
+  repeated int32 int_values = 1;
+  repeated int64 long_values = 2 [packed = true];
+  repeated uint32 uint_values = 3 [packed = true];
+  repeated uint64 ulong_values = 4;
+  repeated sint32 sint_values = 5;
+  repeated sint64 slong_values = 6 [packed = true];
+  repeated fixed32 fixed_values = 7 [packed = true];
+  repeated fixed64 fixed_long_values = 8;
+  repeated sfixed32 sfixed_values = 9;
+  repeated sfixed64 sfixed_long_values = 10 [packed = true];
+  repeated bool bool_values = 11 [packed = true];
+  repeated float float_values = 12;
+  repeated double double_values = 13 [packed = true];
+  repeated bytes bytes_values = 14;
+  optional int32 marker = 15 [default = 17];
+}
