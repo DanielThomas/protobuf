@@ -297,6 +297,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
     // Use TestDefaultValue.newBuilder() to construct.
     private TestDefaultValue(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      optionalBytes_ = DEFAULT_INSTANCE.optionalBytes_;
     }
     private TestDefaultValue() {
       optionalInt32_ = 1;
@@ -511,7 +512,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
     }
 
     public static final int OPTIONAL_BYTES_FIELD_NUMBER = 9;
-    private com.google.protobuf.ByteString optionalBytes_ = com.google.protobuf.Internal.bytesDefaultValue("world");
+    private com.google.protobuf.ByteString optionalBytes_;
     /**
      * <code>bytes optional_bytes = 9 [default = "world"];</code>
      * @return Whether the optionalBytes field is set.
@@ -889,14 +890,22 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
                 default_value.TestDefaultValueOuterClass.TestDefaultValue.class, default_value.TestDefaultValueOuterClass.TestDefaultValue.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using default_value.TestDefaultValueOuterClass.TestDefaultValue.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        optionalBytes_ = getDefaultInstance().getOptionalBytes();
 
       }
       @java.lang.Override
@@ -911,7 +920,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
         optionalDouble_ = 6.6D;
         optionalBool_ = true;
         optionalString_ = "hello";
-        optionalBytes_ = com.google.protobuf.Internal.bytesDefaultValue("world");
+        optionalBytes_ = getDefaultInstance().getOptionalBytes();
         optionalEnum_ = 1;
         return this;
       }
@@ -939,6 +948,13 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
       @java.lang.Override
       public default_value.TestDefaultValueOuterClass.TestDefaultValue buildPartial() {
         default_value.TestDefaultValueOuterClass.TestDefaultValue result = new default_value.TestDefaultValueOuterClass.TestDefaultValue(this);
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private default_value.TestDefaultValueOuterClass.TestDefaultValue buildPartial(default_value.TestDefaultValueOuterClass.TestDefaultValue result) {
+        setUnknownFields(result, getUnknownFields());
         if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
         onBuilt();
         return result;
@@ -1123,6 +1139,178 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
         } // finally
         return this;
       }
+
+      private static default_value.TestDefaultValueOuterClass.TestDefaultValue parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        default_value.TestDefaultValueOuterClass.TestDefaultValue result = new default_value.TestDefaultValueOuterClass.TestDefaultValue(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int bitField0_ = 0;
+        int optionalInt32_ = 0;
+        long optionalInt64_ = 0;
+        int optionalUint32_ = 0;
+        long optionalUint64_ = 0;
+        float optionalFloat_ = 0;
+        double optionalDouble_ = 0;
+        boolean optionalBool_ = false;
+        java.lang.Object optionalString_ = null;
+        com.google.protobuf.ByteString optionalBytes_ = null;
+        int optionalEnum_ = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                optionalInt32_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                optionalInt64_ = input.readInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                optionalUint32_ = input.readUInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                optionalUint64_ = input.readUInt64();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 45: {
+                optionalFloat_ = input.readFloat();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 45
+              case 49: {
+                optionalDouble_ = input.readDouble();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 49
+              case 56: {
+                optionalBool_ = input.readBool();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              case 66: {
+                optionalString_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 66
+              case 74: {
+                optionalBytes_ = input.readBytes();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 74
+              case 80: {
+                optionalEnum_ = input.readEnum();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 80
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, optionalInt32_, optionalInt64_, optionalUint32_, optionalUint64_, optionalFloat_, optionalDouble_, optionalBool_, optionalString_, optionalBytes_, optionalEnum_); }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+      private static void buildPartial_autosplit_0(
+          default_value.TestDefaultValueOuterClass.TestDefaultValue result,
+          int bitField0_,
+          int optionalInt32_,
+          long optionalInt64_,
+          int optionalUint32_,
+          long optionalUint64_,
+          float optionalFloat_,
+          double optionalDouble_,
+          boolean optionalBool_,
+          java.lang.Object optionalString_,
+          com.google.protobuf.ByteString optionalBytes_,
+          int optionalEnum_) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.optionalInt32_ = optionalInt32_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.optionalInt64_ = optionalInt64_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.optionalUint32_ = optionalUint32_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.optionalUint64_ = optionalUint64_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.optionalFloat_ = optionalFloat_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.optionalDouble_ = optionalDouble_;
+          to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.optionalBool_ = optionalBool_;
+          to_bitField0_ |= 0x00000040;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.optionalString_ = optionalString_;
+          to_bitField0_ |= 0x00000080;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.optionalBytes_ = optionalBytes_;
+          to_bitField0_ |= 0x00000100;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.optionalEnum_ = optionalEnum_;
+          to_bitField0_ |= 0x00000200;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
       private int bitField0_;
 
       private int optionalInt32_ = 1;
@@ -1484,7 +1672,7 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
         return this;
       }
 
-      private com.google.protobuf.ByteString optionalBytes_ = com.google.protobuf.Internal.bytesDefaultValue("world");
+      private com.google.protobuf.ByteString optionalBytes_;
       /**
        * <code>bytes optional_bytes = 9 [default = "world"];</code>
        * @return Whether the optionalBytes field is set.
@@ -1597,19 +1785,32 @@ public final class TestDefaultValueOuterClass extends com.google.protobuf.Genera
     }
 
     private static final com.google.protobuf.Parser<TestDefaultValue>
-        PARSER = new com.google.protobuf.AbstractParser<TestDefaultValue>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            TestDefaultValue>() {
       @java.lang.Override
       public TestDefaultValue parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected TestDefaultValue parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 

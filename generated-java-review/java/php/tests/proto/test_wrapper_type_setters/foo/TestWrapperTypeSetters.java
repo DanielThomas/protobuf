@@ -1285,9 +1285,16 @@ com.google.protobuf.StringValue defaultValue) {
                 foo.TestWrapperTypeSetters.TestWrapperSetters.class, foo.TestWrapperTypeSetters.TestWrapperSetters.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using foo.TestWrapperTypeSetters.TestWrapperSetters.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -1402,6 +1409,13 @@ com.google.protobuf.StringValue defaultValue) {
       @java.lang.Override
       public foo.TestWrapperTypeSetters.TestWrapperSetters buildPartial() {
         foo.TestWrapperTypeSetters.TestWrapperSetters result = new foo.TestWrapperTypeSetters.TestWrapperSetters(this);
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private foo.TestWrapperTypeSetters.TestWrapperSetters buildPartial(foo.TestWrapperTypeSetters.TestWrapperSetters result) {
+        setUnknownFields(result, getUnknownFields());
         if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
         onBuilt();
         return result;
@@ -1682,6 +1696,393 @@ com.google.protobuf.StringValue defaultValue) {
           onChanged();
         } // finally
         return this;
+      }
+
+      private Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        try {
+          switch (pendingTag) {
+            case 10: {
+              parseDoubleValueField(input, extensionRegistry);
+              break;
+            } // case 10
+            case 18: {
+              parseFloatValueField(input, extensionRegistry);
+              break;
+            } // case 18
+            case 26: {
+              parseInt64ValueField(input, extensionRegistry);
+              break;
+            } // case 26
+            case 34: {
+              parseUint64ValueField(input, extensionRegistry);
+              break;
+            } // case 34
+            case 42: {
+              parseInt32ValueField(input, extensionRegistry);
+              break;
+            } // case 42
+            case 50: {
+              parseUint32ValueField(input, extensionRegistry);
+              break;
+            } // case 50
+            case 58: {
+              parseBoolValueField(input, extensionRegistry);
+              break;
+            } // case 58
+            case 66: {
+              parseStringValueField(input, extensionRegistry);
+              break;
+            } // case 66
+            case 74: {
+              parseBytesValueField(input, extensionRegistry);
+              break;
+            } // case 74
+            case 82: {
+              parseDoubleValueOneof(input, extensionRegistry);
+              break;
+            } // case 82
+            case 90: {
+              parseStringValueOneof(input, extensionRegistry);
+              break;
+            } // case 90
+          }
+        } finally {
+          onChanged();
+        }
+        return mergeFrom(input, extensionRegistry);
+      }
+
+      private static foo.TestWrapperTypeSetters.TestWrapperSetters parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        if (alwaysUseFieldBuilders()) {
+          Builder builder = new Builder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (java.lang.Exception e) {
+            wrapAndThrowParseException(parser(), e, builder);
+          }
+          return builder.buildPartial();
+        }
+        foo.TestWrapperTypeSetters.TestWrapperSetters result = new foo.TestWrapperTypeSetters.TestWrapperSetters(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int bitField0_ = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                pendingTag = parseDoubleValueField(result, input, extensionRegistry);
+                break;
+              } // case 10
+              case 18: {
+                pendingTag = parseFloatValueField(result, input, extensionRegistry);
+                break;
+              } // case 18
+              case 26: {
+                pendingTag = parseInt64ValueField(result, input, extensionRegistry);
+                break;
+              } // case 26
+              case 34: {
+                pendingTag = parseUint64ValueField(result, input, extensionRegistry);
+                break;
+              } // case 34
+              case 42: {
+                pendingTag = parseInt32ValueField(result, input, extensionRegistry);
+                break;
+              } // case 42
+              case 50: {
+                pendingTag = parseUint32ValueField(result, input, extensionRegistry);
+                break;
+              } // case 50
+              case 58: {
+                pendingTag = parseBoolValueField(result, input, extensionRegistry);
+                break;
+              } // case 58
+              case 66: {
+                pendingTag = parseStringValueField(result, input, extensionRegistry);
+                break;
+              } // case 66
+              case 74: {
+                pendingTag = parseBytesValueField(result, input, extensionRegistry);
+                break;
+              } // case 74
+              case 82: {
+                pendingTag = parseDoubleValueOneof(result, input, extensionRegistry);
+                break;
+              } // case 82
+              case 90: {
+                pendingTag = parseStringValueOneof(result, input, extensionRegistry);
+                break;
+              } // case 90
+              case 98: {
+                final int oldLimit = input.pushLimitBeforeMessage();
+                com.google.protobuf.StringValue m = com.google.protobuf.StringValue.parser().parsePartialFrom(input, extensionRegistry);
+                input.popLimitAfterMessage(oldLimit);
+                bitField0_ = ensureRepeatedStringValueIsMutable(bitField0_, result);
+                result.repeatedStringValue_.add(m);
+                break;
+              } // case 98
+              case 106: {
+                com.google.protobuf.MapEntry<java.lang.String, com.google.protobuf.StringValue>
+                mapStringValue__ = input.readMessage(
+                    MapStringValueDefaultEntryHolder.defaultEntry.getParserForType(), extensionRegistry);
+                internalGetMutableMapStringValue(result).getMutableMap().put(
+                    mapStringValue__.getKey(), mapStringValue__.getValue());
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 106
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_); }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        retainParsedAlternatives(builder);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry, pendingTag);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+      private static void buildPartial_autosplit_0(
+          foo.TestWrapperTypeSetters.TestWrapperSetters result,
+          int bitField0_) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.repeatedStringValue_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.internalGetMapStringValue().makeImmutable();
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      // As the Builder parses alternatives, through field builders.
+      private static void retainParsedAlternatives(Builder parsed) {
+        if (parsed.hasDoubleValueOneof()) {
+          retainParsedAlternatives(
+              com.google.protobuf.DoubleValue.parser(), parsed.getDoubleValueOneofBuilder());
+        }
+        if (parsed.hasStringValueOneof()) {
+          retainParsedAlternatives(
+              com.google.protobuf.StringValue.parser(), parsed.getStringValueOneofBuilder());
+        }
+      }
+
+      private static int parseDoubleValueField(
+          TestWrapperSetters result, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (result.hasDoubleValue()) {
+          return 10;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        result.doubleValue_ = com.google.protobuf.DoubleValue.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        result.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      private static int parseFloatValueField(
+          TestWrapperSetters result, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (result.hasFloatValue()) {
+          return 18;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        result.floatValue_ = com.google.protobuf.FloatValue.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        result.bitField0_ |= 0x00000002;
+        return 0;
+      }
+      private static int parseInt64ValueField(
+          TestWrapperSetters result, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (result.hasInt64Value()) {
+          return 26;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        result.int64Value_ = com.google.protobuf.Int64Value.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        result.bitField0_ |= 0x00000004;
+        return 0;
+      }
+      private static int parseUint64ValueField(
+          TestWrapperSetters result, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (result.hasUint64Value()) {
+          return 34;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        result.uint64Value_ = com.google.protobuf.UInt64Value.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        result.bitField0_ |= 0x00000008;
+        return 0;
+      }
+      private static int parseInt32ValueField(
+          TestWrapperSetters result, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (result.hasInt32Value()) {
+          return 42;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        result.int32Value_ = com.google.protobuf.Int32Value.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        result.bitField0_ |= 0x00000010;
+        return 0;
+      }
+      private static int parseUint32ValueField(
+          TestWrapperSetters result, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (result.hasUint32Value()) {
+          return 50;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        result.uint32Value_ = com.google.protobuf.UInt32Value.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        result.bitField0_ |= 0x00000020;
+        return 0;
+      }
+      private static int parseBoolValueField(
+          TestWrapperSetters result, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (result.hasBoolValue()) {
+          return 58;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        result.boolValue_ = com.google.protobuf.BoolValue.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        result.bitField0_ |= 0x00000040;
+        return 0;
+      }
+      private static int parseStringValueField(
+          TestWrapperSetters result, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (result.hasStringValue()) {
+          return 66;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        result.stringValue_ = com.google.protobuf.StringValue.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        result.bitField0_ |= 0x00000080;
+        return 0;
+      }
+      private static int parseBytesValueField(
+          TestWrapperSetters result, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (result.hasBytesValue()) {
+          return 74;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        result.bytesValue_ = com.google.protobuf.BytesValue.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        result.bitField0_ |= 0x00000100;
+        return 0;
+      }
+      private static int parseDoubleValueOneof(
+          foo.TestWrapperTypeSetters.TestWrapperSetters result,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (result.getWrappedOneofsCase().getNumber() != 0) {
+          return 82;
+        }
+        result.wrappedOneofsCase_ = 10;
+        result.wrappedOneofs_ = com.google.protobuf.DoubleValue.getDefaultInstance();
+        final int oldLimit = input.pushLimitBeforeMessage();
+        try {
+          result.wrappedOneofs_ = com.google.protobuf.DoubleValue.parser().parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          if (e.getUnfinishedMessage() != null) {
+            result.wrappedOneofs_ = e.getUnfinishedMessage();
+          }
+          throw e;
+        }
+        input.popLimitAfterMessage(oldLimit);
+        return 0;
+      }
+
+      private static int parseStringValueOneof(
+          foo.TestWrapperTypeSetters.TestWrapperSetters result,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (result.getWrappedOneofsCase().getNumber() != 0) {
+          return 90;
+        }
+        result.wrappedOneofsCase_ = 11;
+        result.wrappedOneofs_ = com.google.protobuf.StringValue.getDefaultInstance();
+        final int oldLimit = input.pushLimitBeforeMessage();
+        try {
+          result.wrappedOneofs_ = com.google.protobuf.StringValue.parser().parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          if (e.getUnfinishedMessage() != null) {
+            result.wrappedOneofs_ = e.getUnfinishedMessage();
+          }
+          throw e;
+        }
+        input.popLimitAfterMessage(oldLimit);
+        return 0;
+      }
+
+      private static int ensureRepeatedStringValueIsMutable(int bitField0_, TestWrapperSetters result) {
+        if (!result.repeatedStringValue_.isModifiable()) {
+          result.repeatedStringValue_ = makeMutableCopy(result.repeatedStringValue_);
+        }
+        bitField0_ |= 0x00000200;
+        return bitField0_;
+}
+      private static com.google.protobuf.MapField<java.lang.String, com.google.protobuf.StringValue>
+          internalGetMutableMapStringValue(TestWrapperSetters result) {
+        if (result.getMapStringValueCount() == 0) {
+          result.mapStringValue_ = com.google.protobuf.MapField.newMapField(
+              MapStringValueDefaultEntryHolder.defaultEntry);
+        }
+        return result.internalGetMapStringValue();
       }
       private int wrappedOneofsCase_ = 0;
       private java.lang.Object wrappedOneofs_;
@@ -3615,19 +4016,38 @@ com.google.protobuf.StringValue defaultValue) {
     }
 
     private static final com.google.protobuf.Parser<TestWrapperSetters>
-        PARSER = new com.google.protobuf.AbstractParser<TestWrapperSetters>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            TestWrapperSetters>() {
       @java.lang.Override
       public TestWrapperSetters parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected TestWrapperSetters parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry, pendingTag);
+      }
+
+      @java.lang.Override
+      protected void retainParsedAlternatives(
+          com.google.protobuf.Message.Builder builder) {
+        Builder.retainParsedAlternatives((Builder) builder);
       }
     };
 

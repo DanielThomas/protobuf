@@ -593,9 +593,16 @@ upb.test.convert.Proto2EnumMessage.NestedEnum defaultValue) {
               upb.test.convert.Proto2EnumMessage.class, upb.test.convert.Proto2EnumMessage.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using upb.test.convert.Proto2EnumMessage.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
@@ -636,6 +643,13 @@ upb.test.convert.Proto2EnumMessage.NestedEnum defaultValue) {
     @java.lang.Override
     public upb.test.convert.Proto2EnumMessage buildPartial() {
       upb.test.convert.Proto2EnumMessage result = new upb.test.convert.Proto2EnumMessage(this);
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private upb.test.convert.Proto2EnumMessage buildPartial(upb.test.convert.Proto2EnumMessage result) {
+      setUnknownFields(result, getUnknownFields());
       if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
       onBuilt();
       return result;
@@ -783,6 +797,150 @@ upb.test.convert.Proto2EnumMessage.NestedEnum defaultValue) {
         onChanged();
       } // finally
       return this;
+    }
+
+    private static upb.test.convert.Proto2EnumMessage parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        boolean hosted)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      upb.test.convert.Proto2EnumMessage result = new upb.test.convert.Proto2EnumMessage(null);
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+      int pendingTag = 0;
+      int bitField0_ = 0;
+      int optionalNestedEnum_ = 0;
+      int tag = 0;
+      java.lang.Exception failure = null;
+      try {
+        boolean done = false;
+        while (!done && pendingTag == 0) {
+          tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 168: {
+              int tmpRaw = input.readEnum();
+              upb.test.convert.Proto2EnumMessage.NestedEnum tmpValue =
+                  upb.test.convert.Proto2EnumMessage.NestedEnum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknownFields = mergeUnknownVarintField(unknownFields, 21, tmpRaw);
+              } else {
+                optionalNestedEnum_ = tmpRaw;
+                bitField0_ |= 0x00000001;
+              }
+              break;
+            } // case 168
+            case 408: {
+              int tmpRaw = input.readEnum();
+              upb.test.convert.Proto2EnumMessage.NestedEnum tmpValue =
+                  upb.test.convert.Proto2EnumMessage.NestedEnum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknownFields = mergeUnknownVarintField(unknownFields, 51, tmpRaw);
+              } else {
+                bitField0_ = ensureRepeatedNestedEnumIsMutable(bitField0_, result, /* capacity= */ -1);
+                result.repeatedNestedEnum_.addInt(tmpRaw);
+              }
+              break;
+            } // case 408
+            case 410: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              bitField0_ = ensureRepeatedNestedEnumIsMutable(bitField0_, result, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                upb.test.convert.Proto2EnumMessage.NestedEnum tmpValue =
+                    upb.test.convert.Proto2EnumMessage.NestedEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknownFields = mergeUnknownVarintField(unknownFields, 51, tmpRaw);
+                } else {
+                  result.repeatedNestedEnum_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 410
+            case 586: {
+              com.google.protobuf.ByteString bytes = input.readBytes();
+              com.google.protobuf.MapEntry<java.lang.String, java.lang.Integer>
+              mapStringNestedEnum__ = MapStringNestedEnumDefaultEntryHolder.defaultEntry.getParserForType().parseFrom(bytes);
+              if (upb.test.convert.Proto2EnumMessage.NestedEnum.forNumber(mapStringNestedEnum__.getValue()) == null) {
+                unknownFields = mergeUnknownLengthDelimitedField(unknownFields, 73, bytes);
+              } else {
+                internalGetMutableMapStringNestedEnum(result).getMutableMap().put(
+                    mapStringNestedEnum__.getKey(), mapStringNestedEnum__.getValue());
+                bitField0_ |= 0x00000004;
+              }
+              break;
+            } // case 586
+            default:
+              if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                  == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                done = true; // As in the Builder
+              } else {
+                unknownFields = mergeUnknownField(unknownFields, input, tag);
+              }
+              break;
+          }
+        }
+      } catch (java.lang.Exception e) {
+        failure = e;
+      }
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, optionalNestedEnum_); }
+      if (unknownFields != null) {
+        setUnknownFields(result, unknownFields.build());
+      }
+      if (failure == null && (pendingTag == 0 || hosted)) {
+        return result;
+      }
+      Builder builder = new Builder();
+      builder.mergeFrom(result);
+      try {
+        if (failure != null) {
+          throw failure;
+        }
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (java.lang.Exception e) {
+        wrapAndThrowParseException(parser(), e, builder);
+      }
+      return builder.buildPartial(result);
+    }
+
+    private static void buildPartial_autosplit_0(
+        upb.test.convert.Proto2EnumMessage result,
+        int bitField0_,
+        int optionalNestedEnum_) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.optionalNestedEnum_ = optionalNestedEnum_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.repeatedNestedEnum_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.internalGetMapStringNestedEnum().makeImmutable();
+      }
+      result.bitField0_ |= to_bitField0_;
+    }
+
+    private static int ensureRepeatedNestedEnumIsMutable(int bitField0_, Proto2EnumMessage result, int capacity) {
+      if (!result.repeatedNestedEnum_.isModifiable()) {
+        result.repeatedNestedEnum_ = makeMutableCopy(result.repeatedNestedEnum_, capacity);
+      }
+      bitField0_ |= 0x00000002;
+      return bitField0_;
+}
+    private static com.google.protobuf.MapField<java.lang.String, java.lang.Integer>
+        internalGetMutableMapStringNestedEnum(Proto2EnumMessage result) {
+      if (result.getMapStringNestedEnumCount() == 0) {
+        result.mapStringNestedEnum_ = com.google.protobuf.MapField.newMapField(
+            MapStringNestedEnumDefaultEntryHolder.defaultEntry);
+      }
+      return result.internalGetMapStringNestedEnum();
     }
     private int bitField0_;
 
@@ -1055,19 +1213,32 @@ upb.test.convert.Proto2EnumMessage.NestedEnum defaultValue) {
   }
 
   private static final com.google.protobuf.Parser<Proto2EnumMessage>
-      PARSER = new com.google.protobuf.AbstractParser<Proto2EnumMessage>() {
+      PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+          Proto2EnumMessage>() {
     @java.lang.Override
     public Proto2EnumMessage parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Builder.parsePartialFrom(input, extensionRegistry, false);
+    }
+
+    @java.lang.Override
+    protected Proto2EnumMessage parseAlternative(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return Builder.parsePartialFrom(input, extensionRegistry, true);
+    }
+
+    @java.lang.Override
+    protected void continueAlternative(
+        com.google.protobuf.Message.Builder builder,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws java.io.IOException {
+      ((Builder) builder).mergeFrom(input, extensionRegistry);
     }
   };
 

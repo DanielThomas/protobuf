@@ -67224,9 +67224,16 @@ public final class UnittestEnormousDescriptor extends com.google.protobuf.Genera
                 com.google.protobuf.UnittestEnormousDescriptor.TestEnormousDescriptor.class, com.google.protobuf.UnittestEnormousDescriptor.TestEnormousDescriptor.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.UnittestEnormousDescriptor.TestEnormousDescriptor.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(

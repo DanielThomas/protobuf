@@ -513,9 +513,16 @@ public final class Edition2023Ctype extends com.google.protobuf.GeneratedFile {
                 protobuf_editions_test.edition2023.Edition2023Ctype.Edition2023CTypeMessage.class, protobuf_editions_test.edition2023.Edition2023Ctype.Edition2023CTypeMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.edition2023.Edition2023Ctype.Edition2023CTypeMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -1195,9 +1202,16 @@ public final class Edition2023Ctype extends com.google.protobuf.GeneratedFile {
                 protobuf_editions_test.edition2023.Edition2023Ctype.Edition2023CTypeMessageExt.class, protobuf_editions_test.edition2023.Edition2023Ctype.Edition2023CTypeMessageExt.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.edition2023.Edition2023Ctype.Edition2023CTypeMessageExt.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -1234,6 +1248,12 @@ public final class Edition2023Ctype extends com.google.protobuf.GeneratedFile {
       @java.lang.Override
       public protobuf_editions_test.edition2023.Edition2023Ctype.Edition2023CTypeMessageExt buildPartial() {
         protobuf_editions_test.edition2023.Edition2023Ctype.Edition2023CTypeMessageExt result = new protobuf_editions_test.edition2023.Edition2023Ctype.Edition2023CTypeMessageExt(this);
+        onBuilt();
+        return result;
+      }
+
+      private protobuf_editions_test.edition2023.Edition2023Ctype.Edition2023CTypeMessageExt buildPartial(protobuf_editions_test.edition2023.Edition2023Ctype.Edition2023CTypeMessageExt result) {
+        setUnknownFields(result, getUnknownFields());
         onBuilt();
         return result;
       }
@@ -1290,6 +1310,58 @@ public final class Edition2023Ctype extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
+      private static protobuf_editions_test.edition2023.Edition2023Ctype.Edition2023CTypeMessageExt parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        protobuf_editions_test.edition2023.Edition2023Ctype.Edition2023CTypeMessageExt result = new protobuf_editions_test.edition2023.Edition2023Ctype.Edition2023CTypeMessageExt(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+
       // @@protoc_insertion_point(builder_scope:protobuf_editions_test.edition2023.Edition2023CTypeMessageExt)
     }
 
@@ -1304,19 +1376,32 @@ public final class Edition2023Ctype extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<Edition2023CTypeMessageExt>
-        PARSER = new com.google.protobuf.AbstractParser<Edition2023CTypeMessageExt>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            Edition2023CTypeMessageExt>() {
       @java.lang.Override
       public Edition2023CTypeMessageExt parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected Edition2023CTypeMessageExt parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 

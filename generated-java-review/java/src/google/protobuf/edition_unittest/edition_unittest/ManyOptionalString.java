@@ -2235,9 +2235,16 @@ private static final long serialVersionUID = 0L;
               edition_unittest.ManyOptionalString.class, edition_unittest.ManyOptionalString.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.ManyOptionalString.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
@@ -2307,6 +2314,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public edition_unittest.ManyOptionalString buildPartial() {
       edition_unittest.ManyOptionalString result = new edition_unittest.ManyOptionalString(this);
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private edition_unittest.ManyOptionalString buildPartial(edition_unittest.ManyOptionalString result) {
+      setUnknownFields(result, getUnknownFields());
       if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
       onBuilt();
       return result;
@@ -2817,6 +2831,420 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+
+    private static edition_unittest.ManyOptionalString parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        boolean hosted)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      edition_unittest.ManyOptionalString result = new edition_unittest.ManyOptionalString(null);
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+      int pendingTag = 0;
+      int bitField0_ = 0;
+      java.lang.Object str1_ = null;
+      java.lang.Object str2_ = null;
+      java.lang.Object str3_ = null;
+      java.lang.Object str4_ = null;
+      java.lang.Object str5_ = null;
+      java.lang.Object str6_ = null;
+      java.lang.Object str7_ = null;
+      java.lang.Object str8_ = null;
+      java.lang.Object str9_ = null;
+      java.lang.Object str10_ = null;
+      java.lang.Object str11_ = null;
+      java.lang.Object str12_ = null;
+      java.lang.Object str13_ = null;
+      java.lang.Object str14_ = null;
+      java.lang.Object str15_ = null;
+      java.lang.Object str16_ = null;
+      java.lang.Object str17_ = null;
+      java.lang.Object str18_ = null;
+      java.lang.Object str19_ = null;
+      java.lang.Object str20_ = null;
+      java.lang.Object str21_ = null;
+      java.lang.Object str22_ = null;
+      java.lang.Object str23_ = null;
+      java.lang.Object str24_ = null;
+      java.lang.Object str25_ = null;
+      java.lang.Object str26_ = null;
+      java.lang.Object str27_ = null;
+      java.lang.Object str28_ = null;
+      java.lang.Object str29_ = null;
+      java.lang.Object str30_ = null;
+      java.lang.Object str31_ = null;
+      java.lang.Object str32_ = null;
+      int tag = 0;
+      java.lang.Exception failure = null;
+      try {
+        boolean done = false;
+        while (!done && pendingTag == 0) {
+          tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              str1_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              str2_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 26: {
+              str3_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              str4_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            case 42: {
+              str5_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              str6_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 58: {
+              str7_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 58
+            case 66: {
+              str8_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 66
+            case 74: {
+              str9_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 74
+            case 82: {
+              str10_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 82
+            case 90: {
+              str11_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 90
+            case 98: {
+              str12_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 98
+            case 106: {
+              str13_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 106
+            case 114: {
+              str14_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 114
+            case 122: {
+              str15_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 122
+            case 130: {
+              str16_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 130
+            case 138: {
+              str17_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 138
+            case 146: {
+              str18_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 146
+            case 154: {
+              str19_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 154
+            case 162: {
+              str20_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 162
+            case 170: {
+              str21_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 170
+            case 178: {
+              str22_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00200000;
+              break;
+            } // case 178
+            case 186: {
+              str23_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00400000;
+              break;
+            } // case 186
+            case 194: {
+              str24_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00800000;
+              break;
+            } // case 194
+            case 202: {
+              str25_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x01000000;
+              break;
+            } // case 202
+            case 210: {
+              str26_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x02000000;
+              break;
+            } // case 210
+            case 218: {
+              str27_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x04000000;
+              break;
+            } // case 218
+            case 226: {
+              str28_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x08000000;
+              break;
+            } // case 226
+            case 234: {
+              str29_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x10000000;
+              break;
+            } // case 234
+            case 242: {
+              str30_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x20000000;
+              break;
+            } // case 242
+            case 250: {
+              str31_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x40000000;
+              break;
+            } // case 250
+            case 258: {
+              str32_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x80000000;
+              break;
+            } // case 258
+            default:
+              if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                  == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                done = true; // As in the Builder
+              } else {
+                unknownFields = mergeUnknownField(unknownFields, input, tag);
+              }
+              break;
+          }
+        }
+      } catch (java.lang.Exception e) {
+        failure = e;
+      }
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, str1_, str2_, str3_, str4_, str5_, str6_, str7_, str8_, str9_, str10_, str11_, str12_, str13_, str14_, str15_, str16_, str17_, str18_, str19_, str20_, str21_, str22_, str23_, str24_, str25_, str26_, str27_, str28_, str29_, str30_, str31_, str32_); }
+      if (unknownFields != null) {
+        setUnknownFields(result, unknownFields.build());
+      }
+      if (failure == null && (pendingTag == 0 || hosted)) {
+        return result;
+      }
+      Builder builder = new Builder();
+      builder.mergeFrom(result);
+      try {
+        if (failure != null) {
+          throw failure;
+        }
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (java.lang.Exception e) {
+        wrapAndThrowParseException(parser(), e, builder);
+      }
+      return builder.buildPartial(result);
+    }
+
+    private static void buildPartial_autosplit_0(
+        edition_unittest.ManyOptionalString result,
+        int bitField0_,
+        java.lang.Object str1_,
+        java.lang.Object str2_,
+        java.lang.Object str3_,
+        java.lang.Object str4_,
+        java.lang.Object str5_,
+        java.lang.Object str6_,
+        java.lang.Object str7_,
+        java.lang.Object str8_,
+        java.lang.Object str9_,
+        java.lang.Object str10_,
+        java.lang.Object str11_,
+        java.lang.Object str12_,
+        java.lang.Object str13_,
+        java.lang.Object str14_,
+        java.lang.Object str15_,
+        java.lang.Object str16_,
+        java.lang.Object str17_,
+        java.lang.Object str18_,
+        java.lang.Object str19_,
+        java.lang.Object str20_,
+        java.lang.Object str21_,
+        java.lang.Object str22_,
+        java.lang.Object str23_,
+        java.lang.Object str24_,
+        java.lang.Object str25_,
+        java.lang.Object str26_,
+        java.lang.Object str27_,
+        java.lang.Object str28_,
+        java.lang.Object str29_,
+        java.lang.Object str30_,
+        java.lang.Object str31_,
+        java.lang.Object str32_) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.str1_ = str1_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.str2_ = str2_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.str3_ = str3_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.str4_ = str4_;
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.str5_ = str5_;
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.str6_ = str6_;
+        to_bitField0_ |= 0x00000020;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.str7_ = str7_;
+        to_bitField0_ |= 0x00000040;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.str8_ = str8_;
+        to_bitField0_ |= 0x00000080;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.str9_ = str9_;
+        to_bitField0_ |= 0x00000100;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.str10_ = str10_;
+        to_bitField0_ |= 0x00000200;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.str11_ = str11_;
+        to_bitField0_ |= 0x00000400;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.str12_ = str12_;
+        to_bitField0_ |= 0x00000800;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.str13_ = str13_;
+        to_bitField0_ |= 0x00001000;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.str14_ = str14_;
+        to_bitField0_ |= 0x00002000;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.str15_ = str15_;
+        to_bitField0_ |= 0x00004000;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.str16_ = str16_;
+        to_bitField0_ |= 0x00008000;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.str17_ = str17_;
+        to_bitField0_ |= 0x00010000;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.str18_ = str18_;
+        to_bitField0_ |= 0x00020000;
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.str19_ = str19_;
+        to_bitField0_ |= 0x00040000;
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.str20_ = str20_;
+        to_bitField0_ |= 0x00080000;
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.str21_ = str21_;
+        to_bitField0_ |= 0x00100000;
+      }
+      if (((from_bitField0_ & 0x00200000) != 0)) {
+        result.str22_ = str22_;
+        to_bitField0_ |= 0x00200000;
+      }
+      if (((from_bitField0_ & 0x00400000) != 0)) {
+        result.str23_ = str23_;
+        to_bitField0_ |= 0x00400000;
+      }
+      if (((from_bitField0_ & 0x00800000) != 0)) {
+        result.str24_ = str24_;
+        to_bitField0_ |= 0x00800000;
+      }
+      if (((from_bitField0_ & 0x01000000) != 0)) {
+        result.str25_ = str25_;
+        to_bitField0_ |= 0x01000000;
+      }
+      if (((from_bitField0_ & 0x02000000) != 0)) {
+        result.str26_ = str26_;
+        to_bitField0_ |= 0x02000000;
+      }
+      if (((from_bitField0_ & 0x04000000) != 0)) {
+        result.str27_ = str27_;
+        to_bitField0_ |= 0x04000000;
+      }
+      if (((from_bitField0_ & 0x08000000) != 0)) {
+        result.str28_ = str28_;
+        to_bitField0_ |= 0x08000000;
+      }
+      if (((from_bitField0_ & 0x10000000) != 0)) {
+        result.str29_ = str29_;
+        to_bitField0_ |= 0x10000000;
+      }
+      if (((from_bitField0_ & 0x20000000) != 0)) {
+        result.str30_ = str30_;
+        to_bitField0_ |= 0x20000000;
+      }
+      if (((from_bitField0_ & 0x40000000) != 0)) {
+        result.str31_ = str31_;
+        to_bitField0_ |= 0x40000000;
+      }
+      if (((from_bitField0_ & 0x80000000) != 0)) {
+        result.str32_ = str32_;
+        to_bitField0_ |= 0x80000000;
+      }
+      result.bitField0_ |= to_bitField0_;
+    }
+
     private int bitField0_;
 
     private java.lang.Object str1_ = "";
@@ -5361,19 +5789,32 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<ManyOptionalString>
-      PARSER = new com.google.protobuf.AbstractParser<ManyOptionalString>() {
+      PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+          ManyOptionalString>() {
     @java.lang.Override
     public ManyOptionalString parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Builder.parsePartialFrom(input, extensionRegistry, false);
+    }
+
+    @java.lang.Override
+    protected ManyOptionalString parseAlternative(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return Builder.parsePartialFrom(input, extensionRegistry, true);
+    }
+
+    @java.lang.Override
+    protected void continueAlternative(
+        com.google.protobuf.Message.Builder builder,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws java.io.IOException {
+      ((Builder) builder).mergeFrom(input, extensionRegistry);
     }
   };
 

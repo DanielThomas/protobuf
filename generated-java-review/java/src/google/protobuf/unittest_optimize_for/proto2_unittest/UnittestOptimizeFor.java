@@ -412,9 +412,16 @@ public final class UnittestOptimizeFor extends com.google.protobuf.GeneratedFile
                 proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.class, proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.UnittestOptimizeFor.TestOptimizedForSize.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -1155,9 +1162,16 @@ public final class UnittestOptimizeFor extends com.google.protobuf.GeneratedFile
                 proto2_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize.class, proto2_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.UnittestOptimizeFor.TestRequiredOptimizedForSize.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -1507,9 +1521,16 @@ public final class UnittestOptimizeFor extends com.google.protobuf.GeneratedFile
                 proto2_unittest.UnittestOptimizeFor.TestOptionalOptimizedForSize.class, proto2_unittest.UnittestOptimizeFor.TestOptionalOptimizedForSize.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.UnittestOptimizeFor.TestOptionalOptimizedForSize.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(

@@ -1510,9 +1510,16 @@ com.google.protobuf.ByteString defaultValue) {
               com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.class, com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf_test_messages.edition_unstable.TestAllTypesEditionUnstable.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(

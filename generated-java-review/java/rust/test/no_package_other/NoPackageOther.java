@@ -331,9 +331,16 @@ public final class NoPackageOther extends com.google.protobuf.GeneratedFile {
                 NoPackageOther.OtherMsgWithoutPackage.class, NoPackageOther.OtherMsgWithoutPackage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using NoPackageOther.OtherMsgWithoutPackage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -370,6 +377,12 @@ public final class NoPackageOther extends com.google.protobuf.GeneratedFile {
       @java.lang.Override
       public NoPackageOther.OtherMsgWithoutPackage buildPartial() {
         NoPackageOther.OtherMsgWithoutPackage result = new NoPackageOther.OtherMsgWithoutPackage(this);
+        onBuilt();
+        return result;
+      }
+
+      private NoPackageOther.OtherMsgWithoutPackage buildPartial(NoPackageOther.OtherMsgWithoutPackage result) {
+        setUnknownFields(result, getUnknownFields());
         onBuilt();
         return result;
       }
@@ -426,6 +439,58 @@ public final class NoPackageOther extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
+      private static NoPackageOther.OtherMsgWithoutPackage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        NoPackageOther.OtherMsgWithoutPackage result = new NoPackageOther.OtherMsgWithoutPackage(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+
       // @@protoc_insertion_point(builder_scope:OtherMsgWithoutPackage)
     }
 
@@ -440,19 +505,32 @@ public final class NoPackageOther extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<OtherMsgWithoutPackage>
-        PARSER = new com.google.protobuf.AbstractParser<OtherMsgWithoutPackage>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            OtherMsgWithoutPackage>() {
       @java.lang.Override
       public OtherMsgWithoutPackage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected OtherMsgWithoutPackage parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 

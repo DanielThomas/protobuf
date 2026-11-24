@@ -405,9 +405,16 @@ public final class Proto3PackedOuterClass extends com.google.protobuf.GeneratedF
                   protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed.SubMessage.class, protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed.SubMessage.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed.SubMessage.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
@@ -446,6 +453,13 @@ public final class Proto3PackedOuterClass extends com.google.protobuf.GeneratedF
         @java.lang.Override
         public protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed.SubMessage buildPartial() {
           protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed.SubMessage result = new protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed.SubMessage(this);
+          if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed.SubMessage buildPartial(protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed.SubMessage result) {
+          setUnknownFields(result, getUnknownFields());
           if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
           onBuilt();
           return result;
@@ -520,6 +534,79 @@ public final class Proto3PackedOuterClass extends com.google.protobuf.GeneratedF
           } // finally
           return this;
         }
+
+        private static protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed.SubMessage parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+            boolean hosted)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          java.util.Objects.requireNonNull(extensionRegistry);
+          protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed.SubMessage result = new protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed.SubMessage(null);
+          com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+          int pendingTag = 0;
+          int bitField0_ = 0;
+          int int32Field_ = 0;
+          int tag = 0;
+          java.lang.Exception failure = null;
+          try {
+            boolean done = false;
+            while (!done && pendingTag == 0) {
+              tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  int32Field_ = input.readInt32();
+                  bitField0_ |= 0x00000001;
+                  break;
+                } // case 8
+                default:
+                  if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                      == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                    done = true; // As in the Builder
+                  } else {
+                    unknownFields = mergeUnknownField(unknownFields, input, tag);
+                  }
+                  break;
+              }
+            }
+          } catch (java.lang.Exception e) {
+            failure = e;
+          }
+          if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, int32Field_); }
+          if (unknownFields != null) {
+            setUnknownFields(result, unknownFields.build());
+          }
+          if (failure == null && (pendingTag == 0 || hosted)) {
+            return result;
+          }
+          Builder builder = new Builder();
+          builder.mergeFrom(result);
+          try {
+            if (failure != null) {
+              throw failure;
+            }
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (java.lang.Exception e) {
+            wrapAndThrowParseException(parser(), e, builder);
+          }
+          return builder.buildPartial(result);
+        }
+
+        private static void buildPartial_autosplit_0(
+            protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed.SubMessage result,
+            int bitField0_,
+            int int32Field_) {
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.int32Field_ = int32Field_;
+            
+          }
+          result.bitField0_ |= to_bitField0_;
+        }
+
         private int bitField0_;
 
         private int int32Field_ ;
@@ -568,19 +655,32 @@ public final class Proto3PackedOuterClass extends com.google.protobuf.GeneratedF
       }
 
       private static final com.google.protobuf.Parser<SubMessage>
-          PARSER = new com.google.protobuf.AbstractParser<SubMessage>() {
+          PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+              SubMessage>() {
         @java.lang.Override
         public SubMessage parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return Builder.parsePartialFrom(input, extensionRegistry, false);
+        }
+
+        @java.lang.Override
+        protected SubMessage parseAlternative(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return Builder.parsePartialFrom(input, extensionRegistry, true);
+        }
+
+        @java.lang.Override
+        protected void continueAlternative(
+            com.google.protobuf.Message.Builder builder,
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+            int pendingTag)
+            throws java.io.IOException {
+          ((Builder) builder).mergeFrom(input, extensionRegistry);
         }
       };
 
@@ -1007,9 +1107,16 @@ public final class Proto3PackedOuterClass extends com.google.protobuf.GeneratedF
                 protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed.class, protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -1058,6 +1165,13 @@ public final class Proto3PackedOuterClass extends com.google.protobuf.GeneratedF
       @java.lang.Override
       public protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed buildPartial() {
         protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed result = new protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed(this);
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed buildPartial(protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed result) {
+        setUnknownFields(result, getUnknownFields());
         if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
         onBuilt();
         return result;
@@ -1253,6 +1367,155 @@ public final class Proto3PackedOuterClass extends com.google.protobuf.GeneratedF
         } // finally
         return this;
       }
+
+      private static protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed result = new protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int bitField0_ = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                int v = input.readInt32();
+                bitField0_ = ensureInt32FieldIsMutable(bitField0_, result, /* capacity= */ -1);
+                result.int32Field_.addInt(v);
+                break;
+              } // case 8
+              case 10: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField0_ = ensureInt32FieldIsMutable(bitField0_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.int32Field_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 10
+              case 18: {
+                bitField0_ = ensureStringFieldIsMutable(bitField0_, result);
+                result.stringField_.add(input.readStringRequireUtf8());
+                break;
+              } // case 18
+              case 26: {
+                final int oldLimit = input.pushLimitBeforeMessage();
+                protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed.SubMessage m = protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed.SubMessage.parser().parsePartialFrom(input, extensionRegistry);
+                input.popLimitAfterMessage(oldLimit);
+                bitField0_ = ensureSubMessageFieldIsMutable(bitField0_, result);
+                result.subMessageField_.add(m);
+                break;
+              } // case 26
+              case 32: {
+                int v = input.readInt32();
+                bitField0_ = ensureExplicitlyPackedIsMutable(bitField0_, result, /* capacity= */ -1);
+                result.explicitlyPacked_.addInt(v);
+                break;
+              } // case 32
+              case 34: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField0_ = ensureExplicitlyPackedIsMutable(bitField0_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.explicitlyPacked_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 34
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_); }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+      private static void buildPartial_autosplit_0(
+          protobuf_editions_test.proto3.Proto3PackedOuterClass.Proto3Packed result,
+          int bitField0_) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.int32Field_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.stringField_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.subMessageField_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.explicitlyPacked_.makeImmutable();
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      private static int ensureInt32FieldIsMutable(int bitField0_, Proto3Packed result, int capacity) {
+        if (!result.int32Field_.isModifiable()) {
+          result.int32Field_ = makeMutableCopy(result.int32Field_, capacity);
+        }
+        bitField0_ |= 0x00000001;
+        return bitField0_;
+}
+      private static int ensureStringFieldIsMutable(int bitField0_, Proto3Packed result) {
+        if (!result.stringField_.isModifiable()) {
+          result.stringField_ = new com.google.protobuf.LazyStringArrayList(result.stringField_);
+        }
+        bitField0_ |= 0x00000002;
+        return bitField0_;
+}
+      private static int ensureSubMessageFieldIsMutable(int bitField0_, Proto3Packed result) {
+        if (!result.subMessageField_.isModifiable()) {
+          result.subMessageField_ = makeMutableCopy(result.subMessageField_);
+        }
+        bitField0_ |= 0x00000004;
+        return bitField0_;
+}
+      private static int ensureExplicitlyPackedIsMutable(int bitField0_, Proto3Packed result, int capacity) {
+        if (!result.explicitlyPacked_.isModifiable()) {
+          result.explicitlyPacked_ = makeMutableCopy(result.explicitlyPacked_, capacity);
+        }
+        bitField0_ |= 0x00000008;
+        return bitField0_;
+}
       private int bitField0_;
 
       private com.google.protobuf.Internal.IntList int32Field_ = emptyIntList();
@@ -1782,19 +2045,32 @@ public final class Proto3PackedOuterClass extends com.google.protobuf.GeneratedF
     }
 
     private static final com.google.protobuf.Parser<Proto3Packed>
-        PARSER = new com.google.protobuf.AbstractParser<Proto3Packed>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            Proto3Packed>() {
       @java.lang.Override
       public Proto3Packed parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected Proto3Packed parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 

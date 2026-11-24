@@ -305,9 +305,16 @@ public final class RubyGeneratedPkgExplicitLegacy extends com.google.protobuf.Ge
                 one.two.a_three.and.RubyGeneratedPkgExplicitLegacy.Four.class, one.two.a_three.and.RubyGeneratedPkgExplicitLegacy.Four.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using one.two.a_three.and.RubyGeneratedPkgExplicitLegacy.Four.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -346,6 +353,13 @@ public final class RubyGeneratedPkgExplicitLegacy extends com.google.protobuf.Ge
       @java.lang.Override
       public one.two.a_three.and.RubyGeneratedPkgExplicitLegacy.Four buildPartial() {
         one.two.a_three.and.RubyGeneratedPkgExplicitLegacy.Four result = new one.two.a_three.and.RubyGeneratedPkgExplicitLegacy.Four(this);
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private one.two.a_three.and.RubyGeneratedPkgExplicitLegacy.Four buildPartial(one.two.a_three.and.RubyGeneratedPkgExplicitLegacy.Four result) {
+        setUnknownFields(result, getUnknownFields());
         if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
         onBuilt();
         return result;
@@ -422,6 +436,79 @@ public final class RubyGeneratedPkgExplicitLegacy extends com.google.protobuf.Ge
         } // finally
         return this;
       }
+
+      private static one.two.a_three.and.RubyGeneratedPkgExplicitLegacy.Four parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        one.two.a_three.and.RubyGeneratedPkgExplicitLegacy.Four result = new one.two.a_three.and.RubyGeneratedPkgExplicitLegacy.Four(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int bitField0_ = 0;
+        java.lang.Object anotherString_ = null;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                anotherString_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 10
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, anotherString_); }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+      private static void buildPartial_autosplit_0(
+          one.two.a_three.and.RubyGeneratedPkgExplicitLegacy.Four result,
+          int bitField0_,
+          java.lang.Object anotherString_) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.anotherString_ = anotherString_;
+          ;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
       private int bitField0_;
 
       private java.lang.Object anotherString_ = "";
@@ -510,19 +597,32 @@ public final class RubyGeneratedPkgExplicitLegacy extends com.google.protobuf.Ge
     }
 
     private static final com.google.protobuf.Parser<Four>
-        PARSER = new com.google.protobuf.AbstractParser<Four>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            Four>() {
       @java.lang.Override
       public Four parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected Four parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 

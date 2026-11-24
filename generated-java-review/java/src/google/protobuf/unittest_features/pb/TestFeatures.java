@@ -1075,9 +1075,16 @@ private static final long serialVersionUID = 0L;
               pb.TestFeatures.class, pb.TestFeatures.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using pb.TestFeatures.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
@@ -1136,6 +1143,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public pb.TestFeatures buildPartial() {
       pb.TestFeatures result = new pb.TestFeatures(this);
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private pb.TestFeatures buildPartial(pb.TestFeatures result) {
+      setUnknownFields(result, getUnknownFields());
       if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
       onBuilt();
       return result;
@@ -1450,6 +1464,299 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+
+    private static pb.TestFeatures parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        boolean hosted)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      pb.TestFeatures result = new pb.TestFeatures(null);
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+      int pendingTag = 0;
+      int bitField0_ = 0;
+      int fileFeature_ = 0;
+      int extensionRangeFeature_ = 0;
+      int messageFeature_ = 0;
+      int fieldFeature_ = 0;
+      int oneofFeature_ = 0;
+      int enumFeature_ = 0;
+      int enumEntryFeature_ = 0;
+      int serviceFeature_ = 0;
+      int methodFeature_ = 0;
+      int multipleFeature_ = 0;
+      boolean boolFieldFeature_ = false;
+      int sourceFeature_ = 0;
+      int sourceFeature2_ = 0;
+      int removedFeature_ = 0;
+      int sameEditionRemovedFeature_ = 0;
+      int futureFeature_ = 0;
+      int legacyFeature_ = 0;
+      int valueLifetimeFeature_ = 0;
+      int newUnstableFeature_ = 0;
+      int unstableExistingFeature_ = 0;
+      int removedUnstableFeature_ = 0;
+      int tag = 0;
+      java.lang.Exception failure = null;
+      try {
+        boolean done = false;
+        while (!done && pendingTag == 0) {
+          tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              fileFeature_ = input.readEnum();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              extensionRangeFeature_ = input.readEnum();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              messageFeature_ = input.readEnum();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              fieldFeature_ = input.readEnum();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              oneofFeature_ = input.readEnum();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              enumFeature_ = input.readEnum();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              enumEntryFeature_ = input.readEnum();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              serviceFeature_ = input.readEnum();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 72: {
+              methodFeature_ = input.readEnum();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 80: {
+              multipleFeature_ = input.readEnum();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 88: {
+              boolFieldFeature_ = input.readBool();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 120: {
+              sourceFeature_ = input.readEnum();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 120
+            case 128: {
+              sourceFeature2_ = input.readEnum();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 128
+            case 136: {
+              removedFeature_ = input.readEnum();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 136
+            case 144: {
+              futureFeature_ = input.readEnum();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 144
+            case 152: {
+              legacyFeature_ = input.readEnum();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 152
+            case 160: {
+              valueLifetimeFeature_ = input.readEnum();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 160
+            case 168: {
+              sameEditionRemovedFeature_ = input.readEnum();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 168
+            case 176: {
+              newUnstableFeature_ = input.readEnum();
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 176
+            case 184: {
+              unstableExistingFeature_ = input.readEnum();
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 184
+            case 192: {
+              removedUnstableFeature_ = input.readEnum();
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 192
+            default:
+              if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                  == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                done = true; // As in the Builder
+              } else {
+                unknownFields = mergeUnknownField(unknownFields, input, tag);
+              }
+              break;
+          }
+        }
+      } catch (java.lang.Exception e) {
+        failure = e;
+      }
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, fileFeature_, extensionRangeFeature_, messageFeature_, fieldFeature_, oneofFeature_, enumFeature_, enumEntryFeature_, serviceFeature_, methodFeature_, multipleFeature_, boolFieldFeature_, sourceFeature_, sourceFeature2_, removedFeature_, sameEditionRemovedFeature_, futureFeature_, legacyFeature_, valueLifetimeFeature_, newUnstableFeature_, unstableExistingFeature_, removedUnstableFeature_); }
+      if (unknownFields != null) {
+        setUnknownFields(result, unknownFields.build());
+      }
+      if (failure == null && (pendingTag == 0 || hosted)) {
+        return result;
+      }
+      Builder builder = new Builder();
+      builder.mergeFrom(result);
+      try {
+        if (failure != null) {
+          throw failure;
+        }
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (java.lang.Exception e) {
+        wrapAndThrowParseException(parser(), e, builder);
+      }
+      return builder.buildPartial(result);
+    }
+
+    private static void buildPartial_autosplit_0(
+        pb.TestFeatures result,
+        int bitField0_,
+        int fileFeature_,
+        int extensionRangeFeature_,
+        int messageFeature_,
+        int fieldFeature_,
+        int oneofFeature_,
+        int enumFeature_,
+        int enumEntryFeature_,
+        int serviceFeature_,
+        int methodFeature_,
+        int multipleFeature_,
+        boolean boolFieldFeature_,
+        int sourceFeature_,
+        int sourceFeature2_,
+        int removedFeature_,
+        int sameEditionRemovedFeature_,
+        int futureFeature_,
+        int legacyFeature_,
+        int valueLifetimeFeature_,
+        int newUnstableFeature_,
+        int unstableExistingFeature_,
+        int removedUnstableFeature_) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.fileFeature_ = fileFeature_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.extensionRangeFeature_ = extensionRangeFeature_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.messageFeature_ = messageFeature_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.fieldFeature_ = fieldFeature_;
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.oneofFeature_ = oneofFeature_;
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.enumFeature_ = enumFeature_;
+        to_bitField0_ |= 0x00000020;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.enumEntryFeature_ = enumEntryFeature_;
+        to_bitField0_ |= 0x00000040;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.serviceFeature_ = serviceFeature_;
+        to_bitField0_ |= 0x00000080;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.methodFeature_ = methodFeature_;
+        to_bitField0_ |= 0x00000100;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.multipleFeature_ = multipleFeature_;
+        to_bitField0_ |= 0x00000200;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.boolFieldFeature_ = boolFieldFeature_;
+        to_bitField0_ |= 0x00000400;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.sourceFeature_ = sourceFeature_;
+        to_bitField0_ |= 0x00000800;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.sourceFeature2_ = sourceFeature2_;
+        to_bitField0_ |= 0x00001000;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.removedFeature_ = removedFeature_;
+        to_bitField0_ |= 0x00002000;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.sameEditionRemovedFeature_ = sameEditionRemovedFeature_;
+        to_bitField0_ |= 0x00004000;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.futureFeature_ = futureFeature_;
+        to_bitField0_ |= 0x00008000;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.legacyFeature_ = legacyFeature_;
+        to_bitField0_ |= 0x00010000;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.valueLifetimeFeature_ = valueLifetimeFeature_;
+        to_bitField0_ |= 0x00020000;
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.newUnstableFeature_ = newUnstableFeature_;
+        to_bitField0_ |= 0x00040000;
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.unstableExistingFeature_ = unstableExistingFeature_;
+        to_bitField0_ |= 0x00080000;
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.removedUnstableFeature_ = removedUnstableFeature_;
+        to_bitField0_ |= 0x00100000;
+      }
+      result.bitField0_ |= to_bitField0_;
+    }
+
     private int bitField0_;
 
     private int fileFeature_ = 0;
@@ -2686,19 +2993,32 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestFeatures>
-      PARSER = new com.google.protobuf.AbstractParser<TestFeatures>() {
+      PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+          TestFeatures>() {
     @java.lang.Override
     public TestFeatures parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Builder.parsePartialFrom(input, extensionRegistry, false);
+    }
+
+    @java.lang.Override
+    protected TestFeatures parseAlternative(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return Builder.parsePartialFrom(input, extensionRegistry, true);
+    }
+
+    @java.lang.Override
+    protected void continueAlternative(
+        com.google.protobuf.Message.Builder builder,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws java.io.IOException {
+      ((Builder) builder).mergeFrom(input, extensionRegistry);
     }
   };
 

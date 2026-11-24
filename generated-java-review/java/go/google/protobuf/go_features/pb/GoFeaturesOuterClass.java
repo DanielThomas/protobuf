@@ -757,9 +757,16 @@ public final class GoFeaturesOuterClass extends com.google.protobuf.GeneratedFil
                   pb.GoFeaturesOuterClass.GoFeatures.OptimizeModeFeature.class, pb.GoFeaturesOuterClass.GoFeatures.OptimizeModeFeature.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using pb.GoFeaturesOuterClass.GoFeatures.OptimizeModeFeature.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
@@ -796,6 +803,12 @@ public final class GoFeaturesOuterClass extends com.google.protobuf.GeneratedFil
         @java.lang.Override
         public pb.GoFeaturesOuterClass.GoFeatures.OptimizeModeFeature buildPartial() {
           pb.GoFeaturesOuterClass.GoFeatures.OptimizeModeFeature result = new pb.GoFeaturesOuterClass.GoFeatures.OptimizeModeFeature(this);
+          onBuilt();
+          return result;
+        }
+
+        private pb.GoFeaturesOuterClass.GoFeatures.OptimizeModeFeature buildPartial(pb.GoFeaturesOuterClass.GoFeatures.OptimizeModeFeature result) {
+          setUnknownFields(result, getUnknownFields());
           onBuilt();
           return result;
         }
@@ -852,6 +865,58 @@ public final class GoFeaturesOuterClass extends com.google.protobuf.GeneratedFil
           return this;
         }
 
+        private static pb.GoFeaturesOuterClass.GoFeatures.OptimizeModeFeature parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+            boolean hosted)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          java.util.Objects.requireNonNull(extensionRegistry);
+          pb.GoFeaturesOuterClass.GoFeatures.OptimizeModeFeature result = new pb.GoFeaturesOuterClass.GoFeatures.OptimizeModeFeature(null);
+          com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+          int pendingTag = 0;
+          int tag = 0;
+          java.lang.Exception failure = null;
+          try {
+            boolean done = false;
+            while (!done && pendingTag == 0) {
+              tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default:
+                  if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                      == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                    done = true; // As in the Builder
+                  } else {
+                    unknownFields = mergeUnknownField(unknownFields, input, tag);
+                  }
+                  break;
+              }
+            }
+          } catch (java.lang.Exception e) {
+            failure = e;
+          }
+          if (unknownFields != null) {
+            setUnknownFields(result, unknownFields.build());
+          }
+          if (failure == null && (pendingTag == 0 || hosted)) {
+            return result;
+          }
+          Builder builder = new Builder();
+          builder.mergeFrom(result);
+          try {
+            if (failure != null) {
+              throw failure;
+            }
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (java.lang.Exception e) {
+            wrapAndThrowParseException(parser(), e, builder);
+          }
+          return builder.buildPartial(result);
+        }
+
+
         // @@protoc_insertion_point(builder_scope:pb.GoFeatures.OptimizeModeFeature)
       }
 
@@ -866,19 +931,32 @@ public final class GoFeaturesOuterClass extends com.google.protobuf.GeneratedFil
       }
 
       private static final com.google.protobuf.Parser<OptimizeModeFeature>
-          PARSER = new com.google.protobuf.AbstractParser<OptimizeModeFeature>() {
+          PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+              OptimizeModeFeature>() {
         @java.lang.Override
         public OptimizeModeFeature parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return Builder.parsePartialFrom(input, extensionRegistry, false);
+        }
+
+        @java.lang.Override
+        protected OptimizeModeFeature parseAlternative(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return Builder.parsePartialFrom(input, extensionRegistry, true);
+        }
+
+        @java.lang.Override
+        protected void continueAlternative(
+            com.google.protobuf.Message.Builder builder,
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+            int pendingTag)
+            throws java.io.IOException {
+          ((Builder) builder).mergeFrom(input, extensionRegistry);
         }
       };
 
@@ -1222,9 +1300,16 @@ public final class GoFeaturesOuterClass extends com.google.protobuf.GeneratedFil
                 pb.GoFeaturesOuterClass.GoFeatures.class, pb.GoFeaturesOuterClass.GoFeatures.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using pb.GoFeaturesOuterClass.GoFeatures.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -1266,6 +1351,13 @@ public final class GoFeaturesOuterClass extends com.google.protobuf.GeneratedFil
       @java.lang.Override
       public pb.GoFeaturesOuterClass.GoFeatures buildPartial() {
         pb.GoFeaturesOuterClass.GoFeatures result = new pb.GoFeaturesOuterClass.GoFeatures(this);
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private pb.GoFeaturesOuterClass.GoFeatures buildPartial(pb.GoFeaturesOuterClass.GoFeatures result) {
+        setUnknownFields(result, getUnknownFields());
         if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
         onBuilt();
         return result;
@@ -1397,6 +1489,133 @@ public final class GoFeaturesOuterClass extends com.google.protobuf.GeneratedFil
         } // finally
         return this;
       }
+
+      private static pb.GoFeaturesOuterClass.GoFeatures parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        pb.GoFeaturesOuterClass.GoFeatures result = new pb.GoFeaturesOuterClass.GoFeatures(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int bitField0_ = 0;
+        boolean legacyUnmarshalJsonEnum_ = false;
+        int apiLevel_ = 0;
+        int stripEnumPrefix_ = 0;
+        int optimizeMode_ = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                legacyUnmarshalJsonEnum_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                int tmpRaw = input.readEnum();
+                pb.GoFeaturesOuterClass.GoFeatures.APILevel tmpValue =
+                    pb.GoFeaturesOuterClass.GoFeatures.APILevel.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknownFields = mergeUnknownVarintField(unknownFields, 2, tmpRaw);
+                } else {
+                  apiLevel_ = tmpRaw;
+                  bitField0_ |= 0x00000002;
+                }
+                break;
+              } // case 16
+              case 24: {
+                int tmpRaw = input.readEnum();
+                pb.GoFeaturesOuterClass.GoFeatures.StripEnumPrefix tmpValue =
+                    pb.GoFeaturesOuterClass.GoFeatures.StripEnumPrefix.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknownFields = mergeUnknownVarintField(unknownFields, 3, tmpRaw);
+                } else {
+                  stripEnumPrefix_ = tmpRaw;
+                  bitField0_ |= 0x00000004;
+                }
+                break;
+              } // case 24
+              case 32: {
+                int tmpRaw = input.readEnum();
+                pb.GoFeaturesOuterClass.GoFeatures.OptimizeModeFeature.OptimizeMode tmpValue =
+                    pb.GoFeaturesOuterClass.GoFeatures.OptimizeModeFeature.OptimizeMode.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknownFields = mergeUnknownVarintField(unknownFields, 4, tmpRaw);
+                } else {
+                  optimizeMode_ = tmpRaw;
+                  bitField0_ |= 0x00000008;
+                }
+                break;
+              } // case 32
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, legacyUnmarshalJsonEnum_, apiLevel_, stripEnumPrefix_, optimizeMode_); }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+      private static void buildPartial_autosplit_0(
+          pb.GoFeaturesOuterClass.GoFeatures result,
+          int bitField0_,
+          boolean legacyUnmarshalJsonEnum_,
+          int apiLevel_,
+          int stripEnumPrefix_,
+          int optimizeMode_) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.legacyUnmarshalJsonEnum_ = legacyUnmarshalJsonEnum_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.apiLevel_ = apiLevel_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.stripEnumPrefix_ = stripEnumPrefix_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.optimizeMode_ = optimizeMode_;
+          to_bitField0_ |= 0x00000008;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
       private int bitField0_;
 
       private boolean legacyUnmarshalJsonEnum_ ;
@@ -1609,19 +1828,32 @@ public final class GoFeaturesOuterClass extends com.google.protobuf.GeneratedFil
     }
 
     private static final com.google.protobuf.Parser<GoFeatures>
-        PARSER = new com.google.protobuf.AbstractParser<GoFeatures>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            GoFeatures>() {
       @java.lang.Override
       public GoFeatures parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected GoFeatures parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 

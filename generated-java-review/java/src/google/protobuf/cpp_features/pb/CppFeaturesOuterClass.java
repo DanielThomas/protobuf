@@ -713,9 +713,16 @@ public final class CppFeaturesOuterClass extends com.google.protobuf.GeneratedFi
                 pb.CppFeaturesOuterClass.CppFeatures.class, pb.CppFeaturesOuterClass.CppFeatures.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using pb.CppFeaturesOuterClass.CppFeatures.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -757,6 +764,13 @@ public final class CppFeaturesOuterClass extends com.google.protobuf.GeneratedFi
       @java.lang.Override
       public pb.CppFeaturesOuterClass.CppFeatures buildPartial() {
         pb.CppFeaturesOuterClass.CppFeatures result = new pb.CppFeaturesOuterClass.CppFeatures(this);
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private pb.CppFeaturesOuterClass.CppFeatures buildPartial(pb.CppFeaturesOuterClass.CppFeatures result) {
+        setUnknownFields(result, getUnknownFields());
         if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
         onBuilt();
         return result;
@@ -881,6 +895,126 @@ public final class CppFeaturesOuterClass extends com.google.protobuf.GeneratedFi
         } // finally
         return this;
       }
+
+      private static pb.CppFeaturesOuterClass.CppFeatures parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        pb.CppFeaturesOuterClass.CppFeatures result = new pb.CppFeaturesOuterClass.CppFeatures(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int bitField0_ = 0;
+        boolean legacyClosedEnum_ = false;
+        int stringType_ = 0;
+        boolean enumNameUsesStringView_ = false;
+        int repeatedType_ = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                legacyClosedEnum_ = input.readBool();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                int tmpRaw = input.readEnum();
+                pb.CppFeaturesOuterClass.CppFeatures.StringType tmpValue =
+                    pb.CppFeaturesOuterClass.CppFeatures.StringType.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknownFields = mergeUnknownVarintField(unknownFields, 2, tmpRaw);
+                } else {
+                  stringType_ = tmpRaw;
+                  bitField0_ |= 0x00000002;
+                }
+                break;
+              } // case 16
+              case 24: {
+                enumNameUsesStringView_ = input.readBool();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                int tmpRaw = input.readEnum();
+                pb.CppFeaturesOuterClass.CppFeatures.RepeatedType tmpValue =
+                    pb.CppFeaturesOuterClass.CppFeatures.RepeatedType.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknownFields = mergeUnknownVarintField(unknownFields, 4, tmpRaw);
+                } else {
+                  repeatedType_ = tmpRaw;
+                  bitField0_ |= 0x00000008;
+                }
+                break;
+              } // case 32
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, legacyClosedEnum_, stringType_, enumNameUsesStringView_, repeatedType_); }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+      private static void buildPartial_autosplit_0(
+          pb.CppFeaturesOuterClass.CppFeatures result,
+          int bitField0_,
+          boolean legacyClosedEnum_,
+          int stringType_,
+          boolean enumNameUsesStringView_,
+          int repeatedType_) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.legacyClosedEnum_ = legacyClosedEnum_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.stringType_ = stringType_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.enumNameUsesStringView_ = enumNameUsesStringView_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.repeatedType_ = repeatedType_;
+          to_bitField0_ |= 0x00000008;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
       private int bitField0_;
 
       private boolean legacyClosedEnum_ ;
@@ -1085,19 +1219,32 @@ public final class CppFeaturesOuterClass extends com.google.protobuf.GeneratedFi
     }
 
     private static final com.google.protobuf.Parser<CppFeatures>
-        PARSER = new com.google.protobuf.AbstractParser<CppFeatures>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            CppFeatures>() {
       @java.lang.Override
       public CppFeatures parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected CppFeatures parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 

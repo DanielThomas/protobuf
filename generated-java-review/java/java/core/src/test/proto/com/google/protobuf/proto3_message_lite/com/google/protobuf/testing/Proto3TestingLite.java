@@ -4137,9 +4137,16 @@ public final class Proto3TestingLite extends com.google.protobuf.GeneratedFile {
                 com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite.class, com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -4250,6 +4257,14 @@ public final class Proto3TestingLite extends com.google.protobuf.GeneratedFile {
       @java.lang.Override
       public com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite buildPartial() {
         com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite result = new com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite(this);
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+        if (bitField1_ != 0) { buildPartial_autosplit_1(result); }
+        onBuilt();
+        return result;
+      }
+
+      private com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite buildPartial(com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite result) {
+        setUnknownFields(result, getUnknownFields());
         if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
         if (bitField1_ != 0) { buildPartial_autosplit_1(result); }
         onBuilt();
@@ -5675,6 +5690,1455 @@ public final class Proto3TestingLite extends com.google.protobuf.GeneratedFile {
         } // finally
         return this;
       }
+
+      private Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        try {
+          switch (pendingTag) {
+            case 82: {
+              parseFieldMessage10Field(input, extensionRegistry);
+              break;
+            } // case 82
+            case 425: {
+              parseFieldDouble53(input);
+              break;
+            } // case 425
+            case 437: {
+              parseFieldFloat54(input);
+              break;
+            } // case 437
+            case 440: {
+              parseFieldInt6455(input);
+              break;
+            } // case 440
+            case 448: {
+              parseFieldUint6456(input);
+              break;
+            } // case 448
+            case 456: {
+              parseFieldInt3257(input);
+              break;
+            } // case 456
+            case 465: {
+              parseFieldFixed6458(input);
+              break;
+            } // case 465
+            case 477: {
+              parseFieldFixed3259(input);
+              break;
+            } // case 477
+            case 480: {
+              parseFieldBool60(input);
+              break;
+            } // case 480
+            case 490: {
+              parseFieldString61(input);
+              break;
+            } // case 490
+            case 498: {
+              parseFieldMessage62(input, extensionRegistry);
+              break;
+            } // case 498
+            case 506: {
+              parseFieldBytes63(input);
+              break;
+            } // case 506
+            case 512: {
+              parseFieldUint3264(input);
+              break;
+            } // case 512
+            case 525: {
+              parseFieldSfixed3265(input);
+              break;
+            } // case 525
+            case 529: {
+              parseFieldSfixed6466(input);
+              break;
+            } // case 529
+            case 536: {
+              parseFieldSint3267(input);
+              break;
+            } // case 536
+            case 544: {
+              parseFieldSint6468(input);
+              break;
+            } // case 544
+          }
+        } finally {
+          onChanged();
+        }
+        return mergeFrom(input, extensionRegistry);
+      }
+
+      private static com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        if (alwaysUseFieldBuilders()) {
+          Builder builder = new Builder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (java.lang.Exception e) {
+            wrapAndThrowParseException(parser(), e, builder);
+          }
+          return builder.buildPartial();
+        }
+        com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite result = new com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int bitField0_ = 0;
+        int bitField1_ = 0;
+        double fieldDouble1_ = 0;
+        float fieldFloat2_ = 0;
+        long fieldInt643_ = 0;
+        long fieldUint644_ = 0;
+        int fieldInt325_ = 0;
+        long fieldFixed646_ = 0;
+        int fieldFixed327_ = 0;
+        boolean fieldBool8_ = false;
+        java.lang.Object fieldString9_ = null;
+        com.google.protobuf.ByteString fieldBytes11_ = null;
+        int fieldUint3212_ = 0;
+        int fieldEnum13_ = 0;
+        int fieldSfixed3214_ = 0;
+        long fieldSfixed6415_ = 0;
+        int fieldSint3216_ = 0;
+        long fieldSint6417_ = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 9: {
+                fieldDouble1_ = input.readDouble();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 9
+              case 21: {
+                fieldFloat2_ = input.readFloat();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 21
+              case 24: {
+                fieldInt643_ = input.readInt64();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 24
+              case 32: {
+                fieldUint644_ = input.readUInt64();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 32
+              case 40: {
+                fieldInt325_ = input.readInt32();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 40
+              case 49: {
+                fieldFixed646_ = input.readFixed64();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 49
+              case 61: {
+                fieldFixed327_ = input.readFixed32();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 61
+              case 64: {
+                fieldBool8_ = input.readBool();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 64
+              case 74: {
+                fieldString9_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000200;
+                break;
+              } // case 74
+              case 82: {
+                pendingTag = parseFieldMessage10Field(result, input, extensionRegistry);
+                break;
+              } // case 82
+              case 90: {
+                fieldBytes11_ = input.readBytes();
+                bitField0_ |= 0x00000400;
+                break;
+              } // case 90
+              case 96: {
+                fieldUint3212_ = input.readUInt32();
+                bitField0_ |= 0x00000800;
+                break;
+              } // case 96
+              case 104: {
+                fieldEnum13_ = input.readEnum();
+                bitField0_ |= 0x00001000;
+                break;
+              } // case 104
+              case 117: {
+                fieldSfixed3214_ = input.readSFixed32();
+                bitField0_ |= 0x00002000;
+                break;
+              } // case 117
+              case 121: {
+                fieldSfixed6415_ = input.readSFixed64();
+                bitField0_ |= 0x00004000;
+                break;
+              } // case 121
+              case 128: {
+                fieldSint3216_ = input.readSInt32();
+                bitField0_ |= 0x00008000;
+                break;
+              } // case 128
+              case 136: {
+                fieldSint6417_ = input.readSInt64();
+                bitField0_ |= 0x00010000;
+                break;
+              } // case 136
+              case 145: {
+                double v = input.readDouble();
+                bitField0_ = ensureFieldDoubleList18IsMutable(bitField0_, result, /* capacity= */ -1);
+                result.fieldDoubleList18_.addDouble(v);
+                break;
+              } // case 145
+              case 146: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                bitField0_ = ensureFieldDoubleList18IsMutable(bitField0_, result, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldDoubleList18_.addDouble(input.readDouble());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 146
+              case 157: {
+                float v = input.readFloat();
+                bitField0_ = ensureFieldFloatList19IsMutable(bitField0_, result, /* capacity= */ -1);
+                result.fieldFloatList19_.addFloat(v);
+                break;
+              } // case 157
+              case 154: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                bitField0_ = ensureFieldFloatList19IsMutable(bitField0_, result, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldFloatList19_.addFloat(input.readFloat());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 154
+              case 160: {
+                long v = input.readInt64();
+                bitField0_ = ensureFieldInt64List20IsMutable(bitField0_, result, /* capacity= */ -1);
+                result.fieldInt64List20_.addLong(v);
+                break;
+              } // case 160
+              case 162: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField0_ = ensureFieldInt64List20IsMutable(bitField0_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldInt64List20_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 162
+              case 168: {
+                long v = input.readUInt64();
+                bitField0_ = ensureFieldUint64List21IsMutable(bitField0_, result, /* capacity= */ -1);
+                result.fieldUint64List21_.addLong(v);
+                break;
+              } // case 168
+              case 170: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField0_ = ensureFieldUint64List21IsMutable(bitField0_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldUint64List21_.addLong(input.readUInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 170
+              case 176: {
+                int v = input.readInt32();
+                bitField0_ = ensureFieldInt32List22IsMutable(bitField0_, result, /* capacity= */ -1);
+                result.fieldInt32List22_.addInt(v);
+                break;
+              } // case 176
+              case 178: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField0_ = ensureFieldInt32List22IsMutable(bitField0_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldInt32List22_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 178
+              case 185: {
+                long v = input.readFixed64();
+                bitField0_ = ensureFieldFixed64List23IsMutable(bitField0_, result, /* capacity= */ -1);
+                result.fieldFixed64List23_.addLong(v);
+                break;
+              } // case 185
+              case 186: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                bitField0_ = ensureFieldFixed64List23IsMutable(bitField0_, result, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldFixed64List23_.addLong(input.readFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 186
+              case 197: {
+                int v = input.readFixed32();
+                bitField0_ = ensureFieldFixed32List24IsMutable(bitField0_, result, /* capacity= */ -1);
+                result.fieldFixed32List24_.addInt(v);
+                break;
+              } // case 197
+              case 194: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                bitField0_ = ensureFieldFixed32List24IsMutable(bitField0_, result, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldFixed32List24_.addInt(input.readFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 194
+              case 200: {
+                boolean v = input.readBool();
+                bitField0_ = ensureFieldBoolList25IsMutable(bitField0_, result, /* capacity= */ -1);
+                result.fieldBoolList25_.addBoolean(v);
+                break;
+              } // case 200
+              case 202: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                bitField0_ = ensureFieldBoolList25IsMutable(bitField0_, result, alloc / 1);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldBoolList25_.addBoolean(input.readBool());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 202
+              case 210: {
+                bitField0_ = ensureFieldStringList26IsMutable(bitField0_, result);
+                result.fieldStringList26_.add(input.readStringRequireUtf8());
+                break;
+              } // case 210
+              case 218: {
+                final int oldLimit = input.pushLimitBeforeMessage();
+                com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite m = com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite.parser().parsePartialFrom(input, extensionRegistry);
+                input.popLimitAfterMessage(oldLimit);
+                bitField0_ = ensureFieldMessageList27IsMutable(bitField0_, result);
+                result.fieldMessageList27_.add(m);
+                break;
+              } // case 218
+              case 226: {
+                com.google.protobuf.ByteString v = input.readBytes();
+                bitField0_ = ensureFieldBytesList28IsMutable(bitField0_, result, /* capacity= */ -1);
+                result.fieldBytesList28_.add(v);
+                break;
+              } // case 226
+              case 232: {
+                int v = input.readUInt32();
+                bitField0_ = ensureFieldUint32List29IsMutable(bitField0_, result, /* capacity= */ -1);
+                result.fieldUint32List29_.addInt(v);
+                break;
+              } // case 232
+              case 234: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField0_ = ensureFieldUint32List29IsMutable(bitField0_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldUint32List29_.addInt(input.readUInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 234
+              case 240: {
+                int tmpRaw = input.readEnum();
+                bitField0_ = ensureFieldEnumList30IsMutable(bitField0_, result, /* capacity= */ -1);
+                result.fieldEnumList30_.addInt(tmpRaw);
+                break;
+              } // case 240
+              case 242: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField0_ = ensureFieldEnumList30IsMutable(bitField0_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldEnumList30_.addInt(input.readEnum());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 242
+              case 253: {
+                int v = input.readSFixed32();
+                bitField0_ = ensureFieldSfixed32List31IsMutable(bitField0_, result, /* capacity= */ -1);
+                result.fieldSfixed32List31_.addInt(v);
+                break;
+              } // case 253
+              case 250: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                bitField0_ = ensureFieldSfixed32List31IsMutable(bitField0_, result, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldSfixed32List31_.addInt(input.readSFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 250
+              case 257: {
+                long v = input.readSFixed64();
+                bitField0_ = ensureFieldSfixed64List32IsMutable(bitField0_, result, /* capacity= */ -1);
+                result.fieldSfixed64List32_.addLong(v);
+                break;
+              } // case 257
+              case 258: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                bitField0_ = ensureFieldSfixed64List32IsMutable(bitField0_, result, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldSfixed64List32_.addLong(input.readSFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 258
+              case 264: {
+                int v = input.readSInt32();
+                bitField1_ = ensureFieldSint32List33IsMutable(bitField1_, result, /* capacity= */ -1);
+                result.fieldSint32List33_.addInt(v);
+                break;
+              } // case 264
+              case 266: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField1_ = ensureFieldSint32List33IsMutable(bitField1_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldSint32List33_.addInt(input.readSInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 266
+              case 272: {
+                long v = input.readSInt64();
+                bitField1_ = ensureFieldSint64List34IsMutable(bitField1_, result, /* capacity= */ -1);
+                result.fieldSint64List34_.addLong(v);
+                break;
+              } // case 272
+              case 274: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField1_ = ensureFieldSint64List34IsMutable(bitField1_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldSint64List34_.addLong(input.readSInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 274
+              case 281: {
+                double v = input.readDouble();
+                bitField1_ = ensureFieldDoubleListPacked35IsMutable(bitField1_, result, /* capacity= */ -1);
+                result.fieldDoubleListPacked35_.addDouble(v);
+                break;
+              } // case 281
+              case 282: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                bitField1_ = ensureFieldDoubleListPacked35IsMutable(bitField1_, result, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldDoubleListPacked35_.addDouble(input.readDouble());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 282
+              case 293: {
+                float v = input.readFloat();
+                bitField1_ = ensureFieldFloatListPacked36IsMutable(bitField1_, result, /* capacity= */ -1);
+                result.fieldFloatListPacked36_.addFloat(v);
+                break;
+              } // case 293
+              case 290: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                bitField1_ = ensureFieldFloatListPacked36IsMutable(bitField1_, result, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldFloatListPacked36_.addFloat(input.readFloat());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 290
+              case 296: {
+                long v = input.readInt64();
+                bitField1_ = ensureFieldInt64ListPacked37IsMutable(bitField1_, result, /* capacity= */ -1);
+                result.fieldInt64ListPacked37_.addLong(v);
+                break;
+              } // case 296
+              case 298: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField1_ = ensureFieldInt64ListPacked37IsMutable(bitField1_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldInt64ListPacked37_.addLong(input.readInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 298
+              case 304: {
+                long v = input.readUInt64();
+                bitField1_ = ensureFieldUint64ListPacked38IsMutable(bitField1_, result, /* capacity= */ -1);
+                result.fieldUint64ListPacked38_.addLong(v);
+                break;
+              } // case 304
+              case 306: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField1_ = ensureFieldUint64ListPacked38IsMutable(bitField1_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldUint64ListPacked38_.addLong(input.readUInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 306
+              case 312: {
+                int v = input.readInt32();
+                bitField1_ = ensureFieldInt32ListPacked39IsMutable(bitField1_, result, /* capacity= */ -1);
+                result.fieldInt32ListPacked39_.addInt(v);
+                break;
+              } // case 312
+              case 314: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField1_ = ensureFieldInt32ListPacked39IsMutable(bitField1_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldInt32ListPacked39_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 314
+              case 321: {
+                long v = input.readFixed64();
+                bitField1_ = ensureFieldFixed64ListPacked40IsMutable(bitField1_, result, /* capacity= */ -1);
+                result.fieldFixed64ListPacked40_.addLong(v);
+                break;
+              } // case 321
+              case 322: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                bitField1_ = ensureFieldFixed64ListPacked40IsMutable(bitField1_, result, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldFixed64ListPacked40_.addLong(input.readFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 322
+              case 333: {
+                int v = input.readFixed32();
+                bitField1_ = ensureFieldFixed32ListPacked41IsMutable(bitField1_, result, /* capacity= */ -1);
+                result.fieldFixed32ListPacked41_.addInt(v);
+                break;
+              } // case 333
+              case 330: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                bitField1_ = ensureFieldFixed32ListPacked41IsMutable(bitField1_, result, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldFixed32ListPacked41_.addInt(input.readFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 330
+              case 336: {
+                boolean v = input.readBool();
+                bitField1_ = ensureFieldBoolListPacked42IsMutable(bitField1_, result, /* capacity= */ -1);
+                result.fieldBoolListPacked42_.addBoolean(v);
+                break;
+              } // case 336
+              case 338: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                bitField1_ = ensureFieldBoolListPacked42IsMutable(bitField1_, result, alloc / 1);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldBoolListPacked42_.addBoolean(input.readBool());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 338
+              case 344: {
+                int v = input.readUInt32();
+                bitField1_ = ensureFieldUint32ListPacked43IsMutable(bitField1_, result, /* capacity= */ -1);
+                result.fieldUint32ListPacked43_.addInt(v);
+                break;
+              } // case 344
+              case 346: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField1_ = ensureFieldUint32ListPacked43IsMutable(bitField1_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldUint32ListPacked43_.addInt(input.readUInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 346
+              case 352: {
+                int tmpRaw = input.readEnum();
+                bitField1_ = ensureFieldEnumListPacked44IsMutable(bitField1_, result, /* capacity= */ -1);
+                result.fieldEnumListPacked44_.addInt(tmpRaw);
+                break;
+              } // case 352
+              case 354: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField1_ = ensureFieldEnumListPacked44IsMutable(bitField1_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldEnumListPacked44_.addInt(input.readEnum());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 354
+              case 365: {
+                int v = input.readSFixed32();
+                bitField1_ = ensureFieldSfixed32ListPacked45IsMutable(bitField1_, result, /* capacity= */ -1);
+                result.fieldSfixed32ListPacked45_.addInt(v);
+                break;
+              } // case 365
+              case 362: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                bitField1_ = ensureFieldSfixed32ListPacked45IsMutable(bitField1_, result, alloc / 4);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldSfixed32ListPacked45_.addInt(input.readSFixed32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 362
+              case 369: {
+                long v = input.readSFixed64();
+                bitField1_ = ensureFieldSfixed64ListPacked46IsMutable(bitField1_, result, /* capacity= */ -1);
+                result.fieldSfixed64ListPacked46_.addLong(v);
+                break;
+              } // case 369
+              case 370: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int alloc = length > 4096 ? 4096 : length;
+                bitField1_ = ensureFieldSfixed64ListPacked46IsMutable(bitField1_, result, alloc / 8);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldSfixed64ListPacked46_.addLong(input.readSFixed64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 370
+              case 376: {
+                int v = input.readSInt32();
+                bitField1_ = ensureFieldSint32ListPacked47IsMutable(bitField1_, result, /* capacity= */ -1);
+                result.fieldSint32ListPacked47_.addInt(v);
+                break;
+              } // case 376
+              case 378: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField1_ = ensureFieldSint32ListPacked47IsMutable(bitField1_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldSint32ListPacked47_.addInt(input.readSInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 378
+              case 384: {
+                long v = input.readSInt64();
+                bitField1_ = ensureFieldSint64ListPacked48IsMutable(bitField1_, result, /* capacity= */ -1);
+                result.fieldSint64ListPacked48_.addLong(v);
+                break;
+              } // case 384
+              case 386: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField1_ = ensureFieldSint64ListPacked48IsMutable(bitField1_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.fieldSint64ListPacked48_.addLong(input.readSInt64());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 386
+              case 425: {
+                pendingTag = parseFieldDouble53(result, input);
+                break;
+              } // case 425
+              case 437: {
+                pendingTag = parseFieldFloat54(result, input);
+                break;
+              } // case 437
+              case 440: {
+                pendingTag = parseFieldInt6455(result, input);
+                break;
+              } // case 440
+              case 448: {
+                pendingTag = parseFieldUint6456(result, input);
+                break;
+              } // case 448
+              case 456: {
+                pendingTag = parseFieldInt3257(result, input);
+                break;
+              } // case 456
+              case 465: {
+                pendingTag = parseFieldFixed6458(result, input);
+                break;
+              } // case 465
+              case 477: {
+                pendingTag = parseFieldFixed3259(result, input);
+                break;
+              } // case 477
+              case 480: {
+                pendingTag = parseFieldBool60(result, input);
+                break;
+              } // case 480
+              case 490: {
+                pendingTag = parseFieldString61(result, input);
+                break;
+              } // case 490
+              case 498: {
+                pendingTag = parseFieldMessage62(result, input, extensionRegistry, hosted);
+                break;
+              } // case 498
+              case 506: {
+                pendingTag = parseFieldBytes63(result, input);
+                break;
+              } // case 506
+              case 512: {
+                pendingTag = parseFieldUint3264(result, input);
+                break;
+              } // case 512
+              case 525: {
+                pendingTag = parseFieldSfixed3265(result, input);
+                break;
+              } // case 525
+              case 529: {
+                pendingTag = parseFieldSfixed6466(result, input);
+                break;
+              } // case 529
+              case 536: {
+                pendingTag = parseFieldSint3267(result, input);
+                break;
+              } // case 536
+              case 544: {
+                pendingTag = parseFieldSint6468(result, input);
+                break;
+              } // case 544
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, fieldDouble1_, fieldFloat2_, fieldInt643_, fieldUint644_, fieldInt325_, fieldFixed646_, fieldFixed327_, fieldBool8_, fieldString9_, fieldBytes11_, fieldUint3212_, fieldEnum13_, fieldSfixed3214_, fieldSfixed6415_, fieldSint3216_, fieldSint6417_); }
+        if (bitField1_ != 0) { buildPartial_autosplit_1(result, bitField1_); }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        retainParsedAlternatives(builder);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          if (pendingTag < 0) {
+            builder.continueParsingAlternative(
+                input, extensionRegistry, tag, ~pendingTag);
+            pendingTag = 0;
+          }
+          builder.mergeFrom(input, extensionRegistry, pendingTag);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+      private static void buildPartial_autosplit_0(
+          com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite result,
+          int bitField0_,
+          double fieldDouble1_,
+          float fieldFloat2_,
+          long fieldInt643_,
+          long fieldUint644_,
+          int fieldInt325_,
+          long fieldFixed646_,
+          int fieldFixed327_,
+          boolean fieldBool8_,
+          java.lang.Object fieldString9_,
+          com.google.protobuf.ByteString fieldBytes11_,
+          int fieldUint3212_,
+          int fieldEnum13_,
+          int fieldSfixed3214_,
+          long fieldSfixed6415_,
+          int fieldSint3216_,
+          long fieldSint6417_) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.fieldDouble1_ = fieldDouble1_;
+          
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.fieldFloat2_ = fieldFloat2_;
+          
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.fieldInt643_ = fieldInt643_;
+          
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.fieldUint644_ = fieldUint644_;
+          
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.fieldInt325_ = fieldInt325_;
+          
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.fieldFixed646_ = fieldFixed646_;
+          
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.fieldFixed327_ = fieldFixed327_;
+          
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.fieldBool8_ = fieldBool8_;
+          
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.fieldString9_ = fieldString9_;
+          ;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.fieldBytes11_ = fieldBytes11_;
+          
+        }
+        if (((from_bitField0_ & 0x00000800) != 0)) {
+          result.fieldUint3212_ = fieldUint3212_;
+          
+        }
+        if (((from_bitField0_ & 0x00001000) != 0)) {
+          result.fieldEnum13_ = fieldEnum13_;
+          ;
+        }
+        if (((from_bitField0_ & 0x00002000) != 0)) {
+          result.fieldSfixed3214_ = fieldSfixed3214_;
+          
+        }
+        if (((from_bitField0_ & 0x00004000) != 0)) {
+          result.fieldSfixed6415_ = fieldSfixed6415_;
+          
+        }
+        if (((from_bitField0_ & 0x00008000) != 0)) {
+          result.fieldSint3216_ = fieldSint3216_;
+          
+        }
+        if (((from_bitField0_ & 0x00010000) != 0)) {
+          result.fieldSint6417_ = fieldSint6417_;
+          
+        }
+        if (((from_bitField0_ & 0x00020000) != 0)) {
+          result.fieldDoubleList18_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00040000) != 0)) {
+          result.fieldFloatList19_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00080000) != 0)) {
+          result.fieldInt64List20_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00100000) != 0)) {
+          result.fieldUint64List21_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00200000) != 0)) {
+          result.fieldInt32List22_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00400000) != 0)) {
+          result.fieldFixed64List23_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x00800000) != 0)) {
+          result.fieldFixed32List24_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x01000000) != 0)) {
+          result.fieldBoolList25_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x02000000) != 0)) {
+          result.fieldStringList26_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x04000000) != 0)) {
+          result.fieldMessageList27_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x08000000) != 0)) {
+          result.fieldBytesList28_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x10000000) != 0)) {
+          result.fieldUint32List29_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x20000000) != 0)) {
+          result.fieldEnumList30_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x40000000) != 0)) {
+          result.fieldSfixed32List31_.makeImmutable();
+        }
+        if (((from_bitField0_ & 0x80000000) != 0)) {
+          result.fieldSfixed64List32_.makeImmutable();
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      private static void buildPartial_autosplit_1(
+          com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite result,
+          int bitField1_) {
+        int from_bitField1_ = bitField1_;
+        int to_bitField1_ = 0;
+        if (((from_bitField1_ & 0x00000001) != 0)) {
+          result.fieldSint32List33_.makeImmutable();
+        }
+        if (((from_bitField1_ & 0x00000002) != 0)) {
+          result.fieldSint64List34_.makeImmutable();
+        }
+        if (((from_bitField1_ & 0x00000004) != 0)) {
+          result.fieldDoubleListPacked35_.makeImmutable();
+        }
+        if (((from_bitField1_ & 0x00000008) != 0)) {
+          result.fieldFloatListPacked36_.makeImmutable();
+        }
+        if (((from_bitField1_ & 0x00000010) != 0)) {
+          result.fieldInt64ListPacked37_.makeImmutable();
+        }
+        if (((from_bitField1_ & 0x00000020) != 0)) {
+          result.fieldUint64ListPacked38_.makeImmutable();
+        }
+        if (((from_bitField1_ & 0x00000040) != 0)) {
+          result.fieldInt32ListPacked39_.makeImmutable();
+        }
+        if (((from_bitField1_ & 0x00000080) != 0)) {
+          result.fieldFixed64ListPacked40_.makeImmutable();
+        }
+        if (((from_bitField1_ & 0x00000100) != 0)) {
+          result.fieldFixed32ListPacked41_.makeImmutable();
+        }
+        if (((from_bitField1_ & 0x00000200) != 0)) {
+          result.fieldBoolListPacked42_.makeImmutable();
+        }
+        if (((from_bitField1_ & 0x00000400) != 0)) {
+          result.fieldUint32ListPacked43_.makeImmutable();
+        }
+        if (((from_bitField1_ & 0x00000800) != 0)) {
+          result.fieldEnumListPacked44_.makeImmutable();
+        }
+        if (((from_bitField1_ & 0x00001000) != 0)) {
+          result.fieldSfixed32ListPacked45_.makeImmutable();
+        }
+        if (((from_bitField1_ & 0x00002000) != 0)) {
+          result.fieldSfixed64ListPacked46_.makeImmutable();
+        }
+        if (((from_bitField1_ & 0x00004000) != 0)) {
+          result.fieldSint32ListPacked47_.makeImmutable();
+        }
+        if (((from_bitField1_ & 0x00008000) != 0)) {
+          result.fieldSint64ListPacked48_.makeImmutable();
+        }
+        result.bitField1_ |= to_bitField1_;
+      }
+
+      // As the Builder parses alternatives, through field builders.
+      private static void retainParsedAlternatives(Builder parsed) {
+        if (parsed.hasFieldMessage62()) {
+          retainParsedAlternatives(
+              com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite.parser(), parsed.getFieldMessage62Builder());
+        }
+      }
+
+      private static int parseFieldMessage10Field(
+          Proto3MessageLite result, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (result.hasFieldMessage10()) {
+          return 82;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        result.fieldMessage10_ = com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        result.bitField0_ |= 0x00000001;
+        return 0;
+      }
+      private static int ensureFieldDoubleList18IsMutable(int bitField0_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldDoubleList18_.isModifiable()) {
+          result.fieldDoubleList18_ = makeMutableCopy(result.fieldDoubleList18_, capacity);
+        }
+        bitField0_ |= 0x00020000;
+        return bitField0_;
+}
+      private static int ensureFieldFloatList19IsMutable(int bitField0_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldFloatList19_.isModifiable()) {
+          result.fieldFloatList19_ = makeMutableCopy(result.fieldFloatList19_, capacity);
+        }
+        bitField0_ |= 0x00040000;
+        return bitField0_;
+}
+      private static int ensureFieldInt64List20IsMutable(int bitField0_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldInt64List20_.isModifiable()) {
+          result.fieldInt64List20_ = makeMutableCopy(result.fieldInt64List20_, capacity);
+        }
+        bitField0_ |= 0x00080000;
+        return bitField0_;
+}
+      private static int ensureFieldUint64List21IsMutable(int bitField0_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldUint64List21_.isModifiable()) {
+          result.fieldUint64List21_ = makeMutableCopy(result.fieldUint64List21_, capacity);
+        }
+        bitField0_ |= 0x00100000;
+        return bitField0_;
+}
+      private static int ensureFieldInt32List22IsMutable(int bitField0_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldInt32List22_.isModifiable()) {
+          result.fieldInt32List22_ = makeMutableCopy(result.fieldInt32List22_, capacity);
+        }
+        bitField0_ |= 0x00200000;
+        return bitField0_;
+}
+      private static int ensureFieldFixed64List23IsMutable(int bitField0_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldFixed64List23_.isModifiable()) {
+          result.fieldFixed64List23_ = makeMutableCopy(result.fieldFixed64List23_, capacity);
+        }
+        bitField0_ |= 0x00400000;
+        return bitField0_;
+}
+      private static int ensureFieldFixed32List24IsMutable(int bitField0_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldFixed32List24_.isModifiable()) {
+          result.fieldFixed32List24_ = makeMutableCopy(result.fieldFixed32List24_, capacity);
+        }
+        bitField0_ |= 0x00800000;
+        return bitField0_;
+}
+      private static int ensureFieldBoolList25IsMutable(int bitField0_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldBoolList25_.isModifiable()) {
+          result.fieldBoolList25_ = makeMutableCopy(result.fieldBoolList25_, capacity);
+        }
+        bitField0_ |= 0x01000000;
+        return bitField0_;
+}
+      private static int ensureFieldStringList26IsMutable(int bitField0_, Proto3MessageLite result) {
+        if (!result.fieldStringList26_.isModifiable()) {
+          result.fieldStringList26_ = new com.google.protobuf.LazyStringArrayList(result.fieldStringList26_);
+        }
+        bitField0_ |= 0x02000000;
+        return bitField0_;
+}
+      private static int ensureFieldMessageList27IsMutable(int bitField0_, Proto3MessageLite result) {
+        if (!result.fieldMessageList27_.isModifiable()) {
+          result.fieldMessageList27_ = makeMutableCopy(result.fieldMessageList27_);
+        }
+        bitField0_ |= 0x04000000;
+        return bitField0_;
+}
+      private static int ensureFieldBytesList28IsMutable(int bitField0_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldBytesList28_.isModifiable()) {
+          result.fieldBytesList28_ = makeMutableCopy(result.fieldBytesList28_, capacity);
+        }
+        bitField0_ |= 0x08000000;
+        return bitField0_;
+}
+      private static int ensureFieldUint32List29IsMutable(int bitField0_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldUint32List29_.isModifiable()) {
+          result.fieldUint32List29_ = makeMutableCopy(result.fieldUint32List29_, capacity);
+        }
+        bitField0_ |= 0x10000000;
+        return bitField0_;
+}
+      private static int ensureFieldEnumList30IsMutable(int bitField0_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldEnumList30_.isModifiable()) {
+          result.fieldEnumList30_ = makeMutableCopy(result.fieldEnumList30_, capacity);
+        }
+        bitField0_ |= 0x20000000;
+        return bitField0_;
+}
+      private static int ensureFieldSfixed32List31IsMutable(int bitField0_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldSfixed32List31_.isModifiable()) {
+          result.fieldSfixed32List31_ = makeMutableCopy(result.fieldSfixed32List31_, capacity);
+        }
+        bitField0_ |= 0x40000000;
+        return bitField0_;
+}
+      private static int ensureFieldSfixed64List32IsMutable(int bitField0_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldSfixed64List32_.isModifiable()) {
+          result.fieldSfixed64List32_ = makeMutableCopy(result.fieldSfixed64List32_, capacity);
+        }
+        bitField0_ |= 0x80000000;
+        return bitField0_;
+}
+      private static int ensureFieldSint32List33IsMutable(int bitField1_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldSint32List33_.isModifiable()) {
+          result.fieldSint32List33_ = makeMutableCopy(result.fieldSint32List33_, capacity);
+        }
+        bitField1_ |= 0x00000001;
+        return bitField1_;
+}
+      private static int ensureFieldSint64List34IsMutable(int bitField1_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldSint64List34_.isModifiable()) {
+          result.fieldSint64List34_ = makeMutableCopy(result.fieldSint64List34_, capacity);
+        }
+        bitField1_ |= 0x00000002;
+        return bitField1_;
+}
+      private static int ensureFieldDoubleListPacked35IsMutable(int bitField1_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldDoubleListPacked35_.isModifiable()) {
+          result.fieldDoubleListPacked35_ = makeMutableCopy(result.fieldDoubleListPacked35_, capacity);
+        }
+        bitField1_ |= 0x00000004;
+        return bitField1_;
+}
+      private static int ensureFieldFloatListPacked36IsMutable(int bitField1_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldFloatListPacked36_.isModifiable()) {
+          result.fieldFloatListPacked36_ = makeMutableCopy(result.fieldFloatListPacked36_, capacity);
+        }
+        bitField1_ |= 0x00000008;
+        return bitField1_;
+}
+      private static int ensureFieldInt64ListPacked37IsMutable(int bitField1_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldInt64ListPacked37_.isModifiable()) {
+          result.fieldInt64ListPacked37_ = makeMutableCopy(result.fieldInt64ListPacked37_, capacity);
+        }
+        bitField1_ |= 0x00000010;
+        return bitField1_;
+}
+      private static int ensureFieldUint64ListPacked38IsMutable(int bitField1_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldUint64ListPacked38_.isModifiable()) {
+          result.fieldUint64ListPacked38_ = makeMutableCopy(result.fieldUint64ListPacked38_, capacity);
+        }
+        bitField1_ |= 0x00000020;
+        return bitField1_;
+}
+      private static int ensureFieldInt32ListPacked39IsMutable(int bitField1_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldInt32ListPacked39_.isModifiable()) {
+          result.fieldInt32ListPacked39_ = makeMutableCopy(result.fieldInt32ListPacked39_, capacity);
+        }
+        bitField1_ |= 0x00000040;
+        return bitField1_;
+}
+      private static int ensureFieldFixed64ListPacked40IsMutable(int bitField1_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldFixed64ListPacked40_.isModifiable()) {
+          result.fieldFixed64ListPacked40_ = makeMutableCopy(result.fieldFixed64ListPacked40_, capacity);
+        }
+        bitField1_ |= 0x00000080;
+        return bitField1_;
+}
+      private static int ensureFieldFixed32ListPacked41IsMutable(int bitField1_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldFixed32ListPacked41_.isModifiable()) {
+          result.fieldFixed32ListPacked41_ = makeMutableCopy(result.fieldFixed32ListPacked41_, capacity);
+        }
+        bitField1_ |= 0x00000100;
+        return bitField1_;
+}
+      private static int ensureFieldBoolListPacked42IsMutable(int bitField1_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldBoolListPacked42_.isModifiable()) {
+          result.fieldBoolListPacked42_ = makeMutableCopy(result.fieldBoolListPacked42_, capacity);
+        }
+        bitField1_ |= 0x00000200;
+        return bitField1_;
+}
+      private static int ensureFieldUint32ListPacked43IsMutable(int bitField1_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldUint32ListPacked43_.isModifiable()) {
+          result.fieldUint32ListPacked43_ = makeMutableCopy(result.fieldUint32ListPacked43_, capacity);
+        }
+        bitField1_ |= 0x00000400;
+        return bitField1_;
+}
+      private static int ensureFieldEnumListPacked44IsMutable(int bitField1_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldEnumListPacked44_.isModifiable()) {
+          result.fieldEnumListPacked44_ = makeMutableCopy(result.fieldEnumListPacked44_, capacity);
+        }
+        bitField1_ |= 0x00000800;
+        return bitField1_;
+}
+      private static int ensureFieldSfixed32ListPacked45IsMutable(int bitField1_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldSfixed32ListPacked45_.isModifiable()) {
+          result.fieldSfixed32ListPacked45_ = makeMutableCopy(result.fieldSfixed32ListPacked45_, capacity);
+        }
+        bitField1_ |= 0x00001000;
+        return bitField1_;
+}
+      private static int ensureFieldSfixed64ListPacked46IsMutable(int bitField1_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldSfixed64ListPacked46_.isModifiable()) {
+          result.fieldSfixed64ListPacked46_ = makeMutableCopy(result.fieldSfixed64ListPacked46_, capacity);
+        }
+        bitField1_ |= 0x00002000;
+        return bitField1_;
+}
+      private static int ensureFieldSint32ListPacked47IsMutable(int bitField1_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldSint32ListPacked47_.isModifiable()) {
+          result.fieldSint32ListPacked47_ = makeMutableCopy(result.fieldSint32ListPacked47_, capacity);
+        }
+        bitField1_ |= 0x00004000;
+        return bitField1_;
+}
+      private static int ensureFieldSint64ListPacked48IsMutable(int bitField1_, Proto3MessageLite result, int capacity) {
+        if (!result.fieldSint64ListPacked48_.isModifiable()) {
+          result.fieldSint64ListPacked48_ = makeMutableCopy(result.fieldSint64ListPacked48_, capacity);
+        }
+        bitField1_ |= 0x00008000;
+        return bitField1_;
+}
+      private static int parseFieldDouble53(
+          Proto3MessageLite result, com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        if (result.getTestOneofCase().getNumber() != 0) {
+          return 425;
+        }
+        result.testOneof_ = input.readDouble();
+        result.testOneofCase_ = 53;
+        result.bitField1_ |= 0x00010000;
+        return 0;
+      }
+      private static int parseFieldFloat54(
+          Proto3MessageLite result, com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        if (result.getTestOneofCase().getNumber() != 0) {
+          return 437;
+        }
+        result.testOneof_ = input.readFloat();
+        result.testOneofCase_ = 54;
+        result.bitField1_ |= 0x00020000;
+        return 0;
+      }
+      private static int parseFieldInt6455(
+          Proto3MessageLite result, com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        if (result.getTestOneofCase().getNumber() != 0) {
+          return 440;
+        }
+        result.testOneof_ = input.readInt64();
+        result.testOneofCase_ = 55;
+        result.bitField1_ |= 0x00040000;
+        return 0;
+      }
+      private static int parseFieldUint6456(
+          Proto3MessageLite result, com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        if (result.getTestOneofCase().getNumber() != 0) {
+          return 448;
+        }
+        result.testOneof_ = input.readUInt64();
+        result.testOneofCase_ = 56;
+        result.bitField1_ |= 0x00080000;
+        return 0;
+      }
+      private static int parseFieldInt3257(
+          Proto3MessageLite result, com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        if (result.getTestOneofCase().getNumber() != 0) {
+          return 456;
+        }
+        result.testOneof_ = input.readInt32();
+        result.testOneofCase_ = 57;
+        result.bitField1_ |= 0x00100000;
+        return 0;
+      }
+      private static int parseFieldFixed6458(
+          Proto3MessageLite result, com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        if (result.getTestOneofCase().getNumber() != 0) {
+          return 465;
+        }
+        result.testOneof_ = input.readFixed64();
+        result.testOneofCase_ = 58;
+        result.bitField1_ |= 0x00200000;
+        return 0;
+      }
+      private static int parseFieldFixed3259(
+          Proto3MessageLite result, com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        if (result.getTestOneofCase().getNumber() != 0) {
+          return 477;
+        }
+        result.testOneof_ = input.readFixed32();
+        result.testOneofCase_ = 59;
+        result.bitField1_ |= 0x00400000;
+        return 0;
+      }
+      private static int parseFieldBool60(
+          Proto3MessageLite result, com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        if (result.getTestOneofCase().getNumber() != 0) {
+          return 480;
+        }
+        result.testOneof_ = input.readBool();
+        result.testOneofCase_ = 60;
+        result.bitField1_ |= 0x00800000;
+        return 0;
+      }
+      private static int parseFieldString61(
+          Proto3MessageLite result, com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        if (result.getTestOneofCase().getNumber() != 0) {
+          return 490;
+        }
+        result.testOneofCase_ = 61;
+        result.bitField1_ |= 0x01000000;
+        result.testOneof_ = input.readStringRequireUtf8();
+        return 0;
+      }
+      private static int parseFieldMessage62(
+          com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite result,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+    boolean hosted)
+          throws java.io.IOException {
+        if (result.getTestOneofCase().getNumber() != 0 || hosted || !parsesAlternatives(com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite.parser())) {
+          return 498;
+        }
+        result.testOneofCase_ = 62;
+        result.testOneof_ = com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite.getDefaultInstance();
+        final int oldLimit = input.pushLimitBeforeMessage();
+        try {
+          result.testOneof_ = parseAlternative(com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite.parser(), input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          if (e.getUnfinishedMessage() != null) {
+            result.testOneof_ = e.getUnfinishedMessage();
+          }
+          throw e;
+        }
+        if (input.getLastTag() != 0
+            && com.google.protobuf.WireFormat.getTagWireType(input.getLastTag())
+                != com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+          return ~oldLimit;
+        }
+        input.popLimitAfterMessage(oldLimit);
+        return 0;
+      }
+
+      private static int parseFieldBytes63(
+          Proto3MessageLite result, com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        if (result.getTestOneofCase().getNumber() != 0) {
+          return 506;
+        }
+        result.testOneof_ = input.readBytes();
+        result.testOneofCase_ = 63;
+        result.bitField1_ |= 0x04000000;
+        return 0;
+      }
+      private static int parseFieldUint3264(
+          Proto3MessageLite result, com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        if (result.getTestOneofCase().getNumber() != 0) {
+          return 512;
+        }
+        result.testOneof_ = input.readUInt32();
+        result.testOneofCase_ = 64;
+        result.bitField1_ |= 0x08000000;
+        return 0;
+      }
+      private static int parseFieldSfixed3265(
+          Proto3MessageLite result, com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        if (result.getTestOneofCase().getNumber() != 0) {
+          return 525;
+        }
+        result.testOneof_ = input.readSFixed32();
+        result.testOneofCase_ = 65;
+        result.bitField1_ |= 0x10000000;
+        return 0;
+      }
+      private static int parseFieldSfixed6466(
+          Proto3MessageLite result, com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        if (result.getTestOneofCase().getNumber() != 0) {
+          return 529;
+        }
+        result.testOneof_ = input.readSFixed64();
+        result.testOneofCase_ = 66;
+        result.bitField1_ |= 0x20000000;
+        return 0;
+      }
+      private static int parseFieldSint3267(
+          Proto3MessageLite result, com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        if (result.getTestOneofCase().getNumber() != 0) {
+          return 536;
+        }
+        result.testOneof_ = input.readSInt32();
+        result.testOneofCase_ = 67;
+        result.bitField1_ |= 0x40000000;
+        return 0;
+      }
+      private static int parseFieldSint6468(
+          Proto3MessageLite result, com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        if (result.getTestOneofCase().getNumber() != 0) {
+          return 544;
+        }
+        result.testOneof_ = input.readSInt64();
+        result.testOneofCase_ = 68;
+        result.bitField1_ |= 0x80000000;
+        return 0;
+      }
+      private void continueParsingAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int tag,
+          int oldLimit)
+          throws java.io.IOException {
+        switch (tag) {
+          case 498:
+            continueAlternative(com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLite.parser(),
+                internalGetFieldMessage62FieldBuilder().getBuilder(),
+                input, extensionRegistry);
+            break;
+        }
+        input.popLimitAfterMessage(oldLimit);
+      }
+
       private int testOneofCase_ = 0;
       private java.lang.Object testOneof_;
       public TestOneofCase
@@ -10509,19 +11973,38 @@ public final class Proto3TestingLite extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<Proto3MessageLite>
-        PARSER = new com.google.protobuf.AbstractParser<Proto3MessageLite>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            Proto3MessageLite>() {
       @java.lang.Override
       public Proto3MessageLite parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected Proto3MessageLite parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry, pendingTag);
+      }
+
+      @java.lang.Override
+      protected void retainParsedAlternatives(
+          com.google.protobuf.Message.Builder builder) {
+        Builder.retainParsedAlternatives((Builder) builder);
       }
     };
 
@@ -10752,9 +12235,16 @@ public final class Proto3TestingLite extends com.google.protobuf.GeneratedFile {
                 com.google.protobuf.testing.Proto3TestingLite.Proto3EmptyLite.class, com.google.protobuf.testing.Proto3TestingLite.Proto3EmptyLite.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.testing.Proto3TestingLite.Proto3EmptyLite.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -10791,6 +12281,12 @@ public final class Proto3TestingLite extends com.google.protobuf.GeneratedFile {
       @java.lang.Override
       public com.google.protobuf.testing.Proto3TestingLite.Proto3EmptyLite buildPartial() {
         com.google.protobuf.testing.Proto3TestingLite.Proto3EmptyLite result = new com.google.protobuf.testing.Proto3TestingLite.Proto3EmptyLite(this);
+        onBuilt();
+        return result;
+      }
+
+      private com.google.protobuf.testing.Proto3TestingLite.Proto3EmptyLite buildPartial(com.google.protobuf.testing.Proto3TestingLite.Proto3EmptyLite result) {
+        setUnknownFields(result, getUnknownFields());
         onBuilt();
         return result;
       }
@@ -10847,6 +12343,58 @@ public final class Proto3TestingLite extends com.google.protobuf.GeneratedFile {
         return this;
       }
 
+      private static com.google.protobuf.testing.Proto3TestingLite.Proto3EmptyLite parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        com.google.protobuf.testing.Proto3TestingLite.Proto3EmptyLite result = new com.google.protobuf.testing.Proto3TestingLite.Proto3EmptyLite(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+
       // @@protoc_insertion_point(builder_scope:protobuf.experimental.Proto3EmptyLite)
     }
 
@@ -10861,19 +12409,32 @@ public final class Proto3TestingLite extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<Proto3EmptyLite>
-        PARSER = new com.google.protobuf.AbstractParser<Proto3EmptyLite>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            Proto3EmptyLite>() {
       @java.lang.Override
       public Proto3EmptyLite parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected Proto3EmptyLite parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 
@@ -41318,9 +42879,16 @@ java.lang.String defaultValue) {
                 com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLiteWithMaps.class, com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLiteWithMaps.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.testing.Proto3TestingLite.Proto3MessageLiteWithMaps.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
