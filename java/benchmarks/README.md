@@ -1,8 +1,8 @@
 # Java parsing benchmarks
 
-JMH benchmarks using the repository's public test and conformance schemas. Small binary inputs exercise individual decoding paths and the transition to child builders. The suite also carries over the existing unknown-field and text-format performance workloads.
+JMH benchmarks using the repository's public test and conformance schemas. Small binary inputs exercise individual decoding paths and the transition to builders. The suite also carries over the existing unknown-field and text-format performance workloads.
 
-[JDK 8 results](results/jdk8-handoff-78f185ad.md) and [JDK 25 results](results/jdk25-01935fc.md) for parser revision 01935fc combine parse time and allocation, with confidence intervals and the run configuration. [Results for earlier parser revision d43da02](results/jdk8-d43da02.md) are retained separately.
+[Results](results/6b2181d.md) for parser revision 6b2181d combine parse time and allocation on JDK 8 and 25, with confidence intervals and the run configuration.
 
 ## Build and check
 
@@ -48,9 +48,9 @@ done
 
 Scalar payloads are small, with one-byte strings and bytes where used. A `FIRST` input contains one child occurrence. Its `MERGE` counterpart contains two, with both contributing to the expected result. Repeated-message elements append and duplicate map keys replace values, so those are separate cases.
 
-`FLAT_PROTO2_WIDE` was previously named `FLAT_PROTO2`. With javac 8, the baseline builder decoder is 8,456 bytes and the proposed direct parser is 8,220 bytes. Both remain interpreted on HotSpot 8 and 27 because they exceed the default 8,000-byte huge-method cutoff. Report this separately from compiled parsing.
+`FLAT_PROTO2_WIDE` was previously named `FLAT_PROTO2`. With javac 8, the builder decoder is 8,456 bytes, which remains interpreted on HotSpot because it exceeds the default 8,000-byte huge-method cutoff. Report this separately from compiled parsing.
 
-`FLAT_PROTO2_COMPACT` retains the same field numbers, types, proto2 presence and extendable-message base, without the unused fields. Both inputs are 26 bytes. Its builder decoder is 288 bytes and direct parser is 334 bytes, with both decoding loops confirmed in normal C2 compilation on HotSpot 8 and 27. These measurements use baseline c0acd3a and parser 8a7de74, compiled with javac 8. Check compilation separately when changing the generator, compiler or JVM settings.
+`FLAT_PROTO2_COMPACT` retains the same field numbers, types, proto2 presence and extendable-message base, without the unused fields. Both inputs are 26 bytes. Its builder decoder is 288 bytes with javac 8 and compiles normally. Check compilation separately when changing the generator, compiler or JVM settings.
 
 Wide fixtures retain the full schema while sparse inputs select its first or last field. They cover 65 ordinary children, 128 message alternatives, 494/495 scalar alternatives and 138/139/900 closed-enum fields. Dense cases populate all 65 children or every enum field. These widths support investigation of previously observed compiler boundaries, but field counts alone do not establish compilation behavior.
 
