@@ -77,8 +77,10 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
     unknownFields = UnknownFieldSet.getDefaultInstance();
   }
 
+  /** A null builder is passed by generated static parsers, which set unknown fields afterwards. */
   protected GeneratedMessage(Builder<?> builder) {
-    unknownFields = builder.getUnknownFields();
+    unknownFields =
+        builder == null ? UnknownFieldSet.getDefaultInstance() : builder.getUnknownFields();
   }
 
   /** TODO: Remove this unnecessary intermediate implementation of this method. */
@@ -507,6 +509,35 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
     throw new UnsupportedOperationException("This method must be overridden by the subclass.");
   }
 
+  /**
+   * For generated static parsers, which parse a message as a oneof alternative by handing control
+   * back to the parent rather than to a Builder of their own, so that the parent's Builder can
+   * hold the alternative's Builder as it does when it parses the alternative itself.
+   */
+  protected abstract static class StaticParser<MessageT extends GeneratedMessage>
+      extends AbstractParser<MessageT> {
+    /**
+     * Parses the message, returning before the payload of a tag that only a Builder can parse,
+     * with that tag as the last tag read.
+     */
+    protected abstract MessageT parseAlternative(
+        CodedInputStream input, ExtensionRegistryLite extensionRegistry) throws IOException;
+
+    /**
+     * Retains field builders for the oneof alternatives of a Builder merged from a parsed
+     * message, as the Builder's own parsing does.
+     */
+    protected void retainParsedAlternatives(Message.Builder builder) {}
+
+    /** Continues parsing into the Builder from a tag returned by {@link #parseAlternative}. */
+    protected abstract void continueAlternative(
+        Message.Builder builder,
+        CodedInputStream input,
+        ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws IOException;
+  }
+
   /** Builder class for {@link GeneratedMessage}. */
   @SuppressWarnings("unchecked")
   public abstract static class Builder<BuilderT extends Builder<BuilderT>>
@@ -522,6 +553,94 @@ public abstract class GeneratedMessage extends AbstractMessage implements Serial
 
     protected static <T> ProtobufList<T> emptyList(Class<T> elementType) {
       return GeneratedMessage.emptyList(elementType);
+    }
+
+    /**
+     * For generated static parsers, whether the parser can parse oneof alternatives, which those
+     * generated before this can't.
+     */
+    protected static boolean parsesAlternatives(Parser<?> parser) {
+      return parser instanceof StaticParser;
+    }
+
+    /** For generated static parsers, see {@link StaticParser#parseAlternative}. */
+    protected static <MessageT extends GeneratedMessage> MessageT parseAlternative(
+        Parser<MessageT> parser, CodedInputStream input, ExtensionRegistryLite extensionRegistry)
+        throws IOException {
+      return ((StaticParser<MessageT>) parser).parseAlternative(input, extensionRegistry);
+    }
+
+    /** For generated static parsers, see {@link StaticParser#retainParsedAlternatives}. */
+    protected static void retainParsedAlternatives(Parser<?> parser, Message.Builder builder) {
+      if (parser instanceof StaticParser) {
+        ((StaticParser<?>) parser).retainParsedAlternatives(builder);
+      }
+    }
+
+    /** For generated static parsers, see {@link StaticParser#continueAlternative}. */
+    protected static void continueAlternative(
+        Parser<?> parser,
+        Message.Builder builder,
+        CodedInputStream input,
+        ExtensionRegistryLite extensionRegistry)
+        throws IOException {
+      ((StaticParser<?>) parser)
+          .continueAlternative(builder, input, extensionRegistry, input.getLastTag());
+    }
+
+    /** For generated static parsers, which leave parsing to the Builder when this is set. */
+    protected static boolean alwaysUseFieldBuilders() {
+      return alwaysUseFieldBuilders;
+    }
+
+    /** For generated static parsers, see {@link AbstractParser#wrapAndThrowParseException}. */
+    protected static void wrapAndThrowParseException(
+        Parser<?> parser, Exception e, MessageLite.Builder builder)
+        throws InvalidProtocolBufferException {
+      ((AbstractParser<?>) parser).wrapAndThrowParseException(e, builder);
+    }
+
+    /**
+     * For generated static parsers, parses an unknown field as {@link #parseUnknownField} does,
+     * into {@code unknownFields}, or a new builder if it's null.
+     */
+    protected static UnknownFieldSet.Builder mergeUnknownField(
+        UnknownFieldSet.Builder unknownFields, CodedInputStream input, int tag)
+        throws IOException {
+      if (input.shouldDiscardUnknownFields()) {
+        input.skipField(tag);
+        return unknownFields;
+      }
+      if (unknownFields == null) {
+        unknownFields = UnknownFieldSet.newBuilder();
+      }
+      unknownFields.mergeFieldFrom(tag, input);
+      return unknownFields;
+    }
+
+    /** For generated static parsers, as {@link #mergeUnknownVarintField(int, int)}. */
+    protected static UnknownFieldSet.Builder mergeUnknownVarintField(
+        UnknownFieldSet.Builder unknownFields, int number, int value) {
+      if (unknownFields == null) {
+        unknownFields = UnknownFieldSet.newBuilder();
+      }
+      return unknownFields.mergeVarintField(number, value);
+    }
+
+    /**
+     * For generated static parsers, as {@link #mergeUnknownLengthDelimitedField(int, ByteString)}.
+     */
+    protected static UnknownFieldSet.Builder mergeUnknownLengthDelimitedField(
+        UnknownFieldSet.Builder unknownFields, int number, ByteString bytes) {
+      if (unknownFields == null) {
+        unknownFields = UnknownFieldSet.newBuilder();
+      }
+      return unknownFields.mergeLengthDelimitedField(number, bytes);
+    }
+
+    /** For generated static parsers, sets the unknown fields of a parsed message. */
+    protected static void setUnknownFields(GeneratedMessage message, UnknownFieldSet unknownFields) {
+      message.setUnknownFields(unknownFields);
     }
 
     private BuilderParent builderParent;

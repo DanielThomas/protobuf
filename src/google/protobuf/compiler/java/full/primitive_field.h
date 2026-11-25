@@ -55,8 +55,10 @@ class ImmutablePrimitiveFieldGenerator : public ImmutableFieldGenerator {
   void GenerateInitializationCode(io::Printer* printer) const override;
   void GenerateBuilderClearCode(io::Printer* printer) const override;
   void GenerateMergingCode(io::Printer* printer) const override;
-  void GenerateBuildingCode(io::Printer* printer) const override;
-  void GenerateBuilderParsingCode(io::Printer* printer) const override;
+  void GenerateBuildingCode(io::Printer* printer,
+                            bool static_parser) const override;
+  void GenerateBuilderParsingCode(io::Printer* printer,
+                                  bool static_parser) const override;
   void GenerateSerializationCode(io::Printer* printer) const override;
   void GenerateSerializedSizeCode(io::Printer* printer) const override;
   void GenerateFieldBuilderInitializationCode(
@@ -93,9 +95,12 @@ class ImmutablePrimitiveOneofFieldGenerator
   void GenerateMembers(io::Printer* printer) const override;
   void GenerateBuilderMembers(io::Printer* printer) const override;
   void GenerateBuilderClearCode(io::Printer* printer) const override;
-  void GenerateBuildingCode(io::Printer* printer) const override;
+  void GenerateBuildingCode(io::Printer* printer,
+                            bool static_parser) const override;
   void GenerateMergingCode(io::Printer* printer) const override;
-  void GenerateBuilderParsingCode(io::Printer* printer) const override;
+  void GenerateBuilderParsingCode(io::Printer* printer,
+                                  bool static_parser) const override;
+  void GenerateStaticParsingMethods(io::Printer* printer) const override;
   void GenerateSerializationCode(io::Printer* printer) const override;
   void GenerateSerializedSizeCode(io::Printer* printer) const override;
 
@@ -107,7 +112,8 @@ class ImmutablePrimitiveOneofFieldGenerator
   void GenerateBuilderGetMethod(io::Printer* printer) const;
   void GenerateBuilderSetMethod(io::Printer* printer) const;
   void GenerateBuilderClearMethod(io::Printer* printer) const;
-  void GenerateBuilderParseMethod(io::Printer* printer) const;
+  void GenerateBuilderParseMethod(io::Printer* printer,
+                                  bool static_parser) const;
 };
 
 class RepeatedImmutablePrimitiveFieldGenerator
@@ -128,10 +134,13 @@ class RepeatedImmutablePrimitiveFieldGenerator
   void GenerateInitializationCode(io::Printer* printer) const override;
   void GenerateBuilderClearCode(io::Printer* printer) const override;
   void GenerateMergingCode(io::Printer* printer) const override;
-  void GenerateBuildingCode(io::Printer* printer) const override;
-  void GenerateBuilderParsingCode(io::Printer* printer) const override;
+  void GenerateBuildingCode(io::Printer* printer,
+                            bool static_parser) const override;
+  void GenerateBuilderParsingCode(io::Printer* printer,
+                                  bool static_parser) const override;
   void GenerateBuilderParsingCodeFromPacked(
-      io::Printer* printer) const override;
+      io::Printer* printer, bool static_parser) const override;
+  void GenerateStaticParsingMethods(io::Printer* printer) const override;
   void GenerateSerializationCode(io::Printer* printer) const override;
   void GenerateSerializedSizeCode(io::Printer* printer) const override;
   void GenerateFieldBuilderInitializationCode(
@@ -150,7 +159,8 @@ class RepeatedImmutablePrimitiveFieldGenerator
   void GenerateGetCountMethod(io::Printer* printer) const;
   void GenerateGetMethod(io::Printer* printer) const;
 
-  void GenerateEnsureIsMutableMethod(io::Printer* printer) const;
+  void GenerateEnsureIsMutableMethod(io::Printer* printer,
+                                     bool static_parser) const;
   void GenerateBuilderGetListMethod(io::Printer* printer) const;
   void GenerateBuilderGetCountMethod(io::Printer* printer) const;
   void GenerateBuilderGetMethod(io::Printer* printer) const;

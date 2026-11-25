@@ -437,6 +437,13 @@ public final class MergeFromSplitRuntimeTest {
         .isEqualTo(builder.getAlternative().getChoiceCase());
   }
 
+  @Test
+  public void testStaticParserOnlyWithinHugeMethodLimit() {
+    // LargeButSafeOneof's would be over the 8000 bytes of bytecode the JIT compiles.
+    assertThat(LargeButSafeOneof.parser()).isNotInstanceOf(GeneratedMessage.StaticParser.class);
+    assertThat(NestedAlternatives.parser()).isInstanceOf(GeneratedMessage.StaticParser.class);
+  }
+
   private static ByteString retainedHistory(boolean extension) throws Exception {
     ByteArrayOutputStream bytes = new ByteArrayOutputStream();
     CodedOutputStream output = CodedOutputStream.newInstance(bytes);

@@ -14,6 +14,7 @@
 
 #include <memory>
 #include <string>
+#include <vector>
 
 #include "absl/container/btree_map.h"
 #include "absl/strings/string_view.h"
@@ -42,6 +43,14 @@ namespace protobuf {
 namespace compiler {
 namespace java {
 
+// Whether the message is parsed by a static Builder method that parses into
+// the message without a Builder, handing over to one for input it can't.
+bool HasStaticParser(const Descriptor* descriptor, const Context* context);
+
+// Whether the static parser can hand over at a tag it has read, which the
+// Builder's mergeFrom(input, extensionRegistry, pendingTag) continues from.
+bool CanHandOver(const Descriptor* descriptor);
+
 class MessageBuilderGenerator {
  public:
   MessageBuilderGenerator(
@@ -67,15 +76,29 @@ class MessageBuilderGenerator {
       io::Printer* printer, absl::Span<const std::string> merging_code_blocks,
       absl::string_view method_suffix);
   void GenerateBuildPartial(io::Printer* printer);
-  void GenerateBuildPartialShard(io::Printer* printer, int shard);
+  void GenerateBuildPartialShard(io::Printer* printer, int shard,
+                                 bool static_parser);
+  void GenerateBuildPartialShardCalls(io::Printer* printer,
+                                      bool static_parser);
+  std::vector<const FieldDescriptor*> ShardFields(int shard) const;
+  bool HasStaticBitField(int shard) const;
+  std::string StaticShardArguments(int shard) const;
   void GenerateDescriptorMethods(io::Printer* printer);
   void GenerateBuilderParsingMethods(io::Printer* printer);
-  void GenerateBuilderFieldParsingCases(io::Printer* printer);
+  void GenerateBuilderFieldParsingCases(io::Printer* printer,
+                                        bool static_parser);
   void GenerateBuilderFieldParsingCase(io::Printer* printer,
-                                       const FieldDescriptor* field);
+                                       const FieldDescriptor* field,
+                                       bool static_parser);
   void GenerateBuilderPackedFieldParsingCase(io::Printer* printer,
-                                             const FieldDescriptor* field);
+                                             const FieldDescriptor* field,
+                                             bool static_parser);
   void GenerateIsInitialized(io::Printer* printer);
+  void GenerateStaticParser(io::Printer* printer);
+  void GenerateStaticAlternativeParsingCode(io::Printer* printer,
+                                           const FieldDescriptor* field);
+  void GenerateStaticAlternativeParseMethod(io::Printer* printer,
+                                            const FieldDescriptor* field);
 
   const Descriptor* descriptor_;
   Context* context_;

@@ -1094,21 +1094,73 @@ void ImmutableMessageGenerator::GenerateExtensionRegistrationCode(
 
 // ===================================================================
 void ImmutableMessageGenerator::GenerateParser(io::Printer* printer) {
+  if (HasStaticParser(descriptor_, context_)) {
+    printer->Print(
+        "private static final com.google.protobuf.Parser<$classname$>\n"
+        "    PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<\n"
+        "        $classname$>() {\n"
+        "  @java.lang.Override\n"
+        "  public $classname$ parsePartialFrom(\n"
+        "      com.google.protobuf.CodedInputStream input,\n"
+        "      com.google.protobuf.ExtensionRegistryLite extensionRegistry)\n"
+        "      throws com.google.protobuf.InvalidProtocolBufferException {\n"
+        "    return Builder.parsePartialFrom(input, extensionRegistry, "
+        "false);\n"
+        "  }\n"
+        "\n"
+        "  @java.lang.Override\n"
+        "  protected $classname$ parseAlternative(\n"
+        "      com.google.protobuf.CodedInputStream input,\n"
+        "      com.google.protobuf.ExtensionRegistryLite extensionRegistry)\n"
+        "      throws com.google.protobuf.InvalidProtocolBufferException {\n"
+        "    return Builder.parsePartialFrom(input, extensionRegistry, true);\n"
+        "  }\n"
+        "\n"
+        "  @java.lang.Override\n"
+        "  protected void continueAlternative(\n"
+        "      com.google.protobuf.Message.Builder builder,\n"
+        "      com.google.protobuf.CodedInputStream input,\n"
+        "      com.google.protobuf.ExtensionRegistryLite extensionRegistry,\n"
+        "      int pendingTag)\n"
+        "      throws java.io.IOException {\n"
+        "    ((Builder) builder).mergeFrom(input, "
+        "extensionRegistry$pending_tag$);\n",
+        "classname", descriptor_->name(), "pending_tag",
+        CanHandOver(descriptor_) ? ", pendingTag" : "");
+    bool alternatives = false;
+    for (int i = 0; i < descriptor_->field_count(); ++i) {
+      alternatives |= IsRealOneof(descriptor_->field(i)) &&
+                      GetJavaType(descriptor_->field(i)) == JAVATYPE_MESSAGE;
+    }
+    if (alternatives) {
+      printer->Print(
+          "  }\n"
+          "\n"
+          "  @java.lang.Override\n"
+          "  protected void retainParsedAlternatives(\n"
+          "      com.google.protobuf.Message.Builder builder) {\n"
+          "    Builder.retainParsedAlternatives((Builder) builder);\n");
+    }
+  } else {
+    printer->Print(
+        "private static final com.google.protobuf.Parser<$classname$>\n"
+        "    PARSER = new com.google.protobuf.AbstractParser<$classname$>() {\n"
+        "  @java.lang.Override\n"
+        "  public $classname$ parsePartialFrom(\n"
+        "      com.google.protobuf.CodedInputStream input,\n"
+        "      com.google.protobuf.ExtensionRegistryLite extensionRegistry)\n"
+        "      throws com.google.protobuf.InvalidProtocolBufferException {\n",
+        "classname", descriptor_->name());
+    printer->Print(
+        "    Builder builder = newBuilder();\n"
+        "    try {\n"
+        "      builder.mergeFrom(input, extensionRegistry);\n"
+        "    } catch (java.lang.Exception e) {\n"
+        "      wrapAndThrowParseException(e, builder);\n"
+        "    }\n"
+        "    return builder.buildPartial();\n");
+  }
   printer->Print(
-      "private static final com.google.protobuf.Parser<$classname$>\n"
-      "    PARSER = new com.google.protobuf.AbstractParser<$classname$>() {\n"
-      "  @java.lang.Override\n"
-      "  public $classname$ parsePartialFrom(\n"
-      "      com.google.protobuf.CodedInputStream input,\n"
-      "      com.google.protobuf.ExtensionRegistryLite extensionRegistry)\n"
-      "      throws com.google.protobuf.InvalidProtocolBufferException {\n"
-      "    Builder builder = newBuilder();\n"
-      "    try {\n"
-      "      builder.mergeFrom(input, extensionRegistry);\n"
-      "    } catch (java.lang.Exception e) {\n"
-      "      wrapAndThrowParseException(e, builder);\n"
-      "    }\n"
-      "    return builder.buildPartial();\n"
       "  }\n"
       "};\n"
       "\n"
