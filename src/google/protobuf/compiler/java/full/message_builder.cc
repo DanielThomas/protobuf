@@ -278,20 +278,23 @@ void MessageBuilderGenerator::GenerateBuilderConstructors(
   printer->Print(
       "// Construct using $classname$.newBuilder()\n"
       "private Builder() {\n"
-      "$force_builder_init$\n"
+      "  this((com.google.protobuf.GeneratedMessage.BuilderParent) null);\n"
       "}\n"
-      "\n",
-      "classname", name_resolver_->GetImmutableClassName(descriptor_),
-      "force_builder_init", force_builder_init);
-
-  printer->Print(
+      "\n"
       "private Builder(\n"
       "    com.google.protobuf.GeneratedMessage.BuilderParent parent) {\n"
-      "  super(parent);\n"
-      "$force_builder_init$\n"
-      "}\n",
-      "classname", name_resolver_->GetImmutableClassName(descriptor_),
-      "force_builder_init", force_builder_init);
+      "  super(parent);\n",
+      "classname", name_resolver_->GetImmutableClassName(descriptor_));
+  printer->Indent();
+  for (int i = 0; i < descriptor_->field_count(); ++i) {
+    const auto* field = descriptor_->field(i);
+    if (!IsRealOneof(field)) {
+      field_generators_.get(field).GenerateBuilderInitializationCode(printer);
+    }
+  }
+  printer->Outdent();
+  printer->Print("$force_builder_init$\n}\n",
+                 "force_builder_init", force_builder_init);
 
   if (need_maybe_force_builder_init) {
     printer->Print(

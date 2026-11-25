@@ -39,6 +39,8 @@ class ImmutableFieldGenerator : public FieldGenerator {
   virtual void GenerateMembers(io::Printer* printer) const = 0;
   virtual void GenerateBuilderMembers(io::Printer* printer) const = 0;
   virtual void GenerateInitializationCode(io::Printer* printer) const = 0;
+  virtual void GenerateConstructorInitializationCode(io::Printer* printer) const {}
+  virtual void GenerateBuilderInitializationCode(io::Printer* printer) const {}
   virtual void GenerateBuilderClearCode(io::Printer* printer) const = 0;
   virtual void GenerateMergingCode(io::Printer* printer) const = 0;
   virtual void GenerateBuildingCode(io::Printer* printer) const = 0;

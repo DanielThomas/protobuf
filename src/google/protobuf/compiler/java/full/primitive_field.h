@@ -43,6 +43,9 @@ class ImmutablePrimitiveFieldGenerator : public ImmutableFieldGenerator {
       const ImmutablePrimitiveFieldGenerator&) = delete;
   ~ImmutablePrimitiveFieldGenerator() override;
 
+  void GenerateConstructorInitializationCode(io::Printer* printer) const override;
+  void GenerateBuilderInitializationCode(io::Printer* printer) const override;
+
   // implements ImmutableFieldGenerator
   // ---------------------------------------
 
