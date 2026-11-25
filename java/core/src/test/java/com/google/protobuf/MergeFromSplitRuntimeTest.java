@@ -8,16 +8,47 @@
 package com.google.protobuf;
 
 import static com.google.common.truth.Truth.assertThat;
+import static com.google.common.truth.Truth.assertWithMessage;
+import static org.junit.Assert.assertThrows;
 
 import com.google.protobuf.Descriptors.Descriptor;
 import com.google.protobuf.Descriptors.FieldDescriptor;
 import com.google.protobuf.Descriptors.OneofDescriptor;
+import java.io.ByteArrayOutputStream;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
 @RunWith(JUnit4.class)
 public final class MergeFromSplitRuntimeTest {
+
+  // Zero-based child slots on both sides of the 32- and 64-slot boundaries.
+  private static final int[] RETAINED_CHILD_FIELDS = {1, 32, 33, 64, 65};
+
+  /** Where the retained children are, through fields that later occurrences merge into. */
+  private enum Wrapper {
+    NONE(0, 0),
+    SELECTED(RetainedChildrenParent.SELECTED_FIELD_NUMBER, 0),
+    HELD(RetainedChildrenParent.HELD_FIELD_NUMBER, RetainedChildrenHolder.CHILDREN_FIELD_NUMBER),
+    EXTENDED(
+        RetainedChildrenParent.EXTENDED_FIELD_NUMBER,
+        MergeFromSplitTestProto.heldChildren.getNumber());
+
+    final int parentField;
+    final int holderField;
+
+    Wrapper(int parentField, int holderField) {
+      this.parentField = parentField;
+      this.holderField = holderField;
+    }
+  }
+
+  private enum MergeFailure {
+    NONE,
+    RECURSION,
+    MESSAGE_END_TAG,
+    GROUP_END_TAG
+  }
 
   private void testBoundaryMessage(Message defaultInstance, int fieldCount) throws Exception {
     Descriptor descriptor = defaultInstance.getDescriptorForType();
@@ -102,6 +133,371 @@ public final class MergeFromSplitRuntimeTest {
 
     Message actualOverlap = destBuilderOverlap.build();
     assertThat(actualOverlap).isEqualTo(expectedBuilderOverlap.build());
+  }
+
+  @Test
+  public void testRetainedOneofHistoryAcrossChildBoundaries() throws Exception {
+    for (Wrapper wrapper : Wrapper.values()) {
+      for (boolean extension : new boolean[] {false, true}) {
+        for (int field : RETAINED_CHILD_FIELDS) {
+          assertRetainedHistory(field, wrapper, extension, MergeFailure.NONE);
+        }
+      }
+    }
+  }
+
+  @Test
+  public void testRetainedOneofHistoryInHeldChildWithForcedFieldBuilders() throws Exception {
+    // The held child's children switch from child_1 to child_2, and a later held child merges
+    // child_1 into the Builder retained for it.
+    ByteString wire =
+        messageField(
+                RetainedChildrenParent.HELD_FIELD_NUMBER,
+                RetainedChildrenHolder.newBuilder()
+                    .setChildren(
+                        RetainedChildren.newBuilder()
+                            .setChild1(RetainedChildren.Child.newBuilder().addValues(1)))
+                    .build()
+                    .toByteString()
+                    .concat(
+                        RetainedChildrenHolder.newBuilder()
+                            .setChildren(
+                                RetainedChildren.newBuilder()
+                                    .setChild2(RetainedChildren.Child.newBuilder().addValues(2)))
+                            .build()
+                            .toByteString()))
+            .concat(RetainedChildrenParent.newBuilder().setText("replacement").build().toByteString())
+            .concat(
+                messageField(
+                    RetainedChildrenParent.HELD_FIELD_NUMBER,
+                    RetainedChildrenHolder.newBuilder()
+                        .setChildren(
+                            RetainedChildren.newBuilder()
+                                .setChild1(RetainedChildren.Child.newBuilder().addValues(3)))
+                        .build()
+                        .toByteString()));
+    GeneratedMessage.setAlwaysUseFieldBuildersForTesting(true);
+    try {
+      RetainedChildrenParent built = RetainedChildrenParent.newBuilder().mergeFrom(wire).build();
+      assertThat(built.getHeld().getChildren().getChild1().getValuesList())
+          .containsExactly(1, 3)
+          .inOrder();
+      assertThat(RetainedChildrenParent.parseFrom(wire)).isEqualTo(built);
+    } finally {
+      GeneratedMessage.setAlwaysUseFieldBuildersForTesting(false);
+    }
+  }
+
+  @Test
+  public void testRetainedOneofHistoryOnMergeFailure() throws Exception {
+    for (Wrapper wrapper : Wrapper.values()) {
+      for (boolean extension : new boolean[] {false, true}) {
+        for (int field : RETAINED_CHILD_FIELDS) {
+          for (MergeFailure failure :
+              new MergeFailure[] {
+                MergeFailure.RECURSION, MergeFailure.MESSAGE_END_TAG, MergeFailure.GROUP_END_TAG
+              }) {
+            assertRetainedHistory(field, wrapper, extension, failure);
+          }
+        }
+      }
+    }
+  }
+
+  private static void assertRetainedHistory(
+      int field, Wrapper wrapper, boolean extension, MergeFailure failure) throws Exception {
+    ExtensionRegistry registry = ExtensionRegistry.newInstance();
+    MergeFromSplitTestProto.registerAllExtensions(registry);
+    ByteString history = retainedHistory(extension);
+    ByteString suffix = retainedSuffix(field, failure);
+    ByteString wire =
+        wrapper == Wrapper.NONE
+            ? history.concat(suffix)
+            : messageField(wrapper.parentField, held(wrapper, history, /* first= */ true))
+                .concat(
+                    RetainedChildrenParent.newBuilder()
+                        .setText("replacement")
+                        .build()
+                        .toByteString())
+                .concat(
+                    messageField(wrapper.parentField, held(wrapper, suffix, /* first= */ false)));
+    Message defaults =
+        wrapper == Wrapper.NONE
+            ? RetainedChildren.getDefaultInstance()
+            : RetainedChildrenParent.getDefaultInstance();
+    Message.Builder builder = defaults.newBuilderForType();
+    CodedInputStream builderInput = wire.newCodedInput();
+    CodedInputStream parserInput = wire.newCodedInput();
+    int recursionLimit = 3 + (wrapper.parentField == 0 ? 0 : 1) + (wrapper.holderField == 0 ? 0 : 1);
+    builderInput.setRecursionLimit(recursionLimit);
+    parserInput.setRecursionLimit(recursionLimit);
+    Message parsed;
+    if (failure == MergeFailure.NONE) {
+      builder.mergeFrom(builderInput, registry);
+      parsed = (Message) defaults.getParserForType().parseFrom(parserInput, registry);
+    } else {
+      InvalidProtocolBufferException builderFailure =
+          assertThrows(
+              InvalidProtocolBufferException.class,
+              () -> builder.mergeFrom(builderInput, registry));
+      InvalidProtocolBufferException parserFailure =
+          assertThrows(
+              InvalidProtocolBufferException.class,
+              () -> defaults.getParserForType().parseFrom(parserInput, registry));
+      assertThat(parserFailure.getMessage()).isEqualTo(builderFailure.getMessage());
+      parsed = (Message) parserFailure.getUnfinishedMessage();
+    }
+    assertThat(parserInput.getTotalBytesRead()).isEqualTo(builderInput.getTotalBytesRead());
+    assertThat(parserInput.getLastTag()).isEqualTo(builderInput.getLastTag());
+    assertThat(parserInput.getBytesUntilLimit()).isEqualTo(builderInput.getBytesUntilLimit());
+    assertThat(parserInput.messageDepth).isEqualTo(builderInput.messageDepth);
+    assertThat(parserInput.groupDepth).isEqualTo(builderInput.groupDepth);
+
+    RetainedChildren.Child expectedChild =
+        RetainedChildren.Child.newBuilder()
+            .addValues(field)
+            .addValues(field + 1000)
+            .addValues(field + 2000)
+            .setChild(
+                RetainedChildren.Child.newBuilder()
+                    .addValues(field + 100)
+                    .addValues(field + 1100)
+                    .addValues(field + 2100)
+                    .setChild(
+                        RetainedChildren.Child.newBuilder()
+                            .addValues(field + 200)
+                            .addValues(field + 1200)
+                            .addValues(field + 2200)))
+            .setGroup(
+                RetainedChildren.Child.Group.newBuilder()
+                    .addValues(field + 300)
+                    .addValues(field + 1300))
+            .build();
+    if (failure == MergeFailure.NONE || failure == MergeFailure.GROUP_END_TAG) {
+      expectedChild =
+          expectedChild.toBuilder()
+              .setGroup(expectedChild.getGroup().toBuilder().addValues(field + 2300))
+              .build();
+    }
+    FieldDescriptor selected = RetainedChildren.getDescriptor().findFieldByNumber(field);
+    RetainedChildren.Builder expectedChildren =
+        RetainedChildren.newBuilder().setField(selected, expectedChild);
+    if (extension) expectedChildren.setExtension(MergeFromSplitTestProto.retainedNumber, 7);
+    Message expected;
+    switch (wrapper) {
+      case SELECTED:
+        expected = RetainedChildrenParent.newBuilder().setSelected(expectedChildren).build();
+        break;
+      case HELD:
+        expected =
+            RetainedChildrenParent.newBuilder()
+                .setHeld(RetainedChildrenHolder.newBuilder().setChildren(expectedChildren))
+                .build();
+        break;
+      case EXTENDED:
+        expected =
+            RetainedChildrenParent.newBuilder()
+                .setExtended(
+                    RetainedChildrenExtensionHolder.newBuilder()
+                        .setExtension(MergeFromSplitTestProto.heldChildren, expectedChildren.build()))
+                .build();
+        break;
+      default:
+        expected = expectedChildren.build();
+    }
+    assertWithMessage(
+            "field=%s wrapper=%s extension=%s failure=%s", field, wrapper, extension, failure)
+        .that(parsed)
+        .isEqualTo(expected);
+    assertThat(builder.buildPartial()).isEqualTo(expected);
+    assertThat(parsed.toByteString()).isEqualTo(expected.toByteString());
+    if (wrapper == Wrapper.HELD || wrapper == Wrapper.EXTENDED) {
+      // The checks of publication below don't depend on what holds the children.
+      return;
+    }
+    boolean wrapped = wrapper == Wrapper.SELECTED;
+
+    RetainedChildren children =
+        wrapped ? ((RetainedChildrenParent) parsed).getSelected() : (RetainedChildren) parsed;
+    RetainedChildren.Child child = (RetainedChildren.Child) children.getField(selected);
+    assertThrows(UnsupportedOperationException.class, () -> child.getValuesList().clear());
+    assertThrows(
+        UnsupportedOperationException.class, () -> child.getChild().getValuesList().clear());
+    assertThrows(
+        UnsupportedOperationException.class,
+        () -> child.getChild().getChild().getValuesList().clear());
+    assertThrows(
+        UnsupportedOperationException.class, () -> child.getGroup().getValuesList().clear());
+    ByteString snapshot = parsed.toByteString();
+    Message.Builder continuation = parsed.toBuilder();
+    RetainedChildren.Builder continuedChildren =
+        wrapped
+            ? ((RetainedChildrenParent.Builder) continuation).getSelectedBuilder()
+            : (RetainedChildren.Builder) continuation;
+    RetainedChildren.Child.Builder continued =
+        (RetainedChildren.Child.Builder) continuedChildren.getFieldBuilder(selected);
+    continued.addValues(9999);
+    continued.getChildBuilder().getChildBuilder().addValues(9998);
+    continued.getGroupBuilder().addValues(9997);
+    Message continuedMessage = continuation.build();
+    RetainedChildren publishedChildren =
+        wrapped
+            ? ((RetainedChildrenParent) continuedMessage).getSelected()
+            : (RetainedChildren) continuedMessage;
+    RetainedChildren.Child published =
+        (RetainedChildren.Child) publishedChildren.getField(selected);
+    assertThat(published.getValuesList())
+        .containsExactly(field, field + 1000, field + 2000, 9999)
+        .inOrder();
+    assertThat(published.getChild().getChild().getValuesList())
+        .containsExactly(field + 200, field + 1200, field + 2200, 9998)
+        .inOrder();
+    assertThat(published.getGroup().getValuesList())
+        .containsExactlyElementsIn(
+            expectedChild.getGroup().toBuilder().addValues(9997).getValuesList())
+        .inOrder();
+    assertThat(parsed.toByteString()).isEqualTo(snapshot);
+  }
+
+  /**
+   * The children as a holder's field. A holder parses its field's first occurrence into a message,
+   * so the history is in a second occurrence, which merges into a Builder.
+   */
+  private static ByteString held(Wrapper wrapper, ByteString children, boolean first)
+      throws Exception {
+    if (wrapper.holderField == 0) {
+      return children;
+    }
+    ByteString occurrence = messageField(wrapper.holderField, children);
+    return first ? messageField(wrapper.holderField, ByteString.EMPTY).concat(occurrence) : occurrence;
+  }
+
+  @Test
+  public void testParsingMergesWithinAlternativeOfAlternative() throws Exception {
+    ByteString merged =
+        NestedAlternatives.newBuilder()
+            .setChild(NestedAlternatives.newBuilder().setNumber(1))
+            .build()
+            .toByteString()
+            .concat(
+                NestedAlternatives.newBuilder()
+                    .setChild(NestedAlternatives.newBuilder().setOther(2))
+                    .build()
+                    .toByteString());
+    ByteString wire =
+        messageField(
+            NestedAlternatives.ALTERNATIVE_FIELD_NUMBER,
+            NestedAlternatives.newBuilder()
+                .setNumber(3)
+                .build()
+                .toByteString()
+                .concat(messageField(NestedAlternatives.ALTERNATIVE_FIELD_NUMBER, merged)));
+    for (int length = 0; length <= wire.size(); length++) {
+      ByteString prefix = wire.substring(0, length);
+      NestedAlternatives.Builder builder = NestedAlternatives.newBuilder();
+      NestedAlternatives parsed;
+      try {
+        builder.mergeFrom(prefix);
+        parsed = NestedAlternatives.parseFrom(prefix);
+      } catch (InvalidProtocolBufferException builderFailure) {
+        InvalidProtocolBufferException parserFailure =
+            assertThrows(
+                InvalidProtocolBufferException.class, () -> NestedAlternatives.parseFrom(prefix));
+        assertThat(parserFailure.getMessage()).isEqualTo(builderFailure.getMessage());
+        parsed = (NestedAlternatives) parserFailure.getUnfinishedMessage();
+      }
+      assertWithMessage("length %s", length).that(parsed).isEqualTo(builder.buildPartial());
+    }
+  }
+
+  @Test
+  public void testUnfinishedAlternativeOfAlternativeFailingUtf8CheckMatchesBuilder()
+      throws Exception {
+    // The alternative's second assignment is continued in the parent's Builder, whose child
+    // Builder sets the case before the check fails.
+    ByteString wire =
+        messageField(
+            NestedAlternatives.ALTERNATIVE_FIELD_NUMBER,
+            NestedAlternatives.newBuilder()
+                .setOther(1)
+                .build()
+                .toByteString()
+                .concat(
+                    messageField(
+                        NestedAlternatives.TEXT_FIELD_NUMBER,
+                        ByteString.copyFrom(new byte[] {(byte) 0xff}))));
+    NestedAlternatives.Builder builder = NestedAlternatives.newBuilder();
+
+    assertThrows(InvalidProtocolBufferException.class, () -> builder.mergeFrom(wire));
+    InvalidProtocolBufferException e =
+        assertThrows(InvalidProtocolBufferException.class, () -> NestedAlternatives.parseFrom(wire));
+    // Only the case is compared, as getting the value fails when the Builder has set the case
+    // but not the string.
+    assertThat(((NestedAlternatives) e.getUnfinishedMessage()).getAlternative().getChoiceCase())
+        .isEqualTo(builder.getAlternative().getChoiceCase());
+  }
+
+  private static ByteString retainedHistory(boolean extension) throws Exception {
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    CodedOutputStream output = CodedOutputStream.newInstance(bytes);
+    for (int offset : new int[] {0, 1000}) {
+      for (int field : RETAINED_CHILD_FIELDS) {
+        output.writeMessage(field, retainedChild(field + offset));
+      }
+      if (extension && offset == 0) output.writeInt32(100, 7);
+    }
+    output.flush();
+    return ByteString.copyFrom(bytes.toByteArray());
+  }
+
+  private static RetainedChildren.Child retainedChild(int value) {
+    return RetainedChildren.Child.newBuilder()
+        .addValues(value)
+        .setChild(
+            RetainedChildren.Child.newBuilder()
+                .addValues(value + 100)
+                .setChild(RetainedChildren.Child.newBuilder().addValues(value + 200)))
+        .setGroup(RetainedChildren.Child.Group.newBuilder().addValues(value + 300))
+        .build();
+  }
+
+  private static ByteString retainedSuffix(int field, MergeFailure failure) throws Exception {
+    if (failure == MergeFailure.NONE) {
+      return messageField(field, retainedChild(field + 2000).toByteString());
+    }
+    ByteArrayOutputStream nested = new ByteArrayOutputStream();
+    CodedOutputStream nestedOutput = CodedOutputStream.newInstance(nested);
+    nestedOutput.writeInt32(RetainedChildren.Child.VALUES_FIELD_NUMBER, field + 2100);
+    RetainedChildren.Child.Builder grandchild =
+        RetainedChildren.Child.newBuilder().addValues(field + 2200);
+    if (failure == MergeFailure.RECURSION) {
+      grandchild.setChild(RetainedChildren.Child.newBuilder().addValues(field + 2300));
+    }
+    nestedOutput.writeMessage(RetainedChildren.Child.CHILD_FIELD_NUMBER, grandchild.build());
+    if (failure == MergeFailure.MESSAGE_END_TAG) {
+      nestedOutput.writeTag(
+          RetainedChildren.Child.CHILD_FIELD_NUMBER, WireFormat.WIRETYPE_END_GROUP);
+    }
+    nestedOutput.flush();
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    CodedOutputStream output = CodedOutputStream.newInstance(bytes);
+    output.writeInt32(RetainedChildren.Child.VALUES_FIELD_NUMBER, field + 2000);
+    output.writeByteArray(RetainedChildren.Child.CHILD_FIELD_NUMBER, nested.toByteArray());
+    if (failure == MergeFailure.GROUP_END_TAG) {
+      output.writeTag(RetainedChildren.Child.GROUP_FIELD_NUMBER, WireFormat.WIRETYPE_START_GROUP);
+      output.writeInt32(RetainedChildren.Child.Group.VALUES_FIELD_NUMBER, field + 2300);
+      output.writeTag(RetainedChildren.Child.CHILD_FIELD_NUMBER, WireFormat.WIRETYPE_END_GROUP);
+    }
+    output.flush();
+    return messageField(field, ByteString.copyFrom(bytes.toByteArray()));
+  }
+
+  private static ByteString messageField(int field, ByteString value) throws Exception {
+    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+    CodedOutputStream output = CodedOutputStream.newInstance(bytes);
+    output.writeBytes(field, value);
+    output.flush();
+    return ByteString.copyFrom(bytes.toByteArray());
   }
 
   @Test
