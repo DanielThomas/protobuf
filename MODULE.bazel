@@ -276,6 +276,8 @@ protobuf_maven_dev.install(
         "com.google.truth:truth:1.1.2",
         "junit:junit:4.13.2",
         "org.mockito:mockito-core:4.3.1",
+        "org.openjdk.jmh:jmh-core:1.37",
+        "org.openjdk.jmh:jmh-generator-annprocess:1.37",
         "biz.aQute.bnd:biz.aQute.bndlib:6.4.0",
         "info.picocli:picocli:4.6.3",
     ],

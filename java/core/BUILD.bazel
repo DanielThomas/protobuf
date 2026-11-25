@@ -385,6 +385,7 @@ java_proto_library(
 
 java_proto_library(
     name = "java_test_protos_java_proto",
+    visibility = ["//java/benchmarks:__pkg__"],
     deps = [":java_test_protos"],
 )
 
