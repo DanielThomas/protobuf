@@ -40,6 +40,11 @@ namespace {
 using internal::WireFormat;
 using Semantic = ::google::protobuf::io::AnnotationCollector::Semantic;
 
+bool HasBytesDefault(const FieldDescriptor* descriptor) {
+  return GetJavaType(descriptor) == JAVATYPE_BYTES &&
+         descriptor->has_default_value();
+}
+
 // Adds two variables to (*variables) that operate on a particular field value,
 // both for use locally and on another instance named 'other'. This ensures that
 // we treat these values the same way, whether it's in the current instance or
@@ -101,6 +106,10 @@ void SetPrimitiveVariables(
 
   (*variables)["default"] =
       ImmutableDefaultValue(descriptor, name_resolver, context->options());
+  (*variables)["builder_default"] =
+      HasBytesDefault(descriptor)
+          ? absl::StrCat("getDefaultInstance().get", info->capitalized_name, "()")
+          : (*variables)["default"];
   (*variables)["default_init"] =
       IsDefaultValueJavaDefault(descriptor)
           ? ""
@@ -252,7 +261,9 @@ void ImmutablePrimitiveFieldGenerator::GenerateGetMethod(
 
 void ImmutablePrimitiveFieldGenerator::GenerateMembers(
     io::Printer* printer) const {
-  printer->Print(variables_, "private $field_type$ $name$_ = $default$;\n");
+  printer->Print(variables_, HasBytesDefault(descriptor_)
+                                 ? "private $field_type$ $name$_;\n"
+                                 : "private $field_type$ $name$_ = $default$;\n");
   PrintExtraFieldInfo(variables_, printer);
   GenerateHasMethod(printer);
   GenerateGetMethod(printer);
@@ -330,7 +341,9 @@ void ImmutablePrimitiveFieldGenerator::GenerateBuilderClearMethod(
 
 void ImmutablePrimitiveFieldGenerator::GenerateBuilderMembers(
     io::Printer* printer) const {
-  printer->Print(variables_, "private $field_type$ $name$_ $default_init$;\n");
+  printer->Print(variables_, HasBytesDefault(descriptor_)
+                                 ? "private $field_type$ $name$_;\n"
+                                 : "private $field_type$ $name$_ $default_init$;\n");
   GenerateBuilderHasMethod(printer);
   GenerateBuilderGetMethod(printer);
   GenerateBuilderSetMethod(printer);
@@ -349,10 +362,25 @@ void ImmutablePrimitiveFieldGenerator::GenerateInitializationCode(
   }
 }
 
+void ImmutablePrimitiveFieldGenerator::GenerateConstructorInitializationCode(
+    io::Printer* printer) const {
+  if (HasBytesDefault(descriptor_)) {
+    // The no-argument constructor initializes the default instance itself.
+    printer->Print(variables_, "$name$_ = DEFAULT_INSTANCE.$name$_;\n");
+  }
+}
+
+void ImmutablePrimitiveFieldGenerator::GenerateBuilderInitializationCode(
+    io::Printer* printer) const {
+  if (HasBytesDefault(descriptor_)) {
+    printer->Print(variables_, "$name$_ = $builder_default$;\n");
+  }
+}
+
 void ImmutablePrimitiveFieldGenerator::GenerateBuilderClearCode(
     io::Printer* printer) const {
   // No need to clear the has-bit since we clear the bitField ints all at once.
-  printer->Print(variables_, "$name$_ = $default$;\n");
+  printer->Print(variables_, "$name$_ = $builder_default$;\n");
 }
 
 void ImmutablePrimitiveFieldGenerator::GenerateMergingCode(
@@ -364,7 +392,7 @@ void ImmutablePrimitiveFieldGenerator::GenerateMergingCode(
 }
 
 void ImmutablePrimitiveFieldGenerator::GenerateBuildingCode(
-    io::Printer* printer) const {
+    io::Printer* printer, bool static_parser) const {
   printer->Print(variables_,
                  "if ($get_has_field_bit_from_local$) {\n"
                  "  result.$name$_ = $name$_;\n");
@@ -375,7 +403,7 @@ void ImmutablePrimitiveFieldGenerator::GenerateBuildingCode(
 }
 
 void ImmutablePrimitiveFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
+    io::Printer* printer, bool static_parser) const {
   printer->Print(variables_,
                  "$name$_ = input.read$capitalized_type$();\n"
                  "$set_has_field_bit$\n");
@@ -620,7 +648,7 @@ void ImmutablePrimitiveOneofFieldGenerator::GenerateBuilderMembers(
   GenerateBuilderGetMethod(printer);
   GenerateBuilderSetMethod(printer);
   GenerateBuilderClearMethod(printer);
-  GenerateBuilderParseMethod(printer);
+  GenerateBuilderParseMethod(printer, /*static_parser=*/false);
 }
 
 void ImmutablePrimitiveOneofFieldGenerator::GenerateBuilderClearCode(
@@ -630,7 +658,7 @@ void ImmutablePrimitiveOneofFieldGenerator::GenerateBuilderClearCode(
 }
 
 void ImmutablePrimitiveOneofFieldGenerator::GenerateBuildingCode(
-    io::Printer* printer) const {
+    io::Printer* printer, bool static_parser) const {
   // No-Op: Handled by single block statement in GenerateBuildPartialShard.
 }
 
@@ -640,28 +668,37 @@ void ImmutablePrimitiveOneofFieldGenerator::GenerateMergingCode(
                  "set$capitalized_name$(other.get$capitalized_name$());\n");
 }
 
-void ImmutablePrimitiveOneofFieldGenerator::GenerateBuilderParseMethod(
+void ImmutablePrimitiveOneofFieldGenerator::GenerateStaticParsingMethods(
     io::Printer* printer) const {
+  GenerateBuilderParseMethod(printer, /*static_parser=*/true);
+}
+
+void ImmutablePrimitiveOneofFieldGenerator::GenerateBuilderParseMethod(
+    io::Printer* printer, bool static_parser) const {
+  auto parsing = printer->WithVars(ParsingVariables(static_parser));
   printer->Print(variables_,
-                 "private void parse$capitalized_name$(\n"
-                 "    com.google.protobuf.CodedInputStream input)\n"
-                 "    throws java.io.IOException {\n"
-                 "  $oneof_name$_ = input.read$capitalized_type$();\n"
-                 "  switch ($oneof_name$Case_) {\n"
-                 "  default:\n"
-                 "    clear$oneof_capitalized_name$HasBits(); // fallthrough\n"
-                 "  case 0:\n"
-                 "    $set_oneof_case_message$;\n"
-                 "    $set_has_field_bit$ // fallthrough\n"
-                 "  case $number$:\n"
-                 "    break;\n"
-                 "  }\n"
-                 "}\n");
+                 "private $static$$pending_returns$ parse$capitalized_name$(\n"
+                 "    $result_parameter$com.google.protobuf.CodedInputStream "
+                 "input)\n"
+                 "    throws java.io.IOException {\n");
+  printer->Indent();
+  PrintOneofParseGuard(printer, static_parser);
+  printer->Print(variables_,
+                 "$target$$oneof_name$_ = input.read$capitalized_type$();\n");
+  PrintSetOneofCase(printer, static_parser);
+  if (static_parser) {
+    printer->Print("return 0;\n");
+  }
+  printer->Outdent();
+  printer->Print("}\n");
 }
 
 void ImmutablePrimitiveOneofFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
-  printer->Print(variables_, "parse$capitalized_name$(input);\n");
+    io::Printer* printer, bool static_parser) const {
+  auto parsing = printer->WithVars(ParsingVariables(static_parser));
+  printer->Print(variables_,
+                 "$pending_tag$parse$capitalized_name$($result_argument$input);"
+                 "\n");
 }
 
 void ImmutablePrimitiveOneofFieldGenerator::GenerateSerializationCode(
@@ -796,16 +833,23 @@ void RepeatedImmutablePrimitiveFieldGenerator::GenerateMembers(
 }
 
 void RepeatedImmutablePrimitiveFieldGenerator::GenerateEnsureIsMutableMethod(
-    io::Printer* printer) const {
+    io::Printer* printer, bool static_parser) const {
+  auto parsing = printer->WithVars(ParsingVariables(static_parser));
+  if (!static_parser) {
+    printer->Print(variables_,
+                   "private $field_list_type$ $name$_ = $empty_list$;\n");
+  }
   printer->Print(
       variables_,
-      "private $field_list_type$ $name$_ = $empty_list$;\n"
-      "private void ensure$capitalized_name$IsMutable(int capacity) {\n"
-      "  if (!$name$_.isModifiable()) {\n"
-      "    $name$_ = makeMutableCopy($name$_, capacity);\n"
-      "  }\n"
-      "  $set_has_field_bit$\n"
-      "}\n");
+      "private $static$$ensure_returns$ ensure$capitalized_name$IsMutable("
+      "$bit_field_parameter$$result_parameter$int capacity) {\n"
+      "  if (!$target$$name$_.isModifiable()) {\n"
+      "    $target$$name$_ = makeMutableCopy($target$$name$_, capacity);\n"
+      "  }\n");
+  printer->Print(variables_,
+                 "  $set_has_field_bit$\n"
+                 "$return_bit_field$"
+                 "}\n");
 }
 
 void RepeatedImmutablePrimitiveFieldGenerator::GenerateBuilderGetListMethod(
@@ -917,7 +961,7 @@ void RepeatedImmutablePrimitiveFieldGenerator::GenerateBuilderClearMethod(
 
 void RepeatedImmutablePrimitiveFieldGenerator::GenerateBuilderMembers(
     io::Printer* printer) const {
-  GenerateEnsureIsMutableMethod(printer);
+  GenerateEnsureIsMutableMethod(printer, /*static_parser=*/false);
   GenerateBuilderGetListMethod(printer);
   GenerateBuilderGetCountMethod(printer);
   GenerateBuilderGetMethod(printer);
@@ -965,28 +1009,43 @@ void RepeatedImmutablePrimitiveFieldGenerator::GenerateMergingCode(
 }
 
 void RepeatedImmutablePrimitiveFieldGenerator::GenerateBuildingCode(
-    io::Printer* printer) const {
+    io::Printer* printer, bool static_parser) const {
   // The code below ensures that the result has an immutable list. If our
   // list is immutable, we can just reuse it. If not, we make it immutable.
+  auto parsing = printer->WithVars(ParsingVariables(static_parser));
+  // The static parser's list is already in the message.
   printer->Print(variables_,
                  "if ($get_has_field_bit_from_local$) {\n"
-                 "  $name_make_immutable$;\n"
-                 "  result.$name$_ = $name$_;\n"
-                 "}\n");
+                 "  $target$$name_make_immutable$;\n");
+  if (!static_parser) {
+    printer->Print(variables_, "  result.$name$_ = $name$_;\n");
+  }
+  printer->Print("}\n");
 }
 
 void RepeatedImmutablePrimitiveFieldGenerator::GenerateBuilderParsingCode(
-    io::Printer* printer) const {
+    io::Printer* printer, bool static_parser) const {
+  auto parsing = printer->WithVars(ParsingVariables(static_parser));
   printer->Print(variables_,
                  "$type$ v = input.read$capitalized_type$();\n"
-                 "ensure$capitalized_name$IsMutable(/* capacity= */ -1);\n"
-                 "$repeated_add$(v);\n");
+                 "$bit_field_assignment$ensure$capitalized_name$IsMutable("
+                 "$bit_field_argument$$result_argument$"
+                 "/* capacity= */ -1);\n"
+                 "$target$$repeated_add$(v);\n");
+}
+
+void RepeatedImmutablePrimitiveFieldGenerator::GenerateStaticParsingMethods(
+    io::Printer* printer) const {
+  GenerateEnsureIsMutableMethod(printer, /*static_parser=*/true);
 }
 
 void RepeatedImmutablePrimitiveFieldGenerator::
-    GenerateBuilderParsingCodeFromPacked(io::Printer* printer) const {
-  // Bulk packed decoding is not yet released to OSS; OSS keeps the loops below.
-  if (!google::protobuf::internal::IsOss()) {
+    GenerateBuilderParsingCodeFromPacked(io::Printer* printer,
+                                         bool static_parser) const {
+  auto parsing = printer->WithVars(ParsingVariables(static_parser));
+  // Bulk packed decoding is not yet released to OSS; OSS keeps the loops below,
+  // as does the static parser, as bulk decoding is through the Builder.
+  if (!google::protobuf::internal::IsOss() && !static_parser) {
     switch (GetType(descriptor_)) {
       case FieldDescriptor::TYPE_INT32:
       case FieldDescriptor::TYPE_UINT32:
@@ -1035,9 +1094,11 @@ void RepeatedImmutablePrimitiveFieldGenerator::
                    "int length = input.readRawVarint32();\n"
                    "int limit = input.pushLimit(length);\n"
                    "int alloc = length > 4096 ? 4096 : length;\n"
-                   "ensure$capitalized_name$IsMutable(alloc / $fixed_size$);\n"
+                   "$bit_field_assignment$ensure$capitalized_name$IsMutable("
+                   "$bit_field_argument$$result_argument$"
+                   "alloc / $fixed_size$);\n"
                    "while (input.getBytesUntilLimit() > 0) {\n"
-                   "  $repeated_add$(input.read$capitalized_type$());\n"
+                   "  $target$$repeated_add$(input.read$capitalized_type$());\n"
                    "}\n"
                    "input.popLimit(limit);\n");
   } else {
@@ -1045,9 +1106,10 @@ void RepeatedImmutablePrimitiveFieldGenerator::
                    "int length = input.readRawVarint32();\n"
                    "int limit = input.pushLimit(length);\n"
                    "int count = input.countPackedVarints(length);\n"
-                   "ensure$capitalized_name$IsMutable(count);\n"
+                   "$bit_field_assignment$ensure$capitalized_name$IsMutable("
+                   "$bit_field_argument$$result_argument$count);\n"
                    "while (input.getBytesUntilLimit() > 0) {\n"
-                   "  $repeated_add$(input.read$capitalized_type$());\n"
+                   "  $target$$repeated_add$(input.read$capitalized_type$());\n"
                    "}\n"
                    "input.popLimit(limit);\n");
   }

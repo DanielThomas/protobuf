@@ -1060,7 +1060,15 @@ void ImmutableMapFieldGenerator::GenerateMergingCode(
 }
 
 void ImmutableMapFieldGenerator::GenerateBuildingCode(
-    io::Printer* printer) const {
+    io::Printer* printer, bool static_parser) const {
+  if (static_parser) {
+    // The static parser's map is already in the message.
+    printer->Print(variables_,
+                   "if ($get_has_field_bit_from_local$) {\n"
+                   "  result.internalGet$capitalized_name$().makeImmutable();\n"
+                   "}\n");
+    return;
+  }
   if (GetJavaType(MapValueField(descriptor_)) == JAVATYPE_MESSAGE) {
     printer->Print(
         variables_,
@@ -1077,8 +1085,32 @@ void ImmutableMapFieldGenerator::GenerateBuildingCode(
                  "}\n");
 }
 
-void ImmutableMapFieldGenerator::GenerateBuilderParsingCode(
+void ImmutableMapFieldGenerator::GenerateStaticParsingMethods(
     io::Printer* printer) const {
+  // The static parser's twin of internalGetMutable$capitalized_name$(), which
+  // creates the message's map with its first entry. It reads the field through
+  // the message's accessor, as reading the field would need an accessor in the
+  // message for targets before Java 11.
+  printer->Print(
+      variables_,
+      "private static com.google.protobuf.MapField<$type_parameters$>\n"
+      "    internalGetMutable$capitalized_name$($classname$ result) {\n"
+      "  if (result.get$capitalized_name$Count() == 0) {\n"
+      "    result.$name$_ = com.google.protobuf.MapField.newMapField(\n"
+      "        $default_entry$);\n"
+      "  }\n"
+      "  return result.internalGet$capitalized_name$();\n"
+      "}\n");
+}
+
+void ImmutableMapFieldGenerator::GenerateBuilderParsingCode(
+    io::Printer* printer, bool static_parser) const {
+  auto parsing = printer->WithVars(ParsingVariables(static_parser));
+  // The static parser's map is a MapField, without the Builder's
+  // MapFieldBuilder for message values.
+  auto mutable_map = printer->WithVars(
+      {{"mutable_message_map",
+        static_parser ? "getMutableMap()" : "ensureBuilderMap()"}});
   const FieldDescriptor* value = MapValueField(descriptor_);
   const JavaType type = GetJavaType(value);
   if (type == JAVATYPE_MESSAGE) {
@@ -1087,7 +1119,8 @@ void ImmutableMapFieldGenerator::GenerateBuilderParsingCode(
         "com.google.protobuf.MapEntry<$type_parameters$>\n"
         "$name$__ = input.readMessage(\n"
         "    $default_entry$.getParserForType(), extensionRegistry);\n"
-        "internalGetMutable$capitalized_name$().ensureBuilderMap().put(\n"
+        "internalGetMutable$capitalized_name$($only_result_argument$)"
+        ".$mutable_message_map$.put(\n"
         "    $name$__.getKey(), $name$__.getValue());\n"
         "$set_has_field_bit$\n");
     return;
@@ -1099,9 +1132,11 @@ void ImmutableMapFieldGenerator::GenerateBuilderParsingCode(
         "com.google.protobuf.MapEntry<$type_parameters$>\n"
         "$name$__ = $default_entry$.getParserForType().parseFrom(bytes);\n"
         "if ($value_enum_type$.forNumber($name$__.getValue()) == null) {\n"
-        "  mergeUnknownLengthDelimitedField($number$, bytes);\n"
+        "  $unknown_fields$mergeUnknownLengthDelimitedField("
+        "$unknown_fields_argument$$number$, bytes);\n"
         "} else {\n"
-        "  internalGetMutable$capitalized_name$().getMutableMap().put(\n"
+        "  internalGetMutable$capitalized_name$($only_result_argument$)"
+                 ".getMutableMap().put(\n"
         "      $name$__.getKey(), $name$__.getValue());\n"
         "  $set_has_field_bit$\n"
         "}\n");
@@ -1111,7 +1146,8 @@ void ImmutableMapFieldGenerator::GenerateBuilderParsingCode(
                  "com.google.protobuf.MapEntry<$type_parameters$>\n"
                  "$name$__ = input.readMessage(\n"
                  "    $default_entry$.getParserForType(), extensionRegistry);\n"
-                 "internalGetMutable$capitalized_name$().getMutableMap().put(\n"
+                 "internalGetMutable$capitalized_name$($only_result_argument$)"
+                 ".getMutableMap().put(\n"
                  "    $name$__.getKey(), $name$__.getValue());\n"
                  "$set_has_field_bit$\n");
 }
