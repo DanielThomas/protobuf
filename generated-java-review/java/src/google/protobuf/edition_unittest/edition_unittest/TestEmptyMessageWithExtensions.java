@@ -236,9 +236,16 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestEmptyMessageWithExtensions.class, edition_unittest.TestEmptyMessageWithExtensions.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestEmptyMessageWithExtensions.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(

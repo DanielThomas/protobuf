@@ -263,9 +263,16 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.UInt32Value.class, com.google.protobuf.UInt32Value.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.UInt32Value.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
@@ -304,6 +311,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.UInt32Value buildPartial() {
       com.google.protobuf.UInt32Value result = new com.google.protobuf.UInt32Value(this);
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private com.google.protobuf.UInt32Value buildPartial(com.google.protobuf.UInt32Value result) {
+      setUnknownFields(result, getUnknownFields());
       if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
       onBuilt();
       return result;
@@ -378,6 +392,79 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+
+    private static com.google.protobuf.UInt32Value parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        boolean hosted)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      com.google.protobuf.UInt32Value result = new com.google.protobuf.UInt32Value(null);
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+      int pendingTag = 0;
+      int bitField0_ = 0;
+      int value_ = 0;
+      int tag = 0;
+      java.lang.Exception failure = null;
+      try {
+        boolean done = false;
+        while (!done && pendingTag == 0) {
+          tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              value_ = input.readUInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            default:
+              if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                  == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                done = true; // As in the Builder
+              } else {
+                unknownFields = mergeUnknownField(unknownFields, input, tag);
+              }
+              break;
+          }
+        }
+      } catch (java.lang.Exception e) {
+        failure = e;
+      }
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, value_); }
+      if (unknownFields != null) {
+        setUnknownFields(result, unknownFields.build());
+      }
+      if (failure == null && (pendingTag == 0 || hosted)) {
+        return result;
+      }
+      Builder builder = new Builder();
+      builder.mergeFrom(result);
+      try {
+        if (failure != null) {
+          throw failure;
+        }
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (java.lang.Exception e) {
+        wrapAndThrowParseException(parser(), e, builder);
+      }
+      return builder.buildPartial(result);
+    }
+
+    private static void buildPartial_autosplit_0(
+        com.google.protobuf.UInt32Value result,
+        int bitField0_,
+        int value_) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.value_ = value_;
+        
+      }
+      result.bitField0_ |= to_bitField0_;
+    }
+
     private int bitField0_;
 
     private int value_ ;
@@ -442,19 +529,32 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<UInt32Value>
-      PARSER = new com.google.protobuf.AbstractParser<UInt32Value>() {
+      PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+          UInt32Value>() {
     @java.lang.Override
     public UInt32Value parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Builder.parsePartialFrom(input, extensionRegistry, false);
+    }
+
+    @java.lang.Override
+    protected UInt32Value parseAlternative(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return Builder.parsePartialFrom(input, extensionRegistry, true);
+    }
+
+    @java.lang.Override
+    protected void continueAlternative(
+        com.google.protobuf.Message.Builder builder,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws java.io.IOException {
+      ((Builder) builder).mergeFrom(input, extensionRegistry);
     }
   };
 

@@ -354,9 +354,16 @@ public final class NamingConflict extends com.google.protobuf.GeneratedFile {
                 hpb_unittest.NamingConflict.HasChildCount.class, hpb_unittest.NamingConflict.HasChildCount.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using hpb_unittest.NamingConflict.HasChildCount.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -406,6 +413,13 @@ public final class NamingConflict extends com.google.protobuf.GeneratedFile {
       @java.lang.Override
       public hpb_unittest.NamingConflict.HasChildCount buildPartial() {
         hpb_unittest.NamingConflict.HasChildCount result = new hpb_unittest.NamingConflict.HasChildCount(this);
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private hpb_unittest.NamingConflict.HasChildCount buildPartial(hpb_unittest.NamingConflict.HasChildCount result) {
+        setUnknownFields(result, getUnknownFields());
         if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
         onBuilt();
         return result;
@@ -492,6 +506,123 @@ public final class NamingConflict extends com.google.protobuf.GeneratedFile {
           onChanged();
         } // finally
         return this;
+      }
+
+      private Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        try {
+          switch (pendingTag) {
+            case 10: {
+              parseHasChildCountField(input, extensionRegistry);
+              break;
+            } // case 10
+          }
+        } finally {
+          onChanged();
+        }
+        return mergeFrom(input, extensionRegistry);
+      }
+
+      private static hpb_unittest.NamingConflict.HasChildCount parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        if (alwaysUseFieldBuilders()) {
+          Builder builder = new Builder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (java.lang.Exception e) {
+            wrapAndThrowParseException(parser(), e, builder);
+          }
+          return builder.buildPartial();
+        }
+        hpb_unittest.NamingConflict.HasChildCount result = new hpb_unittest.NamingConflict.HasChildCount(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int bitField0_ = 0;
+        int childCount_ = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                pendingTag = parseHasChildCountField(result, input, extensionRegistry);
+                break;
+              } // case 10
+              case 16: {
+                childCount_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, childCount_); }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry, pendingTag);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+      private static void buildPartial_autosplit_0(
+          hpb_unittest.NamingConflict.HasChildCount result,
+          int bitField0_,
+          int childCount_) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.childCount_ = childCount_;
+          to_bitField0_ |= 0x00000002;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      private static int parseHasChildCountField(
+          HasChildCount result, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (result.hasHasChildCount()) {
+          return 10;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        result.hasChildCount_ = hpb_unittest.NamingConflict.HasChildCount.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        result.bitField0_ |= 0x00000001;
+        return 0;
       }
       private int bitField0_;
 
@@ -677,19 +808,32 @@ public final class NamingConflict extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<HasChildCount>
-        PARSER = new com.google.protobuf.AbstractParser<HasChildCount>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            HasChildCount>() {
       @java.lang.Override
       public HasChildCount parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected HasChildCount parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry, pendingTag);
       }
     };
 
@@ -1064,9 +1208,16 @@ public final class NamingConflict extends com.google.protobuf.GeneratedFile {
                 hpb_unittest.NamingConflict.ConflictingOsMacros.class, hpb_unittest.NamingConflict.ConflictingOsMacros.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using hpb_unittest.NamingConflict.ConflictingOsMacros.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -1107,6 +1258,13 @@ public final class NamingConflict extends com.google.protobuf.GeneratedFile {
       @java.lang.Override
       public hpb_unittest.NamingConflict.ConflictingOsMacros buildPartial() {
         hpb_unittest.NamingConflict.ConflictingOsMacros result = new hpb_unittest.NamingConflict.ConflictingOsMacros(this);
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private hpb_unittest.NamingConflict.ConflictingOsMacros buildPartial(hpb_unittest.NamingConflict.ConflictingOsMacros result) {
+        setUnknownFields(result, getUnknownFields());
         if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
         onBuilt();
         return result;
@@ -1205,6 +1363,101 @@ public final class NamingConflict extends com.google.protobuf.GeneratedFile {
         } // finally
         return this;
       }
+
+      private static hpb_unittest.NamingConflict.ConflictingOsMacros parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        hpb_unittest.NamingConflict.ConflictingOsMacros result = new hpb_unittest.NamingConflict.ConflictingOsMacros(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int bitField0_ = 0;
+        int linux_ = 0;
+        int major_ = 0;
+        int minor_ = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                linux_ = input.readInt32();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 16: {
+                major_ = input.readInt32();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                minor_ = input.readInt32();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, linux_, major_, minor_); }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+      private static void buildPartial_autosplit_0(
+          hpb_unittest.NamingConflict.ConflictingOsMacros result,
+          int bitField0_,
+          int linux_,
+          int major_,
+          int minor_) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.linux_ = linux_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.major_ = major_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.minor_ = minor_;
+          to_bitField0_ |= 0x00000004;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
       private int bitField0_;
 
       private int linux_ ;
@@ -1341,19 +1594,32 @@ public final class NamingConflict extends com.google.protobuf.GeneratedFile {
     }
 
     private static final com.google.protobuf.Parser<ConflictingOsMacros>
-        PARSER = new com.google.protobuf.AbstractParser<ConflictingOsMacros>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            ConflictingOsMacros>() {
       @java.lang.Override
       public ConflictingOsMacros parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected ConflictingOsMacros parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 

@@ -478,9 +478,16 @@ private static final long serialVersionUID = 0L;
               edition_unittest.InlinedStringIdxRegressionProto.class, edition_unittest.InlinedStringIdxRegressionProto.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.InlinedStringIdxRegressionProto.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
@@ -532,6 +539,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public edition_unittest.InlinedStringIdxRegressionProto buildPartial() {
       edition_unittest.InlinedStringIdxRegressionProto result = new edition_unittest.InlinedStringIdxRegressionProto(this);
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private edition_unittest.InlinedStringIdxRegressionProto buildPartial(edition_unittest.InlinedStringIdxRegressionProto result) {
+      setUnknownFields(result, getUnknownFields());
       if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
       onBuilt();
       return result;
@@ -646,6 +660,145 @@ private static final long serialVersionUID = 0L;
         onChanged();
       } // finally
       return this;
+    }
+
+    private Builder mergeFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws java.io.IOException {
+      try {
+        switch (pendingTag) {
+          case 18: {
+            parseSubField(input, extensionRegistry);
+            break;
+          } // case 18
+        }
+      } finally {
+        onChanged();
+      }
+      return mergeFrom(input, extensionRegistry);
+    }
+
+    private static edition_unittest.InlinedStringIdxRegressionProto parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        boolean hosted)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      if (alwaysUseFieldBuilders()) {
+        Builder builder = new Builder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial();
+      }
+      edition_unittest.InlinedStringIdxRegressionProto result = new edition_unittest.InlinedStringIdxRegressionProto(null);
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+      int pendingTag = 0;
+      int bitField0_ = 0;
+      java.lang.Object str1_ = null;
+      java.lang.Object str2_ = null;
+      com.google.protobuf.ByteString str3_ = null;
+      int tag = 0;
+      java.lang.Exception failure = null;
+      try {
+        boolean done = false;
+        while (!done && pendingTag == 0) {
+          tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              str1_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 10
+            case 18: {
+              pendingTag = parseSubField(result, input, extensionRegistry);
+              break;
+            } // case 18
+            case 26: {
+              str2_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 26
+            case 34: {
+              str3_ = input.readBytes();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 34
+            default:
+              if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                  == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                done = true; // As in the Builder
+              } else {
+                unknownFields = mergeUnknownField(unknownFields, input, tag);
+              }
+              break;
+          }
+        }
+      } catch (java.lang.Exception e) {
+        failure = e;
+      }
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, str1_, str2_, str3_); }
+      if (unknownFields != null) {
+        setUnknownFields(result, unknownFields.build());
+      }
+      if (failure == null && (pendingTag == 0 || hosted)) {
+        return result;
+      }
+      Builder builder = new Builder();
+      builder.mergeFrom(result);
+      try {
+        if (failure != null) {
+          throw failure;
+        }
+        builder.mergeFrom(input, extensionRegistry, pendingTag);
+      } catch (java.lang.Exception e) {
+        wrapAndThrowParseException(parser(), e, builder);
+      }
+      return builder.buildPartial(result);
+    }
+
+    private static void buildPartial_autosplit_0(
+        edition_unittest.InlinedStringIdxRegressionProto result,
+        int bitField0_,
+        java.lang.Object str1_,
+        java.lang.Object str2_,
+        com.google.protobuf.ByteString str3_) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.str1_ = str1_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.str2_ = str2_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.str3_ = str3_;
+        to_bitField0_ |= 0x00000008;
+      }
+      result.bitField0_ |= to_bitField0_;
+    }
+
+    private static int parseSubField(
+        InlinedStringIdxRegressionProto result, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.hasSub()) {
+        return 18;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      result.sub_ = edition_unittest.InlinedStringIdxRegressionProto.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      result.bitField0_ |= 0x00000002;
+      return 0;
     }
     private int bitField0_;
 
@@ -1095,19 +1248,32 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<InlinedStringIdxRegressionProto>
-      PARSER = new com.google.protobuf.AbstractParser<InlinedStringIdxRegressionProto>() {
+      PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+          InlinedStringIdxRegressionProto>() {
     @java.lang.Override
     public InlinedStringIdxRegressionProto parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Builder.parsePartialFrom(input, extensionRegistry, false);
+    }
+
+    @java.lang.Override
+    protected InlinedStringIdxRegressionProto parseAlternative(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return Builder.parsePartialFrom(input, extensionRegistry, true);
+    }
+
+    @java.lang.Override
+    protected void continueAlternative(
+        com.google.protobuf.Message.Builder builder,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws java.io.IOException {
+      ((Builder) builder).mergeFrom(input, extensionRegistry, pendingTag);
     }
   };
 

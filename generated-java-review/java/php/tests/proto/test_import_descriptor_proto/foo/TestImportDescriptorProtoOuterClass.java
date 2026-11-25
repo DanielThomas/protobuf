@@ -239,9 +239,16 @@ public final class TestImportDescriptorProtoOuterClass extends com.google.protob
                 foo.TestImportDescriptorProtoOuterClass.TestImportDescriptorProto.class, foo.TestImportDescriptorProtoOuterClass.TestImportDescriptorProto.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using foo.TestImportDescriptorProtoOuterClass.TestImportDescriptorProto.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -278,6 +285,12 @@ public final class TestImportDescriptorProtoOuterClass extends com.google.protob
       @java.lang.Override
       public foo.TestImportDescriptorProtoOuterClass.TestImportDescriptorProto buildPartial() {
         foo.TestImportDescriptorProtoOuterClass.TestImportDescriptorProto result = new foo.TestImportDescriptorProtoOuterClass.TestImportDescriptorProto(this);
+        onBuilt();
+        return result;
+      }
+
+      private foo.TestImportDescriptorProtoOuterClass.TestImportDescriptorProto buildPartial(foo.TestImportDescriptorProtoOuterClass.TestImportDescriptorProto result) {
+        setUnknownFields(result, getUnknownFields());
         onBuilt();
         return result;
       }
@@ -334,6 +347,58 @@ public final class TestImportDescriptorProtoOuterClass extends com.google.protob
         return this;
       }
 
+      private static foo.TestImportDescriptorProtoOuterClass.TestImportDescriptorProto parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        foo.TestImportDescriptorProtoOuterClass.TestImportDescriptorProto result = new foo.TestImportDescriptorProtoOuterClass.TestImportDescriptorProto(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+
       // @@protoc_insertion_point(builder_scope:foo.TestImportDescriptorProto)
     }
 
@@ -348,19 +413,32 @@ public final class TestImportDescriptorProtoOuterClass extends com.google.protob
     }
 
     private static final com.google.protobuf.Parser<TestImportDescriptorProto>
-        PARSER = new com.google.protobuf.AbstractParser<TestImportDescriptorProto>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            TestImportDescriptorProto>() {
       @java.lang.Override
       public TestImportDescriptorProto parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected TestImportDescriptorProto parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 

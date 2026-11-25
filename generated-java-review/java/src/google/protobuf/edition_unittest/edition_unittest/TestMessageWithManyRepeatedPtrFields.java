@@ -2011,9 +2011,16 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestMessageWithManyRepeatedPtrFields.class, edition_unittest.TestMessageWithManyRepeatedPtrFields.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestMessageWithManyRepeatedPtrFields.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
@@ -2115,6 +2122,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public edition_unittest.TestMessageWithManyRepeatedPtrFields buildPartial() {
       edition_unittest.TestMessageWithManyRepeatedPtrFields result = new edition_unittest.TestMessageWithManyRepeatedPtrFields(this);
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private edition_unittest.TestMessageWithManyRepeatedPtrFields buildPartial(edition_unittest.TestMessageWithManyRepeatedPtrFields result) {
+      setUnknownFields(result, getUnknownFields());
       if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
       onBuilt();
       return result;
@@ -2785,6 +2799,548 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+
+    private static edition_unittest.TestMessageWithManyRepeatedPtrFields parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        boolean hosted)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      edition_unittest.TestMessageWithManyRepeatedPtrFields result = new edition_unittest.TestMessageWithManyRepeatedPtrFields(null);
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+      int pendingTag = 0;
+      int bitField0_ = 0;
+      int tag = 0;
+      java.lang.Exception failure = null;
+      try {
+        boolean done = false;
+        while (!done && pendingTag == 0) {
+          tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              bitField0_ = ensureRepeatedString1IsMutable(bitField0_, result);
+              result.repeatedString1_.add(input.readStringRequireUtf8());
+              break;
+            } // case 10
+            case 18: {
+              bitField0_ = ensureRepeatedString2IsMutable(bitField0_, result);
+              result.repeatedString2_.add(input.readStringRequireUtf8());
+              break;
+            } // case 18
+            case 26: {
+              bitField0_ = ensureRepeatedString3IsMutable(bitField0_, result);
+              result.repeatedString3_.add(input.readStringRequireUtf8());
+              break;
+            } // case 26
+            case 34: {
+              bitField0_ = ensureRepeatedString4IsMutable(bitField0_, result);
+              result.repeatedString4_.add(input.readStringRequireUtf8());
+              break;
+            } // case 34
+            case 42: {
+              bitField0_ = ensureRepeatedString5IsMutable(bitField0_, result);
+              result.repeatedString5_.add(input.readStringRequireUtf8());
+              break;
+            } // case 42
+            case 50: {
+              bitField0_ = ensureRepeatedString6IsMutable(bitField0_, result);
+              result.repeatedString6_.add(input.readStringRequireUtf8());
+              break;
+            } // case 50
+            case 58: {
+              bitField0_ = ensureRepeatedString7IsMutable(bitField0_, result);
+              result.repeatedString7_.add(input.readStringRequireUtf8());
+              break;
+            } // case 58
+            case 66: {
+              bitField0_ = ensureRepeatedString8IsMutable(bitField0_, result);
+              result.repeatedString8_.add(input.readStringRequireUtf8());
+              break;
+            } // case 66
+            case 74: {
+              bitField0_ = ensureRepeatedString9IsMutable(bitField0_, result);
+              result.repeatedString9_.add(input.readStringRequireUtf8());
+              break;
+            } // case 74
+            case 82: {
+              bitField0_ = ensureRepeatedString10IsMutable(bitField0_, result);
+              result.repeatedString10_.add(input.readStringRequireUtf8());
+              break;
+            } // case 82
+            case 90: {
+              bitField0_ = ensureRepeatedString11IsMutable(bitField0_, result);
+              result.repeatedString11_.add(input.readStringRequireUtf8());
+              break;
+            } // case 90
+            case 98: {
+              bitField0_ = ensureRepeatedString12IsMutable(bitField0_, result);
+              result.repeatedString12_.add(input.readStringRequireUtf8());
+              break;
+            } // case 98
+            case 106: {
+              bitField0_ = ensureRepeatedString13IsMutable(bitField0_, result);
+              result.repeatedString13_.add(input.readStringRequireUtf8());
+              break;
+            } // case 106
+            case 114: {
+              bitField0_ = ensureRepeatedString14IsMutable(bitField0_, result);
+              result.repeatedString14_.add(input.readStringRequireUtf8());
+              break;
+            } // case 114
+            case 122: {
+              bitField0_ = ensureRepeatedString15IsMutable(bitField0_, result);
+              result.repeatedString15_.add(input.readStringRequireUtf8());
+              break;
+            } // case 122
+            case 130: {
+              bitField0_ = ensureRepeatedString16IsMutable(bitField0_, result);
+              result.repeatedString16_.add(input.readStringRequireUtf8());
+              break;
+            } // case 130
+            case 138: {
+              bitField0_ = ensureRepeatedString17IsMutable(bitField0_, result);
+              result.repeatedString17_.add(input.readStringRequireUtf8());
+              break;
+            } // case 138
+            case 146: {
+              bitField0_ = ensureRepeatedString18IsMutable(bitField0_, result);
+              result.repeatedString18_.add(input.readStringRequireUtf8());
+              break;
+            } // case 146
+            case 154: {
+              bitField0_ = ensureRepeatedString19IsMutable(bitField0_, result);
+              result.repeatedString19_.add(input.readStringRequireUtf8());
+              break;
+            } // case 154
+            case 162: {
+              bitField0_ = ensureRepeatedString20IsMutable(bitField0_, result);
+              result.repeatedString20_.add(input.readStringRequireUtf8());
+              break;
+            } // case 162
+            case 170: {
+              bitField0_ = ensureRepeatedString21IsMutable(bitField0_, result);
+              result.repeatedString21_.add(input.readStringRequireUtf8());
+              break;
+            } // case 170
+            case 178: {
+              bitField0_ = ensureRepeatedString22IsMutable(bitField0_, result);
+              result.repeatedString22_.add(input.readStringRequireUtf8());
+              break;
+            } // case 178
+            case 186: {
+              bitField0_ = ensureRepeatedString23IsMutable(bitField0_, result);
+              result.repeatedString23_.add(input.readStringRequireUtf8());
+              break;
+            } // case 186
+            case 194: {
+              bitField0_ = ensureRepeatedString24IsMutable(bitField0_, result);
+              result.repeatedString24_.add(input.readStringRequireUtf8());
+              break;
+            } // case 194
+            case 202: {
+              bitField0_ = ensureRepeatedString25IsMutable(bitField0_, result);
+              result.repeatedString25_.add(input.readStringRequireUtf8());
+              break;
+            } // case 202
+            case 210: {
+              bitField0_ = ensureRepeatedString26IsMutable(bitField0_, result);
+              result.repeatedString26_.add(input.readStringRequireUtf8());
+              break;
+            } // case 210
+            case 218: {
+              bitField0_ = ensureRepeatedString27IsMutable(bitField0_, result);
+              result.repeatedString27_.add(input.readStringRequireUtf8());
+              break;
+            } // case 218
+            case 226: {
+              bitField0_ = ensureRepeatedString28IsMutable(bitField0_, result);
+              result.repeatedString28_.add(input.readStringRequireUtf8());
+              break;
+            } // case 226
+            case 234: {
+              bitField0_ = ensureRepeatedString29IsMutable(bitField0_, result);
+              result.repeatedString29_.add(input.readStringRequireUtf8());
+              break;
+            } // case 234
+            case 242: {
+              bitField0_ = ensureRepeatedString30IsMutable(bitField0_, result);
+              result.repeatedString30_.add(input.readStringRequireUtf8());
+              break;
+            } // case 242
+            case 250: {
+              bitField0_ = ensureRepeatedString31IsMutable(bitField0_, result);
+              result.repeatedString31_.add(input.readStringRequireUtf8());
+              break;
+            } // case 250
+            case 258: {
+              bitField0_ = ensureRepeatedString32IsMutable(bitField0_, result);
+              result.repeatedString32_.add(input.readStringRequireUtf8());
+              break;
+            } // case 258
+            default:
+              if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                  == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                done = true; // As in the Builder
+              } else {
+                unknownFields = mergeUnknownField(unknownFields, input, tag);
+              }
+              break;
+          }
+        }
+      } catch (java.lang.Exception e) {
+        failure = e;
+      }
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_); }
+      if (unknownFields != null) {
+        setUnknownFields(result, unknownFields.build());
+      }
+      if (failure == null && (pendingTag == 0 || hosted)) {
+        return result;
+      }
+      Builder builder = new Builder();
+      builder.mergeFrom(result);
+      try {
+        if (failure != null) {
+          throw failure;
+        }
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (java.lang.Exception e) {
+        wrapAndThrowParseException(parser(), e, builder);
+      }
+      return builder.buildPartial(result);
+    }
+
+    private static void buildPartial_autosplit_0(
+        edition_unittest.TestMessageWithManyRepeatedPtrFields result,
+        int bitField0_) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.repeatedString1_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.repeatedString2_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.repeatedString3_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.repeatedString4_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.repeatedString5_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.repeatedString6_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.repeatedString7_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.repeatedString8_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.repeatedString9_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.repeatedString10_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.repeatedString11_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.repeatedString12_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.repeatedString13_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.repeatedString14_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.repeatedString15_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.repeatedString16_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.repeatedString17_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.repeatedString18_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.repeatedString19_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.repeatedString20_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.repeatedString21_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00200000) != 0)) {
+        result.repeatedString22_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00400000) != 0)) {
+        result.repeatedString23_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00800000) != 0)) {
+        result.repeatedString24_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x01000000) != 0)) {
+        result.repeatedString25_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x02000000) != 0)) {
+        result.repeatedString26_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x04000000) != 0)) {
+        result.repeatedString27_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x08000000) != 0)) {
+        result.repeatedString28_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x10000000) != 0)) {
+        result.repeatedString29_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x20000000) != 0)) {
+        result.repeatedString30_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x40000000) != 0)) {
+        result.repeatedString31_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x80000000) != 0)) {
+        result.repeatedString32_.makeImmutable();
+      }
+      result.bitField0_ |= to_bitField0_;
+    }
+
+    private static int ensureRepeatedString1IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString1_.isModifiable()) {
+        result.repeatedString1_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString1_);
+      }
+      bitField0_ |= 0x00000001;
+      return bitField0_;
+}
+    private static int ensureRepeatedString2IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString2_.isModifiable()) {
+        result.repeatedString2_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString2_);
+      }
+      bitField0_ |= 0x00000002;
+      return bitField0_;
+}
+    private static int ensureRepeatedString3IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString3_.isModifiable()) {
+        result.repeatedString3_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString3_);
+      }
+      bitField0_ |= 0x00000004;
+      return bitField0_;
+}
+    private static int ensureRepeatedString4IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString4_.isModifiable()) {
+        result.repeatedString4_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString4_);
+      }
+      bitField0_ |= 0x00000008;
+      return bitField0_;
+}
+    private static int ensureRepeatedString5IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString5_.isModifiable()) {
+        result.repeatedString5_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString5_);
+      }
+      bitField0_ |= 0x00000010;
+      return bitField0_;
+}
+    private static int ensureRepeatedString6IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString6_.isModifiable()) {
+        result.repeatedString6_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString6_);
+      }
+      bitField0_ |= 0x00000020;
+      return bitField0_;
+}
+    private static int ensureRepeatedString7IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString7_.isModifiable()) {
+        result.repeatedString7_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString7_);
+      }
+      bitField0_ |= 0x00000040;
+      return bitField0_;
+}
+    private static int ensureRepeatedString8IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString8_.isModifiable()) {
+        result.repeatedString8_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString8_);
+      }
+      bitField0_ |= 0x00000080;
+      return bitField0_;
+}
+    private static int ensureRepeatedString9IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString9_.isModifiable()) {
+        result.repeatedString9_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString9_);
+      }
+      bitField0_ |= 0x00000100;
+      return bitField0_;
+}
+    private static int ensureRepeatedString10IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString10_.isModifiable()) {
+        result.repeatedString10_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString10_);
+      }
+      bitField0_ |= 0x00000200;
+      return bitField0_;
+}
+    private static int ensureRepeatedString11IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString11_.isModifiable()) {
+        result.repeatedString11_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString11_);
+      }
+      bitField0_ |= 0x00000400;
+      return bitField0_;
+}
+    private static int ensureRepeatedString12IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString12_.isModifiable()) {
+        result.repeatedString12_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString12_);
+      }
+      bitField0_ |= 0x00000800;
+      return bitField0_;
+}
+    private static int ensureRepeatedString13IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString13_.isModifiable()) {
+        result.repeatedString13_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString13_);
+      }
+      bitField0_ |= 0x00001000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString14IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString14_.isModifiable()) {
+        result.repeatedString14_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString14_);
+      }
+      bitField0_ |= 0x00002000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString15IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString15_.isModifiable()) {
+        result.repeatedString15_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString15_);
+      }
+      bitField0_ |= 0x00004000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString16IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString16_.isModifiable()) {
+        result.repeatedString16_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString16_);
+      }
+      bitField0_ |= 0x00008000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString17IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString17_.isModifiable()) {
+        result.repeatedString17_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString17_);
+      }
+      bitField0_ |= 0x00010000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString18IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString18_.isModifiable()) {
+        result.repeatedString18_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString18_);
+      }
+      bitField0_ |= 0x00020000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString19IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString19_.isModifiable()) {
+        result.repeatedString19_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString19_);
+      }
+      bitField0_ |= 0x00040000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString20IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString20_.isModifiable()) {
+        result.repeatedString20_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString20_);
+      }
+      bitField0_ |= 0x00080000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString21IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString21_.isModifiable()) {
+        result.repeatedString21_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString21_);
+      }
+      bitField0_ |= 0x00100000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString22IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString22_.isModifiable()) {
+        result.repeatedString22_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString22_);
+      }
+      bitField0_ |= 0x00200000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString23IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString23_.isModifiable()) {
+        result.repeatedString23_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString23_);
+      }
+      bitField0_ |= 0x00400000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString24IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString24_.isModifiable()) {
+        result.repeatedString24_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString24_);
+      }
+      bitField0_ |= 0x00800000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString25IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString25_.isModifiable()) {
+        result.repeatedString25_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString25_);
+      }
+      bitField0_ |= 0x01000000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString26IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString26_.isModifiable()) {
+        result.repeatedString26_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString26_);
+      }
+      bitField0_ |= 0x02000000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString27IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString27_.isModifiable()) {
+        result.repeatedString27_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString27_);
+      }
+      bitField0_ |= 0x04000000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString28IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString28_.isModifiable()) {
+        result.repeatedString28_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString28_);
+      }
+      bitField0_ |= 0x08000000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString29IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString29_.isModifiable()) {
+        result.repeatedString29_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString29_);
+      }
+      bitField0_ |= 0x10000000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString30IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString30_.isModifiable()) {
+        result.repeatedString30_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString30_);
+      }
+      bitField0_ |= 0x20000000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString31IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString31_.isModifiable()) {
+        result.repeatedString31_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString31_);
+      }
+      bitField0_ |= 0x40000000;
+      return bitField0_;
+}
+    private static int ensureRepeatedString32IsMutable(int bitField0_, TestMessageWithManyRepeatedPtrFields result) {
+      if (!result.repeatedString32_.isModifiable()) {
+        result.repeatedString32_ = new com.google.protobuf.LazyStringArrayList(result.repeatedString32_);
+      }
+      bitField0_ |= 0x80000000;
+      return bitField0_;
+}
     private int bitField0_;
 
     private com.google.protobuf.LazyStringArrayList repeatedString1_ =
@@ -6353,19 +6909,32 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestMessageWithManyRepeatedPtrFields>
-      PARSER = new com.google.protobuf.AbstractParser<TestMessageWithManyRepeatedPtrFields>() {
+      PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+          TestMessageWithManyRepeatedPtrFields>() {
     @java.lang.Override
     public TestMessageWithManyRepeatedPtrFields parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Builder.parsePartialFrom(input, extensionRegistry, false);
+    }
+
+    @java.lang.Override
+    protected TestMessageWithManyRepeatedPtrFields parseAlternative(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return Builder.parsePartialFrom(input, extensionRegistry, true);
+    }
+
+    @java.lang.Override
+    protected void continueAlternative(
+        com.google.protobuf.Message.Builder builder,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws java.io.IOException {
+      ((Builder) builder).mergeFrom(input, extensionRegistry);
     }
   };
 

@@ -287,9 +287,16 @@ private static final long serialVersionUID = 0L;
               upb.test.convert.MessageWithKnownRepeatedMsgClone.class, upb.test.convert.MessageWithKnownRepeatedMsgClone.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using upb.test.convert.MessageWithKnownRepeatedMsgClone.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
@@ -334,6 +341,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public upb.test.convert.MessageWithKnownRepeatedMsgClone buildPartial() {
       upb.test.convert.MessageWithKnownRepeatedMsgClone result = new upb.test.convert.MessageWithKnownRepeatedMsgClone(this);
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private upb.test.convert.MessageWithKnownRepeatedMsgClone buildPartial(upb.test.convert.MessageWithKnownRepeatedMsgClone result) {
+      setUnknownFields(result, getUnknownFields());
       if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
       onBuilt();
       return result;
@@ -446,6 +460,86 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+
+    private static upb.test.convert.MessageWithKnownRepeatedMsgClone parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        boolean hosted)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      upb.test.convert.MessageWithKnownRepeatedMsgClone result = new upb.test.convert.MessageWithKnownRepeatedMsgClone(null);
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+      int pendingTag = 0;
+      int bitField0_ = 0;
+      int tag = 0;
+      java.lang.Exception failure = null;
+      try {
+        boolean done = false;
+        while (!done && pendingTag == 0) {
+          tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8010: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              upb.test.convert.MessageWithInt32Clone m = upb.test.convert.MessageWithInt32Clone.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              bitField0_ = ensureKnownRepeatedMsgIsMutable(bitField0_, result);
+              result.knownRepeatedMsg_.add(m);
+              break;
+            } // case 8010
+            default:
+              if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                  == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                done = true; // As in the Builder
+              } else {
+                unknownFields = mergeUnknownField(unknownFields, input, tag);
+              }
+              break;
+          }
+        }
+      } catch (java.lang.Exception e) {
+        failure = e;
+      }
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_); }
+      if (unknownFields != null) {
+        setUnknownFields(result, unknownFields.build());
+      }
+      if (failure == null && (pendingTag == 0 || hosted)) {
+        return result;
+      }
+      Builder builder = new Builder();
+      builder.mergeFrom(result);
+      try {
+        if (failure != null) {
+          throw failure;
+        }
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (java.lang.Exception e) {
+        wrapAndThrowParseException(parser(), e, builder);
+      }
+      return builder.buildPartial(result);
+    }
+
+    private static void buildPartial_autosplit_0(
+        upb.test.convert.MessageWithKnownRepeatedMsgClone result,
+        int bitField0_) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.knownRepeatedMsg_.makeImmutable();
+      }
+      result.bitField0_ |= to_bitField0_;
+    }
+
+    private static int ensureKnownRepeatedMsgIsMutable(int bitField0_, MessageWithKnownRepeatedMsgClone result) {
+      if (!result.knownRepeatedMsg_.isModifiable()) {
+        result.knownRepeatedMsg_ = makeMutableCopy(result.knownRepeatedMsg_);
+      }
+      bitField0_ |= 0x00000001;
+      return bitField0_;
+}
     private int bitField0_;
 
     private com.google.protobuf.Internal.ProtobufList<upb.test.convert.MessageWithInt32Clone> knownRepeatedMsg_ =
@@ -696,19 +790,32 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<MessageWithKnownRepeatedMsgClone>
-      PARSER = new com.google.protobuf.AbstractParser<MessageWithKnownRepeatedMsgClone>() {
+      PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+          MessageWithKnownRepeatedMsgClone>() {
     @java.lang.Override
     public MessageWithKnownRepeatedMsgClone parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Builder.parsePartialFrom(input, extensionRegistry, false);
+    }
+
+    @java.lang.Override
+    protected MessageWithKnownRepeatedMsgClone parseAlternative(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return Builder.parsePartialFrom(input, extensionRegistry, true);
+    }
+
+    @java.lang.Override
+    protected void continueAlternative(
+        com.google.protobuf.Message.Builder builder,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws java.io.IOException {
+      ((Builder) builder).mergeFrom(input, extensionRegistry);
     }
   };
 

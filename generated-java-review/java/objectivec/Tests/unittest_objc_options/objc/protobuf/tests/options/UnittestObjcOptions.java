@@ -445,9 +445,16 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
                 objc.protobuf.tests.options.UnittestObjcOptions.TestObjcProtoPrefixMessage.class, objc.protobuf.tests.options.UnittestObjcOptions.TestObjcProtoPrefixMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.options.UnittestObjcOptions.TestObjcProtoPrefixMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -484,6 +491,12 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
       @java.lang.Override
       public objc.protobuf.tests.options.UnittestObjcOptions.TestObjcProtoPrefixMessage buildPartial() {
         objc.protobuf.tests.options.UnittestObjcOptions.TestObjcProtoPrefixMessage result = new objc.protobuf.tests.options.UnittestObjcOptions.TestObjcProtoPrefixMessage(this);
+        onBuilt();
+        return result;
+      }
+
+      private objc.protobuf.tests.options.UnittestObjcOptions.TestObjcProtoPrefixMessage buildPartial(objc.protobuf.tests.options.UnittestObjcOptions.TestObjcProtoPrefixMessage result) {
+        setUnknownFields(result, getUnknownFields());
         onBuilt();
         return result;
       }
@@ -540,6 +553,58 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
         return this;
       }
 
+      private static objc.protobuf.tests.options.UnittestObjcOptions.TestObjcProtoPrefixMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        objc.protobuf.tests.options.UnittestObjcOptions.TestObjcProtoPrefixMessage result = new objc.protobuf.tests.options.UnittestObjcOptions.TestObjcProtoPrefixMessage(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+
       // @@protoc_insertion_point(builder_scope:objc.protobuf.tests.options.TestObjcProtoPrefixMessage)
     }
 
@@ -554,19 +619,32 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
     }
 
     private static final com.google.protobuf.Parser<TestObjcProtoPrefixMessage>
-        PARSER = new com.google.protobuf.AbstractParser<TestObjcProtoPrefixMessage>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            TestObjcProtoPrefixMessage>() {
       @java.lang.Override
       public TestObjcProtoPrefixMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected TestObjcProtoPrefixMessage parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 
@@ -805,9 +883,16 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
                 objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTTestHasAPrefixMessage.class, objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTTestHasAPrefixMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTTestHasAPrefixMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -844,6 +929,12 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
       @java.lang.Override
       public objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTTestHasAPrefixMessage buildPartial() {
         objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTTestHasAPrefixMessage result = new objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTTestHasAPrefixMessage(this);
+        onBuilt();
+        return result;
+      }
+
+      private objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTTestHasAPrefixMessage buildPartial(objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTTestHasAPrefixMessage result) {
+        setUnknownFields(result, getUnknownFields());
         onBuilt();
         return result;
       }
@@ -900,6 +991,58 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
         return this;
       }
 
+      private static objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTTestHasAPrefixMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTTestHasAPrefixMessage result = new objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTTestHasAPrefixMessage(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+
       // @@protoc_insertion_point(builder_scope:objc.protobuf.tests.options.GPBTESTTestHasAPrefixMessage)
     }
 
@@ -914,19 +1057,32 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
     }
 
     private static final com.google.protobuf.Parser<GPBTESTTestHasAPrefixMessage>
-        PARSER = new com.google.protobuf.AbstractParser<GPBTESTTestHasAPrefixMessage>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            GPBTESTTestHasAPrefixMessage>() {
       @java.lang.Override
       public GPBTESTTestHasAPrefixMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected GPBTESTTestHasAPrefixMessage parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 
@@ -1167,9 +1323,16 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
                 objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTshouldGetAPrefixMessage.class, objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTshouldGetAPrefixMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTshouldGetAPrefixMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -1206,6 +1369,12 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
       @java.lang.Override
       public objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTshouldGetAPrefixMessage buildPartial() {
         objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTshouldGetAPrefixMessage result = new objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTshouldGetAPrefixMessage(this);
+        onBuilt();
+        return result;
+      }
+
+      private objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTshouldGetAPrefixMessage buildPartial(objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTshouldGetAPrefixMessage result) {
+        setUnknownFields(result, getUnknownFields());
         onBuilt();
         return result;
       }
@@ -1262,6 +1431,58 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
         return this;
       }
 
+      private static objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTshouldGetAPrefixMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTshouldGetAPrefixMessage result = new objc.protobuf.tests.options.UnittestObjcOptions.GPBTESTshouldGetAPrefixMessage(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+
       // @@protoc_insertion_point(builder_scope:objc.protobuf.tests.options.GPBTESTshouldGetAPrefixMessage)
     }
 
@@ -1276,19 +1497,32 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
     }
 
     private static final com.google.protobuf.Parser<GPBTESTshouldGetAPrefixMessage>
-        PARSER = new com.google.protobuf.AbstractParser<GPBTESTshouldGetAPrefixMessage>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            GPBTESTshouldGetAPrefixMessage>() {
       @java.lang.Override
       public GPBTESTshouldGetAPrefixMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected GPBTESTshouldGetAPrefixMessage parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 
@@ -1527,9 +1761,16 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
                 objc.protobuf.tests.options.UnittestObjcOptions.GPBTEST.class, objc.protobuf.tests.options.UnittestObjcOptions.GPBTEST.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.options.UnittestObjcOptions.GPBTEST.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -1566,6 +1807,12 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
       @java.lang.Override
       public objc.protobuf.tests.options.UnittestObjcOptions.GPBTEST buildPartial() {
         objc.protobuf.tests.options.UnittestObjcOptions.GPBTEST result = new objc.protobuf.tests.options.UnittestObjcOptions.GPBTEST(this);
+        onBuilt();
+        return result;
+      }
+
+      private objc.protobuf.tests.options.UnittestObjcOptions.GPBTEST buildPartial(objc.protobuf.tests.options.UnittestObjcOptions.GPBTEST result) {
+        setUnknownFields(result, getUnknownFields());
         onBuilt();
         return result;
       }
@@ -1622,6 +1869,58 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
         return this;
       }
 
+      private static objc.protobuf.tests.options.UnittestObjcOptions.GPBTEST parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        objc.protobuf.tests.options.UnittestObjcOptions.GPBTEST result = new objc.protobuf.tests.options.UnittestObjcOptions.GPBTEST(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+
       // @@protoc_insertion_point(builder_scope:objc.protobuf.tests.options.GPBTEST)
     }
 
@@ -1636,19 +1935,32 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
     }
 
     private static final com.google.protobuf.Parser<GPBTEST>
-        PARSER = new com.google.protobuf.AbstractParser<GPBTEST>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            GPBTEST>() {
       @java.lang.Override
       public GPBTEST parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected GPBTEST parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 
@@ -1929,9 +2241,16 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
                   objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage.Child.class, objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage.Child.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage.Child.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
@@ -1968,6 +2287,12 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
         @java.lang.Override
         public objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage.Child buildPartial() {
           objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage.Child result = new objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage.Child(this);
+          onBuilt();
+          return result;
+        }
+
+        private objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage.Child buildPartial(objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage.Child result) {
+          setUnknownFields(result, getUnknownFields());
           onBuilt();
           return result;
         }
@@ -2024,6 +2349,58 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
           return this;
         }
 
+        private static objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage.Child parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+            boolean hosted)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          java.util.Objects.requireNonNull(extensionRegistry);
+          objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage.Child result = new objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage.Child(null);
+          com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+          int pendingTag = 0;
+          int tag = 0;
+          java.lang.Exception failure = null;
+          try {
+            boolean done = false;
+            while (!done && pendingTag == 0) {
+              tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                default:
+                  if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                      == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                    done = true; // As in the Builder
+                  } else {
+                    unknownFields = mergeUnknownField(unknownFields, input, tag);
+                  }
+                  break;
+              }
+            }
+          } catch (java.lang.Exception e) {
+            failure = e;
+          }
+          if (unknownFields != null) {
+            setUnknownFields(result, unknownFields.build());
+          }
+          if (failure == null && (pendingTag == 0 || hosted)) {
+            return result;
+          }
+          Builder builder = new Builder();
+          builder.mergeFrom(result);
+          try {
+            if (failure != null) {
+              throw failure;
+            }
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (java.lang.Exception e) {
+            wrapAndThrowParseException(parser(), e, builder);
+          }
+          return builder.buildPartial(result);
+        }
+
+
         // @@protoc_insertion_point(builder_scope:objc.protobuf.tests.options.PrefixedParentMessage.Child)
       }
 
@@ -2038,19 +2415,32 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
       }
 
       private static final com.google.protobuf.Parser<Child>
-          PARSER = new com.google.protobuf.AbstractParser<Child>() {
+          PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+              Child>() {
         @java.lang.Override
         public Child parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return Builder.parsePartialFrom(input, extensionRegistry, false);
+        }
+
+        @java.lang.Override
+        protected Child parseAlternative(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return Builder.parsePartialFrom(input, extensionRegistry, true);
+        }
+
+        @java.lang.Override
+        protected void continueAlternative(
+            com.google.protobuf.Message.Builder builder,
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+            int pendingTag)
+            throws java.io.IOException {
+          ((Builder) builder).mergeFrom(input, extensionRegistry);
         }
       };
 
@@ -2239,9 +2629,16 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
                 objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage.class, objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -2278,6 +2675,12 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
       @java.lang.Override
       public objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage buildPartial() {
         objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage result = new objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage(this);
+        onBuilt();
+        return result;
+      }
+
+      private objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage buildPartial(objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage result) {
+        setUnknownFields(result, getUnknownFields());
         onBuilt();
         return result;
       }
@@ -2334,6 +2737,58 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
         return this;
       }
 
+      private static objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage result = new objc.protobuf.tests.options.UnittestObjcOptions.PrefixedParentMessage(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+
       // @@protoc_insertion_point(builder_scope:objc.protobuf.tests.options.PrefixedParentMessage)
     }
 
@@ -2348,19 +2803,32 @@ public final class UnittestObjcOptions extends com.google.protobuf.GeneratedFile
     }
 
     private static final com.google.protobuf.Parser<PrefixedParentMessage>
-        PARSER = new com.google.protobuf.AbstractParser<PrefixedParentMessage>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            PrefixedParentMessage>() {
       @java.lang.Override
       public PrefixedParentMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected PrefixedParentMessage parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 

@@ -414,9 +414,16 @@ private static final long serialVersionUID = 0L;
                 com.google.protobuf.test.WideMessageOneof.Child.class, com.google.protobuf.test.WideMessageOneof.Child.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.test.WideMessageOneof.Child.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -456,6 +463,13 @@ private static final long serialVersionUID = 0L;
       @java.lang.Override
       public com.google.protobuf.test.WideMessageOneof.Child buildPartial() {
         com.google.protobuf.test.WideMessageOneof.Child result = new com.google.protobuf.test.WideMessageOneof.Child(this);
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private com.google.protobuf.test.WideMessageOneof.Child buildPartial(com.google.protobuf.test.WideMessageOneof.Child result) {
+        setUnknownFields(result, getUnknownFields());
         if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
         onBuilt();
         return result;
@@ -564,6 +578,106 @@ private static final long serialVersionUID = 0L;
         } // finally
         return this;
       }
+
+      private static com.google.protobuf.test.WideMessageOneof.Child parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        com.google.protobuf.test.WideMessageOneof.Child result = new com.google.protobuf.test.WideMessageOneof.Child(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int bitField0_ = 0;
+        java.lang.Object text_ = null;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                int v = input.readInt32();
+                bitField0_ = ensureValuesIsMutable(bitField0_, result, /* capacity= */ -1);
+                result.values_.addInt(v);
+                break;
+              } // case 8
+              case 10: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField0_ = ensureValuesIsMutable(bitField0_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.values_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 10
+              case 18: {
+                text_ = input.readBytes();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 18
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, text_); }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+      private static void buildPartial_autosplit_0(
+          com.google.protobuf.test.WideMessageOneof.Child result,
+          int bitField0_,
+          java.lang.Object text_) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.text_ = text_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.values_.makeImmutable();
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      private static int ensureValuesIsMutable(int bitField0_, Child result, int capacity) {
+        if (!result.values_.isModifiable()) {
+          result.values_ = makeMutableCopy(result.values_, capacity);
+        }
+        bitField0_ |= 0x00000002;
+        return bitField0_;
+}
       private int bitField0_;
 
       private com.google.protobuf.Internal.IntList values_ = emptyIntList();
@@ -744,19 +858,32 @@ private static final long serialVersionUID = 0L;
     }
 
     private static final com.google.protobuf.Parser<Child>
-        PARSER = new com.google.protobuf.AbstractParser<Child>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            Child>() {
       @java.lang.Override
       public Child parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected Child parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 
@@ -8180,9 +8307,16 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.test.WideMessageOneof.class, com.google.protobuf.test.WideMessageOneof.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.test.WideMessageOneof.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
@@ -8613,6 +8747,16 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.test.WideMessageOneof buildPartial() {
       com.google.protobuf.test.WideMessageOneof result = new com.google.protobuf.test.WideMessageOneof(this);
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+      if (bitField1_ != 0) { buildPartial_autosplit_1(result); }
+      if (bitField2_ != 0) { buildPartial_autosplit_2(result); }
+      if (bitField3_ != 0) { buildPartial_autosplit_3(result); }
+      onBuilt();
+      return result;
+    }
+
+    private com.google.protobuf.test.WideMessageOneof buildPartial(com.google.protobuf.test.WideMessageOneof result) {
+      setUnknownFields(result, getUnknownFields());
       if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
       if (bitField1_ != 0) { buildPartial_autosplit_1(result); }
       if (bitField2_ != 0) { buildPartial_autosplit_2(result); }
@@ -10621,6 +10765,4557 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+
+    private Builder mergeFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws java.io.IOException {
+      try {
+        switch (pendingTag) {
+          case 10: {
+            parseValue1(input, extensionRegistry);
+            break;
+          } // case 10
+          case 18: {
+            parseValue2(input, extensionRegistry);
+            break;
+          } // case 18
+          case 26: {
+            parseValue3(input, extensionRegistry);
+            break;
+          } // case 26
+          case 34: {
+            parseValue4(input, extensionRegistry);
+            break;
+          } // case 34
+          case 42: {
+            parseValue5(input, extensionRegistry);
+            break;
+          } // case 42
+          case 50: {
+            parseValue6(input, extensionRegistry);
+            break;
+          } // case 50
+          case 58: {
+            parseValue7(input, extensionRegistry);
+            break;
+          } // case 58
+          case 66: {
+            parseValue8(input, extensionRegistry);
+            break;
+          } // case 66
+          case 74: {
+            parseValue9(input, extensionRegistry);
+            break;
+          } // case 74
+          case 82: {
+            parseValue10(input, extensionRegistry);
+            break;
+          } // case 82
+          case 90: {
+            parseValue11(input, extensionRegistry);
+            break;
+          } // case 90
+          case 98: {
+            parseValue12(input, extensionRegistry);
+            break;
+          } // case 98
+          case 106: {
+            parseValue13(input, extensionRegistry);
+            break;
+          } // case 106
+          case 114: {
+            parseValue14(input, extensionRegistry);
+            break;
+          } // case 114
+          case 122: {
+            parseValue15(input, extensionRegistry);
+            break;
+          } // case 122
+          case 130: {
+            parseValue16(input, extensionRegistry);
+            break;
+          } // case 130
+          case 138: {
+            parseValue17(input, extensionRegistry);
+            break;
+          } // case 138
+          case 146: {
+            parseValue18(input, extensionRegistry);
+            break;
+          } // case 146
+          case 154: {
+            parseValue19(input, extensionRegistry);
+            break;
+          } // case 154
+          case 162: {
+            parseValue20(input, extensionRegistry);
+            break;
+          } // case 162
+          case 170: {
+            parseValue21(input, extensionRegistry);
+            break;
+          } // case 170
+          case 178: {
+            parseValue22(input, extensionRegistry);
+            break;
+          } // case 178
+          case 186: {
+            parseValue23(input, extensionRegistry);
+            break;
+          } // case 186
+          case 194: {
+            parseValue24(input, extensionRegistry);
+            break;
+          } // case 194
+          case 202: {
+            parseValue25(input, extensionRegistry);
+            break;
+          } // case 202
+          case 210: {
+            parseValue26(input, extensionRegistry);
+            break;
+          } // case 210
+          case 218: {
+            parseValue27(input, extensionRegistry);
+            break;
+          } // case 218
+          case 226: {
+            parseValue28(input, extensionRegistry);
+            break;
+          } // case 226
+          case 234: {
+            parseValue29(input, extensionRegistry);
+            break;
+          } // case 234
+          case 242: {
+            parseValue30(input, extensionRegistry);
+            break;
+          } // case 242
+          case 250: {
+            parseValue31(input, extensionRegistry);
+            break;
+          } // case 250
+          case 258: {
+            parseValue32(input, extensionRegistry);
+            break;
+          } // case 258
+          case 266: {
+            parseValue33(input, extensionRegistry);
+            break;
+          } // case 266
+          case 274: {
+            parseValue34(input, extensionRegistry);
+            break;
+          } // case 274
+          case 282: {
+            parseValue35(input, extensionRegistry);
+            break;
+          } // case 282
+          case 290: {
+            parseValue36(input, extensionRegistry);
+            break;
+          } // case 290
+          case 298: {
+            parseValue37(input, extensionRegistry);
+            break;
+          } // case 298
+          case 306: {
+            parseValue38(input, extensionRegistry);
+            break;
+          } // case 306
+          case 314: {
+            parseValue39(input, extensionRegistry);
+            break;
+          } // case 314
+          case 322: {
+            parseValue40(input, extensionRegistry);
+            break;
+          } // case 322
+          case 330: {
+            parseValue41(input, extensionRegistry);
+            break;
+          } // case 330
+          case 338: {
+            parseValue42(input, extensionRegistry);
+            break;
+          } // case 338
+          case 346: {
+            parseValue43(input, extensionRegistry);
+            break;
+          } // case 346
+          case 354: {
+            parseValue44(input, extensionRegistry);
+            break;
+          } // case 354
+          case 362: {
+            parseValue45(input, extensionRegistry);
+            break;
+          } // case 362
+          case 370: {
+            parseValue46(input, extensionRegistry);
+            break;
+          } // case 370
+          case 378: {
+            parseValue47(input, extensionRegistry);
+            break;
+          } // case 378
+          case 386: {
+            parseValue48(input, extensionRegistry);
+            break;
+          } // case 386
+          case 394: {
+            parseValue49(input, extensionRegistry);
+            break;
+          } // case 394
+          case 402: {
+            parseValue50(input, extensionRegistry);
+            break;
+          } // case 402
+          case 410: {
+            parseValue51(input, extensionRegistry);
+            break;
+          } // case 410
+          case 418: {
+            parseValue52(input, extensionRegistry);
+            break;
+          } // case 418
+          case 426: {
+            parseValue53(input, extensionRegistry);
+            break;
+          } // case 426
+          case 434: {
+            parseValue54(input, extensionRegistry);
+            break;
+          } // case 434
+          case 442: {
+            parseValue55(input, extensionRegistry);
+            break;
+          } // case 442
+          case 450: {
+            parseValue56(input, extensionRegistry);
+            break;
+          } // case 450
+          case 458: {
+            parseValue57(input, extensionRegistry);
+            break;
+          } // case 458
+          case 466: {
+            parseValue58(input, extensionRegistry);
+            break;
+          } // case 466
+          case 474: {
+            parseValue59(input, extensionRegistry);
+            break;
+          } // case 474
+          case 482: {
+            parseValue60(input, extensionRegistry);
+            break;
+          } // case 482
+          case 490: {
+            parseValue61(input, extensionRegistry);
+            break;
+          } // case 490
+          case 498: {
+            parseValue62(input, extensionRegistry);
+            break;
+          } // case 498
+          case 506: {
+            parseValue63(input, extensionRegistry);
+            break;
+          } // case 506
+          case 514: {
+            parseValue64(input, extensionRegistry);
+            break;
+          } // case 514
+          case 522: {
+            parseValue65(input, extensionRegistry);
+            break;
+          } // case 522
+          case 530: {
+            parseValue66(input, extensionRegistry);
+            break;
+          } // case 530
+          case 538: {
+            parseValue67(input, extensionRegistry);
+            break;
+          } // case 538
+          case 546: {
+            parseValue68(input, extensionRegistry);
+            break;
+          } // case 546
+          case 554: {
+            parseValue69(input, extensionRegistry);
+            break;
+          } // case 554
+          case 562: {
+            parseValue70(input, extensionRegistry);
+            break;
+          } // case 562
+          case 570: {
+            parseValue71(input, extensionRegistry);
+            break;
+          } // case 570
+          case 578: {
+            parseValue72(input, extensionRegistry);
+            break;
+          } // case 578
+          case 586: {
+            parseValue73(input, extensionRegistry);
+            break;
+          } // case 586
+          case 594: {
+            parseValue74(input, extensionRegistry);
+            break;
+          } // case 594
+          case 602: {
+            parseValue75(input, extensionRegistry);
+            break;
+          } // case 602
+          case 610: {
+            parseValue76(input, extensionRegistry);
+            break;
+          } // case 610
+          case 618: {
+            parseValue77(input, extensionRegistry);
+            break;
+          } // case 618
+          case 626: {
+            parseValue78(input, extensionRegistry);
+            break;
+          } // case 626
+          case 634: {
+            parseValue79(input, extensionRegistry);
+            break;
+          } // case 634
+          case 642: {
+            parseValue80(input, extensionRegistry);
+            break;
+          } // case 642
+          case 650: {
+            parseValue81(input, extensionRegistry);
+            break;
+          } // case 650
+          case 658: {
+            parseValue82(input, extensionRegistry);
+            break;
+          } // case 658
+          case 666: {
+            parseValue83(input, extensionRegistry);
+            break;
+          } // case 666
+          case 674: {
+            parseValue84(input, extensionRegistry);
+            break;
+          } // case 674
+          case 682: {
+            parseValue85(input, extensionRegistry);
+            break;
+          } // case 682
+          case 690: {
+            parseValue86(input, extensionRegistry);
+            break;
+          } // case 690
+          case 698: {
+            parseValue87(input, extensionRegistry);
+            break;
+          } // case 698
+          case 706: {
+            parseValue88(input, extensionRegistry);
+            break;
+          } // case 706
+          case 714: {
+            parseValue89(input, extensionRegistry);
+            break;
+          } // case 714
+          case 722: {
+            parseValue90(input, extensionRegistry);
+            break;
+          } // case 722
+          case 730: {
+            parseValue91(input, extensionRegistry);
+            break;
+          } // case 730
+          case 738: {
+            parseValue92(input, extensionRegistry);
+            break;
+          } // case 738
+          case 746: {
+            parseValue93(input, extensionRegistry);
+            break;
+          } // case 746
+          case 754: {
+            parseValue94(input, extensionRegistry);
+            break;
+          } // case 754
+          case 762: {
+            parseValue95(input, extensionRegistry);
+            break;
+          } // case 762
+          case 770: {
+            parseValue96(input, extensionRegistry);
+            break;
+          } // case 770
+          case 778: {
+            parseValue97(input, extensionRegistry);
+            break;
+          } // case 778
+          case 786: {
+            parseValue98(input, extensionRegistry);
+            break;
+          } // case 786
+          case 794: {
+            parseValue99(input, extensionRegistry);
+            break;
+          } // case 794
+          case 802: {
+            parseValue100(input, extensionRegistry);
+            break;
+          } // case 802
+          case 810: {
+            parseValue101(input, extensionRegistry);
+            break;
+          } // case 810
+          case 818: {
+            parseValue102(input, extensionRegistry);
+            break;
+          } // case 818
+          case 826: {
+            parseValue103(input, extensionRegistry);
+            break;
+          } // case 826
+          case 834: {
+            parseValue104(input, extensionRegistry);
+            break;
+          } // case 834
+          case 842: {
+            parseValue105(input, extensionRegistry);
+            break;
+          } // case 842
+          case 850: {
+            parseValue106(input, extensionRegistry);
+            break;
+          } // case 850
+          case 858: {
+            parseValue107(input, extensionRegistry);
+            break;
+          } // case 858
+          case 866: {
+            parseValue108(input, extensionRegistry);
+            break;
+          } // case 866
+          case 874: {
+            parseValue109(input, extensionRegistry);
+            break;
+          } // case 874
+          case 882: {
+            parseValue110(input, extensionRegistry);
+            break;
+          } // case 882
+          case 890: {
+            parseValue111(input, extensionRegistry);
+            break;
+          } // case 890
+          case 898: {
+            parseValue112(input, extensionRegistry);
+            break;
+          } // case 898
+          case 906: {
+            parseValue113(input, extensionRegistry);
+            break;
+          } // case 906
+          case 914: {
+            parseValue114(input, extensionRegistry);
+            break;
+          } // case 914
+          case 922: {
+            parseValue115(input, extensionRegistry);
+            break;
+          } // case 922
+          case 930: {
+            parseValue116(input, extensionRegistry);
+            break;
+          } // case 930
+          case 938: {
+            parseValue117(input, extensionRegistry);
+            break;
+          } // case 938
+          case 946: {
+            parseValue118(input, extensionRegistry);
+            break;
+          } // case 946
+          case 954: {
+            parseValue119(input, extensionRegistry);
+            break;
+          } // case 954
+          case 962: {
+            parseValue120(input, extensionRegistry);
+            break;
+          } // case 962
+          case 970: {
+            parseValue121(input, extensionRegistry);
+            break;
+          } // case 970
+          case 978: {
+            parseValue122(input, extensionRegistry);
+            break;
+          } // case 978
+          case 986: {
+            parseValue123(input, extensionRegistry);
+            break;
+          } // case 986
+          case 994: {
+            parseValue124(input, extensionRegistry);
+            break;
+          } // case 994
+          case 1002: {
+            parseValue125(input, extensionRegistry);
+            break;
+          } // case 1002
+          case 1010: {
+            parseValue126(input, extensionRegistry);
+            break;
+          } // case 1010
+          case 1018: {
+            parseValue127(input, extensionRegistry);
+            break;
+          } // case 1018
+          case 1026: {
+            parseValue128(input, extensionRegistry);
+            break;
+          } // case 1026
+        }
+      } finally {
+        onChanged();
+      }
+      return mergeFrom(input, extensionRegistry);
+    }
+
+    private static com.google.protobuf.test.WideMessageOneof parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        boolean hosted)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      com.google.protobuf.test.WideMessageOneof result = new com.google.protobuf.test.WideMessageOneof(null);
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+      int pendingTag = 0;
+      int tag = 0;
+      java.lang.Exception failure = null;
+      try {
+        boolean done = false;
+        while (!done && pendingTag == 0) {
+          tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              pendingTag = parseValue1(result, input, extensionRegistry);
+              break;
+            } // case 10
+            case 18: {
+              pendingTag = parseValue2(result, input, extensionRegistry);
+              break;
+            } // case 18
+            case 26: {
+              pendingTag = parseValue3(result, input, extensionRegistry);
+              break;
+            } // case 26
+            case 34: {
+              pendingTag = parseValue4(result, input, extensionRegistry);
+              break;
+            } // case 34
+            case 42: {
+              pendingTag = parseValue5(result, input, extensionRegistry);
+              break;
+            } // case 42
+            case 50: {
+              pendingTag = parseValue6(result, input, extensionRegistry);
+              break;
+            } // case 50
+            case 58: {
+              pendingTag = parseValue7(result, input, extensionRegistry);
+              break;
+            } // case 58
+            case 66: {
+              pendingTag = parseValue8(result, input, extensionRegistry);
+              break;
+            } // case 66
+            case 74: {
+              pendingTag = parseValue9(result, input, extensionRegistry);
+              break;
+            } // case 74
+            case 82: {
+              pendingTag = parseValue10(result, input, extensionRegistry);
+              break;
+            } // case 82
+            case 90: {
+              pendingTag = parseValue11(result, input, extensionRegistry);
+              break;
+            } // case 90
+            case 98: {
+              pendingTag = parseValue12(result, input, extensionRegistry);
+              break;
+            } // case 98
+            case 106: {
+              pendingTag = parseValue13(result, input, extensionRegistry);
+              break;
+            } // case 106
+            case 114: {
+              pendingTag = parseValue14(result, input, extensionRegistry);
+              break;
+            } // case 114
+            case 122: {
+              pendingTag = parseValue15(result, input, extensionRegistry);
+              break;
+            } // case 122
+            case 130: {
+              pendingTag = parseValue16(result, input, extensionRegistry);
+              break;
+            } // case 130
+            case 138: {
+              pendingTag = parseValue17(result, input, extensionRegistry);
+              break;
+            } // case 138
+            case 146: {
+              pendingTag = parseValue18(result, input, extensionRegistry);
+              break;
+            } // case 146
+            case 154: {
+              pendingTag = parseValue19(result, input, extensionRegistry);
+              break;
+            } // case 154
+            case 162: {
+              pendingTag = parseValue20(result, input, extensionRegistry);
+              break;
+            } // case 162
+            case 170: {
+              pendingTag = parseValue21(result, input, extensionRegistry);
+              break;
+            } // case 170
+            case 178: {
+              pendingTag = parseValue22(result, input, extensionRegistry);
+              break;
+            } // case 178
+            case 186: {
+              pendingTag = parseValue23(result, input, extensionRegistry);
+              break;
+            } // case 186
+            case 194: {
+              pendingTag = parseValue24(result, input, extensionRegistry);
+              break;
+            } // case 194
+            case 202: {
+              pendingTag = parseValue25(result, input, extensionRegistry);
+              break;
+            } // case 202
+            case 210: {
+              pendingTag = parseValue26(result, input, extensionRegistry);
+              break;
+            } // case 210
+            case 218: {
+              pendingTag = parseValue27(result, input, extensionRegistry);
+              break;
+            } // case 218
+            case 226: {
+              pendingTag = parseValue28(result, input, extensionRegistry);
+              break;
+            } // case 226
+            case 234: {
+              pendingTag = parseValue29(result, input, extensionRegistry);
+              break;
+            } // case 234
+            case 242: {
+              pendingTag = parseValue30(result, input, extensionRegistry);
+              break;
+            } // case 242
+            case 250: {
+              pendingTag = parseValue31(result, input, extensionRegistry);
+              break;
+            } // case 250
+            case 258: {
+              pendingTag = parseValue32(result, input, extensionRegistry);
+              break;
+            } // case 258
+            case 266: {
+              pendingTag = parseValue33(result, input, extensionRegistry);
+              break;
+            } // case 266
+            case 274: {
+              pendingTag = parseValue34(result, input, extensionRegistry);
+              break;
+            } // case 274
+            case 282: {
+              pendingTag = parseValue35(result, input, extensionRegistry);
+              break;
+            } // case 282
+            case 290: {
+              pendingTag = parseValue36(result, input, extensionRegistry);
+              break;
+            } // case 290
+            case 298: {
+              pendingTag = parseValue37(result, input, extensionRegistry);
+              break;
+            } // case 298
+            case 306: {
+              pendingTag = parseValue38(result, input, extensionRegistry);
+              break;
+            } // case 306
+            case 314: {
+              pendingTag = parseValue39(result, input, extensionRegistry);
+              break;
+            } // case 314
+            case 322: {
+              pendingTag = parseValue40(result, input, extensionRegistry);
+              break;
+            } // case 322
+            case 330: {
+              pendingTag = parseValue41(result, input, extensionRegistry);
+              break;
+            } // case 330
+            case 338: {
+              pendingTag = parseValue42(result, input, extensionRegistry);
+              break;
+            } // case 338
+            case 346: {
+              pendingTag = parseValue43(result, input, extensionRegistry);
+              break;
+            } // case 346
+            case 354: {
+              pendingTag = parseValue44(result, input, extensionRegistry);
+              break;
+            } // case 354
+            case 362: {
+              pendingTag = parseValue45(result, input, extensionRegistry);
+              break;
+            } // case 362
+            case 370: {
+              pendingTag = parseValue46(result, input, extensionRegistry);
+              break;
+            } // case 370
+            case 378: {
+              pendingTag = parseValue47(result, input, extensionRegistry);
+              break;
+            } // case 378
+            case 386: {
+              pendingTag = parseValue48(result, input, extensionRegistry);
+              break;
+            } // case 386
+            case 394: {
+              pendingTag = parseValue49(result, input, extensionRegistry);
+              break;
+            } // case 394
+            case 402: {
+              pendingTag = parseValue50(result, input, extensionRegistry);
+              break;
+            } // case 402
+            case 410: {
+              pendingTag = parseValue51(result, input, extensionRegistry);
+              break;
+            } // case 410
+            case 418: {
+              pendingTag = parseValue52(result, input, extensionRegistry);
+              break;
+            } // case 418
+            case 426: {
+              pendingTag = parseValue53(result, input, extensionRegistry);
+              break;
+            } // case 426
+            case 434: {
+              pendingTag = parseValue54(result, input, extensionRegistry);
+              break;
+            } // case 434
+            case 442: {
+              pendingTag = parseValue55(result, input, extensionRegistry);
+              break;
+            } // case 442
+            case 450: {
+              pendingTag = parseValue56(result, input, extensionRegistry);
+              break;
+            } // case 450
+            case 458: {
+              pendingTag = parseValue57(result, input, extensionRegistry);
+              break;
+            } // case 458
+            case 466: {
+              pendingTag = parseValue58(result, input, extensionRegistry);
+              break;
+            } // case 466
+            case 474: {
+              pendingTag = parseValue59(result, input, extensionRegistry);
+              break;
+            } // case 474
+            case 482: {
+              pendingTag = parseValue60(result, input, extensionRegistry);
+              break;
+            } // case 482
+            case 490: {
+              pendingTag = parseValue61(result, input, extensionRegistry);
+              break;
+            } // case 490
+            case 498: {
+              pendingTag = parseValue62(result, input, extensionRegistry);
+              break;
+            } // case 498
+            case 506: {
+              pendingTag = parseValue63(result, input, extensionRegistry);
+              break;
+            } // case 506
+            case 514: {
+              pendingTag = parseValue64(result, input, extensionRegistry);
+              break;
+            } // case 514
+            case 522: {
+              pendingTag = parseValue65(result, input, extensionRegistry);
+              break;
+            } // case 522
+            case 530: {
+              pendingTag = parseValue66(result, input, extensionRegistry);
+              break;
+            } // case 530
+            case 538: {
+              pendingTag = parseValue67(result, input, extensionRegistry);
+              break;
+            } // case 538
+            case 546: {
+              pendingTag = parseValue68(result, input, extensionRegistry);
+              break;
+            } // case 546
+            case 554: {
+              pendingTag = parseValue69(result, input, extensionRegistry);
+              break;
+            } // case 554
+            case 562: {
+              pendingTag = parseValue70(result, input, extensionRegistry);
+              break;
+            } // case 562
+            case 570: {
+              pendingTag = parseValue71(result, input, extensionRegistry);
+              break;
+            } // case 570
+            case 578: {
+              pendingTag = parseValue72(result, input, extensionRegistry);
+              break;
+            } // case 578
+            case 586: {
+              pendingTag = parseValue73(result, input, extensionRegistry);
+              break;
+            } // case 586
+            case 594: {
+              pendingTag = parseValue74(result, input, extensionRegistry);
+              break;
+            } // case 594
+            case 602: {
+              pendingTag = parseValue75(result, input, extensionRegistry);
+              break;
+            } // case 602
+            case 610: {
+              pendingTag = parseValue76(result, input, extensionRegistry);
+              break;
+            } // case 610
+            case 618: {
+              pendingTag = parseValue77(result, input, extensionRegistry);
+              break;
+            } // case 618
+            case 626: {
+              pendingTag = parseValue78(result, input, extensionRegistry);
+              break;
+            } // case 626
+            case 634: {
+              pendingTag = parseValue79(result, input, extensionRegistry);
+              break;
+            } // case 634
+            case 642: {
+              pendingTag = parseValue80(result, input, extensionRegistry);
+              break;
+            } // case 642
+            case 650: {
+              pendingTag = parseValue81(result, input, extensionRegistry);
+              break;
+            } // case 650
+            case 658: {
+              pendingTag = parseValue82(result, input, extensionRegistry);
+              break;
+            } // case 658
+            case 666: {
+              pendingTag = parseValue83(result, input, extensionRegistry);
+              break;
+            } // case 666
+            case 674: {
+              pendingTag = parseValue84(result, input, extensionRegistry);
+              break;
+            } // case 674
+            case 682: {
+              pendingTag = parseValue85(result, input, extensionRegistry);
+              break;
+            } // case 682
+            case 690: {
+              pendingTag = parseValue86(result, input, extensionRegistry);
+              break;
+            } // case 690
+            case 698: {
+              pendingTag = parseValue87(result, input, extensionRegistry);
+              break;
+            } // case 698
+            case 706: {
+              pendingTag = parseValue88(result, input, extensionRegistry);
+              break;
+            } // case 706
+            case 714: {
+              pendingTag = parseValue89(result, input, extensionRegistry);
+              break;
+            } // case 714
+            case 722: {
+              pendingTag = parseValue90(result, input, extensionRegistry);
+              break;
+            } // case 722
+            case 730: {
+              pendingTag = parseValue91(result, input, extensionRegistry);
+              break;
+            } // case 730
+            case 738: {
+              pendingTag = parseValue92(result, input, extensionRegistry);
+              break;
+            } // case 738
+            case 746: {
+              pendingTag = parseValue93(result, input, extensionRegistry);
+              break;
+            } // case 746
+            case 754: {
+              pendingTag = parseValue94(result, input, extensionRegistry);
+              break;
+            } // case 754
+            case 762: {
+              pendingTag = parseValue95(result, input, extensionRegistry);
+              break;
+            } // case 762
+            case 770: {
+              pendingTag = parseValue96(result, input, extensionRegistry);
+              break;
+            } // case 770
+            case 778: {
+              pendingTag = parseValue97(result, input, extensionRegistry);
+              break;
+            } // case 778
+            case 786: {
+              pendingTag = parseValue98(result, input, extensionRegistry);
+              break;
+            } // case 786
+            case 794: {
+              pendingTag = parseValue99(result, input, extensionRegistry);
+              break;
+            } // case 794
+            case 802: {
+              pendingTag = parseValue100(result, input, extensionRegistry);
+              break;
+            } // case 802
+            case 810: {
+              pendingTag = parseValue101(result, input, extensionRegistry);
+              break;
+            } // case 810
+            case 818: {
+              pendingTag = parseValue102(result, input, extensionRegistry);
+              break;
+            } // case 818
+            case 826: {
+              pendingTag = parseValue103(result, input, extensionRegistry);
+              break;
+            } // case 826
+            case 834: {
+              pendingTag = parseValue104(result, input, extensionRegistry);
+              break;
+            } // case 834
+            case 842: {
+              pendingTag = parseValue105(result, input, extensionRegistry);
+              break;
+            } // case 842
+            case 850: {
+              pendingTag = parseValue106(result, input, extensionRegistry);
+              break;
+            } // case 850
+            case 858: {
+              pendingTag = parseValue107(result, input, extensionRegistry);
+              break;
+            } // case 858
+            case 866: {
+              pendingTag = parseValue108(result, input, extensionRegistry);
+              break;
+            } // case 866
+            case 874: {
+              pendingTag = parseValue109(result, input, extensionRegistry);
+              break;
+            } // case 874
+            case 882: {
+              pendingTag = parseValue110(result, input, extensionRegistry);
+              break;
+            } // case 882
+            case 890: {
+              pendingTag = parseValue111(result, input, extensionRegistry);
+              break;
+            } // case 890
+            case 898: {
+              pendingTag = parseValue112(result, input, extensionRegistry);
+              break;
+            } // case 898
+            case 906: {
+              pendingTag = parseValue113(result, input, extensionRegistry);
+              break;
+            } // case 906
+            case 914: {
+              pendingTag = parseValue114(result, input, extensionRegistry);
+              break;
+            } // case 914
+            case 922: {
+              pendingTag = parseValue115(result, input, extensionRegistry);
+              break;
+            } // case 922
+            case 930: {
+              pendingTag = parseValue116(result, input, extensionRegistry);
+              break;
+            } // case 930
+            case 938: {
+              pendingTag = parseValue117(result, input, extensionRegistry);
+              break;
+            } // case 938
+            case 946: {
+              pendingTag = parseValue118(result, input, extensionRegistry);
+              break;
+            } // case 946
+            case 954: {
+              pendingTag = parseValue119(result, input, extensionRegistry);
+              break;
+            } // case 954
+            case 962: {
+              pendingTag = parseValue120(result, input, extensionRegistry);
+              break;
+            } // case 962
+            case 970: {
+              pendingTag = parseValue121(result, input, extensionRegistry);
+              break;
+            } // case 970
+            case 978: {
+              pendingTag = parseValue122(result, input, extensionRegistry);
+              break;
+            } // case 978
+            case 986: {
+              pendingTag = parseValue123(result, input, extensionRegistry);
+              break;
+            } // case 986
+            case 994: {
+              pendingTag = parseValue124(result, input, extensionRegistry);
+              break;
+            } // case 994
+            case 1002: {
+              pendingTag = parseValue125(result, input, extensionRegistry);
+              break;
+            } // case 1002
+            case 1010: {
+              pendingTag = parseValue126(result, input, extensionRegistry);
+              break;
+            } // case 1010
+            case 1018: {
+              pendingTag = parseValue127(result, input, extensionRegistry);
+              break;
+            } // case 1018
+            case 1026: {
+              pendingTag = parseValue128(result, input, extensionRegistry);
+              break;
+            } // case 1026
+            default:
+              if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                  == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                done = true; // As in the Builder
+              } else {
+                unknownFields = mergeUnknownField(unknownFields, input, tag);
+              }
+              break;
+          }
+        }
+      } catch (java.lang.Exception e) {
+        failure = e;
+      }
+      if (unknownFields != null) {
+        setUnknownFields(result, unknownFields.build());
+      }
+      if (failure == null && (pendingTag == 0 || hosted)) {
+        return result;
+      }
+      Builder builder = new Builder();
+      builder.mergeFrom(result);
+      retainParsedAlternatives(builder);
+      try {
+        if (failure != null) {
+          throw failure;
+        }
+        builder.mergeFrom(input, extensionRegistry, pendingTag);
+      } catch (java.lang.Exception e) {
+        wrapAndThrowParseException(parser(), e, builder);
+      }
+      return builder.buildPartial(result);
+    }
+
+    // As the Builder parses alternatives, through field builders.
+    private static void retainParsedAlternatives(Builder parsed) {
+      if (parsed.hasValue1()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue1Builder());
+      }
+      if (parsed.hasValue2()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue2Builder());
+      }
+      if (parsed.hasValue3()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue3Builder());
+      }
+      if (parsed.hasValue4()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue4Builder());
+      }
+      if (parsed.hasValue5()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue5Builder());
+      }
+      if (parsed.hasValue6()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue6Builder());
+      }
+      if (parsed.hasValue7()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue7Builder());
+      }
+      if (parsed.hasValue8()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue8Builder());
+      }
+      if (parsed.hasValue9()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue9Builder());
+      }
+      if (parsed.hasValue10()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue10Builder());
+      }
+      if (parsed.hasValue11()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue11Builder());
+      }
+      if (parsed.hasValue12()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue12Builder());
+      }
+      if (parsed.hasValue13()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue13Builder());
+      }
+      if (parsed.hasValue14()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue14Builder());
+      }
+      if (parsed.hasValue15()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue15Builder());
+      }
+      if (parsed.hasValue16()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue16Builder());
+      }
+      if (parsed.hasValue17()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue17Builder());
+      }
+      if (parsed.hasValue18()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue18Builder());
+      }
+      if (parsed.hasValue19()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue19Builder());
+      }
+      if (parsed.hasValue20()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue20Builder());
+      }
+      if (parsed.hasValue21()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue21Builder());
+      }
+      if (parsed.hasValue22()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue22Builder());
+      }
+      if (parsed.hasValue23()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue23Builder());
+      }
+      if (parsed.hasValue24()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue24Builder());
+      }
+      if (parsed.hasValue25()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue25Builder());
+      }
+      if (parsed.hasValue26()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue26Builder());
+      }
+      if (parsed.hasValue27()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue27Builder());
+      }
+      if (parsed.hasValue28()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue28Builder());
+      }
+      if (parsed.hasValue29()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue29Builder());
+      }
+      if (parsed.hasValue30()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue30Builder());
+      }
+      if (parsed.hasValue31()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue31Builder());
+      }
+      if (parsed.hasValue32()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue32Builder());
+      }
+      if (parsed.hasValue33()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue33Builder());
+      }
+      if (parsed.hasValue34()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue34Builder());
+      }
+      if (parsed.hasValue35()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue35Builder());
+      }
+      if (parsed.hasValue36()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue36Builder());
+      }
+      if (parsed.hasValue37()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue37Builder());
+      }
+      if (parsed.hasValue38()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue38Builder());
+      }
+      if (parsed.hasValue39()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue39Builder());
+      }
+      if (parsed.hasValue40()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue40Builder());
+      }
+      if (parsed.hasValue41()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue41Builder());
+      }
+      if (parsed.hasValue42()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue42Builder());
+      }
+      if (parsed.hasValue43()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue43Builder());
+      }
+      if (parsed.hasValue44()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue44Builder());
+      }
+      if (parsed.hasValue45()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue45Builder());
+      }
+      if (parsed.hasValue46()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue46Builder());
+      }
+      if (parsed.hasValue47()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue47Builder());
+      }
+      if (parsed.hasValue48()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue48Builder());
+      }
+      if (parsed.hasValue49()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue49Builder());
+      }
+      if (parsed.hasValue50()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue50Builder());
+      }
+      if (parsed.hasValue51()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue51Builder());
+      }
+      if (parsed.hasValue52()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue52Builder());
+      }
+      if (parsed.hasValue53()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue53Builder());
+      }
+      if (parsed.hasValue54()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue54Builder());
+      }
+      if (parsed.hasValue55()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue55Builder());
+      }
+      if (parsed.hasValue56()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue56Builder());
+      }
+      if (parsed.hasValue57()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue57Builder());
+      }
+      if (parsed.hasValue58()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue58Builder());
+      }
+      if (parsed.hasValue59()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue59Builder());
+      }
+      if (parsed.hasValue60()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue60Builder());
+      }
+      if (parsed.hasValue61()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue61Builder());
+      }
+      if (parsed.hasValue62()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue62Builder());
+      }
+      if (parsed.hasValue63()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue63Builder());
+      }
+      if (parsed.hasValue64()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue64Builder());
+      }
+      if (parsed.hasValue65()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue65Builder());
+      }
+      if (parsed.hasValue66()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue66Builder());
+      }
+      if (parsed.hasValue67()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue67Builder());
+      }
+      if (parsed.hasValue68()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue68Builder());
+      }
+      if (parsed.hasValue69()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue69Builder());
+      }
+      if (parsed.hasValue70()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue70Builder());
+      }
+      if (parsed.hasValue71()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue71Builder());
+      }
+      if (parsed.hasValue72()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue72Builder());
+      }
+      if (parsed.hasValue73()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue73Builder());
+      }
+      if (parsed.hasValue74()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue74Builder());
+      }
+      if (parsed.hasValue75()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue75Builder());
+      }
+      if (parsed.hasValue76()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue76Builder());
+      }
+      if (parsed.hasValue77()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue77Builder());
+      }
+      if (parsed.hasValue78()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue78Builder());
+      }
+      if (parsed.hasValue79()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue79Builder());
+      }
+      if (parsed.hasValue80()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue80Builder());
+      }
+      if (parsed.hasValue81()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue81Builder());
+      }
+      if (parsed.hasValue82()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue82Builder());
+      }
+      if (parsed.hasValue83()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue83Builder());
+      }
+      if (parsed.hasValue84()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue84Builder());
+      }
+      if (parsed.hasValue85()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue85Builder());
+      }
+      if (parsed.hasValue86()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue86Builder());
+      }
+      if (parsed.hasValue87()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue87Builder());
+      }
+      if (parsed.hasValue88()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue88Builder());
+      }
+      if (parsed.hasValue89()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue89Builder());
+      }
+      if (parsed.hasValue90()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue90Builder());
+      }
+      if (parsed.hasValue91()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue91Builder());
+      }
+      if (parsed.hasValue92()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue92Builder());
+      }
+      if (parsed.hasValue93()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue93Builder());
+      }
+      if (parsed.hasValue94()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue94Builder());
+      }
+      if (parsed.hasValue95()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue95Builder());
+      }
+      if (parsed.hasValue96()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue96Builder());
+      }
+      if (parsed.hasValue97()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue97Builder());
+      }
+      if (parsed.hasValue98()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue98Builder());
+      }
+      if (parsed.hasValue99()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue99Builder());
+      }
+      if (parsed.hasValue100()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue100Builder());
+      }
+      if (parsed.hasValue101()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue101Builder());
+      }
+      if (parsed.hasValue102()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue102Builder());
+      }
+      if (parsed.hasValue103()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue103Builder());
+      }
+      if (parsed.hasValue104()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue104Builder());
+      }
+      if (parsed.hasValue105()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue105Builder());
+      }
+      if (parsed.hasValue106()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue106Builder());
+      }
+      if (parsed.hasValue107()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue107Builder());
+      }
+      if (parsed.hasValue108()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue108Builder());
+      }
+      if (parsed.hasValue109()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue109Builder());
+      }
+      if (parsed.hasValue110()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue110Builder());
+      }
+      if (parsed.hasValue111()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue111Builder());
+      }
+      if (parsed.hasValue112()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue112Builder());
+      }
+      if (parsed.hasValue113()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue113Builder());
+      }
+      if (parsed.hasValue114()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue114Builder());
+      }
+      if (parsed.hasValue115()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue115Builder());
+      }
+      if (parsed.hasValue116()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue116Builder());
+      }
+      if (parsed.hasValue117()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue117Builder());
+      }
+      if (parsed.hasValue118()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue118Builder());
+      }
+      if (parsed.hasValue119()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue119Builder());
+      }
+      if (parsed.hasValue120()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue120Builder());
+      }
+      if (parsed.hasValue121()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue121Builder());
+      }
+      if (parsed.hasValue122()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue122Builder());
+      }
+      if (parsed.hasValue123()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue123Builder());
+      }
+      if (parsed.hasValue124()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue124Builder());
+      }
+      if (parsed.hasValue125()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue125Builder());
+      }
+      if (parsed.hasValue126()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue126Builder());
+      }
+      if (parsed.hasValue127()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue127Builder());
+      }
+      if (parsed.hasValue128()) {
+        retainParsedAlternatives(
+            com.google.protobuf.test.WideMessageOneof.Child.parser(), parsed.getValue128Builder());
+      }
+    }
+
+    private static int parseValue1(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 10;
+      }
+      result.choiceCase_ = 1;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue2(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 18;
+      }
+      result.choiceCase_ = 2;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue3(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 26;
+      }
+      result.choiceCase_ = 3;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue4(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 34;
+      }
+      result.choiceCase_ = 4;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue5(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 42;
+      }
+      result.choiceCase_ = 5;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue6(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 50;
+      }
+      result.choiceCase_ = 6;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue7(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 58;
+      }
+      result.choiceCase_ = 7;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue8(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 66;
+      }
+      result.choiceCase_ = 8;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue9(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 74;
+      }
+      result.choiceCase_ = 9;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue10(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 82;
+      }
+      result.choiceCase_ = 10;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue11(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 90;
+      }
+      result.choiceCase_ = 11;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue12(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 98;
+      }
+      result.choiceCase_ = 12;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue13(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 106;
+      }
+      result.choiceCase_ = 13;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue14(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 114;
+      }
+      result.choiceCase_ = 14;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue15(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 122;
+      }
+      result.choiceCase_ = 15;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue16(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 130;
+      }
+      result.choiceCase_ = 16;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue17(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 138;
+      }
+      result.choiceCase_ = 17;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue18(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 146;
+      }
+      result.choiceCase_ = 18;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue19(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 154;
+      }
+      result.choiceCase_ = 19;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue20(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 162;
+      }
+      result.choiceCase_ = 20;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue21(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 170;
+      }
+      result.choiceCase_ = 21;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue22(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 178;
+      }
+      result.choiceCase_ = 22;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue23(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 186;
+      }
+      result.choiceCase_ = 23;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue24(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 194;
+      }
+      result.choiceCase_ = 24;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue25(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 202;
+      }
+      result.choiceCase_ = 25;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue26(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 210;
+      }
+      result.choiceCase_ = 26;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue27(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 218;
+      }
+      result.choiceCase_ = 27;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue28(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 226;
+      }
+      result.choiceCase_ = 28;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue29(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 234;
+      }
+      result.choiceCase_ = 29;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue30(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 242;
+      }
+      result.choiceCase_ = 30;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue31(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 250;
+      }
+      result.choiceCase_ = 31;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue32(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 258;
+      }
+      result.choiceCase_ = 32;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue33(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 266;
+      }
+      result.choiceCase_ = 33;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue34(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 274;
+      }
+      result.choiceCase_ = 34;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue35(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 282;
+      }
+      result.choiceCase_ = 35;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue36(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 290;
+      }
+      result.choiceCase_ = 36;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue37(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 298;
+      }
+      result.choiceCase_ = 37;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue38(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 306;
+      }
+      result.choiceCase_ = 38;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue39(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 314;
+      }
+      result.choiceCase_ = 39;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue40(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 322;
+      }
+      result.choiceCase_ = 40;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue41(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 330;
+      }
+      result.choiceCase_ = 41;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue42(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 338;
+      }
+      result.choiceCase_ = 42;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue43(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 346;
+      }
+      result.choiceCase_ = 43;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue44(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 354;
+      }
+      result.choiceCase_ = 44;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue45(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 362;
+      }
+      result.choiceCase_ = 45;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue46(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 370;
+      }
+      result.choiceCase_ = 46;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue47(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 378;
+      }
+      result.choiceCase_ = 47;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue48(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 386;
+      }
+      result.choiceCase_ = 48;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue49(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 394;
+      }
+      result.choiceCase_ = 49;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue50(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 402;
+      }
+      result.choiceCase_ = 50;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue51(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 410;
+      }
+      result.choiceCase_ = 51;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue52(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 418;
+      }
+      result.choiceCase_ = 52;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue53(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 426;
+      }
+      result.choiceCase_ = 53;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue54(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 434;
+      }
+      result.choiceCase_ = 54;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue55(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 442;
+      }
+      result.choiceCase_ = 55;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue56(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 450;
+      }
+      result.choiceCase_ = 56;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue57(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 458;
+      }
+      result.choiceCase_ = 57;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue58(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 466;
+      }
+      result.choiceCase_ = 58;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue59(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 474;
+      }
+      result.choiceCase_ = 59;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue60(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 482;
+      }
+      result.choiceCase_ = 60;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue61(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 490;
+      }
+      result.choiceCase_ = 61;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue62(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 498;
+      }
+      result.choiceCase_ = 62;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue63(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 506;
+      }
+      result.choiceCase_ = 63;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue64(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 514;
+      }
+      result.choiceCase_ = 64;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue65(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 522;
+      }
+      result.choiceCase_ = 65;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue66(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 530;
+      }
+      result.choiceCase_ = 66;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue67(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 538;
+      }
+      result.choiceCase_ = 67;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue68(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 546;
+      }
+      result.choiceCase_ = 68;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue69(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 554;
+      }
+      result.choiceCase_ = 69;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue70(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 562;
+      }
+      result.choiceCase_ = 70;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue71(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 570;
+      }
+      result.choiceCase_ = 71;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue72(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 578;
+      }
+      result.choiceCase_ = 72;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue73(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 586;
+      }
+      result.choiceCase_ = 73;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue74(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 594;
+      }
+      result.choiceCase_ = 74;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue75(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 602;
+      }
+      result.choiceCase_ = 75;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue76(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 610;
+      }
+      result.choiceCase_ = 76;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue77(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 618;
+      }
+      result.choiceCase_ = 77;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue78(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 626;
+      }
+      result.choiceCase_ = 78;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue79(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 634;
+      }
+      result.choiceCase_ = 79;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue80(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 642;
+      }
+      result.choiceCase_ = 80;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue81(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 650;
+      }
+      result.choiceCase_ = 81;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue82(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 658;
+      }
+      result.choiceCase_ = 82;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue83(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 666;
+      }
+      result.choiceCase_ = 83;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue84(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 674;
+      }
+      result.choiceCase_ = 84;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue85(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 682;
+      }
+      result.choiceCase_ = 85;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue86(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 690;
+      }
+      result.choiceCase_ = 86;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue87(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 698;
+      }
+      result.choiceCase_ = 87;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue88(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 706;
+      }
+      result.choiceCase_ = 88;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue89(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 714;
+      }
+      result.choiceCase_ = 89;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue90(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 722;
+      }
+      result.choiceCase_ = 90;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue91(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 730;
+      }
+      result.choiceCase_ = 91;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue92(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 738;
+      }
+      result.choiceCase_ = 92;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue93(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 746;
+      }
+      result.choiceCase_ = 93;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue94(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 754;
+      }
+      result.choiceCase_ = 94;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue95(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 762;
+      }
+      result.choiceCase_ = 95;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue96(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 770;
+      }
+      result.choiceCase_ = 96;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue97(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 778;
+      }
+      result.choiceCase_ = 97;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue98(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 786;
+      }
+      result.choiceCase_ = 98;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue99(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 794;
+      }
+      result.choiceCase_ = 99;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue100(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 802;
+      }
+      result.choiceCase_ = 100;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue101(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 810;
+      }
+      result.choiceCase_ = 101;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue102(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 818;
+      }
+      result.choiceCase_ = 102;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue103(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 826;
+      }
+      result.choiceCase_ = 103;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue104(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 834;
+      }
+      result.choiceCase_ = 104;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue105(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 842;
+      }
+      result.choiceCase_ = 105;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue106(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 850;
+      }
+      result.choiceCase_ = 106;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue107(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 858;
+      }
+      result.choiceCase_ = 107;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue108(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 866;
+      }
+      result.choiceCase_ = 108;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue109(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 874;
+      }
+      result.choiceCase_ = 109;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue110(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 882;
+      }
+      result.choiceCase_ = 110;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue111(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 890;
+      }
+      result.choiceCase_ = 111;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue112(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 898;
+      }
+      result.choiceCase_ = 112;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue113(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 906;
+      }
+      result.choiceCase_ = 113;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue114(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 914;
+      }
+      result.choiceCase_ = 114;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue115(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 922;
+      }
+      result.choiceCase_ = 115;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue116(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 930;
+      }
+      result.choiceCase_ = 116;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue117(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 938;
+      }
+      result.choiceCase_ = 117;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue118(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 946;
+      }
+      result.choiceCase_ = 118;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue119(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 954;
+      }
+      result.choiceCase_ = 119;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue120(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 962;
+      }
+      result.choiceCase_ = 120;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue121(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 970;
+      }
+      result.choiceCase_ = 121;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue122(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 978;
+      }
+      result.choiceCase_ = 122;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue123(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 986;
+      }
+      result.choiceCase_ = 123;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue124(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 994;
+      }
+      result.choiceCase_ = 124;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue125(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 1002;
+      }
+      result.choiceCase_ = 125;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue126(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 1010;
+      }
+      result.choiceCase_ = 126;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue127(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 1018;
+      }
+      result.choiceCase_ = 127;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
+    private static int parseValue128(
+        com.google.protobuf.test.WideMessageOneof result,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.getChoiceCase().getNumber() != 0) {
+        return 1026;
+      }
+      result.choiceCase_ = 128;
+      result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.getDefaultInstance();
+      final int oldLimit = input.pushLimitBeforeMessage();
+      try {
+        result.choice_ = com.google.protobuf.test.WideMessageOneof.Child.parser().parsePartialFrom(input, extensionRegistry);
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        if (e.getUnfinishedMessage() != null) {
+          result.choice_ = e.getUnfinishedMessage();
+        }
+        throw e;
+      }
+      input.popLimitAfterMessage(oldLimit);
+      return 0;
+    }
+
     private int choiceCase_ = 0;
     private java.lang.Object choice_;
     public ChoiceCase
@@ -33323,19 +38018,38 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<WideMessageOneof>
-      PARSER = new com.google.protobuf.AbstractParser<WideMessageOneof>() {
+      PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+          WideMessageOneof>() {
     @java.lang.Override
     public WideMessageOneof parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Builder.parsePartialFrom(input, extensionRegistry, false);
+    }
+
+    @java.lang.Override
+    protected WideMessageOneof parseAlternative(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return Builder.parsePartialFrom(input, extensionRegistry, true);
+    }
+
+    @java.lang.Override
+    protected void continueAlternative(
+        com.google.protobuf.Message.Builder builder,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws java.io.IOException {
+      ((Builder) builder).mergeFrom(input, extensionRegistry, pendingTag);
+    }
+
+    @java.lang.Override
+    protected void retainParsedAlternatives(
+        com.google.protobuf.Message.Builder builder) {
+      Builder.retainParsedAlternatives((Builder) builder);
     }
   };
 

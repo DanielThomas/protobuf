@@ -308,9 +308,16 @@ public final class Proto3TextFormatPerformanceProto extends com.google.protobuf.
                 com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32.class, com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -359,6 +366,13 @@ public final class Proto3TextFormatPerformanceProto extends com.google.protobuf.
       @java.lang.Override
       public com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32 buildPartial() {
         com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32 result = new com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32(this);
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32 buildPartial(com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32 result) {
+        setUnknownFields(result, getUnknownFields());
         if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
         onBuilt();
         return result;
@@ -433,6 +447,102 @@ public final class Proto3TextFormatPerformanceProto extends com.google.protobuf.
           onChanged();
         } // finally
         return this;
+      }
+
+      private Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        try {
+          switch (pendingTag) {
+            case 10: {
+              parseSubMsgField(input, extensionRegistry);
+              break;
+            } // case 10
+          }
+        } finally {
+          onChanged();
+        }
+        return mergeFrom(input, extensionRegistry);
+      }
+
+      private static com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32 parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        if (alwaysUseFieldBuilders()) {
+          Builder builder = new Builder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (java.lang.Exception e) {
+            wrapAndThrowParseException(parser(), e, builder);
+          }
+          return builder.buildPartial();
+        }
+        com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32 result = new com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.ContainsSubMessageWithRepeatedInt32(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 10: {
+                pendingTag = parseSubMsgField(result, input, extensionRegistry);
+                break;
+              } // case 10
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry, pendingTag);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+      private static int parseSubMsgField(
+          ContainsSubMessageWithRepeatedInt32 result, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (result.hasSubMsg()) {
+          return 10;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        result.subMsg_ = com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.RepeatedInt32.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        result.bitField0_ |= 0x00000001;
+        return 0;
       }
       private int bitField0_;
 
@@ -578,19 +688,32 @@ public final class Proto3TextFormatPerformanceProto extends com.google.protobuf.
     }
 
     private static final com.google.protobuf.Parser<ContainsSubMessageWithRepeatedInt32>
-        PARSER = new com.google.protobuf.AbstractParser<ContainsSubMessageWithRepeatedInt32>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            ContainsSubMessageWithRepeatedInt32>() {
       @java.lang.Override
       public ContainsSubMessageWithRepeatedInt32 parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected ContainsSubMessageWithRepeatedInt32 parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry, pendingTag);
       }
     };
 
@@ -903,9 +1026,16 @@ public final class Proto3TextFormatPerformanceProto extends com.google.protobuf.
                 com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.RepeatedInt32.class, com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.RepeatedInt32.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.RepeatedInt32.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -944,6 +1074,13 @@ public final class Proto3TextFormatPerformanceProto extends com.google.protobuf.
       @java.lang.Override
       public com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.RepeatedInt32 buildPartial() {
         com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.RepeatedInt32 result = new com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.RepeatedInt32(this);
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.RepeatedInt32 buildPartial(com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.RepeatedInt32 result) {
+        setUnknownFields(result, getUnknownFields());
         if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
         onBuilt();
         return result;
@@ -1038,6 +1175,95 @@ public final class Proto3TextFormatPerformanceProto extends com.google.protobuf.
         } // finally
         return this;
       }
+
+      private static com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.RepeatedInt32 parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.RepeatedInt32 result = new com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.RepeatedInt32(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int bitField0_ = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 16: {
+                int v = input.readInt32();
+                bitField0_ = ensureValueIsMutable(bitField0_, result, /* capacity= */ -1);
+                result.value_.addInt(v);
+                break;
+              } // case 16
+              case 18: {
+                int length = input.readRawVarint32();
+                int limit = input.pushLimit(length);
+                int count = input.countPackedVarints(length);
+                bitField0_ = ensureValueIsMutable(bitField0_, result, count);
+                while (input.getBytesUntilLimit() > 0) {
+                  result.value_.addInt(input.readInt32());
+                }
+                input.popLimit(limit);
+                break;
+              } // case 18
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_); }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+      private static void buildPartial_autosplit_0(
+          com.google.protobuf.testing.textformat.performance.proto3.Proto3TextFormatPerformanceProto.RepeatedInt32 result,
+          int bitField0_) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.value_.makeImmutable();
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      private static int ensureValueIsMutable(int bitField0_, RepeatedInt32 result, int capacity) {
+        if (!result.value_.isModifiable()) {
+          result.value_ = makeMutableCopy(result.value_, capacity);
+        }
+        bitField0_ |= 0x00000001;
+        return bitField0_;
+}
       private int bitField0_;
 
       private com.google.protobuf.Internal.IntList value_ = emptyIntList();
@@ -1138,19 +1364,32 @@ public final class Proto3TextFormatPerformanceProto extends com.google.protobuf.
     }
 
     private static final com.google.protobuf.Parser<RepeatedInt32>
-        PARSER = new com.google.protobuf.AbstractParser<RepeatedInt32>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            RepeatedInt32>() {
       @java.lang.Override
       public RepeatedInt32 parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected RepeatedInt32 parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 

@@ -900,9 +900,16 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestCamelCaseFieldNames.class, edition_unittest.TestCamelCaseFieldNames.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestCamelCaseFieldNames.newBuilder()
     private Builder() {
-      maybeForceBuilderInitialization();
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
@@ -972,6 +979,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public edition_unittest.TestCamelCaseFieldNames buildPartial() {
       edition_unittest.TestCamelCaseFieldNames result = new edition_unittest.TestCamelCaseFieldNames(this);
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private edition_unittest.TestCamelCaseFieldNames buildPartial(edition_unittest.TestCamelCaseFieldNames result) {
+      setUnknownFields(result, getUnknownFields());
       if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
       onBuilt();
       return result;
@@ -1304,6 +1318,304 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+
+    private Builder mergeFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws java.io.IOException {
+      try {
+        switch (pendingTag) {
+          case 34: {
+            parseMessageFieldField(input, extensionRegistry);
+            break;
+          } // case 34
+        }
+      } finally {
+        onChanged();
+      }
+      return mergeFrom(input, extensionRegistry);
+    }
+
+    private static edition_unittest.TestCamelCaseFieldNames parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        boolean hosted)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      if (alwaysUseFieldBuilders()) {
+        Builder builder = new Builder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial();
+      }
+      edition_unittest.TestCamelCaseFieldNames result = new edition_unittest.TestCamelCaseFieldNames(null);
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+      int pendingTag = 0;
+      int bitField0_ = 0;
+      int primitiveField_ = 0;
+      java.lang.Object stringField_ = null;
+      int enumField_ = 0;
+      java.lang.Object stringPieceField_ = null;
+      java.lang.Object cordField_ = null;
+      int tag = 0;
+      java.lang.Exception failure = null;
+      try {
+        boolean done = false;
+        while (!done && pendingTag == 0) {
+          tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              primitiveField_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 18: {
+              stringField_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 18
+            case 24: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.ForeignEnum tmpValue =
+                  edition_unittest.ForeignEnum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknownFields = mergeUnknownVarintField(unknownFields, 3, tmpRaw);
+              } else {
+                enumField_ = tmpRaw;
+                bitField0_ |= 0x00000004;
+              }
+              break;
+            } // case 24
+            case 34: {
+              pendingTag = parseMessageFieldField(result, input, extensionRegistry);
+              break;
+            } // case 34
+            case 42: {
+              stringPieceField_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 42
+            case 50: {
+              cordField_ = input.readStringRequireUtf8();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 50
+            case 56: {
+              int v = input.readInt32();
+              bitField0_ = ensureRepeatedPrimitiveFieldIsMutable(bitField0_, result, /* capacity= */ -1);
+              result.repeatedPrimitiveField_.addInt(v);
+              break;
+            } // case 56
+            case 58: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              bitField0_ = ensureRepeatedPrimitiveFieldIsMutable(bitField0_, result, count);
+              while (input.getBytesUntilLimit() > 0) {
+                result.repeatedPrimitiveField_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 58
+            case 66: {
+              bitField0_ = ensureRepeatedStringFieldIsMutable(bitField0_, result);
+              result.repeatedStringField_.add(input.readStringRequireUtf8());
+              break;
+            } // case 66
+            case 72: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.ForeignEnum tmpValue =
+                  edition_unittest.ForeignEnum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknownFields = mergeUnknownVarintField(unknownFields, 9, tmpRaw);
+              } else {
+                bitField0_ = ensureRepeatedEnumFieldIsMutable(bitField0_, result, /* capacity= */ -1);
+                result.repeatedEnumField_.addInt(tmpRaw);
+              }
+              break;
+            } // case 72
+            case 74: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              bitField0_ = ensureRepeatedEnumFieldIsMutable(bitField0_, result, count);
+              while (input.getBytesUntilLimit() > 0) {
+                int tmpRaw = input.readEnum();
+                edition_unittest.ForeignEnum tmpValue =
+                    edition_unittest.ForeignEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknownFields = mergeUnknownVarintField(unknownFields, 9, tmpRaw);
+                } else {
+                  result.repeatedEnumField_.addInt(tmpRaw);
+                }
+              }
+              input.popLimit(limit);
+              break;
+            } // case 74
+            case 82: {
+              final int oldLimit = input.pushLimitBeforeMessage();
+              edition_unittest.ForeignMessage m = edition_unittest.ForeignMessage.parser().parsePartialFrom(input, extensionRegistry);
+              input.popLimitAfterMessage(oldLimit);
+              bitField0_ = ensureRepeatedMessageFieldIsMutable(bitField0_, result);
+              result.repeatedMessageField_.add(m);
+              break;
+            } // case 82
+            case 90: {
+              bitField0_ = ensureRepeatedStringPieceFieldIsMutable(bitField0_, result);
+              result.repeatedStringPieceField_.add(input.readStringRequireUtf8());
+              break;
+            } // case 90
+            case 98: {
+              bitField0_ = ensureRepeatedCordFieldIsMutable(bitField0_, result);
+              result.repeatedCordField_.add(input.readStringRequireUtf8());
+              break;
+            } // case 98
+            default:
+              if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                  == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                done = true; // As in the Builder
+              } else {
+                unknownFields = mergeUnknownField(unknownFields, input, tag);
+              }
+              break;
+          }
+        }
+      } catch (java.lang.Exception e) {
+        failure = e;
+      }
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, primitiveField_, stringField_, enumField_, stringPieceField_, cordField_); }
+      if (unknownFields != null) {
+        setUnknownFields(result, unknownFields.build());
+      }
+      if (failure == null && (pendingTag == 0 || hosted)) {
+        return result;
+      }
+      Builder builder = new Builder();
+      builder.mergeFrom(result);
+      try {
+        if (failure != null) {
+          throw failure;
+        }
+        builder.mergeFrom(input, extensionRegistry, pendingTag);
+      } catch (java.lang.Exception e) {
+        wrapAndThrowParseException(parser(), e, builder);
+      }
+      return builder.buildPartial(result);
+    }
+
+    private static void buildPartial_autosplit_0(
+        edition_unittest.TestCamelCaseFieldNames result,
+        int bitField0_,
+        int primitiveField_,
+        java.lang.Object stringField_,
+        int enumField_,
+        java.lang.Object stringPieceField_,
+        java.lang.Object cordField_) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.primitiveField_ = primitiveField_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.stringField_ = stringField_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.enumField_ = enumField_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.stringPieceField_ = stringPieceField_;
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.cordField_ = cordField_;
+        to_bitField0_ |= 0x00000020;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.repeatedPrimitiveField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.repeatedStringField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.repeatedEnumField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.repeatedMessageField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.repeatedStringPieceField_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.repeatedCordField_.makeImmutable();
+      }
+      result.bitField0_ |= to_bitField0_;
+    }
+
+    private static int parseMessageFieldField(
+        TestCamelCaseFieldNames result, com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      if (result.hasMessageField()) {
+        return 34;
+      }
+      final int oldLimit = input.pushLimitBeforeMessage();
+      result.messageField_ = edition_unittest.ForeignMessage.parser().parsePartialFrom(input, extensionRegistry);
+      input.popLimitAfterMessage(oldLimit);
+      result.bitField0_ |= 0x00000008;
+      return 0;
+    }
+    private static int ensureRepeatedPrimitiveFieldIsMutable(int bitField0_, TestCamelCaseFieldNames result, int capacity) {
+      if (!result.repeatedPrimitiveField_.isModifiable()) {
+        result.repeatedPrimitiveField_ = makeMutableCopy(result.repeatedPrimitiveField_, capacity);
+      }
+      bitField0_ |= 0x00000040;
+      return bitField0_;
+}
+    private static int ensureRepeatedStringFieldIsMutable(int bitField0_, TestCamelCaseFieldNames result) {
+      if (!result.repeatedStringField_.isModifiable()) {
+        result.repeatedStringField_ = new com.google.protobuf.LazyStringArrayList(result.repeatedStringField_);
+      }
+      bitField0_ |= 0x00000080;
+      return bitField0_;
+}
+    private static int ensureRepeatedEnumFieldIsMutable(int bitField0_, TestCamelCaseFieldNames result, int capacity) {
+      if (!result.repeatedEnumField_.isModifiable()) {
+        result.repeatedEnumField_ = makeMutableCopy(result.repeatedEnumField_, capacity);
+      }
+      bitField0_ |= 0x00000100;
+      return bitField0_;
+}
+    private static int ensureRepeatedMessageFieldIsMutable(int bitField0_, TestCamelCaseFieldNames result) {
+      if (!result.repeatedMessageField_.isModifiable()) {
+        result.repeatedMessageField_ = makeMutableCopy(result.repeatedMessageField_);
+      }
+      bitField0_ |= 0x00000200;
+      return bitField0_;
+}
+    private static int ensureRepeatedStringPieceFieldIsMutable(int bitField0_, TestCamelCaseFieldNames result) {
+      if (!result.repeatedStringPieceField_.isModifiable()) {
+        result.repeatedStringPieceField_ = new com.google.protobuf.LazyStringArrayList(result.repeatedStringPieceField_);
+      }
+      bitField0_ |= 0x00000400;
+      return bitField0_;
+}
+    private static int ensureRepeatedCordFieldIsMutable(int bitField0_, TestCamelCaseFieldNames result) {
+      if (!result.repeatedCordField_.isModifiable()) {
+        result.repeatedCordField_ = new com.google.protobuf.LazyStringArrayList(result.repeatedCordField_);
+      }
+      bitField0_ |= 0x00000800;
+      return bitField0_;
+}
     private int bitField0_;
 
     private int primitiveField_ ;
@@ -2497,19 +2809,32 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestCamelCaseFieldNames>
-      PARSER = new com.google.protobuf.AbstractParser<TestCamelCaseFieldNames>() {
+      PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+          TestCamelCaseFieldNames>() {
     @java.lang.Override
     public TestCamelCaseFieldNames parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Builder.parsePartialFrom(input, extensionRegistry, false);
+    }
+
+    @java.lang.Override
+    protected TestCamelCaseFieldNames parseAlternative(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return Builder.parsePartialFrom(input, extensionRegistry, true);
+    }
+
+    @java.lang.Override
+    protected void continueAlternative(
+        com.google.protobuf.Message.Builder builder,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws java.io.IOException {
+      ((Builder) builder).mergeFrom(input, extensionRegistry, pendingTag);
     }
   };
 

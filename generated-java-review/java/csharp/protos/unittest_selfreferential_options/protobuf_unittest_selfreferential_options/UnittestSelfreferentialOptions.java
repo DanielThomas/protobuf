@@ -385,9 +385,16 @@ public final class UnittestSelfreferentialOptions extends com.google.protobuf.Ge
                 protobuf_unittest_selfreferential_options.UnittestSelfreferentialOptions.FooOptions.class, protobuf_unittest_selfreferential_options.UnittestSelfreferentialOptions.FooOptions.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_unittest_selfreferential_options.UnittestSelfreferentialOptions.FooOptions.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(

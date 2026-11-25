@@ -957,9 +957,16 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
                     google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.DeepNestedMessage.class, google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.DeepNestedMessage.Builder.class);
           }
 
+          // Resolve parameter types so constructor access bridges generated for
+          // targets before Java 11 can inline.
+          static {
+            java.lang.reflect.Constructor<?>[] unused =
+                Builder.class.getDeclaredConstructors();
+          }
+
           // Construct using google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.DeepNestedMessage.newBuilder()
           private Builder() {
-
+            this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
           }
 
           private Builder(
@@ -999,6 +1006,13 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
           @java.lang.Override
           public google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.DeepNestedMessage buildPartial() {
             google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.DeepNestedMessage result = new google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.DeepNestedMessage(this);
+            if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+            onBuilt();
+            return result;
+          }
+
+          private google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.DeepNestedMessage buildPartial(google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.DeepNestedMessage result) {
+            setUnknownFields(result, getUnknownFields());
             if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
             onBuilt();
             return result;
@@ -1094,6 +1108,97 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
             } // finally
             return this;
           }
+
+          private static google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.DeepNestedMessage parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+              boolean hosted)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            java.util.Objects.requireNonNull(extensionRegistry);
+            google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.DeepNestedMessage result = new google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.DeepNestedMessage(null);
+            com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+            int pendingTag = 0;
+            int bitField0_ = 0;
+            int nestedEnum_ = 0;
+            java.lang.Object nestedField_ = null;
+            int tag = 0;
+            java.lang.Exception failure = null;
+            try {
+              boolean done = false;
+              while (!done && pendingTag == 0) {
+                tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 8: {
+                    int tmpRaw = input.readEnum();
+                    google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.DeepNestedMessage.NestedEnum tmpValue =
+                        google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.DeepNestedMessage.NestedEnum.forNumber(tmpRaw);
+                    if (tmpValue == null) {
+                      unknownFields = mergeUnknownVarintField(unknownFields, 1, tmpRaw);
+                    } else {
+                      nestedEnum_ = tmpRaw;
+                      bitField0_ |= 0x00000001;
+                    }
+                    break;
+                  } // case 8
+                  case 18: {
+                    nestedField_ = input.readBytes();
+                    bitField0_ |= 0x00000002;
+                    break;
+                  } // case 18
+                  default:
+                    if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                        == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                      done = true; // As in the Builder
+                    } else {
+                      unknownFields = mergeUnknownField(unknownFields, input, tag);
+                    }
+                    break;
+                }
+              }
+            } catch (java.lang.Exception e) {
+              failure = e;
+            }
+            if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, nestedEnum_, nestedField_); }
+            if (unknownFields != null) {
+              setUnknownFields(result, unknownFields.build());
+            }
+            if (failure == null && (pendingTag == 0 || hosted)) {
+              return result;
+            }
+            Builder builder = new Builder();
+            builder.mergeFrom(result);
+            try {
+              if (failure != null) {
+                throw failure;
+              }
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (java.lang.Exception e) {
+              wrapAndThrowParseException(parser(), e, builder);
+            }
+            return builder.buildPartial(result);
+          }
+
+          private static void buildPartial_autosplit_0(
+              google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.DeepNestedMessage result,
+              int bitField0_,
+              int nestedEnum_,
+              java.lang.Object nestedField_) {
+            int from_bitField0_ = bitField0_;
+            int to_bitField0_ = 0;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+              result.nestedEnum_ = nestedEnum_;
+              to_bitField0_ |= 0x00000001;
+            }
+            if (((from_bitField0_ & 0x00000002) != 0)) {
+              result.nestedField_ = nestedField_;
+              to_bitField0_ |= 0x00000002;
+            }
+            result.bitField0_ |= to_bitField0_;
+          }
+
           private int bitField0_;
 
           private int nestedEnum_ = 7;
@@ -1230,19 +1335,32 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
         }
 
         private static final com.google.protobuf.Parser<DeepNestedMessage>
-            PARSER = new com.google.protobuf.AbstractParser<DeepNestedMessage>() {
+            PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+                DeepNestedMessage>() {
           @java.lang.Override
           public DeepNestedMessage parsePartialFrom(
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            Builder builder = newBuilder();
-            try {
-              builder.mergeFrom(input, extensionRegistry);
-            } catch (java.lang.Exception e) {
-              wrapAndThrowParseException(e, builder);
-            }
-            return builder.buildPartial();
+            return Builder.parsePartialFrom(input, extensionRegistry, false);
+          }
+
+          @java.lang.Override
+          protected DeepNestedMessage parseAlternative(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return Builder.parsePartialFrom(input, extensionRegistry, true);
+          }
+
+          @java.lang.Override
+          protected void continueAlternative(
+              com.google.protobuf.Message.Builder builder,
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+              int pendingTag)
+              throws java.io.IOException {
+            ((Builder) builder).mergeFrom(input, extensionRegistry);
           }
         };
 
@@ -1580,9 +1698,16 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
                   google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.class, google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
@@ -1633,6 +1758,13 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
         @java.lang.Override
         public google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage buildPartial() {
           google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage result = new google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage(this);
+          if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage buildPartial(google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage result) {
+          setUnknownFields(result, getUnknownFields());
           if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
           onBuilt();
           return result;
@@ -1740,6 +1872,141 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
             onChanged();
           } // finally
           return this;
+        }
+
+        private Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+            int pendingTag)
+            throws java.io.IOException {
+          try {
+            switch (pendingTag) {
+              case 26: {
+                parseDeepNestedMessageField(input, extensionRegistry);
+                break;
+              } // case 26
+            }
+          } finally {
+            onChanged();
+          }
+          return mergeFrom(input, extensionRegistry);
+        }
+
+        private static google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+            boolean hosted)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          java.util.Objects.requireNonNull(extensionRegistry);
+          if (alwaysUseFieldBuilders()) {
+            Builder builder = new Builder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (java.lang.Exception e) {
+              wrapAndThrowParseException(parser(), e, builder);
+            }
+            return builder.buildPartial();
+          }
+          google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage result = new google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage(null);
+          com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+          int pendingTag = 0;
+          int bitField0_ = 0;
+          int nestedEnum_ = 0;
+          java.lang.Object nestedField_ = null;
+          int tag = 0;
+          java.lang.Exception failure = null;
+          try {
+            boolean done = false;
+            while (!done && pendingTag == 0) {
+              tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  int tmpRaw = input.readEnum();
+                  google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.NestedEnum tmpValue =
+                      google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.NestedEnum.forNumber(tmpRaw);
+                  if (tmpValue == null) {
+                    unknownFields = mergeUnknownVarintField(unknownFields, 1, tmpRaw);
+                  } else {
+                    nestedEnum_ = tmpRaw;
+                    bitField0_ |= 0x00000001;
+                  }
+                  break;
+                } // case 8
+                case 18: {
+                  nestedField_ = input.readBytes();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                case 26: {
+                  pendingTag = parseDeepNestedMessageField(result, input, extensionRegistry);
+                  break;
+                } // case 26
+                default:
+                  if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                      == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                    done = true; // As in the Builder
+                  } else {
+                    unknownFields = mergeUnknownField(unknownFields, input, tag);
+                  }
+                  break;
+              }
+            }
+          } catch (java.lang.Exception e) {
+            failure = e;
+          }
+          if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, nestedEnum_, nestedField_); }
+          if (unknownFields != null) {
+            setUnknownFields(result, unknownFields.build());
+          }
+          if (failure == null && (pendingTag == 0 || hosted)) {
+            return result;
+          }
+          Builder builder = new Builder();
+          builder.mergeFrom(result);
+          try {
+            if (failure != null) {
+              throw failure;
+            }
+            builder.mergeFrom(input, extensionRegistry, pendingTag);
+          } catch (java.lang.Exception e) {
+            wrapAndThrowParseException(parser(), e, builder);
+          }
+          return builder.buildPartial(result);
+        }
+
+        private static void buildPartial_autosplit_0(
+            google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage result,
+            int bitField0_,
+            int nestedEnum_,
+            java.lang.Object nestedField_) {
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.nestedEnum_ = nestedEnum_;
+            to_bitField0_ |= 0x00000001;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.nestedField_ = nestedField_;
+            to_bitField0_ |= 0x00000002;
+          }
+          result.bitField0_ |= to_bitField0_;
+        }
+
+        private static int parseDeepNestedMessageField(
+            NestedMessage result, com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          if (result.hasDeepNestedMessage()) {
+            return 26;
+          }
+          final int oldLimit = input.pushLimitBeforeMessage();
+          result.deepNestedMessage_ = google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.NestedMessage.DeepNestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+          input.popLimitAfterMessage(oldLimit);
+          result.bitField0_ |= 0x00000004;
+          return 0;
         }
         private int bitField0_;
 
@@ -2005,19 +2272,32 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
       }
 
       private static final com.google.protobuf.Parser<NestedMessage>
-          PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+          PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+              NestedMessage>() {
         @java.lang.Override
         public NestedMessage parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return Builder.parsePartialFrom(input, extensionRegistry, false);
+        }
+
+        @java.lang.Override
+        protected NestedMessage parseAlternative(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return Builder.parsePartialFrom(input, extensionRegistry, true);
+        }
+
+        @java.lang.Override
+        protected void continueAlternative(
+            com.google.protobuf.Message.Builder builder,
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+            int pendingTag)
+            throws java.io.IOException {
+          ((Builder) builder).mergeFrom(input, extensionRegistry, pendingTag);
         }
       };
 
@@ -2303,9 +2583,16 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
                 google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.class, google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest1.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -3515,9 +3802,16 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
                     google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.DeepNestedMessage.class, google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.DeepNestedMessage.Builder.class);
           }
 
+          // Resolve parameter types so constructor access bridges generated for
+          // targets before Java 11 can inline.
+          static {
+            java.lang.reflect.Constructor<?>[] unused =
+                Builder.class.getDeclaredConstructors();
+          }
+
           // Construct using google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.DeepNestedMessage.newBuilder()
           private Builder() {
-
+            this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
           }
 
           private Builder(
@@ -3557,6 +3851,13 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
           @java.lang.Override
           public google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.DeepNestedMessage buildPartial() {
             google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.DeepNestedMessage result = new google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.DeepNestedMessage(this);
+            if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+            onBuilt();
+            return result;
+          }
+
+          private google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.DeepNestedMessage buildPartial(google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.DeepNestedMessage result) {
+            setUnknownFields(result, getUnknownFields());
             if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
             onBuilt();
             return result;
@@ -3652,6 +3953,97 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
             } // finally
             return this;
           }
+
+          private static google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.DeepNestedMessage parsePartialFrom(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+              boolean hosted)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            java.util.Objects.requireNonNull(extensionRegistry);
+            google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.DeepNestedMessage result = new google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.DeepNestedMessage(null);
+            com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+            int pendingTag = 0;
+            int bitField0_ = 0;
+            int nestedEnum_ = 0;
+            java.lang.Object nestedField_ = null;
+            int tag = 0;
+            java.lang.Exception failure = null;
+            try {
+              boolean done = false;
+              while (!done && pendingTag == 0) {
+                tag = input.readTag();
+                switch (tag) {
+                  case 0:
+                    done = true;
+                    break;
+                  case 8: {
+                    int tmpRaw = input.readEnum();
+                    google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.DeepNestedMessage.NestedEnum tmpValue =
+                        google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.DeepNestedMessage.NestedEnum.forNumber(tmpRaw);
+                    if (tmpValue == null) {
+                      unknownFields = mergeUnknownVarintField(unknownFields, 1, tmpRaw);
+                    } else {
+                      nestedEnum_ = tmpRaw;
+                      bitField0_ |= 0x00000001;
+                    }
+                    break;
+                  } // case 8
+                  case 18: {
+                    nestedField_ = input.readBytes();
+                    bitField0_ |= 0x00000002;
+                    break;
+                  } // case 18
+                  default:
+                    if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                        == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                      done = true; // As in the Builder
+                    } else {
+                      unknownFields = mergeUnknownField(unknownFields, input, tag);
+                    }
+                    break;
+                }
+              }
+            } catch (java.lang.Exception e) {
+              failure = e;
+            }
+            if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, nestedEnum_, nestedField_); }
+            if (unknownFields != null) {
+              setUnknownFields(result, unknownFields.build());
+            }
+            if (failure == null && (pendingTag == 0 || hosted)) {
+              return result;
+            }
+            Builder builder = new Builder();
+            builder.mergeFrom(result);
+            try {
+              if (failure != null) {
+                throw failure;
+              }
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (java.lang.Exception e) {
+              wrapAndThrowParseException(parser(), e, builder);
+            }
+            return builder.buildPartial(result);
+          }
+
+          private static void buildPartial_autosplit_0(
+              google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.DeepNestedMessage result,
+              int bitField0_,
+              int nestedEnum_,
+              java.lang.Object nestedField_) {
+            int from_bitField0_ = bitField0_;
+            int to_bitField0_ = 0;
+            if (((from_bitField0_ & 0x00000001) != 0)) {
+              result.nestedEnum_ = nestedEnum_;
+              to_bitField0_ |= 0x00000001;
+            }
+            if (((from_bitField0_ & 0x00000002) != 0)) {
+              result.nestedField_ = nestedField_;
+              to_bitField0_ |= 0x00000002;
+            }
+            result.bitField0_ |= to_bitField0_;
+          }
+
           private int bitField0_;
 
           private int nestedEnum_ = 12;
@@ -3788,19 +4180,32 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
         }
 
         private static final com.google.protobuf.Parser<DeepNestedMessage>
-            PARSER = new com.google.protobuf.AbstractParser<DeepNestedMessage>() {
+            PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+                DeepNestedMessage>() {
           @java.lang.Override
           public DeepNestedMessage parsePartialFrom(
               com.google.protobuf.CodedInputStream input,
               com.google.protobuf.ExtensionRegistryLite extensionRegistry)
               throws com.google.protobuf.InvalidProtocolBufferException {
-            Builder builder = newBuilder();
-            try {
-              builder.mergeFrom(input, extensionRegistry);
-            } catch (java.lang.Exception e) {
-              wrapAndThrowParseException(e, builder);
-            }
-            return builder.buildPartial();
+            return Builder.parsePartialFrom(input, extensionRegistry, false);
+          }
+
+          @java.lang.Override
+          protected DeepNestedMessage parseAlternative(
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+              throws com.google.protobuf.InvalidProtocolBufferException {
+            return Builder.parsePartialFrom(input, extensionRegistry, true);
+          }
+
+          @java.lang.Override
+          protected void continueAlternative(
+              com.google.protobuf.Message.Builder builder,
+              com.google.protobuf.CodedInputStream input,
+              com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+              int pendingTag)
+              throws java.io.IOException {
+            ((Builder) builder).mergeFrom(input, extensionRegistry);
           }
         };
 
@@ -4138,9 +4543,16 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
                   google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.class, google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.newBuilder()
         private Builder() {
-          maybeForceBuilderInitialization();
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
@@ -4191,6 +4603,13 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
         @java.lang.Override
         public google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage buildPartial() {
           google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage result = new google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage(this);
+          if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+          onBuilt();
+          return result;
+        }
+
+        private google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage buildPartial(google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage result) {
+          setUnknownFields(result, getUnknownFields());
           if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
           onBuilt();
           return result;
@@ -4298,6 +4717,141 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
             onChanged();
           } // finally
           return this;
+        }
+
+        private Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+            int pendingTag)
+            throws java.io.IOException {
+          try {
+            switch (pendingTag) {
+              case 26: {
+                parseDeepNestedMessageField(input, extensionRegistry);
+                break;
+              } // case 26
+            }
+          } finally {
+            onChanged();
+          }
+          return mergeFrom(input, extensionRegistry);
+        }
+
+        private static google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+            boolean hosted)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          java.util.Objects.requireNonNull(extensionRegistry);
+          if (alwaysUseFieldBuilders()) {
+            Builder builder = new Builder();
+            try {
+              builder.mergeFrom(input, extensionRegistry);
+            } catch (java.lang.Exception e) {
+              wrapAndThrowParseException(parser(), e, builder);
+            }
+            return builder.buildPartial();
+          }
+          google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage result = new google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage(null);
+          com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+          int pendingTag = 0;
+          int bitField0_ = 0;
+          int nestedEnum_ = 0;
+          java.lang.Object nestedField_ = null;
+          int tag = 0;
+          java.lang.Exception failure = null;
+          try {
+            boolean done = false;
+            while (!done && pendingTag == 0) {
+              tag = input.readTag();
+              switch (tag) {
+                case 0:
+                  done = true;
+                  break;
+                case 8: {
+                  int tmpRaw = input.readEnum();
+                  google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.NestedEnum tmpValue =
+                      google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.NestedEnum.forNumber(tmpRaw);
+                  if (tmpValue == null) {
+                    unknownFields = mergeUnknownVarintField(unknownFields, 1, tmpRaw);
+                  } else {
+                    nestedEnum_ = tmpRaw;
+                    bitField0_ |= 0x00000001;
+                  }
+                  break;
+                } // case 8
+                case 18: {
+                  nestedField_ = input.readBytes();
+                  bitField0_ |= 0x00000002;
+                  break;
+                } // case 18
+                case 26: {
+                  pendingTag = parseDeepNestedMessageField(result, input, extensionRegistry);
+                  break;
+                } // case 26
+                default:
+                  if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                      == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                    done = true; // As in the Builder
+                  } else {
+                    unknownFields = mergeUnknownField(unknownFields, input, tag);
+                  }
+                  break;
+              }
+            }
+          } catch (java.lang.Exception e) {
+            failure = e;
+          }
+          if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, nestedEnum_, nestedField_); }
+          if (unknownFields != null) {
+            setUnknownFields(result, unknownFields.build());
+          }
+          if (failure == null && (pendingTag == 0 || hosted)) {
+            return result;
+          }
+          Builder builder = new Builder();
+          builder.mergeFrom(result);
+          try {
+            if (failure != null) {
+              throw failure;
+            }
+            builder.mergeFrom(input, extensionRegistry, pendingTag);
+          } catch (java.lang.Exception e) {
+            wrapAndThrowParseException(parser(), e, builder);
+          }
+          return builder.buildPartial(result);
+        }
+
+        private static void buildPartial_autosplit_0(
+            google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage result,
+            int bitField0_,
+            int nestedEnum_,
+            java.lang.Object nestedField_) {
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000001) != 0)) {
+            result.nestedEnum_ = nestedEnum_;
+            to_bitField0_ |= 0x00000001;
+          }
+          if (((from_bitField0_ & 0x00000002) != 0)) {
+            result.nestedField_ = nestedField_;
+            to_bitField0_ |= 0x00000002;
+          }
+          result.bitField0_ |= to_bitField0_;
+        }
+
+        private static int parseDeepNestedMessageField(
+            NestedMessage result, com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          if (result.hasDeepNestedMessage()) {
+            return 26;
+          }
+          final int oldLimit = input.pushLimitBeforeMessage();
+          result.deepNestedMessage_ = google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.DeepNestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+          input.popLimitAfterMessage(oldLimit);
+          result.bitField0_ |= 0x00000004;
+          return 0;
         }
         private int bitField0_;
 
@@ -4563,19 +5117,32 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
       }
 
       private static final com.google.protobuf.Parser<NestedMessage>
-          PARSER = new com.google.protobuf.AbstractParser<NestedMessage>() {
+          PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+              NestedMessage>() {
         @java.lang.Override
         public NestedMessage parsePartialFrom(
             com.google.protobuf.CodedInputStream input,
             com.google.protobuf.ExtensionRegistryLite extensionRegistry)
             throws com.google.protobuf.InvalidProtocolBufferException {
-          Builder builder = newBuilder();
-          try {
-            builder.mergeFrom(input, extensionRegistry);
-          } catch (java.lang.Exception e) {
-            wrapAndThrowParseException(e, builder);
-          }
-          return builder.buildPartial();
+          return Builder.parsePartialFrom(input, extensionRegistry, false);
+        }
+
+        @java.lang.Override
+        protected NestedMessage parseAlternative(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return Builder.parsePartialFrom(input, extensionRegistry, true);
+        }
+
+        @java.lang.Override
+        protected void continueAlternative(
+            com.google.protobuf.Message.Builder builder,
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+            int pendingTag)
+            throws java.io.IOException {
+          ((Builder) builder).mergeFrom(input, extensionRegistry, pendingTag);
         }
       };
 
@@ -4849,9 +5416,16 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
                 google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.class, google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -4901,6 +5475,13 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
       @java.lang.Override
       public google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2 buildPartial() {
         google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2 result = new google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2(this);
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2 buildPartial(google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2 result) {
+        setUnknownFields(result, getUnknownFields());
         if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
         onBuilt();
         return result;
@@ -4994,6 +5575,130 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
           onChanged();
         } // finally
         return this;
+      }
+
+      private Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        try {
+          switch (pendingTag) {
+            case 18: {
+              parseNestedMessageField(input, extensionRegistry);
+              break;
+            } // case 18
+          }
+        } finally {
+          onChanged();
+        }
+        return mergeFrom(input, extensionRegistry);
+      }
+
+      private static google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2 parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        if (alwaysUseFieldBuilders()) {
+          Builder builder = new Builder();
+          try {
+            builder.mergeFrom(input, extensionRegistry);
+          } catch (java.lang.Exception e) {
+            wrapAndThrowParseException(parser(), e, builder);
+          }
+          return builder.buildPartial();
+        }
+        google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2 result = new google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int bitField0_ = 0;
+        int nestedEnum_ = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                int tmpRaw = input.readEnum();
+                google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedEnum tmpValue =
+                    google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedEnum.forNumber(tmpRaw);
+                if (tmpValue == null) {
+                  unknownFields = mergeUnknownVarintField(unknownFields, 1, tmpRaw);
+                } else {
+                  nestedEnum_ = tmpRaw;
+                  bitField0_ |= 0x00000001;
+                }
+                break;
+              } // case 8
+              case 18: {
+                pendingTag = parseNestedMessageField(result, input, extensionRegistry);
+                break;
+              } // case 18
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, nestedEnum_); }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry, pendingTag);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+      private static void buildPartial_autosplit_0(
+          google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2 result,
+          int bitField0_,
+          int nestedEnum_) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.nestedEnum_ = nestedEnum_;
+          to_bitField0_ |= 0x00000001;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      private static int parseNestedMessageField(
+          DescriptorPoolTest2 result, com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (result.hasNestedMessage()) {
+          return 18;
+        }
+        final int oldLimit = input.pushLimitBeforeMessage();
+        result.nestedMessage_ = google.protobuf.python.internal.DescriptorPoolTest1OuterClass.DescriptorPoolTest2.NestedMessage.parser().parsePartialFrom(input, extensionRegistry);
+        input.popLimitAfterMessage(oldLimit);
+        result.bitField0_ |= 0x00000002;
+        return 0;
       }
       private int bitField0_;
 
@@ -5179,19 +5884,32 @@ public final class DescriptorPoolTest1OuterClass extends com.google.protobuf.Gen
     }
 
     private static final com.google.protobuf.Parser<DescriptorPoolTest2>
-        PARSER = new com.google.protobuf.AbstractParser<DescriptorPoolTest2>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            DescriptorPoolTest2>() {
       @java.lang.Override
       public DescriptorPoolTest2 parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected DescriptorPoolTest2 parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry, pendingTag);
       }
     };
 

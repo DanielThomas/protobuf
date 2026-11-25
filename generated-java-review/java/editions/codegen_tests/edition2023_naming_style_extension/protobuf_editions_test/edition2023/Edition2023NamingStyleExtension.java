@@ -252,9 +252,16 @@ public final class Edition2023NamingStyleExtension extends com.google.protobuf.G
                 protobuf_editions_test.edition2023.Edition2023NamingStyleExtension.BadExtensionMessage.class, protobuf_editions_test.edition2023.Edition2023NamingStyleExtension.BadExtensionMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_editions_test.edition2023.Edition2023NamingStyleExtension.BadExtensionMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(

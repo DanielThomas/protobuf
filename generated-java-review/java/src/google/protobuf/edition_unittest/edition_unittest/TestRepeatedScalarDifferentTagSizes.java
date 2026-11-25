@@ -613,9 +613,16 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestRepeatedScalarDifferentTagSizes.class, edition_unittest.TestRepeatedScalarDifferentTagSizes.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestRepeatedScalarDifferentTagSizes.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
@@ -659,6 +666,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public edition_unittest.TestRepeatedScalarDifferentTagSizes buildPartial() {
       edition_unittest.TestRepeatedScalarDifferentTagSizes result = new edition_unittest.TestRepeatedScalarDifferentTagSizes(this);
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private edition_unittest.TestRepeatedScalarDifferentTagSizes buildPartial(edition_unittest.TestRepeatedScalarDifferentTagSizes result) {
+      setUnknownFields(result, getUnknownFields());
       if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
       onBuilt();
       return result;
@@ -913,6 +927,230 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+
+    private static edition_unittest.TestRepeatedScalarDifferentTagSizes parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        boolean hosted)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      edition_unittest.TestRepeatedScalarDifferentTagSizes result = new edition_unittest.TestRepeatedScalarDifferentTagSizes(null);
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+      int pendingTag = 0;
+      int bitField0_ = 0;
+      int tag = 0;
+      java.lang.Exception failure = null;
+      try {
+        boolean done = false;
+        while (!done && pendingTag == 0) {
+          tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 101: {
+              int v = input.readFixed32();
+              bitField0_ = ensureRepeatedFixed32IsMutable(bitField0_, result, /* capacity= */ -1);
+              result.repeatedFixed32_.addInt(v);
+              break;
+            } // case 101
+            case 98: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int alloc = length > 4096 ? 4096 : length;
+              bitField0_ = ensureRepeatedFixed32IsMutable(bitField0_, result, alloc / 4);
+              while (input.getBytesUntilLimit() > 0) {
+                result.repeatedFixed32_.addInt(input.readFixed32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 98
+            case 104: {
+              int v = input.readInt32();
+              bitField0_ = ensureRepeatedInt32IsMutable(bitField0_, result, /* capacity= */ -1);
+              result.repeatedInt32_.addInt(v);
+              break;
+            } // case 104
+            case 106: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              bitField0_ = ensureRepeatedInt32IsMutable(bitField0_, result, count);
+              while (input.getBytesUntilLimit() > 0) {
+                result.repeatedInt32_.addInt(input.readInt32());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 106
+            case 16369: {
+              long v = input.readFixed64();
+              bitField0_ = ensureRepeatedFixed64IsMutable(bitField0_, result, /* capacity= */ -1);
+              result.repeatedFixed64_.addLong(v);
+              break;
+            } // case 16369
+            case 16370: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int alloc = length > 4096 ? 4096 : length;
+              bitField0_ = ensureRepeatedFixed64IsMutable(bitField0_, result, alloc / 8);
+              while (input.getBytesUntilLimit() > 0) {
+                result.repeatedFixed64_.addLong(input.readFixed64());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 16370
+            case 16376: {
+              long v = input.readInt64();
+              bitField0_ = ensureRepeatedInt64IsMutable(bitField0_, result, /* capacity= */ -1);
+              result.repeatedInt64_.addLong(v);
+              break;
+            } // case 16376
+            case 16378: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              bitField0_ = ensureRepeatedInt64IsMutable(bitField0_, result, count);
+              while (input.getBytesUntilLimit() > 0) {
+                result.repeatedInt64_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 16378
+            case 2097141: {
+              float v = input.readFloat();
+              bitField0_ = ensureRepeatedFloatIsMutable(bitField0_, result, /* capacity= */ -1);
+              result.repeatedFloat_.addFloat(v);
+              break;
+            } // case 2097141
+            case 2097138: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int alloc = length > 4096 ? 4096 : length;
+              bitField0_ = ensureRepeatedFloatIsMutable(bitField0_, result, alloc / 4);
+              while (input.getBytesUntilLimit() > 0) {
+                result.repeatedFloat_.addFloat(input.readFloat());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 2097138
+            case 2097144: {
+              long v = input.readUInt64();
+              bitField0_ = ensureRepeatedUint64IsMutable(bitField0_, result, /* capacity= */ -1);
+              result.repeatedUint64_.addLong(v);
+              break;
+            } // case 2097144
+            case 2097146: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              int count = input.countPackedVarints(length);
+              bitField0_ = ensureRepeatedUint64IsMutable(bitField0_, result, count);
+              while (input.getBytesUntilLimit() > 0) {
+                result.repeatedUint64_.addLong(input.readUInt64());
+              }
+              input.popLimit(limit);
+              break;
+            } // case 2097146
+            default:
+              if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                  == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                done = true; // As in the Builder
+              } else {
+                unknownFields = mergeUnknownField(unknownFields, input, tag);
+              }
+              break;
+          }
+        }
+      } catch (java.lang.Exception e) {
+        failure = e;
+      }
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_); }
+      if (unknownFields != null) {
+        setUnknownFields(result, unknownFields.build());
+      }
+      if (failure == null && (pendingTag == 0 || hosted)) {
+        return result;
+      }
+      Builder builder = new Builder();
+      builder.mergeFrom(result);
+      try {
+        if (failure != null) {
+          throw failure;
+        }
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (java.lang.Exception e) {
+        wrapAndThrowParseException(parser(), e, builder);
+      }
+      return builder.buildPartial(result);
+    }
+
+    private static void buildPartial_autosplit_0(
+        edition_unittest.TestRepeatedScalarDifferentTagSizes result,
+        int bitField0_) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.repeatedFixed32_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.repeatedInt32_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.repeatedFixed64_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.repeatedInt64_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.repeatedFloat_.makeImmutable();
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.repeatedUint64_.makeImmutable();
+      }
+      result.bitField0_ |= to_bitField0_;
+    }
+
+    private static int ensureRepeatedFixed32IsMutable(int bitField0_, TestRepeatedScalarDifferentTagSizes result, int capacity) {
+      if (!result.repeatedFixed32_.isModifiable()) {
+        result.repeatedFixed32_ = makeMutableCopy(result.repeatedFixed32_, capacity);
+      }
+      bitField0_ |= 0x00000001;
+      return bitField0_;
+}
+    private static int ensureRepeatedInt32IsMutable(int bitField0_, TestRepeatedScalarDifferentTagSizes result, int capacity) {
+      if (!result.repeatedInt32_.isModifiable()) {
+        result.repeatedInt32_ = makeMutableCopy(result.repeatedInt32_, capacity);
+      }
+      bitField0_ |= 0x00000002;
+      return bitField0_;
+}
+    private static int ensureRepeatedFixed64IsMutable(int bitField0_, TestRepeatedScalarDifferentTagSizes result, int capacity) {
+      if (!result.repeatedFixed64_.isModifiable()) {
+        result.repeatedFixed64_ = makeMutableCopy(result.repeatedFixed64_, capacity);
+      }
+      bitField0_ |= 0x00000004;
+      return bitField0_;
+}
+    private static int ensureRepeatedInt64IsMutable(int bitField0_, TestRepeatedScalarDifferentTagSizes result, int capacity) {
+      if (!result.repeatedInt64_.isModifiable()) {
+        result.repeatedInt64_ = makeMutableCopy(result.repeatedInt64_, capacity);
+      }
+      bitField0_ |= 0x00000008;
+      return bitField0_;
+}
+    private static int ensureRepeatedFloatIsMutable(int bitField0_, TestRepeatedScalarDifferentTagSizes result, int capacity) {
+      if (!result.repeatedFloat_.isModifiable()) {
+        result.repeatedFloat_ = makeMutableCopy(result.repeatedFloat_, capacity);
+      }
+      bitField0_ |= 0x00000010;
+      return bitField0_;
+}
+    private static int ensureRepeatedUint64IsMutable(int bitField0_, TestRepeatedScalarDifferentTagSizes result, int capacity) {
+      if (!result.repeatedUint64_.isModifiable()) {
+        result.repeatedUint64_ = makeMutableCopy(result.repeatedUint64_, capacity);
+      }
+      bitField0_ |= 0x00000020;
+      return bitField0_;
+}
     private int bitField0_;
 
     private com.google.protobuf.Internal.IntList repeatedFixed32_ = emptyIntList();
@@ -1559,19 +1797,32 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestRepeatedScalarDifferentTagSizes>
-      PARSER = new com.google.protobuf.AbstractParser<TestRepeatedScalarDifferentTagSizes>() {
+      PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+          TestRepeatedScalarDifferentTagSizes>() {
     @java.lang.Override
     public TestRepeatedScalarDifferentTagSizes parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Builder.parsePartialFrom(input, extensionRegistry, false);
+    }
+
+    @java.lang.Override
+    protected TestRepeatedScalarDifferentTagSizes parseAlternative(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return Builder.parsePartialFrom(input, extensionRegistry, true);
+    }
+
+    @java.lang.Override
+    protected void continueAlternative(
+        com.google.protobuf.Message.Builder builder,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws java.io.IOException {
+      ((Builder) builder).mergeFrom(input, extensionRegistry);
     }
   };
 

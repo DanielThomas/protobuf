@@ -1380,9 +1380,16 @@ private static final long serialVersionUID = 0L;
               com.google.protobuf.Boundary33.class, com.google.protobuf.Boundary33.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using com.google.protobuf.Boundary33.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
@@ -1454,6 +1461,14 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Boundary33 buildPartial() {
       com.google.protobuf.Boundary33 result = new com.google.protobuf.Boundary33(this);
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+      if (bitField1_ != 0) { buildPartial_autosplit_1(result); }
+      onBuilt();
+      return result;
+    }
+
+    private com.google.protobuf.Boundary33 buildPartial(com.google.protobuf.Boundary33 result) {
+      setUnknownFields(result, getUnknownFields());
       if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
       if (bitField1_ != 0) { buildPartial_autosplit_1(result); }
       onBuilt();
@@ -1927,6 +1942,441 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+
+    private static com.google.protobuf.Boundary33 parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        boolean hosted)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      com.google.protobuf.Boundary33 result = new com.google.protobuf.Boundary33(null);
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+      int pendingTag = 0;
+      int bitField0_ = 0;
+      int bitField1_ = 0;
+      int field1_ = 0;
+      int field2_ = 0;
+      int field3_ = 0;
+      int field4_ = 0;
+      int field5_ = 0;
+      int field6_ = 0;
+      int field7_ = 0;
+      int field8_ = 0;
+      int field9_ = 0;
+      int field10_ = 0;
+      int field11_ = 0;
+      int field12_ = 0;
+      int field13_ = 0;
+      int field14_ = 0;
+      int field15_ = 0;
+      int field16_ = 0;
+      int field17_ = 0;
+      int field18_ = 0;
+      int field19_ = 0;
+      int field20_ = 0;
+      int field21_ = 0;
+      int field22_ = 0;
+      int field23_ = 0;
+      int field24_ = 0;
+      int field25_ = 0;
+      int field26_ = 0;
+      int field27_ = 0;
+      int field28_ = 0;
+      int field29_ = 0;
+      int field30_ = 0;
+      int field31_ = 0;
+      int field32_ = 0;
+      int field33_ = 0;
+      int tag = 0;
+      java.lang.Exception failure = null;
+      try {
+        boolean done = false;
+        while (!done && pendingTag == 0) {
+          tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              field1_ = input.readInt32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 8
+            case 16: {
+              field2_ = input.readInt32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 16
+            case 24: {
+              field3_ = input.readInt32();
+              bitField0_ |= 0x00000004;
+              break;
+            } // case 24
+            case 32: {
+              field4_ = input.readInt32();
+              bitField0_ |= 0x00000008;
+              break;
+            } // case 32
+            case 40: {
+              field5_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 40
+            case 48: {
+              field6_ = input.readInt32();
+              bitField0_ |= 0x00000020;
+              break;
+            } // case 48
+            case 56: {
+              field7_ = input.readInt32();
+              bitField0_ |= 0x00000040;
+              break;
+            } // case 56
+            case 64: {
+              field8_ = input.readInt32();
+              bitField0_ |= 0x00000080;
+              break;
+            } // case 64
+            case 72: {
+              field9_ = input.readInt32();
+              bitField0_ |= 0x00000100;
+              break;
+            } // case 72
+            case 80: {
+              field10_ = input.readInt32();
+              bitField0_ |= 0x00000200;
+              break;
+            } // case 80
+            case 88: {
+              field11_ = input.readInt32();
+              bitField0_ |= 0x00000400;
+              break;
+            } // case 88
+            case 96: {
+              field12_ = input.readInt32();
+              bitField0_ |= 0x00000800;
+              break;
+            } // case 96
+            case 104: {
+              field13_ = input.readInt32();
+              bitField0_ |= 0x00001000;
+              break;
+            } // case 104
+            case 112: {
+              field14_ = input.readInt32();
+              bitField0_ |= 0x00002000;
+              break;
+            } // case 112
+            case 120: {
+              field15_ = input.readInt32();
+              bitField0_ |= 0x00004000;
+              break;
+            } // case 120
+            case 128: {
+              field16_ = input.readInt32();
+              bitField0_ |= 0x00008000;
+              break;
+            } // case 128
+            case 136: {
+              field17_ = input.readInt32();
+              bitField0_ |= 0x00010000;
+              break;
+            } // case 136
+            case 144: {
+              field18_ = input.readInt32();
+              bitField0_ |= 0x00020000;
+              break;
+            } // case 144
+            case 152: {
+              field19_ = input.readInt32();
+              bitField0_ |= 0x00040000;
+              break;
+            } // case 152
+            case 160: {
+              field20_ = input.readInt32();
+              bitField0_ |= 0x00080000;
+              break;
+            } // case 160
+            case 168: {
+              field21_ = input.readInt32();
+              bitField0_ |= 0x00100000;
+              break;
+            } // case 168
+            case 176: {
+              field22_ = input.readInt32();
+              bitField0_ |= 0x00200000;
+              break;
+            } // case 176
+            case 184: {
+              field23_ = input.readInt32();
+              bitField0_ |= 0x00400000;
+              break;
+            } // case 184
+            case 192: {
+              field24_ = input.readInt32();
+              bitField0_ |= 0x00800000;
+              break;
+            } // case 192
+            case 200: {
+              field25_ = input.readInt32();
+              bitField0_ |= 0x01000000;
+              break;
+            } // case 200
+            case 208: {
+              field26_ = input.readInt32();
+              bitField0_ |= 0x02000000;
+              break;
+            } // case 208
+            case 216: {
+              field27_ = input.readInt32();
+              bitField0_ |= 0x04000000;
+              break;
+            } // case 216
+            case 224: {
+              field28_ = input.readInt32();
+              bitField0_ |= 0x08000000;
+              break;
+            } // case 224
+            case 232: {
+              field29_ = input.readInt32();
+              bitField0_ |= 0x10000000;
+              break;
+            } // case 232
+            case 240: {
+              field30_ = input.readInt32();
+              bitField0_ |= 0x20000000;
+              break;
+            } // case 240
+            case 248: {
+              field31_ = input.readInt32();
+              bitField0_ |= 0x40000000;
+              break;
+            } // case 248
+            case 256: {
+              field32_ = input.readInt32();
+              bitField0_ |= 0x80000000;
+              break;
+            } // case 256
+            case 264: {
+              field33_ = input.readInt32();
+              bitField1_ |= 0x00000001;
+              break;
+            } // case 264
+            default:
+              if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                  == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                done = true; // As in the Builder
+              } else {
+                unknownFields = mergeUnknownField(unknownFields, input, tag);
+              }
+              break;
+          }
+        }
+      } catch (java.lang.Exception e) {
+        failure = e;
+      }
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, field1_, field2_, field3_, field4_, field5_, field6_, field7_, field8_, field9_, field10_, field11_, field12_, field13_, field14_, field15_, field16_, field17_, field18_, field19_, field20_, field21_, field22_, field23_, field24_, field25_, field26_, field27_, field28_, field29_, field30_, field31_, field32_); }
+      if (bitField1_ != 0) { buildPartial_autosplit_1(result, bitField1_, field33_); }
+      if (unknownFields != null) {
+        setUnknownFields(result, unknownFields.build());
+      }
+      if (failure == null && (pendingTag == 0 || hosted)) {
+        return result;
+      }
+      Builder builder = new Builder();
+      builder.mergeFrom(result);
+      try {
+        if (failure != null) {
+          throw failure;
+        }
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (java.lang.Exception e) {
+        wrapAndThrowParseException(parser(), e, builder);
+      }
+      return builder.buildPartial(result);
+    }
+
+    private static void buildPartial_autosplit_0(
+        com.google.protobuf.Boundary33 result,
+        int bitField0_,
+        int field1_,
+        int field2_,
+        int field3_,
+        int field4_,
+        int field5_,
+        int field6_,
+        int field7_,
+        int field8_,
+        int field9_,
+        int field10_,
+        int field11_,
+        int field12_,
+        int field13_,
+        int field14_,
+        int field15_,
+        int field16_,
+        int field17_,
+        int field18_,
+        int field19_,
+        int field20_,
+        int field21_,
+        int field22_,
+        int field23_,
+        int field24_,
+        int field25_,
+        int field26_,
+        int field27_,
+        int field28_,
+        int field29_,
+        int field30_,
+        int field31_,
+        int field32_) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.field1_ = field1_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.field2_ = field2_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.field3_ = field3_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.field4_ = field4_;
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.field5_ = field5_;
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.field6_ = field6_;
+        to_bitField0_ |= 0x00000020;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.field7_ = field7_;
+        to_bitField0_ |= 0x00000040;
+      }
+      if (((from_bitField0_ & 0x00000080) != 0)) {
+        result.field8_ = field8_;
+        to_bitField0_ |= 0x00000080;
+      }
+      if (((from_bitField0_ & 0x00000100) != 0)) {
+        result.field9_ = field9_;
+        to_bitField0_ |= 0x00000100;
+      }
+      if (((from_bitField0_ & 0x00000200) != 0)) {
+        result.field10_ = field10_;
+        to_bitField0_ |= 0x00000200;
+      }
+      if (((from_bitField0_ & 0x00000400) != 0)) {
+        result.field11_ = field11_;
+        to_bitField0_ |= 0x00000400;
+      }
+      if (((from_bitField0_ & 0x00000800) != 0)) {
+        result.field12_ = field12_;
+        to_bitField0_ |= 0x00000800;
+      }
+      if (((from_bitField0_ & 0x00001000) != 0)) {
+        result.field13_ = field13_;
+        to_bitField0_ |= 0x00001000;
+      }
+      if (((from_bitField0_ & 0x00002000) != 0)) {
+        result.field14_ = field14_;
+        to_bitField0_ |= 0x00002000;
+      }
+      if (((from_bitField0_ & 0x00004000) != 0)) {
+        result.field15_ = field15_;
+        to_bitField0_ |= 0x00004000;
+      }
+      if (((from_bitField0_ & 0x00008000) != 0)) {
+        result.field16_ = field16_;
+        to_bitField0_ |= 0x00008000;
+      }
+      if (((from_bitField0_ & 0x00010000) != 0)) {
+        result.field17_ = field17_;
+        to_bitField0_ |= 0x00010000;
+      }
+      if (((from_bitField0_ & 0x00020000) != 0)) {
+        result.field18_ = field18_;
+        to_bitField0_ |= 0x00020000;
+      }
+      if (((from_bitField0_ & 0x00040000) != 0)) {
+        result.field19_ = field19_;
+        to_bitField0_ |= 0x00040000;
+      }
+      if (((from_bitField0_ & 0x00080000) != 0)) {
+        result.field20_ = field20_;
+        to_bitField0_ |= 0x00080000;
+      }
+      if (((from_bitField0_ & 0x00100000) != 0)) {
+        result.field21_ = field21_;
+        to_bitField0_ |= 0x00100000;
+      }
+      if (((from_bitField0_ & 0x00200000) != 0)) {
+        result.field22_ = field22_;
+        to_bitField0_ |= 0x00200000;
+      }
+      if (((from_bitField0_ & 0x00400000) != 0)) {
+        result.field23_ = field23_;
+        to_bitField0_ |= 0x00400000;
+      }
+      if (((from_bitField0_ & 0x00800000) != 0)) {
+        result.field24_ = field24_;
+        to_bitField0_ |= 0x00800000;
+      }
+      if (((from_bitField0_ & 0x01000000) != 0)) {
+        result.field25_ = field25_;
+        to_bitField0_ |= 0x01000000;
+      }
+      if (((from_bitField0_ & 0x02000000) != 0)) {
+        result.field26_ = field26_;
+        to_bitField0_ |= 0x02000000;
+      }
+      if (((from_bitField0_ & 0x04000000) != 0)) {
+        result.field27_ = field27_;
+        to_bitField0_ |= 0x04000000;
+      }
+      if (((from_bitField0_ & 0x08000000) != 0)) {
+        result.field28_ = field28_;
+        to_bitField0_ |= 0x08000000;
+      }
+      if (((from_bitField0_ & 0x10000000) != 0)) {
+        result.field29_ = field29_;
+        to_bitField0_ |= 0x10000000;
+      }
+      if (((from_bitField0_ & 0x20000000) != 0)) {
+        result.field30_ = field30_;
+        to_bitField0_ |= 0x20000000;
+      }
+      if (((from_bitField0_ & 0x40000000) != 0)) {
+        result.field31_ = field31_;
+        to_bitField0_ |= 0x40000000;
+      }
+      if (((from_bitField0_ & 0x80000000) != 0)) {
+        result.field32_ = field32_;
+        to_bitField0_ |= 0x80000000;
+      }
+      result.bitField0_ |= to_bitField0_;
+    }
+
+    private static void buildPartial_autosplit_1(
+        com.google.protobuf.Boundary33 result,
+        int bitField1_,
+        int field33_) {
+      int from_bitField1_ = bitField1_;
+      int to_bitField1_ = 0;
+      if (((from_bitField1_ & 0x00000001) != 0)) {
+        result.field33_ = field33_;
+        to_bitField1_ |= 0x00000001;
+      }
+      result.bitField1_ |= to_bitField1_;
+    }
+
     private int bitField0_;
     private int bitField1_;
 
@@ -3264,19 +3714,32 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<Boundary33>
-      PARSER = new com.google.protobuf.AbstractParser<Boundary33>() {
+      PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+          Boundary33>() {
     @java.lang.Override
     public Boundary33 parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Builder.parsePartialFrom(input, extensionRegistry, false);
+    }
+
+    @java.lang.Override
+    protected Boundary33 parseAlternative(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return Builder.parsePartialFrom(input, extensionRegistry, true);
+    }
+
+    @java.lang.Override
+    protected void continueAlternative(
+        com.google.protobuf.Message.Builder builder,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws java.io.IOException {
+      ((Builder) builder).mergeFrom(input, extensionRegistry);
     }
   };
 

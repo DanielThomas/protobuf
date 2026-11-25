@@ -247,9 +247,16 @@ public final class UnittestProto3Extensions extends com.google.protobuf.Generate
                 protobuf_unittest.UnittestProto3Extensions.Proto3FileExtensions.class, protobuf_unittest.UnittestProto3Extensions.Proto3FileExtensions.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using protobuf_unittest.UnittestProto3Extensions.Proto3FileExtensions.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -286,6 +293,12 @@ public final class UnittestProto3Extensions extends com.google.protobuf.Generate
       @java.lang.Override
       public protobuf_unittest.UnittestProto3Extensions.Proto3FileExtensions buildPartial() {
         protobuf_unittest.UnittestProto3Extensions.Proto3FileExtensions result = new protobuf_unittest.UnittestProto3Extensions.Proto3FileExtensions(this);
+        onBuilt();
+        return result;
+      }
+
+      private protobuf_unittest.UnittestProto3Extensions.Proto3FileExtensions buildPartial(protobuf_unittest.UnittestProto3Extensions.Proto3FileExtensions result) {
+        setUnknownFields(result, getUnknownFields());
         onBuilt();
         return result;
       }
@@ -342,6 +355,58 @@ public final class UnittestProto3Extensions extends com.google.protobuf.Generate
         return this;
       }
 
+      private static protobuf_unittest.UnittestProto3Extensions.Proto3FileExtensions parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          boolean hosted)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        java.util.Objects.requireNonNull(extensionRegistry);
+        protobuf_unittest.UnittestProto3Extensions.Proto3FileExtensions result = new protobuf_unittest.UnittestProto3Extensions.Proto3FileExtensions(null);
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+        int pendingTag = 0;
+        int tag = 0;
+        java.lang.Exception failure = null;
+        try {
+          boolean done = false;
+          while (!done && pendingTag == 0) {
+            tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              default:
+                if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                    == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                  done = true; // As in the Builder
+                } else {
+                  unknownFields = mergeUnknownField(unknownFields, input, tag);
+                }
+                break;
+            }
+          }
+        } catch (java.lang.Exception e) {
+          failure = e;
+        }
+        if (unknownFields != null) {
+          setUnknownFields(result, unknownFields.build());
+        }
+        if (failure == null && (pendingTag == 0 || hosted)) {
+          return result;
+        }
+        Builder builder = new Builder();
+        builder.mergeFrom(result);
+        try {
+          if (failure != null) {
+            throw failure;
+          }
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (java.lang.Exception e) {
+          wrapAndThrowParseException(parser(), e, builder);
+        }
+        return builder.buildPartial(result);
+      }
+
+
       // @@protoc_insertion_point(builder_scope:protobuf_unittest.Proto3FileExtensions)
     }
 
@@ -356,19 +421,32 @@ public final class UnittestProto3Extensions extends com.google.protobuf.Generate
     }
 
     private static final com.google.protobuf.Parser<Proto3FileExtensions>
-        PARSER = new com.google.protobuf.AbstractParser<Proto3FileExtensions>() {
+        PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+            Proto3FileExtensions>() {
       @java.lang.Override
       public Proto3FileExtensions parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        Builder builder = newBuilder();
-        try {
-          builder.mergeFrom(input, extensionRegistry);
-        } catch (java.lang.Exception e) {
-          wrapAndThrowParseException(e, builder);
-        }
-        return builder.buildPartial();
+        return Builder.parsePartialFrom(input, extensionRegistry, false);
+      }
+
+      @java.lang.Override
+      protected Proto3FileExtensions parseAlternative(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return Builder.parsePartialFrom(input, extensionRegistry, true);
+      }
+
+      @java.lang.Override
+      protected void continueAlternative(
+          com.google.protobuf.Message.Builder builder,
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+          int pendingTag)
+          throws java.io.IOException {
+        ((Builder) builder).mergeFrom(input, extensionRegistry);
       }
     };
 

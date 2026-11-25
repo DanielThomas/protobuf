@@ -619,9 +619,16 @@ private static final long serialVersionUID = 0L;
               edition_unittest.TestRequiredNoMaskMulti.class, edition_unittest.TestRequiredNoMaskMulti.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using edition_unittest.TestRequiredNoMaskMulti.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
@@ -666,6 +673,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public edition_unittest.TestRequiredNoMaskMulti buildPartial() {
       edition_unittest.TestRequiredNoMaskMulti result = new edition_unittest.TestRequiredNoMaskMulti(this);
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private edition_unittest.TestRequiredNoMaskMulti buildPartial(edition_unittest.TestRequiredNoMaskMulti result) {
+      setUnknownFields(result, getUnknownFields());
       if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
       onBuilt();
       return result;
@@ -858,6 +872,173 @@ private static final long serialVersionUID = 0L;
       } // finally
       return this;
     }
+
+    private static edition_unittest.TestRequiredNoMaskMulti parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        boolean hosted)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      edition_unittest.TestRequiredNoMaskMulti result = new edition_unittest.TestRequiredNoMaskMulti(null);
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+      int pendingTag = 0;
+      int bitField0_ = 0;
+      int requiredFixed3280_ = 0;
+      int requiredFixed3270_ = 0;
+      int requiredEnum64_ = 0;
+      int requiredEnum4_ = 0;
+      int a3_ = 0;
+      int requiredEnum2_ = 0;
+      int requiredEnum1_ = 0;
+      int tag = 0;
+      java.lang.Exception failure = null;
+      try {
+        boolean done = false;
+        while (!done && pendingTag == 0) {
+          tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.ForeignEnum tmpValue =
+                  edition_unittest.ForeignEnum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknownFields = mergeUnknownVarintField(unknownFields, 1, tmpRaw);
+              } else {
+                requiredEnum1_ = tmpRaw;
+                bitField0_ |= 0x00000040;
+              }
+              break;
+            } // case 8
+            case 16: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.TestRequiredNoMaskMulti.NestedEnum tmpValue =
+                  edition_unittest.TestRequiredNoMaskMulti.NestedEnum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknownFields = mergeUnknownVarintField(unknownFields, 2, tmpRaw);
+              } else {
+                requiredEnum2_ = tmpRaw;
+                bitField0_ |= 0x00000020;
+              }
+              break;
+            } // case 16
+            case 24: {
+              a3_ = input.readInt32();
+              bitField0_ |= 0x00000010;
+              break;
+            } // case 24
+            case 32: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.TestRequiredNoMaskMulti.NestedEnum tmpValue =
+                  edition_unittest.TestRequiredNoMaskMulti.NestedEnum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknownFields = mergeUnknownVarintField(unknownFields, 4, tmpRaw);
+              } else {
+                requiredEnum4_ = tmpRaw;
+                bitField0_ |= 0x00000008;
+              }
+              break;
+            } // case 32
+            case 512: {
+              int tmpRaw = input.readEnum();
+              edition_unittest.TestRequiredNoMaskMulti.NestedEnum tmpValue =
+                  edition_unittest.TestRequiredNoMaskMulti.NestedEnum.forNumber(tmpRaw);
+              if (tmpValue == null) {
+                unknownFields = mergeUnknownVarintField(unknownFields, 64, tmpRaw);
+              } else {
+                requiredEnum64_ = tmpRaw;
+                bitField0_ |= 0x00000004;
+              }
+              break;
+            } // case 512
+            case 565: {
+              requiredFixed3270_ = input.readFixed32();
+              bitField0_ |= 0x00000002;
+              break;
+            } // case 565
+            case 645: {
+              requiredFixed3280_ = input.readFixed32();
+              bitField0_ |= 0x00000001;
+              break;
+            } // case 645
+            default:
+              if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                  == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                done = true; // As in the Builder
+              } else {
+                unknownFields = mergeUnknownField(unknownFields, input, tag);
+              }
+              break;
+          }
+        }
+      } catch (java.lang.Exception e) {
+        failure = e;
+      }
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result, bitField0_, requiredFixed3280_, requiredFixed3270_, requiredEnum64_, requiredEnum4_, a3_, requiredEnum2_, requiredEnum1_); }
+      if (unknownFields != null) {
+        setUnknownFields(result, unknownFields.build());
+      }
+      if (failure == null && (pendingTag == 0 || hosted)) {
+        return result;
+      }
+      Builder builder = new Builder();
+      builder.mergeFrom(result);
+      try {
+        if (failure != null) {
+          throw failure;
+        }
+        builder.mergeFrom(input, extensionRegistry);
+      } catch (java.lang.Exception e) {
+        wrapAndThrowParseException(parser(), e, builder);
+      }
+      return builder.buildPartial(result);
+    }
+
+    private static void buildPartial_autosplit_0(
+        edition_unittest.TestRequiredNoMaskMulti result,
+        int bitField0_,
+        int requiredFixed3280_,
+        int requiredFixed3270_,
+        int requiredEnum64_,
+        int requiredEnum4_,
+        int a3_,
+        int requiredEnum2_,
+        int requiredEnum1_) {
+      int from_bitField0_ = bitField0_;
+      int to_bitField0_ = 0;
+      if (((from_bitField0_ & 0x00000001) != 0)) {
+        result.requiredFixed3280_ = requiredFixed3280_;
+        to_bitField0_ |= 0x00000001;
+      }
+      if (((from_bitField0_ & 0x00000002) != 0)) {
+        result.requiredFixed3270_ = requiredFixed3270_;
+        to_bitField0_ |= 0x00000002;
+      }
+      if (((from_bitField0_ & 0x00000004) != 0)) {
+        result.requiredEnum64_ = requiredEnum64_;
+        to_bitField0_ |= 0x00000004;
+      }
+      if (((from_bitField0_ & 0x00000008) != 0)) {
+        result.requiredEnum4_ = requiredEnum4_;
+        to_bitField0_ |= 0x00000008;
+      }
+      if (((from_bitField0_ & 0x00000010) != 0)) {
+        result.a3_ = a3_;
+        to_bitField0_ |= 0x00000010;
+      }
+      if (((from_bitField0_ & 0x00000020) != 0)) {
+        result.requiredEnum2_ = requiredEnum2_;
+        to_bitField0_ |= 0x00000020;
+      }
+      if (((from_bitField0_ & 0x00000040) != 0)) {
+        result.requiredEnum1_ = requiredEnum1_;
+        to_bitField0_ |= 0x00000040;
+      }
+      result.bitField0_ |= to_bitField0_;
+    }
+
     private int bitField0_;
 
     private int requiredFixed3280_ ;
@@ -1178,19 +1359,32 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<TestRequiredNoMaskMulti>
-      PARSER = new com.google.protobuf.AbstractParser<TestRequiredNoMaskMulti>() {
+      PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+          TestRequiredNoMaskMulti>() {
     @java.lang.Override
     public TestRequiredNoMaskMulti parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Builder.parsePartialFrom(input, extensionRegistry, false);
+    }
+
+    @java.lang.Override
+    protected TestRequiredNoMaskMulti parseAlternative(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return Builder.parsePartialFrom(input, extensionRegistry, true);
+    }
+
+    @java.lang.Override
+    protected void continueAlternative(
+        com.google.protobuf.Message.Builder builder,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws java.io.IOException {
+      ((Builder) builder).mergeFrom(input, extensionRegistry);
     }
   };
 

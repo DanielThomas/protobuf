@@ -379,9 +379,16 @@ public final class TestCheckUtf8Size extends com.google.protobuf.GeneratedFile {
                 proto2_test_check_utf8_size.TestCheckUtf8Size.StringWrapperSize.class, proto2_test_check_utf8_size.TestCheckUtf8Size.StringWrapperSize.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_test_check_utf8_size.TestCheckUtf8Size.StringWrapperSize.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -1031,9 +1038,16 @@ public final class TestCheckUtf8Size extends com.google.protobuf.GeneratedFile {
                 proto2_test_check_utf8_size.TestCheckUtf8Size.BytesWrapperSize.class, proto2_test_check_utf8_size.TestCheckUtf8Size.BytesWrapperSize.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_test_check_utf8_size.TestCheckUtf8Size.BytesWrapperSize.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(

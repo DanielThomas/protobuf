@@ -372,9 +372,16 @@ private static final long serialVersionUID = 0L;
               upb.test.convert.SrcWithOneof.class, upb.test.convert.SrcWithOneof.Builder.class);
     }
 
+    // Resolve parameter types so constructor access bridges generated for
+    // targets before Java 11 can inline.
+    static {
+      java.lang.reflect.Constructor<?>[] unused =
+          Builder.class.getDeclaredConstructors();
+    }
+
     // Construct using upb.test.convert.SrcWithOneof.newBuilder()
     private Builder() {
-
+      this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
     }
 
     private Builder(
@@ -415,6 +422,13 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public upb.test.convert.SrcWithOneof buildPartial() {
       upb.test.convert.SrcWithOneof result = new upb.test.convert.SrcWithOneof(this);
+      if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
+      onBuilt();
+      return result;
+    }
+
+    private upb.test.convert.SrcWithOneof buildPartial(upb.test.convert.SrcWithOneof result) {
+      setUnknownFields(result, getUnknownFields());
       if (bitField0_ != 0) { buildPartial_autosplit_0(result); }
       onBuilt();
       return result;
@@ -512,6 +526,111 @@ private static final long serialVersionUID = 0L;
         onChanged();
       } // finally
       return this;
+    }
+
+    private Builder mergeFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws java.io.IOException {
+      try {
+        switch (pendingTag) {
+          case 8: {
+            parseOneofInt32(input);
+            break;
+          } // case 8
+          case 18: {
+            parseOneofString(input);
+            break;
+          } // case 18
+        }
+      } finally {
+        onChanged();
+      }
+      return mergeFrom(input, extensionRegistry);
+    }
+
+    private static upb.test.convert.SrcWithOneof parsePartialFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        boolean hosted)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      java.util.Objects.requireNonNull(extensionRegistry);
+      upb.test.convert.SrcWithOneof result = new upb.test.convert.SrcWithOneof(null);
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields = null;
+      int pendingTag = 0;
+      int tag = 0;
+      java.lang.Exception failure = null;
+      try {
+        boolean done = false;
+        while (!done && pendingTag == 0) {
+          tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+              pendingTag = parseOneofInt32(result, input);
+              break;
+            } // case 8
+            case 18: {
+              pendingTag = parseOneofString(result, input);
+              break;
+            } // case 18
+            default:
+              if (com.google.protobuf.WireFormat.getTagWireType(tag)
+                  == com.google.protobuf.WireFormat.WIRETYPE_END_GROUP) {
+                done = true; // As in the Builder
+              } else {
+                unknownFields = mergeUnknownField(unknownFields, input, tag);
+              }
+              break;
+          }
+        }
+      } catch (java.lang.Exception e) {
+        failure = e;
+      }
+      if (unknownFields != null) {
+        setUnknownFields(result, unknownFields.build());
+      }
+      if (failure == null && (pendingTag == 0 || hosted)) {
+        return result;
+      }
+      Builder builder = new Builder();
+      builder.mergeFrom(result);
+      try {
+        if (failure != null) {
+          throw failure;
+        }
+        builder.mergeFrom(input, extensionRegistry, pendingTag);
+      } catch (java.lang.Exception e) {
+        wrapAndThrowParseException(parser(), e, builder);
+      }
+      return builder.buildPartial(result);
+    }
+
+    private static int parseOneofInt32(
+        SrcWithOneof result, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      if (result.getMyOneofCase().getNumber() != 0) {
+        return 8;
+      }
+      result.myOneof_ = input.readInt32();
+      result.myOneofCase_ = 1;
+      result.bitField0_ |= 0x00000001;
+      return 0;
+    }
+    private static int parseOneofString(
+        SrcWithOneof result, com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      if (result.getMyOneofCase().getNumber() != 0) {
+        return 18;
+      }
+      com.google.protobuf.ByteString bs = input.readBytes();
+      result.myOneofCase_ = 2;
+      result.bitField0_ |= 0x00000002;
+      result.myOneof_ = bs;
+      return 0;
     }
     private int myOneofCase_ = 0;
     private java.lang.Object myOneof_;
@@ -737,19 +856,32 @@ private static final long serialVersionUID = 0L;
   }
 
   private static final com.google.protobuf.Parser<SrcWithOneof>
-      PARSER = new com.google.protobuf.AbstractParser<SrcWithOneof>() {
+      PARSER = new com.google.protobuf.GeneratedMessage.StaticParser<
+          SrcWithOneof>() {
     @java.lang.Override
     public SrcWithOneof parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      Builder builder = newBuilder();
-      try {
-        builder.mergeFrom(input, extensionRegistry);
-      } catch (java.lang.Exception e) {
-        wrapAndThrowParseException(e, builder);
-      }
-      return builder.buildPartial();
+      return Builder.parsePartialFrom(input, extensionRegistry, false);
+    }
+
+    @java.lang.Override
+    protected SrcWithOneof parseAlternative(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return Builder.parsePartialFrom(input, extensionRegistry, true);
+    }
+
+    @java.lang.Override
+    protected void continueAlternative(
+        com.google.protobuf.Message.Builder builder,
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry,
+        int pendingTag)
+        throws java.io.IOException {
+      ((Builder) builder).mergeFrom(input, extensionRegistry, pendingTag);
     }
   };
 

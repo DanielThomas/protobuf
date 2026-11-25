@@ -400,9 +400,16 @@ public final class UnittestNoGenericServices extends com.google.protobuf.Generat
                 proto2_unittest.no_generic_services_test.UnittestNoGenericServices.TestMessage.class, proto2_unittest.no_generic_services_test.UnittestNoGenericServices.TestMessage.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using proto2_unittest.no_generic_services_test.UnittestNoGenericServices.TestMessage.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(

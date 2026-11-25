@@ -828,9 +828,16 @@ public final class baz_java_outer_classname extends com.google.protobuf.Generate
                   bar_java_package.baz_java_outer_classname.Message.NestedMessage.class, bar_java_package.baz_java_outer_classname.Message.NestedMessage.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using bar_java_package.baz_java_outer_classname.Message.NestedMessage.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
@@ -1076,9 +1083,16 @@ public final class baz_java_outer_classname extends com.google.protobuf.Generate
                   bar_java_package.baz_java_outer_classname.Message.NestedEnum.class, bar_java_package.baz_java_outer_classname.Message.NestedEnum.Builder.class);
         }
 
+        // Resolve parameter types so constructor access bridges generated for
+        // targets before Java 11 can inline.
+        static {
+          java.lang.reflect.Constructor<?>[] unused =
+              Builder.class.getDeclaredConstructors();
+        }
+
         // Construct using bar_java_package.baz_java_outer_classname.Message.NestedEnum.newBuilder()
         private Builder() {
-
+          this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
         }
 
         private Builder(
@@ -1550,9 +1564,16 @@ public final class baz_java_outer_classname extends com.google.protobuf.Generate
                 bar_java_package.baz_java_outer_classname.Message.class, bar_java_package.baz_java_outer_classname.Message.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using bar_java_package.baz_java_outer_classname.Message.newBuilder()
       private Builder() {
-        maybeForceBuilderInitialization();
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -2560,9 +2581,16 @@ public final class baz_java_outer_classname extends com.google.protobuf.Generate
                 bar_java_package.baz_java_outer_classname.PretendMessageSet.class, bar_java_package.baz_java_outer_classname.PretendMessageSet.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using bar_java_package.baz_java_outer_classname.PretendMessageSet.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -2831,9 +2859,16 @@ public final class baz_java_outer_classname extends com.google.protobuf.Generate
                 bar_java_package.baz_java_outer_classname.MessageSetItem.class, bar_java_package.baz_java_outer_classname.MessageSetItem.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using bar_java_package.baz_java_outer_classname.MessageSetItem.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
@@ -2990,6 +3025,7 @@ public final class baz_java_outer_classname extends com.google.protobuf.Generate
     // Use UnusualDefaults.newBuilder() to construct.
     private UnusualDefaults(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
+      foo_ = DEFAULT_INSTANCE.foo_;
     }
     private UnusualDefaults() {
       foo_ = com.google.protobuf.Internal.bytesDefaultValue("\\X");
@@ -3016,7 +3052,7 @@ public final class baz_java_outer_classname extends com.google.protobuf.Generate
 
     private int bitField0_;
     public static final int FOO_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString foo_ = com.google.protobuf.Internal.bytesDefaultValue("\\X");
+    private com.google.protobuf.ByteString foo_;
     /**
      * <code>optional bytes foo = 1 [default = "&#92;&#92;X"];</code>
      * @return Whether the foo field is set.
@@ -3195,21 +3231,29 @@ public final class baz_java_outer_classname extends com.google.protobuf.Generate
                 bar_java_package.baz_java_outer_classname.UnusualDefaults.class, bar_java_package.baz_java_outer_classname.UnusualDefaults.Builder.class);
       }
 
+      // Resolve parameter types so constructor access bridges generated for
+      // targets before Java 11 can inline.
+      static {
+        java.lang.reflect.Constructor<?>[] unused =
+            Builder.class.getDeclaredConstructors();
+      }
+
       // Construct using bar_java_package.baz_java_outer_classname.UnusualDefaults.newBuilder()
       private Builder() {
-
+        this((com.google.protobuf.GeneratedMessage.BuilderParent) null);
       }
 
       private Builder(
           com.google.protobuf.GeneratedMessage.BuilderParent parent) {
         super(parent);
+        foo_ = getDefaultInstance().getFoo();
 
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
         bitField0_ = 0;
-        foo_ = com.google.protobuf.Internal.bytesDefaultValue("\\X");
+        foo_ = getDefaultInstance().getFoo();
         bar_ = "\\X";
         return this;
       }
@@ -3258,7 +3302,7 @@ public final class baz_java_outer_classname extends com.google.protobuf.Generate
 
       private int bitField0_;
 
-      private com.google.protobuf.ByteString foo_ = com.google.protobuf.Internal.bytesDefaultValue("\\X");
+      private com.google.protobuf.ByteString foo_;
       /**
        * <code>optional bytes foo = 1 [default = "&#92;&#92;X"];</code>
        * @return Whether the foo field is set.
